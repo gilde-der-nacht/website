@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ if .Params.toc }}
+    <div>
+      {{ .TableOfContents }}
+    </div>
+  {{ end }}
+  <div>
+    {{ .Content }}
+  </div>
+{{ end }}

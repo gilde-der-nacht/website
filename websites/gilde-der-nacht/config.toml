@@ -1,0 +1,12 @@
+baseURL = "https://gildedernacht.ch/"
+DefaultContentLanguage = "de"
+theme = "gilde-der-nacht"
+themesDir = "../../themes"
+
+[languages]
+  [languages.de]
+    title = "Gilde der Nacht"
+    weight = 1
+  [languages.en]
+    title = "Gilde der Nacht"
+    weight = 2
