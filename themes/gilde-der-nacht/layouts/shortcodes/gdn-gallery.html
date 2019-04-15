@@ -1,0 +1,7 @@
+<div>
+  <!-- just a proof of concecpt, do not use this yet -->
+  {{ range .Site.Home.Resources.ByType "image" }}
+    {{ $resized := .Resize "300x" }}
+    <img src="{{ $resized.RelPermalink }}">
+  {{ end }}
+</div>
