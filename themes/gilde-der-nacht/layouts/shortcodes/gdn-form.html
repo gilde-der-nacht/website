@@ -1,0 +1,9 @@
+
+<!-- TODO provide _next parameter? -->
+<form action="https://formsubmit.co/testform@proxymail.eu" method="POST">
+  <div class="form-group">
+    {{ .Inner }}
+    <input type="hidden" name="_next" value="{{ .Page.Permalink }}">
+    <input type="hidden" name="_captcha" value="false">
+  </div>
+</form>
