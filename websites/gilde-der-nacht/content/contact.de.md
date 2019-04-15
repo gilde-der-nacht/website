@@ -22,10 +22,10 @@ toc: true
 ## Zweite Sektion
 
 * eins
-  * zwei
-    * drei
-      * vier
-        * fünf
-          * sechs
+    * zwei
+        * drei
+            * vier
+                * fünf
+                    * sechs
 
 ### Dritte Sektion
