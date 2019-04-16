@@ -2,6 +2,7 @@ baseURL = "https://gildedernacht.ch/"
 DefaultContentLanguage = "de"
 theme = "gilde-der-nacht"
 themesDir = "../../themes"
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [languages]
   [languages.de]
