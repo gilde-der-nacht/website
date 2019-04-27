@@ -1,8 +1,8 @@
 <p>
 	<label for="gdn-{{ .Get "name" }}">{{ .Get "label" }}</label>
 	{{ if eq (.Get "type") "textarea" }}
-		<textarea class="form-control" name="{{ .Get "name" }}" id="gdn-{{ .Get "name" }}" placeholder="{{ .Get "placeholder" }}"></textarea>
+		<textarea class="gdn-input" name="{{ .Get "name" }}" id="gdn-{{ .Get "name" }}" placeholder="{{ .Get "placeholder" }}"></textarea>
 	{{ else }}
-		<input class="form-control" name="{{ .Get "name" }}" id="gdn-{{ .Get "name" }}" type="{{ .Get "type" }}" placeholder="{{ .Get "placeholder" }}">
+		<input class="gdn-input" name="{{ .Get "name" }}" id="gdn-{{ .Get "name" }}" type="{{ .Get "type" }}" placeholder="{{ .Get "placeholder" }}">
 	{{ end }}
 </p>
