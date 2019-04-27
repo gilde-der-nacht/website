@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div>
+    {{ .Content }}
+  </div>
+  <div>
+    {{ range .Pages.ByDate.Reverse }}
+      <p>
+        <a href="{{ .RelPermalink }}">{{ .Title }} {{ .Date.Format "02.01.2006" }}<!-- TODO .Date.Format should depend on language, unfortunately months (e.g. January) are hardcoded into Hugo --></a>
+      </p>
+    {{ end }}
+  </div>
+{{ end }}
