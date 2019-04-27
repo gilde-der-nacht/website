@@ -1,0 +1,13 @@
+baseURL = "https://gildedernacht.ch/"
+DefaultContentLanguage = "de"
+theme = "gilde-der-nacht"
+themesDir = "../../themes"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[languages]
+  [languages.de]
+    title = "Luzerner Rollenspieltage"
+    weight = 1
+  [languages.en]
+    title = "FIXME Lucerne Role-Playing-Day FIXME"
+    weight = 2
