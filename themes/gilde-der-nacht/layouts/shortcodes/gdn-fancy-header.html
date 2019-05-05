@@ -1,0 +1,28 @@
+
+<!-- TODO Rename -->
+<!-- TODO move CSS to stylesheet, bad idea to put it here because it is repeated as many times as the shortcode is used -->
+
+<!-- TODO maybe statically download the image, resize it and add a link below it? -->
+
+<style>
+.gdn-fancy-header {
+	width: 100%;
+}
+
+.gdn-fancy-header img {
+	height: 200px;
+	width: 100%;
+	object-fit: cover;
+	object-position: 0% 40%;
+}
+
+.gdn-fancy-header p {
+  font-style: italic;
+  font-size: 0.5em;
+}
+</style>
+
+<div class="gdn-fancy-header">
+  <img src="{{ .Get "src" }}" style="object-position: 0% {{ .Get "offset" }};">
+  <p>{{ .Get "src" }}</p>
+</div>
