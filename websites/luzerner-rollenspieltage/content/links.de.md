@@ -37,6 +37,12 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 
 - https://www.reddit.com/r/ImaginaryCityscapes/
 
+# Gebäude
+
+{{< gdn-fancy-header src="https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg" offset="50%" >}}
+
+- http://www.greatbuildings.com
+
 # Charaktere
 
 {{< gdn-fancy-header src="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" offset="30%" >}}
@@ -101,11 +107,30 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 
 {{< gdn-fancy-header src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" offset="55%" >}}
 
-# Tipps für Spielleiter
+# Rollenspiel
 
-# Tipps für Spieler
+{{< gdn-fancy-header src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" offset="70%" >}}
+
+## Spielleiter
+
+https://www.system-matters.de/wp-content/uploads/2019/04/Anf%C3%A4nger-Fibel.pdf
+
+PDF-Dokument das auf wenigen Seiten eine Einführung für Spielleiter hat. Sinnvoll wenn man schon eine grundsätzliche Idee von einem Rollenspiel hat und das eine oder andere Grundregelwerk in Auszügen kennt.
+
+## Spieler
+
+# Apps
+
+{{< gdn-fancy-header src="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg" offset="30%" >}}
+
+## Android
+
+## iPhone
 
 # TODO
 
 - https://www.reddit.com/r/d100/comments/73v0ym/index_of_d100_lists/
+- https://chartopia.d12dev.com/search/
+- https://randroll.com/
+- https://www.seventhsanctum.com/
 
