@@ -1,7 +1,7 @@
+
 <div class="gdn-gallery">
-  <!-- just a proof of concecpt, do not use this yet -->
-  {{ range .Site.Home.Resources.ByType "image" }}
-    {{ $resized := .Resize "300x" }}
+  {{ range .Page.Resources.ByType "image" }}
+    {{ $resized := .Resize "400x" }}
     <img src="{{ $resized.RelPermalink }}">
   {{ end }}
 </div>
