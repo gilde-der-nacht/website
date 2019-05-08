@@ -2,7 +2,7 @@
 title: "Test gdn-map"
 menu:
   main:
-    weight: 100
+    weight: 101
 ---
 
 {{< gdn-map >}}

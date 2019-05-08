@@ -6,4 +6,4 @@ menu:
     weight: 4
 ---
 
-Contact english
+Contact EN
