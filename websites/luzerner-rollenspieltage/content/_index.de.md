@@ -22,9 +22,17 @@ Workshops, Dungeons & Dragons, ...
 
 Wir organiseren am Freitag Abend ein Transport und eine Übernachtungsmöglichkeit. Schlafsack und ein Matte selber mitnehmen.
 
-## Spieler
+## Newsletter
 
 {{< gdn-newsletter >}}
+
+## Kontakt
+
+{{< gdn-form >}}
+  {{< gdn-input name="name" type="text" placeholder="Name" >}}
+  {{< gdn-input name="email" type="email" placeholder="E-Mail">}}
+  {{< gdn-input name="message" type="textarea" placeholder="Nachricht" >}}
+{{< /gdn-form >}}
 
 ## Spielleiter
 
