@@ -5,6 +5,14 @@ a {
   color: $link-color;
 }
 
+:root {
+  --h1-color: #909;
+}
+
+h1 {
+  color: var(--h1-color);
+}
+
 body {
   background-color: #eee;
   font-size: 1.2em;

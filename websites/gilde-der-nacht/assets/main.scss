@@ -3,6 +3,10 @@ $link-color: #00f;
 
 @import 'generic';
 
+:root {
+  --h1-color: #00f;
+}
+
 body {
   background-color: #ccf;
 }
