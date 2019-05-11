@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+/* ============================================================================
+   MAIN STYLES
+   ========================================================================= */
+
+/**
+ * Main styles.
+ *
+ * The structure is based on ITCSS and more:
+ * https://css-tricks.com/combining-the-powers-of-sem-and-bio-for-improving-css/
+ *
+ * This helps the CSS specificity:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+ */
+
+/**
+ * Settings.
+ *
+ * Design tokens for UI.
+ */
+
+@import 'imports/0_settings/base';
+// @import 'imports/0_settings/color';
+// @import 'imports/0_settings/typography';
+// @import 'imports/0_settings/animation';
+
+/**
+ * Tools.
+ *
+ * Globally used functions, placeholders and mixins.
+ *
+ * NOTE: it is important not to output any CSS in the first 2 layers.
+ */
+
+// @import 'imports/1_tools/functions';
+// @import 'imports/1_tools/placeholders';
+// @import 'imports/1_tools/mq';
+
+/**
+ * Vendors.
+ *
+ * 3rd party vendors including normalize/reset.
+ * This is the first layer which generates actual CSS.
+ */
+
+// @import '~modern-normalize/modern-normalize';
+// @import '~tiny-slider/src/tiny-slider';
+
+/**
+ * Objects.
+ *
+ * Class-based selectors which define undecorated design patterns,
+ * for example, utilities, media object and container.
+ */
+
+// @import 'imports/3_objects/helpers';
+// @import 'imports/3_objects/grid';
+// @import 'imports/3_objects/page';
+// @import 'imports/3_objects/container';
+
+/**
+ * Elements.
+ *
+ * Styling for bare HTML elements, e.g., H1, a, etc.
+ * These come with default styling from the browser so we can redefine them here.
+ */
+
+// @import 'imports/4_elements/typography';
+// @import 'imports/4_elements/image';
+// @import 'imports/4_elements/link';
+// @import 'imports/4_elements/button';
+// @import 'imports/4_elements/list';
+
+/**
+ * Components.
+ *
+ * UI components.
+ */
+
+// @import 'imports/5_components/button';
+// @import 'imports/5_components/highlight';
+// @import 'imports/5_components/logo';
+// @import 'imports/5_components/main-nav';
+// @import 'imports/5_components/slider';
+// @import 'imports/5_components/content-box';
+// @import 'imports/5_components/video';
+
+/**
+ * Patterns.
+ *
+ * This is collections of components.
+ */
+
+// @import 'imports/6_patterns/header';
+// @import 'imports/6_patterns/hero';
+// @import 'imports/6_patterns/footer';
+
+/**
+ * Scopes.
+ *
+ * Scoping in the page level but only used when it's absolutely necessary.
+ */
+
+// @import 'imports/7_scopes/home';
+
+/**
+ * Utilities.
+ *
+ * Ability to override anything.
+ * It will most likely come with !important as we are sure to use them.
+ */
+
+// @import 'imports/8_utils/typogtaphy';
