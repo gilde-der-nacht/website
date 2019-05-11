@@ -54,8 +54,6 @@
  */
 
 @import 'imports/3_objects/container';
-@import 'imports/3_objects/header';
-@import 'imports/3_objects/footer';
 
 /**
  * Elements.
@@ -79,6 +77,7 @@
 @import 'imports/5_components/newsletter-form';
 @import 'imports/5_components/fancy-header';
 @import 'imports/5_components/google-map';
+@import 'imports/5_components/gallery';
 
 /**
  * Patterns.
@@ -86,9 +85,8 @@
  * This is collections of components.
  */
 
-// @import 'imports/6_patterns/header';
-// @import 'imports/6_patterns/hero';
-// @import 'imports/6_patterns/footer';
+@import 'imports/6_patterns/header';
+@import 'imports/6_patterns/footer';
 
 /**
  * Scopes.

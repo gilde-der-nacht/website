@@ -1,9 +1,9 @@
-<div class="gdn-form">
+<div class="c-form">
   <!-- TODO provide _next parameter for formsubmit.co ? -->
   <form action="https://formsubmit.co/testform@proxymail.eu" method="POST">
     <div>
       {{ .Inner }}
-      <input type="submit" value="{{ i18n "submit" }}">
+      <input class="c-btn" type="submit" value="{{ i18n "submit" }}">
       <input type="hidden" name="_next" value="{{ .Page.Permalink }}">
       <input type="hidden" name="_captcha" value="false">
     </div>
