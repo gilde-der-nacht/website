@@ -53,10 +53,9 @@
  * for example, utilities, media object and container.
  */
 
-// @import 'imports/3_objects/helpers';
-// @import 'imports/3_objects/grid';
-// @import 'imports/3_objects/page';
-// @import 'imports/3_objects/container';
+@import 'imports/3_objects/container';
+@import 'imports/3_objects/header';
+@import 'imports/3_objects/footer';
 
 /**
  * Elements.
@@ -65,11 +64,10 @@
  * These come with default styling from the browser so we can redefine them here.
  */
 
-// @import 'imports/4_elements/typography';
-// @import 'imports/4_elements/image';
-// @import 'imports/4_elements/link';
-// @import 'imports/4_elements/button';
-// @import 'imports/4_elements/list';
+@import 'imports/4_elements/typography';
+@import 'imports/4_elements/links';
+@import 'imports/4_elements/lists';
+@import 'imports/4_elements/form-elements';
 
 /**
  * Components.
@@ -77,13 +75,10 @@
  * UI components.
  */
 
-// @import 'imports/5_components/button';
-// @import 'imports/5_components/highlight';
-// @import 'imports/5_components/logo';
-// @import 'imports/5_components/main-nav';
-// @import 'imports/5_components/slider';
-// @import 'imports/5_components/content-box';
-// @import 'imports/5_components/video';
+@import 'imports/5_components/contact-form';
+@import 'imports/5_components/newsletter-form';
+@import 'imports/5_components/fancy-header';
+@import 'imports/5_components/google-map';
 
 /**
  * Patterns.
