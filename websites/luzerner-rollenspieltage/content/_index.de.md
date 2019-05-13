@@ -47,19 +47,21 @@ Wir organiseren am Freitag Abend ein Transport und eine Übernachtungsmöglichke
 - Facebook
 - Meet-Up
 
-
-
-
 ---
 
 Text von 2018
-
 
 ## Einleitung
 
 Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzigartige Geschichten erleben werden. Wundervolle Geschichten, die wir zusammen spinnen und ab und zu Entscheidungen dem Glück überlassen, damit wir uns immer wieder von neuem überraschen und unterhalten lassen können.
 
 Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei uns viele Spielleiter finden, die dich in deinen ersten Schritten in diesem kreativen Hobby mit grossem Engagement unterstützen werden. Bist du nicht ganz sicher, was ein Rollenspiel ist? Wir haben für dich eine kurze Erklärung zusammengestellt.
+
+EN
+
+Immerse yourself in boundless worlds of fantasy, where we will weave wonderful tales, experiencing unique stories together to be surprised again and again.
+
+If you have never played pen-and-paper role-playing games before, you will find many dedicated people here to support your first steps in this creative hobby. If you do not know what role-playing games are, we have a short explanation for you.
 
 ## Was ist ein Rollenspiel?
 
@@ -72,6 +74,16 @@ In einem klassischen Rollenspiel hat eine Person am Tisch die Funktion des Spiel
 Auch wenn es die Aufgabe des Spielleiters ist, die Charaktere im Spiel regelmässig herauszufordern, geht es nicht ums Gewinnen – das kooperative Geschichteerzählen ist im Fokus und gewonnen haben alle, die etwas zur Story beigetragen haben.
 
 Wenn du gerne mehr wissen möchtest, darfst du dich ungeniert bei uns melden.
+
+EN
+
+A role-playing game, as played at our event, is often referred to as a tabletop role-playing game (because you play at a table) or a pen-and-paper role-playing game (because pens and paper are almost always involved).
+
+Imagine a group of 3-5 people telling a story together. It compares well with improvisational theatre, with the addition of game rules and dice that may propel the story in an unforeseen direction.</p><p>In a classic role-playing game, one person at the table takes the role of the game master. The remaining players each take the role of a fictional character, while the game master takes care of the world where your story unfolds and the other characters that appear (so called non-player-characters).
+
+Although it is the task of the game master to regularly challenge the characters, it's not about winning - cooperative storytelling is the focus and as long as you contribute something to the story you will feel like a winner.
+
+If you would like to know more, you are welcome to contact us.
 
 ## Code of Conduct
 
@@ -91,6 +103,16 @@ Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per 
 
 Wenn du von weiterher kommst und gerne stressfrei in Luzern übernachten möchtest, helfen wir dir gerne dabei deinen Aufenthalt zu planen. Melde dich doch bitte über das Kontaktformular.
 
+EN
+
+The Lucerne Role-Playing Day will take place on Saturday, 6th October 2018. We open the gates at midday and the first rounds begin at one o'clock.
+
+Time: Saturday, 1pm to Sunday, 1am
+Admission: 5 CHF per person / for game masters admission is free
+Address: Pfarrei St. Johannes, Schadrätistrasse 26, 6006 Lucerne
+
+From the Lucerne train station, the location is easily reached in 15 minutes by bus 8 (Würzenbachmatte) or bus 14 (Schlösslirain).</p><p>If you would like to stay overnight in Lucerne, we are happy to help you plan your stay. Please contact us via the contact form.
+
 ## Anmelden
 
 ### Spieler
@@ -100,11 +122,33 @@ Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielr
 Möchtest du gerne erinnert werden, sobald die ersten Runden online stehen?
 
 ### Spielleiter
+
 Euch Spielleleitern müssten wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte System-spezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
 
 Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfst du dich gerne bei uns im Vorfeld melden. Erfahrene Spielleiter unterstützen dich vor Ort und stehen mit Rat und Tat zur Seite.
+
+EN
+
+It goes without saying, to the game masters, how grateful we are for your efforts, but we do it anyway: Thank you very much! We would like to point out, that we ask you to bring along system-specific game material for your players. We take care of writing utensils.
+
+If you have you never run a role-playing game or feel insecure as a game master, you are welcome to contact us in advance. If there is enough demand, we will offer a small workshop. Experienced game master, will also support you on site and are there to help and advise.
 
 ## Kontakt
 
 Da wir auf unserer Webseite lange nicht alle Fragen beantworten konnten, freuen wir uns auf deine Fragen und Inputs über das Kontaktformular. Wir werden uns innerhalb von 24 Stunden bei dir melden.
 
+EN
+
+Since we may not have answered all your questions on our website, we look forward to your questions and input via the contact form. We will contact you within 24 hours.
+
+## GM
+
+Wir suchen Spielleiter welche uns an dem Event helfen möchten. So melde dich an wenn du helfen möchtest.
+
+Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dich dann online anmelden oder spontan vor Ort deinen Platz am Tisch reservieren. Möchtest du gerne erinnert werden, sobald die ersten Runden online stehen?
+
+EN
+
+We looking for gamemaster which help us out on this event. So if you are a gamemaster und you like to help please register.
+
+As soon as the first game masters have contacted us, we will open the registrations for games. You can then reserve your seat at the table, online or spontaneously. Would you like to be reminded as soon as the registration is open?

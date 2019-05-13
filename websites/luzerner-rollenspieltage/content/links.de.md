@@ -90,6 +90,10 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 - https://tabletopaudio.com/
 - https://syrinscape.com/
 
+Kanal mit Musik teilweise über mehrere Stunden spielt.
+
+https://www.youtube.com/channel/UCmVGp8jfZ0VLg_i8TuCaBQw
+
 ## Hintergrund
 
 - https://soundcloud.com/ultimaterpg
