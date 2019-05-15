@@ -44,8 +44,22 @@ Wir organiseren am Freitag Abend ein Transport und eine Übernachtungsmöglichke
 
 ## Social Media
 
-- Facebook
-- Meet-Up
+
+[Discord](http://chat.gildedernacht.ch/)
+
+<img src="https://gildedernacht.ch/wp-content/uploads/2017/06/Discord-LogoWordmark-Black.png" height="50">
+
+[Gilde Der Nacht](https://gildedernacht.ch/)
+
+<img src="https://gildedernacht.ch/wp-content/uploads/2016/01/apple-touch-icon-152x152.png" height="50">
+
+[Facebook](https://www.facebook.com/GildederNacht/)
+
+<img src="https://de.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png" height="50">
+
+[Meet-Up](https://www.meetup.com/Spieltreffen-Luzern/)
+
+<img src="https://www.meetup.com/mu_static/en-US/logo--script.004ada05.svg" height="50">
 
 ---
 
@@ -120,6 +134,12 @@ From the Lucerne train station, the location is easily reached in 15 minutes by 
 Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
 
 Möchtest du gerne erinnert werden, sobald die ersten Runden online stehen?
+
+EN
+
+As soon as the first game masters have contacted us, we will open the registrations for games. You can then reserve your seat at the table, online or spontaneously.
+
+Would you like to be reminded as soon as the registration is open?
 
 ### Spielleiter
 
