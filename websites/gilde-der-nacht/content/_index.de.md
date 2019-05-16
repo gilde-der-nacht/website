@@ -31,3 +31,5 @@ _+ Rollenspiel (19 UHR)_<br />
 
 **30. + 31. August, Luzerner Rollenspieltage 2019**<br />
 Pfarreiheim St. Johannes
+
+{{< gdn-map >}}
