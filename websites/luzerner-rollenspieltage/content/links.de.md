@@ -25,6 +25,11 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 - https://zarkonnen.itch.io/planet-generator
 - http://swn.emichron.com/
 
+## Karten
+
+- [Fantasy Map Generator](https://azgaar.github.io/Fantasy-Map-Generator/)
+- [Dyson Logos Maps](https://dysonlogos.blog/maps/)
+
 # Städte
 
 {{< gdn-fancy-header src="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" offset="30%" >}}
@@ -99,6 +104,12 @@ https://www.youtube.com/channel/UCmVGp8jfZ0VLg_i8TuCaBQw
 - https://soundcloud.com/ultimaterpg
 
 ## Geräusche
+
+# Schriften
+
+{{< gdn-fancy-header src="https://images.unsplash.com/photo-1545204967-c42783475f7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" offset="50%" >}}
+
+- [Phantasie-Schriften](http://omniglot.com/fonts/index.htm)
 
 # Würfel
 
