@@ -28,18 +28,13 @@ Wir organiseren am Freitag Abend ein Transport und eine Übernachtungsmöglichke
 
 ## Kontakt
 
-{{< gdn-form >}}
-  {{< gdn-input name="name" type="text" placeholder="Name" >}}
-  {{< gdn-input name="email" type="email" placeholder="E-Mail">}}
-  {{< gdn-input name="message" type="textarea" placeholder="Nachricht" >}}
-{{< /gdn-form >}}
+[Nachricht]({{< ref "contact" >}})
 
 ## Spielleiter
 
 {{< gdn-form >}}
   {{< gdn-input name="name" type="text" placeholder="Name" >}}
   {{< gdn-input name="email" type="email" placeholder="E-Mail">}}
-  {{< gdn-input name="message" type="textarea" placeholder="Nachricht" >}}
 {{< /gdn-form >}}
 
 ## Social Media
