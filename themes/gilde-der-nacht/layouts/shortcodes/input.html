@@ -1,0 +1,8 @@
+<p class="c-form--item">
+	<label for="{{ .Get "name" }}">{{ .Get "label" }}</label>
+	{{ if eq (.Get "type") "textarea" }}
+		<textarea name="{{ .Get "name" }}" id="{{ .Get "name" }}" placeholder="{{ .Get "placeholder" }}"></textarea>
+	{{ else }}
+		<input name="{{ .Get "name" }}" id="{{ .Get "name" }}" type="{{ .Get "type" }}" placeholder="{{ .Get "placeholder" }}">
+	{{ end }}
+</p>

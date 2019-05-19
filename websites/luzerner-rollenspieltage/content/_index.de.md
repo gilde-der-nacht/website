@@ -12,7 +12,7 @@ Freitag 30. August & Samstag 31. August
 
 ## Karte
 
-{{< gdn-map >}}
+{{< map >}}
 
 ## Programm
 
@@ -24,23 +24,23 @@ Wir organiseren am Freitag Abend ein Transport und eine Übernachtungsmöglichke
 
 ## Newsletter
 
-{{< gdn-newsletter >}}
+{{< newsletter >}}
 
 ## Kontakt
 
-{{< gdn-form >}}
-  {{< gdn-input name="name" type="text" placeholder="Name" >}}
-  {{< gdn-input name="email" type="email" placeholder="E-Mail">}}
-  {{< gdn-input name="message" type="textarea" placeholder="Nachricht" >}}
-{{< /gdn-form >}}
+{{< form >}}
+  {{< input name="name" type="text" placeholder="Name" >}}
+  {{< input name="email" type="email" placeholder="E-Mail">}}
+  {{< input name="message" type="textarea" placeholder="Nachricht" >}}
+{{< /form >}}
 
 ## Spielleiter
 
-{{< gdn-form >}}
-  {{< gdn-input name="name" type="text" placeholder="Name" >}}
-  {{< gdn-input name="email" type="email" placeholder="E-Mail">}}
-  {{< gdn-input name="message" type="textarea" placeholder="Nachricht" >}}
-{{< /gdn-form >}}
+{{< form >}}
+  {{< input name="name" type="text" placeholder="Name" >}}
+  {{< input name="email" type="email" placeholder="E-Mail">}}
+  {{< input name="message" type="textarea" placeholder="Nachricht" >}}
+{{< /form >}}
 
 ## Social Media
 

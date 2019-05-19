@@ -26,4 +26,4 @@ Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und 
 Pfarreiheim St. Johannes<br />
 [Mehr unter Rollenspieltage.ch](https://rollenspieltage.ch)
 
-{{< gdn-map >}}
+{{< map >}}

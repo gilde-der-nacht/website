@@ -18,7 +18,7 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 
 # Welten
 
-{{< gdn-fancy-header src="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" offset="30%" >}}
+{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" offset="30%" >}}
 
 ## Generatoren
 
@@ -32,7 +32,7 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 
 # Städte
 
-{{< gdn-fancy-header src="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" offset="30%" >}}
+{{< jumbotron src="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" offset="30%" >}}
 
 ## Generatoren
 
@@ -44,13 +44,13 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 
 # Gebäude
 
-{{< gdn-fancy-header src="https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg" offset="50%" >}}
+{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg" offset="50%" >}}
 
 - http://www.greatbuildings.com
 
 # Charaktere
 
-{{< gdn-fancy-header src="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" offset="30%" >}}
+{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" offset="30%" >}}
 
 ## Generatoren
 
@@ -63,7 +63,7 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 
 # Fortbewegungsmittel
 
-{{< gdn-fancy-header src="https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745" offset="30%" >}}
+{{< jumbotron src="https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745" offset="30%" >}}
 
 ## Bilder
 
@@ -74,7 +74,7 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 
 # Monster
 
-{{< gdn-fancy-header src="https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg?auto=webp&s=9c3d49376e93f53e1277ad246e677d6b44697668" offset="30%" >}}
+{{< jumbotron src="https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg?auto=webp&s=9c3d49376e93f53e1277ad246e677d6b44697668" offset="30%" >}}
 
 - https://www.reddit.com/r/monsteraday/
 
@@ -90,7 +90,7 @@ Ausgewählte Links zum Thema Rollenspiele. Dir fehlt hier etwas wichtiges? Schre
 
 # Musik
 
-{{< gdn-fancy-header src="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg" offset="30%" >}}
+{{< jumbotron src="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg" offset="30%" >}}
 
 - https://tabletopaudio.com/
 - https://syrinscape.com/
@@ -107,24 +107,24 @@ https://www.youtube.com/channel/UCmVGp8jfZ0VLg_i8TuCaBQw
 
 # Schriften
 
-{{< gdn-fancy-header src="https://images.unsplash.com/photo-1545204967-c42783475f7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" offset="50%" >}}
+{{< jumbotron src="https://images.unsplash.com/photo-1545204967-c42783475f7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" offset="50%" >}}
 
 - [Phantasie-Schriften](http://omniglot.com/fonts/index.htm)
 
 # Würfel
 
-{{< gdn-fancy-header src="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" offset="40%" >}}
+{{< jumbotron src="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" offset="40%" >}}
 
 - https://rolz.org/
 - http://a.teall.info/dice/
 
 # Figuren
 
-{{< gdn-fancy-header src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" offset="55%" >}}
+{{< jumbotron src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" offset="55%" >}}
 
 # Rollenspiel
 
-{{< gdn-fancy-header src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" offset="70%" >}}
+{{< jumbotron src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" offset="70%" >}}
 
 ## Spielleiter
 
@@ -136,7 +136,7 @@ PDF-Dokument das auf wenigen Seiten eine Einführung für Spielleiter hat. Sinnv
 
 # Apps
 
-{{< gdn-fancy-header src="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg" offset="30%" >}}
+{{< jumbotron src="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg" offset="30%" >}}
 
 ## Android
 

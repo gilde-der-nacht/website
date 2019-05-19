@@ -9,15 +9,15 @@ toc: false
 
 ## Schreib uns was nettes
 
-{{< gdn-form >}}
+{{< form >}}
 
-{{< gdn-input name="name" type="text" placeholder="Name" label="Name" >}}
+{{< input name="name" type="text" placeholder="Name" label="Name" >}}
 
-{{< gdn-input name="email" type="email" placeholder="E-Mail" >}}
+{{< input name="email" type="email" placeholder="E-Mail" >}}
 
-{{< gdn-input name="message" type="textarea" placeholder="Nachricht" >}}
+{{< input name="message" type="textarea" placeholder="Nachricht" >}}
 
-{{< /gdn-form >}}
+{{< /form >}}
 
 ## Der Vorstand
 
