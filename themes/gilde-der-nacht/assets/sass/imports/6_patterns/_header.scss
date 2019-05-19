@@ -66,6 +66,8 @@ header {
           padding: 10px;
           margin-right: 15px;
           border: 2px solid var(--primary-brand-color);
+          font-weight: bold;
+          letter-spacing: 0.1em;
 
           &:hover, &:active {
             border-color: var(--background-color);
