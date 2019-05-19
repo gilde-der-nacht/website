@@ -6,7 +6,7 @@
     <title>{{ .Site.Title }}{{ with .Params.Title }} | {{ . }}{{ end }}</title>
     <!-- https://github.com/gohugoio/hugo/releases -->
     {{ hugo.Generator }}
-    {{ $stylesheetMain := resources.Get "main.scss" | toCSS | minify | fingerprint }}
+    {{ $stylesheetMain := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $stylesheetMain.RelPermalink }}" media="screen" integrity="{{ $stylesheetMain.Data.Integrity }}" />
   </head>
   <body>
