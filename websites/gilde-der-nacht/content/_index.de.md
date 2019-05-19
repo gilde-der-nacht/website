@@ -12,13 +12,6 @@ Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und 
 
 ### die nächsten Events
 
-#### Mai 2019
-
-**18. Mai, Spieltreffen**<br />
-_+ Rollenspiel (19 UHR)_<br />
-14 Uhr, Pfarreiheim St. Johannes
-
-
 #### Juni 2019
 
 **1. Juni, Spieltreffen**<br />
@@ -30,6 +23,7 @@ _+ Rollenspiel (19 UHR)_<br />
 #### August 2019
 
 **30. + 31. August, Luzerner Rollenspieltage 2019**<br />
-Pfarreiheim St. Johannes
+Pfarreiheim St. Johannes<br />
+[Mehr unter Rollenspieltage.ch](https://rollenspieltage.ch)
 
 {{< gdn-map >}}
