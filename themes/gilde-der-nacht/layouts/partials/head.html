@@ -1,0 +1,10 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{{ .Site.Title }}{{ with .Params.Title }} | {{ . }}{{ end }}</title>
+  <!-- https://github.com/gohugoio/hugo/releases -->
+  {{ hugo.Generator }}
+  {{ $stylesheetMain := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $stylesheetMain.RelPermalink }}" media="screen"
+    integrity="{{ $stylesheetMain.Data.Integrity }}" />
+</head>

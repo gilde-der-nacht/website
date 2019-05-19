@@ -1,0 +1,42 @@
+<header>
+  <div id="p-meta-nav">
+    <div class="o-outer-container">
+      <!-- TODO: Site-Switcher -->
+      <div id="p-site-switcher" class="brand-icon">
+        <a href="{{ .Site.Home.RelPermalink }}">
+          {{ $logoSVG := resources.Get "img/branding/logo.svg" }}
+          <object type="image/svg+xml" data="{{ $logoSVG.RelPermalink }}" height="40">
+            {{ .Site.Title }}
+          </object>
+        </a>
+      </div>
+      <div id="p-language">
+        {{ .Site.Language.LanguageName }}
+        {{ range .Translations }}
+        | <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <div id="p-page-nav">
+    <div class="o-outer-container">
+      <div id="p-site-brand">
+        <a href="{{ .Site.Home.RelPermalink }}">
+          {{ $textSVG := resources.Get "img/branding/text.svg" }}
+          <object type="image/svg+xml" data="{{ $textSVG.RelPermalink }}" height="40">
+            {{ .Site.Title }}
+          </object>
+        </a>
+      </div>
+      <nav id="p-site-nav">
+        <ul>
+          {{ range .Site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
