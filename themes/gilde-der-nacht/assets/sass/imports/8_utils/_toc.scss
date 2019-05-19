@@ -1,0 +1,4 @@
+/* hide second level of TOC, hugo/blackfriday seems to not have an option? */
+.toc > nav > ul > li > ul {
+  display: none;
+}
