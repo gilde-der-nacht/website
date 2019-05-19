@@ -2,3 +2,17 @@ body {
   font-family: var(--primary-font-family);
   background-color: var(--background-color);
 }
+
+main {
+
+}
+
+.o-outer-container {
+  margin: 0 auto;
+  max-width: var(--breakpoint-md);
+}
+
+.o-inner-container {
+  margin: 0 auto;
+  max-width: var(--breakpoint-md) - 200px;
+}
