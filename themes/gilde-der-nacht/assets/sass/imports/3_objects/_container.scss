@@ -3,10 +3,6 @@ body {
   background-color: var(--background-color);
 }
 
-main {
-
-}
-
 .o-outer-container {
   margin: 0 auto;
   max-width: var(--breakpoint-md);
@@ -15,4 +11,5 @@ main {
 .o-inner-container {
   margin: 0 auto;
   max-width: var(--breakpoint-sm);
+  padding: 0 15px;
 }
