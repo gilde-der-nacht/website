@@ -15,7 +15,10 @@
 
         <!-- TODO: Site-Switcher -->
         <div id="c-site-switcher" class="brand-icon">
-          <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+          {{ $logoSVG := resources.Get "img/branding/logo.svg" }}
+          <object type="image/svg+xml" data="{{ $logoSVG.RelPermalink }}" height="40">
+            {{ .Site.Title }}
+          </object>
         </div>
         <div id="c-language">
           {{ .Site.Language.LanguageName }}
@@ -28,8 +31,12 @@
       <div id="o-page-nav">
 
         <div id="site-brand">
-
-
+          <a href="{{ .Site.Home.RelPermalink }}">
+            {{ $textSVG := resources.Get "img/branding/text.svg" }}
+            <object type="image/svg+xml" data="{{ $textSVG.RelPermalink }}" height="40">
+              {{ .Site.Title }}
+            </object>
+            </a>
         </div>
         <nav>
           {{ range .Site.Menus.main }}
