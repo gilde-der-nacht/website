@@ -4,6 +4,12 @@ date: 2019-04-10
 menu:
   main:
     weight: 1
+jumbotron-image:
+  url: https://images.unsplash.com/photo-1547638375-ebf04735d792
+  offset: 0
+  comment:
+    de: Brettspiel «Troyes»
+    en: Board Game "Troyes"
 ---
 
 ## Verein für Karten-, Brett- und Rollenspiele
