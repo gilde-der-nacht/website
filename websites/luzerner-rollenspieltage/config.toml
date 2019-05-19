@@ -8,6 +8,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   [languages.de]
     title = "Luzerner Rollenspieltage"
     weight = 1
+    languageName = "Deutsch"
   [languages.en]
     title = "FIXME Lucerne Role-Playing-Day FIXME"
     weight = 2
+    languageName = "English"

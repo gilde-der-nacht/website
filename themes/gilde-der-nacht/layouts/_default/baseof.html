@@ -11,18 +11,31 @@
   </head>
   <body>
     <header>
-      <div>
-        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+      <div id="o-meta-nav">
+
+        <!-- TODO: Site-Switcher -->
+        <div id="c-site-switcher" class="brand-icon">
+          <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+        </div>
+        <div id="c-language">
+          {{ .Site.Language.LanguageName }}
+          {{ range .Translations }}
+          |
+          <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+          {{ end }}
+        </div>
       </div>
-      <div>
-        {{ range .Translations }}
-          <a href="{{ .RelPermalink }}">{{ .Lang }}</a>
-        {{ end }}
-      </div>
-      <div>
-        {{ range .Site.Menus.main }}
+      <div id="o-page-nav">
+
+        <div id="site-brand">
+
+
+        </div>
+        <nav>
+          {{ range .Site.Menus.main }}
           <a href="{{ .URL }}">{{ .Name }}</a>
-        {{ end }}
+          {{ end }}
+        </nav>
       </div>
     </header>
     <main>

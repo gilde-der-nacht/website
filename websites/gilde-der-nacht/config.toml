@@ -8,6 +8,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   [languages.de]
     title = "Gilde der Nacht"
     weight = 1
+    languageName = "Deutsch"
   [languages.en]
     title = "Gilde der Nacht"
     weight = 2
+    languageName = "English"
