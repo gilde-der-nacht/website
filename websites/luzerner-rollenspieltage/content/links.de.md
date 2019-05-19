@@ -10,37 +10,29 @@ toc: true
 Die folgendendesn Links wurden Vom Organisationkomitte des Rollenspieltages ausgewählt (und damit natürlich sehr subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}) mit deinen Vorlieben. Lieben Dank 😊 Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing).
 
 
-{{< gdn-fancy-header src="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" offset="30%" >}}
-
-{{< gdn-fancy-header src="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" offset="30%" >}}
-
-{{< gdn-fancy-header src="https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg" offset="50%" >}}
-
-<<<<<<< HEAD
 {{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" offset="30%" >}}
-=======
-{{< gdn-fancy-header src="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" offset="30%" >}}
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
-{{< gdn-fancy-header src="https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745" offset="30%" >}}
-
-{{< gdn-fancy-header src="https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg?auto=webp&s=9c3d49376e93f53e1277ad246e677d6b44697668" offset="30%" >}}
-
-{{< gdn-fancy-header src="https://images.unsplash.com/photo-1545204967-c42783475f7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" offset="50%" >}}
-
-{{< gdn-fancy-header src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" offset="55%" >}}
-
-{{< gdn-fancy-header src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" offset="70%" >}}
-
-<<<<<<< HEAD
 {{< jumbotron src="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" offset="30%" >}}
-=======
-{{< gdn-fancy-header src="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" offset="40%" >}}
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
-{{< gdn-fancy-header src="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg" offset="30%" >}}
+{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg" offset="50%" >}}
 
-{{< gdn-fancy-header src="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg" offset="30%" >}}
+{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" offset="30%" >}}
+
+{{< jumbotron src="https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745" offset="30%" >}}
+
+{{< jumbotron src="https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg?auto=webp&s=9c3d49376e93f53e1277ad246e677d6b44697668" offset="30%" >}}
+
+{{< jumbotron src="https://images.unsplash.com/photo-1545204967-c42783475f7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" offset="50%" >}}
+
+{{< jumbotron src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" offset="55%" >}}
+
+{{< jumbotron src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" offset="70%" >}}
+
+{{< jumbotron src="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" offset="40%" >}}
+
+{{< jumbotron src="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg" offset="30%" >}}
+
+{{< jumbotron src="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg" offset="30%" >}}
 
 # Geschichten
 
@@ -48,21 +40,13 @@ Die folgendendesn Links wurden Vom Organisationkomitte des Rollenspieltages ausg
 
 Die Internetseite [tvtropes.org](https://tvtropes.org) selber ist eine Fundgrube mit einer Unzahl an Ideen. Tausende von Bücher, Filmen, Videospielen, Comics, ... werden nach Gemeinsamkeiten (unter anderem den nammensstifftenden [Tropen](https://de.wikipedia.org/wiki/Tropus_(Rhetorik))) analysiert.
 
-<<<<<<< HEAD
-{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg" offset="50%" >}}
-=======
 [Plot Generator (plot-generator.org.uk)](https://www.plot-generator.org.uk)
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
 Bei diesen Generatoren ist ein Vorteil, dass man sieht, aus welchen Blöcken eine Story zuwsammengesetzt ist. Selbst wenn daher eine einzelne Story eher uninteressant ist, so kann man sich zumindest über einen möglichen Aufbau einer Geschichte inspirieren lassen.
 
 # Karten
 
-<<<<<<< HEAD
-{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" offset="30%" >}}
-=======
 [Fantasy Map Generator](https://azgaar.github.io/Fantasy-Map-Generator/)
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
 Generiert zufällige Weltkarten. Wenn man einzelne Städte anklickt, können diese gleich auch noch generiert werden (mithilfe des nachfolgend erwähnten [Medieval Fantasy City Generator](https://watabou.itch.io/medieval-fantasy-city-generator)).
 
@@ -74,11 +58,7 @@ Generiert zufällige Stadtkarten. Hinter dem Menu verstecken sie aber viele nüt
 
 Generiert einen Sektor im Weltall. Ein Sektor besteht aus mehreren Sonnensystemen, diese wiederum können einen oder mehrere Planeten enthalten. Es werden wenig systemspezifische Begriffe verwendet werden, daher ist der Generator recht allgemein zu verwenden.
 
-<<<<<<< HEAD
-{{< jumbotron src="https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745" offset="30%" >}}
-=======
 [Planet Generator (itch.io)](https://zarkonnen.itch.io/planet-generator)
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
 ???
 
@@ -86,11 +66,7 @@ Generiert einen Sektor im Weltall. Ein Sektor besteht aus mehreren Sonnensysteme
 
 ???
 
-<<<<<<< HEAD
-{{< jumbotron src="https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg?auto=webp&s=9c3d49376e93f53e1277ad246e677d6b44697668" offset="30%" >}}
-=======
 # Gebäude, Architektur, ...
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
 [Great Buildings Collection (greatbuildings.com)](http://www.greatbuildings.com)
 
@@ -100,11 +76,7 @@ Grundrisse zu vielen, auch noch bestehenden, aussergewöhnlichen Bauwerken wie z
 
 [Fantasy Name Generator (fantasynamegenerators.com)](https://www.fantasynamegenerators.com/)
 
-<<<<<<< HEAD
-{{< jumbotron src="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg" offset="30%" >}}
-=======
 Die zufällig generierten Namen werden werden aus einer Unzahl von Listen entnommen.
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
 [Monster a Day (reddit.com/r/monsteraday)](https://www.reddit.com/r/monsteraday/)
 
@@ -126,39 +98,22 @@ Kanal mit Stücken, die zum Genre [Epic Music](https://de.wikipedia.org/wiki/Epi
 
 # Schriften
 
-<<<<<<< HEAD
-{{< jumbotron src="https://images.unsplash.com/photo-1545204967-c42783475f7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" offset="50%" >}}
-=======
 [Phantasie-Schriften](http://omniglot.com/fonts/index.htm)
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
 ???
 
 # Tabletop
 
-<<<<<<< HEAD
-{{< jumbotron src="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" offset="40%" >}}
-=======
 [HeroForge (heroforge.com)](https://www.heroforge.com/) (Kostenpflichtig)
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
 Man kann seine eigene Figur in 3D mit einfach Mitteln selber gestalten und anschliessend mit unterschiedlichsten Materialien 3D drucken lassen.
 
 [Paizo Flip Mat (paizo.com)](https://paizo.com/products/btpy8oto?Pathfinder-FlipMat-Basic) (Kostenpflichtig)
 
-<<<<<<< HEAD
-{{< jumbotron src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" offset="55%" >}}
-
-# Rollenspiel
-
-{{< jumbotron src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" offset="70%" >}}
-
-=======
 ???
 
 # Rollenspiel
 
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 ## Spielleiter
 
 [Anfänger Fibel - Das Spielleiter Tutorial](https://www.system-matters.de/wp-content/uploads/2019/04/Anf%C3%A4nger-Fibel.pdf)
@@ -169,9 +124,6 @@ PDF-Dokument das auf wenigen Seiten eine Einführung für Spielleiter hat. Sinnv
 
 ???
 
-<<<<<<< HEAD
-{{< jumbotron src="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg" offset="30%" >}}
-=======
 # Foren
 
 [Role-playing Games Stack Exchange (rpg.stackexchange.com)](https://rpg.stackexchange.com)
@@ -221,7 +173,6 @@ Bildern zu allen möglichen und unmöglichen Themen wie Landschaft, Architektur,
 Zufallsgeneratoren für viele spezifischen Rollenspielen, aber auch sysmteneutrale.
 
 <!--
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
 
 https://www.seventhsanctum.com/
 

@@ -28,30 +28,14 @@ Wir organiseren am Freitag Abend ein Transport und eine Übernachtungsmöglichke
 
 ## Kontakt
 
-<<<<<<< HEAD
-{{< form >}}
-  {{< input name="name" type="text" placeholder="Name" >}}
-  {{< input name="email" type="email" placeholder="E-Mail">}}
-  {{< input name="message" type="textarea" placeholder="Nachricht" >}}
-{{< /form >}}
-
-## Spielleiter
-
-{{< form >}}
-  {{< input name="name" type="text" placeholder="Name" >}}
-  {{< input name="email" type="email" placeholder="E-Mail">}}
-  {{< input name="message" type="textarea" placeholder="Nachricht" >}}
-{{< /form >}}
-=======
 [Nachricht]({{< ref "contact" >}})
 
 ## Spielleiter
 
-{{< gdn-form >}}
-  {{< gdn-input name="name" type="text" placeholder="Name" >}}
-  {{< gdn-input name="email" type="email" placeholder="E-Mail">}}
-{{< /gdn-form >}}
->>>>>>> 43dbd4d4e8a0678357a2feb006bd7b89bd7c09d0
+{{< form >}}
+  {{< input name="name" type="text" placeholder="Name" >}}
+  {{< input name="email" type="email" placeholder="E-Mail">}}
+{{< /form >}}
 
 ## Social Media
 
