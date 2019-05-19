@@ -15,6 +15,25 @@ header {
 
     #p-language {
       text-transform: uppercase;
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+
+        display: flex;
+
+        li {
+          margin-left: 5px;
+
+          &::before {
+            content: "|";
+          }
+
+          &:first-child::before {
+            content: "";
+          }
+        }
+      }
     }
   }
 

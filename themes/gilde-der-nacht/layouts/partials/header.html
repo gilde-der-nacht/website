@@ -11,10 +11,17 @@
         </a>
       </div>
       <div id="p-language">
-        {{ .Site.Language.LanguageName }}
-        {{ range .Translations }}
-        | <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
-        {{ end }}
+        <ul>
+          <li>
+            {{ .Site.Language.LanguageName }}
+          </li>
+
+          {{ range .Translations }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+          </li>
+          {{ end }}
+        </ul>
       </div>
     </div>
   </div>
