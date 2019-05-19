@@ -1,15 +1,15 @@
 .c-jumbotron {
   width: 100%;
-}
 
-.c-jumbotron img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-  object-position: 0% 40%;
-}
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 0% 40%;
+  }
 
-.c-jumbotron p {
-  font-style: italic;
-  font-size: 0.5em;
+  p {
+    font-style: italic;
+    font-size: 0.5em;
+  }
 }
