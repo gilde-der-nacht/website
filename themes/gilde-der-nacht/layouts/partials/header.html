@@ -29,8 +29,8 @@
     <div class="o-outer-container">
       <div id="p-site-brand">
         <a href="{{ .Site.Home.RelPermalink }}">
-          {{ $textSVG := resources.Get "img/branding/text.svg" }}
-          <object type="image/svg+xml" data="{{ $textSVG.RelPermalink }}" height="40">
+          {{ $wordmarkSVG := resources.Get "img/branding/wordmark.svg" }}
+          <object type="image/svg+xml" data="{{ $wordmarkSVG.RelPermalink }}" height="40">
             {{ .Site.Title }}
           </object>
         </a>
