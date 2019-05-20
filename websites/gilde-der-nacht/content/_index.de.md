@@ -7,7 +7,7 @@ menu:
 jumbotronImage:
   url: https://images.unsplash.com/photo-1547638375-ebf04735d792
   source: Unsplash
-  offset: 40
+  offset: 40%
   comment: Brettspiel «Troyes»
 ---
 

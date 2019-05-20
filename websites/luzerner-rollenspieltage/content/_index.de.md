@@ -4,6 +4,11 @@ date: 2019-04-01
 menu:
   main:
     weight: 1
+jumbotronImage:
+  url: https://images.unsplash.com/photo-1506621791785-381723a87549
+  source: Unsplash
+  offset: 70%
+  comment: Würfel
 ---
 
 ## Datum
