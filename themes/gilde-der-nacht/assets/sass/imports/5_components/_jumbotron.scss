@@ -2,7 +2,7 @@
   width: 100%;
 
   figure {
-    margin: 15px 0;
+    margin: 15px 0 0;
 
     figcaption {
       text-align: right;
@@ -12,6 +12,7 @@
       top: 0.5em;
       transition: all 0.5s;
     }
+
     &:hover figcaption {
       top: 0;
       opacity: 1;
@@ -28,5 +29,27 @@
   p {
     font-style: italic;
     font-size: 0.5em;
+  }
+
+  h1 {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -45px;
+    z-index: 1;
+    left: 50px;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: var(--primary-brand-color);
+      background: linear-gradient(to right, var(--primary-brand-color) 0%, var(--dark-grey-color) 75%, var(--contrast-brand-color) 100%);
+    }
   }
 }

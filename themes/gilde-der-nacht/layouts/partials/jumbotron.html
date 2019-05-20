@@ -5,7 +5,7 @@
       {{ with .Params.JumbotronImage.Comment}}
       {{ . }} |
       {{ end }}
-            <a href="{{ .Params.JumbotronImage.Url }}">Quelle:
+            <a href="{{ .Params.JumbotronImage.Url }}" target="_blank" >Quelle:
           {{ if .Params.JumbotronImage.Source }}{{ .Params.JumbotronImage.Source }}{{ else }}{{ .Params.JumbotronImage.Url }}{{ end }}
       </a>
     </figcaption>
