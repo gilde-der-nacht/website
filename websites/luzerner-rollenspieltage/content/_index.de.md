@@ -38,8 +38,8 @@ Wir organiseren am Freitag Abend ein Transport und eine Übernachtungsmöglichke
 ## Spielleiter
 
 {{< form >}}
-  {{< input name="name" type="text" placeholder="Name" >}}
-  {{< input name="email" type="email" placeholder="E-Mail">}}
+  {{< input name="name" label="Name *" type="text" placeholder="Name" >}}
+  {{< input name="email" label="E-Mail *" type="email" placeholder="E-Mail">}}
 {{< /form >}}
 
 ## Social Media

@@ -1,4 +1,4 @@
-<p class="c-form--item">
+<p class="c-form--item c-form-field--text">
 	<label for="{{ .Get "name" }}">{{ .Get "label" }}</label>
 	{{ if eq (.Get "type") "textarea" }}
 		<textarea name="{{ .Get "name" }}" id="{{ .Get "name" }}" placeholder="{{ .Get "placeholder" }}"></textarea>
