@@ -13,6 +13,10 @@
     margin-bottom: 10px;
   }
 
+  textarea {
+    min-height: 150px;
+  }
+
   label {
     font-family: var(--primary-font-family);
     font-size: 0.8em;
