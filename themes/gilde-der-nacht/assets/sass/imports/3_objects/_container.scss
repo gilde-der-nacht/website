@@ -13,3 +13,9 @@ body {
   max-width: var(--breakpoint-sm);
   padding: 0 15px;
 }
+
+@media screen and (max-width: 1000px) {
+  .o-inner-container {
+    max-width: var(--breakpoint-md);
+  }
+}

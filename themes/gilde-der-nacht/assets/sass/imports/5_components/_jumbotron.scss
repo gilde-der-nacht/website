@@ -56,3 +56,9 @@
     }
   }
 }
+
+@media screen and (max-width: 1000px) {
+.c-jumbotron h1 {
+    margin-left: 0;
+  }
+}
