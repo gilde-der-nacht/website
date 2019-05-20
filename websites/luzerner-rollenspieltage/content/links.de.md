@@ -10,31 +10,31 @@ toc: true
 Die folgenden Links wurden vom Organisationkomitte der Rollenspieltage ausgewählt (und damit natürlich sehr subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}) mit deinen Vorlieben. Lieben Dank 😊 Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing).
 
 
-{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" offset="30%" >}}
+{{< minitron src="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" offset="30%" >}}
 
-{{< jumbotron src="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" offset="30%" >}}
+{{< minitron src="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" offset="30%" >}}
 
-{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg" offset="50%" >}}
+{{< minitron src="https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg" offset="50%" >}}
 
-{{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" offset="30%" >}}
+{{< minitron src="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" offset="30%" >}}
 
-{{< jumbotron src="https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745" offset="30%" >}}
+{{< minitron src="https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745" offset="30%" >}}
 
-{{< jumbotron src="https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg?auto=webp&s=9c3d49376e93f53e1277ad246e677d6b44697668" offset="30%" >}}
+{{< minitron src="https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg?auto=webp&s=9c3d49376e93f53e1277ad246e677d6b44697668" offset="30%" >}}
 
-{{< jumbotron src="https://images.unsplash.com/photo-1545204967-c42783475f7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" offset="50%" >}}
+{{< minitron src="https://images.unsplash.com/photo-1545204967-c42783475f7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" offset="50%" >}}
 
-{{< jumbotron src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" offset="55%" >}}
+{{< minitron src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" offset="55%" >}}
 
-{{< jumbotron src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" offset="70%" >}}
+{{< minitron src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" offset="70%" >}}
 
-{{< jumbotron src="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" offset="40%" >}}
+{{< minitron src="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" offset="40%" >}}
 
-{{< jumbotron src="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg" offset="30%" >}}
+{{< minitron src="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg" offset="30%" >}}
 
-{{< jumbotron src="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg" offset="30%" >}}
+{{< minitron src="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg" offset="30%" >}}
 
-# Geschichten
+## Geschichten
 
 [Story Generator (tvtropes.org)](https://tvtropes.org/pmwiki/storygen.php)
 
@@ -44,7 +44,7 @@ Die Internetseite [tvtropes.org](https://tvtropes.org) selber ist eine Fundgrube
 
 Bei diesen Generatoren ist ein Vorteil, dass man sieht, aus welchen Blöcken eine Story zuwsammengesetzt ist. Selbst wenn daher eine einzelne Story eher uninteressant ist, so kann man sich zumindest über einen möglichen Aufbau einer Geschichte inspirieren lassen.
 
-# Karten
+## Karten
 
 [Fantasy Map Generator](https://azgaar.github.io/Fantasy-Map-Generator/)
 
@@ -66,13 +66,13 @@ Generiert einen Sektor im Weltall. Ein Sektor besteht aus mehreren Sonnensysteme
 
 ???
 
-# Gebäude, Architektur, ...
+## Gebäude, Architektur, ...
 
 [Great Buildings Collection (greatbuildings.com)](http://www.greatbuildings.com)
 
 Grundrisse zu vielen, auch noch bestehenden, aussergewöhnlichen Bauwerken wie z.B. das [Sydney Opera House](http://www.greatbuildings.com/buildings/Sydney_Opera.html).
 
-# Lebewesen
+## Lebewesen
 
 [Fantasy Name Generator (fantasynamegenerators.com)](https://www.fantasynamegenerators.com/)
 
@@ -82,7 +82,7 @@ Die zufällig generierten Namen werden werden aus einer Unzahl von Listen entnom
 
 Jeden Tag eine Beschreibung für ein Monster. Primär für Dungeons & Dragons ausgelegt, aber die Beschreibungen und Bilder kann man auch gut in anderen Rollenspielen verwenden.
 
-# Musik
+## Musik
 
 [Tabletop Audio (tabletopaudio.com)](https://tabletopaudio.com/)
 
@@ -96,13 +96,13 @@ Hintergrundmusik, oft für ein bestimmtes Thema (z.B. Stall, Fischerdorf, Friedh
 
 Kanal mit Stücken, die zum Genre [Epic Music](https://de.wikipedia.org/wiki/Epic_Music) gehören, die oft mehrere Stunden lang sind.
 
-# Schriften
+## Schriften
 
 [Phantasie-Schriften](http://omniglot.com/fonts/index.htm)
 
 ???
 
-# Tabletop
+## Tabletop
 
 [HeroForge (heroforge.com)](https://www.heroforge.com/) (Kostenpflichtig)
 
@@ -112,19 +112,19 @@ Man kann seine eigene Figur in 3D mit einfach Mitteln selber gestalten und ansch
 
 ???
 
-# Rollenspiel
+## Rollenspiel
 
-## Spielleiter
+### Spielleiter
 
 [Anfänger Fibel - Das Spielleiter Tutorial](https://www.system-matters.de/wp-content/uploads/2019/04/Anf%C3%A4nger-Fibel.pdf)
 
 PDF-Dokument das auf wenigen Seiten eine Einführung für Spielleiter hat. Sinnvoll wenn man schon eine grundsätzliche Idee von einem Rollenspiel hat und schon ein Grundregelwerk in Auszügen kennt.
 
-## Spieler
+### Spieler
 
 ???
 
-# Foren
+## Foren
 
 [Role-playing Games Stack Exchange (rpg.stackexchange.com)](https://rpg.stackexchange.com)
 
@@ -134,7 +134,7 @@ Ein Frage/Antwort Forum, dass relativ stark moderiert wird. Tendenziell werden v
 
 Nebst dem allgemeinsen, sehr aktiven Forum [/r/rpg](https://reddit.com/r/rpg) gibt es auch viele weitere Foren (sogenannten Sub-Reddits) wie z.B.: [/r/rpgdesign](https://reddit.com/r/rpgdesign), [/r/AskGameMasters/](https://reddit.com/r/AskGameMasters), [/r/mapmaking](https://reddit.com/r/mapmaking), [/r/d100](https://www.reddit.com/r/d100) und viele weitere.
 
-# Würfel
+## Würfel
 
 [Teal Dice (a.teall.info)](http://a.teall.info/dice/)
 
@@ -152,7 +152,7 @@ Wenn man an eine ungefähr Idee über die Wahrscheinlichkeit von Würfelwürfen 
 
 Der inzwischen grösste Internet-Laden für Rollenspielbücher.
 
-# Hilfsmittel Android
+## Hilfsmittel Android
 
 [Dice (play.google.com)](https://play.google.com/store/apps/details?id=fr.sevenpixels.dice)
 
@@ -162,7 +162,7 @@ Ein virtueller Würfeltisch in 3D. Manchmal hilfreich wenn man ein bestimmten W�
 
 Französische Spielkarten. Immer wenn die Applikation gestartet wird, werden die Karten neu gemischt.
 
-# Kollektionen
+## Kollektionen
 
 [Imaginary Network Expanded (reddit.com/r/ImaginaryNetwork)](https://www.reddit.com/r/ImaginaryNetwork)
 
