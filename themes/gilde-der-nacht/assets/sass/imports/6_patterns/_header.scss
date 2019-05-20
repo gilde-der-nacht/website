@@ -24,6 +24,8 @@ header {
 
         li {
           margin-left: 5px;
+          font-family: var(--primary-font-family);
+          font-size: 1em;
 
           &::before {
             content: "|";
@@ -60,6 +62,7 @@ header {
 
         li {
           font-family: var(--primary-font-family);
+          font-size: 1.1em;
         }
 
         a {
@@ -73,7 +76,8 @@ header {
           font-weight: bold;
           letter-spacing: 0.1em;
 
-          &:hover, &:active {
+          &:hover,
+          &:active {
             border-color: var(--background-color);
           }
         }
@@ -97,6 +101,6 @@ header {
     top: 0;
     right: 0;
     bottom: 0;
-    left:0;
+    left: 0;
   }
 }
