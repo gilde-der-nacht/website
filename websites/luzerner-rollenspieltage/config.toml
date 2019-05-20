@@ -11,9 +11,11 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     languageName = "Deutsch"
     [languages.de.params]
       footer = "Die Luzerner Rollenspieltage werden organisiert durch den Spielverein, Gilde der Nacht"
+      source = "Quelle"
   [languages.en]
     title = "FIXME Lucerne Role-Playing-Day FIXME"
     weight = 2
     languageName = "English"
     [languages.en.params]
       footer = "The Luzerner Spieltage are organised by the game society, Gilde der Nacht."
+      source = "Source"

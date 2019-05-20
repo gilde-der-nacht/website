@@ -1,4 +1,11 @@
 <div class="c-minitron">
-  <img src="{{ .Get "src" }}" style="object-position: 0% {{ .Get "offset" }};">
-  <p>{{ .Get "src" }}</p>
+  <figure>
+    <figcaption>
+      {{ with .Get "comment" }} {{ . }} | {{ end }}
+      <a href="{{ .Get "url" }}" target="_blank">
+        {{ .Site.Params.Source }}:
+        {{ if .Get "source" }} {{ .Get "source" }} {{ else }} {{ .Get "url"}} {{ end }}
+      </a></figcaption>
+    <img src="{{ .Get "url" }}" style="object-position: 0% {{ .Get "offset" }};">
+  </figure>
 </div>
