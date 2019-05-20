@@ -1,7 +1,6 @@
 <header>
   <div id="p-meta-nav">
     <div class="o-outer-container">
-      <!-- TODO: Site-Switcher -->
       <div id="p-site-switcher" class="brand-icon">
         <a href="{{ .Site.Home.RelPermalink }}">
           {{ $logoSVG := resources.Get "img/branding/logo.svg" }}
@@ -15,7 +14,6 @@
           <li>
             {{ .Site.Language.LanguageName }}
           </li>
-
           {{ range .Translations }}
           <li>
             <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
