@@ -7,7 +7,7 @@ menu:
 toc: true
 ---
 
-Die folgendendesn Links wurden Vom Organisationkomitte des Rollenspieltages ausgewählt (und damit natürlich sehr subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}) mit deinen Vorlieben. Lieben Dank 😊 Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing).
+Die folgenden Links wurden vom Organisationkomitte der Rollenspieltage ausgewählt (und damit natürlich sehr subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}) mit deinen Vorlieben. Lieben Dank 😊 Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing).
 
 
 {{< jumbotron src="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" offset="30%" >}}
