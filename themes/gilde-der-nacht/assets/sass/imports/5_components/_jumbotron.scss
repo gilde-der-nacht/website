@@ -31,14 +31,17 @@
     font-size: 0.5em;
   }
 
+  figure + h1 {
+    top: -100px;
+    margin-bottom: -100px;
+  }
+
   h1 {
     background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
+    margin: 35px 0 25px 92px;
+    padding: 5px 20px;
     position: relative;
-    top: -45px;
     z-index: 1;
-    left: 50px;
 
     &::after {
       content: "";

@@ -1,5 +1,5 @@
-{{ if (and .Params.JumbotronImage.Url .Title) }}
 <div class="c-jumbotron o-outer-container">
+{{ if (and .Params.JumbotronImage.Url .Title) }}
   <figure>
     <figcaption>
       {{ with .Params.JumbotronImage.Comment}}
@@ -12,12 +12,12 @@
     <img src="{{ .Params.JumbotronImage.Url}}" {{ with .Params.JumbotronImage.Comment}}alt="{{ . }}" {{ end }} style="object-position: 0% {{ .Params.JumbotronImage.Offset }};"/>
   </figure>
   <h1>{{ .Title }}</h1>
+
+  {{ else if .Title  }}
+  <h1>{{ .Title }}</h1>
+
+  {{ else }}
+  <h1>{{ .Site.Title }}</h1>
+
+  {{ end }}
 </div>
-
-{{ else if .Title  }}
-<h1>{{ .Title }}</h1>
-
-{{ else }}
-<h1>{{ .Site.Title }}</h1>
-
-{{ end }}
