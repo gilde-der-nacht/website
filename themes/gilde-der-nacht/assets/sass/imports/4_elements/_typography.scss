@@ -10,12 +10,21 @@ h1 {
   font-size: 2.5em;
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
   font-size: 1.5em;
 }
 
-p {
+p,
+li {
   font-family: var(--serif-font);
   font-size: 1.3em;
   line-height: 1.6em;
+}
+
+ul,
+ol {
+  padding-left: 20px;
 }

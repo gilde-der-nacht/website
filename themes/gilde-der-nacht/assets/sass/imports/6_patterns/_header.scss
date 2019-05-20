@@ -58,6 +58,10 @@ header {
 
         display: flex;
 
+        li {
+          font-family: var(--primary-font-family);
+        }
+
         a {
           color: var(--background-color);
           text-decoration: none;
