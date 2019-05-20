@@ -1,0 +1,18 @@
+footer {
+  background-color: var(--contrast-brand-color);
+  margin-top: 20px;
+  padding: 10px 0;
+  color: var(--background-color);
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
+  .p-discord {
+    height: 40px;
+    img {
+      height: 100%;
+    }
+  }
+
+}

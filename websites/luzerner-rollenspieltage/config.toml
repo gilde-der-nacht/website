@@ -9,7 +9,11 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     title = "Luzerner Rollenspieltage"
     weight = 1
     languageName = "Deutsch"
+    [languages.de.params]
+      footer = "Die Luzerner Rollenspieltage werden organisiert durch den Spielverein, Gilde der Nacht"
   [languages.en]
     title = "FIXME Lucerne Role-Playing-Day FIXME"
     weight = 2
     languageName = "English"
+    [languages.en.params]
+      footer = "The Luzerner Spieltage are organised by the game society, Gilde der Nacht."

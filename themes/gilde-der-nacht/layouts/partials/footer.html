@@ -1,7 +1,13 @@
 <footer>
-  <div>
-    <a href="http://chat.gildedernacht.ch" alt="Discord">
-      <img src="https://gildedernacht.ch/wp-content/uploads/2017/06/Discord-LogoWordmark-Black.png">
-    </a>
+  <div class="o-outer-container">
+    <div class="p-footer">
+      {{ .Site.Params.Footer }}
+    </div>
+    <div class="p-discord">
+      {{ $discordSVG := resources.Get "img/Discord-Logo+Wordmark-White.svg" }}
+      <a href="http://chat.gildedernacht.ch" alt="Discord">
+        <img src="{{ $discordSVG.RelPermalink }}">
+      </a>
+    </div>
   </div>
 </footer>
