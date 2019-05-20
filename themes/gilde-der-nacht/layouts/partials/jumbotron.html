@@ -1,0 +1,23 @@
+{{ if (and .Params.JumbotronImage.Url .Title) }}
+<div class="c-jumbotron o-outer-container">
+  <figure>
+    <figcaption>
+      {{ with .Params.JumbotronImage.Comment}}
+      {{ . }} |
+      {{ end }}
+            <a href="{{ .Params.JumbotronImage.Url }}">Quelle:
+          {{ if .Params.JumbotronImage.Source }}{{ .Params.JumbotronImage.Source }}{{ else }}{{ .Params.JumbotronImage.Url }}{{ end }}
+      </a>
+    </figcaption>
+    <img src="{{ .Params.JumbotronImage.Url}}" {{ with .Params.JumbotronImage.Comment}}alt="{{ . }}" {{ end }} style="object-position: 0% {{ .Params.JumbotronImage.Offset }};"/>
+  </figure>
+  <h1>{{ .Title }}</h1>
+</div>
+
+{{ else if .Title  }}
+<h1>{{ .Title }}</h1>
+
+{{ else }}
+<h1>{{ .Site.Title }}</h1>
+
+{{ end }}

@@ -7,8 +7,9 @@
 
   {{ partial "header.html" . }}
 
+  {{ partial "jumbotron.html" . }}
   <main class="o-inner-container">
-    <h1>{{ .Title }}</h1>
+
     {{ block "main" . }}{{ end }}
   </main>
 
