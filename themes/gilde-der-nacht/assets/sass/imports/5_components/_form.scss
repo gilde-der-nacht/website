@@ -26,6 +26,7 @@
 
   .c-form--options {
     display: flex;
+    flex-wrap: wrap;
 
     .c-form-field--checkbox {
 
@@ -43,6 +44,7 @@
       label:hover,
       label:active {
         border-color: var(--dark-grey-color);
+        cursor: pointer;
       }
 
       input:checked+label {
@@ -67,6 +69,7 @@
     &:hover, &:active {
       background-color: var(--primary-brand-color);
       border-color: var(--primary-brand-color);
+      cursor: pointer;
     }
   }
 }

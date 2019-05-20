@@ -1,4 +1,41 @@
-/* hide second level of TOC, hugo/blackfriday seems to not have an option? */
-.toc > nav > ul > li > ul {
-  display: none;
+/* hide third level of TOC, hugo/blackfriday seems to not have an option? */
+.u-toc {
+
+  >nav>ul {
+    // toc of h1’s
+    list-style-type: none;
+    padding: 0;
+
+    >li>ul {
+      // toc of h2’s
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+
+      >li {
+        border: 3px solid var(--light-grey-color);
+        padding: 5px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        background-color: var(--light-grey-color);
+
+        &:hover,
+        &:active {
+          border-color: var(--dark-grey-color);
+        }
+
+        a {
+          display: block;
+          text-decoration: none;
+          color: black;
+        }
+
+        >ul {
+          // toc of h3’ and deeper
+          display: none;
+        }
+      }
+    }
+  }
 }
