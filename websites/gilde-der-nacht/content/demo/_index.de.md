@@ -13,15 +13,22 @@ jumbotronImage:
 ---
 
 ## Heading without image
-<div class="c-jumbotron o-outer-container">
-  <h1>Anlässe</h1>
+<div style="width: 98vw; position: relative; left: 50%; right: 50%; margin-left: -49vw; margin-right: -49vw;">
+    <div class="c-jumbotron o-outer-container">
+        <h1>Anlässe</h1>
+    </div>
 </div>
 
 # Headings
+
 ## Heading 2
+
 ### Heading 3
+
 #### Heading 4
+
 ##### Heading 5
+
 ###### Heading 6
 
 ## Formatting
