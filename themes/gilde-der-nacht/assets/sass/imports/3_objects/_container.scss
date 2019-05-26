@@ -1,5 +1,10 @@
 html {
   height: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -22,6 +27,7 @@ body {
 
 .o-inner-container {
   margin: 0 auto;
+  width: 100%;
   max-width: var(--breakpoint-md);
   padding: 0 15px;
 }
