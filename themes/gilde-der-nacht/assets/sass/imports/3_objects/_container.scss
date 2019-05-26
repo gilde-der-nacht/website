@@ -22,12 +22,6 @@ body {
 
 .o-inner-container {
   margin: 0 auto;
-  max-width: var(--breakpoint-sm);
+  max-width: var(--breakpoint-md);
   padding: 0 15px;
-}
-
-@media screen and (max-width: 1000px) {
-  .o-inner-container {
-    max-width: var(--breakpoint-md);
-  }
 }
