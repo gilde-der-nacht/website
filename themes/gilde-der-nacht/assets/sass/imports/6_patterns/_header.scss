@@ -109,6 +109,12 @@ header {
       flex-direction: row;
     }
 
+    #p-site-nav {
+      ul {
+        justify-content: flex-start;
+      }
+    }
+
     #p-site-brand {
       margin-right: 50px;
     }
