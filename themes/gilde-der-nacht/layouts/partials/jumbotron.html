@@ -3,7 +3,7 @@
   <figure>
     <figcaption>
       {{ with .Params.JumbotronImage.Comment}} {{ . }} | {{ end }}
-      <a href="{{ .Params.JumbotronImage.Url }}" target="_blank">{{ .Site.Params.Source }}:
+      <a href="{{ .Params.JumbotronImage.Url }}" target="_blank">{{ i18n "source" }}:
         {{ if .Params.JumbotronImage.Source }}{{ .Params.JumbotronImage.Source }}{{ else }}{{ .Params.JumbotronImage.Url }}{{ end }}
       </a>
     </figcaption>
