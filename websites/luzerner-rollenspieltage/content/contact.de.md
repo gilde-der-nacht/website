@@ -10,6 +10,6 @@ Du hast eine Frage zum Rollenspieltag? Wir hören gerne von dir und antworten di
 
 {{< form >}}
   {{< input name="name" type="text" placeholder="Name" >}}
-  {{< input name="email" type="email" placeholder="E-Mail">}}
-  {{< input name="message" type="textarea" placeholder="Nachricht">}}
+  {{< input name="email" type="email" placeholder="E-Mail" >}}
+  {{< input name="message" type="textarea" placeholder="Nachricht" >}}
 {{< /form >}}
