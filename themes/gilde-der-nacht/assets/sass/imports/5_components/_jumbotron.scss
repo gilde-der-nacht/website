@@ -32,13 +32,14 @@
   }
 
   figure + h1 {
-    top: -100px;
-    margin-bottom: -100px;
+    top: -2.4em;
+    margin-bottom: -2.4em;
   }
 
   h1 {
     background-color: var(--background-color);
-    padding: 5px 20px;
+    padding: 5px var(--margin-left-right);
+    padding-bottom: .5em;
     position: relative;
     z-index: 1;
 
@@ -46,9 +47,9 @@
       content: "";
       display: block;
       position: absolute;
-      bottom: -10px;
       left: 0;
       right: 0;
+      bottom: 0;
       height: 10px;
       background: var(--primary-brand-color);
       background: linear-gradient(to right, var(--primary-brand-color) 0%, var(--dark-grey-color) 75%, var(--contrast-brand-color) 100%);

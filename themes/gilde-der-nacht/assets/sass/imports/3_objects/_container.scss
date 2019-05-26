@@ -29,5 +29,5 @@ body {
   margin: 0 auto;
   width: 100%;
   max-width: var(--breakpoint-md);
-  padding: 0 15px;
+  padding: 0 var(--margin-left-right);
 }
