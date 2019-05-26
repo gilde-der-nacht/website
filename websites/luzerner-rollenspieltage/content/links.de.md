@@ -3,7 +3,7 @@ title: "Links"
 date: 2019-05-01
 menu:
   main:
-    weight: 3
+    weight: 4
 toc: true
 ---
 
@@ -81,23 +81,16 @@ Alternative zum vorherigen Link.
 
 Kanal mit Stücken, die zum Genre [Epic Music](https://de.wikipedia.org/wiki/Epic_Music) gehören, die oft mehrere Stunden lang sind.
 
-{{< minitron url="https://images.unsplash.com/photo-1525876183281-0d0d9308010d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" attribution-title="Dream Signage Surrounded Sequins" attribution-author="Sharon McCutcheon" attribution-source="https://unsplash.com/photos/zi1GRsLym3s" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
+{{< minitron url="https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80" attribution-title="Letters" attribution-author="Amador Loureiro" attribution-source="https://unsplash.com/photos/BVyNlchWqzs" attribution-license="Free - Commercial & Noncommercial" offset="50%" >}}
 ## Sprachen
 
-[Conlang Atlas of Language Structures (cals.conlang.org)](http://cals.conlang.org/)
+[Omniglot (omniglot.com)](http://omniglot.com)
 
-Ist eine Datenbank mit [ConLangs](https://en.wikipedia.org/wiki/Constructed_language). Der Link ist hier stellvertrettend für eine, ziemlich grosse, Community die Freude daran hat selber Sprachen zu erfinden.
+Umfangreiche Informationen zu unterschiedlichen realen und erfundenen (sogenannte [ConLang](https://de.wikipedia.org/wiki/Konstruierte_Sprache)s wie z.B. [Sindarin](https://www.omniglot.com/conscripts/sindarin.htm)) Sprachen und Schriftsysteme. Unter anderem auch eine Sammlung von [Schriftarten](http://omniglot.com/fonts/index.htm).
 
 [A Fantasy Language Generator (vulgarlang.com)](https://www.vulgarlang.com)
 
 Wer sich jemals etwas detaillierter mit Grammatik beschäftigt hat, wird seine Freude daran haben dass man eine Sprache erzeugen kann, die ein paar elementaren Regeln folgt.
-
-{{< minitron url="https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80" attribution-title="Letters" attribution-author="Amador Loureiro" attribution-source="https://unsplash.com/photos/BVyNlchWqzs" attribution-license="Free - Commercial & Noncommercial" offset="50%" >}}
-## Schriften
-
-[Phantasie-Schriften](http://omniglot.com/fonts/index.htm)
-
-???
 
 {{< minitron url="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" attribution-title="Red Dragon Action Figure on Table" attribution-author="Clint Bustrillos" attribution-source="https://unsplash.com/photos/X-A-LJVAhzk" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
 ## Tabletop
@@ -206,5 +199,7 @@ https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg
 Fahrzeuge:
 
 https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745
+
+{{< minitron url="https://images.unsplash.com/photo-1525876183281-0d0d9308010d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" attribution-title="Dream Signage Surrounded Sequins" attribution-author="Sharon McCutcheon" attribution-source="https://unsplash.com/photos/zi1GRsLym3s" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
 
 -->
