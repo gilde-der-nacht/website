@@ -149,6 +149,10 @@ With Heading:
 
 {{< minitron url="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" attribution-title="Cataclysm" attribution-author="Gene Raz von Edler" attribution-source="https://www.artstation.com/artwork/nQN2BX" attribution-license="Copyright ©" offset="30%" >}}
 
+# Minitron with Heading 1
+
+{{< minitron url="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" attribution-title="Cataclysm" attribution-author="Gene Raz von Edler" attribution-source="https://www.artstation.com/artwork/nQN2BX" attribution-license="Copyright ©" offset="30%" >}}
+
 ## Minitron with Heading 2
 
 ## Gallery
