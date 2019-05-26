@@ -1,2 +1,8 @@
 [submit]
 other = "Submit"
+
+[source]
+other = "Source"
+
+[by]
+other = "by"

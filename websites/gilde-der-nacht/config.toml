@@ -11,11 +11,9 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     languageName = "Deutsch"
     [languages.de.params]
       footer = "Footertext TODO"
-      source = "Quelle"
   [languages.en]
     title = "Gilde der Nacht"
     weight = 2
     languageName = "English"
     [languages.en.params]
       footer = "Footertext Englisch TODO."
-      source = "Source"
