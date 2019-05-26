@@ -1,0 +1,14 @@
+@media screen and (min-width: 1000px) {
+    .u-bleed-out {
+        position: relative;
+        width: var(--breakpoint-md);
+        left: calc(var(--difference-sm-md)/-2);
+
+        +h1,
+        +h2 {
+            width: calc(var(--breakpoint-md) - var(--difference-sm-md) / 2 + 10px);
+            left: -10px;
+            padding-left: 10px;
+        }
+    }
+}

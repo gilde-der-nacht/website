@@ -3,4 +3,5 @@
   --breakpoint-sm: 768px;
   --breakpoint-md: 992px;
   --breakpoint-lg: 1200px;
+  --difference-sm-md: calc(var(--breakpoint-md) - var(--breakpoint-sm));
 }

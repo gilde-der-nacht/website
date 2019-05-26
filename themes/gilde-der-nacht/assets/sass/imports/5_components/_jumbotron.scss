@@ -56,3 +56,12 @@
     }
   }
 }
+
+@media screen and (min-width: 1000px) {
+  .c-jumbotron {
+    h1 {
+      left: calc(var(--difference-sm-md)/2);
+      width: calc( 100% - var(--difference-sm-md)/2);
+    }
+  }
+}
