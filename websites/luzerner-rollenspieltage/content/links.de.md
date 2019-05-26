@@ -31,13 +31,21 @@ Generiert zufällige Weltkarten. Wenn man einzelne Städte anklickt, können die
 
 Generiert zufällige Stadtkarten. Hinter dem Menu verstecken sie aber viele nützliche Funktionen. Hinter der Menu-Punkt "Warp" lassen sich die Stadtteile nach eigenen Wünschen anpassen.
 
+[Eigengrau's Generator (eigengrausgenerator.com)](https://eigengrausgenerator.com/)
+
+Eine Art textbasierte, virtuelle, generierte Stadt mit Fraktionen, Fallen, Tränke, Rüstungen, Strassen und Personen, durch die man sich schrittweise durchklicken kann.
+
+[donjon (donjon.bin.sh)](http://donjon.bin.sh/)
+
+Grosse Kollektionen von einzelen Generatoren für Kalender, Welten, Namen, Städte, ... Viele systemspezifisch, einige auch systemneutral.
+
 [Dyson Logos Maps (dysonlogos.blog)](https://dysonlogos.blog/maps/)
 
 Viele von Hand gezeichnete und zusammengesetzte Karten. Die meisten sind gut geeignet zum ausdrucken da sie wunderbar auf ein Blatt Papier passen.
 
 [Stars Without Numbers - Sector Generator (emichron.com)](http://swn.emichron.com/)
 
-Generiert einen Sektor im Weltall. Ein Sektor besteht aus mehreren Sonnensystemen, diese wiederum können einen oder mehrere Planeten enthalten. Es werden wenig systemspezifische Begriffe verwendet werden, daher ist der Generator recht allgemein zu verwenden.
+Generiert einen Sektor im Weltall. Ein Sektor besteht aus mehreren Sonnensystemen, diese wiederum können einen oder mehrere Planeten enthalten. Eigentlich für das Sandbox Rollenspiel Stars Without Numbers, aber die viele Begriffe sind allgemein gehalten.
 
 [Great Buildings Collection (greatbuildings.com)](http://www.greatbuildings.com)
 
@@ -54,6 +62,10 @@ Die zufällig generierten Namen werden werden aus einer Unzahl von Listen entnom
 
 Jeden Tag eine Beschreibung für ein Monster. Primär für Dungeons & Dragons ausgelegt, aber die Beschreibungen und (teilweise) Bilder kann man auch gut auch anderweitig verwenden.
 
+[Dream Selfy (dreamself.me)](http://www.dreamself.me)
+
+Selber ein Bild von einem Charakter zusammenstellen, oder eines nach Zufall generieren lassen. Stil-Gattung: Anime/Comic. Verwendet leider noch Flash.
+
 {{< minitron url="https://images.unsplash.com/photo-1462813277085-db5366eb347b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" attribution-title="Fender Jazzmaster" attribution-author="Katie Montgomery" attribution-source="https://unsplash.com/photos/Ln1bd3eXATU" attribution-license="Free - Commercial & Noncommercial" offset="50%" >}}
 ## Musik
 
@@ -68,6 +80,17 @@ Alternative zum vorherigen Link.
 [Pandora Journey (youtube.com)](https://www.youtube.com/channel/UCmVGp8jfZ0VLg_i8TuCaBQw)
 
 Kanal mit Stücken, die zum Genre [Epic Music](https://de.wikipedia.org/wiki/Epic_Music) gehören, die oft mehrere Stunden lang sind.
+
+{{< minitron url="https://images.unsplash.com/photo-1525876183281-0d0d9308010d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" attribution-title="Dream Signage Surrounded Sequins" attribution-author="Sharon McCutcheon" attribution-source="https://unsplash.com/photos/zi1GRsLym3s" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
+## Sprachen
+
+[Conlang Atlas of Language Structures (cals.conlang.org)](http://cals.conlang.org/)
+
+Ist eine Datenbank mit [ConLangs](https://en.wikipedia.org/wiki/Constructed_language). Der Link ist hier stellvertrettend für eine, ziemlich grosse, Community die Freude daran hat selber Sprachen zu erfinden.
+
+[A Fantasy Language Generator (vulgarlang.com)](https://www.vulgarlang.com)
+
+Wer sich jemals etwas detaillierter mit Grammatik beschäftigt hat, wird seine Freude daran haben dass man eine Sprache erzeugen kann, die ein paar elementaren Regeln folgt.
 
 {{< minitron url="https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80" attribution-title="Letters" attribution-author="Amador Loureiro" attribution-source="https://unsplash.com/photos/BVyNlchWqzs" attribution-license="Free - Commercial & Noncommercial" offset="50%" >}}
 ## Schriften
@@ -90,13 +113,21 @@ Leere, laminierte Karten ca. in de grösse von einem A1 Poster. Die Karten könn
 {{< minitron url="https://images.unsplash.com/photo-1545927088-dab09318f32e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" attribution-title="King and Queen Chess Pieces" attribution-author="Randy Fath" attribution-source="https://unsplash.com/photos/9QnFO9ezytU" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
 ## Rollenspiel
 
-[Anfänger Fibel - Das Spielleiter Tutorial](https://www.system-matters.de/wp-content/uploads/2019/04/Anf%C3%A4nger-Fibel.pdf)
+[Anfänger Fibel - Das Spielleiter Tutorial (system-matters.de)](https://www.system-matters.de/wp-content/uploads/2019/04/Anf%C3%A4nger-Fibel.pdf)
 
 PDF-Dokument das auf wenigen Seiten eine Einführung für Spielleiter hat. Sinnvoll, wenn man schon eine grundsätzliche Idee von einem Rollenspiel hat und schon ein Grundregelwerk in Auszügen kennt.
 
 [DriveThroughRPG (drivethrurpg.com)](https://www.drivethrurpg.com/)
 
 Der inzwischen grösste Internet-Laden für Rollenspielbücher. Nahezu alle Bücher gibt es im PDF, viele auch in gedrucker Variante z.T. als [Print-On-Demand](https://en.wikipedia.org/wiki/Print_on_demand).
+
+[MythCreants (mythcreants.com)](https://mythcreants.com)
+
+Blog mit vielen Artikeln zum Storytelling, Schreiben, World-Building, ... Viele Artikel haben eine interessante Sichtweise und versuchen zu kategorisieren. Zufällig gewählte Beispiele: [How to Create an Eclectic Magic System](https://mythcreants.com/blog/how-to-create-an-eclectic-magic-system/), [Why Social Justice Is Intrinsic to Storytelling](https://mythcreants.com/blog/why-social-justice-is-intrinsic-to-storytelling/), ...
+
+[Solo RPG Resources (dieheart.net)](https://dieheart.net/solo-rpg-resources/)
+
+Liste von Rollenspielen die man alleine spielen könnte. Einige Ideen kann man aber auch verwenden um Rollenspiele, die normalerweise einen Spielleiter haben, auch ohne Spielleiter zu spielen.
 
 {{< minitron url="https://images.unsplash.com/photo-1475483768296-6163e08872a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" attribution-title="Algonquin Park Canada" attribution-author="Mike Erskine" attribution-source="https://unsplash.com/photos/S_VbdMTsdiA" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
 ## Foren
@@ -107,7 +138,7 @@ Ein Frage/Antwort Forum, dass stark moderiert wird. Als Folge werden vor allem R
 
 [Reddit RPG (reddit.com/r/rpg)](https://reddit.com/r/rpg)
 
-Nebst dem allgemeinen, sehr aktiven Forum [/r/rpg](https://reddit.com/r/rpg) gibt es auch viele weitere, oftmals ebenfalls sehr aktive, Foren (sogenannten Sub-Reddits) wie z.B.: [/r/rpgdesign](https://reddit.com/r/rpgdesign), [/r/AskGameMasters/](https://reddit.com/r/AskGameMasters), [/r/mapmaking](https://reddit.com/r/mapmaking), [/r/d100](https://www.reddit.com/r/d100) und viele weitere.
+Nebst dem allgemeinen, sehr aktiven Forum [/r/rpg](https://reddit.com/r/rpg) gibt es auch viele weitere, oftmals ebenfalls sehr aktive, Foren (sogenannten Sub-Reddits) wie z.B.: [/r/rpgdesign](https://reddit.com/r/rpgdesign), [/r/AskGameMasters/](https://reddit.com/r/AskGameMasters), [/r/mapmaking](https://reddit.com/r/mapmaking) und viele weitere.
 
 [Chartopia (chartopia.d12dev.com)](https://chartopia.d12dev.com/)
 
@@ -120,6 +151,10 @@ Zufallsgeneratoren für viele spezifischen Rollenspielen, aber auch sysmteneutra
 
 Bildern zu allen möglichen und unmöglichen Themen wie Landschaft, Architektur, Spezies, Technology, ... Bei vielen Listen gibt es täglich neue Beiträge. Der Autor des jeweiligen Bildes ist immer angegeben. Es gibt Bilder die sind eindrücklich genug, dass man sie als Grundlage für eine Story verwenden kann.
 
+[D100 (reddit.com/r/d100)](https://www.reddit.com/r/d100/)
+
+Listen mit jeweils 100 Elemente zu allen möglichen und unmöglichen Themen. Mithilfe bei der Vervollständigung ist erwünscht.
+
 {{< minitron url="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" attribution-title="Red Dice Closeup Photography" attribution-author="Jonathan Petersson" attribution-source="TODOSource" attribution-license="Free - Commercial & Noncommercial" offset="40%" >}}
 ## Würfel
 
@@ -130,6 +165,10 @@ Ein virtueller Würfeltisch in 3D.
 [rolz (rolz.org)](https://rolz.org/)
 
 Auch ein virtueller Würfeltisch. Grosser Vorteil ist dass man sich einen eigenen [Dice Room](https://rolz.org/join) machen kann, wo gegebenenfalls auch andere Mitspieler beitretten können und man die geworfenen Würfel gegenseitig sieht.
+
+[Zero Dice (tangent-zero.com)](http://tangent-zero.com/zero_dice/zero_dice.htm)
+
+Ein Internetversion der [Story Cubes](https://de.wikipedia.org/wiki/Story_Cubes). Die Symbole kommen von den [Game-Icons](https://game-icons.net/) und unterstehen einer sehr freizügigen [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) Lizenz. Die Idee ist dass man eine beliebige Anzahl von Würfeln würfelt und sich völlig frei davon inspirieren lässt.
 
 [AnyDice (anydice.com)](https://anydice.com/)
 
