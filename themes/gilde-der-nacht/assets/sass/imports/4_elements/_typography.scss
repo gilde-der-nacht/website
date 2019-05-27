@@ -84,3 +84,8 @@ ol {
     font-size: 2.5rem;
   }
 }
+
+button, input, optgroup, select, textarea {
+  font-family: var(--primary-font-family);
+  font-size: 1rem;
+}
