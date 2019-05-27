@@ -1,6 +1,9 @@
 .c-map {
   margin: auto;
   height: 300px;
+  div {
+    height: 100%;
+  }
 }
 
 .c-map iframe {
