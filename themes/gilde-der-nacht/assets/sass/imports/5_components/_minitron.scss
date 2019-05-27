@@ -26,17 +26,9 @@
     object-position: 0% 40%;
   }
 
-  +h1 {
+  +h1, +h2 {
     position: relative;
-    top: -2em;
-    margin-bottom: -1.5em;
-    background-color: var(--background-color);
-    padding: 5px 0 10px;
-  }
-
-  +h2 {
-    position: relative;
-    top: -2em;
+    top: -2.7em;
     margin-bottom: -1.5em;
     background-color: var(--background-color);
     padding: 5px 0 10px;
