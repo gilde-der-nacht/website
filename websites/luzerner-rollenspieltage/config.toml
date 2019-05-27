@@ -16,4 +16,4 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     weight = 2
     languageName = "English"
     [languages.en.params]
-      footer = "The Luzerner Spieltage are organised by the game society, Gilde der Nacht."
+      footer = "The Luzerner Rollenspieltage are organised by the game society, Gilde der Nacht."
