@@ -1,5 +1,10 @@
 {{ define "main" }}
-  <div>
-    {{ .Content }}
+<div>
+  {{ if .Params.toc }}
+  <div class="u-toc">
+    {{ .TableOfContents }}
   </div>
+  {{ end }}
+  {{ .Content }}
+</div>
 {{ end }}
