@@ -5,6 +5,7 @@ menu:
   main:
     weight: 9
 toc: true
+draft: true
 ---
 
 Die folgenden Links wurden vom Organisationsomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}), mit deinem Vorschlag. Lieben Dank 😊 Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet (💰).
