@@ -2,6 +2,7 @@
 title: "Spieletest - Starfinder"
 date: 2019-05-25
 author: "Thomas Stauffer"
+draft: true
 ---
 
 An der [Helvetiacon](https://www.helvetiacon.ch/) 2019 hatte ich die Möglichkeit bei einer Runde Starfinder mit zuspielen. Das  Einstiegsabenteuer war für ca. 4 Stunden ausgelegt.

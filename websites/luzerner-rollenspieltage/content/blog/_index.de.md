@@ -4,4 +4,5 @@ date: 2019-04-01
 menu:
   main:
     weight: 5
+draft: true
 ---
