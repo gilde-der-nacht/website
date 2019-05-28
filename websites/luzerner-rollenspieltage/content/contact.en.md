@@ -6,7 +6,7 @@ menu:
     weight: 2
 ---
 
-TODO En
+You have any question related to the Luzerner Rollenspieltage? Write us and we will get back to you within 24 hours.
 
 {{< form >}}
   {{< input name="name" type="text" placeholder="Name" >}}

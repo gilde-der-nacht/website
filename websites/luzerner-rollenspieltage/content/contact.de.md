@@ -6,7 +6,7 @@ menu:
     weight: 2
 ---
 
-Du hast eine Frage zum Rollenspieltag? Wir hören gerne von dir und antworten dir auch innerhalb von 24 Stunden.
+Du hast eine Frage zu den Luzerner Rollenspieltagen? Wir hören gerne von dir und antworten dir auch innerhalb von 24 Stunden.
 
 {{< form >}}
   {{< input name="name" type="text" placeholder="Name" >}}
