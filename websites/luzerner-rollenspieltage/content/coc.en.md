@@ -1,6 +1,7 @@
 ---
 title: "Code of Conduct"
 date: 2019-04-01
+draft: true
 ---
 
 Ein wichtiges Anliegen der Organisation ist es, dass der Luzerner Rollenspieltag für alle Besucher als schöne und sichere Veranstaltung in Erinnerung bleiben wird. Dementsprechend werden wir keinerlei Verhalten tolerieren, das als Belästigung oder Übergriff wahrgenommen wird, einschliesslich Sexismus, Rassismus, Antisemitismus, Homo- oder Transphobie sowie Diskriminierung aufgrund von Behinderung, Alter, Aussehen, Herkunft oder Religion.
