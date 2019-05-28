@@ -40,8 +40,10 @@
 
       label {
         border: 3px solid var(--light-grey-color);
-        padding: 5px;
+        padding: 0 10px;
         margin-right: 10px;
+        display: block;
+        margin-bottom: 10px;
         background-color: var(--light-grey-color);
       }
 
