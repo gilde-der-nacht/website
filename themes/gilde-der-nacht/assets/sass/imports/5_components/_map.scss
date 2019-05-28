@@ -1,13 +1,14 @@
 .c-map {
   margin: auto;
   height: 300px;
+
   div {
     height: 100%;
   }
-}
 
-.c-map iframe {
-  border: 1px solid black;
-  width: 100%;
-  height: 100%;
+  iframe {
+    border: 3px solid var(--contrast-brand-color);
+    width: 100%;
+    height: 100%;
+  }
 }
