@@ -7,10 +7,14 @@ menu:
 toc: true
 ---
 
-Die folgenden Links wurden vom Organisationsomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}), mit deinem Vorschlag. Lieben Dank 😊 Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet (💰).
+Die folgenden Links wurden vom Organisationsomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}), mit deinem Vorschlag.
+
+Lieben Dank 😊
+
+_Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet (💰)._
 
 {{< minitron url="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" attribution-title="Cataclysm" attribution-author="Gene Raz von Edler" attribution-source="https://www.artstation.com/artwork/nQN2BX" attribution-license="Copyright ©" offset="30%" >}}
-## Geschichten
+# Geschichten
 
 [Story Generator (tvtropes.org)](https://tvtropes.org/pmwiki/storygen.php)
 
@@ -21,7 +25,7 @@ Die Internetseite [tvtropes.org](https://tvtropes.org) selber ist eine Fundgrube
 Man sieht aus welchen Blöcken eine Story zusammengesetzt ist. Selbst wenn daher eine einzelne Story eher uninteressant ist, so kann man sich zumindest über einen möglichen Aufbau einer Geschichte inspirieren lassen.
 
 {{< minitron url="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" attribution-title="Sao Lous - Environment Design for Xor'Veil" attribution-author="Nimphradora" attribution-source="https://www.deviantart.com/nimphradora/art/Sao-Lous-Environment-Design-for-Xor-Veil-796250120" attribution-license="Copyright ©" offset="30%" >}}
-## Karten
+# Karten
 
 [Fantasy Map Generator (github.io)](https://azgaar.github.io/Fantasy-Map-Generator/)
 
@@ -52,7 +56,7 @@ Generiert einen Sektor im Weltall. Ein Sektor besteht aus mehreren Sonnensysteme
 Grundrisse zu vielen, auch noch bestehenden, aussergewöhnlichen Bauwerken wie z.B. das [Sydney Opera House](http://www.greatbuildings.com/buildings/Sydney_Opera.html).
 
 {{< minitron url="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" attribution-title="《姬和子传》——憩" attribution-author="Hou China" attribution-source="https://chinahou.artstation.com/projects/3oLGwA" attribution-license="Copyright ©" offset="30%" >}}
-## Lebewesen
+# Lebewesen
 
 [Fantasy Name Generator (fantasynamegenerators.com)](https://www.fantasynamegenerators.com/)
 
@@ -67,13 +71,13 @@ Jeden Tag eine Beschreibung für ein Monster. Primär für Dungeons & Dragons au
 Selber ein Bild von einem Charakter zusammenstellen, oder eines nach Zufall generieren lassen. Stil-Gattung: Anime/Comic. Verwendet leider noch Flash.
 
 {{< minitron url="https://images.unsplash.com/photo-1462813277085-db5366eb347b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" attribution-title="Fender Jazzmaster" attribution-author="Katie Montgomery" attribution-source="https://unsplash.com/photos/Ln1bd3eXATU" attribution-license="Free - Commercial & Noncommercial" offset="50%" >}}
-## Musik
+# Musik
 
 [Tabletop Audio (tabletopaudio.com)](https://tabletopaudio.com/)
 
 Hintergrundmusik, oft für ein bestimmtes Thema (z.B. Stall, Fischerdorf, Friedhof, ...). Speziell erwähnenswert ist das [SoundPad](https://tabletopaudio.com/soundpad.html), mit vielen Einzel-Geräusche zu einem Thema.
 
-[syrinscape (syrinscape.com)](https://syrinscape.com/) (Kostenpflichtig 💰)
+[Syrinscape (syrinscape.com)](https://syrinscape.com/) (Kostenpflichtig 💰)
 
 Alternative zum vorherigen Link.
 
@@ -82,7 +86,7 @@ Alternative zum vorherigen Link.
 Kanal mit Stücken, die zum Genre [Epic Music](https://de.wikipedia.org/wiki/Epic_Music) gehören, die oft mehrere Stunden lang sind.
 
 {{< minitron url="https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80" attribution-title="Letters" attribution-author="Amador Loureiro" attribution-source="https://unsplash.com/photos/BVyNlchWqzs" attribution-license="Free - Commercial & Noncommercial" offset="50%" >}}
-## Sprachen
+# Sprachen
 
 [Omniglot (omniglot.com)](http://omniglot.com)
 
@@ -93,7 +97,7 @@ Umfangreiche Informationen zu unterschiedlichen realen und erfundenen (sogenannt
 Wer sich etwas detaillierter mit Grammatik beschäftigt hat, wird seine Freude daran haben dass man eine Sprache erzeugen kann, die elementaren Regeln folgt.
 
 {{< minitron url="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" attribution-title="Red Dragon Action Figure on Table" attribution-author="Clint Bustrillos" attribution-source="https://unsplash.com/photos/X-A-LJVAhzk" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
-## Tabletop
+# Tabletop
 
 [HeroForge (heroforge.com)](https://www.heroforge.com/) (Kostenpflichtig 💰)
 
@@ -104,7 +108,7 @@ Seine eigene Figur in 3D mit einfach Mitteln selber gestalten und anschliessend 
 Leere, laminierte Karten ca. in de Grösse von einem A1 Poster. Die Karten können gut gefaltet werden und mit einem wasserlöslichen Stift bemalt werden.
 
 {{< minitron url="https://images.unsplash.com/photo-1545927088-dab09318f32e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" attribution-title="King and Queen Chess Pieces" attribution-author="Randy Fath" attribution-source="https://unsplash.com/photos/9QnFO9ezytU" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
-## Rollenspiel
+# Rollenspiel
 
 [Anfänger Fibel - Das Spielleiter Tutorial (system-matters.de)](https://www.system-matters.de/wp-content/uploads/2019/04/Anf%C3%A4nger-Fibel.pdf)
 
@@ -123,7 +127,7 @@ Blog mit vielen Artikeln zum Storytelling, Schreiben, World-Building, ... Viele 
 Liste von Rollenspielen die man alleine spielen könnte. Die Ideen kann man auch verwenden um Rollenspiele, die normalerweise einen Spielleiter haben, auch ohne Spielleiter zu spielen.
 
 {{< minitron url="https://images.unsplash.com/photo-1475483768296-6163e08872a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" attribution-title="Algonquin Park Canada" attribution-author="Mike Erskine" attribution-source="https://unsplash.com/photos/S_VbdMTsdiA" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
-## Foren
+# Foren
 
 [Role-playing Games Stack Exchange (rpg.stackexchange.com)](https://rpg.stackexchange.com)
 
@@ -131,14 +135,14 @@ Ein Frage/Antwort Forum, dass stark moderiert wird. Als Folge werden vor allem R
 
 [Reddit RPG (reddit.com/r/rpg)](https://reddit.com/r/rpg)
 
-Nebst dem allgemeinen, aktiven Forum [/r/rpg](https://reddit.com/r/rpg) gibt es auch viele weitere, oftmals ebenfalls aktive, Foren (sogenannten Sub-Reddits) wie z.B.: [/r/rpgdesign](https://reddit.com/r/rpgdesign), [/r/AskGameMasters/](https://reddit.com/r/AskGameMasters), [/r/mapmaking](https://reddit.com/r/mapmaking) und viele weitere.
+Nebst dem allgemeinen, aktiven Forum [/r/rpg](https://reddit.com/r/rpg) gibt es auch viele weitere, oftmals ebenfalls aktive, Foren (sogenannten Sub-Reddits) wie z.B.: [/r/rpgdesign](https://reddit.com/r/rpgdesign), [/r/AskGameMasters](https://reddit.com/r/AskGameMasters), [/r/mapmaking](https://reddit.com/r/mapmaking) und viele weitere.
 
 [Chartopia (chartopia.d12dev.com)](https://chartopia.d12dev.com/)
 
 Zufallsgeneratoren für viele spezifischen uns systemneutrale Rollenspielen.
 
 {{< minitron url="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg?1555545537" attribution-title="Stolen soul" attribution-author="Gretel Lusky" attribution-source="https://www.artstation.com/artwork/lVO9nz" attribution-license="Copyright ©" offset="30%" >}}
-## Kollektionen
+# Kollektionen
 
 [Imaginary Network Expanded (reddit.com/r/ImaginaryNetwork)](https://www.reddit.com/r/ImaginaryNetwork/wiki/networksublist)
 
@@ -149,7 +153,7 @@ Bildern zu allen möglichen und unmöglichen Themen wie Landschaft, Architektur,
 Listen mit jeweils 100 Elemente zu allen möglichen und unmöglichen Themen. Mithilfe bei der Vervollständigung ist erwünscht.
 
 {{< minitron url="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" attribution-title="Red Dice Closeup Photography" attribution-author="Jonathan Petersson" attribution-source="TODOSource" attribution-license="Free - Commercial & Noncommercial" offset="40%" >}}
-## Würfel
+# Würfel
 
 [Teal Dice (a.teall.info)](http://a.teall.info/dice/)
 
@@ -168,7 +172,7 @@ Ein Internetversion der [Story Cubes](https://de.wikipedia.org/wiki/Story_Cubes)
 Berechne die Wahrscheinlichkeit von Würfelwürfen.
 
 {{< minitron url="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg?1494581443" attribution-title="UI" attribution-author="Midge \"Mantissa\" Sinnaeve" attribution-source="https://www.artstation.com/artwork/GZPPz" attribution-license="Copyright ©" offset="30%" >}}
-## Hilfsmittel Android
+# Hilfsmittel Android
 
 [Dice (play.google.com)](https://play.google.com/store/apps/details?id=fr.sevenpixels.dice)
 
