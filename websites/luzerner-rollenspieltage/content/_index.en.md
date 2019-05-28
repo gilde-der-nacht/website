@@ -11,13 +11,17 @@ jumbotronImage:
   comment: Star Wars role-play system
 ---
 
+<small>_Current phase: Search for game masters_</small>
+
 # Welcome to the <br />Luzerner Rollenspieltage 2019
 
-_Current phase: Search for game masters_
+| Friday, 30. August | | Saturday, 31. August |
+| --- | --- | --- |
+| 7 p.m. until 1 a.m. | | 1 p.m. until 1 a.m. |
 
 ### Players
 
-_First time? [Explanation of role-playing games]({{< ref "roleplay" >}})._
+_First time? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
 
 As soon as the first game masters have contacted us, we will open the registrations for games. You can then reserve your seat at the table, online or spontaneously.
 
@@ -34,10 +38,6 @@ If you have you never run a role-playing game or feel insecure as a game master,
 Please [contact us via form]({{< ref "contact" >}}) if you’d like to guide a round.
 
 # Informations
-
-| Friday, 30. August | | Saturday, 31. August |
-| --- | --- | --- |
-| 7 p.m. until 1 a.m. | | 1 p.m. until 1 a.m. |
 
 Immerse yourself in boundless worlds of fantasy, where we will weave wonderful tales, experiencing unique stories together to be surprised again and again.
 

@@ -11,13 +11,17 @@ jumbotronImage:
   comment: Star Wars Rollenspiel
 ---
 
+<small>_Aktuelle Phase: Spielleiter-Suche_</small>
+
 # Herzlich willkommen an den <br />Luzerner Rollenspieltagen 2019
 
-_Aktuelle Phase: Spielleiter-Suche_
+| Freitag, 30. August | | Samstag, 31. August |
+| --- | --- | --- |
+| 19 bis 1 Uhr | | 13 bis 1 Uhr |
 
 ### Spieler
 
-_Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist]({{< ref "roleplay" >}})._
+_Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
 
 Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
 
@@ -34,10 +38,6 @@ Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfs
 Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du gerne eine Spielrunde leiten möchtest.
 
 # Infos
-
-| Freitag, 30. August | | Samstag, 31. August |
-| --- | --- | --- |
-| 19 bis 1 Uhr | | 13 bis 1 Uhr |
 
 Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzigartige Geschichten erleben werden. Wundervolle Geschichten, die wir zusammen spinnen und ab und zu Entscheidungen dem Glück überlassen, damit wir uns immer wieder von neuem überraschen und unterhalten lassen können.
 
