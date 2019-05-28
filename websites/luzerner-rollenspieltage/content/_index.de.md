@@ -17,7 +17,7 @@ _Aktuelle Phase: Spielleiter-Suche_
 
 ### Spieler
 
-_Neu hier? [Erklärung von Rollenspiel]({{< ref "roleplay" >}})._
+_Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist]({{< ref "roleplay" >}})._
 
 Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
 
