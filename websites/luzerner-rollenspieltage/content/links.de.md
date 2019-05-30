@@ -9,9 +9,9 @@ toc: true
 
 Die folgenden Links wurden vom Organisationsomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}), mit deinem Vorschlag.
 
-Lieben Dank 😊
+Lieben Dank
 
-_Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet (💰)._
+_Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet ($)._
 
 {{< minitron url="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" attribution-title="Cataclysm" attribution-author="Gene Raz von Edler" attribution-source="https://www.artstation.com/artwork/nQN2BX" attribution-license="Copyright ©" offset="30%" >}}
 # Geschichten
@@ -77,7 +77,7 @@ Selber ein Bild von einem Charakter zusammenstellen, oder eines nach Zufall gene
 
 Hintergrundmusik, oft für ein bestimmtes Thema (z.B. Stall, Fischerdorf, Friedhof, ...). Speziell erwähnenswert ist das [SoundPad](https://tabletopaudio.com/soundpad.html), mit vielen Einzel-Geräusche zu einem Thema.
 
-[Syrinscape (syrinscape.com)](https://syrinscape.com/) (Kostenpflichtig 💰)
+[Syrinscape (syrinscape.com)](https://syrinscape.com/) (Kostenpflichtig $)
 
 Alternative zum vorherigen Link.
 
@@ -99,11 +99,11 @@ Wer sich etwas detaillierter mit Grammatik beschäftigt hat, wird seine Freude d
 {{< minitron url="https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" attribution-title="Red Dragon Action Figure on Table" attribution-author="Clint Bustrillos" attribution-source="https://unsplash.com/photos/X-A-LJVAhzk" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
 # Tabletop
 
-[HeroForge (heroforge.com)](https://www.heroforge.com/) (Kostenpflichtig 💰)
+[HeroForge (heroforge.com)](https://www.heroforge.com/) (Kostenpflichtig $)
 
 Seine eigene Figur in 3D mit einfach Mitteln selber gestalten und anschliessend mit unterschiedlichsten Materialien 3D drucken lassen. Es gibt auch die Möglichkeit die Figur als 3D Model zu kaufen und anschliessend selber zu drucken (mit dem eigenen 3D Drucker oder z.B. im [FabLab Luzern](http://fablab-luzern.ch/)).
 
-[Paizo Flip Mat (paizo.com)](https://paizo.com/products/btpy8oto?Pathfinder-FlipMat-Basic) (Kostenpflichtig 💰)
+[Paizo Flip Mat (paizo.com)](https://paizo.com/products/btpy8oto?Pathfinder-FlipMat-Basic) (Kostenpflichtig $)
 
 Leere, laminierte Karten ca. in de Grösse von einem A1 Poster. Die Karten können gut gefaltet werden und mit einem wasserlöslichen Stift bemalt werden.
 

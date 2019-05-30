@@ -1,9 +1,11 @@
 ---
 title: "Code of Conduct"
 date: 2019-04-01
-draft: true
+menu:
+  main:
+    weight: 4
 ---
 
-Ein wichtiges Anliegen der Organisation ist es, dass der Luzerner Rollenspieltag für alle Besucher als schöne und sichere Veranstaltung in Erinnerung bleiben wird. Dementsprechend werden wir keinerlei Verhalten tolerieren, das als Belästigung oder Übergriff wahrgenommen wird, einschliesslich Sexismus, Rassismus, Antisemitismus, Homo- oder Transphobie sowie Diskriminierung aufgrund von Behinderung, Alter, Aussehen, Herkunft oder Religion.
+It is important for us that the Lucerne Role-Playing Day will be remembered as a beautiful and safe event for all visitors. Accordingly, we will not tolerate any behavior that is perceived as harassment or abuse, including sexism, racism, anti-semitism, homophobia or transphobia, as well as discrimination based on disability, age, appearance, background or religion.
 
-Wer glaubt, sich so etwas bei uns leisten zu können, muss damit rechnen, des Platzes verwiesen zu werden. Wenn eine Person sich auf dem Rollenspieltag so verhält, dass du oder jemand anderes sich dadurch unsicher, unwohl oder unwillkommen fühlt, melde das bitte der Organisatoren. Du erkennst uns an den knallroten T-Shirts. Wir werden mit deiner Meldung selbstverständlich respektvoll und diskret umgehen und uns dabei nach deinen Bedürfnissen richten.
+If a person behaves on the Lucerne Role-Playing Day in a way that makes you or someone else feel insecure, uncomfortable or unwelcome, please notify the organizers, identified by their bright red shirts. Your concerns will be handled with respect and discretion.

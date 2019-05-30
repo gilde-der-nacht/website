@@ -4,6 +4,7 @@ date: 2019-04-01
 menu:
   main:
     weight: 1
+toc: true
 jumbotronImage:
   url: /images/luzerner-rollenspieltag-2018-22.jpg
   source: Luzerner Spieltage 2019
@@ -13,15 +14,19 @@ jumbotronImage:
 
 <small>_Aktuelle Phase: Spielleiter-Suche_</small>
 
-# Herzlich willkommen an den <br />Luzerner Rollenspieltagen 2019
+**Herzlich willkommen an den <br />Luzerner Rollenspieltagen 2019**
 
 | Freitag, 30. August | | Samstag, 31. August |
 | --- | --- | --- |
 | 19 bis 1 Uhr | | 13 bis 1 Uhr |
 
-### Spieler
+# Spieler
 
 _Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
+
+TODO: Löschen zu viel Text? Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzigartige Geschichten erleben werden. Wundervolle Geschichten, die wir zusammen spinnen und ab und zu Entscheidungen dem Glück überlassen, damit wir uns immer wieder von neuem überraschen und unterhalten lassen können.
+
+Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei uns viele Spielleiter finden, die dich in deinen ersten Schritten in diesem kreativen Hobby mit grossem Engagement unterstützen werden.
 
 Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
 
@@ -29,7 +34,7 @@ Möchtest du gerne erinnert werden, sobald die ersten Runden online stehen?
 
 Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
 
-### Spielleiter
+# Spielleiter
 
 Euch Spielleleitern müssten wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte System-spezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
 
@@ -37,13 +42,9 @@ Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfs
 
 Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du gerne eine Spielrunde leiten möchtest.
 
-# Infos
+# Allgemeine Informationen
 
-Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzigartige Geschichten erleben werden. Wundervolle Geschichten, die wir zusammen spinnen und ab und zu Entscheidungen dem Glück überlassen, damit wir uns immer wieder von neuem überraschen und unterhalten lassen können.
-
-Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei uns viele Spielleiter finden, die dich in deinen ersten Schritten in diesem kreativen Hobby mit grossem Engagement unterstützen werden. Bist du nicht ganz sicher, was ein Rollenspiel ist? Wir haben für dich eine kurze Erklärung zusammengestellt.
-
-**Eintritt:** der Eintritt ist gratis
+**Eintritt:** der Eintritt ist gratis (TODO wir hätten mal besprochen Kollekte?)
 
 **Adresse:** Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern
 
@@ -51,4 +52,4 @@ Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei
 
 Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per Bus 8 (Würzenbachmatte) oder Bus 14 (Schlösslirain).
 
-Wenn du von weiterher kommst und gerne stressfrei **in Luzern übernachten** möchtest, helfen wir dir gerne dabei deinen Aufenthalt zu planen. Melde dich doch bitte über das [Kontaktformular]({{< ref "contact" >}}).
+Wenn du von weither kommst und gerne stressfrei **in Luzern übernachten** möchtest, können wir dir eine Unterkunft anbieten. Melde dich doch bitte über das [Kontaktformular]({{< ref "contact" >}}).
