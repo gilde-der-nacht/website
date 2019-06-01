@@ -132,7 +132,7 @@ ___
 
 ### Newsletter
 
-{{< newsletter >}}
+{{< newsletter select="luzerner-spieltage luzerner-rollenspieltage" >}}
 
 ### Contact form
 
