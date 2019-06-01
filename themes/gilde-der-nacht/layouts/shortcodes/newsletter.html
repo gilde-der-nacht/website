@@ -22,27 +22,27 @@
     <h4>{{ i18n "interests" }}</h4>
     <div class="c-form--options">
       <p class="c-form--item c-form-field--checkbox">
-        <input type="checkbox" value="1" name="group[24133][1]" id="mce-group[24133]-24133-0"><label
+        <input type="checkbox" value="1" name="group[24133][1]" id="mce-group[24133]-24133-0" {{ if in (.Get "select") "luzerner-spieltage" }}checked{{ end }}><label
           for="mce-group[24133]-24133-0">{{ i18n "luzerner-spieltage" }}</label>
       </p>
       <p class="c-form--item c-form-field--checkbox">
-        <input type="checkbox" value="2" name="group[24133][2]" id="mce-group[24133]-24133-1"><label
+        <input type="checkbox" value="2" name="group[24133][2]" id="mce-group[24133]-24133-1" {{ if in (.Get "select") "board-games" }}checked{{ end }}><label
           for="mce-group[24133]-24133-1">{{ i18n "board-games" }}</label>
       </p>
       <p class="c-form--item c-form-field--checkbox">
-        <input type="checkbox" value="4" name="group[24133][4]" id="mce-group[24133]-24133-2" checked><label
+        <input type="checkbox" value="4" name="group[24133][4]" id="mce-group[24133]-24133-2" {{ if in (.Get "select") "luzerner-rollenspieltage" }}checked{{ end }}><label
           for="mce-group[24133]-24133-2">{{ i18n "luzerner-rollenspieltage" }}</label>
       </p>
       <p class="c-form--item c-form-field--checkbox">
-        <input type="checkbox" value="8" name="group[24133][8]" id="mce-group[24133]-24133-3"><label
+        <input type="checkbox" value="8" name="group[24133][8]" id="mce-group[24133]-24133-3" {{ if in (.Get "select") "role-playing-games" }}checked{{ end }}><label
           for="mce-group[24133]-24133-3">{{ i18n "role-playing-games" }}</label>
       </p>
       <p class="c-form--item c-form-field--checkbox">
-        <input type="checkbox" value="16" name="group[24133][16]" id="mce-group[24133]-24133-4"><label
+        <input type="checkbox" value="16" name="group[24133][16]" id="mce-group[24133]-24133-4" {{ if in (.Get "select") "luzerner-tabletoptag" }}checked{{ end }}><label
           for="mce-group[24133]-24133-4">{{ i18n "luzerner-tabletoptag" }}</label>
       </p>
       <p class="c-form--item c-form-field--checkbox">
-        <input type="checkbox" value="32" name="group[24133][32]" id="mce-group[24133]-24133-5"><label
+        <input type="checkbox" value="32" name="group[24133][32]" id="mce-group[24133]-24133-5" {{ if in (.Get "select") "tabletop-games" }}checked{{ end }}><label
           for="mce-group[24133]-24133-5">{{ i18n "tabletop-games" }}</label>
       </p>
     </div>
