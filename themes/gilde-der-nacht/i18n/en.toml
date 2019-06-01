@@ -6,3 +6,36 @@ other = "Source"
 
 [by]
 other = "by"
+
+[first-name]
+other = "First name"
+
+[family-name]
+other = "Family name"
+
+[email-address]
+other = "Email address"
+
+[interests]
+other = "Interests"
+
+[luzerner-spieltage]
+other = "Luzerner Spieltage"
+
+[luzerner-rollenspieltage]
+other = "Luzerner Rollenspieltage"
+
+[luzerner-tabletoptag]
+other = "Luzerner Tabletoptag"
+
+[board-games]
+other = "Board games"
+
+[role-playing-games]
+other = "Role-playing games"
+
+[tabletop-games]
+other = "Tabletop games"
+
+[choose-topic]
+other = "Please choose at least one topic."
