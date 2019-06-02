@@ -7,7 +7,7 @@ menu:
 toc: true
 ---
 
-Die folgenden Links wurden vom Organisationsomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}), mit deinem Vorschlag.
+Die folgenden Links wurden vom Organisationskomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}), mit deinem Vorschlag.
 
 Lieben Dank
 
@@ -37,15 +37,15 @@ Generiert zufällige Stadtkarten. Hinter dem Menu verstecken sich nützliche Fun
 
 [Eigengrau's Generator (eigengrausgenerator.com)](https://eigengrausgenerator.com/)
 
-Eine Art textbasierte, virtuelle, generierte Stadt mit Fraktionen, Fallen, Tränken, Rüstungen, Strassen und Personen, durch die man sich schrittweise durchklicken kann.
+Eine textbasierte, virtuelle, generierte Stadt mit Fraktionen, Fallen, Tränken, Rüstungen, Strassen und Personen, durch die man sich schrittweise durchklicken kann.
 
 [donjon (donjon.bin.sh)](http://donjon.bin.sh/)
 
-Grosse Kollektionen von einzelnen Generatoren für Kalender, Welten, Namen, Städte, ... systemspezifisch und systemneutral.
+Kollektion von Generatoren für Kalender, Welten, Namen, Städte, ... systemspezifisch und systemneutral.
 
 [Dyson Logos Maps (dysonlogos.blog)](https://dysonlogos.blog/maps/)
 
-Von Hand gezeichnete und zusammengesetzte Karten. Die meisten sind gut geeignet zum ausdrucken da sie wunderbar auf ein Blatt Papier passen.
+Von Hand gezeichnete und zusammengesetzte Karten. Die meisten sind geeignet zum ausdrucken, da sie wunderbar auf ein Blatt Papier passen.
 
 [Stars Without Numbers - Sector Generator (emichron.com)](http://swn.emichron.com/)
 
