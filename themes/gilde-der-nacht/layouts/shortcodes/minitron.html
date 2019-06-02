@@ -3,13 +3,15 @@ https://wiki.creativecommons.org/wiki/best_practices_for_attribution
 https://www.rivaliq.com/blog/guide-copyright-fair-use-laws-online-images/
 -->
 <div class="c-minitron u-bleed-out">
-  <figure>
-    <figcaption>
-      {{ with .Get "comment" }} {{ . }} | {{ end }}
-      {{ i18n "source" }}:
-      <a href="{{ .Get "attribution-source" }}" target="_blank">{{ .Get "attribution-title" }}</a> {{ i18n "by" }} {{ .Get "attribution-author" }}
-      | {{ .Get "attribution-license" }}
-    </figcaption>
-    <img src="{{ .Get "url" }}" alt="{{ .Get "attribution-title" }} {{ i18n "by" }} {{ .Get "attribution-author" }}" style="object-position: 0% {{ .Get "offset" }};">
-  </figure>
+    <figure>
+        <figcaption>
+            {{ with .Get "comment" }} {{ . }} | {{ end }}
+            {{ i18n "source" }}:
+            <a href="{{ .Get "attribution-source" }}" target="_blank">{{ .Get "attribution-title" }}</a>
+            {{ with .Get "attribution-author" }} {{ i18n "by" }} {{ . }} {{ end }}
+            {{ with .Get "attribution-license" }} | {{ . }} {{ end }}
+        </figcaption>
+        <img src="{{ .Get "url" }}" alt="{{ .Get "attribution-title" }} {{ i18n "by" }} {{ .Get "attribution-author" }}"
+            style="object-position: 0% {{ .Get "offset" }};">
+    </figure>
 </div>

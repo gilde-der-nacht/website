@@ -19,6 +19,8 @@ jumbotronImage:
 | --- | --- | --- |
 | 19 bis 1 Uhr | | 13 bis 1 Uhr |
 
+{{< minitron url="/images/luzerner-rollenspieltag-2018-15.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-15.jpg" offset="40%" >}}
+
 # Spieler
 
 _Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
@@ -29,6 +31,8 @@ Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielr
 
 Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
 
+{{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
+
 # Spielleiter
 
 Euch Spielleleitern müssten wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte System-spezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
@@ -36,6 +40,8 @@ Euch Spielleleitern müssten wir nicht erklären, wie dankbar wir für euren Ein
 Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfst du dich gerne bei uns im Vorfeld melden. Erfahrene Spielleiter unterstützen dich vor Ort und stehen mit Rat und Tat zur Seite.
 
 Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du gerne eine Spielrunde leiten möchtest.
+
+{{< minitron url="/images/luzerner-rollenspieltag-2018-21.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-21.jpg" offset="40%" >}}
 
 # Allgemeine Informationen
 
