@@ -15,9 +15,9 @@ jumbotronImage:
 
 <small>_Aktuelle Phase: Spielleiter-Suche_</small>
 
-| Freitag, 30. August | | Samstag, 31. August |
-| --- | --- | --- |
-| 19 bis 1 Uhr | | 13 bis 1 Uhr |
+| Freitag, 30. August |     | Samstag, 31. August |
+| ------------------- | --- | ------------------- |
+| 19 bis 1 Uhr        |     | 13 bis 1 Uhr        |
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-15.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-15.jpg" offset="40%" >}}
 
@@ -25,7 +25,7 @@ jumbotronImage:
 
 _Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
 
-Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
+Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dir dann online, oder spontan vor Ort, einen Platz am Tisch reservieren.
 
 **Möchtest du gerne erinnert werden, sobald die ersten Runden online stehen?**
 
@@ -35,7 +35,7 @@ Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nicht
 
 # Spielleiter
 
-Euch Spielleleitern müssten wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte System-spezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
+Euch Spielleleitern müssen wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte System-spezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
 
 Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfst du dich gerne bei uns im Vorfeld melden. Erfahrene Spielleiter unterstützen dich vor Ort und stehen mit Rat und Tat zur Seite.
 
