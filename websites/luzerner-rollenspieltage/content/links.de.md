@@ -13,7 +13,7 @@ Lieben Dank
 
 _Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet ($)._
 
-{{< minitron url="https://cdna.artstation.com/p/assets/images/images/017/669/990/large/gene-raz-von-edler-cataclysm-by-ellysiumn-hd-as.jpg" attribution-title="Cataclysm" attribution-author="Gene Raz von Edler" attribution-source="https://www.artstation.com/artwork/nQN2BX" attribution-license="Copyright ©" offset="30%" >}}
+{{< minitron url="https://cdnb.artstation.com/p/assets/images/images/018/356/321/large/gene-raz-von-edler-gene-raz-von-edler-cataclysm-by-ellysiumnupdate.jpg?1559068390" attribution-title="Cataclysm" attribution-author="Gene Raz von Edler" attribution-source="https://www.artstation.com/artwork/nQN2BX" attribution-license="Copyright ©" offset="20%" >}}
 # Geschichten
 
 [Story Generator (tvtropes.org)](https://tvtropes.org/pmwiki/storygen.php)
