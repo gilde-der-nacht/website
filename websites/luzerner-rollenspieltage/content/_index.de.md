@@ -23,13 +23,9 @@ jumbotronImage:
 
 _Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
 
-TODO: Löschen zu viel Text? Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzigartige Geschichten erleben werden. Wundervolle Geschichten, die wir zusammen spinnen und ab und zu Entscheidungen dem Glück überlassen, damit wir uns immer wieder von neuem überraschen und unterhalten lassen können.
-
-Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei uns viele Spielleiter finden, die dich in deinen ersten Schritten in diesem kreativen Hobby mit grossem Engagement unterstützen werden.
-
 Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
 
-Möchtest du gerne erinnert werden, sobald die ersten Runden online stehen?
+**Möchtest du gerne erinnert werden, sobald die ersten Runden online stehen?**
 
 Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
 
@@ -43,7 +39,7 @@ Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du
 
 # Allgemeine Informationen
 
-**Eintritt:** der Eintritt ist gratis (TODO wir hätten mal besprochen Kollekte?)
+**Eintritt:** gratis (Kollekte)
 
 **Adresse:** Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern
 
