@@ -1,13 +1,31 @@
 <footer>
   <div class="o-outer-container">
     <div class="p-footer">
-      {{ .Site.Params.Footer }}
+      {{ .Site.Params.Footer | markdownify }}
     </div>
-    <div class="p-discord">
+    <div class="p-social">
+
+      {{ with .Site.Params.Discord }}
       {{ $discordSVG := resources.Get "images/Discord-Logo+Wordmark-White.svg" }}
-      <a href="http://chat.gildedernacht.ch">
+      <a href="{{ . }}">
         <img src="{{ $discordSVG.RelPermalink }}" alt="Discord">
       </a>
+      {{ end }}
+
+      {{ with .Site.Params.Meetup }}
+      {{ $discordSVG := resources.Get "images/meetup-logo-script-white.svg" }}
+      <a href="{{ . }}">
+        <img src="{{ $discordSVG.RelPermalink }}" alt="Meetup">
+      </a>
+      {{ end }}
+
+      {{ with .Site.Params.Facebook }}
+      {{ $discordSVG := resources.Get "images/f_logo_RGB-White_1024.svg" }}
+      <a href="{{ . }}">
+        <img src="{{ $discordSVG.RelPermalink }}" alt="Facebook">
+      </a>
+      {{ end }}
+
     </div>
   </div>
 </footer>

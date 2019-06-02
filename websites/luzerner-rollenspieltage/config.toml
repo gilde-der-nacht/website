@@ -5,15 +5,20 @@ themesDir = "../../themes"
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [languages]
-  [languages.de]
-    title = "Luzerner Rollenspieltage"
-    weight = 1
-    languageName = "Deutsch"
-    [languages.de.params]
-      footer = "Die Luzerner Rollenspieltage werden organisiert durch den Spielverein, Gilde der Nacht"
-  [languages.en]
-    title = "Luzerner Rollenspieltage"
-    weight = 2
-    languageName = "English"
-    [languages.en.params]
-      footer = "The Luzerner Rollenspieltage are organised by the game society, Gilde der Nacht."
+    [languages.de]
+        title = "Luzerner Rollenspieltage"
+        weight = 1
+        languageName = "Deutsch"
+        [languages.de.params]
+            footer = "Die Luzerner Rollenspieltage werden organisiert <br />durch den Spielverein, [Gilde der Nacht](https://gildedernacht.ch)."
+    [languages.en]
+        title = "Luzerner Rollenspieltage"
+        weight = 2
+        languageName = "English"
+        [languages.en.params]
+            footer = "The Luzerner Rollenspieltage are organised <br />by the game society, [Gilde der Nacht](https://gildedernacht.ch)."
+
+[params]
+    discord = "http://chat.gildedernacht.ch/"
+    facebook = "https://www.facebook.com/events/417456298837224/"
+    meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern/events/261972612/"

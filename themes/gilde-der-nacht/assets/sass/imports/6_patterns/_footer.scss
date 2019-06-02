@@ -1,25 +1,41 @@
 footer {
   background-color: var(--contrast-brand-color);
   margin-top: 20px;
-  padding: 10px 15px;
+  padding: 15px 15px 20px;
   color: var(--background-color);
 
-  flex-shrink: 0;
-
-  > div {
+  >div {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    > * {
+    >* {
       padding-right: 5px;
     }
   }
-  .p-discord {
-    height: 40px;
-    img {
-      height: 100%;
+
+  .p-footer {
+    flex-shrink: 1;
+
+    a {
+      color: var(--background-color);
+
+      &:hover {
+        color: var(--light-grey-color);
+      }
     }
   }
 
+  .p-social {
+    height: 40px;
+    flex-shrink: 0;
+
+    a {
+      margin-left: 25px;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
 }
