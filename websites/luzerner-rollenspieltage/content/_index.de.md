@@ -8,7 +8,7 @@ menu:
 toc: true
 jumbotronImage:
   url: /images/luzerner-rollenspieltag-2018-22.jpg
-  source: Luzerner Spieltage 2019
+  source: Luzerner Rollenspieltag 2018
   offset: 40%
   comment: Star Wars Rollenspiel
 ---
