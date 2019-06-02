@@ -10,7 +10,10 @@
     <img src="{{ .Params.JumbotronImage.Url}}" {{ with .Params.JumbotronImage.Comment}}alt="{{ . }}" {{ end }}
       style="object-position: 0% {{ .Params.JumbotronImage.Offset }};" />
   </figure>
-  <h1>{{ .Title }}</h1>
+  {{ end}}
+
+  {{ if .Params.Subtitle  }}
+  <h1><span>{{ .Title }}</span> {{ .Params.Subtitle | markdownify}}</h1>
 
   {{ else if .Title  }}
   <h1>{{ .Title }}</h1>

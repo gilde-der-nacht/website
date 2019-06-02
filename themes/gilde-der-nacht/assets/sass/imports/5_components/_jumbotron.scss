@@ -54,6 +54,12 @@
       background: var(--primary-brand-color);
       background: linear-gradient(to right, var(--primary-brand-color) 0%, var(--dark-grey-color) 75%, var(--contrast-brand-color) 100%);
     }
+    span {
+      display: block;
+      font-size: .5em;
+      line-height: 1em;
+      padding-top: 10px;
+    }
   }
 }
 

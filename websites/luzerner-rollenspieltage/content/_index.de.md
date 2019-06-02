@@ -1,5 +1,6 @@
 ---
 title: "Startseite"
+subtitle: "Herzlich willkommen an den <br />Luzerner Rollenspieltagen 2019"
 date: 2019-04-01
 menu:
   main:
@@ -13,8 +14,6 @@ jumbotronImage:
 ---
 
 <small>_Aktuelle Phase: Spielleiter-Suche_</small>
-
-**Herzlich willkommen an den <br />Luzerner Rollenspieltagen 2019**
 
 | Freitag, 30. August | | Samstag, 31. August |
 | --- | --- | --- |
