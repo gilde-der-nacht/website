@@ -1,4 +1,4 @@
-baseURL = "https://gildedernacht.ch/"
+baseURL = "https://rollenspieltage.ch/"
 DefaultContentLanguage = "de"
 theme = "gilde-der-nacht"
 themesDir = "../../themes"
