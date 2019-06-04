@@ -36,6 +36,10 @@ footer {
       img {
         height: 100%;
       }
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }
