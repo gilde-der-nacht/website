@@ -15,9 +15,9 @@ jumbotronImage:
 
 <small>_Current phase: Search for game masters_</small>
 
-| Friday, 30. August  |     | Saturday, 31. August |
-| ------------------- | --- | -------------------- |
-| 7 p.m. until 1 a.m. |     | 1 p.m. until 1 a.m.  |
+| Friday, <nobr>30. August</nobr>  |     | Saturday, <nobr>31. August</nobr> |
+| -------------------------------- | --- | --------------------------------- |
+| 7 p.m. until 1 a.m.              |     | 1 p.m. until 1 a.m.               |
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-15.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-15.jpg" offset="40%" >}}
 

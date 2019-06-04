@@ -15,9 +15,9 @@ jumbotronImage:
 
 <small>_Aktuelle Phase: Spielleiter-Suche_</small>
 
-| Freitag, 30. August |     | Samstag, 31. August |
-| ------------------- | --- | ------------------- |
-| 19 bis 1 Uhr        |     | 13 bis 1 Uhr        |
+| Freitag, <nobr>30. August</nobr> |     | Samstag, <nobr>31. August</nobr> |
+| -------------------------------- | --- | -------------------------------- |
+| 19 bis 1 Uhr                     |     | 13 bis 1 Uhr                     |
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-15.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-15.jpg" offset="40%" >}}
 
