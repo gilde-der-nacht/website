@@ -171,7 +171,7 @@ Ein Internetversion der [Story Cubes](https://de.wikipedia.org/wiki/Story_Cubes)
 
 Berechne die Wahrscheinlichkeit von Würfelwürfen.
 
-{{< minitron url="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg?1494581443" attribution-title="UI" attribution-author="Midge \"Mantissa\" Sinnaeve" attribution-source="https://www.artstation.com/artwork/GZPPz" attribution-license="Copyright ©" offset="30%" >}}
+{{< minitron url="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg?1494581443" attribution-title="UI" attribution-author="Midge «Mantissa» Sinnaeve" attribution-source="https://www.artstation.com/artwork/GZPPz" attribution-license="Copyright ©" offset="30%" >}}
 # Hilfsmittel Android
 
 [Dice (play.google.com)](https://play.google.com/store/apps/details?id=fr.sevenpixels.dice)
