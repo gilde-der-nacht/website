@@ -10,13 +10,13 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
         weight = 1
         languageName = "Deutsch"
         [languages.de.params]
-            footer = "Die Luzerner Rollenspieltage werden organisiert <br />durch den Spielverein, [Gilde der Nacht](https://gildedernacht.ch)."
+            footer = "Die Luzerner Rollenspieltage werden organisiert durch den Spielverein, [Gilde der Nacht](https://gildedernacht.ch)."
     [languages.en]
         title = "Luzerner Rollenspieltage"
         weight = 2
         languageName = "English"
         [languages.en.params]
-            footer = "The Luzerner Rollenspieltage are organised <br />by the game society, [Gilde der Nacht](https://gildedernacht.ch)."
+            footer = "The Luzerner Rollenspieltage are organised by the game society, [Gilde der Nacht](https://gildedernacht.ch)."
 
 [params]
     discord = "http://chat.gildedernacht.ch/"
