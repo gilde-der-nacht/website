@@ -53,4 +53,4 @@ Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du
 
 Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per Bus 8 (Würzenbachmatte) oder Bus 14 (Schlösslirain).
 
-Wenn du von weither kommst und gerne stressfrei **in Luzern übernachten** möchtest, können wir dir eine Unterkunft anbieten. Melde dich doch bitte über das [Kontaktformular]({{< ref "contact" >}}).
+Wenn du von weit her kommst und gerne stressfrei **in Luzern übernachten** möchtest, können wir dir eine Unterkunft anbieten. Melde dich doch bitte über das [Kontaktformular]({{< ref "contact" >}}).
