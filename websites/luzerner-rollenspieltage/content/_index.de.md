@@ -53,4 +53,6 @@ Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du
 
 Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per Bus 8 (Würzenbachmatte) oder Bus 14 (Schlösslirain).
 
+Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zum Spar an der Adresse [Würzenbachstrasse 19, Luzern](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
+
 Wenn du von weit her kommst und gerne stressfrei **in Luzern übernachten** möchtest, können wir dir eine Unterkunft anbieten. Melde dich doch bitte über das [Kontaktformular]({{< ref "contact" >}}).

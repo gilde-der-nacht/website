@@ -53,4 +53,6 @@ Please [contact us via form]({{< ref "contact" >}}) if you’d like to guide a r
 
 From the Lucerne train station, the location is easily reached in 15 minutes by bus 8 (Würzenbachmatte) or bus 14 (Schlösslirain).
 
+A (fee required) parking garage is 5 minutes walk away. Belongs to the Spar supermarket at the address [Würzenbachstrasse 19, Lucerne](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
+
 If you would like to **stay overnight in Lucerne**, we can offer you an accomodation. Please contact us via the [contact form]({{< ref "contact" >}}).
