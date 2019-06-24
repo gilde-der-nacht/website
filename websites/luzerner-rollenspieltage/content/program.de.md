@@ -31,6 +31,6 @@ Der einfachheit halber planen wir den Flohmarkt nur während den Pausen zu bedie
 
 # Verpflegung
 
-Vor Ort können Getränke bezogen werden. Ausserdem sorgen wir dafür, dass warme Malzeiten konsumiert werden können.
+Vor Ort können Getränke bezogen werden. Ausserdem sorgen wir dafür, dass warme Mahlzeiten konsumiert werden können.
 
 _Genauere Infos folgen._
