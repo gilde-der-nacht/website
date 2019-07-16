@@ -1,7 +1,10 @@
 ---
 title: "Anmelden"
 date: 2019-06-21
+toc: true
 ---
+
+Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schicke ganz unten das Formular ab:
 
 <template id="i18n">
     <p data-id="friday" data-text="Freitag">-</p>
@@ -31,13 +34,15 @@ date: 2019-06-21
     <p data-id="container">Name: <span data-id="name"></span> / Tag <span data-id="day"></span> / Von <span data-id="from"></span> / Bis <span data-id="to"></span></p>
 </template>
 
-## Freitag, 30. August 2019
+# Freitag, 30. August 2019
 
 <div id="c-rounds" class="u-bleed-out"></div>
 
-## Samstag, 31. August 2019
+# Samstag, 31. August 2019
 
 <pre>TODO: Tage aufteilen</pre>
+
+# Anmeldung abschliessen
 
 <div class="c-form">
 <form action="https://formsubmit.co/mail@rollenspieltag.ch" method="POST">
@@ -51,8 +56,8 @@ date: 2019-06-21
             <input name="email" id="email" type="email" placeholder="E-Mail">
         </p>
         <p class="c-form--item c-form-field--text">
-            <label for="comment">Nachricht</label>
-            <textarea comment="message" id="comment" placeholder="Nachricht"></textarea>
+            <label for="comment">Kommentar</label>
+            <textarea comment="message" id="comment" placeholder="Kommentar"></textarea>
         </p>
 
 <h2>Zusammenfassung</h2>
