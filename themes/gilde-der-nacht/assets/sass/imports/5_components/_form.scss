@@ -60,22 +60,23 @@
       }
     }
   }
+}
 
-  .c-btn {
-    font-family: var(--primary-font-family);
-    font-weight: bold;
-    padding: 5px 10px;
-    font-size: 14px;
-    margin: 10px 0;
-    text-transform: uppercase;
-    background-color: var(--contrast-brand-color);
-    color: var(--background-color);
-    border: 3px solid var(--contrast-brand-color);
+.c-btn {
+  font-family: var(--primary-font-family);
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin: 10px 0;
+  text-transform: uppercase;
+  background-color: var(--contrast-brand-color);
+  color: var(--background-color);
+  border: 3px solid var(--contrast-brand-color);
 
-    &:hover, &:active {
-      background-color: var(--primary-brand-color);
-      border-color: var(--primary-brand-color);
-      cursor: pointer;
-    }
+  &:hover,
+  &:active {
+    background-color: var(--primary-brand-color);
+    border-color: var(--primary-brand-color);
+    cursor: pointer;
   }
 }

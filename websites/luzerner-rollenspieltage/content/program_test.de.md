@@ -1,5 +1,5 @@
 ---
-title: "Programm"
+title: "Anmelden"
 date: 2019-06-21
 ---
 
@@ -14,14 +14,14 @@ date: 2019-06-21
 <template id="round-template">
     <label data-id="container">
         <div class="round">
-            <h1>Name: <span data-id="name"></span></h1>
+            <h1><span data-id="name"></span></h1>
             <p>Spielleiter: <span data-id="gm"></span></p>
             <p>Spielbeschreibung: <span data-id="game-description"></span></p>
             <p>Kampagnenbeschreibung: <span data-id="campaign-description"></span></p>
             <p>Sprache: <span data-id="lang"></span> <img height="10" data-id="lang-img"></p>
             <p>Tag/Zeit: <span data-id="day"></span> / <span data-id="from"></span> - <span data-id="to"></span></p>
             <p>Spieler Aktuell: <strong><span data-id="players-current"></span></strong> / Max: <span data-id="players-max"></span></p>
-            <p class="hint">HINT/HERE <span data-id="hint"></span></p>
+            <p class="hint c-btn"><span data-id="hint"></span></p>
             <input data-id="checkbox" type="checkbox">
         </div>
     </label>
@@ -31,17 +31,41 @@ date: 2019-06-21
     <p data-id="container">Name: <span data-id="name"></span> / Tag <span data-id="day"></span> / Von <span data-id="from"></span> / Bis <span data-id="to"></span></p>
 </template>
 
-<div id="rounds"></div>
+## Freitag, 30. August 2019
 
-<p><input type="text" id="name" value="Hans Muster"></p>
+<div id="c-rounds" class="u-bleed-out"></div>
 
-<p><input type="text" id="email" value="hans@muster.com"></p>
+## Samstag, 31. August 2019
 
-<p><textarea id="comment">bla blib blub</textarea></p>
+<pre>TODO: Tage aufteilen</pre>
 
-<p><button id="submit">Submit</button></p>
+<div class="c-form">
+<form action="https://formsubmit.co/mail@rollenspieltag.ch" method="POST">
+    <div>
+        <p class="c-form--item c-form-field--text">
+            <label for="name">Name *</label>
+            <input name="name" id="name" type="text" placeholder="Name">
+        </p>
+        <p class="c-form--item c-form-field--text">
+            <label for="email">E-Mail *</label>
+            <input name="email" id="email" type="email" placeholder="E-Mail">
+        </p>
+        <p class="c-form--item c-form-field--text">
+            <label for="comment">Nachricht</label>
+            <textarea comment="message" id="comment" placeholder="Nachricht"></textarea>
+        </p>
+
+<h2>Zusammenfassung</h2>
 
 <div id="summaries"></div>
+        <input class="c-btn" type="submit" id="submit" value="Absenden">
+        <input type="hidden" name="_next" value="http://localhost:1313/program_test/">
+        <input type="hidden" name="_captcha" value="false">
+    </div>
+</form>
+</div>
+
+
 
 <script src="/scripts/rollenspieltage.js"></script>
 <script>
@@ -72,13 +96,13 @@ async function main() {
     function showSummaries(event) {
         const summaryTemplateNode = document.getElementById('summary-template');
         const summariesNode = document.getElementById('summaries');
-        const roundsNode = document.getElementById('rounds');
+        const roundsNode = document.getElementById('c-rounds');
         const fragment = document.createDocumentFragment();
         forEachRound(registrations, (roundId, round, game, playersMax, playersCurrent) => {
             const roundNode = roundsNode.querySelector('[data-round-id="' + roundId + '"]');
             const checkboxNode = roundNode.querySelector('[data-id=checkbox]');
             const hintNode = roundNode.querySelector('[data-id=hint]');
-            hintNode.innerText = checkboxNode.checked ? 'SELECTED' : 'NOT SELECTED?'; // TODO do something useful here or remove it
+            hintNode.innerText = checkboxNode.checked ? 'AUSGEWÄHLT' : 'AUSWÄHLEN'; // TODO do something useful here or remove it
             if(checkboxNode.checked === true) {
                 const templateNode = summaryTemplateNode.content.cloneNode(true);
                 templateNode.querySelector('[data-id=name]').innerText = game.name;
@@ -94,7 +118,7 @@ async function main() {
 
     function showRounds() {
         const roundTemplateNode = document.getElementById('round-template');
-        const roundsNode = document.getElementById('rounds');
+        const roundsNode = document.getElementById('c-rounds');
         const fragment = document.createDocumentFragment();
 
         forEachRound(registrations, (roundId, round, game, playersMax, playersCurrent) => {
