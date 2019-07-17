@@ -99,8 +99,7 @@ async function main() {
         await submitRegistration(name, email, comment);
     }
 
-    function updateRoundState(roundId, playersCurrent, playersMax, checkboxNode) {
-        const roundNode = document.querySelector('[data-round-id="' + roundId + '"]');
+    function updateRoundState(roundNode, playersCurrent, playersMax, checkboxNode) {
         if (playersCurrent === playersMax) {
             roundNode.classList.add('round-full');
             roundNode.querySelector('[data-id=btn-choose]').value = 'Ausgebucht';
@@ -132,7 +131,7 @@ async function main() {
                 fragment.appendChild(templateNode);
             }
 
-            updateRoundState(roundId, playersCurrent, playersMax, checkboxNode)
+            updateRoundState(roundNode, playersCurrent, playersMax, checkboxNode)
         });
 
         replaceWithFragment(summariesNode, fragment);
