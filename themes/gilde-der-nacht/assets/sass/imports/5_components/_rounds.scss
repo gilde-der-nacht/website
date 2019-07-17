@@ -3,7 +3,7 @@
     grid-template-columns: repeat(2, 50%);
     grid-gap: 25px;
 
-    .round {
+    label {
         background-color: var(--light-grey-color);
         padding: 10px;
         cursor: pointer;
@@ -16,7 +16,7 @@
         }
     }
 
-    .round.full {
+    label.round-full {
         background-color: var(--dark-grey-color);
         cursor: not-allowed;
         border: 5px solid var(--dark-grey-color);
@@ -28,7 +28,8 @@
         }
     }
 
-    .round.active {
+
+    label.active {
         border: 5px solid var(--dark-grey-color);
 
         .c-btn {
