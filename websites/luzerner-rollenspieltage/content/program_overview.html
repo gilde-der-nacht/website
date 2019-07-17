@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body {
+    width: 40em;
+    margin: 1em auto;
+}
+</style>
+<!--
+<script src="http://127.0.0.1:5000/app.js"></script>
+-->
+<script src="/scripts/apollon-model.js"></script>
+<script>
+'use strict';
+
+async function main() {
+    const games = getGames();
+    const rounds = getRounds();
+    const registrations = await getRegistrations();
+
+    /*
+    TODO
+
+    showRoundsOverview & showGmsOverview are written a bit ugly and just create a HTML.
+    For a proof of concepts this is enough. If this functionality is further used, some kind
+    of a template should be used.
+    */
+
+    function showRoundsOverview() {
+        const roundsOverviewNode = document.getElementById('rounds-overview');
+        const fragment = document.createDocumentFragment();
+
+        let html = '';
+        Object.keys(rounds).forEach(roundId => {
+            const round = rounds[roundId];
+            const game = games[round.gameId];
+            html += '<h2>' + game.name + ' - ' + game.gm + '</h2>';
+            registrations.forEach(registration => {
+                if(registration.publicBody.roundId === roundId) {
+                    const name = registration.privateBody.name;
+                    html += '<div>' + name + '</div>';
+                }
+            });
+        });
+
+        roundsOverviewNode.innerHTML = html;
+        //replaceWithFragment(roundsOverviewNode, fragment);
+    }
+
+    function showGmsOverview() {
+        const gmsOverviewNode = document.getElementById('gms-overview');
+        const fragment = document.createDocumentFragment();
+
+        const gms = {};
+        Object.keys(rounds).forEach(roundId => {
+            const round = rounds[roundId];
+            const game = games[round.gameId];
+            if(!(game.gm in gms)) {
+                gms[game.gm] = [];
+            }
+            gms[game.gm].push(round);
+        });
+
+        let html = '';
+        Object.keys(gms).forEach(gm => {
+            html += '<h2>' + gm + '</h2>';
+            gms[gm].forEach(round => {
+                html += '<p>' + games[round.gameId].name + ' ' + round.day + ' ' + round.from + '-' + round.to + '</p>';
+            });
+        });
+        gmsOverviewNode.innerHTML = html;
+
+        //replaceWithFragment(gmsOverviewNode, fragment);
+    }
+
+    showRoundsOverview();
+    showGmsOverview();
+}
+
+window.addEventListener('load', main);
+
+</script>
+</head>
+<body>
+
+<p>
+Hint: This page is only for the organization and show an overview for all GMs and and overview for all rounds.
+</p>
+
+<h1>Rounds</h1>
+
+<div id="rounds-overview"></div>
+
+<h1>GMs</h1>
+
+<div id="gms-overview"></div>
+
+<h1>Public</h1>
+
+
+</body>
+</html>
