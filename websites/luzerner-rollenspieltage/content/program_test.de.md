@@ -24,8 +24,9 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
             <p>Sprache: <span data-id="lang"></span> <img height="10" data-id="lang-img"></p>
             <p>Tag/Zeit: <span data-id="day"></span> / <span data-id="from"></span> - <span data-id="to"></span></p>
             <p>Spieler Aktuell: <strong><span data-id="players-current"></span></strong> / Max: <span data-id="players-max"></span></p>
-            <p class="hint c-btn"><span data-id="hint"></span></p>
             <input data-id="checkbox" type="checkbox">
+            <p><input data-id="btn-choose" class="c-btn" type="button"></p>
+            <p class="hint"><span data-id="hint"></span></p>
         </div>
     </label>
 </template>
@@ -98,6 +99,20 @@ async function main() {
         await submitRegistration(name, email, comment);
     }
 
+    function updateRoundState(roundId, playersCurrent, playersMax, checkboxNode) {
+        const roundNode = document.querySelector('[data-round-id="' + roundId + '"]');
+        if (playersCurrent === playersMax) {
+            roundNode.classList.add('round-full');
+            roundNode.querySelector('[data-id=btn-choose]').value = 'Ausgebucht';
+        } else if (checkboxNode.checked === true) {
+            roundNode.classList.add('round-active');
+            roundNode.querySelector('[data-id=btn-choose]').value = 'Ausgewählt';
+        } else {
+            roundNode.classList.remove('round-active');
+            roundNode.querySelector('[data-id=btn-choose]').value = 'auswählen';
+        }
+    }
+
     function showSummaries(event) {
         const summaryTemplateNode = document.getElementById('summary-template');
         const summariesNode = document.getElementById('summaries');
@@ -107,7 +122,7 @@ async function main() {
             const roundNode = roundsNode.querySelector('[data-round-id="' + roundId + '"]');
             const checkboxNode = roundNode.querySelector('[data-id=checkbox]');
             const hintNode = roundNode.querySelector('[data-id=hint]');
-            hintNode.innerText = checkboxNode.checked ? 'AUSGEWÄHLT' : 'AUSWÄHLEN'; // TODO do something useful here or remove it
+            hintNode.innerText = checkboxNode.checked ? 'SELECTED' : 'NOT SELECTED?'; // TODO do something useful here or remove it
             if(checkboxNode.checked === true) {
                 const templateNode = summaryTemplateNode.content.cloneNode(true);
                 templateNode.querySelector('[data-id=name]').innerText = game.name;
@@ -116,6 +131,8 @@ async function main() {
                 templateNode.querySelector('[data-id=to]').innerText = round.to;
                 fragment.appendChild(templateNode);
             }
+
+            updateRoundState(roundId, playersCurrent, playersMax, checkboxNode)
         });
 
         replaceWithFragment(summariesNode, fragment);
@@ -128,9 +145,7 @@ async function main() {
 
         forEachRound(registrations, (roundId, round, game, playersMax, playersCurrent) => {
             const templateNode = roundTemplateNode.content.cloneNode(true);
-            if(playersCurrent === playersMax) {
-                templateNode.querySelector('[data-id=container]').classList.add('round-full');
-            }
+            const checkboxNode = templateNode.querySelector('[data-id=checkbox]');
             templateNode.querySelector('[data-id=container]').dataset.roundId = roundId;
             templateNode.querySelector('[data-id=name]').innerText = game.name;
             templateNode.querySelector('[data-id=gm]').innerText = game.gm;
@@ -143,7 +158,6 @@ async function main() {
             templateNode.querySelector('[data-id=to]').innerText = round.to;
             templateNode.querySelector('[data-id=players-current]').innerText = playersCurrent;
             templateNode.querySelector('[data-id=players-max]').innerText = game.playersMax;
-            const checkboxNode = templateNode.querySelector('[data-id=checkbox]');
             checkboxNode.addEventListener('change', showSummaries);
             fragment.appendChild(templateNode);
         });

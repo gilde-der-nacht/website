@@ -29,17 +29,13 @@
     }
 
 
-    label.active {
+    label.round-active {
         border: 5px solid var(--dark-grey-color);
 
         .c-btn {
             background-color: var(--primary-brand-color);
             border-color: var(--primary-brand-color);
         }
-    }
-
-    .hint {
-        text-align: center;
     }
 
     h1 {
