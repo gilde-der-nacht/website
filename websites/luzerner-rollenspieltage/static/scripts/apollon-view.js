@@ -5,7 +5,6 @@ function replaceWithFragment(node, fragment) {
     node.appendChild(fragment);
 }
 
-// TODO prefix important ids with apollon-
 async function main() {
     const registrations = await getRegistrations();
 
@@ -17,7 +16,7 @@ async function main() {
     function translate(what) {
         return i18nMap[what];
     }
-    
+
     function getSelectedRounds() {
         const roundsNode = document.getElementById('apollon-rounds');
         const containers = [...roundsNode.querySelectorAll('[data-id=container]')];
@@ -37,7 +36,7 @@ async function main() {
         const name = nameNode.value;
         const email = emailNode.value;
         const comment = commentNode.value;
-        const rounds = selectedRounds();
+        const rounds = getSelectedRounds();
         await registrationAdd(name, email, comment, rounds);
     }
 
@@ -74,14 +73,14 @@ async function main() {
                 templateNode.querySelector('[data-id=to]').innerText = entry.round.to;
                 fragment.appendChild(templateNode);
             }
-            updateRoundState(roundNode, entry.playersCurrent, entry.game.playersMax, checkboxNode)
+            updateRoundState(roundNode, entry.playersCurrent, entry.game.playersMax, checkboxNode);
         });
         document.getElementById('apollon-summary-hint').innerText = overlapping ? translate('overlapping') : '';
         replaceWithFragment(document.getElementById('apollon-summary'), fragment);
     }
 
     /*
-    For every round, copy an "<template>", populate it with interesting information,
+    For every round, copy a "<template>", populate it with interesting information,
     then put all elements into the browser.
     */
     function showRounds() {
