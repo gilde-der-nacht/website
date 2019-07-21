@@ -1,4 +1,4 @@
-#c-rounds {
+.c-rounds {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-gap: 25px;
@@ -57,8 +57,12 @@
     }
 }
 
+.hint {
+    background-color: #f66;
+}
+
 @media screen and (max-width: 1000px) {
-    #c-rounds {
+    .c-rounds {
         grid-template-columns: 100%;
     }
 }

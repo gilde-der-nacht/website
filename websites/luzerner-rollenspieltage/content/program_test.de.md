@@ -27,7 +27,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
             <p>Spieler Aktuell: <strong><span data-id="players-current"></span></strong> / Max: <span data-id="players-max"></span></p>
             <input data-id="checkbox" type="checkbox">
             <p><input data-id="btn-choose" class="c-btn" type="button"></p>
-            <p class="hint" style="background-color: #f9f"><span data-id="hint"></span></p>
+            <p class="hint"><span data-id="hint"></span></p>
         </div>
     </label>
 </template>
@@ -63,7 +63,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
 <h2>Zusammenfassung</h2>
 
 
-<p id="apollon-summary-hint" style="background-color: #f9f"></p>
+<p id="apollon-summary-hint" class="hint"></p>
 <div id="apollon-summary"></div>
         <input class="c-btn" type="submit" id="submit" value="Absenden">
         <input type="hidden" name="_next" value="http://localhost:1313/program_test/">
