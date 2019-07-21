@@ -72,7 +72,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
 
 </div>
 
-
+<script src="http://127.0.0.1:5000/olymp.js"></script>
 <script src="/scripts/apollon-model.js"></script>
 <script src="/scripts/apollon-view.js"></script>
 

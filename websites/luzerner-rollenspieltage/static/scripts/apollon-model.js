@@ -1,8 +1,6 @@
 'use strict';
 
-// TODO put in class
-
-//const olymp = OlympMock();
+const olymp = new OlympMock({});
 
 function getGames() {
     return {
@@ -36,7 +34,7 @@ function getGames() {
 function getRounds() {
     return {
         'Adrian-0': { gameId: 'Adrian-0', day: 'friday', from: 13, to: 15 },
-        //'Adrian-1': { gameId: 'Adrian-0', day: 'saturday', from: 15, to: 17 },
+        'Adrian-1': { gameId: 'Adrian-0', day: 'saturday', from: 15, to: 17 },
         //'Adrian-2': { gameId: 'Adrian-0', day: 'saturday', from: 13, to: 15 },
 
         'Manuela-0': { gameId: 'Manuela-0', day: 'friday', from: 13, to: 15 },
@@ -50,30 +48,23 @@ function getRounds() {
 }
 
 async function getRegistrations() {
-    //console.assert(await olymp.status(), 'Olymp API Version Mismatch');
-    // TODO check if accidently used APOLLO (without N)
     const APOLLON_UID = '095da522f49aebbd35443fd2349d578a1aaf4a9ea05ae7d59383a5f416d4fd3b';
-    //const registrations = await olymp.getEntries(REGISTRATION_UID);
-    const registrations = [
-        {publicBody: {rounds: ['Adrian-0', 'Adrian-1'], userId: '1'}, privateBody: {name: 'a', email: 'a@unknown.tld'}},
-        {publicBody: {rounds: ['Adrian-0'], userId: '2'}, privateBody: {name: 'b', email: 'b@unknown.tld'}},
-        {publicBody: {rounds: ['Adrian-0'], userId: '3'}, privateBody: {name: 'c', email: 'c@unknown.tld'}},
-        {publicBody: {rounds: ['Adrian-0'], userId: '4'}, privateBody: {name: 'd', email: 'd@unknown.tld'}},
-        //{publicBody: {rounds: ['Adrian-0'], userId: '5'}, privateBody: {name: 'e', email: 'e@unknown.tld'}},
-        //{publicBody: {rounds: ['Adrian-1'], userId: '1'}, privateBody: {name: 'a', email: 'a@unknown.tld'}},
-    ];
-    // TODO Olymp.filterMostRecent(registrations)
+    console.assert(await olymp.status(), 'Olymp API Version Mismatch');
+    if(true) {
+        olymp.resourceAdd(APOLLON_UID);
+        await olymp.entriesAdd(APOLLON_UID, 'a@unknown.tld', {rounds: ['Adrian-0', 'Adrian-1']}, {name: 'a', email: 'a@unknown.tld'});
+        await olymp.entriesAdd(APOLLON_UID, 'b@unknown.tld', {rounds: ['Adrian-0']}, {name: 'b', email: 'b@unknown.tld'});
+        await olymp.entriesAdd(APOLLON_UID, 'c@unknown.tld', {rounds: ['Adrian-0']}, {name: 'c', email: 'c@unknown.tld'});
+        await olymp.entriesAdd(APOLLON_UID, 'd@unknown.tld', {rounds: ['Adrian-0']}, {name: 'd', email: 'd@unknown.tld'});
+        //await olymp.entriesAdd(APOLLON_UID, 'e@unknown.tld', publicBody: {rounds: ['Adrian-1'], privateBody: {name: 'e', email: 'e@unknown.tld'});
+    }
+    const registrations = await olymp.entriesList(APOLLON_UID);
     return registrations;
 }
 
 async function registrationAdd(name, email, comment, rounds) {
-    async function digest(message) {
-        return message
-    }
-
-    const userId = await digest(email);
+    const identification = email;
     const publicBody = {
-        userId: userId,
         rounds: rounds,
     };
     const privateBody = {
@@ -82,28 +73,7 @@ async function registrationAdd(name, email, comment, rounds) {
         comment: comment,
     };
     // TODO submit
-    console.log('registrationAdd ' + JSON.stringify(publicBody) + '\n' + JSON.stringify(privateBody));
-}
-
-// TODO add jslint and jsformat stuff to olymp
-
-// TODO move to Olymp, move groupBy and other functions into Olymp aswell
-// se lodash.sortyBy 
-// https://ramdajs.com/docs/#sortBy
-// at the moment only ascending sorting is supported
-function sortBy(array, ...criterias) {
-    const result = array.slice(0);
-    result.sort((a, b) => {
-        for(let i = 0; i < criterias.length; i += 1) {
-            const ca = criterias[i](a);
-            const cb = criterias[i](b);
-            if((i < criterias.length) && (ca === cb)) {
-                continue;
-            }
-            return ca > cb; // > = ascending, < = descending
-        }
-    });
-    return result;
+    console.log('registrationAdd\n' + identification + '\n' + JSON.stringify(publicBody) + '\n' + JSON.stringify(privateBody));
 }
 
 function roundsDetailed(registrations) {
