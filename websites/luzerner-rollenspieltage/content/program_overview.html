@@ -29,7 +29,7 @@ async function main() {
     */
 
     function showRoundsOverview() {
-        const roundsOverviewNode = document.getElementById('rounds-overview');
+        const roundsOverviewNode = document.getElementById('apollon-rounds-overview');
         const fragment = document.createDocumentFragment();
 
         let html = '';
@@ -38,19 +38,19 @@ async function main() {
             const game = games[round.gameId];
             html += '<h2>' + game.name + ' - ' + game.gm + '</h2>';
             registrations.forEach(registration => {
-                if(registration.publicBody.roundId === roundId) {
-                    const name = registration.privateBody.name;
-                    html += '<div>' + name + '</div>';
-                }
+                registration.publicBody.rounds.forEach(registrationRoundId => {
+                    if(registrationRoundId === roundId) {
+                        const name = `${registration.privateBody.name} - ${registration.privateBody.email}`;
+                        html += '<div>' + name + '</div>';
+                    }
+                });
             });
         });
-
         roundsOverviewNode.innerHTML = html;
-        //replaceWithFragment(roundsOverviewNode, fragment);
     }
 
     function showGmsOverview() {
-        const gmsOverviewNode = document.getElementById('gms-overview');
+        const gmsOverviewNode = document.getElementById('apollon-gms-overview');
         const fragment = document.createDocumentFragment();
 
         const gms = {};
@@ -71,8 +71,6 @@ async function main() {
             });
         });
         gmsOverviewNode.innerHTML = html;
-
-        //replaceWithFragment(gmsOverviewNode, fragment);
     }
 
     showRoundsOverview();
@@ -80,7 +78,6 @@ async function main() {
 }
 
 window.addEventListener('load', main);
-
 </script>
 </head>
 <body>
@@ -91,11 +88,11 @@ Hint: This page is only for the organization and show an overview for all GMs an
 
 <h1>Rounds</h1>
 
-<div id="rounds-overview"></div>
+<div id="apollon-rounds-overview"></div>
 
 <h1>GMs</h1>
 
-<div id="gms-overview"></div>
+<div id="apollon-gms-overview"></div>
 
 <h1>Public</h1>
 
