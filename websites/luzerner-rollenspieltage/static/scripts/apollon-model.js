@@ -1,6 +1,7 @@
 'use strict';
 
 const olymp = new OlympMock({});
+//const olymp = new Olymp({});
 
 function getGames() {
     return {
@@ -47,16 +48,18 @@ function getRounds() {
     };
 }
 
+const APOLLON_UID = '095da522f49aebbd35443fd2349d578a1aaf4a9ea05ae7d59383a5f416d4fd3b';
+
 async function getRegistrations() {
-    const APOLLON_UID = '095da522f49aebbd35443fd2349d578a1aaf4a9ea05ae7d59383a5f416d4fd3b';
     console.assert(await olymp.status(), 'Olymp API Version Mismatch');
-    if(true) {
+    if(olymp.constructor == OlympMock) {
         olymp.resourceAdd(APOLLON_UID);
         await olymp.entriesAdd(APOLLON_UID, 'a@unknown.tld', {rounds: ['Adrian-0', 'Adrian-1']}, {name: 'a', email: 'a@unknown.tld'});
         await olymp.entriesAdd(APOLLON_UID, 'b@unknown.tld', {rounds: ['Adrian-0']}, {name: 'b', email: 'b@unknown.tld'});
         await olymp.entriesAdd(APOLLON_UID, 'c@unknown.tld', {rounds: ['Adrian-0']}, {name: 'c', email: 'c@unknown.tld'});
         await olymp.entriesAdd(APOLLON_UID, 'd@unknown.tld', {rounds: ['Adrian-0']}, {name: 'd', email: 'd@unknown.tld'});
-        //await olymp.entriesAdd(APOLLON_UID, 'e@unknown.tld', publicBody: {rounds: ['Adrian-1'], privateBody: {name: 'e', email: 'e@unknown.tld'});
+        await olymp.entriesAdd(APOLLON_UID, 'e@unknown.tld', {rounds: ['Adrian-0']}, {name: 'e', email: 'e@unknown.tld'});
+        await olymp.entriesAdd(APOLLON_UID, 'f@unknown.tld', {rounds: ['Adrian-1']}, {name: 'f', email: 'f@unknown.tld'});
     }
     const registrations = await olymp.entriesList(APOLLON_UID);
     return registrations;
@@ -72,8 +75,8 @@ async function registrationAdd(name, email, comment, rounds) {
         email: email,
         comment: comment,
     };
-    // TODO submit
-    console.log('registrationAdd\n' + identification + '\n' + JSON.stringify(publicBody) + '\n' + JSON.stringify(privateBody));
+    //console.log('registrationAdd\n' + identification + '\n' + JSON.stringify(publicBody) + '\n' + JSON.stringify(privateBody));
+    await olymp.entriesAdd(APOLLON_UID, identification, publicBody, privateBody);
 }
 
 function roundsDetailed(registrations) {
