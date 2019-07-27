@@ -38,6 +38,7 @@ async function main() {
         const comment = commentNode.value;
         const rounds = getSelectedRounds();
         await registrationAdd(name, email, comment, rounds);
+        location.reload(); // when the page is reloaded, the reservations are immediately updated
     }
 
     function updateRoundState(roundNode, playersCurrent, playersMax, checkboxNode) {
