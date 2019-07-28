@@ -1,7 +1,8 @@
 'use strict';
 
-const olymp = new OlympMock({});
+//const olymp = new OlympMock({});
 //const olymp = new Olymp({});
+const olymp = new Olymp({server: 'https://api.gildedernacht.ch'});
 
 function getGames() {
     return {
