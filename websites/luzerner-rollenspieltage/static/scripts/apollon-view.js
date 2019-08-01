@@ -44,13 +44,13 @@ async function main() {
     function updateRoundState(roundNode, playersCurrent, playersMax, checkboxNode) {
         if (playersCurrent === playersMax) {
             roundNode.classList.add('round-full');
-            roundNode.querySelector('[data-id=btn-choose]').value = 'Ausgebucht';
+            roundNode.querySelector('[data-id=btn-choose]').value = translate('full');
         } else if (checkboxNode.checked === true) {
             roundNode.classList.add('round-active');
-            roundNode.querySelector('[data-id=btn-choose]').value = 'Ausgewählt';
+            roundNode.querySelector('[data-id=btn-choose]').value = translate('choosen');
         } else {
             roundNode.classList.remove('round-active');
-            roundNode.querySelector('[data-id=btn-choose]').value = 'auswählen';
+            roundNode.querySelector('[data-id=btn-choose]').value = translate('choose');
         }
     }
 

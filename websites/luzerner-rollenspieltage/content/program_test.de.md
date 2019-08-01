@@ -9,6 +9,9 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
 <template id="apollon-i18n">
     <p data-id="friday" data-text="Freitag">-</p>
     <p data-id="saturday" data-text="Samstag">-</p>
+    <p data-id="choose" data-text="Auswählen">-</p>
+    <p data-id="choosen" data-text="Ausgewählt">-</p>
+    <p data-id="full" data-text="Ausgebucht">-</p>
     <!-- e.g. countryflags.com -->
     <p data-id="flag-url-DE" data-text="/graphics/germany-flag-small.png">-</p>
     <p data-id="flag-url-EN" data-text="/graphics/united-kingdom-flag-small.png">-</p>
