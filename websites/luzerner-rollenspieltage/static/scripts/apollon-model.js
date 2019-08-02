@@ -79,7 +79,7 @@ function getGames() {
             gameDescription: 'Mitten im viktorianischen Doskvol seid ihr eine kleine, aufstrebende Verbrecherbande, die um die Vorherrschaft kämpft',
             campaignDescription: 'Je nach Motto, dass ihr selber wählt, seid ihr bei euren Verbrechen schnell, brutal, ... was auch immer der morbide Teil eueres Herzens begehrt. Dieses Rollenspiel ist eher für Erwachsene geeignet.',
             lang: 'DE',
-            playersMax: 5,
+            playersMax: 5 - 1,
         },
 
         'Manuela-Finsterland-Stadt': {
