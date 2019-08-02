@@ -209,10 +209,10 @@ function getRounds() {
 const APOLLON_UID = '095da522f49aebbd35443fd2349d578a1aaf4a9ea05ae7d59383a5f416d4fd3b';
 
 async function getRegistrations() {
-    let versionServer;
     const versionApplication = "0.0.0";
-    await olymp.status().then(data => versionServer = data.version);
+    const versionServer = (await olymp.status()).version;
     console.assert(versionServer === versionApplication, 'Olymp API Version Mismatch');
+
     if(olymp.constructor == OlympMock) {
         olymp.resourceAdd(APOLLON_UID);
         await olymp.entriesAdd(APOLLON_UID, 'a@unknown.tld', {rounds: ['Adrian-0', 'Adrian-1']}, {name: 'a', email: 'a@unknown.tld'});
