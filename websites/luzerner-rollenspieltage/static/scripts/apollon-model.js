@@ -169,7 +169,7 @@ function getRounds() {
     return {
         'Adrian-0': { gameId: 'Adrian-EveryoneIsJohn', day: 'friday', from: 19, to: 22 },
         'Adrian-1': { gameId: 'Adrian-EveryoneIsJohn', day: 'saturday', from: 16, to: 19.5 },
-        'Adrian-2': { gameId: 'Adrian-Shadowrun', day: 'saturday', from: 19.3, to: 1 },
+        'Adrian-2': { gameId: 'Adrian-Shadowrun', day: 'saturday', from: 19.5, to: 1 },
 
         'Kevin-0': { gameId: 'Kevin-Cthulhu-Filmriss', day: 'friday', from: 19, to: 1 },
         'Kevin-1': { gameId: 'Kevin-Cthulhu-Zahltag', day: 'saturday', from: 13, to: 16 },
