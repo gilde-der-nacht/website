@@ -61,18 +61,18 @@ function getGames() {
         },
 
         'Oliver-Workshop': {
-            name: 'Workshop Lazy Dungeonmaster',
+            name: 'Workshop: Vorbereitung für faule Spielleiter',
             gm: 'Oliver',
             gameDescription: '',
-            campaignDescription: 'Helft mir die Spielrunde vorzubereiten, die ich darauf hin leiten werde und lerne die Techniken des faulen Spielleiters kennen.',
+            campaignDescription: 'Lasst uns zusammen eine Spielrunde vorzubereiten und lerne die Techniken des faulen Spielleiters kennen.',
             lang: 'DE',
             playersMax: 6 - RESERVE_SPACE,
         },
         'Oliver-SdDf': {
             name: 'Schatten des Dämonenfürsten',
             gm: 'Oliver',
-            gameDescription: 'SdDf Beschreibung???',
-            campaignDescription: 'Was immer am Workshop davor zusammengesponnen wird.',
+            gameDescription: 'Das System ist sehr verwandt mit dem beliebten Dungeons & Dragons Regelwerk. Der Schatten steht für den kommenden Untergang der Welt, wie wir sie kennen.',
+            campaignDescription: 'Düsteres Fantasy. Die Story wird spontan entstehen – lass uns gemeinsam herausfinden, was passieren wird.',
             lang: 'DE',
             playersMax: 6 - RESERVE_SPACE,
         },
