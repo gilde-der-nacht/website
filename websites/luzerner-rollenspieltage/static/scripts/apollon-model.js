@@ -1,8 +1,12 @@
 'use strict';
 
+// TODO put everything into a scope
+
 //const olymp = new OlympMock({});
 //const olymp = new Olymp({});
 const olymp = new Olymp({server: 'https://api.gildedernacht.ch'});
+
+const RESERVE_SPACE = 1;
 
 function getGames() {
     return {
@@ -12,7 +16,7 @@ function getGames() {
             gameDescription: '(THOMAS) Everyone is John ist ein stark vereinfachtes Rollenspiel. Jeder Spieler ist eine Stimme in Johns Kopf und versucht John zu verschiedenen Dingen zu überreden. Dabei kann man John zu nahezu allen Dingen überreden.',
             campaignDescription: 'Willst du eine von vielen Stimmen im schizophrenen Gehirn von John sein? Dann freue dich auf ein extrem chaotisches, kurzweiliges Rollenspiel.',
             lang: 'DE',
-            playersMax: 5 - 1,
+            playersMax: 5 - RESERVE_SPACE,
         },
         'Adrian-Shadowrun': {
             name: 'Shadowrun',
@@ -20,7 +24,7 @@ function getGames() {
             gameDescription: '(THOMAS) Shadowrun spielt in der nahen Zukunft und verbindet den technischen und Dark-Future-Aspekt von Cyberpunk mit magischen Einflüssen der Fantasy (Magie, Elfen, Zwerge, Drachen)',
             campaignDescription: 'Wir tauchen gemeinsam in die düstere Cyberpunkwelt Shadowrun ein.',
             lang: 'DE',
-            playersMax: 4 - 1,
+            playersMax: 4 - RESERVE_SPACE,
         },
 
         'Kevin-Cthulhu-Filmriss': {
@@ -29,7 +33,7 @@ function getGames() {
             gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Wolltet ihr schon immer in die Welt des Cthulhu Mythos eintauchen und zusammen mit euren Charakteren an den Rand des Wahnsinns gelangen? Jetzt habt ihr die Möglichkeit dazu. Mit etwas Glück überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein. Kann man da noch von Glück reden.',
             campaignDescription: 'Ich schreibe diesen Brief unter beträchtlicher geistiger Anspannung. Wenn du diese zitternd gekriezelten Zeilen liest, wirst du mich für Wahnsinnig halten, dies zu beurteilen liegt mir jedoch fern. Ich versuche mit dem Brief nicht meine Taten schön zu reden, da ich selber nicht weiss wie es soweit kommen konnte. Vielmehr versuche ich Sinn in das erlebte von heute Abend zu bringen. Nach einer anstrengenden Woche im Büro freute ich mich wie jeden Freitag auf die Kultfilmnacht in meinem Lieblingskino, dem Central... Das Szenario wird mit vorgefertigten Charakteren gespielt. Ebenfalls werden am Anfang die Regeln von Cthulhu für Anfänger erklärt. Es handelt sich um ein Closed Room Szenario, das heisst das ganze spielt ausschliesslich in den Räumlichkeiten vom Kino.',
             lang: 'DE',
-            playersMax: 5 - 1,
+            playersMax: 5 - RESERVE_SPACE,
         },
         'Kevin-Cthulhu-Zahltag': {
             name: 'Cthulhu (Zahltag)',
@@ -37,7 +41,7 @@ function getGames() {
             gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Wolltet ihr schon immer in die Welt des Cthulhu Mythos eintauchen und zusammen mit euren Charakteren an den Rand des Wahnsinns gelangen? Jetzt habt ihr die Möglichkeit dazu. Mit etwas Glück überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein. Kann man da noch von Glück reden.',
             campaignDescription: 'Ihr habt so richtig Mist gebaut. Euer Boss schäumt vor Wut und ihr wisst nicht ob ihr das ganze wieder gut machen könnt oder bei den Fischen landet. Euer Boss ist aber gnädig gestimmt und gibt euch nochmals eine Chance. Jemand hat in seinem Gebiet gewildert ohne ihm seinen Anteil zu geben. Erledigt das für ihn und ihr seid quitt. Hört sich doch einfach an, kurz beim Typen vorbeischauen, ihm eine Lektion erteilen und eure Schuld ist beglichen. Jedoch hätte es euch stutzig machen sollen, dass ein Ritualdolch samt Inschrift gestohlen wurde, aber wer glaubt schon an sowas. Für das Szenario werden Charaktere zur Verfügung gestellt, ihr könnt aber auch mit einem eigenen Charakter aus der Gangsterbranche auftauchen. Ebenfalls werden am Anfang die Regeln von Cthulhu für Anfänger erklärt. Es handelt sich um ein offenes Szenario, welches in Arkham spielt.',
             lang: 'DE',
-            playersMax: 5 - 1,
+            playersMax: 5 - RESERVE_SPACE,
         },
         'Kevin-Pathfinder': {
             name: 'Pathfinder',
@@ -45,7 +49,7 @@ function getGames() {
             gameDescription: 'Pathfinder ist ein Fantasy Rollenspiel, das auf dem Klassiker Dungeons & Dragons (Version 3.5) beruht. Aufgrund der Open Game License sind die zum Spielen erforderlichen Regeln kostenlos verfügbar. Ebenfalls existiert eine sehr gute Einsteigerbox mit allem was man für den ersten Spieleabend benötigt. So könnt ihr nach kurzem Lesen direkt loslegen und euch langsam an die Welt des Pen & Papers herantasten. Es werden fortlaufend neue Bücher publiziert um die Welt von Pathfinder zu erweitert. Diese enthalten oftmals neue Klassen, Rassen, Fähigkeiten, aber auch detaillierte Beschreibungen zu diversen Gebieten, für jeden ist etwas dabei. Wollt ihr ein Szenario als Drache spielen oder als Groot die Welt von Pathfinder unsicher machen, kein Problem. In einem der Bücher findet ihr bestimmt eine Anleitung dafür.',
             campaignDescription: "Die jungen Helden der Siedlung Kassen brechen auf zu ihrer Initiationszeremonie, einer alten Tradition, bei welcher es ein Stück der Ewigen Flamme zu bergen gilt, die in der Gruft des Gründers des Ortes brennt. Was sie jedoch vorfinden ist eine Begräbnisstätte voller Leichen von Dorfbewohnern sowie belebten Skeletten. Die Helden müssen den Fallen und Gefahren in der Krypta der Ewigen Flamme entgegentreten, den Ursprung der Verderbtheit finden. Für da Szenario werden Charaktere zur Verfügung gestellt, es können jedoch auch eigene Charaktere(lvl1) aus dem Grundregelwerk und Expertenregeln verwendet werden. Am Anfang werden die Regeln von Pathfinder für Anfänger erklärt. Das ganze ist in drei Teile eingeteilt. Der Beginn in der Ortschaft Kassen, sowie kennenlernen von diversen NPC's. Als nächstes der Aufbruch aus Kassen und eine zweitägige Reise durch die Wälder mit all ihren Gefahren. Und im dritten Akt die Ankunft bei der Gruft und deren Erforschung.",
             lang: 'DE',
-            playersMax: 5 - 1,
+            playersMax: 5 - RESERVE_SPACE,
         },
         'Kevin-Paranoia': {
             name: 'Paranoia (Nur erfahrene Spieler)',
@@ -53,7 +57,7 @@ function getGames() {
             gameDescription: '(THOMAS) Paranoia ist ein englischsprachiges satirisches Pen-&-Paper-Rollenspiel, das in einer düsteren Science-Fiction-Umgebung spielt, die Anleihen von Werken wie Catch-22, 1984 und Brazil nimmt.',
             campaignDescription: 'Umzug, 1 Block, Nur erfahrene Spieler',
             lang: 'DE',
-            playersMax: 4 - 1,
+            playersMax: 4 - RESERVE_SPACE,
         },
 
         'Oliver-Workshop': {
@@ -62,7 +66,7 @@ function getGames() {
             gameDescription: '',
             campaignDescription: 'Helft mir die Spielrunde vorzubereiten, die ich darauf hin leiten werde und lerne die Techniken des faulen Spielleiters kennen.',
             lang: 'DE',
-            playersMax: 6 - 1,
+            playersMax: 6 - RESERVE_SPACE,
         },
         'Oliver-SdDf': {
             name: 'Schatten des Dämonenfürsten',
@@ -70,7 +74,7 @@ function getGames() {
             gameDescription: 'SdDf Beschreibung???',
             campaignDescription: 'Was immer am Workshop davor zusammengesponnen wird.',
             lang: 'DE',
-            playersMax: 6 - 1,
+            playersMax: 6 - RESERVE_SPACE,
         },
 
         'Thomas-BladesInTheDark': {
@@ -79,7 +83,7 @@ function getGames() {
             gameDescription: 'Mitten im viktorianischen Doskvol seid ihr eine kleine, aufstrebende Verbrecherbande, die um die Vorherrschaft kämpft',
             campaignDescription: 'Je nach Motto, dass ihr selber wählt, seid ihr bei euren Verbrechen schnell, brutal, ... was auch immer der morbide Teil eueres Herzens begehrt. Dieses Rollenspiel ist eher für Erwachsene geeignet.',
             lang: 'DE',
-            playersMax: 5 - 1,
+            playersMax: 5 - RESERVE_SPACE,
         },
 
         'Manuela-Finsterland-Stadt': {
@@ -88,7 +92,7 @@ function getGames() {
             gameDescription: '(THOMAS) Finsterland spielt in einer Welt, die dem Europa das 19. und 20. Jahrhunderts ähnelt, aber Magie, Monster und revolutionäre Technologien bietet.',
             campaignDescription: 'Stadtabenteuer',
             lang: 'DE',
-            playersMax: 4 - 1,
+            playersMax: 4 - RESERVE_SPACE,
         },
         'Manuela-Finsterland-Piraten': {
             name: 'Finsterland (Piratenabenteuer)',
@@ -96,7 +100,7 @@ function getGames() {
             gameDescription: '(THOMAS) Finsterland spielt in einer Welt, die dem Europa das 19. und 20. Jahrhunderts ähnelt, aber Magie, Monster und revolutionäre Technologien bietet.',
             campaignDescription: 'Piratenabenteuer',
             lang: 'DE',
-            playersMax: 4 - 1,
+            playersMax: 4 - RESERVE_SPACE,
         },
 
         'Stefan-DnD-Aufklaerung': {
@@ -105,7 +109,7 @@ function getGames() {
             gameDescription: 'Eigenes, nicht-klassisches Setting. Grundkenntnisse der Regeln sind erwünscht',
             campaignDescription: '',
             lang: 'DE',
-            playersMax: 5 - 1,
+            playersMax: 5 - RESERVE_SPACE,
         },
         'Stefan-DnD-Befreiung': {
             name: 'D&D 5e (Befreiungsmission)',
@@ -113,7 +117,7 @@ function getGames() {
             gameDescription: 'Eigenes, nicht-klassisches Setting. Grundkenntnisse der Regeln sind erwünscht',
             campaignDescription: 'In einem Land, das von Dämonenkulten beherrscht wird, versucht eine Gruppe Widerstandskämpfer, Gefangene aus einer Festung zu befreien.',
             lang: 'DE',
-            playersMax: 5 - 1,
+            playersMax: 5 - RESERVE_SPACE,
         },
 
         'Viktor-DnD': {
@@ -122,7 +126,7 @@ function getGames() {
             gameDescription: '',
             campaignDescription: "Tired of hearing old players say 'I was there when THAC0 was a thing'? Now is your time to experience this edition. 'Dragon of Despair' is the first in TSR's series of Dragonlance adventures for use with the AD&D game system. The players will adventure in the world of Krynn, visit strange places such as Haven or ruined Xak Tsaroth, and encounter the bizarre draconians and spectral minions.",
             lang: 'EN',
-            playersMax: 8 - 1,
+            playersMax: 8 - RESERVE_SPACE,
         },
 
         'Martin-SwordSorcery': {
@@ -131,7 +135,7 @@ function getGames() {
             gameDescription: '',
             campaignDescription: '',
             lang: 'DE',
-            playersMax: 4 - 1,
+            playersMax: 4 - RESERVE_SPACE,
         },
 
         'Stephan-Earthdawn': {
@@ -140,7 +144,7 @@ function getGames() {
             gameDescription: '',
             campaignDescription: '',
             lang: 'DE',
-            playersMax: 4 - 1,
+            playersMax: 4 - RESERVE_SPACE,
         },
 
         'Jonas-Pathfinder': {
@@ -149,7 +153,7 @@ function getGames() {
             gameDescription: '',
             campaignDescription: '',
             lang: 'DE',
-            playersMax: 6 - 1,
+            playersMax: 6 - RESERVE_SPACE,
         },
 
         /*
@@ -159,7 +163,7 @@ function getGames() {
             gameDescription: '',
             campaignDescription: '',
             lang: 'DE',
-            playersMax: 5,
+            playersMax: 5 - RESERVE_SPACE,
         },
         */
     };
