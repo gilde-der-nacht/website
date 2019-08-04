@@ -14,6 +14,6 @@ Write us and we will get back to you within 24 hours.
 
 {{< form >}}
   {{< input name="name" type="text" placeholder="Name" label="Name *" >}}
-  {{< input name="email" type="email" placeholder="Email" label="E-mail *" >}}
+  {{< input name="email" type="email" placeholder="E-mail" label="E-mail *" >}}
   {{< input name="message" type="textarea" placeholder="Message" label="Message *" >}}
 {{< /form >}}
