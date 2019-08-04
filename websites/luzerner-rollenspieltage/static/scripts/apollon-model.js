@@ -326,16 +326,13 @@ function roundsDetailed(registrations) {
 
 function roundsDayTimeOverlapping(roundIdOthers) {
     function timeOverlapping(a, b) {
-        if(a.day !== b.day) {
+        if(a.to <= b.from) {
             return false;
         }
-        if((a.from >= b.from) && (a.to <= b.to)) {
-            return true;
+        if(a.from >= b.to) {
+            return false;
         }
-        if((b.from >= a.from) && (b.to <= a.to)) {
-            return true;
-        }
-        return false;
+        return true;
     }
 
     const rounds = getRounds();
@@ -343,7 +340,7 @@ function roundsDayTimeOverlapping(roundIdOthers) {
         const roundA = rounds[roundIdA];
         roundIdOthers.forEach(roundIdB => {
             const roundB = rounds[roundIdB];
-            if((roundIdA !== roundIdB) && timeOverlapping(roundA, roundB)) {
+            if((roundIdA !== roundIdB) && (roundA.day === roundB.day) && (timeOverlapping(roundA, roundB) || timeOverlapping(roundB, roundA))) {
                 accumulator.push(roundIdA);
                 return;
             }
