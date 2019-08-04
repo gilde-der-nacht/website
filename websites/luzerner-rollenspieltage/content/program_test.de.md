@@ -26,7 +26,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
             <p>Spielbeschreibung: <span data-id="game-description"></span></p>
             <p>Kampagnenbeschreibung: <span data-id="campaign-description"></span></p>
             <p>Sprache: <span data-id="lang"></span> <img height="10" data-id="lang-img"></p>
-            <p>Tag/Zeit: <span data-id="day"></span> / <span data-id="from"></span> - <span data-id="to"></span></p>
+            <p>Tag und Zeit: <span data-id="day"></span>, <span data-id="from"></span> - <span data-id="to"></span></p>
             <p>Spieler Aktuell: <strong><span data-id="players-current"></span></strong> / Max: <span data-id="players-max"></span></p>
             <input data-id="checkbox" type="checkbox">
             <p><input data-id="btn-choose" class="c-btn" type="button"></p>
@@ -36,7 +36,12 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
 </template>
 
 <template id="apollon-summary-template">
-    <p data-id="container">Name: <span data-id="name"></span> / Tag <span data-id="day"></span> / Von <span data-id="from"></span> / Bis <span data-id="to"></span></p>
+    <tr>
+        <td><span data-id="name"></span></td>
+        <td><span data-id="day"></span></td>
+        <td><span data-id="from"></span></td>
+        <td><span data-id="to"></span></td>
+    </tr>
 </template>
 
 <div id="apollon-rounds">
@@ -62,12 +67,20 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
             <label for="comment">Kommentar</label>
             <textarea comment="message" id="comment" placeholder="Kommentar"></textarea>
         </p>
-
-<h2>Zusammenfassung</h2>
-
-
-<p id="apollon-summary-hint" class="hint"></p>
-<div id="apollon-summary"></div>
+        <h2>Zusammenfassung</h2>
+        <p id="apollon-summary-hint" class="hint"></p>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Tag</th>
+                <th>Von</th>
+                <th>Bis</th>
+            </tr>
+            </thead>
+            <tbody id="apollon-summary">
+            </tbody>
+        </table>
         <input class="c-btn" type="submit" id="submit" value="Absenden">
         <input type="hidden" name="_next" value="http://localhost:1313/program_test/">
         <input type="hidden" name="_captcha" value="false">
