@@ -61,6 +61,11 @@
     input[type=button] {
         pointer-events: none;
     }
+
+}
+
+#apollon-summary td {
+    vertical-align: top;
 }
 
 .hint {
