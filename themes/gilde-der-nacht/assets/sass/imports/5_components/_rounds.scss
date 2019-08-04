@@ -64,7 +64,15 @@
 }
 
 .hint {
-    background-color: #f66;
+    background-color: var(--contrast-brand-color);
+    color: var(--background-color);
+    font-family: var(--primary-font-family);
+    padding-left: 10px;
+    padding-right: 10px;
+
+    span {
+        font-size: 0.9em;
+    }
 }
 
 @media screen and (max-width: 1000px) {
