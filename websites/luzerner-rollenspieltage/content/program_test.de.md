@@ -39,8 +39,8 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
     <tr>
         <td><span data-id="name"></span></td>
         <td><span data-id="day"></span></td>
-        <td><span data-id="from"></span> Uhr</td>
-        <td><span data-id="to"></span> Uhr</td>
+        <td class="u-no-break"><span data-id="from"></span> Uhr</td>
+        <td class="u-no-break"><span data-id="to"></span> Uhr</td>
     </tr>
 </template>
 
