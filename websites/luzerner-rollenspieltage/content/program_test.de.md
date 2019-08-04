@@ -94,5 +94,3 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
 <script src="https://api.gildedernacht.ch/olymp.js"></script>
 <script src="/scripts/apollon-model.js"></script>
 <script src="/scripts/apollon-view.js"></script>
-
-</script>
