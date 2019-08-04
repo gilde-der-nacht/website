@@ -33,6 +33,7 @@
           </object>
         </a>
       </div>
+      <input type="checkbox" id="p-site-nav-toggle">
       <nav id="p-site-nav">
         <ul>
           {{ range .Site.Menus.main }}
@@ -42,6 +43,9 @@
           {{ end }}
         </ul>
       </nav>
+      <label for="p-site-nav-toggle" id="p-site-nav-toggle-label">
+        <span></span>
+      </label>
     </div>
   </div>
 </header>
