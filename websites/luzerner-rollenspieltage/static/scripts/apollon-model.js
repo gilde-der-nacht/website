@@ -325,12 +325,25 @@ function roundsDetailed(registrations) {
 }
 
 function roundsDayTimeOverlapping(roundIdOthers) {
+    function timeOverlapping(a, b) {
+        if(a.day !== b.day) {
+            return false;
+        }
+        if((a.from >= b.from) && (a.to <= b.to)) {
+            return true;
+        }
+        if((b.from >= a.from) && (b.to <= a.to)) {
+            return true;
+        }
+        return false;
+    }
+
     const rounds = getRounds();
     return roundIdOthers.reduce((accumulator, roundIdA) => {
         const roundA = rounds[roundIdA];
         roundIdOthers.forEach(roundIdB => {
             const roundB = rounds[roundIdB];
-            if((roundIdA !== roundIdB) && (roundA.day === roundB.day) && (roundA.from === roundB.from)) {
+            if((roundIdA !== roundIdB) && timeOverlapping(roundA, roundB)) {
                 accumulator.push(roundIdA);
                 return;
             }
