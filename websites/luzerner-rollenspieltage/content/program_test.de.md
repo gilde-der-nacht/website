@@ -26,7 +26,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
             <p>Spielbeschreibung: <span data-id="game-description"></span></p>
             <p>Kampagnenbeschreibung: <span data-id="campaign-description"></span></p>
             <p>Sprache: <span data-id="lang"></span> <img height="10" data-id="lang-img"></p>
-            <p>Tag und Zeit: <span data-id="day"></span>, <span data-id="from"></span> - <span data-id="to"></span></p>
+            <p>Tag und Zeit: <span data-id="day"></span>, <span data-id="from"></span> &mdash; <span data-id="to"></span> <span>Uhr</span></p>
             <p>Spieler Aktuell: <strong><span data-id="players-current"></span></strong> / Max: <span data-id="players-max"></span></p>
             <input data-id="checkbox" type="checkbox">
             <p><input data-id="btn-choose" class="c-btn" type="button"></p>
@@ -39,8 +39,8 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
     <tr>
         <td><span data-id="name"></span></td>
         <td><span data-id="day"></span></td>
-        <td><span data-id="from"></span></td>
-        <td><span data-id="to"></span></td>
+        <td><span data-id="from"></span> Uhr</td>
+        <td><span data-id="to"></span> Uhr</td>
     </tr>
 </template>
 
@@ -74,8 +74,8 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
             <tr>
                 <th>Name</th>
                 <th>Tag</th>
-                <th>Von</th>
-                <th>Bis</th>
+                <th>von</th>
+                <th>bis</th>
             </tr>
             </thead>
             <tbody id="apollon-summary">

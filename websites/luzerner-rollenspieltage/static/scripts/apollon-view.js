@@ -17,6 +17,12 @@ async function main() {
         return i18nMap[what];
     }
 
+    function formatTime(time) {
+        const hours = Math.floor(time);
+        const minutes = (time % 1 === 0) ? '00' : '30';
+        return `${hours}.${minutes}`;
+    }
+
     function getSelectedRounds() {
         const roundsNode = document.getElementById('apollon-rounds');
         const containers = [...roundsNode.querySelectorAll('[data-id=container]')];
@@ -70,8 +76,8 @@ async function main() {
                 const templateNode = summaryTemplateNode.content.cloneNode(true);
                 templateNode.querySelector('[data-id=name]').innerText = entry.game.name;
                 templateNode.querySelector('[data-id=day]').innerText = translate(entry.round.day);
-                templateNode.querySelector('[data-id=from]').innerText = entry.round.from;
-                templateNode.querySelector('[data-id=to]').innerText = entry.round.to;
+                templateNode.querySelector('[data-id=from]').innerText = formatTime(entry.round.from);
+                templateNode.querySelector('[data-id=to]').innerText = formatTime(entry.round.to);
                 fragment.appendChild(templateNode);
             }
             updateRoundState(roundNode, entry.playersCurrent, entry.game.playersMax, checkboxNode);
@@ -100,8 +106,8 @@ async function main() {
             templateNode.querySelector('[data-id=lang]').innerText = entry.game.lang;
             templateNode.querySelector('[data-id=lang-img]').src = translate('flag-url-' + entry.game.lang);
             templateNode.querySelector('[data-id=day]').innerText = translate(entry.round.day);
-            templateNode.querySelector('[data-id=from]').innerText = entry.round.from;
-            templateNode.querySelector('[data-id=to]').innerText = entry.round.to;
+            templateNode.querySelector('[data-id=from]').innerText = formatTime(entry.round.from);
+            templateNode.querySelector('[data-id=to]').innerText = formatTime(entry.round.to);
             templateNode.querySelector('[data-id=players-current]').innerText = entry.playersCurrent;
             templateNode.querySelector('[data-id=players-max]').innerText = entry.game.playersMax;
             templateNode.querySelector('[data-id=checkbox]').addEventListener('change', showSummaries);
