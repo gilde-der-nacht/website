@@ -57,11 +57,11 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
     <div>
         <p class="c-form--item c-form-field--text">
             <label for="name">Name *</label>
-            <input name="name" id="name" type="text" placeholder="Name">
+            <input name="name" id="name" type="text" placeholder="Name" required>
         </p>
         <p class="c-form--item c-form-field--text">
             <label for="email">E-Mail *</label>
-            <input name="email" id="email" type="email" placeholder="E-Mail">
+            <input name="email" id="email" type="email" placeholder="E-Mail" required>
         </p>
         <p class="c-form--item c-form-field--text">
             <label for="comment">Kommentar</label>

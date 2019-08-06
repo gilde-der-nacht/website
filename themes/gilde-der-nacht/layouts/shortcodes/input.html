@@ -1,8 +1,8 @@
 <p class="c-form--item c-form-field--text">
 	<label for="{{ .Get "name" }}">{{ .Get "label" }}</label>
 	{{ if eq (.Get "type") "textarea" }}
-		<textarea name="{{ .Get "name" }}" id="{{ .Get "name" }}" placeholder="{{ .Get "placeholder" }}"></textarea>
+		<textarea name="{{ .Get "name" }}" id="{{ .Get "name" }}" placeholder="{{ .Get "placeholder" }}" {{ .Get "attributes" }}></textarea>
 	{{ else }}
-		<input name="{{ .Get "name" }}" id="{{ .Get "name" }}" type="{{ .Get "type" }}" placeholder="{{ .Get "placeholder" }}">
+		<input name="{{ .Get "name" }}" id="{{ .Get "name" }}" type="{{ .Get "type" }}" placeholder="{{ .Get "placeholder" }}" {{ .Get "attributes" }}>
 	{{ end }}
 </p>
