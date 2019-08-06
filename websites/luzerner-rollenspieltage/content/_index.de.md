@@ -13,8 +13,6 @@ jumbotronImage:
   comment: Star Wars Rollenspiel
 ---
 
-<small>_Aktuelle Phase: Spielleiter-Suche_</small>
-
 | Freitag, <nobr>30. August</nobr> |     | Samstag, <nobr>31. August</nobr> |
 | -------------------------------- | --- | -------------------------------- |
 | 19 bis 1 Uhr                     |     | 13 bis 1 Uhr                     |

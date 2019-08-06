@@ -13,8 +13,6 @@ jumbotronImage:
   comment: Star Wars role-play system
 ---
 
-<small>_Current phase: Search for game masters_</small>
-
 | Friday, <nobr>30. August</nobr>  |     | Saturday, <nobr>31. August</nobr> |
 | -------------------------------- | --- | --------------------------------- |
 | 7 p.m. until 1 a.m.              |     | 1 p.m. until 1 a.m.               |
