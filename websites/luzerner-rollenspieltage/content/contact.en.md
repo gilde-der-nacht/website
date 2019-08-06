@@ -3,7 +3,7 @@ title: "Contact"
 date: 2019-05-01
 menu:
   main:
-    weight: 7
+    weight: 50
 ---
 
 You have any question related to the Luzerner Rollenspieltage?

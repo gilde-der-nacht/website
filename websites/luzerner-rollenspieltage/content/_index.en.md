@@ -4,7 +4,7 @@ subtitle: "Welcome to the <br />Luzerner Rollenspieltage 2019"
 date: 2019-04-01
 menu:
   main:
-    weight: 1
+    weight: 10
 toc: true
 jumbotronImage:
   url: /images/luzerner-rollenspieltag-2018-22.jpg

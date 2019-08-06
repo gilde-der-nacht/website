@@ -3,7 +3,7 @@ title: "Code of Conduct"
 date: 2019-04-01
 menu:
   main:
-    weight: 4
+    weight: 40
 ---
 
 It is important for us that the _Luzerner Rollenspieltage_ will be remembered as a beautiful and safe event for all visitors. Accordingly, we will not tolerate any behavior that is perceived as harassment or abuse, including sexism, racism, anti-semitism, homophobia or transphobia, as well as discrimination based on disability, age, appearance, background or religion.
