@@ -169,7 +169,7 @@ function getGames() {
             name: 'Pathfinder (Einsteigerfreundlich)',
             gm: 'Jonas',
             gameDescription: 'Pathfinder basiert auf der Open Game License des Dungeons & Dragons-Regelwerks in Version 3.5.',
-            campaignDescription: '',
+            campaignDescription: 'Wenn man mit Mörder, Halsabschneider, und Dieben dem dunklen Gott geopfert wird... hat man im Leben viel falsche Entscheidungen getroffen. Jetzt kann man seine Götter um Vergebung bitten oder trifft ein paar falsche Entscheidungen mehr und bleibt vielleicht am Leben.',
             lang: 'DE',
             playersMax: 6 - RESERVE_SEAT,
         },
