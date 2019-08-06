@@ -4,8 +4,8 @@ date: 2019-06-21
 toc: true
 ---
 
-<p id="apollon-submitted-hint" class="hint success"></p>
-<p id="apollon-submitted-summary" class="hint success"></p>
+<p id="apollon-submitted-hint"></p>
+<p id="apollon-submitted-summary"></p>
 
 Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schicke ganz unten das Formular ab:
 

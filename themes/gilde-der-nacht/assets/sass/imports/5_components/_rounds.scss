@@ -80,6 +80,11 @@
     }
 }
 
+.success {
+    border: 5px solid var(--primary-brand-color);
+    padding: 10px;
+}
+
 @media screen and (max-width: 1000px) {
     .c-rounds {
         grid-template-columns: 100%;

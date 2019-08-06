@@ -4,8 +4,8 @@ date: 2019-06-21
 toc: true
 ---
 
-<p id="apollon-submitted-hint" class="hint success"></p>
-<p id="apollon-submitted-summary" class="hint success"></p>
+<p id="apollon-submitted-hint"></p>
+<p id="apollon-submitted-summary"></p>
 
 Select the rounds you would like to participate in and submit the form below:
 

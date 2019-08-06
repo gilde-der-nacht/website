@@ -38,7 +38,9 @@ async function main() {
     function afterSubmit(rounds) {
         window.scrollTo(0,0);
         document.getElementById('apollon-submitted-hint').innerText = translate('submitted-thanks');
-        printTable('apollon-submitted-summary', rounds);
+        const printId = 'apollon-submitted-summary'
+        document.getElementById(printId).classList.add('success');
+        printTable(printId, rounds);
         showRounds();
         showSummaries();
         clearForm();
