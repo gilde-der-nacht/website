@@ -4,6 +4,9 @@ date: 2019-06-21
 toc: true
 ---
 
+<p id="apollon-submitted-hint" class="hint success"></p>
+<p id="apollon-submitted-summary" class="hint success"></p>
+
 Select the rounds you would like to participate in and submit the form below:
 
 <template id="apollon-i18n">
@@ -16,6 +19,7 @@ Select the rounds you would like to participate in and submit the form below:
     <p data-id="flag-url-DE" data-text="/graphics/germany-flag-small.png">-</p>
     <p data-id="flag-url-EN" data-text="/graphics/united-kingdom-flag-small.png">-</p>
     <p data-id="overlapping" data-text="Attention: At least two game rounds overlap in time!">-</p>
+    <p data-id="submitted-thanks" data-text="Thank you for signing up for the following rounds:">-</p>
     <p data-id="form-empty" data-text="Please fill out your name and email address.">-</p>
 </template>
 
