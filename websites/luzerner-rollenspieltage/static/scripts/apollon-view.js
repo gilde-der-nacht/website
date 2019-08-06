@@ -59,7 +59,7 @@ async function main() {
         const comment = commentNode.value;
         if ((name === "") || (email === "")) {
             showSummaries();
-            document.getElementById('apollon-summary-hint').innerText += translate('form-empty');
+            document.getElementById('apollon-summary-hint').innerText += '\n' + translate('form-empty'); // TODO: better solution for multiple hints
             return;
         }
         const rounds = getSelectedRounds();
