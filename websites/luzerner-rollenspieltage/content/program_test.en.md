@@ -40,7 +40,23 @@ Select the rounds you would like to participate in and submit the form below:
     </label>
 </template>
 
-<template id="apollon-summary-template">
+
+<template id="apollon-summary-table">
+    <table id="apollon-table-template">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Day</th>
+            <th>from</th>
+            <th>to</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</template>
+
+<template id="apollon-summary-row">
     <tr>
         <td><span data-id="name"></span></td>
         <td><span data-id="day"></span></td>
@@ -74,18 +90,7 @@ Select the rounds you would like to participate in and submit the form below:
         </p>
         <h2>Summary</h2>
         <p id="apollon-summary-hint" class="hint"></p>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Day</th>
-                <th>from</th>
-                <th>to</th>
-            </tr>
-            </thead>
-            <tbody id="apollon-summary">
-            </tbody>
-        </table>
+        <div id="apollon-summary"></div>
         <input class="c-btn" type="submit" id="submit" value="Submit">
         <input type="hidden" name="_next" value="http://localhost:1313/program_test/">
         <input type="hidden" name="_captcha" value="false">
@@ -99,5 +104,3 @@ Select the rounds you would like to participate in and submit the form below:
 <script src="https://api.gildedernacht.ch/olymp.js"></script>
 <script src="/scripts/apollon-model.js"></script>
 <script src="/scripts/apollon-view.js"></script>
-
-</script>
