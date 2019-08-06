@@ -210,6 +210,24 @@ function getGames() {
             playersMax: 5 - RESERVE_SEAT,
         },
 
+        'Flutschi-Character': {
+            name: 'Workshop: D&D Charakter erstellen',
+            gm: 'Sandro',
+            gameDescription: 'Sandro vom GamePlace hilft euch bei der Charakterkreation im beliebten Dungeons & Dragons Spielsystem.',
+            campaignDescription: '',
+            lang: 'DE',
+            playersMax: 11 - RESERVE_SEAT,
+        },
+
+        'Flutschi-DnD': {
+            name: 'D&D (Einsteigerfreundlich)',
+            gm: 'Sandro',
+            gameDescription: 'folgt. (Erscheine ein bisschen früher, um mit dem Spielleiter Sandro gemeinsam einen Charakter zu erstellen).',
+            campaignDescription: 'folgt',
+            lang: 'DE',
+            playersMax: 5 - RESERVE_SEAT,
+        },
+
         /*
         'XXX': {
             name: '',
@@ -264,6 +282,9 @@ function getRounds() {
         'GianMarco-0': { gameId: 'GianMarco-Dungeonslayer', day: 'friday', from: 19, to: 22 },
         'GianMarco-1': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 16, to: 19.5 },
         'GianMarco-2': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 19.5, to: 22 },
+
+        'Flutschi-0': { gameId: 'Flutschi-Character', day: 'saturday', from: 13, to: 15.3 },
+        'Flutschi-1': { gameId: 'Flutschi-DnD', day: 'saturday', from: 16, to: 22 },
 
         /*
         'XXX': { gameId: 'XXX', day: 'friday', from: 13, to: 13 },
