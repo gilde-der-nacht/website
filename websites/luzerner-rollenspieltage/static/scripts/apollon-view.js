@@ -35,6 +35,11 @@ async function main() {
         }, []);
     }
 
+    function afterSubmit(rounds) {
+        window.scrollTo(0,0);
+        document.getElementById('apollon-submitted-hint').innerText = translate('submitted-thanks');
+    }
+
     async function submit() {
         const nameNode = document.getElementById('name');
         const emailNode = document.getElementById('email');
@@ -49,7 +54,7 @@ async function main() {
         }
         const rounds = getSelectedRounds();
         await registrationAdd(name, email, comment, rounds);
-        location.reload(); // when the page is reloaded, the reservations are immediately updated
+        afterSubmit(rounds);
     }
 
     function updateRoundState(roundNode, playersCurrent, playersMax, checkboxNode) {
@@ -66,9 +71,10 @@ async function main() {
     }
 
     function showSummaries(event) {
-        const summaryTemplateNode = document.getElementById('apollon-summary-template');
+        const summaryTableTemplateNode = document.getElementById('apollon-summary-table');
+        const summaryRowTemplateNode = document.getElementById('apollon-summary-row');
         const roundsNode = document.getElementById('apollon-rounds');
-        const fragment = document.createDocumentFragment();
+        const rowFragment = document.createDocumentFragment();
         const selectedRoundIds = getSelectedRounds();
         const overlappingRoundIds = roundsDayTimeOverlapping(selectedRoundIds);
         let overlapping = overlappingRoundIds.length > 0;
@@ -78,17 +84,23 @@ async function main() {
             const hintNode = roundNode.querySelector('[data-id=hint]');
             hintNode.innerText = overlappingRoundIds.includes(entry.roundId) ? translate('overlapping') : '';
             if(checkboxNode.checked === true) {
-                const templateNode = summaryTemplateNode.content.cloneNode(true);
+                const templateNode = summaryRowTemplateNode.content.cloneNode(true);
                 templateNode.querySelector('[data-id=name]').innerText = entry.game.name;
                 templateNode.querySelector('[data-id=day]').innerText = translate(entry.round.day);
                 templateNode.querySelector('[data-id=from]').innerText = formatTime(entry.round.from);
                 templateNode.querySelector('[data-id=to]').innerText = formatTime(entry.round.to);
-                fragment.appendChild(templateNode);
+                rowFragment.appendChild(templateNode);
             }
             updateRoundState(roundNode, entry.playersCurrent, entry.game.playersMax, checkboxNode);
         });
         document.getElementById('apollon-summary-hint').innerText = overlapping ? translate('overlapping') : '';
-        replaceWithFragment(document.getElementById('apollon-summary'), fragment);
+        if (selectedRoundIds.length > 0) {
+            const templateNode = summaryTableTemplateNode.content.cloneNode(true);
+            replaceWithFragment(document.getElementById('apollon-summary'), templateNode);
+            replaceWithFragment(document.querySelector('#apollon-summary tbody'), rowFragment);
+        } else {
+            document.getElementById('apollon-summary').innerText = '';
+        }
     }
 
     /*

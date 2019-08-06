@@ -4,6 +4,8 @@ date: 2019-06-21
 toc: true
 ---
 
+<p id="apollon-submitted-hint" class="hint success"></p>
+
 Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schicke ganz unten das Formular ab:
 
 <template id="apollon-i18n">
@@ -16,6 +18,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
     <p data-id="flag-url-DE" data-text="/graphics/germany-flag-small.png">-</p>
     <p data-id="flag-url-EN" data-text="/graphics/united-kingdom-flag-small.png">-</p>
     <p data-id="overlapping" data-text="Achtung: Mindestens zwei Spielrunden überlappen zeitlich!">-</p>
+    <p data-id="submitted-thanks" data-text="Danke für das Anmelden für folgende Runden:">-</p>
     <p data-id="form-empty" data-text="Bitte Name und E-Mail-Adresse ausfüllen.">-</p>
 </template>
 
@@ -36,7 +39,22 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
     </label>
 </template>
 
-<template id="apollon-summary-template">
+<template id="apollon-summary-table">
+    <table id="apollon-table-template">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Tag</th>
+            <th>von</th>
+            <th>bis</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</template>
+
+<template id="apollon-summary-row">
     <tr>
         <td><span data-id="name"></span></td>
         <td><span data-id="day"></span></td>
@@ -70,18 +88,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
         </p>
         <h2>Zusammenfassung</h2>
         <p id="apollon-summary-hint" class="hint"></p>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Tag</th>
-                <th>von</th>
-                <th>bis</th>
-            </tr>
-            </thead>
-            <tbody id="apollon-summary">
-            </tbody>
-        </table>
+        <div id="apollon-summary"></div>
         <input class="c-btn" type="submit" id="submit" value="Absenden">
         <input type="hidden" name="_next" value="http://localhost:1313/program_test/">
         <input type="hidden" name="_captcha" value="false">
