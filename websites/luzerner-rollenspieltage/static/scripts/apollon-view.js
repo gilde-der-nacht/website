@@ -42,6 +42,11 @@ async function main() {
         const name = nameNode.value;
         const email = emailNode.value;
         const comment = commentNode.value;
+        if ((name === "") || (email === "")) {
+            showSummaries();
+            document.getElementById('apollon-summary-hint').innerText += translate('form-empty');
+            return;
+        }
         const rounds = getSelectedRounds();
         await registrationAdd(name, email, comment, rounds);
         location.reload(); // when the page is reloaded, the reservations are immediately updated

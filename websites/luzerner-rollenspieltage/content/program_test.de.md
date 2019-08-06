@@ -16,6 +16,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
     <p data-id="flag-url-DE" data-text="/graphics/germany-flag-small.png">-</p>
     <p data-id="flag-url-EN" data-text="/graphics/united-kingdom-flag-small.png">-</p>
     <p data-id="overlapping" data-text="Achtung: Mindestens zwei Spielrunden überlappen zeitlich!">-</p>
+    <p data-id="form-empty" data-text="Bitte Name und E-Mail-Adresse ausfüllen.">-</p>
 </template>
 
 <template id="apollon-round-template">
