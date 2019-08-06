@@ -35,7 +35,7 @@ Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nicht
 
 # Spielleiter
 
-Euch Spielleleitern müssen wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte systemspezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
+Euch Spielleiter und Spielleiterinnen müssen wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte systemspezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
 
 Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfst du dich gerne bei uns im Vorfeld melden. Erfahrene Spielleiter unterstützen dich vor Ort und stehen mit Rat und Tat zur Seite.
 
