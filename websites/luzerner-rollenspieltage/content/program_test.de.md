@@ -50,7 +50,7 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
             <th>bis</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="apollon-summary-entries">
         </tbody>
     </table>
 </template>
@@ -66,7 +66,9 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
 
 <div id="apollon-rounds">
     <h1>Freitag, 30. August 2019</h1>
-    <div id="apollon-rounds-friday" class="u-bleed-out c-rounds"></div>
+    <div id="apollon-rounds-friday" class="u-bleed-out c-rounds">
+        <em>Runden werden geladen. Danke für deine Geduld.</em>
+    </div>
     <h1>Samstag, 31. August 2019</h1>
     <div id="apollon-rounds-saturday" class="u-bleed-out c-rounds"></div>
 </div>

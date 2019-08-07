@@ -51,7 +51,7 @@ Select the rounds you would like to participate in and submit the form below:
             <th>to</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="apollon-summary-entries">
         </tbody>
     </table>
 </template>
@@ -67,7 +67,9 @@ Select the rounds you would like to participate in and submit the form below:
 
 <div id="apollon-rounds">
     <h1>Friday, 30. August 2019</h1>
-    <div id="apollon-rounds-friday" class="u-bleed-out c-rounds"></div>
+    <div id="apollon-rounds-friday" class="u-bleed-out c-rounds">
+        <em>Rounds are being loaded. Thank you for your patience.</em>
+    </div>
     <h1>Saturday, 31. August 2019</h1>
     <div id="apollon-rounds-saturday" class="u-bleed-out c-rounds"></div>
 </div>
