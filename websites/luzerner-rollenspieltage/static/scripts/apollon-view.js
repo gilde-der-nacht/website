@@ -18,9 +18,7 @@ async function main() {
     }
 
     function formatTime(time) {
-        if (time > 24) {
-            time = time - 24;
-        }
+        time = time % 24;
         const hours = Math.floor(time);
         const minutes = (time % 1 === 0) ? '00' : '30';
         return `${hours}.${minutes}`;
