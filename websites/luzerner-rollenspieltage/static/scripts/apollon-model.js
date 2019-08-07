@@ -148,10 +148,10 @@ function getGames() {
         },
 
         'Martin-SwordSorcery': {
-            name: 'Sword & Sorcery (Eigenes Rollenspiel)',
+            name: 'Sword & Sorcery',
             gm: 'Martin',
-            gameDescription: '',
-            campaignDescription: '',
+            gameDescription: 'Sword & Sorcery ist mein eigenes Rollenspiel, mit Elementen von D&D und Dungeonworld.',
+            campaignDescription: 'Schlüpfe in die Rolle eines Fantasy/Mittelalter Helden um verschiedene Herausforderungen zu meistern.',
             lang: 'DE',
             playersMax: 4 - RESERVE_SEAT,
         },
