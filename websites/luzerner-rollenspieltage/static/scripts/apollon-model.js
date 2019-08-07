@@ -120,9 +120,9 @@ function getGames() {
             playersMax: 5 - RESERVE_SEAT,
         },
 
-        'Viktor-DnD': {
+        'Victor-DnD': {
             name: 'D&D 1st Edition',
-            gm: 'Viktor',
+            gm: 'Victor',
             gameDescription: 'Dungeons & Dragons (commonly abbreviated as D&D or DnD) is a fantasy tabletop role-playing game (RPG) originally designed by Gary Gygax and Dave Arneson.',
             campaignDescription: "Tired of hearing old players say 'I was there when THAC0 was a thing'? Now is your time to experience this edition. 'Dragon of Despair' is the first in TSR's series of Dragonlance adventures for use with the AD&D game system. The players will adventure in the world of Krynn, visit strange places such as Haven or ruined Xak Tsaroth, and encounter the bizarre draconians and spectral minions.",
             lang: 'EN',
@@ -264,7 +264,7 @@ function getRounds() {
         'Stefan-0': { gameId: 'Stefan-DnD-Aufklaerung', day: 'friday', from: 19.5, to: 1 },
         'Stefan-1': { gameId: 'Stefan-DnD-Befreiung', day: 'saturday', from: 13, to: 19.5 },
 
-        'Viktor-0': { gameId: 'Viktor-DnD', day: 'saturday', from: 13, to: 16 },
+        'Victor-0': { gameId: 'Victor-DnD', day: 'saturday', from: 13, to: 16 },
 
         'Mark-0': { gameId: 'Mark-LaserAndFeelings', day: 'saturday', from: 16, to: 19.5 },
 
