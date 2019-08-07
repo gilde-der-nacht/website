@@ -15,7 +15,7 @@ We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
 
 ## Time table
 
-![Time table](/graphics/zeitraster_en.png)
+![Time table](/graphics/program/en/zeitraster.png)
 
 # Workshops and discussions
 

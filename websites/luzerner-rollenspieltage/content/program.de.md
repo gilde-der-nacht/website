@@ -15,7 +15,7 @@ Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nicht
 
 ## Zeitraster
 
-![Zeitraster](/graphics/zeitraster_de.png)
+![Zeitraster](/graphics/program/de/zeitraster.png)
 
 # Workshops und Diskussionsrunden
 
