@@ -196,7 +196,7 @@ function getGames() {
             name: 'Dungeonslayer',
             gm: 'Gian-Marco',
             gameDescription: 'Bei Dungeonslayer ist das Dungeoncrawling in einem klassischen Fantasysetting ein wichtiges Element.',
-            campaignDescription: 'TODO',
+            campaignDescription: 'Folgt noch.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -204,8 +204,8 @@ function getGames() {
         'Dominique-DnD': {
             name: 'D&D 5e',
             gm: 'Dominique',
-            gameDescription: '',
-            campaignDescription: '',
+            gameDescription: '...',
+            campaignDescription: 'Folgt noch.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -226,6 +226,15 @@ function getGames() {
             campaignDescription: 'folgt',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
+        },
+
+        'Martin-DSA': {
+            name: 'DSA 5 (Einsteigerfreundlich)',
+            gm: 'Martin',
+            gameDescription: 'DSA5 ist die 5. Regelversion von Das Schwarze Auge. Es basiert auf der, sehr detailreichen Fantasy-Spielwelt Aventurien.',
+            campaignDescription: 'Folgt noch...',
+            lang: 'DE',
+            playersMax: 3 - RESERVE_SEAT,
         },
 
         /*
@@ -285,6 +294,10 @@ function getRounds() {
 
         'Flutschi-0': { gameId: 'Flutschi-Character', day: 'saturday', from: 13, to: 15.3 },
         'Flutschi-1': { gameId: 'Flutschi-DnD', day: 'saturday', from: 16, to: 22 },
+
+        'MartinDSA-0': { gameId: 'Martin-DSA', day: 'friday', from: 19, to: 1 },
+
+        'Dominique-0': { gameId: 'Dominique-DnD', day: 'saturday', from: 16, to: 19.5 },
 
         /*
         'XXX': { gameId: 'XXX', day: 'friday', from: 13, to: 13 },
