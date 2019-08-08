@@ -15,6 +15,14 @@ menu:
 
 Rollenspielfanatiker am Werk.
 
+![Freakatorium](/graphics/partner/freak-logo.png)
+
+## Freakatorium
+
+[freakatorium.ch](https://www.freakatorium.ch/)
+
+Die Freaks deines Vertrauens, auch beim Rollenspiel! Gerne sind wir mit einem Grundsortiment an den Rollenspieltagen für euch dabei!
+
 ![Switzerland Roleplaying Games](/graphics/partner/srg-logo.png)
 
 ## Switzerland Roleplaying Games
@@ -25,5 +33,4 @@ _Switzerland Roleplaying Games_ ist eine Community, die Menschen zusammenbringt,
 
 ## Weitere Partner
 
-* [Freakatorium](https://www.freakatorium.ch/)
 * [Mannsgöggeli](http://mannsgoeggeli.ch/)
