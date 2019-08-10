@@ -328,7 +328,7 @@ function getRounds() {
     };
 }
 
-const APOLLON_UID = '095da522f49aebbd35443fd2349d578a1aaf4a9ea05ae7d59383a5f416d4fd3b';
+const APOLLON_UID = '3cab2e916dd970fb3520477c751c952d7f69adf53fd7feb5d27a31589527bceb';
 
 async function getRegistrations() {
     const versionApplication = '0.0.0';
