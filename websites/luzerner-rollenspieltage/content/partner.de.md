@@ -41,6 +41,6 @@ _Switzerland Roleplaying Games_ ist eine Community, die Menschen zusammenbringt,
 
 ## SwissRPG
 
-[Zur MeetUp-Gruppe](http://swissrpg.ch/)
+[Zur MeetUp-Gruppe](https://www.meetup.com/SwissRPG-Central/)
 
 *SwissRPG* ist ein gemeinnütziger Verein mit dem Ziel, Menschen in der ganzen Schweiz zu ermöglichen, Rollenspiele wie *Dungeons & Dragons* zu entdecken und zu spielen. Wir wollen dies für möglichst viele Spielleiter und Spieler vereinfachen.

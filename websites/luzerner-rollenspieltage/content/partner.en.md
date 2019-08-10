@@ -40,6 +40,6 @@ _Switzerland Roleplaying Games_ brings people together to organize and play role
 
 ## SwissRPG
 
-[to the MeetUp group](http://swissrpg.ch/)
+[to the MeetUp group](https://www.meetup.com/SwissRPG-Central/)
 
 We are *SwissRPG*, a non-profit association (Verein) with the mission to enable people to discover and play role playing games like *Dungeons and Dragons* all over Switzerland. We want to simplify this for as many Game Masters and players as possible.
