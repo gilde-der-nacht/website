@@ -63,7 +63,7 @@ function getGames() {
         'Oliver-Workshop': {
             name: 'Workshop: Vorbereitung für faule Spielleiter',
             gm: 'Oliver',
-            gameDescription: '',
+            gameDescription: 'Kein Abenteuer sondern ein anregende Austauschrunde.',
             campaignDescription: 'Lasst uns zusammen eine Spielrunde vorzubereiten und lerne die Techniken des faulen Spielleiters kennen.',
             lang: 'DE',
             playersMax: 6 - RESERVE_SEAT,
