@@ -222,8 +222,8 @@ function getGames() {
         'Flutschi-DnD': {
             name: 'D&D (Einsteigerfreundlich)',
             gm: 'Sandro',
-            gameDescription: 'folgt. (Erscheine ein bisschen früher, um mit dem Spielleiter Sandro gemeinsam einen Charakter zu erstellen).',
-            campaignDescription: 'folgt',
+            gameDescription: 'Abenteuer. Dungeons & Dragons 5. Edition. (Erscheine ein bisschen früher, um mit dem Spielleiter Sandro gemeinsam einen Charakter zu erstellen).',
+            campaignDescription: 'Rosa und ihr jüngerer Bruder Dorne brauchen eure Hilfe! Im Keller ihres Hauses ist ein Monster, das schreckhafte Geräusche von sich gibt. Da die Eltern nicht Zuhause sind, bitten sie euch, euch um das Monster zu kümmern und den kleinen Walter zu finden.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
