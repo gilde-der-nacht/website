@@ -272,12 +272,12 @@ function getRounds() {
     return {
         'Adrian-0': { gameId: 'Adrian-EveryoneIsJohn', day: 'friday', from: 19, to: 21.5 },
         'Adrian-1': { gameId: 'Adrian-Shadowrun', day: 'friday', from: 22, to: 25 },
-        'Adrian-2': { gameId: 'Adrian-EveryoneIsJohn', day: 'saturday', from: 16, to: 19.5 },
+        'Adrian-2': { gameId: 'Adrian-EveryoneIsJohn', day: 'saturday', from: 16, to: 18.5 },
         'Adrian-3': { gameId: 'Adrian-Shadowrun', day: 'saturday', from: 19.5, to: 25 },
 
         'Kevin-0': { gameId: 'Kevin-Cthulhu-Zahltag', day: 'friday', from: 19, to: 25 },
         'Kevin-1': { gameId: 'Kevin-Paranoia', day: 'saturday', from: 13, to: 15.5 },
-        'Kevin-2': { gameId: 'Kevin-Cthulhu-Filmriss', day: 'saturday', from: 16, to: 19.5 },
+        'Kevin-2': { gameId: 'Kevin-Cthulhu-Filmriss', day: 'saturday', from: 16, to: 18.5 },
         'Kevin-3': { gameId: 'Kevin-Pathfinder', day: 'saturday', from: 19.5, to: 25 },
 
         'Oliver-0': { gameId: 'Oliver-Workshop', day: 'saturday', from: 19.5, to: 22 },
@@ -286,14 +286,14 @@ function getRounds() {
         'Thomas-0': { gameId: 'Thomas-BladesInTheDark', day: 'saturday', from: 19.5, to: 22 },
 
         'Manuela-0': { gameId: 'Manuela-Finsterland-Stadt', day: 'friday', from: 19.5, to: 22 },
-        'Manuela-1': { gameId: 'Manuela-Finsterland-Piraten', day: 'saturday', from: 16, to: 19.5 },
+        'Manuela-1': { gameId: 'Manuela-Finsterland-Piraten', day: 'saturday', from: 16, to: 18.5 },
 
         'Stefan-0': { gameId: 'Stefan-DnD-Aufklaerung', day: 'friday', from: 19.5, to: 25 },
-        'Stefan-1': { gameId: 'Stefan-DnD-Befreiung', day: 'saturday', from: 13, to: 19.5 },
+        'Stefan-1': { gameId: 'Stefan-DnD-Befreiung', day: 'saturday', from: 13, to: 18.5 },
 
         'Victor-0': { gameId: 'Victor-DnD', day: 'saturday', from: 13, to: 15.5 },
 
-        'Mark-0': { gameId: 'Mark-LaserAndFeelings', day: 'saturday', from: 16, to: 19.5 },
+        'Mark-0': { gameId: 'Mark-LaserAndFeelings', day: 'saturday', from: 16, to: 18.5 },
 
         'Martin-0': { gameId: 'Martin-SwordSorcery', day: 'saturday', from: 13, to: 15.5 },
         'Martin-1': { gameId: 'Martin-SwordSorcery', day: 'saturday', from: 19.5, to: 22 },
@@ -315,7 +315,7 @@ function getRounds() {
 
         'MartinDSA-0': { gameId: 'Martin-DSA', day: 'friday', from: 19, to: 25 },
 
-        'Dominique-0': { gameId: 'Dominique-DnD', day: 'saturday', from: 16, to: 19.5 },
+        'Dominique-0': { gameId: 'Dominique-DnD', day: 'saturday', from: 16, to: 18.5 },
 
         'Gregor-0': { gameId: 'Gregor-DnD', day: 'saturday', from: 13, to: 15.5 },
 
