@@ -71,7 +71,9 @@ Select the rounds you would like to participate in and submit the form below:
         <em>Rounds are being loaded. Thank you for your patience.</em>
     </div>
     <h1>Saturday, 31. August 2019</h1>
-    <div id="apollon-rounds-saturday" class="u-bleed-out c-rounds"></div>
+    <div id="apollon-rounds-saturday" class="u-bleed-out c-rounds">
+        <em>Rounds are being loaded. Thank you for your patience.</em>
+    </div>
 </div>
 
 # Submit registration

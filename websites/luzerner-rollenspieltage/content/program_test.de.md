@@ -70,7 +70,9 @@ Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schic
         <em>Runden werden geladen. Danke für deine Geduld.</em>
     </div>
     <h1>Samstag, 31. August 2019</h1>
-    <div id="apollon-rounds-saturday" class="u-bleed-out c-rounds"></div>
+    <div id="apollon-rounds-saturday" class="u-bleed-out c-rounds">
+        <em>Runden werden geladen. Danke für deine Geduld.</em>
+    </div>
 </div>
 
 # Anmeldung abschliessen
