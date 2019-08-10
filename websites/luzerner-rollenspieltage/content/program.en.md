@@ -1,6 +1,9 @@
 ---
-title: "Register"
+title: "Program"
 date: 2019-06-21
+menu:
+  main:
+    weight: 20
 toc: true
 ---
 
