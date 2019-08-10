@@ -177,8 +177,8 @@ function getGames() {
         'Reto-DnD': {
             name: 'D&D 5e (Für erfahrene Spieler)',
             gm: 'Reto',
-            gameDescription: 'Eigenes Dungeons & Dragons Abenteuer.',
-            campaignDescription: 'Die Goblins von Fährmanns Wald. Warum immer die Heldin oder der Held eines Abenteuers sein? Wenn mann auch einmal ein kleiner grüner Schlitzohr sein kann, wie die Goblins so sind. Ihr seit Untertanen eines Hobgoblins Namens Qrag Bronzehammer. Der euch seit Jahren zu diebische Taten anstiftet aber nun scheint ihm das Gold der armen Bauern kein Reiz mehr zu haben. Ihr seht ihm zu, wie er immer wieder abends zur Burg des Grafen Erick von Pfefferlingen schaut.',
+            gameDescription: 'Eigenes Dungeons & Dragons Abenteuer mit vorgefertigten Charakteren',
+            campaignDescription: 'Warum immer die Heldin oder der Held eines Abenteuers sein? Wenn mann auch einmal ein kleiner grüner Schlitzohr sein kann, wie die Goblins so sind. Ihr seit Untertanen eines Hobgoblins Namens Qrag Bronzehammer. Der euch seit Jahren zu diebische Taten anstiftet aber nun scheint ihm das Gold der armen Bauern kein Reiz mehr zu haben. Ihr seht ihm zu, wie er immer wieder abends zur Burg des Grafen Erick von Pfefferlingen schaut. Was für Pläne geht ihm durch den Kopf?',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -204,8 +204,8 @@ function getGames() {
         'Dominique-DnD': {
             name: 'D&D 5e',
             gm: 'Dominique',
-            gameDescription: '...',
-            campaignDescription: 'Folgt noch.',
+            gameDescription: 'Dungeons & Dragons Abenteuer',
+            campaignDescription: '',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -232,9 +232,18 @@ function getGames() {
             name: 'DSA 5 (Einsteigerfreundlich)',
             gm: 'Martin',
             gameDescription: 'DSA5 ist die 5. Regelversion von Das Schwarze Auge. Es basiert auf der, sehr detailreichen Fantasy-Spielwelt Aventurien.',
-            campaignDescription: 'Folgt noch...',
+            campaignDescription: 'Das Gold der Hügelzwerge. Im Fürstentum Kosch leben Menschen und Zwerge friedlich beisammen. Doch als die Abschrift einer geheimen Bier-Rezeptur auftaucht, schaukeln sich die Gemüter hoch. Gierige Finger strecken sich nach dem kostbaren Pergament, das von einer Truppe wackerer Helden in sichere Hände gebracht werden soll.',
             lang: 'DE',
             playersMax: 3 - RESERVE_SEAT,
+        },
+        
+        'Dominic-DnD': {
+            name: 'D&D 5e',
+            gm: 'Dominic',
+            gameDescription: 'Folgt ...',
+            campaignDescription: 'Folgt ...',
+            lang: 'DE',
+            playersMax: 5 - RESERVE_SEAT,
         },
 
         /*
