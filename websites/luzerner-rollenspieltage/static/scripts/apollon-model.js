@@ -193,10 +193,10 @@ function getGames() {
         },
 
         'GianMarco-Dungeonslayer': {
-            name: 'Dungeonslayer',
+            name: 'Die Räuber vom Lyrkenfenn',
             gm: 'Gian-Marco',
             gameDescription: 'Bei Dungeonslayer ist das Dungeoncrawling in einem klassischen Fantasysetting ein wichtiges Element.',
-            campaignDescription: 'Folgt noch.',
+            campaignDescription: 'HÖRET, HÖRET! Mutige Helden gesucht, denn Belgor und seine brutalen Mannen plagen das Land! 200 GOLD für das Ausrotten der Räuberbande, die ihren Unterschlupf irgendwo im gefährlichen Sumpfgebiet Lyrkenfenn haben muss.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -240,10 +240,10 @@ function getGames() {
         'Dominic-DnD': {
             name: 'D&D 5e',
             gm: 'Dominic',
-            gameDescription: 'Folgt ...',
-            campaignDescription: 'Folgt ...',
+            gameDescription: 'Dungeons & Dragons Abenteuer',
+            campaignDescription: 'Im Dorf Molau geht eine Diebstahlsserie herum und die Wachen finden keinen Schuldigen. Der Zwergenhändler Oskar Grosszeh heuert eine Gruppe Abenteurer an um den/die Diebe zu finden.',
             lang: 'DE',
-            playersMax: 5 - RESERVE_SEAT,
+            playersMax: 4 - RESERVE_SEAT,
         },
 
         'Gregor-DnD': {
@@ -254,6 +254,26 @@ function getGames() {
             lang: 'EN',
             playersMax: 6 - RESERVE_SEAT,
         },
+
+
+        'Anastasia-DnD': {
+            name: '[SwissRPG] Shadows on the Long Road (D&D 5e)',
+            gm: 'Anastasia',
+            gameDescription: 'Dungeons & Dragons 5e is the most iconic tabletop role playing game. It started it all and it\'s the most popular one to this day. Anything you can imagine from the heroic fantasy, you\'ll find here. Become a gnome wizards, a half-orc barbarian, an elf ranger or one many other combinations of races and classes, and go adventuring exploring dungeons, discovering enchanted weapons, and of course, fight anything from goblins to dragons.',
+            campaignDescription: 'We will solve a haunting mystery about people disappearing on the Long Road. This adventure is aimed at both new and experienced DnD 5e players.',
+            lang: 'EN',
+            playersMax: 5 - RESERVE_SEAT,
+        },
+
+        'XXX': {
+            name: '',
+            gm: '',
+            gameDescription: '',
+            campaignDescription: '',
+            lang: 'DE',
+            playersMax: 5 - RESERVE_SEAT,
+        },
+
 
         /*
         'XXX': {
@@ -310,7 +330,7 @@ function getRounds() {
         'GianMarco-1': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 16, to: 18.5 },
         'GianMarco-2': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 19.5, to: 22 },
 
-        'Flutschi-0': { gameId: 'Flutschi-Character', day: 'saturday', from: 13, to: 15.3 },
+        'Flutschi-0': { gameId: 'Flutschi-Character', day: 'saturday', from: 13, to: 15.5 },
         'Flutschi-1': { gameId: 'Flutschi-DnD', day: 'saturday', from: 16, to: 22 },
 
         'MartinDSA-0': { gameId: 'Martin-DSA', day: 'friday', from: 19, to: 25 },
@@ -318,6 +338,10 @@ function getRounds() {
         'Dominique-0': { gameId: 'Dominique-DnD', day: 'saturday', from: 16, to: 18.5 },
 
         'Gregor-0': { gameId: 'Gregor-DnD', day: 'saturday', from: 13, to: 15.5 },
+
+        'Anastasia-0': { gameId: 'Anastasia-DnD', day: 'saturday', from: 13, to: 18.5 },
+
+        'Dominic-0': { gameId: 'Dominic-DnD', day: 'saturday', from: 13, to: 15.5 },
 
         /*
         'XXX': { gameId: 'XXX', day: 'friday', from: 13, to: 13 },
