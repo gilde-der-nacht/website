@@ -193,7 +193,7 @@ function getGames() {
         },
 
         'GianMarco-Dungeonslayer': {
-            name: 'Die Räuber vom Lyrkenfenn',
+            name: 'Dungeonslayer: Die Räuber vom Lyrkenfenn',
             gm: 'Gian-Marco',
             gameDescription: 'Bei Dungeonslayer ist das Dungeoncrawling in einem klassischen Fantasysetting ein wichtiges Element.',
             campaignDescription: 'HÖRET, HÖRET! Mutige Helden gesucht, denn Belgor und seine brutalen Mannen plagen das Land! 200 GOLD für das Ausrotten der Räuberbande, die ihren Unterschlupf irgendwo im gefährlichen Sumpfgebiet Lyrkenfenn haben muss.',
@@ -202,10 +202,10 @@ function getGames() {
         },
 
         'Dominique-DnD': {
-            name: 'D&D 5e',
+            name: 'D&D 5e (Einsteigerfreundlich)',
             gm: 'Dominique',
             gameDescription: 'Dungeons & Dragons Abenteuer',
-            campaignDescription: '',
+            campaignDescription: 'Ihr spielt eine Gruppe Abenteurer, die beauftragt wurden eine alte Gruft zu durchsuchen. Auf dieser Mission müsst ihr verschiedensten Gefahren trotzen und Rätsel lösen, um einen alten Fluch aufzuheben.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
