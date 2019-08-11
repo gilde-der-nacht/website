@@ -157,7 +157,7 @@ function getGames() {
         },
 
         'Stephan-Earthdawn': {
-            name: 'Earhdawn',
+            name: 'Earthdawn',
             gm: 'Stephan',
             gameDescription: 'Earthdawn spielt in einer fiktiven fernen Vergangenheit unserer Erde. Die Welt von Earthdawn war zum Zeitpunkt der ersten Veröffentlichung die offizielle Vergangenheit der Welt von Shadowrun.',
             campaignDescription: 'Das Earthdawn-Einführungsabenteuer Kaer Tardim.',
