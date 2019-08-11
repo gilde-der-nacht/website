@@ -238,7 +238,7 @@ function getGames() {
         },
 
         'Dominic-DnD': {
-            name: 'D&D 5e',
+            name: 'D&D 5e (Einsteigerfreundlich)',
             gm: 'Dominic',
             gameDescription: 'Dungeons & Dragons Abenteuer',
             campaignDescription: 'Im Dorf Molau geht eine Diebstahlsserie herum und die Wachen finden keinen Schuldigen. Der Zwergenhändler Oskar Grosszeh heuert eine Gruppe Abenteurer an um den/die Diebe zu finden.',
