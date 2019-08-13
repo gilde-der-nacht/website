@@ -265,13 +265,22 @@ function getGames() {
             playersMax: 5 - RESERVE_SEAT,
         },
 
-        'XXX': {
-            name: '',
-            gm: '',
-            gameDescription: '',
-            campaignDescription: '',
-            lang: 'DE',
+        'Leo-DnD': {
+            name: '[SwissRPG] The Keepers of Neverwinter (D&D 5e)',
+            gm: 'Leo',
+            gameDescription: 'Dungeons & Dragons 5e is the most iconic tabletop role playing game. It started it all and it\'s the most popular one to this day. Anything you can imagine from the heroic fantasy, you\'ll find here. Become a gnome wizards, a half-orc barbarian, an elf ranger or one many other combinations of races and classes, and go adventuring exploring dungeons, discovering enchanted weapons, and of course, fight anything from goblins to dragons.',
+            campaignDescription: 'You are a part of a selected group that has been accepted to lure dangers away and defend Neverwinter. This is a Mini-Tutorial for Dungeons & Dragons 5e.',
+            lang: 'EN',
             playersMax: 5 - RESERVE_SEAT,
+        },
+
+        'Nicky-DnD': {
+            name: '[SwissRPG] Mines of Dhol Kuldir (D&D 5e)',
+            gm: 'Nicky',
+            gameDescription: 'Dungeons & Dragons 5e is the most iconic tabletop role playing game. It started it all and it\'s the most popular one to this day. Anything you can imagine from the heroic fantasy, you\'ll find here. Become a gnome wizards, a half-orc barbarian, an elf ranger or one many other combinations of races and classes, and go adventuring exploring dungeons, discovering enchanted weapons, and of course, fight anything from goblins to dragons.',
+            campaignDescription: 'In the shadow of the Thunder Peaks stands a small town, plagued by unlikely thieves. Investigating these burglaries leads to the discovery of a long-lost dwarven mine. While its original inhabitants are long gone, other things now lurk in the darkened halls of Dhol Kuldhir, and they have their own ways of dealing with trespassers.',
+            lang: 'EN',
+            playersMax: 4 - RESERVE_SEAT,
         },
 
 
@@ -342,6 +351,10 @@ function getRounds() {
         'Anastasia-0': { gameId: 'Anastasia-DnD', day: 'saturday', from: 13, to: 18.5 },
 
         'Dominic-0': { gameId: 'Dominic-DnD', day: 'saturday', from: 13, to: 15.5 },
+
+        'Leo-0': { gameId: 'Leo-DnD', day: 'saturday', from: 13, to: 18.5 },
+
+        'Nicky-0': { gameId: 'Nicky-DnD', day: 'saturday', from: 13, to: 18.5 },
 
         /*
         'XXX': { gameId: 'XXX', day: 'friday', from: 13, to: 13 },
