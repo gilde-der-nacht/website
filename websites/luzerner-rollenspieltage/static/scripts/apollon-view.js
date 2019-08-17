@@ -6,7 +6,11 @@ function replaceWithFragment(node, fragment) {
 }
 
 async function main() {
-    const registrations = await getRegistrations();
+    const apollon = new ApollonModel({
+        server: 'https://api.gildedernacht.ch'
+    });
+
+    const registrations = await apollon.getRegistrations();
 
     const i18nMap = {};
     document.getElementById('apollon-i18n').content.querySelectorAll('*').forEach(child => {
@@ -29,7 +33,7 @@ async function main() {
         const containers = [...roundsNode.querySelectorAll('[data-id=container]')];
         return containers.reduce((accumulator, roundNode) => {
             const checkboxNode = roundNode.querySelector('[data-id=checkbox]');
-            if(checkboxNode.checked === true) {
+            if (checkboxNode.checked === true) {
                 accumulator.push(roundNode.dataset.roundId);
             }
             return accumulator;
@@ -37,7 +41,7 @@ async function main() {
     }
 
     function afterSubmit(rounds) {
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
         document.getElementById('apollon-submitted-hint').innerText = translate('submitted-thanks');
         const printId = 'apollon-submitted-summary'
         document.getElementById(printId).classList.add('success');
@@ -60,13 +64,13 @@ async function main() {
         const name = nameNode.value;
         const email = emailNode.value;
         const comment = commentNode.value;
-        if ((name === "") || (email === "")) {
+        if ((name === "") || (email === "")) {
             showSummaries();
             document.getElementById('apollon-summary-hint').innerText += '\n' + translate('form-empty'); // TODO: better solution for multiple hints
             return;
         }
         const rounds = getSelectedRounds();
-        await registrationAdd(name, email, comment, rounds);
+        await apollon.registrationAdd(name, email, comment, rounds);
         afterSubmit(rounds);
     }
 
@@ -86,9 +90,9 @@ async function main() {
     function showSummaries(event) {
         const roundsNode = document.getElementById('apollon-rounds');
         const selectedRoundIds = getSelectedRounds();
-        const overlappingRoundIds = roundsDayTimeOverlapping(selectedRoundIds);
+        const overlappingRoundIds = apollon.roundsDayTimeOverlapping(selectedRoundIds);
         let overlapping = overlappingRoundIds.length > 0;
-        roundsDetailed(registrations).forEach(entry => {
+        apollon.roundsDetailed(registrations).forEach(entry => {
             const roundNode = roundsNode.querySelector('[data-round-id="' + entry.roundId + '"]');
             const checkboxNode = roundNode.querySelector('[data-id=checkbox]');
             const hintNode = roundNode.querySelector('[data-id=hint]');
@@ -105,8 +109,8 @@ async function main() {
         const rowFragment = document.createDocumentFragment();
 
         rounds.forEach(key => {
-            const round = getRounds()[key];
-            const entry = getGames()[round.gameId];
+            const round = apollon.getRounds()[key];
+            const entry = apollon.getGames()[round.gameId];
 
             const templateNode = summaryRowTemplateNode.content.cloneNode(true);
             templateNode.querySelector('[data-id=name]').innerText = entry.name;
@@ -135,7 +139,7 @@ async function main() {
             'friday': document.createDocumentFragment(),
             'saturday': document.createDocumentFragment(),
         };
-        roundsDetailed(registrations).forEach(entry => {
+        apollon.roundsDetailed(registrations).forEach(entry => {
             const templateNode = roundTemplateNode.content.cloneNode(true);
             templateNode.querySelector('[data-id=container]').dataset.roundId = entry.roundId;
             templateNode.querySelector('[data-id=name]').innerText = entry.game.name;
