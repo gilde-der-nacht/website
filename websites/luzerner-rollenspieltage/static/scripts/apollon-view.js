@@ -78,6 +78,8 @@ async function main() {
         if (playersCurrent >= playersMax) {
             roundNode.classList.add('round-full');
             roundNode.querySelector('[data-id=btn-choose]').value = translate('full');
+            roundNode.querySelector('[data-id=checkbox]').addEventListener('change', showSummaries);
+            roundNode.querySelector('[data-id=checkbox]').setAttribute('onkeydown', 'e = e || window.event; if(e.keyCode !== 9) return false;');
         } else if (checkboxNode.checked === true) {
             roundNode.classList.add('round-active');
             roundNode.querySelector('[data-id=btn-choose]').value = translate('choosen');
