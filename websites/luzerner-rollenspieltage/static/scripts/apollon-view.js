@@ -75,7 +75,7 @@ async function main() {
     }
 
     function updateRoundState(roundNode, playersCurrent, playersMax, checkboxNode) {
-        if (playersCurrent === playersMax) {
+        if (playersCurrent >= playersMax) {
             roundNode.classList.add('round-full');
             roundNode.querySelector('[data-id=btn-choose]').value = translate('full');
         } else if (checkboxNode.checked === true) {
