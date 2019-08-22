@@ -82,7 +82,7 @@ _Hint: This page is only for the organization and show an overview for all GMs a
                 const round = rounds[roundId];
                 const game = games[round.gameId];
                 html += '<h2>' + game.name + ' - ' + game.gm + '</h2>';
-                html += '<h6>' + round.day + ', from ' + round.from + ' to ' + round.to + ' / Max players: ' + game.playersMax + '</h6>';
+                html += '<h6>' + round.day + ', from ' + round.from + ' to ' + round.to + ' / Max players: ' + (game.playersMax + RESERVE_SEAT) + '</h6>';
 
                 html += '<ol>';
                 registrations.forEach(registration => {
