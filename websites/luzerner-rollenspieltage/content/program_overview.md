@@ -6,6 +6,7 @@ toc: true
 
 _Hint: This page is only for the organization and show an overview for all GMs and and overview for all rounds._
 
+<div><input id="apollon-hide-button" class="c-btn" type="submit" value="Toggle Form Visibility"></div>
 <div class="c-form" id="apollon-login-form">
 <form action="#">
 <div>
@@ -22,7 +23,6 @@ _Hint: This page is only for the organization and show an overview for all GMs a
 </form>
 </div>
 
-
 # Rounds
 
 <div id="apollon-rounds-overview"></div>
@@ -31,9 +31,9 @@ _Hint: This page is only for the organization and show an overview for all GMs a
 
 <div id="apollon-gms-overview"></div>
 
-# Public
+# Players
 
-<div id="apollon-public-overview"></div>
+<div id="apollon-players-overview"></div>
 
 
 
@@ -48,17 +48,23 @@ _Hint: This page is only for the organization and show an overview for all GMs a
     async function main(event) {
         event.preventDefault();
         const loginForm = document.getElementById('apollon-login-form');
+        const username = loginForm.querySelector('#login');
+        const password = loginForm.querySelector('#password');
 
         const apollon = new ApollonModel({
             server: 'https://api.gildedernacht.ch',
-            username: loginForm.querySelector('#login').value,
-            password: loginForm.querySelector('#password').value
+            username: username.value,
+            password: password.value
         });
 
-        loginForm.style.display = 'none';
+        username.value = "";
+        password.value = "";
+
 
         const games = apollon.getGames();
+        console.log('games', games);
         const rounds = apollon.getRounds();
+        console.log('rounds', rounds);
         const registrations = await apollon.getRegistrations();
 
         /*
@@ -78,6 +84,7 @@ _Hint: This page is only for the organization and show an overview for all GMs a
                 const round = rounds[roundId];
                 const game = games[round.gameId];
                 html += '<h2>' + game.name + ' - ' + game.gm + '</h2>';
+                html += '<h6>' + round.day + ', from ' + round.from + ' to ' + round.to + ' / Max players: ' + game.playersMax + '</h6>';
                 registrations.forEach(registration => {
                     registration.publicBody.rounds.forEach(registrationRoundId => {
                         if (registrationRoundId === roundId) {
@@ -116,9 +123,28 @@ _Hint: This page is only for the organization and show an overview for all GMs a
             gmsOverviewNode.innerHTML = html;
         }
 
+        function showPlayersOverview() {
+            const playersOverviewNode = document.getElementById('apollon-players-overview');
+            const fragment = document.createDocumentFragment();
+            playersOverviewNode.innerHtml = "text";
+        }
+
         showRoundsOverview();
         showGmsOverview();
+        showPlayersOverview();
+    }
+
+    function hideForm(event) {
+        event.preventDefault();
+        const loginForm = document.getElementById('apollon-login-form');
+
+        if (loginForm.style.display == 'none') {
+            loginForm.style.display = 'initial';
+        } else {
+            loginForm.style.display = 'none';
+        }
     }
 
     document.getElementById('apollon-login-button').addEventListener('click', main);
+    document.getElementById('apollon-hide-button').addEventListener('click', hideForm);
 </script>
