@@ -62,9 +62,7 @@ _Hint: This page is only for the organization and show an overview for all GMs a
 
 
         const games = apollon.getGames();
-        console.log('games', games);
         const rounds = apollon.getRounds();
-        console.log('rounds', rounds);
         const registrations = await apollon.getRegistrations();
 
         /*
@@ -85,15 +83,18 @@ _Hint: This page is only for the organization and show an overview for all GMs a
                 const game = games[round.gameId];
                 html += '<h2>' + game.name + ' - ' + game.gm + '</h2>';
                 html += '<h6>' + round.day + ', from ' + round.from + ' to ' + round.to + ' / Max players: ' + game.playersMax + '</h6>';
+
+                html += '<ol>';
                 registrations.forEach(registration => {
                     registration.publicBody.rounds.forEach(registrationRoundId => {
                         if (registrationRoundId === roundId) {
                             const name =
                                 `${registration.privateBody.name} - ${registration.privateBody.email}`;
-                            html += '<div>' + name + '</div>';
+                            html += '<li>' + name + '</li>';
                         }
                     });
                 });
+                html += '</ol>';
             });
             roundsOverviewNode.innerHTML = html;
         }
@@ -115,18 +116,36 @@ _Hint: This page is only for the organization and show an overview for all GMs a
             let html = '';
             Object.keys(gms).forEach(gm => {
                 html += '<h2>' + gm + '</h2>';
+
+                html += '<ol>';
                 gms[gm].forEach(round => {
-                    html += '<p>' + games[round.gameId].name + ' ' + round.day + ' ' + round
-                        .from + '-' + round.to + '</p>';
+                    html += '<li>' + games[round.gameId].name + ' / ' + round.day + ', from ' + round.from + ' to ' + round.to + '</li>';
                 });
+                html += '</ol>';
             });
             gmsOverviewNode.innerHTML = html;
         }
 
         function showPlayersOverview() {
             const playersOverviewNode = document.getElementById('apollon-players-overview');
-            const fragment = document.createDocumentFragment();
-            playersOverviewNode.innerHtml = "text";
+
+            let html = '';
+            registrations.forEach(registration => {
+                html += '<h2>' + registration.privateBody.name + '</h2>';
+                html += '<h6>' + registration.privateBody.email + '</h6>';
+                html += '<p><em>Comment: ' + registration.privateBody.comment + '</em></p>';
+
+                html += '<ol>';
+                registration.publicBody.rounds.forEach(roundId => {
+                    const round = rounds[roundId];
+                    const game = games[round.gameId];
+
+                    html +='<li>' + games[round.gameId].name + ' / ' + round.day + ', from ' + round.from + ' to ' + round.to + '</li>';
+                });
+                html += '</ol>';
+            });
+
+            playersOverviewNode.innerHTML = html;
         }
 
         showRoundsOverview();
