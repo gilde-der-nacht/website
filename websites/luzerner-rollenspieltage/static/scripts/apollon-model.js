@@ -7,7 +7,9 @@ class ApollonModel {
             this.olymp = new OlympMock({});
         } else {
             this.olymp = new Olymp({
-                server: config.server
+                server: config.server,
+                username: config.username,
+                password: config.password
             });
         }
         this.APOLLON_UID = config.apollonUid || '3cab2e916dd970fb3520477c751c952d7f69adf53fd7feb5d27a31589527bceb';
