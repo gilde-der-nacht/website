@@ -548,7 +548,7 @@ class ApollonModel {
     }
 
     async getRegistrations() {
-        const versionApplication = '0.0.0';
+        const versionApplication = '1.0.0';
         const versionServer = (await this.olymp.status()).version;
         console.assert(versionServer === versionApplication, 'Olymp API Version Mismatch');
 
