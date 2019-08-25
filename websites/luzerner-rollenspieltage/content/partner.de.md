@@ -23,6 +23,8 @@ Rollenspielfanatiker am Werk.
 
 Die Freaks deines Vertrauens, auch beim Rollenspiel! Gerne sind wir mit einem Grundsortiment an den Rollenspieltagen für euch dabei!
 
+![Mannsgöggeli](/graphics/partner/mg-logo.png)
+
 ## Mannsgöggeli
 
 [mannsgoeggeli.ch](http://mannsgoeggeli.ch/)

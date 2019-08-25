@@ -22,6 +22,8 @@ Roleplaying fanatics at work.
 
 The freaks you trust, also when it comes to role-playing! We will be happy to provide you with a basic product range at the Rollenspieltag!
 
+![Mannsgöggeli](/graphics/partner/mg-logo.png)
+
 ## Mannsgöggeli
 
 [mannsgoeggeli.ch](http://mannsgoeggeli.ch/)
