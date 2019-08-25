@@ -23,11 +23,9 @@ jumbotronImage:
 
 _Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
 
-Sobald die ersten Spielleiter sich bei uns gemeldet haben, werden wir die Spielrunden aufschalten. Du kannst dir dann online, oder spontan vor Ort, einen Platz am Tisch reservieren.
+[**Melde dich jetzt an!**]({{< ref "program" >}})
 
-**Möchtest du gerne erinnert werden, sobald die ersten Runden online stehen?**
-
-Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
+Kannst du leider nicht dabei sein, möchtest aber gerne für zukünftige Rollenspielanlässe informiert werden? Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
 

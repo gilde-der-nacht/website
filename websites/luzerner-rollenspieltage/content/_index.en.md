@@ -23,11 +23,9 @@ jumbotronImage:
 
 _First time here? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
 
-As soon as the first game masters have contacted us, we will open the registrations for games. You can then reserve your seat at the table, online or spontaneously.
+[**Sign up now for the rounds!**]({{< ref "program" >}})
 
-**Would you like to be reminded as soon as the registration is open?**
-
-We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
+This year doesn’t work for you but you want to stay informed about future rpg events? We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
 
