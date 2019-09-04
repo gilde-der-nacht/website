@@ -1,0 +1,24 @@
+baseURL = "https://spieltage.ch/"
+DefaultContentLanguage = "de"
+theme = "gilde-der-nacht"
+themesDir = "../../themes"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[languages]
+    [languages.de]
+        title = "Luzerner Spieltage"
+        weight = 1
+        languageName = "Deutsch"
+        [languages.de.params]
+            footer = "Die Luzerner Spieltage werden organisiert durch den Spielverein, [Gilde der Nacht](https://gildedernacht.ch)."
+    [languages.en]
+        title = "Luzerner Spieltage"
+        weight = 2
+        languageName = "English"
+        [languages.en.params]
+            footer = "The Luzerner Spieltage are organised by the game society, [Gilde der Nacht](https://gildedernacht.ch)."
+
+[params]
+    discord = "http://chat.gildedernacht.ch/"
+    facebook = "https://www.facebook.com/events/417456298837224/"
+    meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern/events/261972612/"
