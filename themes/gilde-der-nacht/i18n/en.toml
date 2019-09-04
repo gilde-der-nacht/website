@@ -39,3 +39,6 @@ other = "Tabletop games"
 
 [choose-topic]
 other = "Please choose at least one topic."
+
+[subscribe]
+other = "Subscribe"

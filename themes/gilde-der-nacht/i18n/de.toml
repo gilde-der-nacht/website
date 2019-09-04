@@ -17,7 +17,7 @@ other = "Nachname"
 other = "E-Mail Adresse"
 
 [interests]
-other = "Interessens"
+other = "Interessen"
 
 [luzerner-spieltage]
 other = "Luzerner Spieltage"
@@ -39,3 +39,6 @@ other = "Tabletop"
 
 [choose-topic]
 other = "Bitte wähle mindestens ein Interesse aus."
+
+[subscribe]
+other = "Anmelden"
