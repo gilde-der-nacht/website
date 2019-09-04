@@ -10,7 +10,12 @@ toc: true
 <p id="apollon-submitted-hint"></p>
 <p id="apollon-submitted-summary"></p>
 
-Select the rounds you would like to participate in and submit the form below:
+<strong style="background-color: #d70b31; color: white">
+Online registration has ended.</strong>
+
+**Please [write us]({{< ref "contact" >}}) if you have any questions concerning your registration or future Rollenspieltage.**
+
+<!-- Select the rounds you would like to participate in and submit the form below: -->
 
 <template id="apollon-i18n">
     <p data-id="friday" data-text="Friday">-</p>

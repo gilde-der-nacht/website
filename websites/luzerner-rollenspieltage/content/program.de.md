@@ -10,7 +10,13 @@ toc: true
 <p id="apollon-submitted-hint"></p>
 <p id="apollon-submitted-summary"></p>
 
-Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schicke ganz unten das Formular ab:
+<strong style="background-color: #d70b31; color: white">
+Die Online-Anmeldung ist zu Ende.</strong>
+
+**Schreib uns doch übers [Kontaktformular]({{< ref "contact" >}}), wenn du Fragen zu deiner Anmeldung oder zukünftigen Rollenspieltagen hast.**
+
+
+<!-- Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schicke ganz unten das Formular ab: -->
 
 <template id="apollon-i18n">
     <p data-id="friday" data-text="Freitag">-</p>
