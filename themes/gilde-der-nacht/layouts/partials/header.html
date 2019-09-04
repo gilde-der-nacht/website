@@ -4,9 +4,14 @@
       <div id="p-site-switcher" class="brand-icon">
         <a href="{{ .Site.Home.RelPermalink }}">
           {{ $logoSVG := resources.Get "images/branding/logo.svg" }}
-          <object type="image/svg+xml" data="{{ $logoSVG.RelPermalink }}" height="40">
-            {{ .Site.Title }}
-          </object>
+          {{ $logoPNG := resources.Get "images/branding/logo.png" }}
+          {{ with $logoPNG }}
+          <object type="image/png" data="{{ .RelPermalink }}" height="40">
+            {{ else }}
+            <object type="image/svg+xml" data="{{ $logoSVG.RelPermalink }}" height="40">
+              {{ end }}
+              {{ .Site.Title }}
+            </object>
         </a>
       </div>
       <div id="p-language">
