@@ -1,6 +1,6 @@
 ---
 title: "Startseite"
-subtitle: "Herzlich willkommen an den <br />Luzerner Rollenspieltagen 2019"
+subtitle: "Herzlich willkommen an den <br />Luzerner Rollenspieltagen"
 date: 2019-04-01
 menu:
   main:
@@ -13,9 +13,8 @@ jumbotronImage:
   comment: Star Wars Rollenspiel
 ---
 
-| Freitag, <nobr>30. August</nobr> |     | Samstag, <nobr>31. August</nobr> |
-| -------------------------------- | --- | -------------------------------- |
-| 19 bis 1 Uhr                     |     | 13 bis 1 Uhr                     |
+# Spieldaten 2020
+28. – 30. August 2020
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-15.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-15.jpg" offset="40%" >}}
 
@@ -23,9 +22,9 @@ jumbotronImage:
 
 _Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
 
-[**Melde dich jetzt an!**]({{< ref "program" >}})
+Ungefähr einen Monat vor dem Anlass werden die Spielrunden hier bekannt gegeben. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
 
-Kannst du leider nicht dabei sein, möchtest aber gerne für zukünftige Rollenspielanlässe informiert werden? Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
+Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
 
@@ -50,5 +49,3 @@ Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du
 Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per Bus 8 (Würzenbachmatte) oder Bus 14 (Schlösslirain).
 
 Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zum Spar an der Adresse [Würzenbachstrasse 19, Luzern](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
-
-Wenn du von weit her kommst und gerne stressfrei **in Luzern übernachten** möchtest, können wir dir eine Unterkunft anbieten. Melde dich doch bitte über das [Kontaktformular]({{< ref "contact" >}}).
