@@ -13,8 +13,8 @@ jumbotronImage:
   comment: Star Wars Rollenspiel
 ---
 
-# Spieldaten 2020
-28. – 30. August 2020
+# Spieldaten 2020
+&nbsp;28. – 30. August 2020
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-15.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-15.jpg" offset="40%" >}}
 
