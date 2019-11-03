@@ -1,10 +1,10 @@
 <div class="c-form">
-  <form action="https://formsubmit.co/mail@rollenspieltag.ch" method="POST">
+  <form action="https://api.gildedernacht.ch/form/01dbedd3cb60e8969e26028d97a5c53dde17e5e4910019e29285ccb632b6b967" method="POST">
     <div>
       {{ .Inner }}
       <input class="c-btn" type="submit" value="{{ i18n "submit" }}">
-      <input type="hidden" name="_next" value="{{ .Page.Permalink }}">
-      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="redirect" value="{{ .Page.Permalink }}">
+      <input type="hidden" name="identification" value="{{ .Page.Permalink }}">
     </div>
   </form>
 </div>
