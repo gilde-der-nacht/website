@@ -1,0 +1,23 @@
+.c-calendar {
+    .c-calendar--entry {
+        display: flex;
+
+        .c-calendar--entry-photo {
+            width: 40%;
+            margin-right: 20px;
+        }
+
+        .c-calendar--entry-content {
+
+            >* {
+
+                margin: 0;
+            }
+
+            .c-calendar--entry-date {
+                color: var(--dark-grey-color);
+                font-style: italic;
+            }
+        }
+    }
+}
