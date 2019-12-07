@@ -3,7 +3,7 @@ title: "Kontakt"
 date: 2019-09-04
 menu:
   main:
-    weight: 50
+    weight: 90
 ---
 
 Wir hören gerne von dir und antworten dir auch innerhalb von 24 Stunden.

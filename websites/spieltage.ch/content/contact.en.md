@@ -3,7 +3,7 @@ title: "Contact"
 date: 2019-09-04
 menu:
   main:
-    weight: 50
+    weight: 90
 ---
 
 Write us and we will get back to you within 24 hours.
