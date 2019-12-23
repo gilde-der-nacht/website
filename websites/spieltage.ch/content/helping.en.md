@@ -54,6 +54,9 @@ The following jobs are available:
 * You announce the highlights of our program several times a day.
 * You announce the tournaments and announce the winner.
 
+### Game master for role-playing
+* You run one (or more) rounds of a tabletop role-play game of your choice (for beginners).
+
 # Volunteer registration
 * We are looking forward to your message and thank you for your support!
 

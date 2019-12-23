@@ -54,6 +54,9 @@ Folgende Jobs stehen zur Verfügung:
 * Du verkündest am Tag mehrmals die Highlights unseres Programms.
 * Du sagst die Turniere an und gibst den Sieger bekannt.
 
+### Rollenspielleiter
+* Du möchtest eine Rollenspielrunde leiten und erklärst gerne die Grundzüge des gemeinsamen Geschichtenerzählens.
+
 # Anmeldung Helfer
 
 Wir freuen uns auf deine Antwort und bedanken uns bereits jetzt für deine Unterstützung!
