@@ -1,6 +1,7 @@
 .c-calendar {
     .c-calendar--entry {
         display: flex;
+        margin: 20px 0;
 
         .c-calendar--entry-photo {
             width: 40%;
@@ -8,9 +9,9 @@
         }
 
         .c-calendar--entry-content {
+            width: 60%;
 
             >* {
-
                 margin: 0;
             }
 

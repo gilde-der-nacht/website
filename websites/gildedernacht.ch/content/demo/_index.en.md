@@ -1,9 +1,6 @@
 ---
 title: "Demo"
 date: 2019-05-24
-menu:
-    main:
-        weight: 9
 jumbotronImage:
     url: https://images.unsplash.com/photo-1558629669-f95eab4c9587?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=913&q=80
     source: Unsplash
