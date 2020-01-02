@@ -1,12 +1,12 @@
 <div class="c-form">
-  <form action="https://api.gildedernacht.ch/form/01dbedd3cb60e8969e26028d97a5c53dde17e5e4910019e29285ccb632b6b967"
+  <form action="https://api.gildedernacht.ch/form/{{ .Get "uid" }}"
     method="POST">
     <div>
       {{ .Inner }}
 
       <p class="c-form--item c-form-field--text c-form--captcha">
-        <label for="private-email-captcha">Leer lassen</label>
-        <input name="private-email-captcha" type="email" />
+        <label for="private-captcha">Leer lassen</label>
+        <input name="private-captcha" type="email" />
       </p>
       <script>document.querySelector('.c-form--captcha').style.display = 'none';</script>
 
