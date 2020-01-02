@@ -10,10 +10,10 @@ menu:
 
 {{< form >}}
 
-{{< input name="name" type="text" placeholder="Name" label="Name" >}}
+{{< input name="private-name" type="text" placeholder="Name" label="Name" attributes="required">}}
 
-{{< input name="email" type="email" placeholder="E-Mail" label="E-mail" >}}
+{{< input name="private-email" type="email" placeholder="E-Mail" label="E-mail" attributes="required">}}
 
-{{< input name="message" type="textarea" placeholder="Message" label="Message" >}}
+{{< input name="private-message" type="textarea" placeholder="Message" label="Message" attributes="required">}}
 
 {{< /form >}}

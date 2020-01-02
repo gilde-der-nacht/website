@@ -11,11 +11,11 @@ toc: false
 
 {{< form >}}
 
-{{< input name="name" type="text" placeholder="Name" label="Name" >}}
+{{< input name="private-name" type="text" placeholder="Name" label="Name" attributes="required">}}
 
-{{< input name="email" type="email" placeholder="E-Mail" label="E-Mail" >}}
+{{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail" attributes="required">}}
 
-{{< input name="message" type="textarea" placeholder="Nachricht" label="Nachricht" >}}
+{{< input name="private-message" type="textarea" placeholder="Nachricht" label="Nachricht" attributes="required">}}
 
 {{< /form >}}
 
