@@ -19,7 +19,7 @@ const calendarMain = async () => {
         const startTimeHours = start.getHours();
         const startTimeMinutes = start.getMinutes() === 0 ? '00' : start.getMinutes();
 
-        return `${startDay}, ${startDate}. ${startMonth} ${startYear} &ndash; ${startTimeHours}.${startTimeMinutes} Uhr`;
+        return `${startDay}, ${startDate}. ${startMonth} ${startYear} &ndash; ${startTimeHours}.${startTimeMinutes} ${translate('hour')}`;
     };
 
 
@@ -38,7 +38,7 @@ const calendarMain = async () => {
                 if (title === 'Spieltreffen') {
                     image = 'https://scontent.fzrh3-1.fna.fbcdn.net/v/t1.0-9/s960x960/69694518_1216457091891380_8506334758685376512_o.jpg?_nc_cat=105&_nc_ohc=pud3E5jHmvMAQkneL2We_HdGFVn1JMjtxHPuUmpgqJzocUuB_sqM-eTFA&_nc_ht=scontent.fzrh3-1.fna&oh=10828d4cb8514aeaf0acaef5e7205580&oe=5E4E6370';
                 } else {
-                    image = './images/calendar-filler.jpg';
+                    image = '/images/calendar-filler.jpg';
                 }
 
                 output += `

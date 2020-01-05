@@ -10,10 +10,15 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     weight = 1
     languageName = "Deutsch"
     [languages.de.params]
-      footer = "Footertext TODO"
+      footer = "Luzerner Spielverein"
   [languages.en]
     title = "Gilde der Nacht"
     weight = 2
     languageName = "English"
     [languages.en.params]
-      footer = "Footertext Englisch TODO."
+      footer = "Game association based in Lucerne"
+
+[params]
+    discord = "http://chat.gildedernacht.ch/"
+    facebook = "https://www.facebook.com/GildederNacht/"
+    meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern"

@@ -6,9 +6,7 @@ menu:
     weight: 2
 ---
 
-Nach unserem aktuellen Rhythmus finden zweimal im Monat ein öffentliches Spieltreffen statt. Meist versuchen wir uns an den ersten und dritten Samstag zu halten, die genauen Termine kannst du auf dieser Seite finden:
-
-[Alle Events](download-link)
+Nach unserem aktuellen Rhythmus finden zweimal im Monat ein öffentliches Spieltreffen statt. Meist versuchen wir uns an den ersten und dritten Samstag zu halten, die genauen Termine kannst du auf der Startseite finden.
 
 * Unsere Spieltreffen sind öffentlich und Jede und Jeder ist willkommen.
 * Meist findet kein fixes Programm statt und du kannst nach belieben kommen und gehen.

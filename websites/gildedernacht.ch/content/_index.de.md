@@ -12,7 +12,7 @@ jumbotronImage:
   comment: Brettspiel «Troyes»
 ---
 
-Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und Tabletop-Spieler herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren Erinnerungs-Newsletter einzutragen, dann erhältst du jeweils eine Woche vor den Events eine Erinnerungs-Mail.
+Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und Tabletop-Spieler herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter]({{< ref "newsletter" >}}) einzutragen, dann erhältst du jeweils eine Woche vor den Events eine Erinnerungs-Mail.
 
 # Kalender
 
@@ -37,6 +37,7 @@ Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und 
     <p data-id="month-10" data-text="Oktober">-</p>
     <p data-id="month-11" data-text="November">-</p>
     <p data-id="month-12" data-text="Dezember">-</p>
+    <p data-id="hour" data-text="Uhr">-</p>
 </template>
 
 <div class="c-calendar"></div>

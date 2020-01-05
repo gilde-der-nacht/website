@@ -6,7 +6,7 @@ jumbotronImage:
     source: Unsplash
     offset: 40%
     comment: Image description text
-
+draft: true
 toc: true
 ---
 
