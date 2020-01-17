@@ -66,3 +66,5 @@ Wir freuen uns auf deine Antwort und bedanken uns bereits jetzt für deine Unter
   {{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
   {{< input name="private-message" type="textarea" placeholder="Nachricht" label="Welche Jobs kannst du dir vorstellen und wann hast du Zeit? *" attributes="required">}}
 {{< /form >}}
+
+{{< messages spam="Fehler: Deine Nachricht wurde leider als SPAM markiert und nicht weitergeleitet. Versuche es bitte erneut." success="Vielen Dank für deine Nachricht!" >}}

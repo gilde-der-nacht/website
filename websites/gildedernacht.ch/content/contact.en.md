@@ -18,6 +18,8 @@ menu:
 
 {{< /form >}}
 
+{{< messages spam="Error: Your message is sadly been marked as SPAM and not been forwarded. Please try again." success="Thank you for your message!" >}}
+
 ## The Board
 
 ### Guild Master Oliver

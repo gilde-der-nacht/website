@@ -13,3 +13,5 @@ Write us and we will get back to you within 24 hours.
   {{< input name="private-email" type="email" placeholder="E-mail" label="E-mail *" attributes="required">}}
   {{< input name="private-message" type="textarea" placeholder="Message" label="Message *" attributes="required">}}
 {{< /form >}}
+
+{{< messages spam="Error: Your message is sadly been marked as SPAM and not been forwarded. Please try again." success="Thank you for your message!" >}}

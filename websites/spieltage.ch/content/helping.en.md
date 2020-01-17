@@ -65,3 +65,5 @@ The following jobs are available:
   {{< input name="private-email" type="email" placeholder="E-mail" label="E-mail *" attributes="required">}}
   {{< input name="private-message" type="textarea" placeholder="Message" label="What jobs can you imagine and when do you have the time? *" attributes="required">}}
 {{< /form >}}
+
+{{< messages spam="Error: Your message is sadly been marked as SPAM and not been forwarded. Please try again." success="Thank you for your message!" >}}

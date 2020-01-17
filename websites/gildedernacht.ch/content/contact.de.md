@@ -19,6 +19,8 @@ toc: false
 
 {{< /form >}}
 
+{{< messages spam="Fehler: Deine Nachricht wurde leider als SPAM markiert und nicht weitergeleitet. Versuche es bitte erneut." success="Vielen Dank für deine Nachricht!" >}}
+
 ## Der Vorstand
 
 ### Gildenmeister Oliver
