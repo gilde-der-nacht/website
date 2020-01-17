@@ -1,0 +1,23 @@
+.c-message {
+    display: none;
+    border: 3px solid gray;
+    background-color: lightgray;
+    color: darkslategray;
+    padding: 10px;
+
+    &--success {
+        background-color: hsl(141, 53%, 53%);
+        border-color: hsl(141, 53%, 30%);
+        color: white;
+    }
+
+    &--spam {
+        background-color: hsl(348, 100%, 61%);
+        border-color: hsl(348, 100%, 40%);
+        color: white;
+    }
+
+    &.visible {
+        display: block;
+    }
+}
