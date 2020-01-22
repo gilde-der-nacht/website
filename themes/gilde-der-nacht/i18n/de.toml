@@ -42,3 +42,24 @@ other = "Bitte wähle mindestens ein Interesse aus."
 
 [subscribe]
 other = "Anmelden"
+
+[arrival-public-transport-heading]
+other = "Anreise per ÖV"
+
+[arrival-public-transport-text]
+other = "Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per Bus 8 (Würzenbachmatte) oder Bus 14 (Schlösslirain)."
+
+[arrival-car-heading]
+other = "Anreise per Auto"
+
+[arrival-car-text]
+other = "Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zum Spar an der Adresse Würzenbachstrasse 19, Luzern."
+
+[arrival-address-heading]
+other = "Adresse"
+
+[arrival-address-text]
+other = "Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern"
+
+[network-title]
+other = "Unser Netzwerk"

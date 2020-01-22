@@ -11,7 +11,7 @@ const calendarMain = async () => {
         return i18nMap[what];
     };
 
-    const formatDate = (start, _end) => {
+    const formatDate = (start, end) => {
         const startDay = translate('day-' + start.getDay());
         const startDate = start.getDate();
         const startMonth = translate('month-' + (start.getMonth() + 1));
@@ -19,7 +19,16 @@ const calendarMain = async () => {
         const startTimeHours = start.getHours();
         const startTimeMinutes = start.getMinutes() === 0 ? '00' : start.getMinutes();
 
-        return `${startDay}, ${startDate}. ${startMonth} ${startYear} &ndash; ${startTimeHours}.${startTimeMinutes} ${translate('hour')}`;
+        const endDay = translate('day-' + end.getDay());
+        const endDate = end.getDate();
+        const endMonth = translate('month-' + (end.getMonth() + 1));
+        const endYear = end.getFullYear();
+
+        if (end.getDay() === start.getDay()) {
+            return `${startDay}, ${startDate}. ${startMonth} ${startYear} &ndash; ${startTimeHours}.${startTimeMinutes} ${translate('hour')}`;
+        } else {
+            return `${startDay}, ${startDate}. ${startMonth} ${startYear} &<br /> ${endDay}, ${endDate}. ${endMonth} ${endYear}`;
+        }
     };
 
 
@@ -35,10 +44,17 @@ const calendarMain = async () => {
 
                 const title = entry.summary;
                 let image = '';
-                if (title === 'Spieltreffen') {
+                if (title.includes('Spieltreffen')) {
                     image = 'https://scontent.fzrh3-1.fna.fbcdn.net/v/t1.0-9/s960x960/69694518_1216457091891380_8506334758685376512_o.jpg?_nc_cat=105&_nc_ohc=pud3E5jHmvMAQkneL2We_HdGFVn1JMjtxHPuUmpgqJzocUuB_sqM-eTFA&_nc_ht=scontent.fzrh3-1.fna&oh=10828d4cb8514aeaf0acaef5e7205580&oe=5E4E6370';
                 } else {
                     image = '/images/calendar-filler.jpg';
+                }
+
+                let url = '';
+                if (title.includes('Spieltage')) {
+                    url = 'spieltage.ch';
+                } else if (title.includes('Rollenspieltage')) {
+                    url = 'rollenspieltage.ch';
                 }
 
                 output += `
@@ -49,6 +65,7 @@ const calendarMain = async () => {
                          <div class="c-calendar--entry-content">
                              <h1 class="c-calendar--entry-title">${title}</h1>
                              <p class="c-calendar--entry-date">${dateFormatted}</p>
+                             <a href="https://${url}"><p>${url}</p></a>
                          </div>
                      </div>`;
             });

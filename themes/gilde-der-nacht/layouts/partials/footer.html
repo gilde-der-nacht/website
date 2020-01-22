@@ -1,31 +1,104 @@
 <footer>
-  <div class="o-outer-container">
+  <section class="p-contact">
+    <div class="o-outer-container">
+      <div class="p-social">
+
+        {{ with .Site.Params.Discord }}
+        {{ $discordSVG := resources.Get "images/Discord-Logo+Wordmark-White.svg" }}
+        <a href="{{ . }}">
+          <img src="{{ $discordSVG.RelPermalink }}" alt="Discord">
+        </a>
+        {{ end }}
+
+        {{ with .Site.Params.Meetup }}
+        {{ $discordSVG := resources.Get "images/meetup-logo-script-white.svg" }}
+        <a href="{{ . }}">
+          <img src="{{ $discordSVG.RelPermalink }}" alt="Meetup">
+        </a>
+        {{ end }}
+
+        {{ with .Site.Params.Facebook }}
+        {{ $discordSVG := resources.Get "images/f_logo_RGB-White_1024.svg" }}
+        <a href="{{ . }}">
+          <img src="{{ $discordSVG.RelPermalink }}" alt="Facebook">
+        </a>
+        {{ end }}
+
+      </div>
+    </div>
+  </section>
+  <section class="p-location">
+    <div class="o-outer-container">
+      <div class="p-arrival">
+        <div class="p-public-transport">
+          <h1>{{ i18n "arrival-public-transport-heading" }}</h1>
+          <p>{{ i18n "arrival-public-transport-text" }}</p>
+        </div>
+        <div class="p-car">
+          <h1>{{ i18n "arrival-car-heading" }}</h1>
+          <p>{{ i18n "arrival-car-text" }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-map">
+      <div class="o-outer-container">
+        <h1>{{ i18n "arrival-address-heading" }}</h1>
+        <p>{{ i18n "arrival-address-text" }}</p>
+      </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16069.725822410699!2d8.32429075708862!3d47.05050314845114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ffbe4a1717e11%3A0x6b6a12271a8eb6dc!2sSch%C3%A4dr%C3%BCtistrasse+26%2C+6006+Luzern!5e0!3m2!1sde!2sch!4v1539036534843"
+        frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+  <!-- <section class="p-network">
+    <div class="o-outer-container">
+      <h1>{{ .Site.Params.Page.Title}}</h1>
+      <div class="p-network-columns">
+        <div class="p-logo">
+          <a href="{{ .Site.Home.RelPermalink }}">
+            {{ $logoSVG := resources.Get "images/branding/logo.svg" }}
+            {{ $logoPNG := resources.Get "images/branding/logo.png" }}
+            {{ with $logoPNG }}
+            <object type="image/png" data="{{ .RelPermalink }}" height="80">
+              {{ else }}
+              <object type="image/svg+xml" data="{{ $logoSVG.RelPermalink }}" height="80">
+                {{ end }}
+                {{ .Site.Title }}
+              </object>
+          </a>
+        </div>
+        <div class="p-description">
+          <p>{{ .Site.Params.Page.Text | markdownify }}</p>
+        </div>
+      </div>
+      <h1>{{ i18n "network-title" }}</h1>
+      <div class="p-network-grid">
+        {{ range $key, $val := .Site.Params.Network }}
+        <div class="p-logo">
+          <a href="{{ .Site.Home.RelPermalink }}">
+            {{ $pathSVG := printf "%s%s%s" "/images/branding/network/" $val.logo ".png" }}
+            {{ $logoSVG := resources.Get $pathSVG }}
+            {{ $logoSVG }}
+            {{ with $logoSVG}}
+            <object type="image/svg+xml" data="{{ $logoSVG.RelPermalink }}" height="80">
+            {{ end }}
+          </a>
+        </div>
+        <div>
+          <h2>{{ $val.title }}</h2>
+          <div class="p-description">
+            <p>{{ $val.text | markdownify }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section> -->
+
+
+  <!-- <div class="o-outer-container">
     <div class="p-footer">
       {{ .Site.Params.Footer | markdownify }}
     </div>
-    <div class="p-social">
-
-      {{ with .Site.Params.Discord }}
-      {{ $discordSVG := resources.Get "images/Discord-Logo+Wordmark-White.svg" }}
-      <a href="{{ . }}">
-        <img src="{{ $discordSVG.RelPermalink }}" alt="Discord">
-      </a>
-      {{ end }}
-
-      {{ with .Site.Params.Meetup }}
-      {{ $discordSVG := resources.Get "images/meetup-logo-script-white.svg" }}
-      <a href="{{ . }}">
-        <img src="{{ $discordSVG.RelPermalink }}" alt="Meetup">
-      </a>
-      {{ end }}
-
-      {{ with .Site.Params.Facebook }}
-      {{ $discordSVG := resources.Get "images/f_logo_RGB-White_1024.svg" }}
-      <a href="{{ . }}">
-        <img src="{{ $discordSVG.RelPermalink }}" alt="Facebook">
-      </a>
-      {{ end }}
-
-    </div>
-  </div>
+  </div> -->
 </footer>

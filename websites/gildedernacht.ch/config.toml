@@ -11,6 +11,19 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     languageName = "Deutsch"
     [languages.de.params]
       footer = "Luzerner Spielverein"
+      [languages.de.params.page]
+        title = "Über uns"
+        text = "Die **Gilde der Nacht** ist ein Luzerner Spielverein. Seit 2011 organisieren wir Anlässe, Spieltreffen und -wochenende in der Stadt Luzern und wirken bei anderen spielorientierten Projekten – auch ausserhalb der Stadtgrenze – mit."
+      [languages.de.params.network]
+        [languages.de.params.network.spieltage]
+          title = "Luzerner Spieltage"
+          text = "Das Spielwochenende für jung und alt. <br /> [Erfahre mehr ...](https://spieltage.ch/)"
+          logo = "spieltage"
+        [languages.de.params.network.rollenspieltage]
+          title = "Luzerner Rollenspieltage"
+          text = "Zwei Tage in die fantastische Welt der Rollenspiele abtauchen. <br /> [Erfahre mehr ...](https://rollenspieltage.ch/)"
+          logo = "rollenspieltage"
+
   [languages.en]
     title = "Gilde der Nacht"
     weight = 2
@@ -19,6 +32,6 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
       footer = "Game association based in Lucerne"
 
 [params]
-    discord = "http://chat.gildedernacht.ch/"
-    facebook = "https://www.facebook.com/GildederNacht/"
-    meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern"
+  discord = "http://chat.gildedernacht.ch/"
+  facebook = "https://www.facebook.com/GildederNacht/"
+  meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern"

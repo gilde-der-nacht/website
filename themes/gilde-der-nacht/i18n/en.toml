@@ -42,3 +42,24 @@ other = "Please choose at least one topic."
 
 [subscribe]
 other = "Subscribe"
+
+[arrival-public-transport-heading]
+other = "Public transport"
+
+[arrival-public-transport-text]
+other = "From the Lucerne train station, the location is easily reached in 15 minutes by bus 8 (Würzenbachmatte) or bus 14 (Schlösslirain)."
+
+[arrival-car-heading]
+other = "Journey by car"
+
+[arrival-car-text]
+other = "A (fee required) parking garage is 5 minutes walk away. Belongs to the Spar supermarket at the address Würzenbachstrasse 19, Lucerne."
+
+[arrival-address-heading]
+other = "Address"
+
+[arrival-address-text]
+other = "Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern"
+
+[network-title]
+other = "Our network"
