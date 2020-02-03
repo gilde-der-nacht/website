@@ -1,5 +1,12 @@
 .c-spider {
-    border: 1px dashed #f0f;
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+    svg {
+        width: 350px;
+        height: 250px;
+    }
 
     text {
         font-size: 5em;

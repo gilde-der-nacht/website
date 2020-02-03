@@ -6,18 +6,22 @@ toc: true
 
 # Finsterland (Steampunk)
 
+{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="1" category6="Improvisation" rating6="3" >}}
+
 **Spielleiter:** Manuela\
 **Anzahl Spieler:** 4\
 **Wann:** Samstag, 14 Uhr\
 **Dauer:** 3 Stunden\
 **Sprache:** Deutsch
 
+
 **Beschreibung**\
 Ihr sind im Jahr 1890, auf einem ruhigen Flug auf einem Luftschiff. Eigentlich wollte ihr in die Technologie- und Magier-Haupstadt Esta. Aber am Horizont seht ihr dunkle Wolken aufziehen.
 
-{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="1" category6="Improvisation" rating6="3" >}}
 
 # Who Is John
+
+{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="4" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="1" category5="Rätsel" rating5="1" category6="Improvisation" rating6="4" >}}
 
 **Spielleiter:** Adrian\
 **Anzahl Spieler:** 4\
@@ -28,9 +32,9 @@ Ihr sind im Jahr 1890, auf einem ruhigen Flug auf einem Luftschiff. Eigentlich w
 **Beschreibung**\
 Everyone is John ist ein stark vereinfachtes Rollenspiel. Jeder Spieler ist eine Stimme in Johns Kopf und versucht John zu verschiedenen Dingen zu überreden. Dabei kann man John zu nahezu allen Dingen überreden.
 
-{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="4" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="1" category5="Rätsel" rating5="1" category6="Improvisation" rating6="4" >}}
-
 # Shadowrun
+
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="3" category6="Improvisation" rating6="2" >}}
 
 **Spielleiter:** Adrian\
 **Anzahl Spieler:** 4\
@@ -41,9 +45,9 @@ Everyone is John ist ein stark vereinfachtes Rollenspiel. Jeder Spieler ist eine
 **Beschreibung**\
 Shadowrun spielt in der nahen Zukunft und verbindet den technischen und Dark-Future-Aspekt von Cyberpunk mit magischen Einflüssen der Fantasy (Magie, Elfen, Zwerge, Drachen).
 
-{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="3" category6="Improvisation" rating6="2" >}}
-
 # Ahbaron
+
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="2" category6="Improvisation" rating6="3" >}}
 
 **Spielleiter:** Andrea\
 **Anzahl Spieler:** 6\
@@ -54,9 +58,9 @@ Shadowrun spielt in der nahen Zukunft und verbindet den technischen und Dark-Fut
 **Beschreibung**\
 Das hausgemachte Regelwerk Ahbaron System ist weniger für eine strategisch-taktische sondern vielmehr für eine cineastisch-erzählende Spielweise geeignet. Eine Auswahl vorgefertigter und für eine Convention abgespeckter Charaktere stehen bereit, um euch in 2 bis 3 Stunden einen Geschmack von meiner ganz persönlichen Umsetzung eines Rollenspiels näher zu bringen.
 
-{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="2" category6="Improvisation" rating6="3" >}}
-
 # Dungeons & Dragons
+
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="3" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="3" category6="Improvisation" rating6="2" >}}
 
 **Spielleiter:** Dominique\
 **Anzahl Spieler:** 5\
@@ -67,9 +71,9 @@ Das hausgemachte Regelwerk Ahbaron System ist weniger für eine strategisch-takt
 **Beschreibung**\
 Ihr spielt eine Gruppe Abenteurer, die beauftragt wurden eine alte Gruft zu durchsuchen. Auf dieser Mission müsst ihr verschiedensten Gefahren trotzen und Rätsel lösen, um einen alten Fluch aufzuheben.
 
-{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="3" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="3" category6="Improvisation" rating6="2" >}}
-
 # Cthulhu
+
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="1" category5="Rätsel" rating5="3" category6="Improvisation" rating6="1" >}}
 
 **Spielleiter:** Kevin\
 **Anzahl Spieler:** 5\
@@ -80,9 +84,9 @@ Ihr spielt eine Gruppe Abenteurer, die beauftragt wurden eine alte Gruft zu durc
 **Beschreibung**\
 ... folgt
 
-{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="1" category5="Rätsel" rating5="3" category6="Improvisation" rating6="1" >}}
-
 # Star Wars
+
+{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="4" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="1" category6="Improvisation" rating6="1" >}}
 
 **Spielleiter:** Sämi\
 **Anzahl Spieler:** 4\
@@ -93,11 +97,11 @@ Ihr spielt eine Gruppe Abenteurer, die beauftragt wurden eine alte Gruft zu durc
 **Beschreibung**\
 Regelwerke von Fantasy Flight Games. Nach Wunsch der Spieler: Am Rande des Imperiums, Zeitalter der Rebellion oder Macht und Schicksal.
 
-{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="4" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="1" category6="Improvisation" rating6="1" >}}
-
 # Ten Candles
 
 _kooperatives Tragic Horror Storytelling Rollenspiel_
+
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="1" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="2" category6="Improvisation" rating6="4" >}}
 
 **Spielleiter:** Artur\
 **Anzahl Spieler:** 4\
@@ -108,9 +112,9 @@ _kooperatives Tragic Horror Storytelling Rollenspiel_
 **Beschreibung**\
 Vor zehn Tagen hat euch der Himmel verraten. Die Welt wurde schwarz. Die Sonne verschwand. Das Chaos, das folgte, war plötzlich und vorhersehbar. ... Ihr spielt ganz normale Menschen in einer verzweifelten Situation. Es geht um's Überleben, und um Hoffnung. Obwohl von Anfang an feststeht, dass jeder einzelne am Ende sterben wird.
 
-{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="1" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="2" category6="Improvisation" rating6="4" >}}
-
 # Dungeons & Dragons
+
+{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="4" category3="Burgen & Rittertum" rating3="4" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="1" category6="Improvisation" rating6="1" >}}
 
 **Spielleiter:** Michael\
 **Anzahl Spieler:** 4\
@@ -121,9 +125,9 @@ Vor zehn Tagen hat euch der Himmel verraten. Die Welt wurde schwarz. Die Sonne v
 **Beschreibung**\
 ... folgt
 
-{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="4" category3="Burgen & Rittertum" rating3="4" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="1" category6="Improvisation" rating6="1" >}}
-
 # Dungeons & Dragons [EN]
+
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="4" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="2" category6="Improvisation" rating6="3" >}}
 
 **Spielleiter:** Daniel\
 **Anzahl Spieler:** 4\
@@ -134,9 +138,9 @@ Vor zehn Tagen hat euch der Himmel verraten. Die Welt wurde schwarz. Die Sonne v
 **Beschreibung**\
 ... folgt
 
-{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="4" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="2" category6="Improvisation" rating6="3" >}}
-
 # Risus
+
+{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="3" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="1" category6="Improvisation" rating6="3" >}}
 
 **Spielleiter:** Alex\
 **Anzahl Spieler:** 4\
@@ -146,8 +150,6 @@ Vor zehn Tagen hat euch der Himmel verraten. Die Welt wurde schwarz. Die Sonne v
 
 **Beschreibung**\
 Mit Fokus auf Rollenspiel, weniger die Mechanik. Setting kann vor dem Spiel beschlossen werden. Alle Regeln haben auf 2 A4 Seiten Platz.
-
-{{< spider category1="Anfängerfreundlich" rating1="4" category2="Für die ganze Familie" rating2="3" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="1" category6="Improvisation" rating6="3" >}}
 
 # Erklärung
 
