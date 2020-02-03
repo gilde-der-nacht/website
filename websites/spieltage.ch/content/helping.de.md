@@ -17,7 +17,7 @@ Melde dich doch noch heute und gib deinen Traumjob an. Wir versuchen natürlich 
 
 Unser Ziel ist es die Helfereinsätze so kurz wie möglich zu halten. Aber dafür sind wir auf viele Helfer angewiesen. Die Spieltage dauern wie folgt:
 
-**Samstag, 7. März 2020, 10 bis 24 Uhr<br />**
+**Samstag, 7. März 2020, 10 bis 24 Uhr**\
 **Sonntag, 8. März 2020, 10 bis 20 Uhr**
 
 Als Gegenleistung gebührt dir nicht nur unser aller Dank. Du wirst auch zum Helferessen eingeladen. Da werden wir mit Speis und Trank bis in die Abendstunden das ein oder andere Brettspiel-Abenteuer bestehen.

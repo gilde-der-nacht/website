@@ -17,7 +17,7 @@ Please contact us today and let us know your dream job. Of course we try to meet
 
 Our goal is to keep the duration of the shifts as short as possible. The Spieltage last as follows:
 
-**Saturday, 7 March 2020, 10 a.m. to midnight** <br />
+**Saturday, 7 March 2020, 10 a.m. to midnight**\
 **Sunday, 8 March 2020, 10 a.m. to 8 p.m.**
 
 In return, you not only deserve our thanks. You will also be invited to a thank you dinner. There we will pass the time with one or more board game adventure with food and drink into the evening hours.

@@ -21,6 +21,10 @@ Falls du Fragen hast oder an den Spieltagen mithelfen möchtest, zögere nicht, 
 
 # Allgemeine Informationen
 
+**Öffnungszeiten**\
+Samstag, 7. März 2020, 10 bis 24 Uhr\
+Sonntag, 8. März 2020, 10 bis 20 Uhr
+
 **Eintritt:** gratis (Kollekte)
 
 **Adresse:** Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern

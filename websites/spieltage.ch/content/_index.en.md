@@ -21,6 +21,10 @@ Do not hesitate to contact us via the [contact form]({{< ref "contact" >}}), if 
 
 # Informations
 
+**Opening hours:**\
+Saturday, 7 March 2020, 10 a.m. to midnight\
+Sunday, 8 March 2020, 10 a.m. to 8 p.m.
+
 **Entry fee:** the event is free of charge (collection/donations are welcome)
 
 **Address:** Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern
@@ -47,9 +51,3 @@ This modern chat platform gives you the opportunity to discuss directly with the
 This platform also runs under the banner of the Gilde der Nacht, the Lucerne game society.
 
 [More »](https://chat.gildedernacht.ch)
-
-
-
-
-
-
