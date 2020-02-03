@@ -137,7 +137,7 @@ Beschreibung: ... folgt
 
 Anzahl Spieler: 4
 
-Wann: Sonntag 13:00
+Wann: Sonntag 16:00
 
 Dauer: 3 Stunden
 
