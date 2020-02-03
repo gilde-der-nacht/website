@@ -1,0 +1,5 @@
+{{ $ref := .Get "ref-url" }}
+
+<a href="{{ ref . $ref }}" class="c-btn">
+    <input class="c-btn" type="button" value="{{ .Get "label" }}">
+</a>
