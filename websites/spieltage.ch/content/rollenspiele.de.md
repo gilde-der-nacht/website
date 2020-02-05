@@ -45,7 +45,7 @@ Shadowrun spielt in der nahen Zukunft und verbindet den technischen und Dark-Fut
 
 # In den Tiefen von Ahbaron
 
-{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="2" category6="Improvisation" rating6="3" >}}
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="1" category5="Rätsel" rating5="2" category6="Improvisation" rating6="4" >}}
 
 **Spielleiter:** Andrea\
 **Anzahl Spieler:** 6\
