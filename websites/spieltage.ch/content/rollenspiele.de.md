@@ -43,7 +43,7 @@ Everyone is John ist ein stark vereinfachtes Rollenspiel. Jeder Spieler ist eine
 **Beschreibung**\
 Shadowrun spielt in der nahen Zukunft und verbindet den technischen und Dark-Future-Aspekt von Cyberpunk mit magischen Einflüssen der Fantasy (Magie, Elfen, Zwerge, Drachen).
 
-# Ahbaron
+# In den Tiefen von Ahbaron
 
 {{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="2" category5="Rätsel" rating5="2" category6="Improvisation" rating6="3" >}}
 
