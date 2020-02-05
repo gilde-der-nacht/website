@@ -122,7 +122,7 @@ _kooperatives Tragic Horror Storytelling Rollenspiel_
 **Sprache:** Deutsch
 
 **Beschreibung**\
-Vor zehn Tagen hat euch der Himmel verraten. Die Welt wurde schwarz. Die Sonne verschwand. Das Chaos, das folgte, war plötzlich und vorhersehbar. ... Ihr spielt ganz normale Menschen in einer verzweifelten Situation. Es geht um's Überleben, und um Hoffnung. Obwohl von Anfang an feststeht, dass jeder einzelne am Ende sterben wird.
+Ein Horror-Rollenspiel, bei dem es um's Überleben und um Hoffnung geht. Vor zehn Tagen hat euch der Himmel verraten. Die Welt wurde schwarz. Die Sonne verschwand. Das Chaos, das folgte, war plötzlich und vorhersehbar. ... Ihr spielt ganz normale Menschen in einer verzweifelten Situation. Es geht um's Überleben, und um Hoffnung. Obwohl von Anfang an feststeht, dass jeder einzelne am Ende sterben wird.
 
 # Dungeons & Dragons
 
