@@ -14,10 +14,8 @@ toc: true
 **Dauer:** 3 Stunden\
 **Sprache:** Deutsch
 
-
 **Beschreibung**\
 Ihr sind im Jahr 1890, auf einem ruhigen Flug auf einem Luftschiff. Eigentlich wollte ihr in die Technologie- und Magier-Haupstadt Esta. Aber am Horizont seht ihr dunkle Wolken aufziehen.
-
 
 # Who Is John
 
@@ -77,12 +75,26 @@ Ihr spielt eine Gruppe Abenteurer, die beauftragt wurden eine alte Gruft zu durc
 
 **Spielleiter:** Kevin\
 **Anzahl Spieler:** 5\
-**Wann:** Samstag, 18 Uhr und Sonntag, 11 Uhr\
+**Wann:** Samstag, 18 Uhr\
 **Dauer:** 3 Stunden\
 **Sprache:** Deutsch
 
 **Beschreibung**\
-... folgt
+Wie jeden Freitag geht ihr an die Horror Kultfilmnacht in eurem Lieblingskino dem Central. Doch dies mal wird der Horror Real und ihr seid gefangen. Schafft ihr es lebend aus dem Kino?
+
+# Cthulhu
+
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="1" category4="Magie & Zauberwerk" rating4="1" category5="Rätsel" rating5="3" category6="Improvisation" rating6="1" >}}
+
+**Spielleiter:** Kevin\
+**Anzahl Spieler:** 5\
+**Wann:** Sonntag, 11 Uhr\
+**Dauer:** 3 Stunden\
+**Sprache:** Deutsch
+
+**Beschreibung**\
+Während eurer Heimreise verfahrt ihr euch komplett und sucht Unterschlupf bei einem einsamen Anwesen. Ob das so eine gute Idee ist?
+
 
 # Star Wars
 
