@@ -23,7 +23,7 @@ Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzig
 
 Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei uns Spielleiter finden, die dich in deinen ersten Schritten in diesem kreativen Hobby mit grossem Engagement unterstützen werden.
 
-<!-- {{< button ref-url="rollenspiele" label="zum Rollenspielprogramm" >}} -->
+{{< button ref-url="roleplay" label="zum Rollenspielprogramm" >}}
 
 {{< minitron url="/images/tabletop.jpg" attribution-title="Tabletop, Luzerner Spieltage 2019" attribution-source="/images/tabletop.jpg" offset="60%" >}}
 
@@ -39,13 +39,13 @@ Wer könnte dir Spiele besser erklären als die Personen, welche Sie entwickelt 
 
 ## VIAE - Roads of Rome
 
-_nur am Samstag_
+_Samstag, 13–17 Uhr_
 
 Als Tribun seid ihr bereit die Welt zum Ruhm Roms zu erobern. Baut Strassen, schlagt eure Feinde, gewinnt Einfluss im Senat. Aber seid auf der Hut, jeder hat seine eigenen Ziele und Vorstellungen. Eure Mit-Tribune werden versuchen, eure Ziele zu stören. Behandelt sie als ein Werkzeug auf eurem Weg zum Sieg.
 
 ## Darwin’s Choice
 
-_nur am Sonntag_
+_Sonntag, 13–16 Uhr_
 
 Nach Millionen von Jahren Ödland auf der Erde entwickelt sich endlich tierisches Leben. Doch die Welt ist noch im Aufbau und stetigem Wandel unterworfen. Nur wer sich den immer neuen Bedingungen und Situationen anpassen kann, wird überleben und seine Spuren in der Geschichte hinterlassen. Mach dies zu Deiner Chance und werde Darwin’s Choice.
 
@@ -53,6 +53,6 @@ Nach Millionen von Jahren Ödland auf der Erde entwickelt sich endlich tierische
 
 # Flohmarkt
 
-Du möchtest deine persönliche Spielesammlung aufstocken? Kein Problem, stöbere in unserem Flohmarkt, die eine oder andere Perle wirst du bestimmt finden.
+Du möchtest deine persönliche Spielesammlung aufstocken? Kein Problem, stöbere in unserem Flohmarkt. Die eine oder andere Perle wirst du bestimmt finden.
 
 Oder bring deine Spiele mit, die du sowieso nicht mehr spielst und finde bei uns ein neues Zuhause?
