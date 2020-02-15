@@ -1,5 +1,13 @@
+{{ $url := .Get "url" }}
 {{ $ref := .Get "ref-url" }}
+{{ $staticRef := .Get "static-url" }}
 
-<a href="{{ ref . $ref }}" class="c-btn">
-    <input class="c-btn" type="button" value="{{ .Get "label" }}">
-</a>
+{{ if $url }}
+<a href="{{ $ref }}" class="c-btn">
+    {{ else if $ref }}
+    <a href="{{ ref . $ref }}" class="c-btn">
+        {{ else if $staticRef }}
+        <a href="{{ $staticRef }}" class="c-btn">
+            {{ end }}
+            <input class="c-btn" type="button" value="{{ .Get "label" }}">
+        </a>

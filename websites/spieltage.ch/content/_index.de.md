@@ -17,6 +17,8 @@ Am Wochenende vom **7./8. März 2020** verwandeln wir den Pfarreisaal St. Johann
 
 Falls du Fragen hast oder an den Spieltagen mithelfen möchtest, zögere nicht, uns über das [Kontaktformular]({{< ref "contact" >}}) anzuschreiben. Wir freuen uns auf deine Nachricht.
 
+{{< button static-url="/download/2020-02-15_flyer.pdf" label="Download Flyer" >}}
+
 {{< minitron url="/images/DSCF4552.jpg" attribution-title="Luzerner Spieltage 2019" attribution-source="/images/DSCF4552.jpg" offset="55%" >}}
 
 # Allgemeine Informationen
