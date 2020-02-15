@@ -15,3 +15,32 @@ Write us and we will get back to you within 24 hours.
 {{< /form >}}
 
 {{< messages spam="Error: Your message is sadly been marked as SPAM and not been forwarded. Please try again." success="Thank you for your message!" >}}
+
+# Organizers
+
+**Oliver**\
+_Coordination and Website_
+
+**Alexander**\
+_Program: Board Games and Photos_
+
+**Thomas**\
+_Program: Roleplay_
+
+**Christoph**\
+_Program: Tabletop and Material_
+
+**Tito**\
+_Food and Beverages_
+
+**Harald**\
+_Staff_
+
+**Pascal**\
+_Infrastructur and Flea Market_
+
+**Jan**\
+_Transport_
+
+**Adrian**\
+_Admin and Finance_

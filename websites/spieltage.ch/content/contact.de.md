@@ -15,3 +15,32 @@ Wir hören gerne von dir und antworten dir auch innerhalb von 24 Stunden.
 {{< /form >}}
 
 {{< messages spam="Fehler: Deine Nachricht wurde leider als SPAM markiert und nicht weitergeleitet. Versuche es bitte erneut." success="Vielen Dank für deine Nachricht!" >}}
+
+# Organisatoren
+
+**Oliver**\
+_Koordination und Webseite_
+
+**Alexander**\
+_Programm: Brettspiele und Fotos_
+
+**Thomas**\
+_Programm: Rollenspiele_
+
+**Christoph**\
+_Programm: Tabletop und Material_
+
+**Tito**\
+_Verpflegung_
+
+**Harald**\
+_Helfer_
+
+**Pascal**\
+_Infrastruktur und Flohmarkt_
+
+**Jan**\
+_Transport_
+
+**Adrian**\
+_Admin und Finanzen_
