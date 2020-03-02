@@ -135,11 +135,11 @@ Ein Horror-Rollenspiel, bei dem es um's Überleben und um Hoffnung geht. Vor zeh
 **Sprache:** Deutsch
 
 **Beschreibung**\
-... folgt
+In Phlan, einer Stadt in der das Gesetz nicht so genau genommen wird, hat sich der Kult des Drachens breit gemacht. Die Stadt ist auf die Hilfe von Abenteurern wie euch angewiesen, um dieser Bedrohung zu begegnen. Legt dem Kult des Drachens in bis zu fünf kurzen Missionen das Handwerk.
 
 # Dungeons & Dragons [EN]
 
-{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="4" category4="Magie & Zauberwerk" rating4="4" category5="Rätsel" rating5="2" category6="Improvisation" rating6="3" >}}
+{{< spider category1="Anfängerfreundlich" rating1="3" category2="Für die ganze Familie" rating2="2" category3="Burgen & Rittertum" rating3="2" category4="Magie & Zauberwerk" rating4="3" category5="Rätsel" rating5="2" category6="Improvisation" rating6="4" >}}
 
 **Spielleiter:** Daniel\
 **Anzahl Spieler:** 4\
@@ -148,7 +148,7 @@ Ein Horror-Rollenspiel, bei dem es um's Überleben und um Hoffnung geht. Vor zeh
 **Sprache:** **Englisch**
 
 **Beschreibung**\
-... folgt
+This adventure is set in a medieval town called Rotherham. 3 man strive for power in this city and the civilians suffer under the situation. Their faith is in the hands of the adventurers. Face intrigues, puzzles and opportunities to take on the villagers future.
 
 # Risus
 

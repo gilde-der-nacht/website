@@ -8,7 +8,7 @@ _Only english rounds are being displayed. For the german game rounds please chan
 
 # Dungeons & Dragons
 
-{{< spider category1="Beginnerfriendly" rating1="3" category2="Family friendly" rating2="2" category3="Fantasy" rating3="4" category4="Magic" rating4="4" category5="Puzzle" rating5="2" category6="Improvisation" rating6="3" >}}
+{{< spider category1="Beginnerfriendly" rating1="3" category2="Family friendly" rating2="2" category3="Fantasy" rating3="2" category4="Magic" rating4="3" category5="Puzzle" rating5="2" category6="Improvisation" rating6="4" >}}
 
 **Game master:** Daniel\
 **Player count:** 4\
@@ -17,7 +17,7 @@ _Only english rounds are being displayed. For the german game rounds please chan
 **Language:** **English**
 
 **Description**\
-... in progress
+This adventure is set in a medieval town called Rotherham. 3 man strive for power in this city and the civilians suffer under the situation. Their faith is in the hands of the adventurers. Face intrigues, puzzles and opportunities to take on the villagers future.
 
 # Legend
 
