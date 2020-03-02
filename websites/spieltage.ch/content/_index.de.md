@@ -13,6 +13,19 @@ jumbotronImage:
   comment: Bibliothek
 ---
 
+<div style="border: 3px solid #C6474C; padding: 10px; font-size: 1em">
+<p style="margin: 0; margin-bottom: 5px;"><strong>Information bezüglich Coronavirus</strong></p>
+<p>Aktuell gehen wir davon aus, dass die Luzerner Spieltage 2020 stattfinden.</p>
+<p style="margin: 0;"><strong>Beachtet bitte: </strong></p>
+<p style="margin: 0;"><em>Gemäss Bundesamt für Gesundheit und Kanton Luzern (Dienststelle Gesundheit und Sport).</em></p>
+<ul>
+<li>Personen, die sich in den letzten 14 Tagen in China inkl. Hongkong, Südkorea, Iran, Norditalien und Singapur aufgehalten haben, dürfen nicht an der Veranstaltung teilnehmen.</li>
+<li>Gleiches gilt für Personen die Grippesymptome haben (z.B. Fieber, Husten).</li>
+</ul>
+<p>Dieser Status wird angepasst, sollten wir neue Weisungen erhalten.</p>
+<p>Bei Fragen, kontaktiert uns bitte über das <a href="./contact/">Kontaktformular</a>.</p>
+</div>
+
 Am Wochenende vom **7./8. März 2020** verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
 
 Falls du Fragen hast oder an den Spieltagen mithelfen möchtest, zögere nicht, uns über das [Kontaktformular]({{< ref "contact" >}}) anzuschreiben. Wir freuen uns auf deine Nachricht.

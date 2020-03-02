@@ -13,6 +13,20 @@ jumbotronImage:
   comment: Library
 ---
 
+
+<div style="border: 3px solid #C6474C; padding: 10px; font-size: 1em">
+<p style="margin: 0; margin-bottom: 5px;"><strong>Information regarding Coronavirus</strong></p>
+<p>We currently assume that the Luzerner Spieltage 2020 will take place as planned.</p>
+<p style="margin: 0;"><strong>Please note: </strong></p>
+<p style="margin: 0;"><em>According to the Federal Office of Public Health and Canton Lucerne (Department of Health and Sport).</em></p>
+<ul>
+<li>Persons who have been in China including Hong Kong, South Korea, Iran, Northern Italy and Singapore in the last 14 days are not allowed to participate in the event.</li>
+<li>The same applies to people who have flu symptoms (e.g. fever, cough).</li>
+</ul>
+<p>This status will be adjusted should we receive new instructions.</p>
+<p>For questions, please contact us via the <a href="./contact/">contact form</a>.</p>
+</div>
+
 On the weekend of **7./8. March 2020** we will transform the hall St. Johannes in Lucerne into an oasis for players. Whether young or old, whether strategist or team player, whether hobbyist or enthusiasts, we have something for everyone on the menu. Apropos menu: a tasty meal will of course be provided.
 
 Do not hesitate to contact us via the [contact form]({{< ref "contact" >}}), if you would like to know more or would like to help us with the planning or execution.
