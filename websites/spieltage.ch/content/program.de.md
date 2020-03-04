@@ -5,6 +5,7 @@ menu:
   main:
     weight: 20
 toc: true
+draft: true
 ---
 
 Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:

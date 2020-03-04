@@ -5,7 +5,6 @@ date: 2019-09-04
 menu:
   main:
     weight: 1
-toc: true
 jumbotronImage:
   url: /images/DSCF4731.jpg
   source: Luzerner Spieltage 2019
@@ -13,20 +12,39 @@ jumbotronImage:
   comment: Bibliothek
 ---
 
-<div style="border: 3px solid #C6474C; padding: 10px; font-size: 1em">
-<p style="margin: 0; margin-bottom: 5px;"><strong>Information bezüglich Coronavirus</strong></p>
-<p>Aktuell gehen wir davon aus, dass die Luzerner Spieltage 2020 stattfinden.</p>
-<p style="margin: 0;"><strong>Beachtet bitte: </strong></p>
-<p style="margin: 0;"><em>Gemäss Bundesamt für Gesundheit und Kanton Luzern (Dienststelle Gesundheit und Sport).</em></p>
-<ul>
-<li>Personen, die sich in den letzten 14 Tagen in China inkl. Hongkong, Südkorea, Iran, Norditalien und Singapur aufgehalten haben, dürfen nicht an der Veranstaltung teilnehmen.</li>
-<li>Gleiches gilt für Personen die Grippesymptome haben (z.B. Fieber, Husten).</li>
-</ul>
-<p>Dieser Status wird angepasst, sollten wir neue Weisungen erhalten.</p>
-<p>Bei Fragen, kontaktiert uns bitte über das <a href="./contact/">Kontaktformular</a>.</p>
-</div>
+{{< warning >}}
 
-Am Wochenende vom **7./8. März 2020** verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
+<p style="margin: 0; margin-bottom: 5px;"><strong>Absage der Luzerner Spieltage 2020</strong></p>
+
+<p>Liebe Spielfreunde,</p>
+
+<p>Das Organisationskomitee hat sich schweren Herzens zu einer <strong>Absage der Luzerner Spieltage 2020</strong> entschieden.
+Die Entscheidung begründet sich auf mehreren Punkten, die wir euch offen wie folgt mitteilen möchten:</p>
+
+<ol>
+<li style="margin-bottom: 5px">Belastung für Helfer<br />
+Es herrscht allgemein eine Verunsicherung in der Bevölkerung durch das Coronavirus, ob man an grösseren Events teilnehmen kann. Auch wir haben bereits von Helfern Absagen oder den Wunsch, die Spieltage zu verschieben, erhalten. Die entstehende Arbeitslast auf den Schultern der restlichen Helfer ist aufgrund der Absagen höher als wir das unseren freiwilligen Helfern zumuten möchten. Wir möchten auch nicht die restlichen Helfer mit der Durchführung der Spieltage moralisch zu einer Teilnahme verpflichten.</li>
+
+<li style="margin-bottom: 5px">Risiken für den Verein<br />
+Der Verein hat bei der Durchführung des Events Auflagen des Kantons und Bunds zu erfüllen. Wir sind derzeit der Ansicht, die Auflagen noch erfüllen zu können, aber eine negative Auslegung bei einem Ereignisfall ist für den kleinen Verein ein rechtliches und finanzielles Risiko.
+Weiterhin kann eine Lageänderung zu einer Verschärfung der Auflagen führen. Sind diese Auflagen grundsätzlich nicht mehr einhaltbar, wäre eine kurzfristige Absage unausweichlich.</li>
+
+<li style="margin-bottom: 5px">Krankheitsrisiko<br />
+Wir möchten alle Teilnehmer keinem erhöhten Risiko aussetzen, an Covid-19 zu erkranken.</li>
+</ol>
+
+<p>Die Spieltage sollen ein Ereignis zur Entspannung und zum zwanglosen Spielen sein. Durch die genannten Gründe sehen wir diese Erfahrung geschmälert und wir mussten deshalb den Entschluss zur Absage fassen.</p>
+
+<p>Wir möchten uns herzlich bei allen für das grosse Interesse, die Hilfsbereitschaft und den Einsatz bedanken.
+Wir planen natürlich wieder weitere Events und werden weiterhin aktiv bleiben sobald die Situation wieder ruhiger ist.</p>
+
+<p><em>Euer Organisationskomitee der Luzerner Spieltage 2020</em></p>
+
+<p>Bei Fragen, kontaktiert uns bitte über das <a href="./contact/">Kontaktformular</a>.</p>
+
+{{< /warning >}}
+
+<!-- Am Wochenende vom **7./8. März 2020** verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
 
 Falls du Fragen hast oder an den Spieltagen mithelfen möchtest, zögere nicht, uns über das [Kontaktformular]({{< ref "contact" >}}) anzuschreiben. Wir freuen uns auf deine Nachricht.
 
@@ -49,6 +67,7 @@ Sonntag, 8. März 2020, 10 bis 20 Uhr
 Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per Bus 8 (Würzenbachmatte) oder Bus 14 (Schlösslirain).
 
 Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zum Spar an der Adresse [Würzenbachstrasse 19, Luzern](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
+-->
 
 {{< minitron url="/images/DSCF4749.jpg" attribution-title="Luzerner Spieltage 2019" attribution-source="/images/DSCF4749.jpg" offset="60%" >}}
 

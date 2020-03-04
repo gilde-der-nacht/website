@@ -5,6 +5,7 @@ menu:
   main:
     weight: 20
 toc: true
+draft: true
 ---
 
 A rich and varied programme is provided on the Luzerner Spieltage:

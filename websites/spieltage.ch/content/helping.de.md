@@ -5,6 +5,7 @@ menu:
   main:
     weight: 50
 toc: true
+draft: true
 ---
 
 Hallo Freunde des gepflegten oder auch ungehemmten Spielens.
