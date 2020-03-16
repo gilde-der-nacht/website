@@ -14,7 +14,17 @@ jumbotronImage:
 
 Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und Tabletop-Spieler herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter]({{< ref "newsletter" >}}) einzutragen, dann erhältst du jeweils eine Woche vor den Events eine Erinnerungs-Mail.
 
-# Kalender
+# Coronavirus (Covid-19)
+
+**Bis auf weiteres werden wir keine Spielanlässe durchführen.**
+
+Möchtest du informiert bleiben, empfehlen wir dir diese drei Optionen:
+
+* Diese Webseite werden wir updaten.
+* Abonniere unseren [E-Mail-Newsletter]({{< ref "newsletter" >}}).
+* Trete unserem [Onlinechat (Discord)](https://chat.gildedernacht.ch) bei.
+
+<!--# Kalender
 
 <template id="calendar-i18n">
     <p data-id="day-0" data-text="Sonntag">-</p>
@@ -45,4 +55,4 @@ Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und 
 <script src="/scripts/cal-model.js"></script>
 <script src="/scripts/cal-view.js"></script>
 
-{{< map >}}
+{{< map >}} -->
