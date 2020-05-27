@@ -14,7 +14,7 @@ jumbotronImage:
 
 _First time here? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
 
-_The Luzerner Rollenspieltage will be held again this year, albeit in a slightly adapted form - namely online. As planned, the dates are on **29th and 30th August 2020.** At the moment we are looking for game masters. We will inform bout the exact schedule in July here._
+_The Luzerner Rollenspieltage will be held again this year, albeit in a slightly adapted form - namely online. As planned, the dates are on **29th and 30th August 2020.** At the moment we are looking for game masters. We will inform about the exact schedule in July here._
 
 Even if the feeling is not quite the same as in a personal role-play session, we would like to take the opportunity to hold the Rollenspieltage this year as well. **Role-playing games can be played online well and without much equipment.** All you need is a computer with internet connection and a microphone.
 
