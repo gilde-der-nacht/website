@@ -1,5 +1,6 @@
 footer {
-  background-color: var(--contrast-brand-color);
+  background-color: var(--light-grey-color);
+
   margin-top: 20px;
   color: var(--background-color);
 
@@ -70,12 +71,16 @@ footer {
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 20px;
-    background-color: var(--light-grey-color);
+    background-color: var(--contrast-brand-color);
 
     .p-social {
       height: 40px;
       display: flex;
       justify-content: center;
+
+      .p-social-logo {
+        height: 100%;
+      }
 
       a {
         margin-left: 25px;

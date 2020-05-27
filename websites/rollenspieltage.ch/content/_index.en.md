@@ -1,51 +1,39 @@
 ---
 title: "Startpage"
-subtitle: "Welcome to the <br />Luzerner Rollenspieltage 2019"
+subtitle: "The Luzerner Rollenspieltage take place online!<br/> <small>29. + 30. August 2020</small>"
 date: 2019-04-01
 menu:
   main:
     weight: 10
 toc: true
 jumbotronImage:
-  url: /images/luzerner-rollenspieltag-2018-22.jpg
-  source: Luzerner Rollenspieltage 2019
+  url: /images/luzerner-rollenspieltag-2018-15.jpg
+  source: Luzerner Rollenspieltag 2018
   offset: 40%
-  comment: Star Wars role-play system
 ---
-
-# Dates 2020
-&nbsp;29. + 30. August 2020
-
-{{< minitron url="/images/luzerner-rollenspieltag-2018-15.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-15.jpg" offset="40%" >}}
-
-# Players
 
 _First time here? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
 
-At around a month before the event we will put all the game rounds online. You can then reserve your seat at the table, online or spontaneously.
+_The Luzerner Rollenspieltage will be held again this year, albeit in a slightly adapted form - namely online. As planned, the dates are on **29th and 30th August 2020.** At the moment we are looking for game masters. We will inform bout the exact schedule in July here._
 
-We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
+Even if the feeling is not quite the same as in a personal role-play session, we would like to take the opportunity to hold the Rollenspieltage this year as well. **Role-playing games can be played online well and without much equipment.** All you need is a computer with internet connection and a microphone.
+
+**For us the community feeling is very important** and we will try to create a platform where we can meet and talk between the rounds of the games.
+
+This format can be a challenge, especially for players and gamemasters who have no experience with online pen & paper. **We, the organizers will be there for you before and during the event to help with technical questions and uncertainties.**
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
 
-# Game masters
+# Game masters wanted!
 
-It goes without saying, to the game masters, how grateful we are for your efforts, but we do it anyway: Thank you very much! We would like to point out, that we ask you to bring along system-specific game material for your players. We take care of writing utensils.
-
-If you never run a role-playing game or feel insecure as a game master, you are welcome to contact us in advance. If there is enough demand, we will offer a small workshop. Experienced game master, will also support you on site and are there to help and advise.
-
-Please [contact us via form]({{< ref "contact" >}}) if you’d like to guide a round.
+Like every year we are looking for you! You people who feel like leading a role playing session. Maybe you have done before and know how it works or maybe you are trying it for the first time. No matter if experienced or greenhorn we are looking forward to you contacting us: [contact form]({{< ref "contact" >}})
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-21.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-21.jpg" offset="40%" >}}
 
-# Informations
+# Registration as a player
 
-**Entry fee:** the event is free of charge (collection/donations are welcome)
+**In July the game rounds will be published here.** You can then register for a round in advance or join a round spontaneously on the day of the event.
 
-**Address:** Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern
+We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
 
-{{< map >}}
-
-From the Lucerne train station, the location is easily reached in 15 minutes by bus 8 (Würzenbachmatte) or bus 14 (Schlösslirain).
-
-A (fee required) parking garage is 5 minutes walk away. Belongs to the Spar supermarket at the address [Würzenbachstrasse 19, Lucerne](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
+We are looking forward to successful Rollenspieltage 2020!
