@@ -18,6 +18,8 @@ const calendarMain = async () => {
     const calendar = new GoogleCalendar();
     await calendar.getDates()
         .then(entries => {
+            document.querySelector('.saturday').innerHTML = '';
+            document.querySelector('.sunday').innerHTML = '';
             entries.forEach(entry => {
                 const output = `
 <div class="c-container">
