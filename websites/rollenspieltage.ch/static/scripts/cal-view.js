@@ -5,7 +5,7 @@ const calendarMain = async () => {
     const formatDate = (event) => {
         return `${event.startDay}. August, ${event.startTime} – ${event.endTime} Uhr`;
     };
-    
+
     const formatTags = (tags) => {
         const starIcon = '★';
         const output = [];
@@ -18,9 +18,9 @@ const calendarMain = async () => {
     const calendar = new GoogleCalendar();
     await calendar.getDates()
         .then(entries => {
-            entries.forEach(entry => {                
+            entries.forEach(entry => {
                 const output = `
-<div data-id="container">
+<div class="c-container">
     <div class="round-image">
         <img src="${entry.imageUrl}"/>
     </div>
