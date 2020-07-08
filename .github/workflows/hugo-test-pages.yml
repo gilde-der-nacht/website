@@ -12,7 +12,8 @@ jobs:
 
     strategy:
       matrix: 
-        site: [rollenspieltage]
+        site: 
+        - rollenspieltage
         
     env:
       RST_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
