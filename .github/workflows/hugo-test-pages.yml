@@ -18,7 +18,7 @@ jobs:
         - rollenspieltage
         
     env:
-      CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
+      CURRENT_KEY: none
 
     steps:
     - uses: actions/checkout@v2
