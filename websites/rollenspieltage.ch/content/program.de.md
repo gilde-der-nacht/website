@@ -9,11 +9,11 @@ toc: true
 
 # Samstag
 
-<div class="c-calendar saturday"></div>
+<div class="c-calendar saturday u-bleed-out c-rounds"></div>
 
 # Sonnntag
 
-<div class="c-calendar sunday"></div>
+<div class="c-calendar sunday u-bleed-out c-rounds"></div>
 
 <script src="/scripts/cal-model.js"></script>
 <script src="/scripts/cal-view.js"></script>
