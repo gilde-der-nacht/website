@@ -18,14 +18,16 @@ jobs:
         - rollenspieltage
         
     env:
-      RST_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
+      CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
 
     steps:
     - uses: actions/checkout@v2
 
     - name: key setup
-      run: echo rollenspieltage
+      run: echo set deploy key for rollenspieltage
       if: ${{ matrix.site == 'rollenspieltage' }}
+      env:
+        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
       
     - name: Hugo setup
       uses: peaceiris/actions-hugo@v2.4.12
@@ -39,7 +41,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ env.RST_KEY }}
+        deploy_key: ${{ env.CURRENT_KEY }}
         external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
         publish_branch: master
         publish_dir: ./${{ matrix.site }}
