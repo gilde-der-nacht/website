@@ -13,6 +13,10 @@ jobs:
     strategy:
       matrix: 
         site: [rollenspieltage]
+        
+    env:
+      RST_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
+
     steps:
     - uses: actions/checkout@v2
 
@@ -28,7 +32,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
+        deploy_key: ${{ env.RST_KEY }}
         external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
         publish_branch: master
         publish_dir: ./${{ matrix.site }}
