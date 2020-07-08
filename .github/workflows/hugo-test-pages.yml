@@ -35,8 +35,8 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: .
         external_repository: gilde-der-nacht/github-action-test 
-        branch: master
+        publish_branch: master
+        publish_dir: .  
         # publish_branch: test.rollenspieltage.ch
         # cname: test.rollenspieltage.ch
