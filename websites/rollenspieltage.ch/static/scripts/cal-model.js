@@ -63,7 +63,7 @@ class GoogleCalendar {
             const line = tagRegex.exec(e.description);
             if (line) {
                 const stars = line[0].match(new RegExp(star, 'g')).length;
-                event.tags.push(`${tag}: ${stars}/4`);
+                event.tags.push({tag, stars});
             }
         });
 
