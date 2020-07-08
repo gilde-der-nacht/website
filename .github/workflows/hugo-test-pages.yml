@@ -34,7 +34,6 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish-branch: master
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
-        external_repository:  gilde-der-nacht/github-action-test 
+        publish_branch: master
