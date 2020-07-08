@@ -5,115 +5,46 @@ menu:
   main:
     weight: 20
 toc: true
-draft: true
 ---
 
-<p id="apollon-submitted-hint"></p>
-<p id="apollon-submitted-summary"></p>
-
-<strong style="background-color: #d70b31; color: white">
-Die Online-Anmeldung ist zu Ende.</strong>
-
-**Schreib uns doch übers [Kontaktformular]({{< ref "contact" >}}), wenn du Fragen zu deiner Anmeldung oder zukünftigen Rollenspieltagen hast.**
-
-
-<!-- Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schicke ganz unten das Formular ab: -->
-
-<template id="apollon-i18n">
-    <p data-id="friday" data-text="Freitag">-</p>
-    <p data-id="saturday" data-text="Samstag">-</p>
-    <p data-id="choose" data-text="Auswählen">-</p>
-    <p data-id="choosen" data-text="Ausgewählt">-</p>
-    <p data-id="full" data-text="Ausgebucht">-</p>
-    <!-- e.g. countryflags.com -->
-    <p data-id="flag-url-DE" data-text="/graphics/germany-flag-small.png">-</p>
-    <p data-id="flag-url-EN" data-text="/graphics/united-kingdom-flag-small.png">-</p>
-    <p data-id="overlapping" data-text="Achtung: Mindestens zwei Spielrunden überlappen zeitlich!">-</p>
-    <p data-id="submitted-thanks" data-text="Danke für das Anmelden für folgende Runden:">-</p>
-    <p data-id="form-empty" data-text="Bitte Name und E-Mail-Adresse ausfüllen.">-</p>
+<template id="calendar-i18n">
+    <p data-id="day-0" data-text="Sonntag">-</p>
+    <p data-id="day-1" data-text="Montag">-</p>
+    <p data-id="day-2" data-text="Dienstag">-</p>
+    <p data-id="day-3" data-text="Mittwoch">-</p>
+    <p data-id="day-4" data-text="Donnerstag">-</p>
+    <p data-id="day-5" data-text="Freitag">-</p>
+    <p data-id="day-6" data-text="Samstag">-</p>
+    <p data-id="day-7" data-text="Sonntag">-</p>
+    <p data-id="month-1" data-text="Januar">-</p>
+    <p data-id="month-2" data-text="Februar">-</p>
+    <p data-id="month-3" data-text="März">-</p>
+    <p data-id="month-4" data-text="April">-</p>
+    <p data-id="month-5" data-text="Mai">-</p>
+    <p data-id="month-6" data-text="Juni">-</p>
+    <p data-id="month-7" data-text="Juli">-</p>
+    <p data-id="month-8" data-text="August">-</p>
+    <p data-id="month-9" data-text="September">-</p>
+    <p data-id="month-10" data-text="Oktober">-</p>
+    <p data-id="month-11" data-text="November">-</p>
+    <p data-id="month-12" data-text="Dezember">-</p>
+    <p data-id="hour" data-text="Uhr">-</p>
 </template>
 
-<template id="apollon-round-template">
+<template id="entry-template">
     <label data-id="container">
+        <div class="round-image"></div>
         <div class="round">
             <h1><span data-id="name"></span></h1>
+            <p>Uhrzeit: <span data-id="day"></span>, <span data-id="from"></span> &mdash; <span data-id="to"></span></p>
             <p>Spielleiter: <span data-id="gm"></span></p>
-            <p>Spielbeschreibung: <span data-id="game-description"></span></p>
-            <p>Kampagnenbeschreibung: <span data-id="campaign-description"></span></p>
-            <p>Sprache: <span data-id="lang"></span> <img height="10" data-id="lang-img"></p>
-            <p>Tag und Zeit: <span data-id="day"></span>, <span data-id="from"></span> &mdash; <span data-id="to"></span> <span>Uhr</span></p>
-            <p>Spieler Aktuell: <strong><span data-id="players-current"></span></strong> / Max: <span data-id="players-max"></span></p>
-            <input data-id="checkbox" type="checkbox">
-            <p><input data-id="btn-choose" class="c-btn" type="button"></p>
-            <p class="hint"><span data-id="hint"></span></p>
+            <p><span data-id="game-description"></span></p>
+            <p><span data-id="game-tags"></span></p>
         </div>
     </label>
 </template>
 
-<template id="apollon-summary-table">
-    <table id="apollon-table-template">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Tag</th>
-            <th>von</th>
-            <th>bis</th>
-        </tr>
-        </thead>
-        <tbody id="apollon-summary-entries">
-        </tbody>
-    </table>
-</template>
+<div class="c-calendar"></div>
 
-<template id="apollon-summary-row">
-    <tr>
-        <td><span data-id="name"></span></td>
-        <td><span data-id="day"></span></td>
-        <td class="u-no-break"><span data-id="from"></span> Uhr</td>
-        <td class="u-no-break"><span data-id="to"></span> Uhr</td>
-    </tr>
-</template>
-
-<div id="apollon-rounds">
-    <h1>Freitag, 30. August 2019</h1>
-    <div id="apollon-rounds-friday" class="u-bleed-out c-rounds">
-        <em>Runden werden geladen. Danke für deine Geduld.</em>
-    </div>
-    <h1>Samstag, 31. August 2019</h1>
-    <div id="apollon-rounds-saturday" class="u-bleed-out c-rounds">
-        <em>Runden werden geladen. Danke für deine Geduld.</em>
-    </div>
-</div>
-
-# Anmeldung abschliessen
-
-<div class="c-form">
-    <div>
-        <p class="c-form--item c-form-field--text">
-            <label for="name">Name *</label>
-            <input name="name" id="name" type="text" placeholder="Name" required>
-        </p>
-        <p class="c-form--item c-form-field--text">
-            <label for="email">E-Mail *</label>
-            <input name="email" id="email" type="email" placeholder="E-Mail" required>
-        </p>
-        <p class="c-form--item c-form-field--text">
-            <label for="comment">Kommentar</label>
-            <textarea comment="message" id="comment" placeholder="Kommentar"></textarea>
-        </p>
-        <h2>Zusammenfassung</h2>
-        <p id="apollon-summary-hint" class="hint"></p>
-        <div id="apollon-summary"></div>
-        <input class="c-btn" type="submit" id="submit" value="Absenden">
-        <input type="hidden" name="_next" value="http://localhost:1313/program_test/">
-        <input type="hidden" name="_captcha" value="false">
-    </div>
-
-</div>
-
-<!--
-<script src="http://127.0.0.1:5000/olymp.js"></script>
--->
-<script src="https://api.gildedernacht.ch/olymp.js"></script>
-<script src="/scripts/apollon-model.js"></script>
-<script src="/scripts/apollon-view.js"></script>
+<script src="/scripts/cal-model.js"></script>
+<script src="/scripts/cal-view.js"></script>
