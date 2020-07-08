@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-        CURRENT_KEY: not_set  
+        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}  
 
     strategy:
       matrix: 
