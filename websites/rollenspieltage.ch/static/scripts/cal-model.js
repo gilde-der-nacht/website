@@ -14,7 +14,6 @@ class RPGEvent {
     }
 }
 
-
 class GoogleCalendar {
     constructor(calendarID = 'gildedernacht@gmail.com', apiKey = 'AIzaSyBRXYQfvv3KHyZmZrhxzWDOghX_c7xfnGo') {
         this.url = 'https://www.googleapis.com/calendar/v3/calendars/' + calendarID + '/events?key=' + apiKey + '&SameSite=None';
