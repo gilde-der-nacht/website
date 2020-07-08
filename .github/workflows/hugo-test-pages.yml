@@ -65,4 +65,4 @@ jobs:
         external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
         publish_branch: master
         publish_dir: ./${{ matrix.site }}
-        cname: test.${{ matrix.site }}.ch:  
+        cname: test.${{ matrix.site }}.ch
