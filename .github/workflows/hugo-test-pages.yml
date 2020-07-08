@@ -15,20 +15,13 @@ jobs:
     strategy:
       matrix: 
         site: 
-        - rollenspieltage
-        
-    env:
-      CURRENT_KEY: none
+          - gildedernacht
+          - rollenspieltage
+          - spieltage
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: key setup
-      run: echo set deploy key for rollenspieltage
-      if: ${{ matrix.site == 'rollenspieltage' }}
-      env:
-        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
-      
     - name: Hugo setup
       uses: peaceiris/actions-hugo@v2.4.12
       with:
@@ -38,11 +31,38 @@ jobs:
     - name: Build
       run: hugo --minify --source ./websites/${{ matrix.site }}.ch --destination ../../${{ matrix.site }}
     
-    - name: Deploy
+    - name: Deploy Gilde der Nacht
       uses: peaceiris/actions-gh-pages@v3
+      if: ${{ matrix.site == 'gildedernacht' }}
+      env:
+        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_GDN_TEST }}
       with:
         deploy_key: ${{ env.CURRENT_KEY }}
         external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
         publish_branch: master
         publish_dir: ./${{ matrix.site }}
         cname: test.${{ matrix.site }}.ch
+
+    - name: Deploy Rollenspieltage
+      uses: peaceiris/actions-gh-pages@v3
+      if: ${{ matrix.site == 'rollenspieltage' }}
+      env:
+        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
+      with:
+        deploy_key: ${{ env.CURRENT_KEY }}
+        external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
+        publish_branch: master
+        publish_dir: ./${{ matrix.site }}
+        cname: test.${{ matrix.site }}.ch
+        
+    - name: Deploy Spieltage
+      uses: peaceiris/actions-gh-pages@v3
+      if: ${{ matrix.site == 'spieltage' }}
+      env:
+        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_ST_TEST }}
+      with:
+        deploy_key: ${{ env.CURRENT_KEY }}
+        external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
+        publish_branch: master
+        publish_dir: ./${{ matrix.site }}
+        cname: test.${{ matrix.site }}.ch:  
