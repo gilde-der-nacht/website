@@ -5,6 +5,15 @@ const calendarMain = async () => {
     const formatDate = (event) => {
         return `${event.startDay}. August, ${event.startTime} – ${event.endTime} Uhr`;
     };
+    
+    const formatTags = (tags) => {
+        const starIcon = '★';
+        const output = [];
+        tags.forEach(tag => {
+            output.push(`${tag.tag}: ${starIcon.repeat(tag.stars)}`);
+        });
+        return output.join('<br />');
+    };
 
     const calendar = new GoogleCalendar();
     await calendar.getDates()
@@ -20,7 +29,7 @@ const calendarMain = async () => {
         <p>${formatDate(entry)}</p>
         <p>${entry.gameMaster}</p>
         <p>${entry.description}</p>
-        <p>${entry.tags.join('<br />')}</p>
+        <p>${formatTags(entry.tags)}</p>
     </div>
 </div>`;
                 const container = entry.startDay === 29 ? document.querySelector('.saturday') : document.querySelector('.sunday');
