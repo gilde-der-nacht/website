@@ -12,6 +12,7 @@ jobs:
     
     env:
       rollenspieltage: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
+      CURRENT_KEY: env.${{ matrix.site }}
 
     runs-on: ubuntu-latest
 
@@ -35,7 +36,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ env.[matrix.site] }}
+        deploy_key: ${{ env.CURRENT_KEY }}
         external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
         publish_branch: master
         publish_dir: ./${{ matrix.site }}
