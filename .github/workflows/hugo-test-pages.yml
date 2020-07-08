@@ -11,6 +11,9 @@ jobs:
     name: ${{ matrix.site }}
 
     runs-on: ubuntu-latest
+    
+    env:
+        CURRENT_KEY: not_set  
 
     strategy:
       matrix: 
@@ -22,9 +25,8 @@ jobs:
       
     - name: key setup
       if: ${{ matrix.site == 'rollenspieltage' }}
-      run: echo 'test'
-       # env:
-        # CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}  
+      env:
+        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}  
 
     - name: Hugo setup
       uses: peaceiris/actions-hugo@v2.4.12
