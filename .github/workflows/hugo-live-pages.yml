@@ -1,0 +1,41 @@
+name: Live Pages
+
+on:
+  push:
+    branches: [ live ]
+  pull_request:
+    branches: [ live ]
+
+jobs:
+  deploy-test-pages:
+    name: ${{ matrix.site }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: 
+        site: 
+          - gildedernacht
+          - rollenspieltage
+          - spieltage
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v2.4.12
+      with:
+          hugo-version: 'latest'
+          extended: true
+          
+    - name: Build
+      run: hugo --minify --source ./websites/${{ matrix.site }}.ch --destination ../../${{ matrix.site }}
+        
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3  
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        external_repository: gilde-der-nacht/${{ matrix.site }}.ch 
+        publish_branch: master
+        publish_dir: ./${{ matrix.site }}
+        cname: ${{ matrix.site }}.ch
