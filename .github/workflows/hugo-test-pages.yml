@@ -30,38 +30,11 @@ jobs:
           
     - name: Build
       run: hugo --minify --source ./websites/${{ matrix.site }}.ch --destination ../../${{ matrix.site }}
-    
-    - name: Deploy Gilde der Nacht
-      uses: peaceiris/actions-gh-pages@v3
-      if: ${{ matrix.site == 'gildedernacht' }}
-      env:
-        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_GDN_TEST }}
-      with:
-        deploy_key: ${{ env.CURRENT_KEY }}
-        external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
-        publish_branch: master
-        publish_dir: ./${{ matrix.site }}
-        cname: test.${{ matrix.site }}.ch
-
-    - name: Deploy Rollenspieltage
-      uses: peaceiris/actions-gh-pages@v3
-      if: ${{ matrix.site == 'rollenspieltage' }}
-      env:
-        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_RST_TEST }}
-      with:
-        deploy_key: ${{ env.CURRENT_KEY }}
-        external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
-        publish_branch: master
-        publish_dir: ./${{ matrix.site }}
-        cname: test.${{ matrix.site }}.ch
         
-    - name: Deploy Spieltage
-      uses: peaceiris/actions-gh-pages@v3
-      if: ${{ matrix.site == 'spieltage' }}
-      env:
-        CURRENT_KEY: ${{ secrets.PERSONAL_TOKEN }}
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3  
       with:
-        personal_token: ${{ env.CURRENT_KEY }}
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
         external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
         publish_branch: master
         publish_dir: ./${{ matrix.site }}
