@@ -59,9 +59,9 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ matrix.site == 'spieltage' }}
       env:
-        CURRENT_KEY: ${{ secrets.ACTIONS_DEPLOY_ST_TEST }}
+        CURRENT_KEY: ${{ secrets.PERSONAL_TOKEN }}
       with:
-        deploy_key: ${{ env.CURRENT_KEY }}
+        personal_token: ${{ env.CURRENT_KEY }}
         external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
         publish_branch: master
         publish_dir: ./${{ matrix.site }}
