@@ -1,5 +1,16 @@
 // TODO needs to be renamed to apollon
 
+.c-round {
+    border: 5px solid var(--dark-grey-color);
+    border-top: none;
+    padding: 10px;
+}
+
+.c-round-date {
+    margin: 0;
+    font-style: italic;
+}
+
 .c-rounds {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -41,13 +52,13 @@
 
     h1 {
         font-size: 1.5em;
-        margin-top: 0;
+        margin: 0;
     }
 
     p {
         font-size: 1em;
         margin-bottom: 0;
-        font-weight: bold;
+        // font-weight: bold;
 
         span {
             font-weight: normal;
