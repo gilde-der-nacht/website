@@ -7,7 +7,19 @@ menu:
 toc: true
 ---
 
-# Anmelden
+## Samstag
+
+<div class="c-calendar saturday u-bleed-out c-rounds">
+  <em>Runden werden geladen. Danke für deine Geduld.</em>
+</div>
+
+## Sonnntag
+
+<div class="c-calendar sunday u-bleed-out c-rounds">
+  <em>Runden werden geladen. Danke für deine Geduld.</em>
+</div>
+
+## Anmelden
 
 Die Rollenspielrunden und die **Anmeldung** finden auf einem speziell dafür vorbereiteten Discord-Server statt. Klicke auf folgenden Link, um den Server zu öffnen: https://discord.gg/ThDXTwP
 
@@ -22,18 +34,6 @@ Die Rollenspielrunden und die **Anmeldung** finden auf einem speziell dafür vor
 * und noch ein paar mehr
 
 Uns ist wichtig, dass Discord dir nicht im Wege steht, sondern das Erlebnis der Rollenspieltage möglichst gut unterstützt. Wenn du also auf Probleme oder Fragen stösst, [zögere nicht uns zu kontaktieren]({{< ref "contact" >}}), damit wir dir helfen können.
-
-# Samstag
-
-<div class="c-calendar saturday u-bleed-out c-rounds">
-  <em>Runden werden geladen. Danke für deine Geduld.</em>
-</div>
-
-# Sonnntag
-
-<div class="c-calendar sunday u-bleed-out c-rounds">
-  <em>Runden werden geladen. Danke für deine Geduld.</em>
-</div>
 
 <script src="/scripts/cal-model.js"></script>
 <script src="/scripts/cal-view.js"></script>
