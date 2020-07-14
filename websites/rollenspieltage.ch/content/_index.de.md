@@ -12,7 +12,13 @@ jumbotronImage:
   offset: 40%
 ---
 
-_Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
+# Die wichtigsten Links
+
+* [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})
+* [Programm-Übersicht 2020]({{< ref "program" >}})
+* [Discord-Server](https://discord.gg/ThDXTwP)
+
+Abonniere unseren [Newsletter]({{< ref "newsletter" >}}), um nie etwas zu verpassen.
 
 _Die Luzerner Rollenspieltage werden auch in diesem Jahr durchgeführt, wenn auch in etwas angepasster Form – nämlich online. Die Spieldaten sind wie geplant am **29. und 30. August 2020.** Zurzeit suchen wir Rollenspielleiterinnen und Rollenspielleiter. Über den genauen Spielplan wird im Juli hier informiert._
 
@@ -32,8 +38,8 @@ Wie jedes Jahr suchen wir euch! Ihr Leute, die Lust habt ein Rollenspiel zu leit
 
 # Anmeldung als Spieler
 
-**Im Juli werden hier die Spielrunden aufgeschaltet.** Du kannst dich dann bereits vorab für eine Runde anmelden oder am Tag des Geschehens spontan dazu stossen und dich einer Runde anschliessen.
+Du findest eine Übersicht über die Spielrunden auf der [Programm-Seite]({{< ref "program" >}}).
 
-Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
+Die Anmeldung erfolgt dieses Jahr jedoch nicht über die Webseite sondern direkt auf unserem [Discord-Server](https://discord.gg/ThDXTwP). Mehr Infos zu Discord findest du auf der [Programm-Seite]({{< ref "program" >}}).
 
 Wir freuen uns auf gelungene Rollenspieltage 2020!
