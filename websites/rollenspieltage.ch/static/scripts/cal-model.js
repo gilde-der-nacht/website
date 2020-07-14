@@ -31,7 +31,12 @@ class GoogleCalendar {
 
         // Description
         const descRegex = new RegExp('Kamera.+?\\n{1,3}((.|\\n)+)\\n{2}Anfänger');
-        event.description = descRegex.exec(e.description)[1]
+        const descRegexFound = descRegex.exec(e.description)
+        if (descRegexFound) {
+            event.description = descRegexFound[1]
+        } else {
+            console.log(e);
+        }
 
         // StartDay
         event.startDay = e.start.dateObj.getDate();
@@ -56,14 +61,18 @@ class GoogleCalendar {
             'Burgen & Rittertum',
             'Magie & Zauberwerk',
             'Rätsel',
-            'Improvisation'];
+            'Improvisation'
+        ];
         const star = '★';
         tags.forEach(tag => {
             const tagRegex = new RegExp(tag + ': .+\\n');
             const line = tagRegex.exec(e.description);
             if (line) {
                 const stars = line[0].match(new RegExp(star, 'g')).length;
-                event.tags.push({tag, stars});
+                event.tags.push({
+                    tag,
+                    stars
+                });
             }
         });
 
