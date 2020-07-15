@@ -13,6 +13,11 @@
     font-style: italic;
 }
 
+.c-rounds div.c-container .c-btn.c-register {
+	background-color: var(--contrast-brand-color);
+	border-color: var(--contrast-brand-color);
+}
+
 .c-rounds {
     display: grid;
     grid-template-columns: repeat(2, 50%);
