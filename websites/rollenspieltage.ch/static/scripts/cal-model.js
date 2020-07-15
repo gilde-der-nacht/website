@@ -22,21 +22,23 @@ class GoogleCalendar {
 
     toRPGEvent(e) {
         const event = new RPGEvent();
+        console.log(e);
 
         // GameSystem
         event.gameSystem = e.summary;
 
         // GameMaster
         const gmRegex = new RegExp('(Spielleiter(in)?: .+?) [\\n\(]');
-        event.gameMaster = gmRegex.exec(e.description)[1]
+        const gmFound = gmRegex.exec(e.description);
+        if (gmFound) {
+            event.gameMaster = gmFound[1];
+        }
 
         // Description
         const descRegex = new RegExp('Kamera.+?\\n{1,3}((.|\\n)+)\\n{2}Anfänger');
         const descRegexFound = descRegex.exec(e.description)
         if (descRegexFound) {
             event.description = descRegexFound[1]
-        } else {
-            console.log(e);
         }
 
         // StartDay
@@ -53,12 +55,18 @@ class GoogleCalendar {
 
         // ImageUrl
         const imgRegex = new RegExp('Banner: (.+)');
-        event.imageUrl = imgRegex.exec(e.description)[1]
-        
+        const imgFound = imgRegex.exec(e.description);
+        if (imgFound) {
+            event.imageUrl = imgFound[1];
+        }
+                
         // RegisterLink
         const regRegex = new RegExp('Anmeldung: (.+)');
-        event.registerLink = regRegex.exec(e.description)[1]
-
+        const regFound = regRegex.exec(e.description);
+        if (regFound) {
+            event.registerLink = regFound[1];
+        }
+        
         // Tags
         const tags = [
             'Anfängerfreundlich',
