@@ -32,7 +32,7 @@ const calendarMain = async () => {
         <p>${entry.gameMaster}</p>
         <p>${entry.description}</p>
         <p>${formatTags(entry.tags)}</p>
-        ${entry.registerLink ? "<a class="c-btn" href=" + entry.registerLink + ">Anmeldung (Discord)</a>" : ""}
+        ${entry.registerLink ? "<a class='c-btn' href='" + entry.registerLink + "'>Anmeldung (Discord)</a>" : ""}
     </div>
 </div>`;
                 const container = entry.startDay === 29 ? document.querySelector('.saturday') : document.querySelector('.sunday');
