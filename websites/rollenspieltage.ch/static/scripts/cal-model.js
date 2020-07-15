@@ -9,7 +9,8 @@ class RPGEvent {
         this.endDay;
         this.startTime;
         this.endTime;
-        this.imageUrl;
+        this.imageUrl;        
+        this.registerLink;
         this.tags = [];
     }
 }
@@ -53,6 +54,10 @@ class GoogleCalendar {
         // ImageUrl
         const imgRegex = new RegExp('Banner: (.+)');
         event.imageUrl = imgRegex.exec(e.description)[1]
+        
+        // RegisterLink
+        const regRegex = new RegExp('Anmeldung: (.+)');
+        event.registerLink = regRegex.exec(e.description)[1]
 
         // Tags
         const tags = [
