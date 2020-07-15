@@ -1,9 +1,11 @@
 // TODO needs to be renamed to apollon
 
 .c-round {
-    border: 5px solid var(--dark-grey-color);
+    border: 10px solid transparent;
     border-top: none;
     padding: 10px;
+    border-image: linear-gradient(to bottom,var(--primary-brand-color) 0%,var(--dark-grey-color) 75%,var(--contrast-brand-color) 100%);
+    border-image-slice: 1;
 }
 
 .c-round-date {
