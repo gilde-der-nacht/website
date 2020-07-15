@@ -18,6 +18,13 @@
 	border-color: var(--contrast-brand-color);
 }
 
+.c-rounds div.c-container .c-btn.c-register:hover,
+.c-rounds div.c-container .c-btn.c-register:active {
+	background-color: var(--primary-brand-color);
+	border-color: var(--primary-brand-color);
+	cursor: pointer;
+}
+
 .c-rounds {
     display: grid;
     grid-template-columns: repeat(2, 50%);
