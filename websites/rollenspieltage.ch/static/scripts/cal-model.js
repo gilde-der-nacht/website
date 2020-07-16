@@ -9,7 +9,8 @@ class RPGEvent {
         this.endDay;
         this.startTime;
         this.endTime;
-        this.imageUrl;
+        this.imageUrl;        
+        this.registerLink;
         this.tags = [];
     }
 }
@@ -21,17 +22,24 @@ class GoogleCalendar {
 
     toRPGEvent(e) {
         const event = new RPGEvent();
+        console.log(e);
 
         // GameSystem
         event.gameSystem = e.summary;
 
         // GameMaster
         const gmRegex = new RegExp('(Spielleiter(in)?: .+?) [\\n\(]');
-        event.gameMaster = gmRegex.exec(e.description)[1]
+        const gmFound = gmRegex.exec(e.description);
+        if (gmFound) {
+            event.gameMaster = gmFound[1];
+        }
 
         // Description
         const descRegex = new RegExp('Kamera.+?\\n{1,3}((.|\\n)+)\\n{2}Anfänger');
-        event.description = descRegex.exec(e.description)[1]
+        const descRegexFound = descRegex.exec(e.description)
+        if (descRegexFound) {
+            event.description = descRegexFound[1]
+        }
 
         // StartDay
         event.startDay = e.start.dateObj.getDate();
@@ -47,8 +55,18 @@ class GoogleCalendar {
 
         // ImageUrl
         const imgRegex = new RegExp('Banner: (.+)');
-        event.imageUrl = imgRegex.exec(e.description)[1]
-
+        const imgFound = imgRegex.exec(e.description);
+        if (imgFound) {
+            event.imageUrl = imgFound[1];
+        }
+                
+        // RegisterLink
+        const regRegex = new RegExp('Anmeldung: (.+)');
+        const regFound = regRegex.exec(e.description);
+        if (regFound) {
+            event.registerLink = regFound[1];
+        }
+        
         // Tags
         const tags = [
             'Anfängerfreundlich',
@@ -56,14 +74,18 @@ class GoogleCalendar {
             'Burgen & Rittertum',
             'Magie & Zauberwerk',
             'Rätsel',
-            'Improvisation'];
+            'Improvisation'
+        ];
         const star = '★';
         tags.forEach(tag => {
             const tagRegex = new RegExp(tag + ': .+\\n');
             const line = tagRegex.exec(e.description);
             if (line) {
                 const stars = line[0].match(new RegExp(star, 'g')).length;
-                event.tags.push({tag, stars});
+                event.tags.push({
+                    tag,
+                    stars
+                });
             }
         });
 

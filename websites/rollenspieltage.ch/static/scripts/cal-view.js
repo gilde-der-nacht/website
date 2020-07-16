@@ -23,15 +23,16 @@ const calendarMain = async () => {
             entries.forEach(entry => {
                 const output = `
 <div class="c-container">
-    <div class="round-image">
+    <div class="c-round-image">
         <img src="${entry.imageUrl}"/>
     </div>
-    <div class="round">
+    <div class="c-round">
         <h1>${entry.gameSystem}</h1>
-        <p>${formatDate(entry)}</p>
+        <p class="c-round-date">${formatDate(entry)}</p>
         <p>${entry.gameMaster}</p>
         <p>${entry.description}</p>
         <p>${formatTags(entry.tags)}</p>
+        ${entry.registerLink ? "<a href='" + entry.registerLink + "'><input class='c-btn c-register' value='Zur Anmeldung (Discord)' type='button' /></a>" : ""}
     </div>
 </div>`;
                 const container = entry.startDay === 29 ? document.querySelector('.saturday') : document.querySelector('.sunday');
