@@ -3,8 +3,6 @@ name: Live Pages
 on:
   push:
     branches: [ live ]
-  pull_request:
-    branches: [ live ]
 
 jobs:
   deploy-test-pages:
