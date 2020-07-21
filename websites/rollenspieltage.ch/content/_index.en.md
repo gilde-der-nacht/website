@@ -12,9 +12,15 @@ jumbotronImage:
   offset: 40%
 ---
 
-_First time here? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
+# Useful links
 
-_The Luzerner Rollenspieltage will be held again this year, albeit in a slightly adapted form - namely online. As planned, the dates are on **29th and 30th August 2020.** At the moment we are looking for game masters. We will inform about the exact schedule in July here._
+* _First time here? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
+* [Program overview 2020]({{< ref "program" >}})
+* [Discord server](https://discord.gg/ThDXTwP)
+
+We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
+
+_The Luzerner Rollenspieltage will be held again this year, albeit in a slightly adapted form - namely online. As planned, the dates are on **29th and 30th August 2020.**_
 
 Even if the feeling is not quite the same as in a personal role-play session, we would like to take the opportunity to hold the Rollenspieltage this year as well. **Role-playing games can be played online well and without much equipment.** All you need is a computer with internet connection and a microphone.
 
@@ -32,8 +38,8 @@ Like every year we are looking for you! You people who feel like leading a role 
 
 # Registration as a player
 
-**In July the game rounds will be published here.** You can then register for a round in advance or join a round spontaneously on the day of the event.
+You can find an overview of the game rounds on the [program page].({{< ref "program" >}}).
 
-We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
+However, this year the registration is not done via the website but directly on our [Discord-Server].(https://discord.gg/ThDXTwP). You can find more information about Discord on the [program page]({{< ref "program" >}}).
 
 We are looking forward to successful Rollenspieltage 2020!
