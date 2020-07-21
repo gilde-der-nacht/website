@@ -20,7 +20,7 @@ jumbotronImage:
 
 Abonniere unseren [Newsletter]({{< ref "newsletter" >}}), um nie etwas zu verpassen.
 
-_Die Luzerner Rollenspieltage werden auch in diesem Jahr durchgeführt, wenn auch in etwas angepasster Form – nämlich online. Die Spieldaten sind wie geplant am **29. und 30. August 2020.** Zurzeit suchen wir Rollenspielleiterinnen und Rollenspielleiter. Über den genauen Spielplan wird im Juli hier informiert._
+_Die Luzerner Rollenspieltage werden auch in diesem Jahr durchgeführt, wenn auch in etwas angepasster Form – nämlich online. Die Spieldaten sind wie geplant am **29. und 30. August 2020.**_
 
 Auch wenn vielleicht nicht ganz das gleiche Gefühl aufkommt, wie in einer persönlichen Rollenspielrunde, möchten wir es uns nicht nehmen lassen, auch dieses Jahr die Luzerner Rollenspieltage durchzuführen. **Rollenspiele können gut und ohne viel Equipment online gespielt werden.** Es wird lediglich ein Computer mit Internetverbindung und ein Mikrofon benötigt.
 
