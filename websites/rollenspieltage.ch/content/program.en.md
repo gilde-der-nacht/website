@@ -7,6 +7,8 @@ menu:
 toc: true
 ---
 
+**If not specifically noted, the rounds will be played in German.**
+
 ## Saturday
 
 _29. August 2020_
