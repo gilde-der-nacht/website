@@ -14,6 +14,8 @@ jumbotronImage:
 
 Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und Tabletop-Spieler herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter]({{< ref "newsletter" >}}) einzutragen, dann erhältst du jeweils eine Woche vor den Events eine Erinnerungs-Mail.
 
+[![Luzerner Spieltage 2020](/Online-Banner_1200x675px_MeetUp.png "Luzerner Rollenspieltage 2020 finden online statt!")](https://rollenspieltage.ch)
+
 # Coronavirus (Covid-19)
 
 **Bis auf weiteres werden wir keine Spielanlässe durchführen.**
