@@ -10,7 +10,7 @@ toc: false
 
 {{< input name="private-name" type="text" placeholder="Name" label="Name" attributes="required">}}
 
-{{< input name="private-address" type="text" placeholder="Adresse" label="Adresse" >}}
+{{< input name="private-address" type="textarea" placeholder="Adresse" label="Adresse" >}}
 
 {{< input name="private-birthday" type="date" placeholder="Geburtsdatum" label="Geburtsdatum" >}}
 
