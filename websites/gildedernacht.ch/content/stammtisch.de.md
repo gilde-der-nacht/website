@@ -23,7 +23,7 @@ Für Fragen und Anregungen stehen wir euch gerne zur Verfügung.
 
 ## Wie geht es weiter?
 
-Der nächste Stammtisch findet am Freitagabend, 16. Oktober 2020 statt. Wo genau und wie es danach weitergeht steht noch offen und ist abhängig von der Nachfrage.
+Der nächste Stammtisch findet am _Freitagabend, 16. Oktober 2020_ statt. Wo genau und wie es danach weitergeht steht noch offen und ist abhängig von der Nachfrage.
 
 ## Banner
 
