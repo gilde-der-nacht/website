@@ -1,6 +1,6 @@
 ---
 title: "Startseite"
-subtitle: "Die Luzerner Rollenspieltage finden online statt!<br/> <small>29. + 30. August 2020</small>"
+subtitle: "Die Luzerner Rollenspieltage 2021 finden am <br/> 28. + 29. August 2021 statt"
 date: 2019-04-01
 menu:
   main:
@@ -12,34 +12,36 @@ jumbotronImage:
   offset: 40%
 ---
 
-# Die wichtigsten Links
+[![Rollenspiel-Stammtisch September 2020](/images/stammtisch/Rollenspiel-Stammtisch-Sep20_Title_1200x675px.png "Rollenspiel-Stammtisch September 2020")]({{< ref "stammtisch" >}})
 
-* [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})
-* [Programm-Übersicht 2020]({{< ref "program" >}})
-* [Discord-Server](https://discord.gg/ThDXTwP)
+# Spieler
 
-Abonniere unseren [Newsletter]({{< ref "newsletter" >}}), um nie etwas zu verpassen.
+_Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
 
-_Die Luzerner Rollenspieltage werden auch in diesem Jahr durchgeführt, wenn auch in etwas angepasster Form – nämlich online. Die Spieldaten sind wie geplant am **29. und 30. August 2020.**_
+Ungefähr einen Monat vor dem Anlass werden die Spielrunden hier bekannt gegeben. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
 
-Auch wenn vielleicht nicht ganz das gleiche Gefühl aufkommt, wie in einer persönlichen Rollenspielrunde, möchten wir es uns nicht nehmen lassen, auch dieses Jahr die Luzerner Rollenspieltage durchzuführen. **Rollenspiele können gut und ohne viel Equipment online gespielt werden.** Es wird lediglich ein Computer mit Internetverbindung und ein Mikrofon benötigt.
-
-**Uns ist das Gemeinschaftsgefühl sehr wichtig** und wir werden uns um eine Plattform bemühen, auf der wir uns auch zwischen den Spielrunden austauschen können.
-
-Gerade für Spieler und Spielleiter, die noch keine Erfahrung mit Online Pen & Paper haben, kann dieses Format eine Herausforderung sein. **Wir vom OK werden vor und während dem Anlass für dich da sein, um bei technischen Fragen und Unklarheiten zu helfen.**
+Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
 
-# Rollenspielleiterinnen und Rollenspielleiter gesucht!
+# Spielleiter
 
-Wie jedes Jahr suchen wir euch! Ihr Leute, die Lust habt ein Rollenspiel zu leiten. Vielleicht warst du schon einmal dabei und weisst wie es läuft oder du probierst es zum ersten Mal. Egal, ob erfahren oder Grünschnabel wir freuen uns, wenn du mit uns Kontakt aufnimmst: [zum Kontaktformular]({{< ref "contact" >}})
+Euch Spielleiter und Spielleiterinnen müssen wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte systemspezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
+
+Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfst du dich gerne bei uns im Vorfeld melden. Erfahrene Spielleiter unterstützen dich vor Ort und stehen mit Rat und Tat zur Seite.
+
+Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du gerne eine Spielrunde leiten möchtest.
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-21.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-21.jpg" offset="40%" >}}
 
-# Anmeldung als Spieler
+# Allgemeine Informationen
 
-Du findest eine Übersicht über die Spielrunden auf der [Programm-Seite]({{< ref "program" >}}).
+**Eintritt:** gratis (Kollekte)
 
-Die Anmeldung erfolgt dieses Jahr jedoch nicht über die Webseite sondern direkt auf unserem [Discord-Server](https://discord.gg/ThDXTwP). Mehr Infos zu Discord findest du auf der [Programm-Seite]({{< ref "program" >}}).
+**Adresse:** Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern
 
-Wir freuen uns auf gelungene Rollenspieltage 2020!
+{{< map >}}
+
+Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per Bus 8 (Würzenbachmatte) oder Bus 14 (Schlösslirain).
+
+Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zum Spar an der Adresse [Würzenbachstrasse 19, Luzern](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
