@@ -1,3 +1,8 @@
+---
+title: "Rollenspiel-Stammtisch"
+toc: true
+---
+
 # Rollenspiel-Stammtisch
 
 ![Rollenspiel-Stammtisch September 2020](/images/stammtisch/Rollenspiel-Stammtisch-Sep20_Title_1200x675px.png "Rollenspiel-Stammtisch September 2020")
