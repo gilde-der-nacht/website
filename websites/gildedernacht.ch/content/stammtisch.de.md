@@ -21,6 +21,28 @@ Keine Anmeldung nötig, kein Eintritt. Jedoch ist eine Registration im Rathskell
 
 Für Fragen und Anregungen stehen wir euch gerne zur Verfügung.
 
+## Umfrage
+
+Wir möchten mit unserem Stammtisch möglichst viele Rollenspieler glücklich machen. Dafür würde es uns enorm helfen, wenn wir von interessierten Personen wie dir einwenig mehr erfahren.
+
+_Die Umfrage ist anonym_
+
+{{< form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" >}}
+
+{{< input name="private-location" type="text" placeholder="Optional" label="Wo wohnst du?" >}}
+
+{{< input name="private-journey" type="text" placeholder="Optional" label="Wie weit würdest du reisen für einen Stammtisch?" >}}
+
+{{< input name="private-frequency" type="text" placeholder="Optional" label="Wie oft würdest du an einem Rollenspiel-Stammtisch teilnehmen?" >}}
+
+{{< input name="private-expectations" type="text" placeholder="Optional" label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?" >}}
+
+{{< input name="private-message" type="textarea" placeholder="Optional" label="Bemerkungen">}}
+
+{{< /form >}}
+
+{{< messages spam="Fehler: Deine Nachricht wurde leider als SPAM markiert und nicht weitergeleitet. Versuche es bitte erneut." success="Vielen Dank für deine Inpputs!" >}}
+
 ## Wie geht es weiter?
 
 Der nächste Stammtisch findet am _Freitagabend, 16. Oktober 2020_ statt. Wo genau und wie es danach weitergeht steht noch offen und ist abhängig von der Nachfrage.
