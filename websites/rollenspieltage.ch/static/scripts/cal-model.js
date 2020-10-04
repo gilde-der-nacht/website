@@ -116,13 +116,6 @@ class GoogleCalendar {
                     return entry;
                 });
             }).then(entries => {
-                // remove event which have already ended
-                return entries.filter(entry => {
-                    const currDate = new Date();
-                    const endDate = entry.end.dateObj;
-                    return (currDate < endDate);
-                });
-            }).then(entries => {
                 // only Rollenspieltag-Events
                 return entries.filter(entry => {
                     return entry.description && entry.description.includes('★');
