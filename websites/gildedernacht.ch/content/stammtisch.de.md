@@ -7,17 +7,17 @@ toc: true
 
 Liebe Rollenspielgemeinschaft
 
-Die _Gilde der Nacht_ lädt wieder ein! Diesmal zum Rollenspiel-Stammtisch.
+Die _Gilde der Nacht_ lädt zum Rollenspiel-Stammtisch ein.
 
 Dies ist ein kleines, gemütliches Event, das bei Interesse eurerseits regelmässig an wechselnden Lokationen stattfinden wird - damit nicht immer nur die Luzerner einen kurzen Anreiseweg haben ;)
 
-Dieser hier wird als Pilotevent am
+Der nächste Stammtisch steht an:
 
-**Freitag, 18.09.2020 ab 19.00 Uhr im [Rathskeller in Olten](https://www.rathskeller.ch/) stattfinden.**
+**Freitag, 16. Oktober 2020 ab 19.00 Uhr im [Mr. Pickwick Pub in Zug](https://www.pickwick.ch/en/our-pub/zug/home/index.php).**
 
 Wenn du Lust hast, dich mit Gleichgesinnten über unser liebstes Hobby auszutauschen, komm einfach vorbei und setz dich zu uns 🎲
 
-Keine Anmeldung nötig, kein Eintritt. Jedoch ist eine Registration im Rathskeller aufgrund der COVID19 Massnahmen notwendig.
+Keine Anmeldung nötig, kein Eintritt. Jedoch ist vermutlich eine Registration vor Ort aufgrund der COVID19 Massnahmen notwendig.
 
 Für Fragen und Anregungen stehen wir euch gerne zur Verfügung.
 
@@ -45,7 +45,7 @@ _Die Umfrage ist anonym_
 
 ## Wie geht es weiter?
 
-Der nächste Stammtisch findet am _Freitagabend, 16. Oktober 2020_ statt. Wo genau und wie es danach weitergeht steht noch offen und ist abhängig von der Nachfrage.
+Der nächste Stammtisch findet am _Freitagabend, 20. November 2020_ statt. Wo genau und wie es danach weitergeht steht noch offen und ist abhängig von der Nachfrage.
 
 ## Banner
 
