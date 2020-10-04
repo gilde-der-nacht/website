@@ -3,7 +3,7 @@ title: "Rollenspiel-Stammtisch"
 toc: true
 ---
 
-![Rollenspiel-Stammtisch September 2020 1024 x 256 px](/images/stammtisch/Rollenspiel-Stammtisch-Sep20_Leaderboard_1024x256px.png "Rollenspiel-Stammtisch September 2020")
+![Rollenspiel-Stammtisch 1024 x 256 px](/images/stammtisch/Rollenspiel-Stammtisch-Okt20_Leaderboard_1024x256px.png "Rollenspiel-Stammtisch")
 
 Liebe Rollenspielgemeinschaft
 
@@ -53,22 +53,22 @@ Der nächste Stammtisch findet am _Freitagabend, 16. Oktober 2020_ statt. Wo gen
 
 _zum Beispiel für E-Mails_
 
-![Rollenspiel-Stammtisch September 2020 1024 x 256 px](/images/stammtisch/Rollenspiel-Stammtisch-Sep20_Leaderboard_1024x256px.png "Rollenspiel-Stammtisch September 2020")
+![Rollenspiel-Stammtisch 1024 x 256 px](/images/stammtisch/Rollenspiel-Stammtisch-Okt20_Leaderboard_1024x256px.png "Rollenspiel-Stammtisch")
 
 ### _Title_, 1200 x 675 px, 677 KB
 
 _zum Beispiel für Facebook_
 
-![Rollenspiel-Stammtisch September 2020 1200 x 675 px](/images/stammtisch/Rollenspiel-Stammtisch-Sep20_Title_1200x675px.png "Rollenspiel-Stammtisch September 2020")
+![Rollenspiel-Stammtisch 1200 x 675 px](/images/stammtisch/Rollenspiel-Stammtisch-Okt20_Title_1200x675px.png "Rollenspiel-Stammtisch")
 
 ### _Square_, 1080 x 1080 px, 1043 KB
 
 _zum Beispiel für Instagram_
 
-![Rollenspiel-Stammtisch September 2020 1080 x 1080 px](/images/stammtisch/Rollenspiel-Stammtisch-Sep20_Square_1080x1080px.png "Rollenspiel-Stammtisch September 2020")
+![Rollenspiel-Stammtisch 1080 x 1080 px](/images/stammtisch/Rollenspiel-Stammtisch-Okt20_Square_1080x1080px.png "Rollenspiel-Stammtisch")
 
 ### _Story_, 1080 x 1920 px, 1644 KB
 
 _zum Beispiel für Stories auf Facebook, Instagram, WhatsApp_
 
-![Rollenspiel-Stammtisch September 2020 1080 x 1920 px](/images/stammtisch/Rollenspiel-Stammtisch-Sep20_Story_1080x1920px.png "Rollenspiel-Stammtisch September 2020")
+![Rollenspiel-Stammtisch 1080 x 1920 px](/images/stammtisch/Rollenspiel-Stammtisch-Okt20_Story_1080x1920px.png "Rollenspiel-Stammtisch")
