@@ -12,7 +12,7 @@ jumbotronImage:
   offset: 40%
 ---
 
-[![Rollenspiel-Stammtisch](https://gildedernacht.ch/images/stammtisch/Rollenspiel-Stammtisch-Okt20_Title_1200x675px.png "Rollenspiel-Stammtisch")](https://gildedernacht.ch/stammtisch/)
+[![Rollenspiel-Stammtisch](https://gildedernacht.ch/images/stammtisch/Rollenspiel-Stammtisch-Nov20_Title_1200x675px.png "Rollenspiel-Stammtisch")](https://gildedernacht.ch/stammtisch/)
 
 # Spieler
 
