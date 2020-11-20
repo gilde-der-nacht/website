@@ -16,8 +16,6 @@ jumbotronImage:
 
 Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und Tabletop-Spieler herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter]({{< ref "newsletter" >}}) einzutragen, dann erhältst du jeweils eine Woche vor den Events eine Erinnerungs-Mail.
 
-[![Rollenspiel-Stammtisch](/images/stammtisch/Rollenspiel-Stammtisch-Nov20_Title_1200x675px.png "Rollenspiel-Stammtisch")]({{< ref "stammtisch" >}})
-
 # Coronavirus (Covid-19)
 
 **Bis auf weiteres werden wir keine Spielanlässe durchführen.**
