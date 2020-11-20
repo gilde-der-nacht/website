@@ -8,6 +8,6 @@
   <link rel="stylesheet" href="{{ $stylesheetMain.RelPermalink }}" media="screen"
     integrity="{{ $stylesheetMain.Data.Integrity }}" />
     {{ range .Params.Scripts}}
-    <script src="scripts/{{ . }}.js"></script>
+    <script defer src="/scripts/{{ . }}.js"></script>
     {{ end }}
 </head>
