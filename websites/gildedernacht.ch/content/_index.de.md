@@ -26,7 +26,7 @@ Möchtest du informiert bleiben, empfehlen wir dir diese drei Optionen:
 * Abonniere unseren [E-Mail-Newsletter]({{< ref "newsletter" >}}).
 * Trete unserem [Onlinechat (Discord)](https://chat.gildedernacht.ch) bei.
 
-<!--# Kalender
+# Kalender
 
 <template id="calendar-i18n">
     <p data-id="day-0" data-text="Sonntag">-</p>
@@ -56,5 +56,3 @@ Möchtest du informiert bleiben, empfehlen wir dir diese drei Optionen:
 
 <script src="/scripts/cal-model.js"></script>
 <script src="/scripts/cal-view.js"></script>
-
-{{< map >}} -->
