@@ -57,6 +57,8 @@ const calendarMain = async () => {
         image = "/images/avatars/lila.png";
       } else if (title.includes("Stammtisch")) {
         image = "/images/avatars/green.png";
+      } else if (title.includes("Buchclub")) {
+        image = "/images/avatars/blue.png";
       } else {
         image = "/images/avatars/gdn.png";
       }
