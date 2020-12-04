@@ -131,6 +131,7 @@ class GoogleCalendar {
             entry.start.dateTime || entry.start.date
           );
           entry.end.dateObj = new Date(entry.end.dateTime || entry.end.date);
+          console.table({entry});
           return entry;
         });
       })
