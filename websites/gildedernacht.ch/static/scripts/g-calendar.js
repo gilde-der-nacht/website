@@ -130,8 +130,13 @@ class GoogleCalendar {
           entry.start.dateObj = new Date(
             entry.start.dateTime || entry.start.date
           );
-          entry.end.dateObj = new Date(entry.end.dateTime || entry.end.date);
-          console.table({entry});
+          if (entry.end.dateTime) {
+            entry.end.dateObj = new Date(entry.end.dateTime);  
+          } else {
+            const endDate = new Date(entry.end.date);
+            endDate.setDate(endDate.getDate() - 1); // hack for time zones -> use a better library in the future
+            entry.end.dateObj = endDate;
+          }          
           return entry;
         });
       })
