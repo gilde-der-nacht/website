@@ -9,11 +9,9 @@ Die _Gilde der Nacht_ lädt zum Rollenspiel-Stammtisch ein.
 
 Dies ist ein kleines, gemütliches Event, das bei Interesse eurerseits regelmässig an wechselnden Lokationen stattfinden wird - damit nicht immer nur die Luzerner einen kurzen Anreiseweg haben ;)
 
-**Aufgrund der aktuellen Situation finden die nächsten Stammtische online statt!**
+**Den Termin des nächsten Stammtisch findest du auf unserer [Startseite]({{< ref "/" >}}).**
 
-Der nächste Stammtisch steht an:
-
-**Dienstag, 29. Dezember 2020 ab 19.00 Uhr im [Discord der Gilde der Nacht](https://discord.gg/G7mkTTB).**
+**Durchgeführt werden die Stammtische aufgrund der aktuellen Situation online im [Discord der Gilde der Nacht](https://discord.gg/G7mkTTB).**
 
 Wenn du Lust hast, dich mit Gleichgesinnten über unser liebstes Hobby auszutauschen, schau doch mal rein. 🎲
 
