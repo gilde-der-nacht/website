@@ -22,7 +22,7 @@ Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und 
 
 Möchtest du informiert bleiben, empfehlen wir dir diese drei Optionen:
 
-* Diese Webseite werden wir updaten.
+* Diese Webseite werden wir updaten
 * Abonniere unseren [E-Mail-Newsletter]({{< ref "newsletter" >}}).
 * Trete unserem [Onlinechat (Discord)](https://chat.gildedernacht.ch) bei.
 
