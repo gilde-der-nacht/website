@@ -55,7 +55,7 @@ const calendarMain = async () => {
         image = "/images/avatars/rst.png";
       } else if (title.includes("Rollenspiel-Stammtisch")) {
         image = "/images/avatars/lila.png";
-      } else if (title.includes("Stammtisch")) {
+      } else if (title.includes("Stammtisch") || title.includes("Spielabend")) {
         image = "/images/avatars/green.png";
       } else if (title.includes("Buchclub")) {
         image = "/images/avatars/blue.png";
@@ -70,7 +70,7 @@ const calendarMain = async () => {
         url = "rollenspieltage.ch";
       } else if (title.includes("Rollenspiel-Stammtisch")) {
         url = "gildedernacht.ch/stammtisch";
-      } else if (title.includes("Online")) {
+      } else if (title.includes("Online") || title.includes("Digital")) {
         url = "chat.gildedernacht.ch";
       }
 
