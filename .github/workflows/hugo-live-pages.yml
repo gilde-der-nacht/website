@@ -2,7 +2,8 @@ name: Live Pages
 
 on:
   push:
-    branches: [ live ]
+    tags: [ v* ]
+  workflow_dispatch:
 
 jobs:
   deploy-test-pages:
@@ -21,7 +22,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Hugo setup
-      uses: peaceiris/actions-hugo@v2.4.12
+      uses: peaceiris/actions-hugo@v2.4.13
       with:
           hugo-version: 'latest'
           extended: true

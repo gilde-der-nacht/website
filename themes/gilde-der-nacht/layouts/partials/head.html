@@ -7,4 +7,7 @@
   {{ $stylesheetMain := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $stylesheetMain.RelPermalink }}" media="screen"
     integrity="{{ $stylesheetMain.Data.Integrity }}" />
+    {{ range .Params.Scripts}}
+    <script defer src="/scripts/{{ . }}.js"></script>
+    {{ end }}
 </head>

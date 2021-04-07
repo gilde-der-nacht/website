@@ -24,7 +24,7 @@ header {
           font-size: 1em;
 
           &:not(:first-child)::before {
-            content: "|";
+            content: " | ";
           }
         }
       }

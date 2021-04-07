@@ -19,6 +19,6 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
             footer = "The Luzerner Spieltage are organised by the game society, [Gilde der Nacht](https://gildedernacht.ch)."
 
 [params]
-    discord = "http://chat.gildedernacht.ch/"
+    discord = "https://discord.gg/G7mkTTB"
     facebook = "https://www.facebook.com/events/417456298837224/"
     meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern/events/261972612/"

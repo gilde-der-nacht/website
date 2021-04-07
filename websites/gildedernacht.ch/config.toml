@@ -32,6 +32,6 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
       footer = "Game association based in Lucerne"
 
 [params]
-  discord = "http://chat.gildedernacht.ch/"
+  discord = "https://discord.gg/G7mkTTB"
   facebook = "https://www.facebook.com/GildederNacht/"
   meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern"
