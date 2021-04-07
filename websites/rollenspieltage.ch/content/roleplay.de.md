@@ -1,5 +1,8 @@
 ---
 title: "Rollenspiel?"
+slug: "rollenspiel"
+aliases:
+  - /roleplay/
 date: 2019-04-01
 ---
 

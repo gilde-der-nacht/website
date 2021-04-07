@@ -1,5 +1,8 @@
 ---
 title: "Kontakt"
+slug: "kontakt"
+aliases:
+  - /contact/
 date: 2019-09-04
 menu:
   main:

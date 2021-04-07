@@ -1,5 +1,8 @@
 ---
 title: "Programm"
+slug: "programm"
+aliases:
+  - /program/
 date: 2019-06-21
 menu:
   main:

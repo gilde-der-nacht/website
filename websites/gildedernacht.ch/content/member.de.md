@@ -1,5 +1,8 @@
 ---
 title: "Mitglied werden"
+slug: "mitglied-werden"
+aliases:
+  - /member/
 date: 2020-08-25
 toc: false
 ---

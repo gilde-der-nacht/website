@@ -1,5 +1,8 @@
 ---
 title: "Rollenspiele"
+slug: "rollenspiele"
+aliases:
+  - /roleplay/
 date: 2020-02-01
 toc: true
 draft: true
