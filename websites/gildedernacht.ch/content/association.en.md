@@ -1,6 +1,7 @@
 ---
 title: "Association"
 date: 2019-05-01
+translationKey: "association"
 menu:
   main:
     weight: 3

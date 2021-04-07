@@ -1,6 +1,9 @@
 ---
 title: "Verein"
 date: 2019-05-01
+aliases:
+  - /association/
+translationKey: "association"
 menu:
   main:
     weight: 3
