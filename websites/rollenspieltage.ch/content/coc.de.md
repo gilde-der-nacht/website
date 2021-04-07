@@ -1,5 +1,8 @@
 ---
 title: "Verhaltenskodex"
+slug: "verhaltenskodex"
+aliases:
+  - /coc/
 date: 2019-04-01
 menu:
   main:
