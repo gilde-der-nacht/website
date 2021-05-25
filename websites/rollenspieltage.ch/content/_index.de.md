@@ -12,13 +12,17 @@ jumbotronImage:
   offset: 40%
 ---
 
-[![Rollenspiel-Stammtisch](https://gildedernacht.ch/images/stammtisch/Rollenspiel-Stammtisch-Nov20_Title_1200x675px.png "Rollenspiel-Stammtisch")](https://gildedernacht.ch/stammtisch/)
-
-# Spieler
-
 _Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
 
-Ungefähr einen Monat vor dem Anlass werden die Spielrunden hier bekannt gegeben. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
+Geschätzte Freunde des Rollenspiels
+
+Auch in diesem Jahr sollen die Luzerner Rollenspieltage wieder stattfinden. Wir haben unsere Köpfe zusammengesteckt und uns Gedanken zur Durchführung gemacht. 
+
+Da die Gilde der Nacht traditionell Offline-Events durchführt und uns der persönliche Austausch wichtig ist, planen wir, die Rollenspieltage 2021 wieder vor Ort durchzuführen.
+
+Über die definitive Durchführung werden wir am 1. August entscheiden. Ein alternatives Programm ist aktuell nicht geplant.
+
+Also, schreibt euch schon einmal den 28. und 29. August 2021 in die Agenda! Wir werden am 1. August wieder hier informieren.
 
 Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
 
@@ -26,9 +30,7 @@ Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nicht
 
 # Spielleiter
 
-Euch Spielleiter und Spielleiterinnen müssen wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte systemspezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
-
-Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfst du dich gerne bei uns im Vorfeld melden. Erfahrene Spielleiter unterstützen dich vor Ort und stehen mit Rat und Tat zur Seite.
+Geschätzte Spielleiterinnen: Wärt ihr bereit, am 28. und/oder 29. August 2021 ein Rollenspiel anzubieten?
 
 Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du gerne eine Spielrunde leiten möchtest.
 
@@ -44,4 +46,4 @@ Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du
 
 Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per Bus 8 (Würzenbachmatte) oder Bus 14 (Schlösslirain).
 
-Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zum Spar an der Adresse [Würzenbachstrasse 19, Luzern](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
+Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zur Migros an der Adresse [Würzenbachstrasse 19, Luzern](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
