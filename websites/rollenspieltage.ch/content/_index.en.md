@@ -12,13 +12,17 @@ jumbotronImage:
   offset: 40%
 ---
 
-[![Rollenspiel-Stammtisch](https://gildedernacht.ch/images/stammtisch/Rollenspiel-Stammtisch-Nov20_Title_1200x675px.png "Rollenspiel-Stammtisch")](https://gildedernacht.ch/stammtisch/)
-
-# Players
-
 _First time here? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
 
-At around a month before the event we will put all the game rounds online. You can then reserve your seat at the table, online or spontaneously.
+Dear friends of role-playing 
+
+The Luzerner Rollenspieltage are to take place again this year. We have put our heads together and thought about how this event should be held.
+
+Since the Gilde der Nacht traditionally organizes offline events and personal exchange is an important factor to us, we are planning to hold the Rollenspieltage 2021 on site again. 
+
+We will decide whether the event can be carried out on August 1st. An alternative programme is not currently planned.
+
+So, save the date of August 28th and 29th, 2021! We will inform you again here on August 1st.
 
 We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
 
@@ -26,9 +30,7 @@ We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
 
 # Game masters
 
-It goes without saying, to the game masters, how grateful we are for your efforts, but we do it anyway: Thank you very much! We would like to point out, that we ask you to bring along system-specific game material for your players. We take care of writing utensils.
-
-If you never run a role-playing game or feel insecure as a game master, you are welcome to contact us in advance. If there is enough demand, we will offer a small workshop. Experienced game master, will also support you on site and are there to help and advise.
+Esteemed game masters: Would you be willing to offer a roleplaying game on August 28th or 29th?
 
 Please [contact us via form]({{< ref "contact" >}}) if you’d like to guide a round.
 
