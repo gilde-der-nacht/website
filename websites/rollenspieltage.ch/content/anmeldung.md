@@ -28,7 +28,15 @@ scripts:
   {{< form/checkbox name="language-english" label="Englisch" >}}
 {{< /form/group >}}
 
-Zeitfenster (1 Stunden Slots)
+{{< form/calendar label="Samstag" name="saturday" >}}
+  {{< form/calendar-slot label="10 Uhr" name="10" >}}
+  {{< form/calendar-slot label="11 Uhr" name="11" >}}
+{{< /form/calendar >}}
+
+{{< form/calendar label="Sonntag" name="sunday" >}}
+  {{< form/calendar-slot label="10 Uhr" name="10" >}}
+  {{< form/calendar-slot label="11 Uhr" name="11" >}}
+{{< /form/calendar >}}
 
 {{< /form/fieldset >}}
 
