@@ -44,6 +44,7 @@ const updateCompanion = () => {
     const companionCount = companions.value;
     const companionOutput = document.querySelector('#companion-output');
     const template = document.querySelector('#companion-name').content;
+    companionOutput.textContent = '';
 
     for (let i = 0; i < companionCount; i++) {
         template.querySelector('input').name = 'companion-' + i;
