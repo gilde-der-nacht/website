@@ -55,7 +55,7 @@ const sendRegistration = (e) => {
         error('name');
     }
 
-    document.querySelector('form').innerText(JSON.stringify(data, null, 4));
+    document.querySelector('form').innerHTML += JSON.stringify(data, null, 4);
 };
 
 const submitButton = document.querySelector('[type=submit]');
