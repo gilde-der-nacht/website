@@ -4,10 +4,14 @@
     }
 
     &-grid--3 {
-        grid-template-columns: 1fr, repeat(2, auto-fit);
+        grid-template-columns: 1fr repeat(2, 5rem);
     }
 
     &-grid--4 {
-        grid-template-columns: 1fr, repeat(3, auto-fit);
+        grid-template-columns: 1fr repeat(3, 5rem);
+    }
+
+    &-grid--line {
+        grid-column: 1 / -1;
     }
 }
