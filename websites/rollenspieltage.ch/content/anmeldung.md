@@ -33,20 +33,11 @@ Zeitfenster (1 Stunden Slots)
 
 {{< form/fieldset legend="Spieler:in" >}}
 
-<label>Arten von Spielrunden</label>
-
-<label class="radio">
-  <input type="radio" name="answer">
-  kurze aber viele Spielrunden
-</label>
-<label class="radio">
-  <input type="radio" name="answer">
-  lange aber wenige Spielrunden
-</label>
-<label class="radio">
-  <input type="radio" name="answer">
-  egal
-</label>
+{{< form/radio-group >}}
+  {{< form/radio name="short" label="kurze aber viele Spielrunden">}}
+  {{< form/radio name="long" label="lange aber wenige Spielrunden">}}
+  {{< form/radio name="not-matter" label="egal">}}
+{{< /form/radio-group >}}
 
 Genres (Skala Gerne-Egal-Lieber nicht)
 * Vorauswahl
