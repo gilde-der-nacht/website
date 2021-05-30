@@ -1,3 +1,5 @@
 <p><label>{{ .Get "label" }}</label></p>
 
-{{ .Inner }}
+<div class="c-apollon-grid c-apollon-grid--{{ .Get "columns" }}">
+    {{ .Inner }}
+</div>

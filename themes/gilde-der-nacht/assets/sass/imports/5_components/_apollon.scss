@@ -1,0 +1,13 @@
+c-apollon {
+    &-grid {
+        display: grid;
+    }
+
+    &-grid--3 {
+        grid-template-columns: 1fr, repeat(2, auto-fit);
+    }
+
+    &-grid--4 {
+        grid-template-columns: 1fr, repeat(3, auto-fit);
+    }
+}
