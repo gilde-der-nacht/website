@@ -39,9 +39,23 @@ player.addEventListener('change', manageVisibility);
 gameMaster.addEventListener('change', manageVisibility);
 manageVisibility();
 
+const error = (type) => {
+    console.error({type});
+};
+
 const sendRegistration = (e) => {
     e.preventDefault();
-    console.log('submit');
+
+    const data = {};
+
+    const name = document.querySelector('#name').value;
+    if (name.length > 0) {
+        data.name = name;
+    } else {
+        error('name');
+    }
+
+    document.querySelector('form').innerText(JSON.stringify(data, null, 4));
 };
 
 const submitButton = document.querySelector('[type=submit]');
