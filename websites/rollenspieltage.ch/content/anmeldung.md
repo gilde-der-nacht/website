@@ -17,21 +17,15 @@ scripts:
 {{< form/text-input name="email" type="email" placeholder="E-Mail" label="E-Mail" required="true">}}
 
 {{< form/group label="Anmeldung als" description="treffe bitte mindestens eine Auswahl" >}}
-
-{{< form/checkbox name="participant-role" label="Spieler:in" checked="true">}}
-
-{{< form/checkbox name="gamemaster-role" label="Spielleiter:in" >}}
-
+  {{< form/checkbox name="participant-role" label="Spieler:in" checked="true">}}
+  {{< form/checkbox name="gamemaster-role" label="Spielleiter:in" >}}
 {{< /form/group >}}
 
 {{< form/slider label="Wähle deine Balance" name="participant-gamemaster-balance" steps="3" left="Spielen" right="Spielleiten" >}}
 
 {{< form/group label="Sprache" description="treffe bitte mindestens eine Auswahl" >}}
-
-{{< form/checkbox name="language-german" label="Deutsch" checked="true">}}
-
-{{< form/checkbox name="language-english" label="Englisch" >}}
-
+  {{< form/checkbox name="language-german" label="Deutsch" checked="true">}}
+  {{< form/checkbox name="language-english" label="Englisch" >}}
 {{< /form/group >}}
 
 Zeitfenster (1 Stunden Slots)
@@ -111,11 +105,11 @@ Zeitfenster (1 Stunden Slots)
 
 {{< form/textarea name="game-description" placeholder="Beschreibung" label="Beschreibung">}}
 
-{{< form/radio-group label="Genres" name="game-genres">}}
-  {{< form/radio name="fantasy" label="Fantasy">}}
-  {{< form/radio name="scifi" label="Sci-Fi">}}
-  {{< form/radio-entry label="Vermisst du ein Genre?" >}}
-{{< /form/radio-group >}}
+{{< form/group label="Genres" description="treffe bitte mindestens eine Auswahl" >}}
+  {{< form/checkbox name="fantasy" label="Fantasy">}}
+  {{< form/checkbox name="scifi" label="Sci-Fi" >}}
+  {{< form/checkbox-entry label="Vermisst du ein Genre?" >}}
+{{< /form/group >}}
 
 {{< form/text-input name="game-duration" type="number" label="Dauer (in Stunden)" required="true" value="3" >}}
 
