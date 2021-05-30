@@ -12,15 +12,15 @@ scripts:
 
 {{< form/fieldset >}}
 
-{{< form/text-input name="private-name" type="text" placeholder="Name" label="Name" required="true" >}}
+{{< form/text-input name="name" type="text" placeholder="Name" label="Name" required="true" >}}
 
-{{< form/text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail" required="true">}}
+{{< form/text-input name="email" type="email" placeholder="E-Mail" label="E-Mail" required="true">}}
 
 {{< form/group label="Anmeldung als" description="treffe bitte mindestens eine Auswahl" >}}
 
-{{< form/checkbox name="private-participant-role" label="Spieler:in" checked="true">}}
+{{< form/checkbox name="participant-role" label="Spieler:in" checked="true">}}
 
-{{< form/checkbox name="private-gamemaster-role" label="Spielleiter:in" >}}
+{{< form/checkbox name="gamemaster-role" label="Spielleiter:in" >}}
 
 {{< /form/group >}}
 
@@ -28,9 +28,9 @@ scripts:
 
 {{< form/group label="Sprache" description="treffe bitte mindestens eine Auswahl" >}}
 
-{{< form/checkbox name="private-language-german" label="Deutsch" checked="true">}}
+{{< form/checkbox name="language-german" label="Deutsch" checked="true">}}
 
-{{< form/checkbox name="private-language-english" label="Englisch" >}}
+{{< form/checkbox name="language-english" label="Englisch" >}}
 
 {{< /form/group >}}
 
@@ -66,8 +66,8 @@ Zeitfenster (1 Stunden Slots)
 
   {{< form/multi-skala/entry-input label="Vermisst du ein Genre?" >}}
 
-    {{< form/multi-skala/entry-option name="like" >}}
-    {{< form/multi-skala/entry-option name="matter-not" checked="true" >}}
+    {{< form/multi-skala/entry-option name="like" checked="true" >}}
+    {{< form/multi-skala/entry-option name="matter-not" >}}
     {{< form/multi-skala/entry-option name="not-like" >}}
 
   {{< /form/multi-skala/entry-input >}}
@@ -92,40 +92,42 @@ Zeitfenster (1 Stunden Slots)
 
   {{< form/multi-skala/entry-input label="Hast du Interesse an einem hier nicht aufgeführten Workshop/Dikussionsrunde?" >}}
 
-    {{< form/multi-skala/entry-option name="like" >}}
-    {{< form/multi-skala/entry-option name="not-like" checked="true" >}}
+    {{< form/multi-skala/entry-option name="like" checked="true" >}}
+    {{< form/multi-skala/entry-option name="not-like" >}}
 
   {{< /form/multi-skala/entry-input >}}
 
 {{< /form/multi-skala/multi-skala >}}
 
-{{< form/text-input name="private-companions" type="number" label="Beigleitpersonen" value="0" >}}
+{{< form/text-input name="companions" type="number" label="Beigleitpersonen" value="0" >}}
 
 {{< /form/fieldset >}}
 
 {{< form/fieldset legend="Spielleiter:in" >}}
 
-{{< form/checkbox name="private-gamemaster-buddy" label="Buddy-System, Unterstützung gewünscht" >}}
+{{< form/checkbox name="gamemaster-buddy" label="Buddy-System, Unterstützung gewünscht" >}}
 
-{{< form/text-input name="private-game-title" placeholder="Titel" type="text" label="Titel" required="true">}}
+{{< form/text-input name="game-title" placeholder="Titel" type="text" label="Titel" required="true">}}
 
-{{< form/textarea name="private-game-description" placeholder="Beschreibung" label="Beschreibung">}}
+{{< form/textarea name="game-description" placeholder="Beschreibung" label="Beschreibung">}}
 
-Genres
-* Vorauswahl
-* Sonstiges (Eingabe)
+{{< form/radio-group label="Genres" name="game-genres">}}
+  {{< form/radio name="fantasy" label="Fantasy">}}
+  {{< form/radio name="scifi" label="Sci-Fi">}}
+  {{< form/radio-entry label="Vermisst du ein Genre?" >}}
+{{< /form/radio-group >}}
 
-{{< form/text-input name="private-game-duration" type="number" label="Dauer (in Stunden)" required="true" value="3" >}}
+{{< form/text-input name="game-duration" type="number" label="Dauer (in Stunden)" required="true" value="3" >}}
 
 {{< form/group label="Anzahl Spieler:innen" description="treffe bitte mindestens eine Auswahl" >}}
 
-{{< form/text-input name="private-game-playercount-min" type="number" label="Minimum" required="true" value="2" >}}
+{{< form/text-input name="game-playercount-min" type="number" label="Minimum" required="true" value="2" >}}
 
-{{< form/text-input name="private-game-playercount-max" type="number" label="Maximum" required="true" value="5" >}}
+{{< form/text-input name="game-playercount-max" type="number" label="Maximum" required="true" value="5" >}}
 
 {{< /form/group >}}
 
-{{< form/text-input name="private-game-slots-reserved" type="number" label="Stammspieler" value="0" >}}
+{{< form/text-input name="game-slots-reserved" type="number" label="Stammspieler" value="0" >}}
 
 {{< /form/fieldset >}}
 
@@ -133,15 +135,15 @@ Genres
 
 {{< form/group label="Helferaufruf" description="ganz alleine würden wir die Rollenspieltage nicht durchführen können" >}}
 
-{{< form/checkbox name="private-helper-logistic" label="Aufbau/Abbau" >}}
+{{< form/checkbox name="helper-logistic" label="Aufbau/Abbau" >}}
 
-{{< form/checkbox name="private-helper-checkout" label="Kasse (Buffet oder Flohmarkt)" >}}
+{{< form/checkbox name="helper-checkout" label="Kasse (Buffet oder Flohmarkt)" >}}
 
-{{< form/checkbox name="private-helper-kitchen" label="Küche" >}}
+{{< form/checkbox name="helper-kitchen" label="Küche" >}}
 
 {{< /form/group >}}
 
-{{< form/textarea name="private-message" placeholder="Fragen" label="Noch Fragen?">}}
+{{< form/textarea name="message" placeholder="Fragen" label="Noch Fragen?">}}
 
 {{< /form/fieldset >}}
 
