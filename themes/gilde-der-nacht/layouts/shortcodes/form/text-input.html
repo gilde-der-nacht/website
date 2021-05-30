@@ -1,5 +1,5 @@
 <p class="c-form--item c-form-field--text">
-	<label for="{{ .Get "name" }}">{{ .Get "label" }}</label>
+	<label for="{{ .Get "name" }}">{{ .Get "label" }}{{if .Get "required"}}*{{ end }}</label>
 	<input
 		name="{{ .Get "name" }}"
 		id="{{ .Get "name" }}"
