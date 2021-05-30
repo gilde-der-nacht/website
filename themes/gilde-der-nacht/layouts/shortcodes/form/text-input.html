@@ -4,8 +4,12 @@
 		name="{{ .Get "name" }}"
 		id="{{ .Get "name" }}"
 		type="{{ .Get "type" }}"
-		placeholder="{{ .Get "placeholder" }}"
-		value={{ .Get "value" }}
+		{{ with .Get "placeholder" }}
+			placeholder="{{ . }}"
+		{{ end }}
+		{{ with .Get "value" }}
+			value={{ . }}
+		{{ end }}
 		{{ if eq ( .Get "type" ) "number" }}
 			min=0
 			max=99
