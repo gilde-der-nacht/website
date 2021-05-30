@@ -54,7 +54,6 @@ Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
 * Vorauswahl
 * Sonstiges (Eingabe)
 
-(Namen optional)
 {{< form/text-input name="private-companions" type="number" label="Beigleitpersonen" value="0" >}}
 
 {{< /form/fieldset >}}
@@ -62,8 +61,6 @@ Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
 {{< form/fieldset legend="Spielleiter:in" >}}
 
 {{< form/checkbox name="private-gamemaster-buddy" label="Buddy-System, Unterstützung gewünscht" >}}
-
-Pro Spielrunde
 
 {{< form/text-input name="private-game-title" type="text" label="Titel *" attributes="required">}}
 
@@ -82,6 +79,8 @@ Genres
 {{< form/text-input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required" value="5" >}}
 
 {{< /form/group >}}
+
+{{< form/text-input name="private-game-slots-reserved" type="number" label="Stammspieler" value="0" >}}
 
 {{< /form/fieldset >}}
 
