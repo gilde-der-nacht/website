@@ -17,15 +17,9 @@ scripts:
 <label>Anmeldung als</label>
 <small>treffe bitte mindestens eine Auswahl</small>
 
-<label>
-<input type="checkbox" checked>
-Spieler:in
-</label>
+{{< input name="private-participant-role" type="checkbox" label="Spieler:in" attributes="checked">}}
 
-<label>
-<input type="checkbox">
-Spielleiter:in
-</label>
+{{< input name="private-gamemaster-role" type="checkbox" label="Spielleiter:in" >}}
 
 <label>
 mehr Spielen
@@ -42,53 +36,48 @@ Zeitfenster (1 Stunden Slots)
 <label>Arten von Spielrunden</label>
 
 <label class="radio">
-    <input type="radio" name="answer">
-    kurze aber viele Spielrunden
-  </label>
-  <label class="radio">
-    <input type="radio" name="answer">
-    lange aber wenige Spielrunden
-  </label>
-  <label class="radio">
-    <input type="radio" name="answer">
-    egal
-  </label>
+  <input type="radio" name="answer">
+  kurze aber viele Spielrunden
+</label>
+<label class="radio">
+  <input type="radio" name="answer">
+  lange aber wenige Spielrunden
+</label>
+<label class="radio">
+  <input type="radio" name="answer">
+  egal
+</label>
 
 Genres (Skala Gerne-Egal-Lieber nicht)
-
-Vorauswahl
-
-Sonstiges (Eingabe)
+* Vorauswahl
+* Sonstiges (Eingabe)
 
 Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
-
-Vorauswahl
-
-Sonstiges (Eingabe)
+* Vorauswahl
+* Sonstiges (Eingabe)
 
 Beigleitpersonen (Namen optional)
 {{< /fieldset >}}
 
 {{< fieldset legend="Spielleiter:in" >}}
 
-<label>
-  <input type="checkbox">
-  Buddy-System, Unterstützung gewünscht
-</label>
+{{< input name="private-gamemaster-buddy" type="checkbox" label="Buddy-System, Unterstützung gewünscht" >}}
 
 Pro Spielrunde
 
 Titel + kurze Beschreibung
 
 Genres
+* Vorauswahl
+* Sonstiges (Eingabe)
 
-Vorauswahl
+{{< input name="private-game-duration" type="number" label="Dauer (in Stunden) *" attributes="required">}}
 
-Sonstiges (Eingabe)
+<label>Anzahl Spieler</label>
 
-Dauer
+{{< input name="private-game-playercount-min" type="number" label="Minimum *" attributes="required">}}
 
-Anzahl Spieler (min/max)
+{{< input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required">}}
 
 {{< /fieldset >}}
 
@@ -96,18 +85,12 @@ Anzahl Spieler (min/max)
 
 <label>Helferaufruf</label>
 <small>ganz alleine würden wir die Rollenspieltage nicht durchführen können</small>
-<label>
-  <input type="checkbox">
-  Aufbau/Abbau
-</label>
-<label>
-  <input type="checkbox">
-  Kasse (Buffet oder Flohmarkt)
-</label>
-<label>
-  <input type="checkbox">
-  Küche
-</label>
+
+{{< input name="private-helper-logistic" type="checkbox" label="Aufbau/Abbau" >}}
+
+{{< input name="private-helper-checkout" type="checkbox" label="Kasse (Buffet oder Flohmarkt)" >}}
+
+{{< input name="private-helper-kitchen" type="checkbox" label="Küche" >}}
 
 {{< input name="private-message" type="textarea" placeholder="Fragen" label="Noch Fragen?">}}
 
