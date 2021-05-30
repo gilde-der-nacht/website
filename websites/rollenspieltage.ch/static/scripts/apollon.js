@@ -46,10 +46,10 @@ const updateCompanion = () => {
     const template = document.querySelector('#companion-name');
 
     for (let i = 0; i < companionCount; i++) {
+        console.log(i);
         const temp = template.cloneNode();
         companionOutput.append(temp);
     }
-
 };
 companions.addEventListener('change', updateCompanion);
 
