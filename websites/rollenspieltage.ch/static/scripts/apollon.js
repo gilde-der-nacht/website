@@ -1,20 +1,22 @@
 'use strict';
 
+const player = document.querySelector("#participant-role");
+const gameMaster = document.querySelector("#gamemaster-role");
+
 const show = (element) => {
-    element.classList.remove("hidden");
+    element.classList.removeAttribute("hidden");
 };
 
 const hide = (element) => {
-    element.classList.add("hidden");
+    element.classList.setAttribute("hidden", "true");
 };
 
 const manageVisibility = () => {
-    const player = document.querySelector("#participant-role");
-    const gameMaster = document.querySelector("#gamemaster-role");
-
     const playerFieldset = document.querySelector("#player-fieldset");
     const gameMasterFieldset = document.querySelector("#gamemaster-fieldset");
     const noRoleSelectedFieldset = document.querySelector("#no-role-selected-fieldset");
+
+    console.log({player: player.checked, gameMaster: gameMaster.checked});
 
     if (player.checked) {
         show(playerFieldset);
@@ -32,3 +34,6 @@ const manageVisibility = () => {
         show(noRoleSelectedFieldset);
     }
 };
+
+player.addEventListener("change", manageVisibility);
+gameMaster.addEventListener("change", manageVisibility);
