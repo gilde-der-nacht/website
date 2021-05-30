@@ -46,14 +46,23 @@ Zeitfenster (1 Stunden Slots)
   {{< form/radio name="not-matter" label="egal" checked="true">}}
 {{< /form/radio-group >}}
 
+{{< form/multi-skala label="Genres">}}
 
+  {{< form/multi-skala-header >}}
+
+    {{< form/multi-skala-header-icon icon="thumbs-up" label="Gerne" >}}
+    {{< form/multi-skala-header-icon icon="hashtag" label="Egal" >}}
+    {{< form/multi-skala-header-icon icon="thumbs-down" label="lieber nicht" >}}
+
+  {{< /form/multi-skala-header >}}
+
+{{< /form/multi-skala >}}
 
 Genres (Skala Gerne-Egal-Lieber nicht)
 * Vorauswahl
 * Sonstiges (Eingabe)
 
 Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
-<i class="fas fa-camera"></i>
 * Vorauswahl
 * Sonstiges (Eingabe)
 
