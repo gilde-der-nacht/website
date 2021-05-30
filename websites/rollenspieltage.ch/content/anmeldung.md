@@ -104,7 +104,7 @@ Genres
 
 {{< /form/fieldset >}}
 
-{{< form/fieldset legend="Abschluss" >}}
+{{< form/fieldset >}}
 
 {{< form/group label="Helferaufruf" description="ganz alleine würden wir die Rollenspieltage nicht durchführen können" >}}
 
