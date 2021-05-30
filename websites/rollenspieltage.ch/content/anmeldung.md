@@ -66,7 +66,7 @@ scripts:
 
   {{< /form/multi-skala/entry >}}
 
-  {{< form/multi-skala/entry-input label="Vermisst du ein Genre?" name="player-genre" >}}
+  {{< form/multi-skala/entry-input label="Vermisst du ein Genre?" name="custom-genre" >}}
 
     {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" checked="true" >}}
     {{< form/multi-skala/entry-option label="egal" name="matter-not" icon="dot-circle" >}}
@@ -85,7 +85,7 @@ scripts:
 
   {{< /form/multi-skala/entry >}}
 
-  {{< form/multi-skala/entry-input label="Hast du Interesse an einem hier nicht aufgeführten Workshop/Dikussionsrunde?" name="player-workshop" >}}
+  {{< form/multi-skala/entry-input label="Hast du Interesse an einem hier nicht aufgeführten Workshop/Dikussionsrunde?" name="custom-workshop" >}}
 
     {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" checked="true" >}}
     {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" >}}
@@ -95,6 +95,8 @@ scripts:
 {{< /form/multi-skala/multi-skala >}}
 
 {{< form/text-input name="companions" type="number" label="Beigleitpersonen" value="0" >}}
+
+{{< form/companion-template label="Name Begleitperson (optional)" >}}
 
 {{< /form/fieldset >}}
 

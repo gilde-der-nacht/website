@@ -39,6 +39,18 @@ player.addEventListener('change', manageVisibility);
 gameMaster.addEventListener('change', manageVisibility);
 manageVisibility();
 
+const companions = document.querySelector('#companions').value;
+const updateCompanion = () => {
+    const companionCount = companions.value;
+    const template = document.querySelector('#companion-name');
+
+    for (let i = 0; i < companionCount; i++) {
+        console.log({template});
+    }
+
+};
+companions.addEventListener('change', updateCompanion);
+
 const error = (type) => {
     console.error({type});
 };
@@ -105,7 +117,7 @@ const sendRegistration = (e) => {
 
         const listWorkshops = document.querySelector('#grid-workshop').querySelectorAll('input');
         const workshops = {};
-        [...listGenres].forEach(e => {
+        [...listWorkshops].forEach(e => {
             if (e.checked) {
                 workshops[e.name] = e.value;
             }
