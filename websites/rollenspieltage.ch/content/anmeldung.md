@@ -40,7 +40,7 @@ scripts:
 
 {{< /form/fieldset >}}
 
-{{< form/fieldset legend="Spieler:in" >}}
+{{< form/fieldset legend="Spieler:in" name="player-fieldset" >}}
 
 {{< form/radio-group label="Arten von Spielrunden" name="gameround-types">}}
   {{< form/radio name="short" label="kurze aber viele Spielrunden">}}
@@ -113,7 +113,7 @@ scripts:
 
 {{< /form/fieldset >}}
 
-{{< form/fieldset legend="Spielleiter:in" >}}
+{{< form/fieldset legend="Spielleiter:in" name="gamemaster-fieldset" >}}
 
 {{< form/checkbox name="gamemaster-buddy" label="Buddy-System, Unterstützung gewünscht" >}}
 
@@ -141,7 +141,7 @@ scripts:
 
 {{< /form/fieldset >}}
 
-{{< form/fieldset >}}
+{{< form/fieldset name="no-role-selected-fieldset" >}}
   <p>Bitte wähle aus, ob du als Spieler:in und/oder Spielleiter:in teilnehmen möchtest.</p>
 {{< /form/fieldset >}}
 
