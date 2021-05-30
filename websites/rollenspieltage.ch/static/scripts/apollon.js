@@ -126,6 +126,12 @@ const sendRegistration = (e) => {
         });
         data.workshops = workshops;
 
+        const listCompanions = document.querySelector('#companion-output').querySelectorAll('input');
+        data.companions = {
+            count : companions.value,
+            names: [...listCompanions].map(e => e.value)
+        }
+
     }
 
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
