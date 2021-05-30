@@ -58,6 +58,14 @@ Zeitfenster (1 Stunden Slots)
 
   {{< /form/multi-skala/entry >}}
 
+  {{< form/multi-skala/entry label="Sci-Fi" name="scifi" >}}
+
+    {{< form/multi-skala/entry-option name="like" >}}
+    {{< form/multi-skala/entry-option name="matter-not" checked="true" >}}
+    {{< form/multi-skala/entry-option name="not-like" >}}
+
+  {{< /form/multi-skala/entry >}}
+
   {{< form/multi-skala/entry-input label="Vermisst du ein Genre?" >}}
 
     {{< form/multi-skala/entry-option name="like" checked="true" >}}
@@ -123,6 +131,10 @@ Zeitfenster (1 Stunden Slots)
 
 {{< form/text-input name="game-slots-reserved" type="number" label="Stammspieler" value="0" >}}
 
+{{< /form/fieldset >}}
+
+{{< form/fieldset >}}
+  <p>Bitte wähle aus, ob du als Spieler:in und/oder Spielleiter:in teilnehmen möchtest.</p>
 {{< /form/fieldset >}}
 
 {{< form/fieldset >}}
