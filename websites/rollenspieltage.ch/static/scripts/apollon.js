@@ -42,6 +42,7 @@ manageVisibility();
 const companions = document.querySelector('#companions');
 const updateCompanion = () => {
     const companionCount = companions.value;
+    console.log("update", companionCount);
     const companionOutput = document.querySelector('#companion-output');
     const template = document.querySelector('#companion-name');
 
