@@ -42,14 +42,12 @@ manageVisibility();
 const companions = document.querySelector('#companions');
 const updateCompanion = () => {
     const companionCount = companions.value;
-    console.log("update", companionCount);
     const companionOutput = document.querySelector('#companion-output');
-    const template = document.querySelector('#companion-name');
+    const template = document.querySelector('#companion-name').content;
 
     for (let i = 0; i < companionCount; i++) {
-        console.log(i);
-        const temp = template.cloneNode();
-        companionOutput.append(temp);
+        template.querySelector('input').name = 'companion-' + i;
+        companionOutput.appendChild(document.importNode(template, true));
     }
 };
 companions.addEventListener('change', updateCompanion);
