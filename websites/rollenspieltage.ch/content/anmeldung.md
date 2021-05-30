@@ -59,7 +59,7 @@ Zeitfenster (1 Stunden Slots)
   {{< form/multi-skala/entry label="Fantasy" name="fantasy" >}}
 
     {{< form/multi-skala/entry-option name="like" >}}
-    {{< form/multi-skala/entry-option name="matter-not" >}}
+    {{< form/multi-skala/entry-option name="matter-not" checked="true" >}}
     {{< form/multi-skala/entry-option name="not-like" >}}
 
   {{< /form/multi-skala/entry >}}
