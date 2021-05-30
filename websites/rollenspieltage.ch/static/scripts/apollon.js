@@ -4,11 +4,11 @@ const player = document.querySelector("#participant-role");
 const gameMaster = document.querySelector("#gamemaster-role");
 
 const show = (element) => {
-    element.classList.removeAttribute("hidden");
+    element.removeAttribute("hidden");
 };
 
 const hide = (element) => {
-    element.classList.setAttribute("hidden", "true");
+    element.setAttribute("hidden", "true");
 };
 
 const manageVisibility = () => {
