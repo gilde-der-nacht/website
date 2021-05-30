@@ -39,13 +39,15 @@ player.addEventListener('change', manageVisibility);
 gameMaster.addEventListener('change', manageVisibility);
 manageVisibility();
 
-const companions = document.querySelector('#companions').value;
+const companions = document.querySelector('#companions');
 const updateCompanion = () => {
     const companionCount = companions.value;
+    const companionOutput = document.querySelector('#companion-output');
     const template = document.querySelector('#companion-name');
 
     for (let i = 0; i < companionCount; i++) {
-        console.log({template});
+        const temp = template.cloneNode();
+        companionOutput.append(temp);
     }
 
 };
