@@ -71,6 +71,16 @@ const sendRegistration = (e) => {
         balance: roleBalance
     }
 
+    const langDE = document.querySelector('#language-german').value;
+    const langEN = document.querySelector('#language-english').value;
+    data.language = {
+        german: langDE,
+        english: langEN
+    }
+
+    const calendarSaturday = document.querySelector('#saturday');
+    console.log(calendarSaturday);
+
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
 };
 
