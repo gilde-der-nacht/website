@@ -48,7 +48,7 @@ scripts:
   {{< form/radio name="matter-not" label="egal" checked="true" >}}
 {{< /form/radio-group >}}
 
-{{< form/multi-skala/multi-skala label="Genres" columns="4" >}}
+{{< form/multi-skala/multi-skala label="Genres" columns="4" name="grid-genre" >}}
 
   {{< form/multi-skala/entry label="Fantasy" name="fantasy" >}}
 
@@ -68,15 +68,15 @@ scripts:
 
   {{< form/multi-skala/entry-input label="Vermisst du ein Genre?" name="player-genre" >}}
 
-    {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" >}}
-    {{< form/multi-skala/entry-option label="egal" name="matter-not" icon="dot-circle" checked="true" >}}
+    {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" checked="true" >}}
+    {{< form/multi-skala/entry-option label="egal" name="matter-not" icon="dot-circle" >}}
     {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" >}}
 
   {{< /form/multi-skala/entry-input >}}
 
 {{< /form/multi-skala/multi-skala >}}
 
-{{< form/multi-skala/multi-skala label="Workshops/Diskussionsrunden" columns="3" >}}
+{{< form/multi-skala/multi-skala label="Workshops/Diskussionsrunden" columns="3" name="grid-workshop" >}}
 
   {{< form/multi-skala/entry label="Spielleiter Workshop" name="game-master-workshop" >}}
 
@@ -87,8 +87,8 @@ scripts:
 
   {{< form/multi-skala/entry-input label="Hast du Interesse an einem hier nicht aufgeführten Workshop/Dikussionsrunde?" name="player-workshop" >}}
 
-  {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" >}}
-  {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" checked="true" >}}
+    {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" checked="true" >}}
+    {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" >}}
 
   {{< /form/multi-skala/entry-input >}}
 
