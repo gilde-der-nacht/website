@@ -14,6 +14,9 @@ scripts:
 {{< input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
 {{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
 
+<label>Anmeldung als</label>
+<small>treffe bitte mindestens eine Auswahl</small>
+
 <label>
 <input type="checkbox" checked>
 Spieler:in
@@ -36,13 +39,20 @@ Zeitfenster (1 Stunden Slots)
 
 {{< fieldset legend="Spieler:in" >}}
 
-Arten von Spielrunden
+<label>Arten von Spielrunden</label>
 
-kurze aber viele Spielrunden
-
-lange aber wenige Spielrunden
-
-egal
+<label class="radio">
+    <input type="radio" name="answer">
+    kurze aber viele Spielrunden
+  </label>
+  <label class="radio">
+    <input type="radio" name="answer">
+    lange aber wenige Spielrunden
+  </label>
+  <label class="radio">
+    <input type="radio" name="answer">
+    egal
+  </label>
 
 Genres (Skala Gerne-Egal-Lieber nicht)
 
@@ -60,9 +70,11 @@ Beigleitpersonen (Namen optional)
 {{< /fieldset >}}
 
 {{< fieldset legend="Spielleiter:in" >}}
-Spielleiter
 
-Buddy-System, Unterstützung gewünscht
+<label>
+  <input type="checkbox">
+  Buddy-System, Unterstützung gewünscht
+</label>
 
 Pro Spielrunde
 
@@ -82,12 +94,23 @@ Anzahl Spieler (min/max)
 
 {{< fieldset legend="Abschluss" >}}
 
-
-Helferaufruf
-
-Auswahl an Helferjobs
+<label>Helferaufruf</label>
+<small>ganz alleine würden wir die Rollenspieltage nicht durchführen können</small>
+<label>
+  <input type="checkbox">
+  Aufbau/Abbau
+</label>
+<label>
+  <input type="checkbox">
+  Kasse (Buffet oder Flohmarkt)
+</label>
+<label>
+  <input type="checkbox">
+  Küche
+</label>
 
 {{< input name="private-message" type="textarea" placeholder="Fragen" label="Noch Fragen?">}}
+
 {{< /fieldset >}}
 
 {{< /form >}}
