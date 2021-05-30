@@ -44,9 +44,9 @@ Zeitfenster (1 Stunden Slots)
 
   {{< form/multi-skala/header >}}
 
-    {{< form/multi-skala/header-icon icon="thumbs-up" label="Gerne" >}}
-    {{< form/multi-skala/header-icon icon="hashtag" label="Egal" >}}
-    {{< form/multi-skala/header-icon icon="thumbs-down" label="lieber nicht" >}}
+    {{< form/multi-skala/header-icon icon="check-circle" label="Gerne" >}}
+    {{< form/multi-skala/header-icon icon="dot-circle" label="Egal" >}}
+    {{< form/multi-skala/header-icon icon="times-circle" label="lieber nicht" >}}
 
   {{< /form/multi-skala/header >}}
 
@@ -72,8 +72,8 @@ Zeitfenster (1 Stunden Slots)
 
   {{< form/multi-skala/header >}}
 
-    {{< form/multi-skala/header-icon icon="thumbs-up" label="Gerne" >}}
-    {{< form/multi-skala/header-icon icon="thumbs-down" label="lieber nicht" >}}
+    {{< form/multi-skala/header-icon icon="check-circle" label="Gerne" >}}
+    {{< form/multi-skala/header-icon icon="times-circle" label="lieber nicht" >}}
 
   {{< /form/multi-skala/header >}}
 
