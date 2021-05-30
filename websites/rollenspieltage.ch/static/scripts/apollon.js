@@ -44,8 +44,6 @@ const error = (type) => {
 };
 
 const sendRegistration = (e) => {
-    console.log('submit');
-
     e.preventDefault();
 
     const data = {};
@@ -91,6 +89,8 @@ const sendRegistration = (e) => {
     for (let entry of listSunday) {
         sunday[entry.name] = entry.checked;
     }
+
+    data.time = {saturday, sunday};
 
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
 };
