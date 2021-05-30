@@ -2,7 +2,7 @@
     <label>
         <input
             type="radio"
-            name="{{ with .Parent }} {{ .Get "name" }} {{ end }}"
+            name="{{ with .Parent }}{{ .Get "name" }}{{ end }}"
             value="{{ .Get "name" }}"
             {{ if eq (.Get "checked") "true"}} checked {{ end }}>
         {{ .Get "label" }}
