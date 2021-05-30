@@ -17,7 +17,7 @@ scripts:
 <label>Anmeldung als</label>
 <small>treffe bitte mindestens eine Auswahl</small>
 
-{{< form/checkbox name="private-participant-role" label="Spieler:in" attributes="checked">}}
+{{< form/checkbox name="private-participant-role" label="Spieler:in" checked="true">}}
 
 {{< form/checkbox name="private-gamemaster-role" label="Spielleiter:in" >}}
 
