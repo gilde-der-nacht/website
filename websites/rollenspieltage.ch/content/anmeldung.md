@@ -85,14 +85,15 @@ Genres
 
 {{< form/fieldset legend="Abschluss" >}}
 
-<label>Helferaufruf</label>
-<small>ganz alleine würden wir die Rollenspieltage nicht durchführen können</small>
+{{< form/group label="Helferaufruf" description="ganz alleine würden wir die Rollenspieltage nicht durchführen können" >}}
 
 {{< form/checkbox name="private-helper-logistic" label="Aufbau/Abbau" >}}
 
 {{< form/checkbox name="private-helper-checkout" label="Kasse (Buffet oder Flohmarkt)" >}}
 
 {{< form/checkbox name="private-helper-kitchen" label="Küche" >}}
+
+{{< /form/group >}}
 
 {{< form/textarea name="private-message" placeholder="Fragen" label="Noch Fragen?">}}
 
