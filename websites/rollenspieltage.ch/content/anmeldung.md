@@ -2,87 +2,92 @@
 title: "Anmeldung"
 slug: "anmeldung"
 aliases:
-  - /registration/
+- /registration/
 date: 2021-05-29
 scripts:
-  - 'apollon'
+- 'apollon'
 ---
 
-{{< form uid="38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf" >}} 
+{{< form uid="38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf" >}}
 
-# Generell
-
-{{< input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}} 
-{{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}} 
+{{< fieldset >}}
+{{< input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
+{{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
 
 <label>
-  <input type="checkbox" active>
-  Spieler:in
+<input type="checkbox" checked>
+Spieler:in
 </label>
 
 <label>
-  <input type="checkbox">
-  Spielleiter:in
+<input type="checkbox">
+Spielleiter:in
 </label>
 
 <label>
-  mehr Spielen
-  <input type="range" id="balance" name="balance" min="0" max="2">
-  mehr Spielleiten
+mehr Spielen
+<input type="range" id="balance" name="balance" min="0" max="2">
+mehr Spielleiten
 </label>
 
+Zeitfenster (1 Stunden Slots)
 
+{{< /fieldset >}}
 
-    Zeitfenster (1 Stunden Slots)
+{{< fieldset legend="Spieler:in" >}}
 
-Spieler
+Arten von Spielrunden
 
-    Arten von Spielrunden
+kurze aber viele Spielrunden
 
-        kurze aber viele Spielrunden
+lange aber wenige Spielrunden
 
-        lange aber wenige Spielrunden
+egal
 
-        egal
+Genres (Skala Gerne-Egal-Lieber nicht)
 
-    Genres (Skala Gerne-Egal-Lieber nicht)
+Vorauswahl
 
-        Vorauswahl
+Sonstiges (Eingabe)
 
-        Sonstiges (Eingabe)
+Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
 
-    Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
+Vorauswahl
 
-        Vorauswahl
+Sonstiges (Eingabe)
 
-        Sonstiges (Eingabe)
+Beigleitpersonen (Namen optional)
+{{< /fieldset >}}
 
-    Beigleitpersonen (Namen optional)
-
+{{< fieldset legend="Spielleiter:in" >}}
 Spielleiter
 
-    Buddy-System, Unterstützung gewünscht
+Buddy-System, Unterstützung gewünscht
 
 Pro Spielrunde
 
-    Titel + kurze Beschreibung
+Titel + kurze Beschreibung
 
-    Genres
+Genres
 
-        Vorauswahl
+Vorauswahl
 
-        Sonstiges (Eingabe)
+Sonstiges (Eingabe)
 
-    Dauer
+Dauer
 
-    Anzahl Spieler (min/max)
+Anzahl Spieler (min/max)
 
-Abschluss
+{{< /fieldset >}}
 
-    Helferaufruf
+{{< fieldset legend="Abschluss" >}}
 
-        Auswahl an Helferjobs
 
-{{< input name="private-message" type="textarea" placeholder="Fragen" label="Noch Fragen?">}} 
+Helferaufruf
+
+Auswahl an Helferjobs
+
+{{< input name="private-message" type="textarea" placeholder="Fragen" label="Noch Fragen?">}}
+{{< /fieldset >}}
 
 {{< /form >}}

@@ -1,0 +1,7 @@
+<fieldset>
+	{{ with (.Get "legend") }}
+        <legend>{{ . }}</legend>
+    {{ end }}
+
+    {{ .Inner }}
+</fieldset>
