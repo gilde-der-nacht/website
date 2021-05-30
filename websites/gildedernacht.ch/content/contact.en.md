@@ -10,9 +10,9 @@ menu:
 
 {{< form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" >}}
 
-{{< input name="private-name" type="text" placeholder="Name" label="Name" attributes="required">}}
+{{< text-input name="private-name" type="text" placeholder="Name" label="Name" attributes="required">}}
 
-{{< input name="private-email" type="email" placeholder="E-Mail" label="E-mail" attributes="required">}}
+{{< text-input name="private-email" type="email" placeholder="E-Mail" label="E-mail" attributes="required">}}
 
 {{< name="private-message" placeholder="Message" label="Message" attributes="required">}}
 

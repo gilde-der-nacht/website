@@ -27,13 +27,13 @@ _Die Umfrage ist anonym_
 
 {{< form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" >}}
 
-{{< input name="private-location" type="text" placeholder="Optional" label="Wo wohnst du?" >}}
+{{< text-input name="private-location" type="text" placeholder="Optional" label="Wo wohnst du?" >}}
 
-{{< input name="private-journey" type="text" placeholder="Optional" label="Wie weit würdest du reisen für einen Stammtisch?" >}}
+{{< text-input name="private-journey" type="text" placeholder="Optional" label="Wie weit würdest du reisen für einen Stammtisch?" >}}
 
-{{< input name="private-frequency" type="text" placeholder="Optional" label="Wie oft würdest du an einem Rollenspiel-Stammtisch teilnehmen?" >}}
+{{< text-input name="private-frequency" type="text" placeholder="Optional" label="Wie oft würdest du an einem Rollenspiel-Stammtisch teilnehmen?" >}}
 
-{{< input name="private-expectations" type="text" placeholder="Optional" label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?" >}}
+{{< text-input name="private-expectations" type="text" placeholder="Optional" label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?" >}}
 
 {{< textarea name="private-message" placeholder="Optional" label="Bemerkungen">}}
 

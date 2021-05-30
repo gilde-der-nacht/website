@@ -66,8 +66,8 @@ Folgende Jobs stehen zur Verfügung:
 Wir freuen uns auf deine Antwort und bedanken uns bereits jetzt für deine Unterstützung!
 
 {{< form uid="65adbe232fcbb16d738d57defcf2a9010d65e895f77a46e1542ff65df8aada34" >}}
-  {{< input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
-  {{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
+  {{< text-input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
+  {{< text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
   {{< textarea name="private-message" placeholder="Nachricht" label="Welche Jobs kannst du dir vorstellen und wann hast du Zeit? *" attributes="required">}}
 {{< /form >}}
 

@@ -11,15 +11,15 @@ scripts:
 {{< form uid="38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf" >}}
 
 {{< fieldset >}}
-{{< input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
-{{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
+{{< text-input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
+{{< text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
 
 <label>Anmeldung als</label>
 <small>treffe bitte mindestens eine Auswahl</small>
 
-{{< input name="private-participant-role" type="checkbox" label="Spieler:in" attributes="checked">}}
+{{< checkbox name="private-participant-role" label="Spieler:in" attributes="checked">}}
 
-{{< input name="private-gamemaster-role" type="checkbox" label="Spielleiter:in" >}}
+{{< checkbox name="private-gamemaster-role" label="Spielleiter:in" >}}
 
 <label>
 mehr Spielen
@@ -62,7 +62,7 @@ Beigleitpersonen (Namen optional)
 
 {{< fieldset legend="Spielleiter:in" >}}
 
-{{< input name="private-gamemaster-buddy" type="checkbox" label="Buddy-System, Unterstützung gewünscht" >}}
+{{< checkbox name="private-gamemaster-buddy" label="Buddy-System, Unterstützung gewünscht" >}}
 
 Pro Spielrunde
 
@@ -72,13 +72,13 @@ Genres
 * Vorauswahl
 * Sonstiges (Eingabe)
 
-{{< input name="private-game-duration" type="number" label="Dauer (in Stunden) *" attributes="required">}}
+{{< text-input name="private-game-duration" type="number" label="Dauer (in Stunden) *" attributes="required">}}
 
 <label>Anzahl Spieler</label>
 
-{{< input name="private-game-playercount-min" type="number" label="Minimum *" attributes="required">}}
+{{< text-input name="private-game-playercount-min" type="number" label="Minimum *" attributes="required">}}
 
-{{< input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required">}}
+{{< text-input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required">}}
 
 {{< /fieldset >}}
 
@@ -87,11 +87,11 @@ Genres
 <label>Helferaufruf</label>
 <small>ganz alleine würden wir die Rollenspieltage nicht durchführen können</small>
 
-{{< input name="private-helper-logistic" type="checkbox" label="Aufbau/Abbau" >}}
+{{< checkbox name="private-helper-logistic" label="Aufbau/Abbau" >}}
 
-{{< input name="private-helper-checkout" type="checkbox" label="Kasse (Buffet oder Flohmarkt)" >}}
+{{< checkbox name="private-helper-checkout" label="Kasse (Buffet oder Flohmarkt)" >}}
 
-{{< input name="private-helper-kitchen" type="checkbox" label="Küche" >}}
+{{< checkbox name="private-helper-kitchen" label="Küche" >}}
 
 {{< textarea name="private-message" placeholder="Fragen" label="Noch Fragen?">}}
 
