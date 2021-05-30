@@ -43,20 +43,28 @@ Zeitfenster (1 Stunden Slots)
 {{< form/radio-group label="Arten von Spielrunden" name="gameround-types">}}
   {{< form/radio name="short" label="kurze aber viele Spielrunden">}}
   {{< form/radio name="long" label="lange aber wenige Spielrunden">}}
-  {{< form/radio name="not-matter" label="egal" checked="true">}}
+  {{< form/radio name="matter-not" label="egal" checked="true">}}
 {{< /form/radio-group >}}
 
-{{< form/multi-skala label="Genres">}}
+{{< form/multi-skala/multi-skala label="Genres">}}
 
-  {{< form/multi-skala-header >}}
+  {{< form/multi-skala/header >}}
 
-    {{< form/multi-skala-header-icon icon="thumbs-up" label="Gerne" >}}
-    {{< form/multi-skala-header-icon icon="hashtag" label="Egal" >}}
-    {{< form/multi-skala-header-icon icon="thumbs-down" label="lieber nicht" >}}
+    {{< form/multi-skala/header-icon icon="thumbs-up" label="Gerne" >}}
+    {{< form/multi-skala/header-icon icon="hashtag" label="Egal" >}}
+    {{< form/multi-skala/header-icon icon="thumbs-down" label="lieber nicht" >}}
 
-  {{< /form/multi-skala-header >}}
+  {{< /form/multi-skala/header >}}
 
-{{< /form/multi-skala >}}
+  {{< form/multi-skala/entry label="Fantasy" name="fantasy" >}}
+
+    {{< form/multi-skala/entry-option name="like" >}}
+    {{< form/multi-skala/entry-option name="matter-not" >}}
+    {{< form/multi-skala/entry-option name="not-like" >}}
+
+  {{< /form/multi-skala/entry >}}
+
+{{< /form/multi-skala/multi-skala >}}
 
 Genres (Skala Gerne-Egal-Lieber nicht)
 * Vorauswahl
