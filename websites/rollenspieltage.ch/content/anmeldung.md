@@ -21,11 +21,7 @@ scripts:
 
 {{< form/checkbox name="private-gamemaster-role" label="Spielleiter:in" >}}
 
-<label>
-mehr Spielen
-<input type="range" id="balance" name="balance" min="0" max="2">
-mehr Spielleiten
-</label>
+{{< form/slider label="Wähle deine Balance" name="participant-gamemaster-balance" steps="3" left="mehr Spielen" right="mehr Spielleiten" >}}
 
 Zeitfenster (1 Stunden Slots)
 

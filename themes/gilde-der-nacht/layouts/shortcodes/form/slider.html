@@ -1,0 +1,11 @@
+<p class="c-form--item c-form-field--text">
+
+    <label>{{ .Get "label" }}</label>
+
+    <label>
+        {{ .Get "left" }}
+        <input type="range" name="{{ .Get "name" }}" min="1" max="{{ .Get "steps" }}">
+        {{ .Get "right" }}
+    </label>
+
+</p>
