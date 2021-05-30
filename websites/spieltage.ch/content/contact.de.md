@@ -14,7 +14,7 @@ Wir hören gerne von dir und antworten dir auch innerhalb von 24 Stunden.
 {{< form uid="65adbe232fcbb16d738d57defcf2a9010d65e895f77a46e1542ff65df8aada34" >}}
   {{< input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
   {{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
-  {{< input name="private-message" type="textarea" placeholder="Nachricht" label="Nachricht *" attributes="required">}}
+  {{< textarea name="private-message" placeholder="Nachricht" label="Nachricht *" attributes="required">}}
 {{< /form >}}
 
 {{< messages spam="Fehler: Deine Nachricht wurde leider als SPAM markiert und nicht weitergeleitet. Versuche es bitte erneut." success="Vielen Dank für deine Nachricht!" >}}

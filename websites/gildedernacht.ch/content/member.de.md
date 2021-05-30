@@ -13,7 +13,7 @@ toc: false
 
 {{< input name="private-name" type="text" placeholder="Name" label="Name" attributes="required">}}
 
-{{< input name="private-address" type="textarea" placeholder="Adresse" label="Adresse" >}}
+{{< textarea name="private-address" placeholder="Adresse" label="Adresse" >}}
 
 {{< input name="private-birthday" type="date" placeholder="Geburtsdatum" label="Geburtsdatum" >}}
 
@@ -21,7 +21,7 @@ toc: false
 
 {{< input name="private-mobil" type="tel" placeholder="+41 ..." label="Mobil" >}}
 
-{{< input name="private-message" type="textarea" placeholder="Kommentar" label="Kommentar">}}
+{{< textarea name="private-message" placeholder="Kommentar" label="Kommentar">}}
 
 {{< /form >}}
 

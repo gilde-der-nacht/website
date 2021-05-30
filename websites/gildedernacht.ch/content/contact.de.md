@@ -18,7 +18,7 @@ toc: false
 
 {{< input name="private-email" type="email" placeholder="E-Mail" label="E-Mail" attributes="required">}}
 
-{{< input name="private-message" type="textarea" placeholder="Nachricht" label="Nachricht" attributes="required">}}
+{{< textarea name="private-message" placeholder="Nachricht" label="Nachricht" attributes="required">}}
 
 {{< /form >}}
 

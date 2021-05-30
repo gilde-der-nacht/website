@@ -1,8 +1,5 @@
 <p class="c-form--item c-form-field--text">
-	{{ if eq (.Get "type") "textarea" }}
-		<label for="{{ .Get "name" }}">{{ .Get "label" }}</label>
-		<textarea name="{{ .Get "name" }}" id="{{ .Get "name" }}" placeholder="{{ .Get "placeholder" }}" {{ .Get "attributes" }}></textarea>
-	{{ else if eq (.Get "type") "checkbox" }}
+	{{ if eq (.Get "type") "checkbox" }}
 		<label>
 			<input type="checkbox" name="{{ .Get "name" }}" {{ .Get "attributes" }}>
 			{{ .Get "label"}}

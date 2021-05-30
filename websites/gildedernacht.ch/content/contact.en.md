@@ -14,7 +14,7 @@ menu:
 
 {{< input name="private-email" type="email" placeholder="E-Mail" label="E-mail" attributes="required">}}
 
-{{< input name="private-message" type="textarea" placeholder="Message" label="Message" attributes="required">}}
+{{< name="private-message" placeholder="Message" label="Message" attributes="required">}}
 
 {{< /form >}}
 

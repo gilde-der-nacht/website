@@ -93,7 +93,7 @@ Genres
 
 {{< input name="private-helper-kitchen" type="checkbox" label="Küche" >}}
 
-{{< input name="private-message" type="textarea" placeholder="Fragen" label="Noch Fragen?">}}
+{{< textarea name="private-message" placeholder="Fragen" label="Noch Fragen?">}}
 
 {{< /fieldset >}}
 
