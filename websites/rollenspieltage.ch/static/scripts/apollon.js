@@ -76,21 +76,27 @@ const sendRegistration = (e) => {
         english: langEN
     }
 
-    const calendarSaturday = document.querySelector('#saturday');
-    const listSaturday = calendarSaturday.querySelectorAll('input');
+    const listSaturday = document.querySelector('#saturday').querySelectorAll('input');
     const saturday = {};
     for (let entry of listSaturday) {
         saturday[entry.name] = entry.checked;
     }
 
-    const calendarSunday = document.querySelector('#sunday');
-    const listSunday = calendarSunday.querySelectorAll('input');
+    const listSunday = document.querySelector('#sunday').querySelectorAll('input');
     const sunday = {};
     for (let entry of listSunday) {
         sunday[entry.name] = entry.checked;
     }
 
     data.time = {saturday, sunday};
+
+    if (player.checked) {
+        const gameroundTypes = document.querySelector('#gameround-types').querySelectorAll('input');
+
+        gameroundTypes.forEach(e => {
+            console.log({e});
+        });
+    }
 
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
 };
