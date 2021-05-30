@@ -16,8 +16,6 @@ const manageVisibility = () => {
     const gameMasterFieldset = document.querySelector("#gamemaster-fieldset");
     const noRoleSelectedFieldset = document.querySelector("#no-role-selected-fieldset");
 
-    console.log({player: player.checked, gameMaster: gameMaster.checked});
-
     if (player.checked) {
         show(playerFieldset);
     } else {
@@ -32,8 +30,11 @@ const manageVisibility = () => {
 
     if(!player.checked && !gameMaster.checked) {
         show(noRoleSelectedFieldset);
+    } else {
+        hide(noRoleSelectedFieldset);
     }
 };
 
 player.addEventListener("change", manageVisibility);
 gameMaster.addEventListener("change", manageVisibility);
+manageVisibility();
