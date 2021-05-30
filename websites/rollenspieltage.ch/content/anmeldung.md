@@ -11,17 +11,27 @@ scripts:
 {{< form/form uid="38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf" >}}
 
 {{< form/fieldset >}}
+
 {{< form/text-input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
 {{< form/text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
 
-<label>Anmeldung als</label>
-<small>treffe bitte mindestens eine Auswahl</small>
+{{< form/group label="Anmeldung als" description="treffe bitte mindestens eine Auswahl" >}}
 
 {{< form/checkbox name="private-participant-role" label="Spieler:in" checked="true">}}
 
 {{< form/checkbox name="private-gamemaster-role" label="Spielleiter:in" >}}
 
+{{< /form/group >}}
+
 {{< form/slider label="Wähle deine Balance" name="participant-gamemaster-balance" steps="3" left="mehr Spielen" right="mehr Spielleiten" >}}
+
+{{< form/group label="Sprache" description="treffe bitte mindestens eine Auswahl" >}}
+
+{{< form/checkbox name="private-language-german" label="Deutsch" checked="true">}}
+
+{{< form/checkbox name="private-language-english" label="Englisch" >}}
+
+{{< /form/group >}}
 
 Zeitfenster (1 Stunden Slots)
 
@@ -63,11 +73,13 @@ Genres
 
 {{< form/text-input name="private-game-duration" type="number" label="Dauer (in Stunden) *" attributes="required">}}
 
-<label>Anzahl Spieler</label>
+{{< form/group label="Anzahl Spieler:innen" description="treffe bitte mindestens eine Auswahl" >}}
 
 {{< form/text-input name="private-game-playercount-min" type="number" label="Minimum *" attributes="required">}}
 
 {{< form/text-input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required">}}
+
+{{< /form/group >}}
 
 {{< /form/fieldset >}}
 
