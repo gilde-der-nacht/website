@@ -162,3 +162,5 @@ scripts:
 {{< /form/fieldset >}}
 
 {{< /form/form >}}
+
+<pre id="output"></pre>
