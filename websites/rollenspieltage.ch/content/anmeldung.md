@@ -23,6 +23,12 @@ scripts:
   Spielleiter:in
 </label>
 
+<label>
+  mehr Spielen
+  <input type="range" id="balance" name="balance" min="0" max="2">
+  mehr Spielleiten
+</label>
+
 {{< input name="private-message" type="textarea" placeholder="Fragen" label="Noch Fragen?">}} 
 
 {{< /form >}}
