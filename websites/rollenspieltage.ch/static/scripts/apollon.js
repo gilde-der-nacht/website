@@ -80,6 +80,7 @@ const sendRegistration = (e) => {
 
     const calendarSaturday = document.querySelector('#saturday');
     const listSaturday = calendarSaturday.querySelectorAll('input');
+    console.log({listSaturday});
     const saturday = {};
     for (entry in listSaturday) {
         console.log({entry});
