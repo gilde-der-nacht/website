@@ -64,7 +64,7 @@ Zeitfenster (1 Stunden Slots)
 
   {{< /form/multi-skala/entry >}}
 
-  {{< form/multi-skala/entry-input >}}
+  {{< form/multi-skala/entry-input label="Vermisst du ein Genre?" >}}
 
     {{< form/multi-skala/entry-option name="like" >}}
     {{< form/multi-skala/entry-option name="matter-not" checked="true" >}}
@@ -90,7 +90,7 @@ Zeitfenster (1 Stunden Slots)
 
   {{< /form/multi-skala/entry >}}
 
-  {{< form/multi-skala/entry-input >}}
+  {{< form/multi-skala/entry-input label="Hast du Interesse an einem hier nicht aufgeführten Workshop/Dikussionsrunde?" >}}
 
     {{< form/multi-skala/entry-option name="like" >}}
     {{< form/multi-skala/entry-option name="not-like" checked="true" >}}
