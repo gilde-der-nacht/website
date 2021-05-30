@@ -57,7 +57,9 @@ Beigleitpersonen (Namen optional)
 
 Pro Spielrunde
 
-Titel + kurze Beschreibung
+{{< form/text-input name="private-game-title" type="text" label="Titel *" attributes="required">}}
+
+{{< form/textarea name="private-game-description" placeholder="Beschreibung" label="Beschreibung">}}
 
 Genres
 * Vorauswahl
