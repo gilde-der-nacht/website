@@ -1,4 +1,4 @@
 <label class="radio">
-    <input type="radio" name="answer" value="{{ .Get "name" }}">
+    <input type="radio" name="{{ with .Parent }} {{ .Get "name" }} {{ end }}" value="{{ .Get "name" }}">
     {{ .Get "label" }}
 </label>

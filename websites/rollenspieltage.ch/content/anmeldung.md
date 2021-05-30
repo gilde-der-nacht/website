@@ -33,7 +33,7 @@ Zeitfenster (1 Stunden Slots)
 
 {{< form/fieldset legend="Spieler:in" >}}
 
-{{< form/radio-group >}}
+{{< form/radio-group label="Arten von Spielrunden" name="gameround-types">}}
   {{< form/radio name="short" label="kurze aber viele Spielrunden">}}
   {{< form/radio name="long" label="lange aber wenige Spielrunden">}}
   {{< form/radio name="not-matter" label="egal">}}
