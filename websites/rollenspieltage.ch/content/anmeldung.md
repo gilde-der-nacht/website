@@ -53,6 +53,7 @@ Genres (Skala Gerne-Egal-Lieber nicht)
 * Sonstiges (Eingabe)
 
 Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
+<i class="fas fa-camera"></i>
 * Vorauswahl
 * Sonstiges (Eingabe)
 
