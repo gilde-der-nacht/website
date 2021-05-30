@@ -29,7 +29,7 @@ mehr Spielleiten
 
 Zeitfenster (1 Stunden Slots)
 
-{{< /fieldset >}}
+{{< /form/fieldset >}}
 
 {{< form/fieldset legend="Spieler:in" >}}
 
@@ -58,7 +58,7 @@ Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
 * Sonstiges (Eingabe)
 
 Beigleitpersonen (Namen optional)
-{{< /fieldset >}}
+{{< /form/fieldset >}}
 
 {{< form/fieldset legend="Spielleiter:in" >}}
 
@@ -80,7 +80,7 @@ Genres
 
 {{< form/text-input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required">}}
 
-{{< /fieldset >}}
+{{< /form/fieldset >}}
 
 {{< form/fieldset legend="Abschluss" >}}
 
@@ -95,6 +95,6 @@ Genres
 
 {{< form/textarea name="private-message" placeholder="Fragen" label="Noch Fragen?">}}
 
-{{< /fieldset >}}
+{{< /form/fieldset >}}
 
-{{< /form >}}
+{{< /form/form >}}

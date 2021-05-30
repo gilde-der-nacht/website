@@ -20,7 +20,7 @@ toc: false
 
 {{< form/textarea name="private-message" placeholder="Nachricht" label="Nachricht" attributes="required">}}
 
-{{< /form >}}
+{{< /form/form >}}
 
 {{< messages spam="Fehler: Deine Nachricht wurde leider als SPAM markiert und nicht weitergeleitet. Versuche es bitte erneut." success="Vielen Dank für deine Nachricht!" >}}
 

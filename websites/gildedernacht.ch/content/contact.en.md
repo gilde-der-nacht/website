@@ -16,7 +16,7 @@ menu:
 
 {{< name="private-message" placeholder="Message" label="Message" attributes="required">}}
 
-{{< /form >}}
+{{< /form/form >}}
 
 {{< messages spam="Error: Your message is sadly been marked as SPAM and not been forwarded. Please try again." success="Thank you for your message!" >}}
 
