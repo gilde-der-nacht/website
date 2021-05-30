@@ -94,6 +94,14 @@ const sendRegistration = (e) => {
         const gameroundTypes = document.querySelector('#gameround-types').querySelectorAll('input');
         data.gameroundTypes = [...gameroundTypes].find(e => e.checked).value;
 
+        const listGenres = document.querySelector('#grid-genre').querySelectorAll('input');
+        const genres = {};
+        [...listGenres].forEach(e => {
+            if (e.checked) {
+                genres[e.name] = e.value;
+            }
+        });
+        data.genres = genres;
 
     }
 
