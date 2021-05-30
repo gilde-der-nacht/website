@@ -44,6 +44,8 @@ const error = (type) => {
 };
 
 const sendRegistration = (e) => {
+    console.log('submit');
+
     e.preventDefault();
 
     const data = {};
@@ -55,8 +57,15 @@ const sendRegistration = (e) => {
         error('name');
     }
 
+    const email = document.querySelector('#email').value;
+    if (email.length > 0) {
+        data.email = email;
+    } else {
+        error('email');
+    }
+
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
 };
 
 const submit = document.querySelector('form');
-submit.addEventListener('submit', sendRegistration);
+submit.addEventListener('submit', sendRegistration, false);
