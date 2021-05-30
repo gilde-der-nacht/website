@@ -1,5 +1,5 @@
 <p class="c-form--item c-form-field--text">
-	<label for="{{ .Get "name" }}">{{ .Get "label" }}{{if .Get "required"}}*{{ end }}</label>
+	<label for="{{ .Get "name" }}">{{ .Get "label" }} {{if .Get "required"}}*{{ end }}</label>
 	<input
 		name="{{ .Get "name" }}"
 		id="{{ .Get "name" }}"
@@ -13,6 +13,9 @@
 		{{ if eq ( .Get "type" ) "number" }}
 			min=0
 			max=99
+		{{ end }}
+		{{ with .Get "required" }}
+			required="{{ . }}"
 		{{ end }}
 		{{ .Get "attributes" }}>
 </p>

@@ -1,4 +1,13 @@
 <p class="c-form--item c-form-field--text">
 	<label for="{{ .Get "name" }}">{{ .Get "label" }}</label>
-	<textarea name="{{ .Get "name" }}" id="{{ .Get "name" }}" placeholder="{{ .Get "placeholder" }}" {{ .Get "attributes" }}></textarea>
+	<textarea
+		name="{{ .Get "name" }}"
+		id="{{ .Get "name" }}"
+		{{ with .Get "placeholder" }}
+			placeholder="{{ . }}"
+		{{ end }}
+		{{ with .Get "required" }}
+			required="{{ . }}"
+		{{ end }}
+		{{ .Get "attributes" }}></textarea>
 </p>
