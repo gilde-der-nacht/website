@@ -92,10 +92,9 @@ const sendRegistration = (e) => {
 
     if (player.checked) {
         const gameroundTypes = document.querySelector('#gameround-types').querySelectorAll('input');
+        data.gameroundTypes = [...gameroundTypes].find(e => e.checked).value;
 
-        gameroundTypes.forEach(e => {
-            console.log({e});
-        });
+
     }
 
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);

@@ -50,35 +50,27 @@ scripts:
 
 {{< form/multi-skala/multi-skala label="Genres" >}}
 
-  {{< form/multi-skala/header >}}
-
-    {{< form/multi-skala/header-icon icon="check-circle" label="Gerne" >}}
-    {{< form/multi-skala/header-icon icon="dot-circle" label="Egal" >}}
-    {{< form/multi-skala/header-icon icon="times-circle" label="lieber nicht" >}}
-
-  {{< /form/multi-skala/header >}}
-
   {{< form/multi-skala/entry label="Fantasy" name="fantasy" >}}
 
-    {{< form/multi-skala/entry-option name="like" >}}
-    {{< form/multi-skala/entry-option name="matter-not" checked="true" >}}
-    {{< form/multi-skala/entry-option name="not-like" >}}
+    {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" >}}
+    {{< form/multi-skala/entry-option label="egal" name="matter-not" icon="dot-circle" checked="true" >}}
+    {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" >}}
 
   {{< /form/multi-skala/entry >}}
 
   {{< form/multi-skala/entry label="Sci-Fi" name="scifi" >}}
 
-    {{< form/multi-skala/entry-option name="like" >}}
-    {{< form/multi-skala/entry-option name="matter-not" checked="true" >}}
-    {{< form/multi-skala/entry-option name="not-like" >}}
+    {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" >}}
+    {{< form/multi-skala/entry-option label="egal" name="matter-not" icon="dot-circle" checked="true" >}}
+    {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" >}}
 
   {{< /form/multi-skala/entry >}}
 
   {{< form/multi-skala/entry-input label="Vermisst du ein Genre?" name="player-genre" >}}
 
-    {{< form/multi-skala/entry-option name="like" checked="true" >}}
-    {{< form/multi-skala/entry-option name="matter-not" >}}
-    {{< form/multi-skala/entry-option name="not-like" >}}
+    {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" >}}
+    {{< form/multi-skala/entry-option label="egal" name="matter-not" icon="dot-circle" checked="true" >}}
+    {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" >}}
 
   {{< /form/multi-skala/entry-input >}}
 
@@ -86,24 +78,17 @@ scripts:
 
 {{< form/multi-skala/multi-skala label="Workshops/Diskussionsrunden" >}}
 
-  {{< form/multi-skala/header >}}
-
-    {{< form/multi-skala/header-icon icon="check-circle" label="Gerne" >}}
-    {{< form/multi-skala/header-icon icon="times-circle" label="lieber nicht" >}}
-
-  {{< /form/multi-skala/header >}}
-
   {{< form/multi-skala/entry label="Spielleiter Workshop" name="game-master-workshop" >}}
 
-    {{< form/multi-skala/entry-option name="like" >}}
-    {{< form/multi-skala/entry-option name="not-like" checked="true" >}}
+    {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" >}}
+    {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" checked="true" >}}
 
   {{< /form/multi-skala/entry >}}
 
   {{< form/multi-skala/entry-input label="Hast du Interesse an einem hier nicht aufgeführten Workshop/Dikussionsrunde?" name="player-workshop" >}}
 
-    {{< form/multi-skala/entry-option name="like" checked="true" >}}
-    {{< form/multi-skala/entry-option name="not-like" >}}
+  {{< form/multi-skala/entry-option label="gerne" name="like" icon="check-circle" >}}
+    {{< form/multi-skala/entry-option label="lieber nicht" name="not-like" icon="times-circle" checked="true" >}}
 
   {{< /form/multi-skala/entry-input >}}
 
