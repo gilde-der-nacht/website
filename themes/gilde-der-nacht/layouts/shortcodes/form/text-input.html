@@ -1,4 +1,14 @@
 <p class="c-form--item c-form-field--text">
 	<label for="{{ .Get "name" }}">{{ .Get "label" }}</label>
-	<input name="{{ .Get "name" }}" id="{{ .Get "name" }}" type="{{ .Get "type" }}" placeholder="{{ .Get "placeholder" }}" {{ .Get "attributes" }}>
+	<input
+		name="{{ .Get "name" }}"
+		id="{{ .Get "name" }}"
+		type="{{ .Get "type" }}"
+		placeholder="{{ .Get "placeholder" }}"
+		value={{ .Get "value" }}
+		{{ if eq ( .Get "type" ) "number" }}
+			min=0
+			max=99
+		{{ end }}
+		{{ .Get "attributes" }}>
 </p>

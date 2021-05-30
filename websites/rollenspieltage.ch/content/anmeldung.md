@@ -23,7 +23,7 @@ scripts:
 
 {{< /form/group >}}
 
-{{< form/slider label="Wähle deine Balance" name="participant-gamemaster-balance" steps="3" left="mehr Spielen" right="mehr Spielleiten" >}}
+{{< form/slider label="Wähle deine Balance" name="participant-gamemaster-balance" steps="3" left="Spielen" right="Spielleiten" >}}
 
 {{< form/group label="Sprache" description="treffe bitte mindestens eine Auswahl" >}}
 
@@ -54,7 +54,9 @@ Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
 * Vorauswahl
 * Sonstiges (Eingabe)
 
-Beigleitpersonen (Namen optional)
+(Namen optional)
+{{< form/text-input name="private-companions" type="number" label="Beigleitpersonen" value="0" >}}
+
 {{< /form/fieldset >}}
 
 {{< form/fieldset legend="Spielleiter:in" >}}
@@ -71,13 +73,13 @@ Genres
 * Vorauswahl
 * Sonstiges (Eingabe)
 
-{{< form/text-input name="private-game-duration" type="number" label="Dauer (in Stunden) *" attributes="required">}}
+{{< form/text-input name="private-game-duration" type="number" label="Dauer (in Stunden) *" attributes="required" value="3" >}}
 
 {{< form/group label="Anzahl Spieler:innen" description="treffe bitte mindestens eine Auswahl" >}}
 
-{{< form/text-input name="private-game-playercount-min" type="number" label="Minimum *" attributes="required">}}
+{{< form/text-input name="private-game-playercount-min" type="number" label="Minimum *" attributes="required" value="2" >}}
 
-{{< form/text-input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required">}}
+{{< form/text-input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required" value="5" >}}
 
 {{< /form/group >}}
 
