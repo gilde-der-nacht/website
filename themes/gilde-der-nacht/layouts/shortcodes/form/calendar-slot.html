@@ -1,1 +1,6 @@
-<h2>Calendar slot</h2>
+<p class="c-form--item c-form-field--text">
+	<label>
+		<input type="checkbox" name="{{ .Get "name" }}" {{ if eq (.Get "checked") "true"}} checked {{ end }} {{ .Get "attributes" }}>
+		{{ .Get "label"}}
+	</label>
+</p>
