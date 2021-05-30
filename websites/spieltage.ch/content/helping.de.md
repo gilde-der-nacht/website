@@ -66,9 +66,9 @@ Folgende Jobs stehen zur Verfügung:
 Wir freuen uns auf deine Antwort und bedanken uns bereits jetzt für deine Unterstützung!
 
 {{< form/form uid="65adbe232fcbb16d738d57defcf2a9010d65e895f77a46e1542ff65df8aada34" >}}
-  {{< form/text-input name="private-name" type="text" placeholder="Name" label="Name" required="true">}}
-  {{< form/text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail" required="true">}}
-  {{< form/textarea name="private-message" placeholder="Nachricht" label="Welche Jobs kannst du dir vorstellen und wann hast du Zeit?" required="true">}}
+  {{< form/text-input name="private-name" type="text" placeholder="Name" label="Name" required="true" >}}
+  {{< form/text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail" required="true" >}}
+  {{< form/textarea name="private-message" placeholder="Nachricht" label="Welche Jobs kannst du dir vorstellen und wann hast du Zeit?" required="true" >}}
 {{< /form/form >}}
 
 {{< messages spam="Fehler: Deine Nachricht wurde leider als SPAM markiert und nicht weitergeleitet. Versuche es bitte erneut." success="Vielen Dank für deine Nachricht!" >}}

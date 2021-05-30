@@ -35,7 +35,7 @@ _Die Umfrage ist anonym_
 
 {{< form/text-input name="private-expectations" type="text" placeholder="Optional" label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?" >}}
 
-{{< form/textarea name="private-message" placeholder="Optional" label="Bemerkungen">}}
+{{< form/textarea name="private-message" placeholder="Optional" label="Bemerkungen" >}}
 
 {{< /form/form >}}
 

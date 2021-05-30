@@ -14,17 +14,17 @@ scripts:
 
 {{< form/text-input name="name" type="text" placeholder="Name" label="Name" required="true" >}}
 
-{{< form/text-input name="email" type="email" placeholder="E-Mail" label="E-Mail" required="true">}}
+{{< form/text-input name="email" type="email" placeholder="E-Mail" label="E-Mail" required="true" >}}
 
 {{< form/group label="Anmeldung als" description="treffe bitte mindestens eine Auswahl" >}}
-  {{< form/checkbox name="participant-role" label="Spieler:in" checked="true">}}
+  {{< form/checkbox name="participant-role" label="Spieler:in" checked="true" >}}
   {{< form/checkbox name="gamemaster-role" label="Spielleiter:in" >}}
 {{< /form/group >}}
 
 {{< form/slider label="Wähle deine Balance" name="participant-gamemaster-balance" steps="3" left="Spielen" right="Spielleiten" >}}
 
 {{< form/group label="Sprache" description="treffe bitte mindestens eine Auswahl" >}}
-  {{< form/checkbox name="language-german" label="Deutsch" checked="true">}}
+  {{< form/checkbox name="language-german" label="Deutsch" checked="true" >}}
   {{< form/checkbox name="language-english" label="Englisch" >}}
 {{< /form/group >}}
 
@@ -42,13 +42,13 @@ scripts:
 
 {{< form/fieldset legend="Spieler:in" name="player-fieldset" >}}
 
-{{< form/radio-group label="Arten von Spielrunden" name="gameround-types">}}
-  {{< form/radio name="short" label="kurze aber viele Spielrunden">}}
-  {{< form/radio name="long" label="lange aber wenige Spielrunden">}}
-  {{< form/radio name="matter-not" label="egal" checked="true">}}
+{{< form/radio-group label="Arten von Spielrunden" name="gameround-types" >}}
+  {{< form/radio name="short" label="kurze aber viele Spielrunden" >}}
+  {{< form/radio name="long" label="lange aber wenige Spielrunden" >}}
+  {{< form/radio name="matter-not" label="egal" checked="true" >}}
 {{< /form/radio-group >}}
 
-{{< form/multi-skala/multi-skala label="Genres">}}
+{{< form/multi-skala/multi-skala label="Genres" >}}
 
   {{< form/multi-skala/header >}}
 
@@ -84,7 +84,7 @@ scripts:
 
 {{< /form/multi-skala/multi-skala >}}
 
-{{< form/multi-skala/multi-skala label="Workshops/Diskussionsrunden">}}
+{{< form/multi-skala/multi-skala label="Workshops/Diskussionsrunden" >}}
 
   {{< form/multi-skala/header >}}
 
@@ -117,12 +117,12 @@ scripts:
 
 {{< form/checkbox name="gamemaster-buddy" label="Buddy-System, Unterstützung gewünscht" >}}
 
-{{< form/text-input name="game-title" placeholder="Titel" type="text" label="Titel" required="true">}}
+{{< form/text-input name="game-title" placeholder="Titel" type="text" label="Titel" >}}
 
-{{< form/textarea name="game-description" placeholder="Beschreibung" label="Beschreibung">}}
+{{< form/textarea name="game-description" placeholder="Beschreibung" label="Beschreibung" >}}
 
 {{< form/group label="Genres" description="treffe bitte mindestens eine Auswahl" >}}
-  {{< form/checkbox name="fantasy" label="Fantasy">}}
+  {{< form/checkbox name="fantasy" label="Fantasy" >}}
   {{< form/checkbox name="scifi" label="Sci-Fi" >}}
   {{< form/checkbox-entry label="Vermisst du ein Genre?" >}}
 {{< /form/group >}}
@@ -157,7 +157,7 @@ scripts:
 
 {{< /form/group >}}
 
-{{< form/textarea name="message" placeholder="Fragen" label="Noch Fragen?">}}
+{{< form/textarea name="message" placeholder="Fragen" label="Noch Fragen?" >}}
 
 {{< /form/fieldset >}}
 
