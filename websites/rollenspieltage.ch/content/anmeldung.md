@@ -74,13 +74,30 @@ Zeitfenster (1 Stunden Slots)
 
 {{< /form/multi-skala/multi-skala >}}
 
-Genres (Skala Gerne-Egal-Lieber nicht)
-* Vorauswahl
-* Sonstiges (Eingabe)
+{{< form/multi-skala/multi-skala label="Workshops/Diskussionsrunden">}}
 
-Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
-* Vorauswahl
-* Sonstiges (Eingabe)
+  {{< form/multi-skala/header >}}
+
+    {{< form/multi-skala/header-icon icon="thumbs-up" label="Gerne" >}}
+    {{< form/multi-skala/header-icon icon="thumbs-down" label="lieber nicht" >}}
+
+  {{< /form/multi-skala/header >}}
+
+  {{< form/multi-skala/entry label="Spielleiter Workshop" name="game-master-workshop" >}}
+
+    {{< form/multi-skala/entry-option name="like" >}}
+    {{< form/multi-skala/entry-option name="not-like" checked="true" >}}
+
+  {{< /form/multi-skala/entry >}}
+
+  {{< form/multi-skala/entry-input >}}
+
+    {{< form/multi-skala/entry-option name="like" >}}
+    {{< form/multi-skala/entry-option name="not-like" checked="true" >}}
+
+  {{< /form/multi-skala/entry-input >}}
+
+{{< /form/multi-skala/multi-skala >}}
 
 {{< form/text-input name="private-companions" type="number" label="Beigleitpersonen" value="0" >}}
 
