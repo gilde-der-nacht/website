@@ -81,7 +81,7 @@ const sendRegistration = (e) => {
     const calendarSaturday = document.querySelector('#saturday');
     const listSaturday = calendarSaturday.querySelectorAll('input');
     const saturday = {};
-    for (let entry in listSaturday) {
+    for (let entry of listSaturday) {
         console.log({entry});
     }
 
