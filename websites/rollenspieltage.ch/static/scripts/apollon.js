@@ -79,7 +79,11 @@ const sendRegistration = (e) => {
     }
 
     const calendarSaturday = document.querySelector('#saturday');
-    console.log(calendarSaturday);
+    const listSaturday = calendarSaturday.querySelectorAll('input');
+    const saturday = {};
+    for (entry in listSaturday) {
+        console.log({entry});
+    }
 
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
 };
