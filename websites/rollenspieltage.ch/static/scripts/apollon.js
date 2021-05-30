@@ -103,6 +103,15 @@ const sendRegistration = (e) => {
         });
         data.genres = genres;
 
+        const listWorkshops = document.querySelector('#grid-workshop').querySelectorAll('input');
+        const workshops = {};
+        [...listGenres].forEach(e => {
+            if (e.checked) {
+                workshops[e.name] = e.value;
+            }
+        });
+        data.workshops = workshops;
+
     }
 
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
