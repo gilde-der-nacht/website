@@ -27,7 +27,7 @@ Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzig
 
 Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei uns Spielleiter finden, die dich in deinen ersten Schritten in diesem kreativen Hobby mit grossem Engagement unterstützen werden.
 
-{{< button ref-url="roleplay" label="zum Rollenspielprogramm" >}}
+{{< form/button ref-url="roleplay" label="zum Rollenspielprogramm" >}}
 
 {{< minitron url="/images/tabletop.jpg" attribution-title="Tabletop, Luzerner Spieltage 2019" attribution-source="/images/tabletop.jpg" offset="60%" >}}
 

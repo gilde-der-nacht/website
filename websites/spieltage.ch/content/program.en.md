@@ -24,7 +24,7 @@ Dive with us into the infinite world of fantasy, where we will experience unique
 
 If you have never played so called pen & paper role playing games before, you will find game masters with us who will support you in your first steps in this creative hobby with great commitment.
 
-{{< button ref-url="roleplay" label="Roleplay program" >}}
+{{< form/button ref-url="roleplay" label="Roleplay program" >}}
 
 {{< minitron url="/images/tabletop.jpg" attribution-title="Tabletop, Luzerner Spieltage 2019" attribution-source="/images/tabletop.jpg" offset="60%" >}}
 

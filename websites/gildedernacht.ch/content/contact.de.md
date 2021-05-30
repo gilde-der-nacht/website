@@ -12,13 +12,13 @@ toc: false
 
 ## Schreib uns was nettes
 
-{{< form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" >}}
+{{< form/form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" >}}
 
-{{< text-input name="private-name" type="text" placeholder="Name" label="Name" attributes="required">}}
+{{< form/text-input name="private-name" type="text" placeholder="Name" label="Name" attributes="required">}}
 
-{{< text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail" attributes="required">}}
+{{< form/text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail" attributes="required">}}
 
-{{< textarea name="private-message" placeholder="Nachricht" label="Nachricht" attributes="required">}}
+{{< form/textarea name="private-message" placeholder="Nachricht" label="Nachricht" attributes="required">}}
 
 {{< /form >}}
 

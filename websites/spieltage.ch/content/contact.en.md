@@ -8,10 +8,10 @@ menu:
 
 Write us and we will get back to you within 24 hours.
 
-{{< form uid="65adbe232fcbb16d738d57defcf2a9010d65e895f77a46e1542ff65df8aada34" >}}
-  {{< text-input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
-  {{< text-input name="private-email" type="email" placeholder="E-mail" label="E-mail *" attributes="required">}}
-  {{< textarea name="private-message" placeholder="Message" label="Message *" attributes="required">}}
+{{< form/form uid="65adbe232fcbb16d738d57defcf2a9010d65e895f77a46e1542ff65df8aada34" >}}
+  {{< form/text-input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
+  {{< form/text-input name="private-email" type="email" placeholder="E-mail" label="E-mail *" attributes="required">}}
+  {{< form/textarea name="private-message" placeholder="Message" label="Message *" attributes="required">}}
 {{< /form >}}
 
 {{< messages spam="Error: Your message is sadly been marked as SPAM and not been forwarded. Please try again." success="Thank you for your message!" >}}

@@ -8,18 +8,18 @@ scripts:
 - 'apollon'
 ---
 
-{{< form uid="38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf" >}}
+{{< form/form uid="38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf" >}}
 
-{{< fieldset >}}
-{{< text-input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
-{{< text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
+{{< form/fieldset >}}
+{{< form/text-input name="private-name" type="text" placeholder="Name" label="Name *" attributes="required">}}
+{{< form/text-input name="private-email" type="email" placeholder="E-Mail" label="E-Mail *" attributes="required">}}
 
 <label>Anmeldung als</label>
 <small>treffe bitte mindestens eine Auswahl</small>
 
-{{< checkbox name="private-participant-role" label="Spieler:in" attributes="checked">}}
+{{< form/checkbox name="private-participant-role" label="Spieler:in" attributes="checked">}}
 
-{{< checkbox name="private-gamemaster-role" label="Spielleiter:in" >}}
+{{< form/checkbox name="private-gamemaster-role" label="Spielleiter:in" >}}
 
 <label>
 mehr Spielen
@@ -31,7 +31,7 @@ Zeitfenster (1 Stunden Slots)
 
 {{< /fieldset >}}
 
-{{< fieldset legend="Spieler:in" >}}
+{{< form/fieldset legend="Spieler:in" >}}
 
 <label>Arten von Spielrunden</label>
 
@@ -60,9 +60,9 @@ Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
 Beigleitpersonen (Namen optional)
 {{< /fieldset >}}
 
-{{< fieldset legend="Spielleiter:in" >}}
+{{< form/fieldset legend="Spielleiter:in" >}}
 
-{{< checkbox name="private-gamemaster-buddy" label="Buddy-System, Unterstützung gewünscht" >}}
+{{< form/checkbox name="private-gamemaster-buddy" label="Buddy-System, Unterstützung gewünscht" >}}
 
 Pro Spielrunde
 
@@ -72,28 +72,28 @@ Genres
 * Vorauswahl
 * Sonstiges (Eingabe)
 
-{{< text-input name="private-game-duration" type="number" label="Dauer (in Stunden) *" attributes="required">}}
+{{< form/text-input name="private-game-duration" type="number" label="Dauer (in Stunden) *" attributes="required">}}
 
 <label>Anzahl Spieler</label>
 
-{{< text-input name="private-game-playercount-min" type="number" label="Minimum *" attributes="required">}}
+{{< form/text-input name="private-game-playercount-min" type="number" label="Minimum *" attributes="required">}}
 
-{{< text-input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required">}}
+{{< form/text-input name="private-game-playercount-max" type="number" label="Maximum *" attributes="required">}}
 
 {{< /fieldset >}}
 
-{{< fieldset legend="Abschluss" >}}
+{{< form/fieldset legend="Abschluss" >}}
 
 <label>Helferaufruf</label>
 <small>ganz alleine würden wir die Rollenspieltage nicht durchführen können</small>
 
-{{< checkbox name="private-helper-logistic" label="Aufbau/Abbau" >}}
+{{< form/checkbox name="private-helper-logistic" label="Aufbau/Abbau" >}}
 
-{{< checkbox name="private-helper-checkout" label="Kasse (Buffet oder Flohmarkt)" >}}
+{{< form/checkbox name="private-helper-checkout" label="Kasse (Buffet oder Flohmarkt)" >}}
 
-{{< checkbox name="private-helper-kitchen" label="Küche" >}}
+{{< form/checkbox name="private-helper-kitchen" label="Küche" >}}
 
-{{< textarea name="private-message" placeholder="Fragen" label="Noch Fragen?">}}
+{{< form/textarea name="private-message" placeholder="Fragen" label="Noch Fragen?">}}
 
 {{< /fieldset >}}
 

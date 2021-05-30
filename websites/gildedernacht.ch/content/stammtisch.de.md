@@ -25,17 +25,17 @@ Wir möchten mit unserem Stammtisch möglichst viele Rollenspieler glücklich ma
 
 _Die Umfrage ist anonym_
 
-{{< form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" >}}
+{{< form/form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" >}}
 
-{{< text-input name="private-location" type="text" placeholder="Optional" label="Wo wohnst du?" >}}
+{{< form/text-input name="private-location" type="text" placeholder="Optional" label="Wo wohnst du?" >}}
 
-{{< text-input name="private-journey" type="text" placeholder="Optional" label="Wie weit würdest du reisen für einen Stammtisch?" >}}
+{{< form/text-input name="private-journey" type="text" placeholder="Optional" label="Wie weit würdest du reisen für einen Stammtisch?" >}}
 
-{{< text-input name="private-frequency" type="text" placeholder="Optional" label="Wie oft würdest du an einem Rollenspiel-Stammtisch teilnehmen?" >}}
+{{< form/text-input name="private-frequency" type="text" placeholder="Optional" label="Wie oft würdest du an einem Rollenspiel-Stammtisch teilnehmen?" >}}
 
-{{< text-input name="private-expectations" type="text" placeholder="Optional" label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?" >}}
+{{< form/text-input name="private-expectations" type="text" placeholder="Optional" label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?" >}}
 
-{{< textarea name="private-message" placeholder="Optional" label="Bemerkungen">}}
+{{< form/textarea name="private-message" placeholder="Optional" label="Bemerkungen">}}
 
 {{< /form >}}
 
