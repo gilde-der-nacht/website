@@ -64,6 +64,13 @@ const sendRegistration = (e) => {
         error('email');
     }
 
+    const roleBalance = document.querySelector('#participant-gamemaster-balance').value;
+    data.role = {
+        player: player.checked,
+        gameMaster: gameMaster.checked,
+        balance: roleBalance
+    }
+
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
 };
 

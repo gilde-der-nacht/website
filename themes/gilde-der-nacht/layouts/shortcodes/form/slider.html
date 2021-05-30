@@ -4,7 +4,12 @@
 
     <label>
         {{ .Get "left" }}
-        <input type="range" name="{{ .Get "name" }}" min="1" max="{{ .Get "steps" }}">
+        <input
+            type="range"
+            name="{{ .Get "name" }}"
+            id="{{ .Get "name" }}"
+            min="1"
+            max="{{ .Get "steps" }}">
         {{ .Get "right" }}
     </label>
 
