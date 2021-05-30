@@ -82,7 +82,14 @@ const sendRegistration = (e) => {
     const listSaturday = calendarSaturday.querySelectorAll('input');
     const saturday = {};
     for (let entry of listSaturday) {
-        console.log({entry});
+        saturday[entry.name] = entry.checked;
+    }
+
+    const calendarSunday = document.querySelector('#sunday');
+    const listSunday = calendarSunday.querySelectorAll('input');
+    const sunday = {};
+    for (let entry of listSunday) {
+        sunday[entry.name] = entry.checked;
     }
 
     document.querySelector('#output').innerHTML = JSON.stringify(data, null, 4);
