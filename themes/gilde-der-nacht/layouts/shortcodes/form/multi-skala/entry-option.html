@@ -1,9 +1,0 @@
-<label class="radio">
-    <input
-        type="radio"
-        name="{{ with .Parent }}{{ .Get "name" }}{{ end }}"
-        value="{{ .Get "name" }}"
-        {{ if eq (.Get "checked") "true"}} checked {{ end }}>
-        <i class="fas fa-{{ .Get "icon" }}"></i>
-        <span>{{ .Get "label" }}</span>
-</label>
