@@ -11,4 +11,8 @@
     <script defer src="/scripts/{{ . }}.js"></script>
     {{ end }}
     <script src="https://kit.fontawesome.com/ed5a2d737b.js" crossorigin="anonymous"></script>
+    {{ if .Params.react }}
+    <script src="https://unpkg.com/react@17/umd/react.{{ if .Site.IsServer }}development{{ else }}production.min{{ end }}.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.{{ if .Site.IsServer }}development{{ else }}production.min{{ end }}.js" crossorigin></script>
+    {{ end }}
 </head>
