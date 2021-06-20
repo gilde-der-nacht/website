@@ -987,7 +987,7 @@ class Form extends React.Component {
       intro: {
         name: "",
         email: "",
-        role: { player: false, gamemaster: true, roleBalance: 2 },
+        role: { player: true, gamemaster: false, roleBalance: 2 },
         languages: {
           german: true,
           english: false,
