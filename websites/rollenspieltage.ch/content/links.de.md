@@ -13,7 +13,7 @@ Lieben Dank
 
 _Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet ($)._
 
-{{< minitron url="https://images.unsplash.com/photo-1592071666760-421c34665779?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2118&q=80" attribution-title="Blue and White Starry Sky" attribution-author="Felix Mittermeier" attribution-source="" attribution-license="Free - Commercial & Noncommercial" offset="60%" >}}
+{{< minitron url="https://images.unsplash.com/photo-1592071666760-421c34665779?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2118&q=80" attribution-title="Blue and White Starry Sky" attribution-author="Felix Mittermeier" attribution-source="https://unsplash.com/photos/6WZQkGI3V4s" attribution-license="Free - Commercial & Noncommercial" offset="60%" >}}
 # Geschichten
 
 [Story Generator (tvtropes.org)](https://tvtropes.org/pmwiki/storygen.php)
