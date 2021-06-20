@@ -244,7 +244,7 @@ class Grid extends React.Component {
     return e(AddElement, {
       name: "newEntry",
       label: this.props.missingEntry,
-      button: "->",
+      button: "+",
       handleClick: this.props.addEntryToGrid,
     });
   }
@@ -286,6 +286,18 @@ class NewGame extends React.Component {
     });
   };
 
+  updateGenre = (e) => {
+    this.updateStateNewGame(
+      "genres",
+      this.props.state.genres.map((genre) => {
+        if (e.target.name === genre.label) {
+          return { ...genre, checked: e.target.checked };
+        }
+        return genre;
+      })
+    );
+  };
+
   render() {
     if (Object.entries(this.props.state).length === 0) {
       return e(
@@ -314,6 +326,74 @@ class NewGame extends React.Component {
         required: true,
         state: this.props.state.description,
         handleChange: this.updateStateNewGame,
+      }),
+      e(CheckmarkGroup, {
+        options: this.props.state.genres.map((genre) => {
+          return {
+            label: genre.label,
+            name: genre.label,
+            state: genre.checked,
+            onChange: this.updateGenre,
+          };
+        }),
+        title: "Genres",
+        description: "triff bitte mindestens eine Auswahl",
+      }),
+      e(AddElement, {
+        name: "newGenre",
+        label: "Vermisst du ein Genre?",
+        button: "+",
+        handleClick: (name) =>
+          this.updateStateNewGame("genres", [
+            ...this.props.state.genres,
+            { label: name, checked: true },
+          ]),
+      }),
+      e(NumberInput, {
+        label: "Dauer",
+        state: this.props.state.duration,
+        required: true,
+        min: 1,
+        max: 12,
+        handleChange: (_, value) =>
+          this.updateStateNewGame("duration", Number(value)),
+      }),
+      e("h3", {}, "Anzahl Spieler:innen"),
+      e(NumberInput, {
+        label: "Minimum",
+        state: this.props.state.playerCount.min,
+        required: true,
+        min: 0,
+        max: 100,
+        handleChange: (_, value) =>
+          this.updateStateNewGame("playerCount", {
+            ...this.props.state.playerCount,
+            min: Number(value),
+          }),
+      }),
+      e(NumberInput, {
+        label: "Maximum",
+        state: this.props.state.playerCount.max,
+        required: true,
+        min: 0,
+        max: 100,
+        handleChange: (_, value) =>
+          this.updateStateNewGame("playerCount", {
+            ...this.props.state.playerCount,
+            max: Number(value),
+          }),
+      }),
+      e(NumberInput, {
+        label: "Stammspieler",
+        state: this.props.state.playerCount.patrons,
+        required: true,
+        min: 0,
+        max: 100,
+        handleChange: (_, value) =>
+          this.updateStateNewGame("playerCount", {
+            ...this.props.state.playerCount,
+            patrons: Number(value),
+          }),
       }),
       e(
         "button",
@@ -386,7 +466,7 @@ class IntroRoleSection extends React.Component {
           },
         ],
         title: "Anmeldung als",
-        description: "treffe bitte mindestens eine Auswahl",
+        description: "triff bitte mindestens eine Auswahl",
       }),
       this.renderSlider()
     );
@@ -425,7 +505,7 @@ class IntroLanguageSection extends React.Component {
           },
         ],
         title: "Sprache",
-        description: "treffe bitte mindestens eine Auswahl",
+        description: "triff bitte mindestens eine Auswahl",
       })
     );
   }
@@ -638,18 +718,23 @@ class PlayerSection extends React.Component {
         deleteEntryFromGrid: (name) =>
           this.deleteEntryFromGrid("workshops", name),
       }),
-      e(NumberInput, {
-        label: "Beigleitpersonen",
+      e(RadioGroup, {
+        title: "Begleitpersonen",
         description:
           "Du kannst bis zu zwei Freunde hier hinzufügen, damit ihr gemeinsam spielen könnt. Ist eure Gruppe grösser, bitten wir euch in mehreren Gruppen aufzuteilen, da es für uns schwierig ist, Platz für so grosse Gruppen zu finden.",
-        state: this.props.state.companions.count,
-        min: 0,
-        max: 2,
-        handleChange: (_, value) =>
-          this.updateStatePlayer("companions", {
-            ...this.props.state.companions,
-            count: value,
-          }),
+        groupName: "companions",
+        options: [0, 1, 2].map((option) => {
+          return {
+            label: option,
+            name: option,
+            state: option === this.props.state.companions.count,
+            onChange: (event) =>
+              this.updateStatePlayer("companions", {
+                ...this.props.state.companions,
+                count: Number(event.target.value),
+              }),
+          };
+        }),
       }),
       this.props.state.companions.count > 0 &&
         e(TextInput, {
