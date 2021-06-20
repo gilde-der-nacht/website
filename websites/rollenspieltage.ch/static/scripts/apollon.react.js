@@ -10,9 +10,9 @@ class AddElement extends React.Component {
     this.state = { input: "" };
   }
 
-  addElement() {
+  addElement = () => {
     this.props.handleClick(this.state.input);
-  }
+  };
 
   render() {
     return e(
@@ -42,9 +42,9 @@ class NumberInput extends React.Component {
     super(props);
   }
 
-  getLabel() {
+  getLabel = () => {
     return this.props.label + (this.props.required ? "*" : "");
-  }
+  };
 
   render() {
     return e(
@@ -71,9 +71,9 @@ class TextArea extends React.Component {
     super(props);
   }
 
-  getLabel() {
+  getLabel = () => {
     return this.props.label + (this.props.required ? "*" : "");
-  }
+  };
 
   render() {
     return e(
@@ -96,9 +96,9 @@ class TextInput extends React.Component {
     super(props);
   }
 
-  getLabel() {
+  getLabel = () => {
     return this.props.label + (this.props.required ? "*" : "");
-  }
+  };
 
   render() {
     return e(
@@ -147,9 +147,9 @@ class CheckmarkGroup extends React.Component {
     super(props);
   }
 
-  renderCheckmarks() {
+  renderCheckmarks = () => {
     return this.props.options.map((option) => e(Checkmark, option));
-  }
+  };
 
   render() {
     return e(
@@ -192,11 +192,11 @@ class RadioGroup extends React.Component {
     super(props);
   }
 
-  renderRadios() {
+  renderRadios = () => {
     return this.props.options.map((option) =>
       e(Radio, { ...option, groupName: this.props.groupName })
     );
-  }
+  };
 
   render() {
     return e(
@@ -214,9 +214,9 @@ class GridLabel extends React.Component {
     super(props);
   }
 
-  renderDeleteButton() {
+  renderDeleteButton = () => {
     return e("button", { type: "button", onClick: this.props.onClick }, "x");
-  }
+  };
 
   render() {
     return e(
@@ -233,7 +233,7 @@ class Grid extends React.Component {
     super(props);
   }
 
-  buildOptions(entry) {
+  buildOptions = (entry) => {
     return this.props.tiers.map((tier) => {
       return {
         label: tier.label,
@@ -242,9 +242,9 @@ class Grid extends React.Component {
         onChange: this.props.updateStateGrid,
       };
     });
-  }
+  };
 
-  renderList() {
+  renderList = () => {
     return this.props.state.map((entry) => {
       return e(
         React.Fragment,
@@ -263,16 +263,16 @@ class Grid extends React.Component {
         })
       );
     });
-  }
+  };
 
-  renderAddEntry() {
+  renderAddEntry = () => {
     return e(AddElement, {
       name: "newEntry",
       label: this.props.missingEntry,
       button: "+",
       handleClick: this.props.addEntryToGrid,
     });
-  }
+  };
 
   render() {
     return e(
@@ -496,7 +496,7 @@ class IntroRoleSection extends React.Component {
     });
   };
 
-  renderSlider() {
+  renderSlider = () => {
     if (this.props.state.player && this.props.state.gamemaster) {
       return e(
         "p",
@@ -522,7 +522,7 @@ class IntroRoleSection extends React.Component {
         )
       );
     }
-  }
+  };
 
   render() {
     return e(
@@ -604,20 +604,20 @@ class IntroTimeSection extends React.Component {
     });
   };
 
-  renderTimeSlots(day) {
+  renderTimeSlots = (day) => {
     const entries = this.props.state[day];
     return e(CheckmarkGroup, {
       options: Object.keys(entries).map((key) => {
         const e = entries[key];
         return {
-          label: key + "Uhr",
+          label: key + " Uhr",
           name: key,
           state: e,
           onChange: (event) => this.updateStateIntroTime(day, event),
         };
       }),
     });
-  }
+  };
 
   render() {
     return e(
