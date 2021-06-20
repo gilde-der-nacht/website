@@ -300,6 +300,11 @@ class GamemasterGames extends React.Component {
           { key: entry.id },
           e("hr"),
           e("small", {}, entry.id),
+          e(
+            "button",
+            { type: "button", onClick: () => this.props.editGame(entry.id) },
+            "Spielrunde bearbeiten"
+          ),
           e("h3", {}, entry.title),
           e("p", {}, entry.description),
           e(
@@ -341,7 +346,7 @@ class GamemasterGames extends React.Component {
   }
 }
 
-class NewGame extends React.Component {
+class EditGame extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -377,6 +382,7 @@ class NewGame extends React.Component {
     return e(
       React.Fragment,
       {},
+      e("hr"),
       e("p", {}, "ID: " + this.props.state.id),
       e(TextInput, {
         name: "title",
@@ -462,6 +468,11 @@ class NewGame extends React.Component {
             patrons: Number(value),
           }),
       }),
+      e(
+        "button",
+        { type: "button", onClick: this.props.deleteGame },
+        "Spielrunde löschen"
+      ),
       e(
         "button",
         { type: "button", onClick: this.props.addGame },
@@ -839,6 +850,10 @@ class GamemasterSection extends React.Component {
     }, 0);
   };
 
+  deleteGame = () => {
+    this.updateStateGamemaster("gameInEdit", {});
+  };
+
   newEmptyGame = () => {
     this.updateStateGamemaster("gameInEdit", {
       id: Math.round(Math.random() * 10000),
@@ -861,6 +876,19 @@ class GamemasterSection extends React.Component {
         patrons: 0,
       },
     });
+  };
+
+  editGame = (id) => {
+    const game = this.props.state.games.find((game) => game.id === id);
+
+    this.updateStateGamemaster("gameInEdit", { ...game });
+
+    setTimeout(() => {
+      this.updateStateGamemaster(
+        "games",
+        this.props.state.games.filter((game) => game.id !== id)
+      );
+    }, 0);
   };
 
   render() {
@@ -887,10 +915,12 @@ class GamemasterSection extends React.Component {
       }),
       e(GamemasterGames, {
         state: this.props.state.games,
+        editGame: this.editGame,
       }),
-      e(NewGame, {
+      e(EditGame, {
         state: this.props.state.gameInEdit,
         addGame: this.addGame,
+        deleteGame: this.deleteGame,
         newEmptyGame: this.newEmptyGame,
         updateStateGamemaster: this.updateStateGamemaster,
       })
