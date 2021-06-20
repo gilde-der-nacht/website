@@ -22,8 +22,8 @@ class AddElement extends React.Component {
       e("input", {
         type: "text",
         value: this.state.input,
-        onChange: (e) => this.setState({ input: e.target.value }),
-        onKeyPress: (e) => e.code === "Enter" && this.addElement(),
+        onChange: (event) => this.setState({ input: event.target.value }),
+        onKeyPress: (event) => event.code === "Enter" && this.addElement(),
       }),
       e(
         "button",
@@ -43,7 +43,7 @@ class NumberInput extends React.Component {
   }
 
   getLabel() {
-    return this.props.label + (this.props.required ? " *" : "");
+    return this.props.label + (this.props.required ? "*" : "");
   }
 
   render() {
@@ -59,7 +59,8 @@ class NumberInput extends React.Component {
         value: this.props.state,
         min: this.props.min,
         max: this.props.max,
-        onChange: (e) => this.props.handleChange(e.target.name, e.target.value),
+        onChange: (event) =>
+          this.props.handleChange(event.target.name, event.target.value),
       })
     );
   }
@@ -71,7 +72,7 @@ class TextInput extends React.Component {
   }
 
   getLabel() {
-    return this.props.label + (this.props.required ? " *" : "");
+    return this.props.label + (this.props.required ? "*" : "");
   }
 
   render() {
@@ -85,7 +86,8 @@ class TextInput extends React.Component {
         placeholder: this.props.placeholder,
         required: this.props.required,
         value: this.props.state,
-        onChange: (e) => this.props.handleChange(e.target.name, e.target.value),
+        onChange: (event) =>
+          this.props.handleChange(event.target.name, event.target.value),
       })
     );
   }
@@ -258,6 +260,70 @@ class Grid extends React.Component {
   }
 }
 
+class GamemasterGames extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return e(
+      React.Fragment,
+      {},
+      this.props.state.map((entry) => entry.title)
+    );
+  }
+}
+
+class NewGame extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  updateStateNewGame = (key, value) => {
+    this.props.updateStateGamemaster("gameInEdit", {
+      ...this.props.state,
+      [key]: value,
+    });
+  };
+
+  render() {
+    if (Object.entries(this.props.state).length === 0) {
+      return e(
+        "button",
+        { type: "button", onClick: this.props.newEmptyGame },
+        "+ füge eine neue Spielrunde hinzu"
+      );
+    }
+
+    return e(
+      React.Fragment,
+      {},
+      e("p", {}, "ID: " + this.props.state.id),
+      e(TextInput, {
+        name: "title",
+        placeholder: "Titel",
+        label: "Titel",
+        required: true,
+        state: this.props.state.title,
+        handleChange: this.updateStateNewGame,
+      }),
+      e(TextInput, {
+        name: "description",
+        placeholder: "Beschreibung",
+        label: "Beschreibung",
+        required: true,
+        state: this.props.state.description,
+        handleChange: this.updateStateNewGame,
+      }),
+      e(
+        "button",
+        { type: "button", onClick: this.props.addGame },
+        "Spielrunde speichern"
+      )
+    );
+  }
+}
+
 // Sections
 
 class IntroRoleSection extends React.Component {
@@ -265,15 +331,15 @@ class IntroRoleSection extends React.Component {
     super(props);
   }
 
-  updateStateIntroRole = (e) => {
+  updateStateIntroRole = (event) => {
     this.props.updateStateIntro("role", {
       ...this.props.state,
-      [e.target.name]: e.target.checked,
+      [event.target.name]: event.target.checked,
     });
   };
 
   renderSlider() {
-    if (this.props.state.player && this.props.state.gameMaster) {
+    if (this.props.state.player && this.props.state.gamemaster) {
       return e(
         "p",
         {},
@@ -288,10 +354,10 @@ class IntroRoleSection extends React.Component {
             min: 1,
             max: 3,
             value: this.props.roleBalance,
-            onChange: (e) =>
+            onChange: (event) =>
               this.props.updateStateIntro("role", {
                 ...this.props.state,
-                roleBalance: Number(e.target.value),
+                roleBalance: Number(event.target.value),
               }),
           }),
           "Spielleiten"
@@ -302,7 +368,7 @@ class IntroRoleSection extends React.Component {
 
   render() {
     return e(
-      "div",
+      React.Fragment,
       {},
       e(CheckmarkGroup, {
         options: [
@@ -313,9 +379,9 @@ class IntroRoleSection extends React.Component {
             onChange: this.updateStateIntroRole,
           },
           {
-            label: "Spielleiter:in ",
-            name: "gameMaster",
-            state: this.props.state.gameMaster,
+            label: "Spielleiter:in",
+            name: "gamemaster",
+            state: this.props.state.gamemaster,
             onChange: this.updateStateIntroRole,
           },
         ],
@@ -332,10 +398,10 @@ class IntroLanguageSection extends React.Component {
     super(props);
   }
 
-  updateStateIntroLanguage = (e) => {
+  updateStateIntroLanguage = (event) => {
     this.props.updateStateIntro("languages", {
       ...this.props.state,
-      [e.target.name]: e.target.checked,
+      [event.target.name]: event.target.checked,
     });
   };
 
@@ -386,10 +452,10 @@ class IntroTimeSection extends React.Component {
       options: Object.keys(entries).map((key) => {
         const e = entries[key];
         return {
-          label: key + " Uhr",
+          label: key + "Uhr",
           name: key,
           state: e,
-          onChange: (e) => this.updateStateIntroTime(day, e),
+          onChange: (event) => this.updateStateIntroTime(day, event),
         };
       }),
     });
@@ -509,22 +575,22 @@ class PlayerSection extends React.Component {
             label: "kurze aber viele Spielrunden",
             name: "short",
             state: "short" === this.props.state.gameroundTypes,
-            onChange: (e) =>
-              this.updateStatePlayer("gameroundTypes", e.target.value),
+            onChange: (event) =>
+              this.updateStatePlayer("gameroundTypes", event.target.value),
           },
           {
             label: "lange aber wenige Spielrunden",
             name: "long",
             state: "long" === this.props.state.gameroundTypes,
-            onChange: (e) =>
-              this.updateStatePlayer("gameroundTypes", e.target.value),
+            onChange: (event) =>
+              this.updateStatePlayer("gameroundTypes", event.target.value),
           },
           {
             label: "egal",
             name: "whatever",
             state: "whatever" === this.props.state.gameroundTypes,
-            onChange: (e) =>
-              this.updateStatePlayer("gameroundTypes", e.target.value),
+            onChange: (event) =>
+              this.updateStatePlayer("gameroundTypes", event.target.value),
           },
         ],
         groupName: "gameroundTypes",
@@ -548,7 +614,7 @@ class PlayerSection extends React.Component {
         state: this.props.state.genres,
         title: "Genres",
         missingEntry: "Vermisst du ein Genre?",
-        updateStateGrid: (e) => this.updateStateGrid("genres", e),
+        updateStateGrid: (event) => this.updateStateGrid("genres", event),
         addEntryToGrid: (name) => this.addEntryToGrid("genres", name),
         deleteEntryFromGrid: (name) => this.deleteEntryFromGrid("genres", name),
       }),
@@ -567,7 +633,7 @@ class PlayerSection extends React.Component {
         title: "Workshops/Diskussionsrunden",
         missingEntry:
           "Hast du Interesse an einem hier nicht aufgeführten Workshop/Diskussionsrunde?",
-        updateStateGrid: (e) => this.updateStateGrid("workshops", e),
+        updateStateGrid: (event) => this.updateStateGrid("workshops", event),
         addEntryToGrid: (name) => this.addEntryToGrid("workshops", name),
         deleteEntryFromGrid: (name) =>
           this.deleteEntryFromGrid("workshops", name),
@@ -599,6 +665,97 @@ class PlayerSection extends React.Component {
   }
 }
 
+class GamemasterSection extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  updateStateGamemaster = (key, value) => {
+    this.props.updateState("gamemaster", {
+      ...this.props.state,
+      [key]: value,
+    });
+  };
+
+  addGame = () => {
+    this.updateStateGamemaster("games", [
+      ...this.props.state.games,
+      this.props.state.gameInEdit,
+    ]);
+    setTimeout(() => {
+      this.updateStateGamemaster("gameInEdit", {});
+    }, 0);
+  };
+
+  newEmptyGame = () => {
+    this.updateStateGamemaster("gameInEdit", {
+      id: Math.round(Math.random() * 10000),
+      title: "",
+      description: "",
+      genres: [
+        {
+          label: "Fantasy",
+          checked: false,
+        },
+        {
+          label: "Sci-Fi",
+          checked: false,
+        },
+      ],
+      duration: 2,
+      playerCount: {
+        min: 1,
+        max: 6,
+        patrons: 0,
+      },
+    });
+  };
+
+  render() {
+    return e(
+      "fieldset",
+      {},
+      e("legend", {}, "Spielleiter:in"),
+      e(CheckmarkGroup, {
+        options: [
+          {
+            label: "Ja, ich möchte gerne Unterstützung.",
+            name: "buddy",
+            state: this.props.state.buddy,
+            onChange: (event) =>
+              this.updateStateGamemaster(
+                event.target.name,
+                event.target.checked
+              ),
+          },
+        ],
+        title: "Buddy-System",
+        description:
+          "Du hast noch nie ein Rollenspiel geleitet oder möchtest aus einem anderen Grund Unterstützung? Gerne stellen wir dir einen Buddy zur Seite, der dich vor und am Event unterstützt.",
+      }),
+      e(GamemasterGames, {
+        state: this.props.state.games,
+      }),
+      e(NewGame, {
+        state: this.props.state.gameInEdit,
+        addGame: this.addGame,
+        newEmptyGame: this.newEmptyGame,
+        updateStateGamemaster: this.updateStateGamemaster,
+      })
+    );
+  }
+}
+
+class OutroSection extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return e("fieldset", {});
+  }
+}
+
 // Global
 
 class Form extends React.Component {
@@ -608,7 +765,7 @@ class Form extends React.Component {
       intro: {
         name: "",
         email: "",
-        role: { player: true, gameMaster: true, roleBalance: 2 },
+        role: { player: false, gamemaster: true, roleBalance: 2 },
         languages: {
           german: true,
           english: false,
@@ -653,6 +810,11 @@ class Form extends React.Component {
           names: "",
         },
       },
+      gamemaster: {
+        buddy: false,
+        games: [],
+        gameInEdit: {},
+      },
     };
   }
 
@@ -677,7 +839,16 @@ class Form extends React.Component {
           state: this.state.player,
           updateState: this.updateState,
         }),
-      e("p", null, JSON.stringify(this.state, null, 4))
+      this.state.intro.role.gamemaster &&
+        e(GamemasterSection, {
+          state: this.state.gamemaster,
+          updateState: this.updateState,
+        }),
+      e(OutroSection, {
+        state: this.state.outro,
+        updateState: this.updateState,
+      }),
+      e("p", null, JSON.stringify(this.state, null, 2))
     );
   }
 }
