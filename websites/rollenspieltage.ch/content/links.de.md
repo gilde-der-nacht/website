@@ -13,7 +13,7 @@ Lieben Dank
 
 _Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet ($)._
 
-{{< minitron url="https://cdnb.artstation.com/p/assets/images/images/018/356/321/large/gene-raz-von-edler-gene-raz-von-edler-cataclysm-by-ellysiumnupdate.jpg?1559068390" attribution-title="Cataclysm" attribution-author="Gene Raz von Edler" attribution-source="https://www.artstation.com/artwork/nQN2BX" attribution-license="Copyright ©" offset="20%" >}}
+{{< minitron url="https://images.unsplash.com/photo-1592071666760-421c34665779?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2118&q=80" attribution-title="Blue and White Starry Sky" attribution-author="Felix Mittermeier" attribution-source="" attribution-license="Free - Commercial & Noncommercial" offset="60%" >}}
 # Geschichten
 
 [Story Generator (tvtropes.org)](https://tvtropes.org/pmwiki/storygen.php)
@@ -24,7 +24,7 @@ Die Internetseite [tvtropes.org](https://tvtropes.org) selber ist eine Fundgrube
 
 Man sieht aus welchen Blöcken eine Story zusammengesetzt ist. Selbst wenn daher eine einzelne Story eher uninteressant ist, so kann man sich zumindest über einen möglichen Aufbau einer Geschichte inspirieren lassen.
 
-{{< minitron url="https://external-preview.redd.it/_2ncDiX1FWe9iX-5W7oklVx8FJuaB5RSutx8hzd5E5M.jpg?auto=webp&s=56c87e238f136b9b5122f97d7df88b721d7e95f5" attribution-title="Sao Lous - Environment Design for Xor'Veil" attribution-author="Nimphradora" attribution-source="https://www.deviantart.com/nimphradora/art/Sao-Lous-Environment-Design-for-Xor-Veil-796250120" attribution-license="Copyright ©" offset="30%" >}}
+{{< minitron url="https://images.unsplash.com/Ys-DBJeX0nE.JPG?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" attribution-title="Skyline Photography Cityscape" attribution-author="Alex Knight" attribution-source="https://unsplash.com/photos/Ys-DBJeX0nE" attribution-license="Free - Commercial & Noncommercial" offset="50%" >}}
 # Karten
 
 [Fantasy Map Generator (github.io)](https://azgaar.github.io/Fantasy-Map-Generator/)
@@ -55,7 +55,7 @@ Generiert einen Sektor im Weltall. Ein Sektor besteht aus mehreren Sonnensysteme
 
 Grundrisse zu vielen, auch noch bestehenden, aussergewöhnlichen Bauwerken wie z.B. das [Sydney Opera House](http://www.greatbuildings.com/buildings/Sydney_Opera.html).
 
-{{< minitron url="https://cdna.artstation.com/p/assets/images/images/016/549/966/large/hou-china-6.jpg?1552570320" attribution-title="《姬和子传》——憩" attribution-author="Hou China" attribution-source="https://chinahou.artstation.com/projects/3oLGwA" attribution-license="Copyright ©" offset="30%" >}}
+{{< minitron url="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" attribution-title="Woman on Bike Reaching for Man's Hand Behind Her Also on Bike" attribution-author="Everton Vila" attribution-source="https://unsplash.com/photos/AsahNlC0VhQ" attribution-license="Free - Commercial & Noncommercial" offset="70%" >}}
 # Lebewesen
 
 [Fantasy Name Generator (fantasynamegenerators.com)](https://www.fantasynamegenerators.com/)
@@ -141,7 +141,7 @@ Nebst dem allgemeinen, aktiven Forum [/r/rpg](https://reddit.com/r/rpg) gibt es 
 
 Zufallsgeneratoren für viele spezifischen uns systemneutrale Rollenspielen.
 
-{{< minitron url="https://cdnb.artstation.com/p/assets/images/images/017/337/193/large/gretel-lusky-drowninggggg-new-2019peq.jpg?1555545537" attribution-title="Stolen soul" attribution-author="Gretel Lusky" attribution-source="https://www.artstation.com/artwork/lVO9nz" attribution-license="Copyright ©" offset="30%" >}}
+{{< minitron url="https://images.unsplash.com/photo-1464490826362-59825a4f51df?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" attribution-title="Red, White and Black Scoop Neck Tops" attribution-author="Inspirationfeed" attribution-source="https://unsplash.com/photos/PsxNKud0ucg" attribution-license="Free - Commercial & Noncommercial" offset="50%" >}}
 # Kollektionen
 
 [Imaginary Network Expanded (reddit.com/r/ImaginaryNetwork)](https://www.reddit.com/r/ImaginaryNetwork/wiki/networksublist)
@@ -152,7 +152,7 @@ Bildern zu allen möglichen und unmöglichen Themen wie Landschaft, Architektur,
 
 Listen mit jeweils 100 Elemente zu allen möglichen und unmöglichen Themen. Mithilfe bei der Vervollständigung ist erwünscht.
 
-{{< minitron url="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" attribution-title="Red Dice Closeup Photography" attribution-author="Jonathan Petersson" attribution-source="TODOSource" attribution-license="Free - Commercial & Noncommercial" offset="40%" >}}
+{{< minitron url="https://images.unsplash.com/photo-1522617889820-47708e025180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" attribution-title="Red Dice Closeup Photography" attribution-author="Jonathan Petersson" attribution-source="https://unsplash.com/photos/DfY6_AE9Orw" attribution-license="Free - Commercial & Noncommercial" offset="40%" >}}
 # Würfel
 
 [Teal Dice (a.teall.info)](http://a.teall.info/dice/)
@@ -171,7 +171,7 @@ Ein Internetversion der [Story Cubes](https://de.wikipedia.org/wiki/Story_Cubes)
 
 Berechne die Wahrscheinlichkeit von Würfelwürfen.
 
-{{< minitron url="https://cdnb.artstation.com/p/assets/images/images/005/905/837/large/midge-sinnaeve-ui-000-4k.jpg?1494581443" attribution-title="UI" attribution-author="Midge «Mantissa» Sinnaeve" attribution-source="https://www.artstation.com/artwork/GZPPz" attribution-license="Copyright ©" offset="30%" >}}
+{{< minitron url="https://images.unsplash.com/photo-1562408590-e32931084e23?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" attribution-title="Blue Circuit Board" attribution-author="Umberto" attribution-source="https://unsplash.com/photos/jXd2FSvcRr8" attribution-license="Free - Commercial & Noncommercial" offset="30%" >}}
 # Hilfsmittel Android
 
 [Dice (play.google.com)](https://play.google.com/store/apps/details?id=fr.sevenpixels.dice)
@@ -191,18 +191,6 @@ https://randroll.com/
 http://members.iinet.net.au/~rene1/realnpc.htm
 
 [Planet Generator (itch.io)](https://zarkonnen.itch.io/planet-generator)
-
-Stadt:
-
-https://cdna.artstation.com/p/assets/images/images/013/896/362/large/pengzhen-zhang-2.jpg
-
-Tiere:
-
-https://external-preview.redd.it/OBJvYlzv80HajKgn0sowzlixzcHLiD8Ju8g3YADI238.jpg?auto=webp&s=9c3d49376e93f53e1277ad246e677d6b44697668
-
-Fahrzeuge:
-
-https://external-preview.redd.it/r_9M-44fENeYHHdVeaHPAKabcDXRryWcUyslPsxXiCg.jpg?auto=webp&s=80a011fbc04a317411d27c2988eaa3d7155ce745
 
 {{< minitron url="https://images.unsplash.com/photo-1525876183281-0d0d9308010d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" attribution-title="Dream Signage Surrounded Sequins" attribution-author="Sharon McCutcheon" attribution-source="https://unsplash.com/photos/zi1GRsLym3s" attribution-license="Free - Commercial & Noncommercial" offset="55%" >}}
 
