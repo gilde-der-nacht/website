@@ -66,6 +66,31 @@ class NumberInput extends React.Component {
   }
 }
 
+class TextArea extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  getLabel() {
+    return this.props.label + (this.props.required ? "*" : "");
+  }
+
+  render() {
+    return e(
+      "label",
+      {},
+      this.getLabel(),
+      e("textarea", {
+        name: this.props.name,
+        placeholder: this.props.placeholder,
+        required: this.props.required,
+        value: this.props.state,
+        onChange: this.props.onChange,
+      })
+    );
+  }
+}
+
 class TextInput extends React.Component {
   constructor(props) {
     super(props);
@@ -269,7 +294,49 @@ class GamemasterGames extends React.Component {
     return e(
       React.Fragment,
       {},
-      this.props.state.map((entry) => entry.title)
+      this.props.state.map((entry) =>
+        e(
+          React.Fragment,
+          { key: entry.id },
+          e("hr"),
+          e("small", {}, entry.id),
+          e("h3", {}, entry.title),
+          e("p", {}, entry.description),
+          e(
+            "p",
+            {},
+            "Genres: " +
+              entry.genres
+                .filter((genre) => genre.checked)
+                .map((genre) => genre.label)
+                .join(", ")
+          ),
+          e(
+            "p",
+            {},
+            "Dauer: " +
+              entry.duration +
+              " Stunde" +
+              (entry.duration === 1 ? "" : "n")
+          ),
+          e(
+            "p",
+            {},
+            "Spieleranzahl: " +
+              entry.playerCount.min +
+              (entry.playerCount.max > entry.playerCount.min
+                ? " - " + entry.playerCount.max
+                : "")
+          ),
+          entry.playerCount.patrons > 0 &&
+            e(
+              "p",
+              {},
+              "Reservierte Plätze für Stammspieler: " +
+                entry.playerCount.patrons
+            )
+        )
+      )
     );
   }
 }
@@ -451,6 +518,8 @@ class IntroRoleSection extends React.Component {
       React.Fragment,
       {},
       e(CheckmarkGroup, {
+        title: "Anmeldung als",
+        description: "triff bitte mindestens eine Auswahl",
         options: [
           {
             label: "Spieler:in",
@@ -465,8 +534,6 @@ class IntroRoleSection extends React.Component {
             onChange: this.updateStateIntroRole,
           },
         ],
-        title: "Anmeldung als",
-        description: "triff bitte mindestens eine Auswahl",
       }),
       this.renderSlider()
     );
@@ -836,8 +903,48 @@ class OutroSection extends React.Component {
     super(props);
   }
 
+  updateStateOutro = (key, value) => {
+    this.props.updateState("outro", {
+      ...this.props.state,
+      [key]: value,
+    });
+  };
+
   render() {
-    return e("fieldset", {});
+    return e(
+      "fieldset",
+      {},
+      e(CheckmarkGroup, {
+        title: "Helferaufruf",
+        description:
+          "ganz alleine würden wir die Rollenspieltage nicht durchführen können",
+        options: this.props.state.helping.map((help) => {
+          return {
+            label: help.label,
+            name: help.name,
+            state: help.status,
+            onChange: (e) => {
+              this.updateStateOutro(
+                "helping",
+                this.props.state.helping.map((help) => {
+                  if (e.target.name === help.name) {
+                    return { ...help, status: e.target.checked };
+                  }
+                  return help;
+                })
+              );
+            },
+          };
+        }),
+      }),
+      e(TextArea, {
+        label: "Noch Fragen?",
+        state: this.props.state.questions,
+        onChange: (e) => {
+          this.updateStateOutro("questions", e.target.value);
+        },
+      })
+    );
   }
 }
 
@@ -899,6 +1006,26 @@ class Form extends React.Component {
         buddy: false,
         games: [],
         gameInEdit: {},
+      },
+      outro: {
+        helping: [
+          {
+            label: "Aufbau/Abbau",
+            name: "logistics",
+            status: false,
+          },
+          {
+            label: "Kasse (Buffet oder Flohmarkt)",
+            name: "finance",
+            status: false,
+          },
+          {
+            label: "Küche",
+            name: "kitchen",
+            status: false,
+          },
+        ],
+        questions: "",
       },
     };
   }
