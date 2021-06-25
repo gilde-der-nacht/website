@@ -1,1 +1,77 @@
 <h1>Hermes</h1>
+
+<h2>Author</h2>
+<input id="hermes-author" type="text">
+
+<h2>Receive</h2>
+<textarea id="hermes-receive" readonly></textarea>
+
+<h2>Send</h2>
+<input id="hermes-send" type="text">
+
+<script>
+
+// randomFromTo(2, 4) -> 2, 3, 4
+function randomFromTo(fromInclusive, toInclusive) {
+	return Math.floor(Math.random() * (toInclusive - fromInclusive + 1)) + fromInclusive;
+}
+
+function onMessage(event) {
+	const nodeTextArea = document.getElementById('hermes-receive');
+	const message = JSON.parse(event.data)
+	if (message.type === 'text') {
+		nodeTextArea.value += message.channel + '> ' + message.author + ': ' + message.text + '\n';
+		nodeTextArea.scrollTop = nodeTextArea.scrollHeight;
+	}
+}
+
+function onError(event) {
+	console.error(JSON.stringify(event));
+}
+
+function wsCreate(url) {
+	const ws = new WebSocket(url);
+	ws.addEventListener('message', onMessage);
+	ws.addEventListener('error', onError);
+	return ws;
+}
+
+function wsWaitForOpen(ws) {
+	return new Promise(resolve => ws.addEventListener('open', resolve));
+}
+
+function wsSend(ws, message) {
+	const send = JSON.stringify(message);
+	ws.send(send);
+}
+
+async function main() {
+	const ws = wsCreate('wss://tartaros.gildedernacht.ch/ws');
+	const guildid = '274123519502319617';
+	const channelid = '849204844672974869';
+
+	await wsWaitForOpen(ws);
+	wsSend(ws, {type: 'ping'});
+
+	const nodeAuthor = document.getElementById('hermes-author');
+	nodeAuthor.value = 'Mercurius' + randomFromTo(1000, 9999);
+
+	const nodeReceive = document.getElementById('hermes-receive');
+	nodeReceive.value = '';
+
+	const nodeSend = document.getElementById('hermes-send');
+	nodeSend.value = '';
+	nodeSend.focus();
+	nodeSend.addEventListener('keypress', (event) => {
+		if (event.key === 'Enter') {
+			event.preventDefault();
+			nodeInput = document.getElementById('hermes-send');
+			wsSend(ws, {type: 'text', channelid: channelid, author: nodeAuthor.value, guildid: guildid, text: nodeInput.value});
+			nodeInput.value = '';
+		}
+	});
+}
+
+window.addEventListener('load', main);
+
+</script>
