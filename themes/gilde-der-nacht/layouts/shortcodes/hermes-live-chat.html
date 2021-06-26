@@ -35,6 +35,11 @@
     );
   }
 
+  function randomElement(list) {
+    const index = Math.floor(Math.random() * list.length);
+    return list[index];
+  }
+
   function updateUi() {
     const nodeMessageHistory = document.getElementById("hermes-history");
     nodeMessageHistory.innerHTML = "";
@@ -111,7 +116,11 @@
     wsSend(ws, { type: "ping" });
 
     const nodeAuthor = document.getElementById("hermes-author");
-    nodeAuthor.value = "KapitänAnonym" + randomFromTo(1000, 9999);
+    const names = [
+      'Aphrodite', 'Apollo', 'Ares', 'Athena', 'Cronos', 'Demeter', 'Dionysus', 'Gaea', 'Hades', 'Hephaestus',
+      'Hera', 'Hermes', 'Hestia', 'Iris', 'Nyx', 'Poseidon', 'Prometheus', 'Selene', 'Tyche', 'Zeus'
+    ];
+    nodeAuthor.value = randomElement(names) + randomFromTo(10, 99);
 
     const nodeSend = document.getElementById("hermes-send");
     nodeSend.value = "";
