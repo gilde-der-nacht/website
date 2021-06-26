@@ -1,77 +1,136 @@
-<h1>Hermes</h1>
+<h2>Nachrichtenverlauf</h2>
+<ul id="hermes-history">
+  <li class="hermes-message-type-placeholder">
+    <p>Bisher keine Nachrichten</p>
+  </li>
+</ul>
 
-<h2>Author</h2>
-<input id="hermes-author" type="text">
-
-<h2>Receive</h2>
-<textarea id="hermes-receive" readonly></textarea>
-
-<h2>Send</h2>
-<input id="hermes-send" type="text">
+<div class="c-form">
+  <h2>Nachricht erfassen</h2>
+  <form action="#">
+    <p class="c-form--item c-form-field--text">
+      <label for="hermes-author">Wähle dein Anzeigenamen *</label>
+      <input
+        id="hermes-author"
+        name="hermes-author"
+        type="text"
+        required="true"
+      />
+    </p>
+    <p class="c-form--item c-form-field--text">
+      <label for="hermes-send">Deine Nachricht *</label>
+      <input id="hermes-send" name="hermes-send" type="text" required="true" />
+    </p>
+  </form>
+</div>
 
 <script>
+  const messageHistory = [];
 
-// randomFromTo(2, 4) -> 2, 3, 4
-function randomFromTo(fromInclusive, toInclusive) {
-	return Math.floor(Math.random() * (toInclusive - fromInclusive + 1)) + fromInclusive;
-}
+  // randomFromTo(2, 4) -> 2, 3, 4
+  function randomFromTo(fromInclusive, toInclusive) {
+    return (
+      Math.floor(Math.random() * (toInclusive - fromInclusive + 1)) +
+      fromInclusive
+    );
+  }
 
-function onMessage(event) {
-	const nodeTextArea = document.getElementById('hermes-receive');
-	const message = JSON.parse(event.data)
-	if (message.type === 'text') {
-		nodeTextArea.value += message.channel + '> ' + message.author + ': ' + message.text + '\n';
-		nodeTextArea.scrollTop = nodeTextArea.scrollHeight;
-	}
-}
+  function updateUi() {
+    const nodeMessageHistory = document.getElementById("hermes-history");
+    nodeMessageHistory.innerHTML = "";
 
-function onError(event) {
-	console.error(JSON.stringify(event));
-}
+    for ({ subType, isMyMessage, author, text } of messageHistory) {
+      const li = document.createElement("li");
+      li.classList.add("hermes-message-type-" + subType);
+      if (isMyMessage) {
+        li.classList.add("hermes-my-message");
+      }
+      const authorElement = document.createElement("p");
+      authorElement.textContent = author + ": ";
+      li.appendChild(authorElement);
+      const messageElement = document.createElement("p");
+      if (subType === "connected") {
+        messageElement.textContent = "Live Chat wurde gestartet.";
+      } else if (subType === "disconnected") {
+        messageElement.textContent = "Live Chat wurde beendet.";
+      } else {
+        messageElement.textContent = text;
+      }
+      li.appendChild(messageElement);
+      nodeMessageHistory.appendChild(li);
+    }
+  }
 
-function wsCreate(url) {
-	const ws = new WebSocket(url);
-	ws.addEventListener('message', onMessage);
-	ws.addEventListener('error', onError);
-	return ws;
-}
+  function onMessage(event) {
+    const message = JSON.parse(event.data);
+    if (message.type === "text") {
+      const isMyMessage = message.author === "Hermes";
+      messageHistory.push({
+        ...message,
+        isMyMessage,
+        subType: message.text.includes("Connected")
+          ? "connected"
+          : message.text.includes("Disconnected")
+          ? "disconnected"
+          : "message",
+        author: isMyMessage
+          ? document.getElementById("hermes-author").value
+          : message.author,
+        text: isMyMessage ? message.text.match(/: (.+)/)[1] : message.text,
+      });
+      updateUi();
+    }
+  }
 
-function wsWaitForOpen(ws) {
-	return new Promise(resolve => ws.addEventListener('open', resolve));
-}
+  function onError(event) {
+    console.error(JSON.stringify(event));
+  }
 
-function wsSend(ws, message) {
-	const send = JSON.stringify(message);
-	ws.send(send);
-}
+  function wsCreate(url) {
+    const ws = new WebSocket(url);
+    ws.addEventListener("message", onMessage);
+    ws.addEventListener("error", onError);
+    return ws;
+  }
 
-async function main() {
-	const ws = wsCreate('wss://tartaros.gildedernacht.ch/ws');
-	const guildid = '274123519502319617';
-	const channelid = '849204844672974869';
+  function wsWaitForOpen(ws) {
+    return new Promise((resolve) => ws.addEventListener("open", resolve));
+  }
 
-	await wsWaitForOpen(ws);
-	wsSend(ws, {type: 'ping'});
+  function wsSend(ws, message) {
+    const send = JSON.stringify(message);
+    ws.send(send);
+  }
 
-	const nodeAuthor = document.getElementById('hermes-author');
-	nodeAuthor.value = 'Mercurius' + randomFromTo(1000, 9999);
+  async function main() {
+    const ws = wsCreate("wss://tartaros.gildedernacht.ch/ws");
+    const guildid = "274123519502319617";
+    const channelid = "849204844672974869";
 
-	const nodeReceive = document.getElementById('hermes-receive');
-	nodeReceive.value = '';
+    await wsWaitForOpen(ws);
+    wsSend(ws, { type: "ping" });
 
-	const nodeSend = document.getElementById('hermes-send');
-	nodeSend.value = '';
-	nodeSend.focus();
-	nodeSend.addEventListener('keypress', (event) => {
-		if (event.key === 'Enter') {
-			event.preventDefault();
-			nodeInput = document.getElementById('hermes-send');
-			wsSend(ws, {type: 'text', channelid: channelid, author: nodeAuthor.value, guildid: guildid, text: nodeInput.value});
-			nodeInput.value = '';
-		}
-	});
-}
+    const nodeAuthor = document.getElementById("hermes-author");
+    nodeAuthor.value = "KapitänAnonym" + randomFromTo(1000, 9999);
 
-window.addEventListener('load', main);
+    const nodeSend = document.getElementById("hermes-send");
+    nodeSend.value = "";
+    nodeSend.focus();
+    nodeSend.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        nodeInput = document.getElementById("hermes-send");
+        wsSend(ws, {
+          type: "text",
+          channelid: channelid,
+          author: nodeAuthor.value,
+          guildid: guildid,
+          text: nodeInput.value,
+        });
+        nodeInput.value = "";
+      }
+    });
+  }
 
+  window.addEventListener("load", main);
 </script>

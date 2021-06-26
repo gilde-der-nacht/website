@@ -1,0 +1,58 @@
+#hermes-history {
+  list-style-type: none;
+  padding: 0;
+
+  li + li {
+      margin-top: 0.25rem;
+  }
+}
+
+.hermes-message-type- {
+  &connected,
+  &disconnected,
+  &message {
+    p {
+      margin: 0;
+      display: inline;
+    }
+
+    p:first-child {
+        font-style: italic;
+    }
+  }
+
+  &placeholder {
+    background-color: var(--light-grey-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &placeholder,
+  &connected,
+  &disconnected {
+    p {
+      font-size: 0.8rem;
+      text-align: center;
+      font-style: italic;
+      color: var(--dark-grey-color);
+    }
+  }
+
+  &message {
+    background-color: var(--secondary-brand-color);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-right: 5%;
+
+    p {
+        font-size: 1rem;
+    }
+
+    &.hermes-my-message {
+        background-color: var(--primary-brand-color);
+        margin-left: 5%;
+        margin-right: 0;
+    }
+  }
+}
