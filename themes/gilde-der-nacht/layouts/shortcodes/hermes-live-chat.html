@@ -25,6 +25,11 @@
 </div>
 
 <script>
+  const language = '{{ .Get "language" }}';
+
+  const authorInput = document.getElementById("hermes-author");
+  const messageInput = document.getElementById("hermes-send");
+
   const messageHistory = [];
 
   // randomFromTo(2, 4) -> 2, 3, 4
@@ -69,7 +74,9 @@
   function onMessage(event) {
     const message = JSON.parse(event.data);
     if (message.type === "text") {
-      const isMyMessage = message.author === "Hermes";
+      const clientTypeIsWeb = message.author === "Hermes";
+      const isMyMessage =
+        clientTypeIsWeb && message.text.includes(authorInput.value);
       messageHistory.push({
         ...message,
         isMyMessage,
@@ -80,8 +87,10 @@
           : "message",
         author: isMyMessage
           ? document.getElementById("hermes-author").value
-          : message.author,
-        text: isMyMessage ? message.text.match(/: (.+)/)[1] : message.text,
+          : !clientTypeIsWeb
+          ? message.author
+          : message.text.match(/\*\*(.+)\*\*/)[1],
+        text: clientTypeIsWeb ? message.text.match(/: (.+)/)[1] : message.text,
       });
       updateUi();
     }
@@ -116,11 +125,51 @@
     wsSend(ws, { type: "ping" });
 
     const nodeAuthor = document.getElementById("hermes-author");
-    const names = [
-      'Aphrodite', 'Apollo', 'Ares', 'Athena', 'Cronos', 'Demeter', 'Dionysus', 'Gaea', 'Hades', 'Hephaestus',
-      'Hera', 'Hermes', 'Hestia', 'Iris', 'Nyx', 'Poseidon', 'Prometheus', 'Selene', 'Tyche', 'Zeus'
-    ];
-    nodeAuthor.value = randomElement(names) + randomFromTo(10, 99);
+    const names = {
+      de: [
+        "Aphrodite",
+        "Apollon",
+        "Ares",
+        "Athena",
+        "Kronos",
+        "Demeter",
+        "Dionysos",
+        "Gaia",
+        "Hades",
+        "Hephaistos",
+        "Hera",
+        "Hestia",
+        "Iris",
+        "Nyx",
+        "Poseidon",
+        "Prometheus",
+        "Selene",
+        "Tyche",
+        "Zeus",
+      ],
+      en: [
+        "Aphrodite",
+        "Apollo",
+        "Ares",
+        "Athena",
+        "Cronos",
+        "Demeter",
+        "Dionysus",
+        "Gaea",
+        "Hades",
+        "Hephaestus",
+        "Hera",
+        "Hestia",
+        "Iris",
+        "Nyx",
+        "Poseidon",
+        "Prometheus",
+        "Selene",
+        "Tyche",
+        "Zeus",
+      ],
+    };
+    nodeAuthor.value = randomElement(names[language]) + randomFromTo(10, 99);
 
     const nodeSend = document.getElementById("hermes-send");
     nodeSend.value = "";
@@ -128,15 +177,23 @@
     nodeSend.addEventListener("keypress", (event) => {
       if (event.key === "Enter") {
         event.preventDefault();
-        nodeInput = document.getElementById("hermes-send");
         wsSend(ws, {
           type: "text",
           channelid: channelid,
+          connectedMsg: "**" + authorInput.value + "**: _Connected_",
+          disconnectedMsg: "**" + authorInput.value + "**: _Disconnected_",
           author: nodeAuthor.value,
           guildid: guildid,
-          text: nodeInput.value,
+          text:
+            "**" +
+            authorInput.value +
+            "**: " +
+            messageInput.value +
+            "\n[" +
+            window.location.toLocaleString() +
+            "]",
         });
-        nodeInput.value = "";
+        messageInput.value = "";
       }
     });
   }
