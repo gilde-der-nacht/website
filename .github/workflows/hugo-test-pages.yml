@@ -12,11 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      matrix: 
-        site: 
+      matrix:
+        site:
           - gildedernacht
           - rollenspieltage
           - spieltage
+          - wiki.gildedernacht
 
     steps:
     - uses: actions/checkout@v2
@@ -26,15 +27,15 @@ jobs:
       with:
           hugo-version: 'latest'
           extended: true
-          
+
     - name: Build
       run: hugo --minify --source ./websites/${{ matrix.site }}.ch --destination ../../${{ matrix.site }} --baseURL https://test.${{ matrix.site }}.ch/
-        
+
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3  
+      uses: peaceiris/actions-gh-pages@v3
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch 
+        external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch
         publish_branch: master
         publish_dir: ./${{ matrix.site }}
         cname: test.${{ matrix.site }}.ch
