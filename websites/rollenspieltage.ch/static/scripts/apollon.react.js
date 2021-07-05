@@ -977,6 +977,52 @@ class OutroSection extends React.Component {
     );
   }
 }
+class StepSection extends React.Component {
+  constructor(props) {
+    super(props);
+    this.steps = [
+      {
+        step: 1,
+        name: "Einstieg",
+      },
+      {
+        step: 2,
+        name: "Spielen",
+      },
+      {
+        step: 3,
+        name: "Spielleiten",
+      },
+      {
+        step: 4,
+        name: "Abschluss",
+      },
+    ];
+  }
+
+  updateStateStep = (e, step) => {
+    e.preventDefault();
+    this.props.updateState("step", step);
+  };
+
+  render() {
+    return e(
+      "ul",
+      null,
+      this.steps.map((step) =>
+        e(
+          "li",
+          { key: step.step },
+          e(
+            "a",
+            { href: "#", onClick: (e) => this.updateStateStep(e, step.step) },
+            step.step
+          )
+        )
+      )
+    );
+  }
+}
 
 // Global
 
@@ -1057,6 +1103,7 @@ class Form extends React.Component {
         ],
         questions: "",
       },
+      step: 1,
     };
   }
 
@@ -1072,22 +1119,32 @@ class Form extends React.Component {
           "https://api.gildedernacht.ch/form/38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf",
         method: "POST",
       },
-      e(IntroSection, {
-        state: this.state.intro,
+      e(StepSection, {
+        state: this.state.step,
         updateState: this.updateState,
       }),
-      this.state.intro.role.player &&
+      this.state.step === 1 &&
+        e(IntroSection, {
+          state: this.state.intro,
+          updateState: this.updateState,
+        }),
+      this.state.step === 2 &&
         e(PlayerSection, {
           state: this.state.player,
           updateState: this.updateState,
         }),
-      this.state.intro.role.gamemaster &&
+      this.state.step === 3 &&
         e(GamemasterSection, {
           state: this.state.gamemaster,
           updateState: this.updateState,
         }),
-      e(OutroSection, {
-        state: this.state.outro,
+      this.state.step === 4 &&
+        e(OutroSection, {
+          state: this.state.outro,
+          updateState: this.updateState,
+        }),
+      e(StepSection, {
+        state: this.state.step,
         updateState: this.updateState,
       }),
       e("p", null, JSON.stringify(this.state, null, 2))
