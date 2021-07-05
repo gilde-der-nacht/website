@@ -1002,22 +1002,49 @@ class StepSection extends React.Component {
 
   updateStateStep = (e, step) => {
     e.preventDefault();
-    this.props.updateState("step", step);
+    if (step >= 1 && step <= this.steps.length) {
+      this.props.updateState("step", step);
+    }
   };
 
   render() {
     return e(
       "ul",
-      null,
+      { className: "c-apollon-steps" },
+      e(
+        "li",
+        {
+          className: this.props.state === 1 ? "disabled" : "",
+        },
+        e(
+          "button",
+          { onClick: (e) => this.updateStateStep(e, this.props.state - 1) },
+          "«"
+        )
+      ),
       this.steps.map((step) =>
         e(
           "li",
-          { key: step.step },
+          {
+            className: this.props.state === step.step ? "active" : "",
+            key: step.step,
+          },
           e(
-            "a",
-            { href: "#", onClick: (e) => this.updateStateStep(e, step.step) },
-            step.step
+            "button",
+            { onClick: (e) => this.updateStateStep(e, step.step) },
+            "Schritt " + step.step + ": " + step.name
           )
+        )
+      ),
+      e(
+        "li",
+        {
+          className: this.props.state === this.steps.length ? "disabled" : "",
+        },
+        e(
+          "button",
+          { onClick: (e) => this.updateStateStep(e, this.props.state + 1) },
+          "»"
         )
       )
     );
