@@ -1,18 +1,51 @@
 .c-apollon {
-    &-grid {
-        display: grid;
-        gap: 1rem;
+  &-steps {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1rem;
+      font-weight: bold;
+
+      small {
+        font-weight: normal;
+      }
     }
 
-    &-grid--3 {
-        grid-template-columns: 1fr repeat(2, 5rem);
+    li:not(:first-child):not(:last-child) button {
+      background: var(--light-grey-color);
     }
 
-    &-grid--4 {
-        grid-template-columns: 1fr repeat(3, 5rem);
+    .disabled button {
+      color: var(--light-grey-color);
+      cursor: not-allowed;
     }
 
-    &-grid--line {
-        grid-column: 1 / -1;
+    .active button {
+      color: var(--background-color);
+      background-color: var(--contrast-brand-color) !important;
     }
+
+    li:not(.disabled):not(.active):not(:first-child):not(:last-child)
+      button:hover {
+      background-color: var(--dark-grey-color);
+    }
+
+    li:not(.disabled):first-child button:hover,
+    li:not(.disabled):last-child button:hover {
+      color: var(--contrast-brand-color);
+    }
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
 }

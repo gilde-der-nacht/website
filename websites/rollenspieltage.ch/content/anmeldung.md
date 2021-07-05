@@ -9,4 +9,4 @@ scripts:
 react: true
 ---
 
-<div class="react"></div>
+<div class="react c-apollon"></div>

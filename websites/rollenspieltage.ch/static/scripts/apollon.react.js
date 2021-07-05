@@ -1032,7 +1032,9 @@ class StepSection extends React.Component {
           e(
             "button",
             { onClick: (e) => this.updateStateStep(e, step.step) },
-            "Schritt " + step.step + ": " + step.name
+            e("small", null, "Schritt " + step.step),
+            e("br"),
+            step.name
           )
         )
       ),
