@@ -1,7 +1,8 @@
 .c-apollon {
   &-steps {
+    background-color: hsl(0, 0%, 90%);
     list-style-type: none;
-    padding: 0;
+    padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,7 +36,7 @@
 
     .active button {
       color: var(--contrast-brand-color);
-      background: none !important;
+      background: white !important;
       border-color: var(--contrast-brand-color) !important;
     }
 
@@ -50,6 +51,37 @@
     }
   }
 
+  &-options {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    label {
+      background: var(--light-grey-color);
+      border: 3px solid transparent;
+      cursor: pointer;
+      padding: 0 1rem;
+
+      &:hover {
+        border-color: var(--dark-grey-color);
+      }
+
+      &.active {
+        border-color: var(--contrast-brand-color);
+        color: var(--contrast-brand-color);
+        background: none;
+      }
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+  }
+
   fieldset {
     border: none;
     padding: 0;
@@ -57,14 +89,26 @@
   }
 
   label {
+    display: block;
     font-weight: bold;
+    font-family: var(--primary-font-family);
+    font-size: 0.8rem;
   }
 
-  input[type=text] {
+  input[type="text"] {
     display: block;
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
     margin-top: 10px;
+  }
+
+  textarea {
+    min-height: 150px;
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }

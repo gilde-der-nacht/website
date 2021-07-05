@@ -129,7 +129,7 @@ class Checkmark extends React.Component {
       {},
       e(
         "label",
-        {},
+        { className: this.props.state ? "active" : "" },
         e("input", {
           type: "checkbox",
           name: this.props.name,
@@ -148,16 +148,18 @@ class CheckmarkGroup extends React.Component {
   }
 
   renderCheckmarks = () => {
-    return this.props.options.map((option) => e(Checkmark, option));
+    return this.props.options.map((option) =>
+      e("li", null, e(Checkmark, option))
+    );
   };
 
   render() {
     return e(
-      React.Fragment,
-      {},
+      "div",
+      { className: this.props.className },
       this.props.title && e("h3", {}, this.props.title),
       this.props.description && e("p", {}, this.props.description),
-      ...this.renderCheckmarks()
+      e("ul", null, ...this.renderCheckmarks())
     );
   }
 }
@@ -501,6 +503,9 @@ class IntroLanguageSection extends React.Component {
       React.Fragment,
       {},
       e(CheckmarkGroup, {
+        title: "Sprache",
+        description: "triff bitte mindestens eine Auswahl",
+        className: "c-apollon-options",
         options: [
           {
             label: "Deutsch",
@@ -515,8 +520,6 @@ class IntroLanguageSection extends React.Component {
             onChange: this.updateStateIntroLanguage,
           },
         ],
-        title: "Sprache",
-        description: "triff bitte mindestens eine Auswahl",
       })
     );
   }
@@ -842,7 +845,8 @@ class GamemasterSection extends React.Component {
             label: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
             name: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
             state: this.props.state.role,
-            onChange: (e) => this.updateStateGamemaster("role", e.target.checked),
+            onChange: (e) =>
+              this.updateStateGamemaster("role", e.target.checked),
           },
         ],
       }),
@@ -899,6 +903,7 @@ class OutroSection extends React.Component {
         title: "Helferaufruf",
         description:
           "ganz alleine würden wir die Rollenspieltage nicht durchführen können",
+        className: "c-apollon-options",
         options: this.props.state.helping.map((help) => {
           return {
             label: help.label,
