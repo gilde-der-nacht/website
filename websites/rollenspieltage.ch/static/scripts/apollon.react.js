@@ -647,6 +647,7 @@ class IntroSection extends React.Component {
     return e(
       "fieldset",
       {},
+      e("h2", null, "Einstieg"),
       e(TextInput, {
         name: "name",
         placeholder: "Name",
@@ -726,7 +727,7 @@ class PlayerSection extends React.Component {
     return e(
       "fieldset",
       {},
-      e("legend", {}, "Spieler:in"),
+      e("h2", {}, "Spielen"),
       e(RadioGroup, {
         options: [
           {
@@ -895,7 +896,7 @@ class GamemasterSection extends React.Component {
     return e(
       "fieldset",
       {},
-      e("legend", {}, "Spielleiter:in"),
+      e("h2", {}, "Spielleiten"),
       e(CheckmarkGroup, {
         options: [
           {
@@ -944,6 +945,7 @@ class OutroSection extends React.Component {
     return e(
       "fieldset",
       {},
+      e("h2", null, "Abschluss"),
       e(CheckmarkGroup, {
         title: "Helferaufruf",
         description:
@@ -1176,7 +1178,7 @@ class Form extends React.Component {
         state: this.state.step,
         updateState: this.updateState,
       }),
-      e("p", null, JSON.stringify(this.state, null, 2))
+      e("code", null, JSON.stringify(this.state, null, 2))
     );
   }
 }
