@@ -8,7 +8,7 @@
 
     button {
       background: none;
-      border: none;
+      border: 3px solid transparent;
       cursor: pointer;
       padding: 1rem;
       font-weight: bold;
@@ -16,6 +16,12 @@
       small {
         font-weight: normal;
       }
+    }
+
+    li:first-child button,
+    li:last-child button {
+      font-size: 1.5em;
+      margin-bottom: 0.5rem;
     }
 
     li:not(:first-child):not(:last-child) button {
@@ -28,13 +34,14 @@
     }
 
     .active button {
-      color: var(--background-color);
-      background-color: var(--contrast-brand-color) !important;
+      color: var(--contrast-brand-color);
+      background: none !important;
+      border-color: var(--contrast-brand-color) !important;
     }
 
     li:not(.disabled):not(.active):not(:first-child):not(:last-child)
       button:hover {
-      background-color: var(--dark-grey-color);
+      border-color: var(--dark-grey-color);
     }
 
     li:not(.disabled):first-child button:hover,
@@ -47,5 +54,17 @@
     border: none;
     padding: 0;
     margin: 0;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type=text] {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 }

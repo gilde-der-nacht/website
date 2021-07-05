@@ -43,7 +43,7 @@ class NumberInput extends React.Component {
   }
 
   getLabel = () => {
-    return this.props.label + (this.props.required ? "*" : "");
+    return this.props.label + (this.props.required ? " *" : "");
   };
 
   render() {
@@ -72,7 +72,7 @@ class TextArea extends React.Component {
   }
 
   getLabel = () => {
-    return this.props.label + (this.props.required ? "*" : "");
+    return this.props.label + (this.props.required ? " *" : "");
   };
 
   render() {
@@ -97,7 +97,7 @@ class TextInput extends React.Component {
   }
 
   getLabel = () => {
-    return this.props.label + (this.props.required ? "*" : "");
+    return this.props.label + (this.props.required ? " *" : "");
   };
 
   render() {
@@ -155,7 +155,7 @@ class CheckmarkGroup extends React.Component {
     return e(
       React.Fragment,
       {},
-      this.props.title && e("h2", {}, this.props.title),
+      this.props.title && e("h3", {}, this.props.title),
       this.props.description && e("p", {}, this.props.description),
       ...this.renderCheckmarks()
     );
@@ -202,7 +202,7 @@ class RadioGroup extends React.Component {
     return e(
       React.Fragment,
       {},
-      this.props.title && e("h2", {}, this.props.title),
+      this.props.title && e("h3", {}, this.props.title),
       this.props.description && e("p", {}, this.props.description),
       ...this.renderRadios()
     );
@@ -278,7 +278,7 @@ class Grid extends React.Component {
     return e(
       "div",
       {},
-      e("h2", {}, this.props.title),
+      e("h3", {}, this.props.title),
       ...this.renderList(),
       this.renderAddEntry()
     );
@@ -484,73 +484,6 @@ class EditGame extends React.Component {
 
 // Sections
 
-class IntroRoleSection extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  updateStateIntroRole = (event) => {
-    this.props.updateStateIntro("role", {
-      ...this.props.state,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
-  renderSlider = () => {
-    if (this.props.state.player && this.props.state.gamemaster) {
-      return e(
-        "p",
-        {},
-        e("strong", {}, "Wähle deine Balance"),
-        e(
-          "label",
-          {},
-          "Spielen",
-          e("input", {
-            type: "range",
-            name: "balance",
-            min: 1,
-            max: 3,
-            value: this.props.roleBalance,
-            onChange: (event) =>
-              this.props.updateStateIntro("role", {
-                ...this.props.state,
-                roleBalance: Number(event.target.value),
-              }),
-          }),
-          "Spielleiten"
-        )
-      );
-    }
-  };
-
-  render() {
-    return e(
-      React.Fragment,
-      {},
-      e(CheckmarkGroup, {
-        title: "Anmeldung als",
-        description: "triff bitte mindestens eine Auswahl",
-        options: [
-          {
-            label: "Spieler:in",
-            name: "player",
-            state: this.props.state.player,
-            onChange: this.updateStateIntroRole,
-          },
-          {
-            label: "Spielleiter:in",
-            name: "gamemaster",
-            state: this.props.state.gamemaster,
-            onChange: this.updateStateIntroRole,
-          },
-        ],
-      }),
-      this.renderSlider()
-    );
-  }
-}
-
 class IntroLanguageSection extends React.Component {
   constructor(props) {
     super(props);
@@ -664,15 +597,11 @@ class IntroSection extends React.Component {
         state: this.props.state.email,
         handleChange: this.updateStateIntro,
       }),
-      e(IntroRoleSection, {
-        updateStateIntro: this.updateStateIntro,
-        state: this.props.state.role,
-      }),
       e(IntroLanguageSection, {
         updateStateIntro: this.updateStateIntro,
         state: this.props.state.languages,
       }),
-      e("h2", {}, "Zeitfenster"),
+      e("h3", {}, "Zeitfenster"),
       e(IntroTimeSection, {
         updateStateIntro: this.updateStateIntro,
         state: this.props.state.time,
@@ -728,6 +657,16 @@ class PlayerSection extends React.Component {
       "fieldset",
       {},
       e("h2", {}, "Spielen"),
+      e(CheckmarkGroup, {
+        options: [
+          {
+            label: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
+            name: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
+            state: this.props.state.role,
+            onChange: (e) => this.updateStatePlayer("role", e.target.checked),
+          },
+        ],
+      }),
       e(RadioGroup, {
         options: [
           {
@@ -900,6 +839,16 @@ class GamemasterSection extends React.Component {
       e(CheckmarkGroup, {
         options: [
           {
+            label: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
+            name: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
+            state: this.props.state.role,
+            onChange: (e) => this.updateStateGamemaster("role", e.target.checked),
+          },
+        ],
+      }),
+      e(CheckmarkGroup, {
+        options: [
+          {
             label: "Ja, ich möchte gerne Unterstützung.",
             name: "buddy",
             state: this.props.state.buddy,
@@ -1034,7 +983,7 @@ class StepSection extends React.Component {
           e(
             "button",
             { onClick: (e) => this.updateStateStep(e, step.step) },
-            e("small", null, "Schritt " + step.step),
+            e("small", null, step.step),
             e("br"),
             step.name
           )
@@ -1064,7 +1013,6 @@ class Form extends React.Component {
       intro: {
         name: "",
         email: "",
-        role: { player: true, gamemaster: false, roleBalance: 2 },
         languages: {
           german: true,
           english: false,
@@ -1081,6 +1029,7 @@ class Form extends React.Component {
         },
       },
       player: {
+        role: true,
         gameroundTypes: "whatever",
         genres: [
           {
@@ -1110,6 +1059,7 @@ class Form extends React.Component {
         },
       },
       gamemaster: {
+        role: false,
         buddy: false,
         games: [],
         gameInEdit: {},
