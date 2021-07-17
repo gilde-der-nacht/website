@@ -257,7 +257,7 @@ class Grid extends React.Component {
             fix: entry.fix,
             onClick: () => this.props.deleteEntryFromGrid(entry.name),
           },
-          entry.label
+          i18n[this.props.type].list[entry.name]
         ),
         e(RadioGroup, {
           options: this.buildOptions(entry),
@@ -305,14 +305,15 @@ class GamemasterGames extends React.Component {
           e(
             "button",
             { type: "button", onClick: () => this.props.editGame(entry.id) },
-            "Spielrunde bearbeiten"
+            i18n.gamemastering.editGameround
           ),
           e("h3", {}, entry.title),
           e("p", {}, entry.description),
           e(
             "p",
             {},
-            "Genres: " +
+            i18n.genres.title +
+              ": " +
               entry.genres
                 .filter((genre) => genre.checked)
                 .map((genre) => genre.label)
@@ -321,15 +322,18 @@ class GamemasterGames extends React.Component {
           e(
             "p",
             {},
-            "Dauer: " +
+            i18n.gamemastering.duration +
+              ": " +
               entry.duration +
-              " Stunde" +
+              " " +
+              i18n.gamemastering.hours +
               (entry.duration === 1 ? "" : "n")
           ),
           e(
             "p",
             {},
-            "Spieleranzahl: " +
+            i18n.gamemastering.playerCount +
+              ": " +
               entry.playerCount.min +
               (entry.playerCount.max > entry.playerCount.min
                 ? " - " + entry.playerCount.max
@@ -339,7 +343,8 @@ class GamemasterGames extends React.Component {
             e(
               "p",
               {},
-              "Reservierte Plätze für Stammspieler: " +
+              i18n.gamemastering.patrons.description +
+                ": " +
                 entry.playerCount.patrons
             )
         )
@@ -377,7 +382,7 @@ class EditGame extends React.Component {
       return e(
         "button",
         { type: "button", onClick: this.props.newEmptyGame },
-        "+ füge eine neue Spielrunde hinzu"
+        i18n.gamemastering.addAGameround
       );
     }
 
@@ -385,11 +390,11 @@ class EditGame extends React.Component {
       React.Fragment,
       {},
       e("hr"),
-      e("p", {}, "ID: " + this.props.state.id),
+      e("p", {}, i18n.gamemastering.id + ": " + this.props.state.id),
       e(TextInput, {
         name: "title",
-        placeholder: "Titel",
-        label: "Titel",
+        placeholder: i18n.gamemastering.gameTitle,
+        label: i18n.gamemastering.gameTitle,
         required: true,
         state: this.props.state.title,
         handleChange: this.updateStateNewGame,
@@ -411,12 +416,12 @@ class EditGame extends React.Component {
             onChange: this.updateGenre,
           };
         }),
-        title: "Genres",
-        description: "triff bitte mindestens eine Auswahl",
+        title: i18n.genres.title,
+        description: i18n.info.chooseAtLeastOneOption,
       }),
       e(AddElement, {
         name: "newGenre",
-        label: "Vermisst du ein Genre?",
+        label: i18n.genres.missingGenre,
         button: "+",
         handleClick: (name) =>
           this.updateStateNewGame("genres", [
@@ -425,7 +430,7 @@ class EditGame extends React.Component {
           ]),
       }),
       e(NumberInput, {
-        label: "Dauer",
+        label: i18n.gamemastering.duration,
         state: this.props.state.duration,
         required: true,
         min: 1,
@@ -435,7 +440,7 @@ class EditGame extends React.Component {
       }),
       e("h3", {}, "Anzahl Spieler:innen"),
       e(NumberInput, {
-        label: "Minimum",
+        label: i18n.gamemastering.minimum,
         state: this.props.state.playerCount.min,
         required: true,
         min: 0,
@@ -447,7 +452,7 @@ class EditGame extends React.Component {
           }),
       }),
       e(NumberInput, {
-        label: "Maximum",
+        label: i18n.gamemastering.maximum,
         state: this.props.state.playerCount.max,
         required: true,
         min: 0,
@@ -459,7 +464,7 @@ class EditGame extends React.Component {
           }),
       }),
       e(NumberInput, {
-        label: "Stammspieler",
+        label: i18n.gamemastering.patrons.title,
         state: this.props.state.playerCount.patrons,
         required: true,
         min: 0,
@@ -473,12 +478,12 @@ class EditGame extends React.Component {
       e(
         "button",
         { type: "button", onClick: this.props.deleteGame },
-        "Spielrunde löschen"
+        i18n.gamemastering.deleteGameround
       ),
       e(
         "button",
         { type: "button", onClick: this.props.addGame },
-        "Spielrunde speichern"
+        i18n.gamemastering.saveGameround
       )
     );
   }
@@ -503,18 +508,18 @@ class IntroLanguageSection extends React.Component {
       React.Fragment,
       {},
       e(CheckmarkGroup, {
-        title: "Sprache",
-        description: "triff bitte mindestens eine Auswahl",
+        title: i18n.languages.title,
+        description: i18n.info.chooseAtLeastOneOption,
         className: "c-apollon-options",
         options: [
           {
-            label: "Deutsch",
+            label: i18n.languages.de,
             name: "german",
             state: this.props.state.german,
             onChange: this.updateStateIntroLanguage,
           },
           {
-            label: "Englisch",
+            label: i18n.languages.en,
             name: "english",
             state: this.props.state.english,
             onChange: this.updateStateIntroLanguage,
@@ -546,7 +551,7 @@ class IntroTimeSection extends React.Component {
       options: Object.keys(entries).map((key) => {
         const e = entries[key];
         return {
-          label: key + " Uhr",
+          label: key + " " + i18n.time.hour,
           name: key,
           state: e,
           onChange: (event) => this.updateStateIntroTime(day, event),
@@ -559,9 +564,9 @@ class IntroTimeSection extends React.Component {
     return e(
       "div",
       {},
-      e("h3", {}, "Samstag"),
+      e("h3", {}, i18n.weekdays.saturday),
       this.renderTimeSlots("saturday"),
-      e("h3", {}, "Sonntag"),
+      e("h3", {}, i18n.weekdays.sunday),
       this.renderTimeSlots("sunday")
     );
   }
@@ -583,19 +588,19 @@ class IntroSection extends React.Component {
     return e(
       "fieldset",
       {},
-      e("h2", null, "Einstieg"),
+      e("h2", null, i18n.phases.intro),
       e(TextInput, {
-        name: "name",
-        placeholder: "Name",
-        label: "Name",
+        name: i18n.fields.name,
+        placeholder: i18n.fields.name,
+        label: i18n.fields.name,
         required: true,
         state: this.props.state.name,
         handleChange: this.updateStateIntro,
       }),
       e(TextInput, {
         name: "email",
-        placeholder: "E-Mail",
-        label: "E-Mail",
+        placeholder: i18n.fields.mail,
+        label: i18n.fields.mail,
         required: true,
         state: this.props.state.email,
         handleChange: this.updateStateIntro,
@@ -604,7 +609,7 @@ class IntroSection extends React.Component {
         updateStateIntro: this.updateStateIntro,
         state: this.props.state.languages,
       }),
-      e("h3", {}, "Zeitfenster"),
+      e("h3", {}, i18n.time.title),
       e(IntroTimeSection, {
         updateStateIntro: this.updateStateIntro,
         state: this.props.state.time,
@@ -659,12 +664,12 @@ class PlayerSection extends React.Component {
     return e(
       "fieldset",
       {},
-      e("h2", {}, "Spielen"),
+      e("h2", {}, i18n.phases.gaming),
       e(CheckmarkGroup, {
         options: [
           {
-            label: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
-            name: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
+            label: i18n.gaming.participate,
+            name: i18n.gaming.participate,
             state: this.props.state.role,
             onChange: (e) => this.updateStatePlayer("role", e.target.checked),
           },
@@ -673,21 +678,21 @@ class PlayerSection extends React.Component {
       e(RadioGroup, {
         options: [
           {
-            label: "kurze aber viele Spielrunden",
+            label: i18n.gaming.gameroundTypes.short,
             name: "short",
             state: "short" === this.props.state.gameroundTypes,
             onChange: (event) =>
               this.updateStatePlayer("gameroundTypes", event.target.value),
           },
           {
-            label: "lange aber wenige Spielrunden",
+            label: i18n.gaming.gameroundTypes.long,
             name: "long",
             state: "long" === this.props.state.gameroundTypes,
             onChange: (event) =>
               this.updateStatePlayer("gameroundTypes", event.target.value),
           },
           {
-            label: "egal",
+            label: i18n.gaming.gameroundTypes.whatever,
             name: "whatever",
             state: "whatever" === this.props.state.gameroundTypes,
             onChange: (event) =>
@@ -695,26 +700,27 @@ class PlayerSection extends React.Component {
           },
         ],
         groupName: "gameroundTypes",
-        title: "Arten von Spielrunden",
+        title: i18n.gaming.gameroundTypes.title,
       }),
       e(Grid, {
         tiers: [
           {
-            label: "gerne",
+            label: i18n.genres.preferences.yes,
             name: "yes",
           },
           {
-            label: "egal",
+            label: i18n.genres.preferences.whatever,
             name: "whatever",
           },
           {
-            label: "lieber nicht",
+            label: i18n.genres.preferences.no,
             name: "no",
           },
         ],
         state: this.props.state.genres,
-        title: "Genres",
-        missingEntry: "Vermisst du ein Genre?",
+        type: "genres",
+        title: i18n.genres.title,
+        missingEntry: i18n.genres.missingGenre,
         updateStateGrid: (event) => this.updateStateGrid("genres", event),
         addEntryToGrid: (name) => this.addEntryToGrid("genres", name),
         deleteEntryFromGrid: (name) => this.deleteEntryFromGrid("genres", name),
@@ -722,27 +728,26 @@ class PlayerSection extends React.Component {
       e(Grid, {
         tiers: [
           {
-            label: "gerne",
+            label: i18n.workshops.preferences.yes,
             name: "yes",
           },
           {
-            label: "nein Danke",
+            label: i18n.workshops.preferences.no,
             name: "no",
           },
         ],
         state: this.props.state.workshops,
-        title: "Workshops/Diskussionsrunden",
-        missingEntry:
-          "Hast du Interesse an einem hier nicht aufgeführten Workshop/Diskussionsrunde?",
+        type: "workshops",
+        title: i18n.workshops.title,
+        missingEntry: i18n.workshops.missingWorkshop,
         updateStateGrid: (event) => this.updateStateGrid("workshops", event),
         addEntryToGrid: (name) => this.addEntryToGrid("workshops", name),
         deleteEntryFromGrid: (name) =>
           this.deleteEntryFromGrid("workshops", name),
       }),
       e(RadioGroup, {
-        title: "Begleitpersonen",
-        description:
-          "Du kannst bis zu zwei Freunde hier hinzufügen, damit ihr gemeinsam spielen könnt. Ist eure Gruppe grösser, bitten wir euch in mehreren Gruppen aufzuteilen, da es für uns schwierig ist, Platz für so grosse Gruppen zu finden.",
+        title: i18n.gaming.companions.title,
+        description: i18n.gaming.companions.description,
         groupName: "companions",
         options: [0, 1, 2].map((option) => {
           return {
@@ -759,8 +764,7 @@ class PlayerSection extends React.Component {
       }),
       this.props.state.companions.count > 0 &&
         e(TextInput, {
-          label:
-            "Optional darfst du uns die Namen deiner Freunde hier aufführen.",
+          label: i18n.companions.names,
           handleChange: (_, value) =>
             this.updateStatePlayer("companions", {
               ...this.props.state.companions,
@@ -804,11 +808,11 @@ class GamemasterSection extends React.Component {
       description: "",
       genres: [
         {
-          label: "Fantasy",
+          label: i18n.genres.list.fantasy,
           checked: false,
         },
         {
-          label: "Sci-Fi",
+          label: i18n.genres.list.scifi,
           checked: false,
         },
       ],
@@ -838,12 +842,12 @@ class GamemasterSection extends React.Component {
     return e(
       "fieldset",
       {},
-      e("h2", {}, "Spielleiten"),
+      e("h2", {}, i18n.phases.gamemastering),
       e(CheckmarkGroup, {
         options: [
           {
-            label: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
-            name: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
+            label: i18n.gamemastering.participate,
+            name: i18n.gamemastering.participate,
             state: this.props.state.role,
             onChange: (e) =>
               this.updateStateGamemaster("role", e.target.checked),
@@ -853,7 +857,7 @@ class GamemasterSection extends React.Component {
       e(CheckmarkGroup, {
         options: [
           {
-            label: "Ja, ich möchte gerne Unterstützung.",
+            label: i18n.gamemastering.buddy.option,
             name: "buddy",
             state: this.props.state.buddy,
             onChange: (event) =>
@@ -863,9 +867,8 @@ class GamemasterSection extends React.Component {
               ),
           },
         ],
-        title: "Buddy-System",
-        description:
-          "Du hast noch nie ein Rollenspiel geleitet oder möchtest aus einem anderen Grund Unterstützung? Gerne stellen wir dir einen Buddy zur Seite, der dich vor und am Event unterstützt.",
+        title: i18n.gamemastering.buddy.title,
+        description: i18n.gamemastering.buddy.description,
       }),
       e(GamemasterGames, {
         state: this.props.state.games,
@@ -898,15 +901,14 @@ class OutroSection extends React.Component {
     return e(
       "fieldset",
       {},
-      e("h2", null, "Abschluss"),
+      e("h2", null, i18n.phases.outro),
       e(CheckmarkGroup, {
-        title: "Helferaufruf",
-        description:
-          "ganz alleine würden wir die Rollenspieltage nicht durchführen können",
+        title: i18n.helping.title,
+        description: i18n.helping.description,
         className: "c-apollon-options",
         options: this.props.state.helping.map((help) => {
           return {
-            label: help.label,
+            label: i18n.helping.tasks[help.name],
             name: help.name,
             state: help.status,
             onChange: (e) => {
@@ -924,7 +926,7 @@ class OutroSection extends React.Component {
         }),
       }),
       e(TextArea, {
-        label: "Noch Fragen?",
+        label: i18n.questions,
         state: this.props.state.questions,
         onChange: (e) => {
           this.updateStateOutro("questions", e.target.value);
@@ -939,19 +941,19 @@ class StepSection extends React.Component {
     this.steps = [
       {
         step: 1,
-        name: "Einstieg",
+        name: i18n.phases.intro,
       },
       {
         step: 2,
-        name: "Spielen",
+        name: i18n.phases.gaming,
       },
       {
         step: 3,
-        name: "Spielleiten",
+        name: i18n.phases.gamemastering,
       },
       {
         step: 4,
-        name: "Abschluss",
+        name: i18n.phases.outro,
       },
     ];
   }
@@ -1038,13 +1040,11 @@ class Form extends React.Component {
         gameroundTypes: "whatever",
         genres: [
           {
-            label: "Fantasy",
             name: "fantasy",
             status: "whatever",
             fix: true,
           },
           {
-            label: "Sci-Fi",
             name: "scifi",
             status: "whatever",
             fix: true,
@@ -1052,7 +1052,6 @@ class Form extends React.Component {
         ],
         workshops: [
           {
-            label: "Spielleiter Workshop",
             name: "spielleiterworkshop",
             status: "no",
             fix: true,
@@ -1072,17 +1071,14 @@ class Form extends React.Component {
       outro: {
         helping: [
           {
-            label: "Aufbau/Abbau",
             name: "logistics",
             status: false,
           },
           {
-            label: "Kasse (Buffet oder Flohmarkt)",
             name: "finance",
             status: false,
           },
           {
-            label: "Küche",
             name: "kitchen",
             status: false,
           },
