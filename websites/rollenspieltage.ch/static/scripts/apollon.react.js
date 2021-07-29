@@ -204,7 +204,11 @@ class RadioGroup extends React.Component {
       {},
       this.props.title && e("h3", {}, this.props.title),
       this.props.description && e("p", {}, this.props.description),
-      e("div", { className: "c-apollon-radio-group" }, ...this.renderRadios())
+      e(
+        "div",
+        { className: "c-apollon-radio-group " + this.props.className },
+        ...this.renderRadios()
+      )
     );
   }
 }
@@ -306,12 +310,12 @@ class GamemasterGames extends React.Component {
           React.Fragment,
           { key: entry.id },
           e("hr"),
-          e("small", {}, entry.id),
-          e(
-            "button",
-            { type: "button", onClick: () => this.props.editGame(entry.id) },
-            i18n.gamemastering.editGameround
-          ),
+          e("input", {
+            type: "button",
+            className: "c-btn",
+            onClick: () => this.props.editGame(entry.id),
+            value: i18n.gamemastering.editGameround,
+          }),
           e("h3", {}, entry.title),
           e("p", {}, entry.description),
           e(
@@ -396,7 +400,6 @@ class EditGame extends React.Component {
       React.Fragment,
       {},
       e("hr"),
-      e("p", {}, i18n.gamemastering.id + ": " + this.props.state.id),
       e(TextInput, {
         name: "title",
         placeholder: i18n.gamemastering.gameTitle,
@@ -424,6 +427,7 @@ class EditGame extends React.Component {
         }),
         title: i18n.genres.title,
         description: i18n.info.chooseAtLeastOneOption,
+        className: "c-apollon-options",
       }),
       e(AddElement, {
         name: "newGenre",
@@ -481,18 +485,23 @@ class EditGame extends React.Component {
             patrons: Number(value),
           }),
       }),
-      e("input", {
-        type: "button",
-        className: "c-btn",
-        onClick: this.props.deleteGame,
-        value: i18n.gamemastering.deleteGameround,
-      }),
-      e("input", {
-        type: "button",
-        className: "c-btn",
-        onClick: this.props.addGame,
-        value: i18n.gamemastering.saveGameround,
-      })
+      e(
+        "div",
+        { className: "c-apollon-horizontal" },
+        e("input", {
+          type: "button",
+          className: "c-btn",
+          onClick: this.props.deleteGame,
+          value: i18n.gamemastering.deleteGameround,
+        }),
+        e("input", {
+          type: "button",
+          className: "c-btn",
+          styles: "margin-left: 10px",
+          onClick: this.props.addGame,
+          value: i18n.gamemastering.saveGameround,
+        })
+      )
     );
   }
 }
@@ -682,103 +691,110 @@ class PlayerSection extends React.Component {
             onChange: (e) => this.updateStatePlayer("role", e.target.checked),
           },
         ],
+        className: "c-apollon-checkmark-group",
       }),
-      e(RadioGroup, {
-        options: [
-          {
-            label: i18n.gaming.gameroundTypes.short,
-            name: "short",
-            state: "short" === this.props.state.gameroundTypes,
-            onChange: (event) =>
-              this.updateStatePlayer("gameroundTypes", event.target.value),
-          },
-          {
-            label: i18n.gaming.gameroundTypes.long,
-            name: "long",
-            state: "long" === this.props.state.gameroundTypes,
-            onChange: (event) =>
-              this.updateStatePlayer("gameroundTypes", event.target.value),
-          },
-          {
-            label: i18n.gaming.gameroundTypes.whatever,
-            name: "whatever",
-            state: "whatever" === this.props.state.gameroundTypes,
-            onChange: (event) =>
-              this.updateStatePlayer("gameroundTypes", event.target.value),
-          },
-        ],
-        groupName: "gameroundTypes",
-        title: i18n.gaming.gameroundTypes.title,
-      }),
-      e(Grid, {
-        tiers: [
-          {
-            label: i18n.genres.preferences.yes,
-            name: "yes",
-          },
-          {
-            label: i18n.genres.preferences.whatever,
-            name: "whatever",
-          },
-          {
-            label: i18n.genres.preferences.no,
-            name: "no",
-          },
-        ],
-        state: this.props.state.genres,
-        type: "genres",
-        title: i18n.genres.title,
-        missingEntry: i18n.genres.missingGenre,
-        updateStateGrid: (event) => this.updateStateGrid("genres", event),
-        addEntryToGrid: (name) => this.addEntryToGrid("genres", name),
-        deleteEntryFromGrid: (name) => this.deleteEntryFromGrid("genres", name),
-      }),
-      e(Grid, {
-        tiers: [
-          {
-            label: i18n.workshops.preferences.yes,
-            name: "yes",
-          },
-          {
-            label: i18n.workshops.preferences.no,
-            name: "no",
-          },
-        ],
-        state: this.props.state.workshops,
-        type: "workshops",
-        title: i18n.workshops.title,
-        missingEntry: i18n.workshops.missingWorkshop,
-        updateStateGrid: (event) => this.updateStateGrid("workshops", event),
-        addEntryToGrid: (name) => this.addEntryToGrid("workshops", name),
-        deleteEntryFromGrid: (name) =>
-          this.deleteEntryFromGrid("workshops", name),
-      }),
-      e(RadioGroup, {
-        title: i18n.gaming.companions.title,
-        description: i18n.gaming.companions.description,
-        groupName: "companions",
-        options: [0, 1, 2].map((option) => {
-          return {
-            label: option,
-            name: option,
-            state: option === this.props.state.companions.count,
-            onChange: (event) =>
+      e(
+        "div",
+        { className: this.props.state.role ? "" : "disable" },
+        e(RadioGroup, {
+          options: [
+            {
+              label: i18n.gaming.gameroundTypes.short,
+              name: "short",
+              state: "short" === this.props.state.gameroundTypes,
+              onChange: (event) =>
+                this.updateStatePlayer("gameroundTypes", event.target.value),
+            },
+            {
+              label: i18n.gaming.gameroundTypes.long,
+              name: "long",
+              state: "long" === this.props.state.gameroundTypes,
+              onChange: (event) =>
+                this.updateStatePlayer("gameroundTypes", event.target.value),
+            },
+            {
+              label: i18n.gaming.gameroundTypes.whatever,
+              name: "whatever",
+              state: "whatever" === this.props.state.gameroundTypes,
+              onChange: (event) =>
+                this.updateStatePlayer("gameroundTypes", event.target.value),
+            },
+          ],
+          groupName: "gameroundTypes",
+          title: i18n.gaming.gameroundTypes.title,
+        }),
+        e(Grid, {
+          tiers: [
+            {
+              label: i18n.genres.preferences.yes,
+              name: "yes",
+            },
+            {
+              label: i18n.genres.preferences.whatever,
+              name: "whatever",
+            },
+            {
+              label: i18n.genres.preferences.no,
+              name: "no",
+            },
+          ],
+          state: this.props.state.genres,
+          type: "genres",
+          title: i18n.genres.title,
+          missingEntry: i18n.genres.missingGenre,
+          updateStateGrid: (event) => this.updateStateGrid("genres", event),
+          addEntryToGrid: (name) => this.addEntryToGrid("genres", name),
+          deleteEntryFromGrid: (name) =>
+            this.deleteEntryFromGrid("genres", name),
+        }),
+        e(Grid, {
+          tiers: [
+            {
+              label: i18n.workshops.preferences.yes,
+              name: "yes",
+            },
+            {
+              label: i18n.workshops.preferences.no,
+              name: "no",
+            },
+          ],
+          state: this.props.state.workshops,
+          type: "workshops",
+          title: i18n.workshops.title,
+          missingEntry: i18n.workshops.missingWorkshop,
+          updateStateGrid: (event) => this.updateStateGrid("workshops", event),
+          addEntryToGrid: (name) => this.addEntryToGrid("workshops", name),
+          deleteEntryFromGrid: (name) =>
+            this.deleteEntryFromGrid("workshops", name),
+        }),
+        e(RadioGroup, {
+          title: i18n.gaming.companions.title,
+          description: i18n.gaming.companions.description,
+          groupName: "companions",
+          options: [0, 1, 2].map((option) => {
+            return {
+              label: option,
+              name: option,
+              state: option === this.props.state.companions.count,
+              onChange: (event) =>
+                this.updateStatePlayer("companions", {
+                  ...this.props.state.companions,
+                  count: Number(event.target.value),
+                }),
+            };
+          }),
+          className: "c-apollon-horizontal",
+        }),
+        this.props.state.companions.count > 0 &&
+          e(TextInput, {
+            label: i18n.gaming.companions.names,
+            handleChange: (_, value) =>
               this.updateStatePlayer("companions", {
                 ...this.props.state.companions,
-                count: Number(event.target.value),
+                names: value,
               }),
-          };
-        }),
-      }),
-      this.props.state.companions.count > 0 &&
-        e(TextInput, {
-          label: i18n.gaming.companions.names,
-          handleChange: (_, value) =>
-            this.updateStatePlayer("companions", {
-              ...this.props.state.companions,
-              names: value,
-            }),
-        })
+          })
+      )
     );
   }
 }
@@ -861,34 +877,42 @@ class GamemasterSection extends React.Component {
               this.updateStateGamemaster("role", e.target.checked),
           },
         ],
+        className: "c-apollon-checkmark-group",
       }),
-      e(CheckmarkGroup, {
-        options: [
-          {
-            label: i18n.gamemastering.buddy.option,
-            name: "buddy",
-            state: this.props.state.buddy,
-            onChange: (event) =>
-              this.updateStateGamemaster(
-                event.target.name,
-                event.target.checked
-              ),
-          },
-        ],
-        title: i18n.gamemastering.buddy.title,
-        description: i18n.gamemastering.buddy.description,
-      }),
-      e(GamemasterGames, {
-        state: this.props.state.games,
-        editGame: this.editGame,
-      }),
-      e(EditGame, {
-        state: this.props.state.gameInEdit,
-        addGame: this.addGame,
-        deleteGame: this.deleteGame,
-        newEmptyGame: this.newEmptyGame,
-        updateStateGamemaster: this.updateStateGamemaster,
-      })
+      e(
+        "div",
+        {
+          className: this.props.state.role ? "" : "disabled",
+        },
+        e(CheckmarkGroup, {
+          options: [
+            {
+              label: i18n.gamemastering.buddy.option,
+              name: "buddy",
+              state: this.props.state.buddy,
+              onChange: (event) =>
+                this.updateStateGamemaster(
+                  event.target.name,
+                  event.target.checked
+                ),
+            },
+          ],
+          title: i18n.gamemastering.buddy.title,
+          description: i18n.gamemastering.buddy.description,
+          className: "c-apollon-checkmark-group",
+        }),
+        e(GamemasterGames, {
+          state: this.props.state.games,
+          editGame: this.editGame,
+        }),
+        e(EditGame, {
+          state: this.props.state.gameInEdit,
+          addGame: this.addGame,
+          deleteGame: this.deleteGame,
+          newEmptyGame: this.newEmptyGame,
+          updateStateGamemaster: this.updateStateGamemaster,
+        })
+      )
     );
   }
 }
