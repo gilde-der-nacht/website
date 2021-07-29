@@ -83,7 +83,7 @@ const i18n = {
     saveGameround: "Spielrunde speichern",
     editGameround: "Spielrunde bearbeiten",
     gameTitle: "Titel",
-    duration: "Dauer",
+    duration: "Dauer (in Stunden)",
     hours: "Stunde",
     minimum: "Minimum",
     maximum: "Maximum",
@@ -119,5 +119,10 @@ const i18n = {
     missingEmail: "Bitte fülle das Feld «E-Mail» (Schritt 1) aus.",
     noLanguageSelected: "Bitte wähle mindestens eine Sprache (Schritt 1) aus.",
     noTimeSelected: "Bitte wähle mindestens ein Zeitfenster (Schritt 1) aus.",
+    editMissingTitle: "Bitte fülle das Feld «Titel» aus.",
+    editMissingDescription: "Bitte fülle das Feld «Beschreibung» aus.",
+    editMissingGenres: "Bitte wähle mindestens ein Genre aus.",
+    editMaxSmallerThanMin:
+      "Die «Minimum» Spieleranzahl muss gleich oder kleiner als die «Maximum» Spieleranzahl sein.",
   },
 };
