@@ -569,7 +569,14 @@ class IntroTimeSection extends React.Component {
       options: Object.keys(entries).map((key) => {
         const e = entries[key];
         return {
-          label: key + " - " + (Number(key) + 1) + " " + i18n.time.hour,
+          label:
+            key +
+            " " +
+            String.fromCharCode(8211) +
+            " " +
+            (Number(key) + 1) +
+            " " +
+            i18n.time.hour,
           name: key,
           state: e,
           onChange: (event) => this.updateStateIntroTime(day, event),
@@ -616,7 +623,7 @@ class IntroSection extends React.Component {
       {},
       e("h2", null, i18n.phases.intro),
       e(TextInput, {
-        name: i18n.fields.name,
+        name: "name",
         placeholder: i18n.fields.name,
         label: i18n.fields.name,
         required: true,
@@ -1077,12 +1084,11 @@ class FooterSection extends React.Component {
       e("li", {}, this.props.state + " / 4"),
       e(
         "li",
-        {
-          className: this.props.state === 4 ? "disabled" : "",
-        },
+        {},
         this.props.state === 4
           ? e("input", {
               className: "c-btn",
+              disabled: this.props.errors.length > 0,
               type: "button",
               value: i18n.phases.submit,
             })
@@ -1101,42 +1107,12 @@ class ValidationSection extends React.Component {
     super(props);
   }
 
-  validateTime = ({ saturday, sunday }) => {
-    const sat = Object.values(saturday).reduce((acc, cur) => {
-      return cur ? cur : acc;
-    }, false);
-    const sun = Object.values(sunday).reduce((acc, cur) => {
-      return cur ? cur : acc;
-    }, false);
-    return !sat && !sun;
-  };
-
-  validate = () => {
-    const errorKeys = [];
-    const { intro } = this.props.state;
-    const { name, email, languages, time } = intro;
-    if (name.length === 0) {
-      errorKeys.push("missingName");
-    }
-    if (email.length === 0) {
-      errorKeys.push("missingEmail");
-    }
-    if (languages.english === false && languages.german === false) {
-      errorKeys.push("noLanguageSelected");
-    }
-    if (this.validateTime(time)) {
-      errorKeys.push("noTimeSelected");
-    }
-    return errorKeys;
-  };
-
   render() {
-    const errors = this.validate();
-    return errors.map((errorKey) => {
+    return this.props.errors.map((errorKey) => {
       return e(
         "p",
         { className: "c-apollon-error-message", key: errorKey },
-        i18n.errors[errorKey],
+        i18n.errors[errorKey]
       );
     });
   }
@@ -1256,6 +1232,34 @@ class Form extends React.Component {
     };
   }
 
+  validateTime = ({ saturday, sunday }) => {
+    const sat = Object.values(saturday).reduce((acc, cur) => {
+      return cur ? cur : acc;
+    }, false);
+    const sun = Object.values(sunday).reduce((acc, cur) => {
+      return cur ? cur : acc;
+    }, false);
+    return !sat && !sun;
+  };
+
+  validate = () => {
+    const errorKeys = [];
+    const { name, email, languages, time } = this.state.intro;
+    if (name.length === 0) {
+      errorKeys.push("missingName");
+    }
+    if (email.length === 0) {
+      errorKeys.push("missingEmail");
+    }
+    if (languages.english === false && languages.german === false) {
+      errorKeys.push("noLanguageSelected");
+    }
+    if (this.validateTime(time)) {
+      errorKeys.push("noTimeSelected");
+    }
+    return errorKeys;
+  };
+
   updateState = (name, newState) => {
     this.setState({ [name]: newState });
   };
@@ -1294,11 +1298,12 @@ class Form extends React.Component {
         }),
       this.state.step === 4 &&
         e(ValidationSection, {
-          state: this.state,
+          errors: this.validate(),
         }),
       e(FooterSection, {
         state: this.state.step,
         updateState: this.updateState,
+        errors: this.validate(),
       }),
       e("code", null, JSON.stringify(this.state, null, 2))
     );

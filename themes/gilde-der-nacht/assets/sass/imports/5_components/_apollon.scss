@@ -74,6 +74,12 @@
       padding: 1rem;
       font-weight: bold;
     }
+
+    [disabled] {
+      cursor: not-allowed;
+      background-color: var(--dark-grey-color);
+      border-color: transparent;
+    }
   }
 
   &-options {
@@ -230,7 +236,6 @@
     display: block;
     font-weight: bold;
     font-family: var(--primary-font-family);
-    font-size: 0.8rem;
   }
 
   input[type="text"],
