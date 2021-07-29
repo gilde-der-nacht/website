@@ -305,6 +305,7 @@ class GamemasterGames extends React.Component {
     return e(
       React.Fragment,
       {},
+      e("h3", null, i18n.gamemastering.gameroundTitle),
       this.props.state.map((entry) =>
         e(
           React.Fragment,
@@ -755,26 +756,29 @@ class PlayerSection extends React.Component {
           deleteEntryFromGrid: (name) =>
             this.deleteEntryFromGrid("genres", name),
         }),
-        e(Grid, {
-          tiers: [
-            {
-              label: i18n.workshops.preferences.yes,
-              name: "yes",
-            },
-            {
-              label: i18n.workshops.preferences.no,
-              name: "no",
-            },
-          ],
-          state: this.props.state.workshops,
-          type: "workshops",
-          title: i18n.workshops.title,
-          missingEntry: i18n.workshops.missingWorkshop,
-          updateStateGrid: (event) => this.updateStateGrid("workshops", event),
-          addEntryToGrid: (name) => this.addEntryToGrid("workshops", name),
-          deleteEntryFromGrid: (name) =>
-            this.deleteEntryFromGrid("workshops", name),
-        }),
+        this.props.state.workshops.length === 0
+          ? ""
+          : e(Grid, {
+              tiers: [
+                {
+                  label: i18n.workshops.preferences.yes,
+                  name: "yes",
+                },
+                {
+                  label: i18n.workshops.preferences.no,
+                  name: "no",
+                },
+              ],
+              state: this.props.state.workshops,
+              type: "workshops",
+              title: i18n.workshops.title,
+              missingEntry: i18n.workshops.missingWorkshop,
+              updateStateGrid: (event) =>
+                this.updateStateGrid("workshops", event),
+              addEntryToGrid: (name) => this.addEntryToGrid("workshops", name),
+              deleteEntryFromGrid: (name) =>
+                this.deleteEntryFromGrid("workshops", name),
+            }),
         e(RadioGroup, {
           title: i18n.gaming.companions.title,
           description: i18n.gaming.companions.description,
@@ -1036,7 +1040,7 @@ class StepSection extends React.Component {
             step.name
           )
         )
-      ),
+      )
     );
   }
 }

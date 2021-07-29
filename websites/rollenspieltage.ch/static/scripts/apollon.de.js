@@ -88,6 +88,7 @@ const i18n = {
     minimum: "Minimum",
     maximum: "Maximum",
     playerCount: "Spieleranzahl",
+    gameroundTitle: "Spielrunden",
     patrons: {
       title: "Stammspieler",
       description: "Reservierte Plätze für Stammspieler",
