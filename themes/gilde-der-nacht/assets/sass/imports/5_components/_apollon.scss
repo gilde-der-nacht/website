@@ -51,6 +51,36 @@
     }
   }
 
+  &-footer {
+    background-color: hsl(0, 0%, 90%);
+    list-style-type: none;
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+
+    li {
+      font-family: var(--primary-font-family);
+
+      &:first-child {
+        justify-self: start;
+      }
+
+      &:last-child {
+        justify-self: end;
+      }
+    }
+
+    button {
+      background: none;
+      border: 3px solid transparent;
+      cursor: pointer;
+      padding: 1rem;
+      font-weight: bold;
+    }
+  }
+
   &-options {
     ul {
       list-style-type: none;

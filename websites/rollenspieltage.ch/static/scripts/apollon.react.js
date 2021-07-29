@@ -25,14 +25,12 @@ class AddElement extends React.Component {
         onChange: (event) => this.setState({ input: event.target.value }),
         onKeyPress: (event) => event.code === "Enter" && this.addElement(),
       }),
-      e(
-        "button",
-        {
-          type: "button",
-          onClick: this.addElement,
-        },
-        this.props.button
-      )
+      e("input", {
+        type: "button",
+        onClick: this.addElement,
+        className: "c-btn",
+        value: this.props.button,
+      })
     );
   }
 }
@@ -271,7 +269,7 @@ class Grid extends React.Component {
     return e(AddElement, {
       name: "newEntry",
       label: this.props.missingEntry,
-      button: "+",
+      button: "+ " + i18n[this.props.type].addLabel,
       handleClick: this.props.addEntryToGrid,
     });
   };
@@ -379,11 +377,12 @@ class EditGame extends React.Component {
 
   render() {
     if (Object.entries(this.props.state).length === 0) {
-      return e(
-        "button",
-        { type: "button", onClick: this.props.newEmptyGame },
-        i18n.gamemastering.addAGameround
-      );
+      return e("input", {
+        type: "button",
+        className: "c-btn",
+        onClick: this.props.newEmptyGame,
+        value: i18n.gamemastering.addAGameround,
+      });
     }
 
     return e(
@@ -422,7 +421,7 @@ class EditGame extends React.Component {
       e(AddElement, {
         name: "newGenre",
         label: i18n.genres.missingGenre,
-        button: "+",
+        button: "+ " + i18n.genres.addLabel,
         handleClick: (name) =>
           this.updateStateNewGame("genres", [
             ...this.props.state.genres,
@@ -1011,6 +1010,57 @@ class StepSection extends React.Component {
   }
 }
 
+class FooterSection extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  updateStateStep = (e, step) => {
+    e.preventDefault();
+    if (step >= 1 && step <= 4) {
+      this.props.updateState("step", step);
+    }
+  };
+
+  render() {
+    return e(
+      "ul",
+      { className: "c-apollon-footer" },
+      e(
+        "li",
+        {
+          className: this.props.state === 1 ? "disabled" : "",
+        },
+        this.props.state > 1
+          ? e(
+              "button",
+              { onClick: (e) => this.updateStateStep(e, this.props.state - 1) },
+              "« " + i18n.phases.back
+            )
+          : ""
+      ),
+      e("li", {}, this.props.state + " / 4"),
+      e(
+        "li",
+        {
+          className: this.props.state === 4 ? "disabled" : "",
+        },
+        this.props.state === 4
+          ? e("input", {
+              className: "c-btn",
+              type: "button",
+              value: i18n.phases.submit,
+            })
+          : e(
+              "button",
+              { onClick: (e) => this.updateStateStep(e, this.props.state + 1) },
+              i18n.phases.next + " »"
+            )
+      )
+    );
+  }
+}
+
 // Global
 
 class Form extends React.Component {
@@ -1125,7 +1175,7 @@ class Form extends React.Component {
           state: this.state.outro,
           updateState: this.updateState,
         }),
-      e(StepSection, {
+      e(FooterSection, {
         state: this.state.step,
         updateState: this.updateState,
       }),

@@ -6,6 +6,9 @@ const i18n = {
     gaming: "Spielen",
     gamemastering: "Spielleiten",
     outro: "Abschluss",
+    back: "Zurück",
+    next: "Weiter",
+    submit: "Anmeldung abschliessen",
   },
   languages: {
     title: "Sprache",
@@ -36,6 +39,7 @@ const i18n = {
       fantasy: "Fantasy",
       scifi: "Sci-Fi",
     },
+    addLabel: "hinzufügen",
   },
   workshops: {
     title: "Workshops/Diskussionsrunden",
@@ -46,8 +50,9 @@ const i18n = {
       no: "nein Danke",
     },
     list: {
-      spielleiterworkshop: "Spielleiter Workshop"
-    }
+      spielleiterworkshop: "Spielleiter Workshop",
+    },
+    addLabel: "hinzufügen",
   },
   gaming: {
     participate: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
