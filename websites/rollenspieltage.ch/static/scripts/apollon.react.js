@@ -16,7 +16,7 @@ class AddElement extends React.Component {
       return;
     }
     this.props.handleClick(this.state.input);
-    this.setState({ input: "" })
+    this.setState({ input: "" });
   };
 
   render() {
@@ -362,7 +362,10 @@ class GamemasterGames extends React.Component {
             "button",
             {
               className: "c-btn",
-              onClick: () => this.props.editGame(entry.id),
+              onClick: (e) => {
+                e.preventDefault();
+                this.props.editGame(entry.id);
+              },
             },
             i18n.gamemastering.editGameround
           ),
@@ -921,7 +924,8 @@ class GamemasterSection extends React.Component {
     });
   };
 
-  addGame = () => {
+  addGame = (e) => {
+    e.preventDefault();
     this.updateStateGamemaster("games", [
       ...this.props.state.games,
       this.props.state.gameInEdit,
