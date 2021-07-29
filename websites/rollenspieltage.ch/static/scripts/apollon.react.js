@@ -722,22 +722,23 @@ class PlayerSection extends React.Component {
                 this.updateStatePlayer("gameroundTypes", event.target.value),
             },
             {
-              label: i18n.gaming.gameroundTypes.long,
-              name: "long",
-              state: "long" === this.props.state.gameroundTypes,
-              onChange: (event) =>
-                this.updateStatePlayer("gameroundTypes", event.target.value),
-            },
-            {
               label: i18n.gaming.gameroundTypes.whatever,
               name: "whatever",
               state: "whatever" === this.props.state.gameroundTypes,
               onChange: (event) =>
                 this.updateStatePlayer("gameroundTypes", event.target.value),
             },
+            {
+              label: i18n.gaming.gameroundTypes.long,
+              name: "long",
+              state: "long" === this.props.state.gameroundTypes,
+              onChange: (event) =>
+                this.updateStatePlayer("gameroundTypes", event.target.value),
+            },
           ],
           groupName: "gameroundTypes",
           title: i18n.gaming.gameroundTypes.title,
+          className: "c-apollon-horizontal",
         }),
         e(Grid, {
           tiers: [

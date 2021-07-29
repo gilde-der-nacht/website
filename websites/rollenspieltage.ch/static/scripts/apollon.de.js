@@ -64,9 +64,9 @@ const i18n = {
     participate: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
     gameroundTypes: {
       title: "Arten von Spielrunden",
-      short: "kurze aber viele Spielrunden",
-      long: "lange aber wenige Spielrunden",
+      short: "kurze Spielrunden",
       whatever: "egal",
+      long: "lange Spielrunden",
     },
     companions: {
       title: "Begleitpersonen",
