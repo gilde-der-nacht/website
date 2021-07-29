@@ -25,12 +25,16 @@ class AddElement extends React.Component {
         onChange: (event) => this.setState({ input: event.target.value }),
         onKeyPress: (event) => event.code === "Enter" && this.addElement(),
       }),
-      e("input", {
-        type: "button",
-        onClick: this.addElement,
-        className: "c-btn",
-        value: this.props.button,
-      })
+      e(
+        "button",
+        {
+          onClick: this.addElement,
+          className: "c-btn",
+        },
+        this.props.icon ? e("i", { className: this.props.icon }) : "",
+        " ",
+        this.props.button
+      )
     );
   }
 }
@@ -223,12 +227,14 @@ class GridLabel extends React.Component {
   }
 
   renderDeleteButton = () => {
-    return e("input", {
-      type: "button",
-      className: "c-btn delete",
-      onClick: this.props.onClick,
-      value: i18n.general.delete,
-    });
+    return e(
+      "button",
+      {
+        className: "c-btn delete",
+        onClick: this.props.onClick,
+      },
+      e("i", { className: "fas fa-trash" })
+    );
   };
 
   render() {
@@ -288,7 +294,8 @@ class Grid extends React.Component {
     return e(AddElement, {
       name: "newEntry",
       label: this.props.missingEntry,
-      button: "+ " + i18n[this.props.type].addLabel,
+      icon: "fas fa-plus-square",
+      button: i18n[this.props.type].addLabel,
       handleClick: this.props.addEntryToGrid,
     });
   };
@@ -327,12 +334,14 @@ class GamemasterGames extends React.Component {
           React.Fragment,
           { key: entry.id },
           e("hr"),
-          e("input", {
-            type: "button",
-            className: "c-btn",
-            onClick: () => this.props.editGame(entry.id),
-            value: i18n.gamemastering.editGameround,
-          }),
+          e(
+            "button",
+            {
+              className: "c-btn",
+              onClick: () => this.props.editGame(entry.id),
+            },
+            i18n.gamemastering.editGameround
+          ),
           e("h3", {}, entry.title),
           e("p", {}, entry.description),
           e(
@@ -405,12 +414,15 @@ class EditGame extends React.Component {
 
   render() {
     if (Object.entries(this.props.state).length === 0) {
-      return e("input", {
-        type: "button",
-        className: "c-btn",
-        onClick: this.props.newEmptyGame,
-        value: i18n.gamemastering.addAGameround,
-      });
+      return e(
+        "button",
+        {
+          className: "c-btn",
+          onClick: this.props.newEmptyGame,
+        },
+        e("i", { className: "fas fa-plus-square" }),
+        " " + i18n.gamemastering.addAGameround
+      );
     }
 
     return e(
@@ -449,7 +461,8 @@ class EditGame extends React.Component {
       e(AddElement, {
         name: "newGenre",
         label: i18n.genres.missingGenre,
-        button: "+ " + i18n.genres.addLabel,
+        button: i18n.genres.addLabel,
+        icon: "fas fa-plus-square",
         handleClick: (name) =>
           this.updateStateNewGame("genres", [
             ...this.props.state.genres,
@@ -505,19 +518,23 @@ class EditGame extends React.Component {
       e(
         "div",
         { className: "c-apollon-horizontal" },
-        e("input", {
-          type: "button",
-          className: "c-btn",
-          onClick: this.props.deleteGame,
-          value: i18n.gamemastering.deleteGameround,
-        }),
-        e("input", {
-          type: "button",
-          className: "c-btn",
-          styles: "margin-left: 10px",
-          onClick: this.props.addGame,
-          value: i18n.gamemastering.saveGameround,
-        })
+        e(
+          "button",
+          {
+            className: "c-btn",
+            onClick: this.props.deleteGame,
+          },
+          i18n.gamemastering.deleteGameround
+        ),
+        e(
+          "button",
+          {
+            className: "c-btn",
+            styles: "margin-left: 10px",
+            onClick: this.props.addGame,
+          },
+          i18n.gamemastering.saveGameround
+        )
       )
     );
   }
@@ -1103,12 +1120,14 @@ class FooterSection extends React.Component {
         "li",
         {},
         this.props.state === 4
-          ? e("input", {
-              className: "c-btn",
-              disabled: this.props.errors.length > 0,
-              type: "button",
-              value: i18n.phases.submit,
-            })
+          ? e(
+              "button",
+              {
+                className: "c-btn",
+                disabled: this.props.errors.length > 0,
+              },
+              i18n.phases.submit
+            )
           : e(
               "button",
               { onClick: (e) => this.updateStateStep(e, this.props.state + 1) },

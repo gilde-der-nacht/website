@@ -78,7 +78,7 @@ const i18n = {
   gamemastering: {
     participate: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
     id: "ID",
-    addAGameround: "+ füge eine neue Spielrunde hinzu",
+    addAGameround: "füge eine neue Spielrunde hinzu",
     deleteGameround: "Spielrunde löschen",
     saveGameround: "Spielrunde speichern",
     editGameround: "Spielrunde bearbeiten",
