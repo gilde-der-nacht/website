@@ -1096,6 +1096,49 @@ class FooterSection extends React.Component {
   }
 }
 
+class ValidationSection extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  validateTime = ({ saturday, sunday }) => {
+    const sat = Object.values(saturday).reduce((acc, cur) => {
+      return cur ? cur : acc;
+    }, false);
+    const sun = Object.values(sunday).reduce((acc, cur) => {
+      return cur ? cur : acc;
+    }, false);
+    return !sat && !sun;
+  };
+
+  validate = () => {
+    const errorKeys = [];
+    const { intro } = this.props.state;
+    console.log(intro);
+
+    const { name, email, languages, time } = intro;
+    if (name.length === 0) {
+      errorKeys.push("missingName");
+    }
+    if (email.length === 0) {
+      errorKeys.push("missingEmail");
+    }
+    if (languages.english === false && languages.german === false) {
+      errorKeys.push("noLanguageSelected");
+    }
+    if (this.validateTime(time)) {
+      errorKeys.push("noTimeSelected");
+    }
+    console.log(errorKeys);
+    return errorKeys;
+  };
+
+  render() {
+    const errors = this.validate();
+    return "";
+  }
+}
+
 // Global
 
 class Form extends React.Component {
@@ -1245,6 +1288,10 @@ class Form extends React.Component {
         e(OutroSection, {
           state: this.state.outro,
           updateState: this.updateState,
+        }),
+      this.state.step === 4 &&
+        e(ValidationSection, {
+          state: this.state,
         }),
       e(FooterSection, {
         state: this.state.step,
