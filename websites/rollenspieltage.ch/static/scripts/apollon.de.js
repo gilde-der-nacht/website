@@ -1,6 +1,9 @@
 "use strict";
 
 const i18n = {
+  general: {
+    delete: "Löschen",
+  },
   phases: {
     intro: "Einstieg",
     gaming: "Spielen",

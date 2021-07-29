@@ -112,6 +112,37 @@
     }
   }
 
+  &-radio-group {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    label {
+      background: var(--light-grey-color);
+      border: 3px solid transparent;
+      cursor: pointer;
+      padding: 0 1rem;
+
+      &:hover {
+        border-color: var(--dark-grey-color);
+      }
+
+      &.active {
+        border-color: var(--contrast-brand-color);
+        color: var(--contrast-brand-color);
+        background: none;
+      }
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+  }
+
   fieldset {
     border: none;
     padding: 0;
