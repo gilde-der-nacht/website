@@ -163,6 +163,15 @@
     gap: 10px;
   }
 
+  &-input-and-button {
+    display: grid !important;
+    grid-template-columns: 1fr auto;
+
+    > :first-child {
+      grid-column: span 2;
+    }
+  }
+
   fieldset {
     border: none;
     padding: 0;

@@ -17,8 +17,8 @@ class AddElement extends React.Component {
   render() {
     return e(
       "label",
-      {},
-      this.props.label,
+      { className: "c-apollon-input-and-button" },
+      e("span", {}, this.props.label),
       e("input", {
         type: "text",
         value: this.state.input,
