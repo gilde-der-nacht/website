@@ -40,6 +40,12 @@
     }
   }
 
+  &-error-message {
+    border: 3px solid var(--contrast-brand-color);
+    color: var(--contrast-brand-color);
+    padding: 1rem;
+  }
+
   &-footer {
     background-color: hsl(0, 0%, 90%);
     list-style-type: none;

@@ -1114,8 +1114,6 @@ class ValidationSection extends React.Component {
   validate = () => {
     const errorKeys = [];
     const { intro } = this.props.state;
-    console.log(intro);
-
     const { name, email, languages, time } = intro;
     if (name.length === 0) {
       errorKeys.push("missingName");
@@ -1129,13 +1127,18 @@ class ValidationSection extends React.Component {
     if (this.validateTime(time)) {
       errorKeys.push("noTimeSelected");
     }
-    console.log(errorKeys);
     return errorKeys;
   };
 
   render() {
     const errors = this.validate();
-    return "";
+    return errors.map((errorKey) => {
+      return e(
+        "p",
+        { className: "c-apollon-error-message", key: errorKey },
+        i18n.errors[errorKey],
+      );
+    });
   }
 }
 

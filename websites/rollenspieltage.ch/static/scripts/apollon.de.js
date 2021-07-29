@@ -114,4 +114,10 @@ const i18n = {
     },
   },
   questions: "Noch Fragen?",
+  errors: {
+    missingName: "Bitte fülle das Feld «Name» (Schritt 1) aus.",
+    missingEmail: "Bitte fülle das Feld «E-Mail» (Schritt 1) aus.",
+    noLanguageSelected: "Bitte wähle mindestens eine Sprache (Schritt 1) aus.",
+    noTimeSelected: "Bitte wähle mindestens ein Zeitfenster (Schritt 1) aus.",
+  },
 };
