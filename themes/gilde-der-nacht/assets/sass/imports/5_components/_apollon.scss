@@ -151,12 +151,21 @@
     background-color: #e6e6e6;
     padding: 1rem;
 
+    .c-apollon-grid-header {
+      display: contents;
+      text-align: center;
+
+      > :first-child {
+        grid-column-start: 2;
+      }
+    }
+
     &.three {
-      grid-template-columns: 1fr repeat(2, auto);
+      grid-template-columns: 2fr repeat(2, 1fr);
     }
 
     &.four {
-      grid-template-columns: 1fr repeat(3, auto);
+      grid-template-columns: repeat(4, 1fr);
     }
 
     h4,
@@ -170,6 +179,7 @@
 
     .c-apollon-radio-group {
       display: contents;
+      text-align: center;
     }
   }
 

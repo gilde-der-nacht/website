@@ -169,6 +169,7 @@ class CheckmarkGroup extends React.Component {
 class Radio extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   render() {
@@ -185,7 +186,9 @@ class Radio extends React.Component {
           checked: this.props.state,
           onChange: this.props.onChange,
         }),
-        this.props.label
+        this.props.icon
+          ? e("i", { className: this.props.icon })
+          : this.props.label
       )
     );
   }
@@ -257,9 +260,14 @@ class Grid extends React.Component {
   }
 
   buildOptions = (entry) => {
+    const iconMap = {
+      yes: "fas fa-plus-square",
+      whatever: "fas fa-question-square",
+      no: "fas fa-minus-square",
+    };
     return this.props.tiers.map((tier) => {
       return {
-        label: tier.label,
+        icon: iconMap[tier.name],
         name: tier.name,
         state: tier.name === entry.status,
         onChange: this.props.updateStateGrid,
@@ -312,6 +320,13 @@ class Grid extends React.Component {
             "c-apollon-grid" +
             (this.props.type === "genres" ? " four" : " three"),
         },
+        e(
+          "div",
+          { className: "c-apollon-grid-header" },
+          this.props.tiers.map((tier) =>
+            e("h4", { key: tier.name }, tier.label)
+          )
+        ),
         ...this.renderList()
       ),
       this.renderAddEntry()

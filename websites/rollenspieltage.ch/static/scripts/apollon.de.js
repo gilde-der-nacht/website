@@ -53,7 +53,7 @@ const i18n = {
       "Hast du Interesse an einem hier nicht aufgeführten Workshop/Diskussionsrunde?",
     preferences: {
       yes: "gerne",
-      no: "nein Danke",
+      no: "nein",
     },
     list: {
       spielleiterworkshop: "Spielleiter Workshop",
