@@ -206,7 +206,11 @@ class RadioGroup extends React.Component {
       this.props.description && e("p", {}, this.props.description),
       e(
         "div",
-        { className: "c-apollon-radio-group " + this.props.className },
+        {
+          className:
+            "c-apollon-radio-group " +
+            (this.props.className ? this.props.className : ""),
+        },
         ...this.renderRadios()
       )
     );
@@ -221,7 +225,7 @@ class GridLabel extends React.Component {
   renderDeleteButton = () => {
     return e("input", {
       type: "button",
-      className: "c-btn",
+      className: "c-btn delete",
       onClick: this.props.onClick,
       value: i18n.general.delete,
     });
@@ -231,8 +235,12 @@ class GridLabel extends React.Component {
     return e(
       React.Fragment,
       {},
-      e("h3", {}, this.props.children),
-      !this.props.fix && this.renderDeleteButton()
+      e(
+        "h4",
+        {},
+        this.props.children,
+        !this.props.fix && this.renderDeleteButton()
+      )
     );
   }
 }
@@ -290,7 +298,15 @@ class Grid extends React.Component {
       "div",
       {},
       e("h3", {}, this.props.title),
-      ...this.renderList(),
+      e(
+        "div",
+        {
+          className:
+            "c-apollon-grid" +
+            (this.props.type === "genres" ? " four" : " three"),
+        },
+        ...this.renderList()
+      ),
       this.renderAddEntry()
     );
   }

@@ -144,6 +144,35 @@
     }
   }
 
+  &-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background-color: #e6e6e6;
+    padding: 1rem;
+
+    &.three {
+      grid-template-columns: 1fr repeat(2, auto);
+    }
+
+    &.four {
+      grid-template-columns: 1fr repeat(3, auto);
+    }
+
+    h4,
+    p {
+      margin: 0;
+    }
+
+    .delete {
+      margin-left: 1rem;
+    }
+
+    .c-apollon-radio-group {
+      display: contents;
+    }
+  }
+
   &-checkmark-group {
     ul {
       list-style-type: none;

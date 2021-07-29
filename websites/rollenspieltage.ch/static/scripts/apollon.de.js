@@ -35,8 +35,8 @@ const i18n = {
     missingGenre: "Vermisst du ein Genre?",
     preferences: {
       yes: "gerne",
-      no: "lieber nicht",
       whatever: "egal",
+      no: "lieber nicht",
     },
     list: {
       fantasy: "Fantasy",
