@@ -10,8 +10,13 @@ class AddElement extends React.Component {
     this.state = { input: "" };
   }
 
-  addElement = () => {
+  addElement = (e) => {
+    e.preventDefault();
+    if (this.state.input.length === 0) {
+      return;
+    }
     this.props.handleClick(this.state.input);
+    this.setState({ input: "" })
   };
 
   render() {
@@ -23,7 +28,7 @@ class AddElement extends React.Component {
         type: "text",
         value: this.state.input,
         onChange: (event) => this.setState({ input: event.target.value }),
-        onKeyPress: (event) => event.code === "Enter" && this.addElement(),
+        onKeyPress: (event) => event.code === "Enter" && this.addElement(event),
       }),
       e(
         "button",
