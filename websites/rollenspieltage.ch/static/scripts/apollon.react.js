@@ -568,7 +568,7 @@ class IntroTimeSection extends React.Component {
       options: Object.keys(entries).map((key) => {
         const e = entries[key];
         return {
-          label: key + " " + i18n.time.hour,
+          label: key + " - " + (Number(key) + 1) + " " + i18n.time.hour,
           name: key,
           state: e,
           onChange: (event) => this.updateStateIntroTime(day, event),
@@ -580,11 +580,19 @@ class IntroTimeSection extends React.Component {
   render() {
     return e(
       "div",
-      {},
-      e("h3", {}, i18n.weekdays.saturday),
-      this.renderTimeSlots("saturday"),
-      e("h3", {}, i18n.weekdays.sunday),
-      this.renderTimeSlots("sunday")
+      { className: "c-apollon-timetable" },
+      e(
+        "div",
+        {},
+        e("h3", {}, i18n.weekdays.saturday),
+        this.renderTimeSlots("saturday")
+      ),
+      e(
+        "div",
+        {},
+        e("h3", {}, i18n.weekdays.sunday),
+        this.renderTimeSlots("sunday")
+      )
     );
   }
 }
@@ -839,6 +847,18 @@ class GamemasterSection extends React.Component {
           label: i18n.genres.list.scifi,
           checked: false,
         },
+        {
+          label: i18n.genres.list.horror,
+          checked: false,
+        },
+        {
+          label: i18n.genres.list.crime,
+          checked: false,
+        },
+        {
+          label: i18n.genres.list.modern,
+          checked: false,
+        },
       ],
       duration: 2,
       playerCount: {
@@ -1001,17 +1021,6 @@ class StepSection extends React.Component {
     return e(
       "ul",
       { className: "c-apollon-steps" },
-      e(
-        "li",
-        {
-          className: this.props.state === 1 ? "disabled" : "",
-        },
-        e(
-          "button",
-          { onClick: (e) => this.updateStateStep(e, this.props.state - 1) },
-          "«"
-        )
-      ),
       this.steps.map((step) =>
         e(
           "li",
@@ -1028,17 +1037,6 @@ class StepSection extends React.Component {
           )
         )
       ),
-      e(
-        "li",
-        {
-          className: this.props.state === this.steps.length ? "disabled" : "",
-        },
-        e(
-          "button",
-          { onClick: (e) => this.updateStateStep(e, this.props.state + 1) },
-          "»"
-        )
-      )
     );
   }
 }
@@ -1111,10 +1109,31 @@ class Form extends React.Component {
           saturday: {
             10: false,
             11: false,
+            12: false,
+            13: false,
+            14: false,
+            15: false,
+            16: false,
+            17: false,
+            18: false,
+            19: false,
+            20: false,
+            21: false,
+            22: false,
+            23: false,
           },
           sunday: {
             10: false,
             11: false,
+            12: false,
+            13: false,
+            14: false,
+            15: false,
+            16: false,
+            17: false,
+            18: false,
+            19: false,
+            20: false,
           },
         },
       },
@@ -1129,6 +1148,21 @@ class Form extends React.Component {
           },
           {
             name: "scifi",
+            status: "whatever",
+            fix: true,
+          },
+          {
+            name: "horror",
+            status: "whatever",
+            fix: true,
+          },
+          {
+            name: "crime",
+            status: "whatever",
+            fix: true,
+          },
+          {
+            name: "modern",
             status: "whatever",
             fix: true,
           },

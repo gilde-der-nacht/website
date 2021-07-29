@@ -20,13 +20,7 @@
       }
     }
 
-    li:first-child button,
-    li:last-child button {
-      font-size: 1.5em;
-      margin-bottom: 0.5rem;
-    }
-
-    li:not(:first-child):not(:last-child) button {
+    button {
       background: var(--light-grey-color);
     }
 
@@ -41,14 +35,8 @@
       border-color: var(--contrast-brand-color) !important;
     }
 
-    li:not(.disabled):not(.active):not(:first-child):not(:last-child)
-      button:hover {
+    li:not(.disabled):not(.active) button:hover {
       border-color: var(--dark-grey-color);
-    }
-
-    li:not(.disabled):first-child button:hover,
-    li:not(.disabled):last-child button:hover {
-      color: var(--contrast-brand-color);
     }
   }
 
@@ -161,6 +149,60 @@
   &-horizontal {
     display: flex;
     gap: 10px;
+  }
+
+  &-timetable {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+
+    > div {
+      width: 32ch;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    li:first-child label {
+      border-radius: 1em 1em 0 0;
+    }
+
+    li:last-child label {
+      border-radius: 0 0 1em 1em;
+    }
+
+    li + li label {
+      margin-top: 0.1rem;
+    }
+
+    label {
+      background: var(--light-grey-color);
+      border: 3px solid transparent;
+      cursor: pointer;
+      padding: 0 1rem;
+      height: 5em;
+
+      &:hover {
+        border-color: var(--dark-grey-color);
+      }
+
+      &.active {
+        border-color: var(--contrast-brand-color);
+        color: var(--contrast-brand-color);
+        background: none;
+      }
+    }
   }
 
   &-input-and-button {

@@ -41,6 +41,9 @@ const i18n = {
     list: {
       fantasy: "Fantasy",
       scifi: "Sci-Fi",
+      horror: "Horror",
+      crime: "Krimi",
+      modern: "Modern",
     },
     addLabel: "hinzufügen",
   },
