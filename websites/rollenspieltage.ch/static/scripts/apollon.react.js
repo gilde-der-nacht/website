@@ -361,6 +361,31 @@ class GamemasterGames extends React.Component {
     super(props);
   }
 
+  validateGenres = (genres) => {
+    return !genres.reduce(
+      (acc, cur) => (cur.checked ? cur.checked : acc),
+      false
+    );
+  };
+
+  validate = ({ title, description, genres, playerCount }) => {
+    const errorKeys = [];
+    if (title.length === 0) {
+      errorKeys.push("editMissingTitle");
+    }
+    if (description.length === 0) {
+      errorKeys.push("editMissingDescription");
+    }
+    if (this.validateGenres(genres)) {
+      errorKeys.push("editMissingGenres");
+    }
+    const { min, max } = playerCount;
+    if (min > max) {
+      errorKeys.push("editMaxSmallerThanMin");
+    }
+    return errorKeys;
+  };
+
   render() {
     return e(
       React.Fragment,
@@ -378,6 +403,7 @@ class GamemasterGames extends React.Component {
                   EditGame,
                   {
                     state: entry,
+                    errors: this.validate(entry),
                     updateGame: this.props.updateGame(entry.id),
                     position: i + 1,
                   },
@@ -387,6 +413,7 @@ class GamemasterGames extends React.Component {
                     e(
                       "button",
                       {
+                        type: "button",
                         className: "c-btn",
                         onClick: this.props.deleteGame(entry.id),
                       },
@@ -396,6 +423,8 @@ class GamemasterGames extends React.Component {
                     e(
                       "button",
                       {
+                        type: "button",
+                        disabled: this.validate(entry).length > 0,
                         className: "c-btn",
                         onClick: this.props.changeEditMode(entry.id, false),
                       },
@@ -416,6 +445,7 @@ class GamemasterGames extends React.Component {
                     e(
                       "button",
                       {
+                        type: "button",
                         className: "c-btn",
                         onClick: this.props.deleteGame(entry.id),
                       },
@@ -425,6 +455,7 @@ class GamemasterGames extends React.Component {
                     e(
                       "button",
                       {
+                        type: "button",
                         className: "c-btn",
                         onClick: this.props.changeEditMode(entry.id, true),
                       },
@@ -524,31 +555,6 @@ class EditGame extends React.Component {
       })
     );
   };
-  validateGenres = (genres) => {
-    return !genres.reduce(
-      (acc, cur) => (cur.checked ? cur.checked : acc),
-      false
-    );
-  };
-
-  validate = () => {
-    const errorKeys = [];
-    const { title, description, genres, playerCount } = this.props.state;
-    if (title.length === 0) {
-      errorKeys.push("editMissingTitle");
-    }
-    if (description.length === 0) {
-      errorKeys.push("editMissingDescription");
-    }
-    if (this.validateGenres(genres)) {
-      errorKeys.push("editMissingGenres");
-    }
-    const { min, max } = playerCount;
-    if (min > max) {
-      errorKeys.push("editMaxSmallerThanMin");
-    }
-    return errorKeys;
-  };
 
   render() {
     return e(
@@ -643,7 +649,7 @@ class EditGame extends React.Component {
           }),
       }),
       e(ValidationSection, {
-        errors: this.validate(),
+        errors: this.props.errors,
       }),
       this.props.children
     );
