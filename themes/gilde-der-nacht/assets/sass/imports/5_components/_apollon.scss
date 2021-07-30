@@ -305,6 +305,15 @@
     }
   }
 
+  &-game-list {
+    list-style-type: none;
+    padding: 0;
+
+    & > li + li {
+      margin-top: 1rem;
+    }
+  }
+
   &-new-entry-form {
     border: 3px solid var(--light-grey-color);
     padding: 1rem;
