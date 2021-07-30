@@ -480,8 +480,9 @@ class EditGame extends React.Component {
     }
 
     return e(
-      React.Fragment,
-      {},
+      "div",
+      { className: "c-apollon-new-entry-form" },
+      e("h4", {}, i18n.gamemastering.newEntryTitle),
       e(TextInput, {
         name: "title",
         placeholder: i18n.gamemastering.gameTitle,
@@ -508,7 +509,7 @@ class EditGame extends React.Component {
           };
         }),
         title: i18n.genres.title,
-        headingLevel: 4,
+        headingLevel: 5,
         description: i18n.info.chooseAtLeastOneOption,
         className: "c-apollon-options",
       }),
@@ -532,7 +533,7 @@ class EditGame extends React.Component {
         handleChange: (_, value) =>
           this.updateStateNewGame("duration", Number(value)),
       }),
-      e("h4", {}, i18n.gamemastering.playerCount),
+      e("h5", {}, i18n.gamemastering.playerCount),
       e(NumberInput, {
         label: i18n.gamemastering.minimum,
         state: this.props.state.playerCount.min,

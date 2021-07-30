@@ -76,6 +76,7 @@ const i18n = {
     },
   },
   gamemastering: {
+    newEntryTitle: "Erfasse eine Spielrunde",
     participate: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
     id: "ID",
     addAGameround: "füge eine neue Spielrunde hinzu",

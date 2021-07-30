@@ -305,6 +305,16 @@
     }
   }
 
+  &-new-entry-form {
+    border: 3px solid var(--light-grey-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    h4 {
+      margin-top: 0;
+    }
+  }
+
   fieldset {
     border: none;
     padding: 0;
