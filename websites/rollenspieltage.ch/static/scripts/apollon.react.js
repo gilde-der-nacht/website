@@ -226,6 +226,7 @@ class RadioGroup extends React.Component {
           className:
             "c-apollon-radio-group " +
             (this.props.className ? this.props.className : ""),
+          style: this.props.style || {},
         },
         ...this.renderRadios()
       )
@@ -355,9 +356,8 @@ class GamemasterGames extends React.Component {
       e("h3", null, i18n.gamemastering.gameroundTitle),
       this.props.state.map((entry) =>
         e(
-          React.Fragment,
-          { key: entry.id },
-          e("hr"),
+          "div",
+          { key: entry.id, className: "c-apollon-round-entry" },
           e(
             "button",
             {
@@ -367,6 +367,8 @@ class GamemasterGames extends React.Component {
                 this.props.editGame(entry.id);
               },
             },
+            e("i", { className: "fas fa-pen" }),
+            " ",
             i18n.gamemastering.editGameround
           ),
           e("h3", {}, entry.title),
@@ -469,7 +471,7 @@ class EditGame extends React.Component {
       return e(
         "button",
         {
-          className: "c-btn",
+          className: "c-apollon-round-entry new-entry",
           onClick: this.props.newEmptyGame,
         },
         e("i", { className: "fas fa-plus-square" }),
@@ -897,6 +899,7 @@ class PlayerSection extends React.Component {
             };
           }),
           className: "c-apollon-horizontal",
+          style: { marginBottom: "1rem" },
         }),
         this.props.state.companions.count > 0 &&
           e(TextInput, {

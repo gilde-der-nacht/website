@@ -2,7 +2,8 @@
   .disabled {
     color: var(--light-grey-color);
 
-    .c-apollon-radio-group {
+    .c-apollon-radio-group,
+    .c-apollon-options {
       color: var(--dark-grey-color);
     }
 
@@ -280,6 +281,27 @@
 
     > :first-child {
       grid-column: span 2;
+    }
+  }
+
+  &-round-entry {
+    border: 3px solid var(--light-grey-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &.new-entry {
+      border-color: transparent;
+      cursor: pointer;
+      background-color: var(--contrast-brand-color);
+      color: var(--background-color);
+
+      &:hover,
+      &:focus {
+        background-color: var(--primary-brand-color);
+        border-color: var(--primary-brand-color);
+      }
     }
   }
 
