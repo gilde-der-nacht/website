@@ -105,6 +105,10 @@
     input[type="checkbox"] {
       display: none;
     }
+
+    p {
+      margin: 0;
+    }
   }
 
   &-radio-group {
@@ -135,6 +139,10 @@
 
     input[type="radio"] {
       display: none;
+    }
+
+    p {
+      margin: 0;
     }
   }
 
@@ -204,7 +212,8 @@
     gap: 1rem;
 
     > div {
-      width: 32ch;
+      flex-grow: 1;
+      flex-basis: 25ch;
     }
 
     ul {
@@ -221,11 +230,11 @@
     }
 
     li:first-child label {
-      border-radius: 1em 1em 0 0;
+      border-radius: .5em .5em 0 0;
     }
 
     li:last-child label {
-      border-radius: 0 0 1em 1em;
+      border-radius: 0 0 .5em .5em;
     }
 
     li + li label {

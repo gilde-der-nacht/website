@@ -23,8 +23,8 @@ const i18n = {
     mail: "E-Mail",
   },
   weekdays: {
-    saturday: "Samstag",
-    sunday: "Sonntag",
+    saturday: "Samstag, 28.8.21",
+    sunday: "Sonntag, 29.8.21",
   },
   time: {
     title: "Zeitfenster",
