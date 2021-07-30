@@ -290,12 +290,16 @@
     padding: 1rem;
     width: 100%;
     margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 3.5rem;
+    font-size: 1rem;
 
     &.new-entry {
       border-color: transparent;
       cursor: pointer;
       background-color: var(--contrast-brand-color);
       color: var(--background-color);
+      padding: 1rem;
 
       &:hover,
       &:focus {
@@ -303,7 +307,18 @@
         border-color: var(--primary-brand-color);
       }
     }
-    h3, h4 {
+
+    .delete {
+      background-color: var(--light-grey-color);
+
+      &:hover,
+      &:focus {
+        background-color: var(--dark-grey-color);
+      }
+    }
+
+    h3,
+    h4 {
       margin-top: 0;
     }
   }
@@ -314,6 +329,30 @@
 
     & > li + li {
       margin-top: 1rem;
+    }
+  }
+
+  &-game-round-buttons {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+
+    button {
+      margin: 0;
+      padding: 1rem;
+      flex-grow: 1;
+      flex-basis: 50%;
+      border-color: var(--dark-grey-color);
+    }
+
+    :first-child {
+      border-radius: 0 0 0 0.3rem;
+    }
+
+    :last-child {
+      border-radius: 0 0 0.3rem 0;
     }
   }
 

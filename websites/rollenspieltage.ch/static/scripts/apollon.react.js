@@ -10,7 +10,11 @@ class GameListButtons extends React.Component {
   }
 
   render() {
-    return this.props.children;
+    return e(
+      "div",
+      { className: "c-apollon-game-round-buttons" },
+      ...this.props.children
+    );
   }
 }
 
@@ -414,7 +418,7 @@ class GamemasterGames extends React.Component {
                       "button",
                       {
                         type: "button",
-                        className: "c-btn",
+                        className: "c-btn delete",
                         onClick: this.props.deleteGame(entry.id),
                       },
                       e("i", { className: "fas fa-trash" }),
@@ -446,7 +450,7 @@ class GamemasterGames extends React.Component {
                       "button",
                       {
                         type: "button",
-                        className: "c-btn",
+                        className: "c-btn delete",
                         onClick: this.props.deleteGame(entry.id),
                       },
                       e("i", { className: "fas fa-trash" }),
