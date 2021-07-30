@@ -33,6 +33,7 @@ class AddElement extends React.Component {
       e(
         "button",
         {
+          type: "button",
           onClick: this.addElement,
           className: "c-btn",
         },
@@ -243,6 +244,7 @@ class GridLabel extends React.Component {
     return e(
       "button",
       {
+        type: "button",
         className: "c-btn delete",
         onClick: this.props.onClick,
       },
@@ -357,7 +359,7 @@ class GamemasterGames extends React.Component {
       e(
         "ul",
         { className: "c-apollon-game-list" },
-        this.props.state.map((entry) => {
+        this.props.state.map((entry, i) => {
           return e(
             "li",
             { key: entry.id },
@@ -366,10 +368,13 @@ class GamemasterGames extends React.Component {
                   state: entry,
                   saveGame: this.props.changeEditMode(entry.id, false),
                   updateGame: this.props.updateGame(entry.id),
+                  deleteGame: this.props.deleteGame(entry.id),
+                  position: i + 1,
                 })
               : e(GameListEntry, {
                   state: entry,
                   openEdit: this.props.changeEditMode(entry.id, true),
+                  position: i + 1,
                 })
           );
         })
@@ -377,6 +382,7 @@ class GamemasterGames extends React.Component {
       e(
         "button",
         {
+          type: "button",
           className: "c-apollon-round-entry new-entry",
           onClick: this.props.newEmptyGame,
         },
@@ -399,6 +405,7 @@ class GameListEntry extends React.Component {
       e(
         "button",
         {
+          type: "button",
           className: "c-btn",
           onClick: this.props.openEdit,
         },
@@ -406,7 +413,11 @@ class GameListEntry extends React.Component {
         " ",
         i18n.gamemastering.editGameround
       ),
-      e("h3", {}, this.props.state.title),
+      e(
+        "h3",
+        {},
+        "#" + this.props.position + " " + " " + this.props.state.title
+      ),
       e("p", {}, this.props.state.description),
       e(
         "p",
@@ -496,7 +507,11 @@ class EditGame extends React.Component {
     return e(
       "div",
       { className: "c-apollon-new-entry-form" },
-      e("h4", {}, "#1 " + i18n.gamemastering.newEntryTitle),
+      e(
+        "h4",
+        {},
+        "#" + this.props.position + " " + i18n.gamemastering.newEntryTitle
+      ),
       e(TextInput, {
         name: "title",
         placeholder: i18n.gamemastering.gameTitle,
@@ -593,6 +608,7 @@ class EditGame extends React.Component {
         e(
           "button",
           {
+            type: "button",
             className: "c-btn",
             onClick: this.props.deleteGame,
           },
@@ -603,6 +619,7 @@ class EditGame extends React.Component {
         e(
           "button",
           {
+            type: "button",
             className: "c-btn",
             disabled: this.validate().length > 0,
             styles: "margin-left: 10px",
@@ -1013,6 +1030,13 @@ class GamemasterSection extends React.Component {
     ]);
   };
 
+  deleteGame = (id) => (e) => {
+    e.preventDefault();
+    this.updateStateGamemaster("games", [
+      ...this.props.state.games.filter((game) => game.id !== id),
+    ]);
+  };
+
   render() {
     return e(
       "fieldset",
@@ -1057,6 +1081,7 @@ class GamemasterSection extends React.Component {
           newEmptyGame: this.newEmptyGame,
           changeEditMode: this.changeEditMode,
           updateGame: this.updateGame,
+          deleteGame: this.deleteGame,
         })
       )
     );
@@ -1156,7 +1181,10 @@ class StepSection extends React.Component {
           },
           e(
             "button",
-            { onClick: (e) => this.updateStateStep(e, step.step) },
+            {
+              onClick: (e) => this.updateStateStep(e, step.step),
+              type: "button",
+            },
             e("small", null, step.step),
             e("br"),
             step.name
@@ -1191,7 +1219,10 @@ class FooterSection extends React.Component {
         this.props.state > 1
           ? e(
               "button",
-              { onClick: (e) => this.updateStateStep(e, this.props.state - 1) },
+              {
+                onClick: (e) => this.updateStateStep(e, this.props.state - 1),
+                type: "button",
+              },
               "« " + i18n.phases.back
             )
           : ""
@@ -1204,6 +1235,7 @@ class FooterSection extends React.Component {
           ? e(
               "button",
               {
+                type: "button",
                 className: "c-btn",
                 disabled: this.props.errors.length > 0,
               },
@@ -1211,7 +1243,10 @@ class FooterSection extends React.Component {
             )
           : e(
               "button",
-              { onClick: (e) => this.updateStateStep(e, this.props.state + 1) },
+              {
+                onClick: (e) => this.updateStateStep(e, this.props.state + 1),
+                type: "button",
+              },
               i18n.phases.next + " »"
             )
       )
