@@ -83,7 +83,6 @@
     }
 
     button {
-      background: none;
       border: 3px solid transparent;
       cursor: pointer;
       padding: 1rem;
@@ -148,7 +147,7 @@
       &.active {
         border-color: var(--contrast-brand-color);
         color: var(--contrast-brand-color);
-        background: none;
+        background-color: var(--background-color);
       }
     }
 
@@ -278,6 +277,7 @@
   &-input-and-button {
     display: grid !important;
     grid-template-columns: 1fr auto;
+    margin-top: 1rem;
 
     > :first-child {
       grid-column: span 2;

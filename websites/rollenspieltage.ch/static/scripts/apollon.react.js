@@ -499,45 +499,49 @@ class GameListEntry extends React.Component {
         {},
         "#" + this.props.position + " " + " " + this.props.state.title
       ),
-      e("p", {}, this.props.state.description),
+      e("p", {}, e("em", {}, this.props.state.description)),
       e(
-        "p",
+        "ul",
         {},
-        i18n.genres.title +
-          ": " +
-          this.props.state.genres
-            .filter((genre) => genre.checked)
-            .map((genre) => genre.label)
-            .join(", ")
-      ),
-      e(
-        "p",
-        {},
-        i18n.gamemastering.duration +
-          ": " +
-          this.props.state.duration +
-          " " +
-          i18n.gamemastering.hours +
-          (this.props.state.duration === 1 ? "" : "n")
-      ),
-      e(
-        "p",
-        {},
-        i18n.gamemastering.playerCount +
-          ": " +
-          this.props.state.playerCount.min +
-          (this.props.state.playerCount.max > this.props.state.playerCount.min
-            ? " - " + this.props.state.playerCount.max
-            : "")
-      ),
-      this.props.state.playerCount.patrons > 0 &&
         e(
-          "p",
+          "li",
           {},
-          i18n.gamemastering.patrons.description +
+          i18n.genres.title +
             ": " +
-            this.props.state.playerCount.patrons
+            this.props.state.genres
+              .filter((genre) => genre.checked)
+              .map((genre) => genre.label)
+              .join(", ")
         ),
+        e(
+          "li",
+          {},
+          i18n.gamemastering.duration +
+            ": " +
+            this.props.state.duration +
+            " " +
+            i18n.gamemastering.hours +
+            (this.props.state.duration === 1 ? "" : "n")
+        ),
+        e(
+          "li",
+          {},
+          i18n.gamemastering.playerCount +
+            ": " +
+            this.props.state.playerCount.min +
+            (this.props.state.playerCount.max > this.props.state.playerCount.min
+              ? " - " + this.props.state.playerCount.max
+              : "")
+        ),
+        this.props.state.playerCount.patrons > 0 &&
+          e(
+            "li",
+            {},
+            i18n.gamemastering.patrons.description +
+              ": " +
+              this.props.state.playerCount.patrons
+          )
+      ),
       this.props.children
     );
   }
@@ -834,7 +838,7 @@ class PlayerSection extends React.Component {
       {
         label: name,
         name: name + Math.round(Math.random() * 10000),
-        status: "whatever",
+        status: "yes",
         fix: false,
       },
     ]);
@@ -1260,9 +1264,10 @@ class FooterSection extends React.Component {
           ? e(
               "button",
               {
-                type: "button",
+                type: "submit",
                 className: "c-btn",
                 disabled: this.props.errors.length > 0,
+                onClick: this.props.submit,
               },
               i18n.phases.submit
             )
@@ -1440,6 +1445,14 @@ class Form extends React.Component {
     this.setState({ [name]: newState });
   };
 
+  submit = (e) => {
+    e.preventDefault();
+    if (this.validate().length > 0) {
+      return;
+    }
+    console.log(this.state);
+  };
+
   render() {
     return e(
       "form",
@@ -1479,6 +1492,7 @@ class Form extends React.Component {
       e(FooterSection, {
         state: this.state.step,
         updateState: this.updateState,
+        submit: this.submit,
         errors: this.validate(),
       }),
       e("code", null, JSON.stringify(this.state, null, 2))
