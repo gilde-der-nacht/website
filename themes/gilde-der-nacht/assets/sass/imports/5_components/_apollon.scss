@@ -1,4 +1,18 @@
 .c-apollon {
+  .disabled {
+    color: var(--light-grey-color);
+
+    .c-apollon-radio-group {
+      color: var(--dark-grey-color);
+    }
+
+    label,
+    input,
+    button {
+      cursor: not-allowed;
+    }
+  }
+
   &-steps {
     background-color: hsl(0, 0%, 90%);
     list-style-type: none;
@@ -230,11 +244,11 @@
     }
 
     li:first-child label {
-      border-radius: .5em .5em 0 0;
+      border-radius: 0.5em 0.5em 0 0;
     }
 
     li:last-child label {
-      border-radius: 0 0 .5em .5em;
+      border-radius: 0 0 0.5em 0.5em;
     }
 
     li + li label {

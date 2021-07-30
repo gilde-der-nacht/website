@@ -804,7 +804,7 @@ class PlayerSection extends React.Component {
       }),
       e(
         "div",
-        { className: this.props.state.role ? "" : "disable" },
+        { className: this.props.state.role ? "" : "disabled" },
         e(RadioGroup, {
           options: [
             {
