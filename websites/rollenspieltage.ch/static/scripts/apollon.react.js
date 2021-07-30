@@ -4,6 +4,16 @@ const e = React.createElement;
 
 // Components
 
+class GameListButtons extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return this.props.children;
+  }
+}
+
 class AddElement extends React.Component {
   constructor(props) {
     super(props);
@@ -362,20 +372,67 @@ class GamemasterGames extends React.Component {
         this.props.state.map((entry, i) => {
           return e(
             "li",
-            { key: entry.id },
+            { key: entry.id, className: "c-apollon-round-entry" },
             entry.edit
-              ? e(EditGame, {
-                  state: entry,
-                  saveGame: this.props.changeEditMode(entry.id, false),
-                  updateGame: this.props.updateGame(entry.id),
-                  deleteGame: this.props.deleteGame(entry.id),
-                  position: i + 1,
-                })
-              : e(GameListEntry, {
-                  state: entry,
-                  openEdit: this.props.changeEditMode(entry.id, true),
-                  position: i + 1,
-                })
+              ? e(
+                  EditGame,
+                  {
+                    state: entry,
+                    updateGame: this.props.updateGame(entry.id),
+                    position: i + 1,
+                  },
+                  e(
+                    GameListButtons,
+                    {},
+                    e(
+                      "button",
+                      {
+                        className: "c-btn",
+                        onClick: this.props.deleteGame(entry.id),
+                      },
+                      e("i", { className: "fas fa-trash" }),
+                      " " + i18n.gamemastering.deleteGameround
+                    ),
+                    e(
+                      "button",
+                      {
+                        className: "c-btn",
+                        onClick: this.props.changeEditMode(entry.id, false),
+                      },
+                      e("i", { className: "fas fa-save" }),
+                      " " + i18n.gamemastering.saveGameround
+                    )
+                  )
+                )
+              : e(
+                  GameListEntry,
+                  {
+                    state: entry,
+                    position: i + 1,
+                  },
+                  e(
+                    GameListButtons,
+                    {},
+                    e(
+                      "button",
+                      {
+                        className: "c-btn",
+                        onClick: this.props.deleteGame(entry.id),
+                      },
+                      e("i", { className: "fas fa-trash" }),
+                      " " + i18n.gamemastering.deleteGameround
+                    ),
+                    e(
+                      "button",
+                      {
+                        className: "c-btn",
+                        onClick: this.props.changeEditMode(entry.id, true),
+                      },
+                      e("i", { className: "fas fa-pen" }),
+                      " " + i18n.gamemastering.editGameround
+                    )
+                  )
+                )
           );
         })
       ),
@@ -401,18 +458,7 @@ class GameListEntry extends React.Component {
   render() {
     return e(
       "div",
-      { className: "c-apollon-round-entry" },
-      e(
-        "button",
-        {
-          type: "button",
-          className: "c-btn",
-          onClick: this.props.openEdit,
-        },
-        e("i", { className: "fas fa-pen" }),
-        " ",
-        i18n.gamemastering.editGameround
-      ),
+      {},
       e(
         "h3",
         {},
@@ -456,7 +502,8 @@ class GameListEntry extends React.Component {
           i18n.gamemastering.patrons.description +
             ": " +
             this.props.state.playerCount.patrons
-        )
+        ),
+      this.props.children
     );
   }
 }
@@ -506,12 +553,8 @@ class EditGame extends React.Component {
   render() {
     return e(
       "div",
-      { className: "c-apollon-new-entry-form" },
-      e(
-        "h4",
-        {},
-        "#" + this.props.position + " " + i18n.gamemastering.newEntryTitle
-      ),
+      {},
+      e("h4", {}, "#" + this.props.position + " " + this.props.state.title),
       e(TextInput, {
         name: "title",
         placeholder: i18n.gamemastering.gameTitle,
@@ -602,34 +645,7 @@ class EditGame extends React.Component {
       e(ValidationSection, {
         errors: this.validate(),
       }),
-      e(
-        "div",
-        { className: "c-apollon-horizontal" },
-        e(
-          "button",
-          {
-            type: "button",
-            className: "c-btn",
-            onClick: this.props.deleteGame,
-          },
-          e("i", { className: "fas fa-trash" }),
-          " ",
-          i18n.gamemastering.deleteGameround
-        ),
-        e(
-          "button",
-          {
-            type: "button",
-            className: "c-btn",
-            disabled: this.validate().length > 0,
-            styles: "margin-left: 10px",
-            onClick: this.props.saveGame,
-          },
-          e("i", { className: "fas fa-save" }),
-          " ",
-          i18n.gamemastering.saveGameround
-        )
-      )
+      this.props.children
     );
   }
 }
@@ -1005,7 +1021,6 @@ class GamemasterSection extends React.Component {
     this.updateStateGamemaster("games", [
       ...this.props.state.games.map((game) => {
         if (game.id === id) {
-          console.log({ id, game });
           return {
             ...game,
             edit: !!bool,
