@@ -20,6 +20,7 @@
     padding: 0.5rem 1rem;
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
 
@@ -27,8 +28,8 @@
       background: none;
       border: 3px solid transparent;
       cursor: pointer;
-      padding: 1rem;
       font-weight: bold;
+      padding: 1rem;
 
       small {
         font-weight: normal;
@@ -87,6 +88,10 @@
       cursor: pointer;
       padding: 1rem;
       font-weight: bold;
+
+      &:not([type="submit"]):hover {
+        border-color: var(--dark-grey-color);
+      }
     }
   }
 
