@@ -339,6 +339,7 @@ class Grid extends React.Component {
       "div",
       {},
       e("h3", {}, this.props.title),
+      this.props.description && e("p", {}, this.props.description),
       e(
         "div",
         {
@@ -779,6 +780,30 @@ class IntroSection extends React.Component {
       "fieldset",
       {},
       e("h2", null, i18n.phases.intro),
+      e("p", null, i18n.general.helpNeeded),
+      e(
+        "ul",
+        {},
+        e(
+          "li",
+          {},
+          e(
+            "a",
+            { href: i18n.questions.contactUrl, target: "_blank" },
+            i18n.questions.contact
+          )
+        ),
+        e(
+          "li",
+          {},
+          e(
+            "a",
+            { href: i18n.questions.chatUrl, target: "_blank" },
+            i18n.questions.chat
+          )
+        )
+      ),
+      e("h3", null, i18n.fields.title),
       e(TextInput, {
         name: "name",
         placeholder: i18n.fields.name,
@@ -800,6 +825,7 @@ class IntroSection extends React.Component {
         state: this.props.state.languages,
       }),
       e("h3", {}, i18n.time.title),
+      e("p", null, i18n.time.description),
       e(IntroTimeSection, {
         updateStateIntro: this.updateStateIntro,
         state: this.props.state.time,
@@ -895,6 +921,7 @@ class PlayerSection extends React.Component {
           ],
           groupName: "gameroundTypes",
           title: i18n.gaming.gameroundTypes.title,
+          description: i18n.gaming.gameroundTypes.description,
           className: "c-apollon-horizontal",
         }),
         e(Grid, {
@@ -915,6 +942,7 @@ class PlayerSection extends React.Component {
           state: this.props.state.genres,
           type: "genres",
           title: i18n.genres.title,
+          description: i18n.genres.description,
           missingEntry: i18n.genres.missingGenre,
           updateStateGrid: (event) => this.updateStateGrid("genres", event),
           addEntryToGrid: (name) => this.addEntryToGrid("genres", name),
@@ -937,6 +965,7 @@ class PlayerSection extends React.Component {
               state: this.props.state.workshops,
               type: "workshops",
               title: i18n.workshops.title,
+              description: i18n.workshops.description,
               missingEntry: i18n.workshops.missingWorkshop,
               updateStateGrid: (event) =>
                 this.updateStateGrid("workshops", event),
@@ -1173,8 +1202,31 @@ class OutroSection extends React.Component {
           };
         }),
       }),
+      e("h3", {}, i18n.questions.title),
+      e(
+        "ul",
+        {},
+        e(
+          "li",
+          {},
+          e(
+            "a",
+            { href: i18n.questions.contactUrl, target: "_blank" },
+            i18n.questions.contact
+          )
+        ),
+        e(
+          "li",
+          {},
+          e(
+            "a",
+            { href: i18n.questions.chatUrl, target: "_blank" },
+            i18n.questions.chat
+          )
+        )
+      ),
       e(TextArea, {
-        label: i18n.questions,
+        label: i18n.questions.description,
         state: this.props.state.questions,
         onChange: (e) => {
           this.updateStateOutro("questions", e.target.value);
