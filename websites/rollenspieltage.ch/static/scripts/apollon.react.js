@@ -1529,8 +1529,10 @@ class Form extends React.Component {
   };
 
   goToStep = (step) => () => {
-    document.querySelector("h1").scrollIntoView();
     this.updateState("step", step);
+    setTimeout(() => {
+      document.querySelector("h1").scrollIntoView();
+    }, 0);
   };
 
   render() {
