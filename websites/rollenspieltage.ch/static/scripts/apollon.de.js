@@ -44,13 +44,17 @@ const i18n = {
       horror: "Horror",
       crime: "Krimi",
       modern: "Modern",
+      cyberpunk: "Cyberpunk",
+      steampunk: "Steampunk",
+      western: "Western",
+      history: "Historisch",
     },
     addLabel: "hinzufügen",
   },
   workshops: {
-    title: "Workshops/Diskussionsrunden",
+    title: "Workshops / Diskussionsrunden",
     missingWorkshop:
-      "Hast du Interesse an einem hier nicht aufgeführten Workshop/Diskussionsrunde?",
+      "Hast du Interesse an einem hier nicht aufgeführten Workshop / Diskussionsrunde?",
     preferences: {
       yes: "gerne",
       no: "nein",
@@ -107,7 +111,7 @@ const i18n = {
     description:
       "ganz alleine würden wir die Rollenspieltage nicht durchführen können",
     tasks: {
-      logistics: "Aufbau/Abbau",
+      logistics: "Aufbau / Abbau",
       finance: "Kasse (Buffet oder Flohmarkt)",
       kitchen: "Küche",
     },

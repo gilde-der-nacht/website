@@ -287,9 +287,9 @@ class Grid extends React.Component {
 
   buildOptions = (entry) => {
     const iconMap = {
-      yes: "fas fa-plus-square",
-      whatever: "fas fa-question-square",
       no: "fas fa-minus-square",
+      whatever: "fas fa-question-square",
+      yes: "fas fa-plus-square",
     };
     return this.props.tiers.map((tier) => {
       return {
@@ -900,16 +900,16 @@ class PlayerSection extends React.Component {
         e(Grid, {
           tiers: [
             {
-              label: i18n.genres.preferences.yes,
-              name: "yes",
+              label: i18n.genres.preferences.no,
+              name: "no",
             },
             {
               label: i18n.genres.preferences.whatever,
               name: "whatever",
             },
             {
-              label: i18n.genres.preferences.no,
-              name: "no",
+              label: i18n.genres.preferences.yes,
+              name: "yes",
             },
           ],
           state: this.props.state.genres,
@@ -926,12 +926,12 @@ class PlayerSection extends React.Component {
           : e(Grid, {
               tiers: [
                 {
-                  label: i18n.workshops.preferences.yes,
-                  name: "yes",
-                },
-                {
                   label: i18n.workshops.preferences.no,
                   name: "no",
+                },
+                {
+                  label: i18n.workshops.preferences.yes,
+                  name: "yes",
                 },
               ],
               state: this.props.state.workshops,
@@ -1016,6 +1016,22 @@ class GamemasterSection extends React.Component {
           },
           {
             label: i18n.genres.list.modern,
+            checked: false,
+          },
+          {
+            label: i18n.genres.list.cyberpunk,
+            checked: false,
+          },
+          {
+            label: i18n.genres.list.steampunk,
+            checked: false,
+          },
+          {
+            label: i18n.genres.list.western,
+            checked: false,
+          },
+          {
+            label: i18n.genres.list.history,
             checked: false,
           },
         ],
@@ -1371,6 +1387,26 @@ class Form extends React.Component {
           },
           {
             name: "modern",
+            status: "whatever",
+            fix: true,
+          },
+          {
+            name: "cyberpunk",
+            status: "whatever",
+            fix: true,
+          },
+          {
+            name: "steampunk",
+            status: "whatever",
+            fix: true,
+          },
+          {
+            name: "western",
+            status: "whatever",
+            fix: true,
+          },
+          {
+            name: "history",
             status: "whatever",
             fix: true,
           },
