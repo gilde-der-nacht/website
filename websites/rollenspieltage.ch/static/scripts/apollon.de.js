@@ -65,7 +65,8 @@ const i18n = {
       no: "nein",
     },
     list: {
-      spielleiterworkshop: "Spielleiter Workshop",
+      workshop_1: "Spielleiter Workshop #1",
+      demo_discussion: "Demo Diskussion",
     },
     addLabel: "hinzufügen",
   },
@@ -73,7 +74,8 @@ const i18n = {
     participate: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
     gameroundTypes: {
       title: "Arten von Spielrunden",
-      description: "Uns interessiert, ob du an den Luzerner Rollenspieltagen lieber viele Rollenspiele in kurzen Runden testen möchtest oder dich auf wenige, dafür längere Runden fokussieren möchtest.",
+      description:
+        "Uns interessiert, ob du an den Luzerner Rollenspieltagen lieber viele Rollenspiele in kurzen Runden testen möchtest oder dich auf wenige, dafür längere Runden fokussieren möchtest.",
       short: "kurze Spielrunden",
       whatever: "egal",
       long: "lange Spielrunden",
