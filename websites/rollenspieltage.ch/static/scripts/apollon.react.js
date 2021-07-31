@@ -1316,7 +1316,7 @@ class FooterSection extends React.Component {
   updateStateStep = (e, step) => {
     e.preventDefault();
     if (step >= 1 && step <= 4) {
-      this.props.updateState("step", step);
+      this.props.updateStep(step)();
     }
   };
 
@@ -1373,12 +1373,23 @@ class ValidationSection extends React.Component {
     super(props);
   }
 
+  handleClick = (e) => {
+    e.preventDefault();
+    this.props.anchor();
+  };
+
   render() {
     return this.props.errors.map((errorKey) => {
       return e(
         "p",
         { className: "c-apollon-error-message", key: errorKey },
-        i18n.errors[errorKey]
+        this.props.anchor
+          ? e(
+              "a",
+              { href: "#", onClick: this.handleClick },
+              i18n.errors[errorKey]
+            )
+          : i18n.errors[errorKey]
       );
     });
   }
@@ -1517,6 +1528,11 @@ class Form extends React.Component {
     console.log(this.state);
   };
 
+  goToStep = (step) => () => {
+    document.querySelector("h1").scrollIntoView();
+    this.updateState("step", step);
+  };
+
   render() {
     return e(
       "form",
@@ -1552,10 +1568,11 @@ class Form extends React.Component {
       this.state.step === 4 &&
         e(ValidationSection, {
           errors: this.validate(),
+          anchor: this.goToStep(1),
         }),
       e(FooterSection, {
         state: this.state.step,
-        updateState: this.updateState,
+        updateStep: this.goToStep,
         submit: this.submit,
         errors: this.validate(),
       }),
