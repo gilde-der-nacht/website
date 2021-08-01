@@ -1551,6 +1551,16 @@ class Form extends React.Component {
 
   updateState = (name, newState) => {
     this.setState({ [name]: newState });
+    this.saveStateToBrowser({ ...this.state, [name]: newState });
+  };
+
+  saveStateToBrowser = (state) => {
+    localStorage.setItem("rst2021", JSON.stringify(state));
+  };
+
+  componentDidMount = () => {
+    const prevState = JSON.parse(localStorage.getItem("rst2021"));
+    this.setState(prevState);
   };
 
   submit = (e) => {
