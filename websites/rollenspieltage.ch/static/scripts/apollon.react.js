@@ -1387,7 +1387,7 @@ class FooterSection extends React.Component {
                 disabled: this.props.errors.length > 0,
                 onClick: this.props.submit,
               },
-              i18n.phases.submit
+              window.apollonEditMode ? i18n.phases.update : i18n.phases.submit
             )
           : e(
               "button",
@@ -1435,6 +1435,8 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      secret: "",
+      secretValid: false,
       intro: {
         name: "",
         email: "",
@@ -1567,20 +1569,27 @@ class Form extends React.Component {
 
   loadPrevState = async () => {
     const olymp = new Olymp({ server: SERVER });
-    const params = new URLSearchParams(window.location.search);
-    const secret = params.get("secret");
     return await olymp
-      .getRegistration(RESOURCE_UID, secret)
+      .getRegistration(RESOURCE_UID, this.state.secret)
       .then((data) => data.privateBody);
   };
 
   componentDidMount = async () => {
+    const params = await new URLSearchParams(window.location.search);
+    this.setState({ secret: params.get("secret") });
+
     if (!window.apollonEditMode) {
       const prevState = JSON.parse(localStorage.getItem("rst2021"));
       this.setState(prevState);
     } else {
-      const prevState = await this.loadPrevState();
-      this.setState(prevState);
+      try {
+        const prevState = await this.loadPrevState();
+        this.setState(prevState);
+        this.goToStep(1)();
+        this.setState({ secretValid: true });
+      } catch (e) {
+        console.error(e);
+      }
     }
   };
 
@@ -1596,7 +1605,7 @@ class Form extends React.Component {
     const olymp = new Olymp({ server: SERVER });
     const res = await olymp.register(
       RESOURCE_UID,
-      this.state.intro.email,
+      this.state.secret,
       {},
       this.copy(this.state)
     );
@@ -1610,6 +1619,13 @@ class Form extends React.Component {
     }, 0);
   };
 
+  showStep = (step) => {
+    if (window.apollonEditMode && !this.state.secretValid) {
+      return step === -1;
+    }
+    return this.state.step === step;
+  };
+
   render() {
     return e(
       "form",
@@ -1621,31 +1637,37 @@ class Form extends React.Component {
         state: this.state.step,
         updateState: this.updateState,
       }),
-      this.state.step === 1 &&
+      this.showStep(1) &&
         e(IntroSection, {
           state: this.state.intro,
           updateState: this.updateState,
         }),
-      this.state.step === 2 &&
+      this.showStep(2) &&
         e(PlayerSection, {
           state: this.state.player,
           updateState: this.updateState,
         }),
-      this.state.step === 3 &&
+      this.showStep(3) &&
         e(GamemasterSection, {
           state: this.state.gamemaster,
           updateState: this.updateState,
         }),
-      this.state.step === 4 &&
+      this.showStep(4) &&
         e(OutroSection, {
           state: this.state.outro,
           updateState: this.updateState,
         }),
-      this.state.step === 4 &&
+      this.showStep(4) &&
         e(ValidationSection, {
           errors: this.validate(),
           anchor: this.goToStep(1),
         }),
+      this.showStep(-1) &&
+        e(
+          "div",
+          { className: "c-message c-message--spam visible" },
+          i18n.errors.editLinkNotValid
+        ),
       e(FooterSection, {
         state: this.state.step,
         updateStep: this.goToStep,
