@@ -154,7 +154,8 @@ class TextInput extends React.Component {
         value: this.props.state,
         onChange: (event) =>
           this.props.handleChange(event.target.name, event.target.value),
-      })
+      }),
+      e("small", {}, this.props.info)
     );
   }
 }
@@ -178,7 +179,7 @@ class Checkmark extends React.Component {
           checked: this.props.state,
           onChange: this.props.onChange,
         }),
-        this.props.label
+        e("span", {}, this.props.label)
       )
     );
   }
@@ -845,16 +846,17 @@ class IntroSection extends React.Component {
       e("h3", null, i18n.fields.title),
       e(TextInput, {
         name: "name",
-        placeholder: i18n.fields.name,
-        label: i18n.fields.name,
+        placeholder: i18n.fields.name.label,
+        label: i18n.fields.name.label,
         required: true,
         state: this.props.state.name,
         handleChange: this.updateStateIntro,
       }),
       e(TextInput, {
         name: "email",
-        placeholder: i18n.fields.mail,
-        label: i18n.fields.mail,
+        placeholder: i18n.fields.mail.label,
+        label: i18n.fields.mail.label,
+        info: i18n.fields.mail.info,
         required: true,
         state: this.props.state.email,
         handleChange: this.updateStateIntro,
@@ -920,6 +922,7 @@ class PlayerSection extends React.Component {
       "fieldset",
       {},
       e("h2", {}, i18n.phases.gaming),
+      e("p", {}, i18n.gaming.description),
       e(CheckmarkGroup, {
         options: [
           {
@@ -1190,6 +1193,13 @@ class OutroSection extends React.Component {
     });
   };
 
+  updateTerms = (e) => {
+    this.updateStateOutro("terms", {
+      ...this.props.state.terms,
+      [e.target.name]: e.target.checked,
+    });
+  };
+
   render() {
     return e(
       "fieldset",
@@ -1217,6 +1227,24 @@ class OutroSection extends React.Component {
             },
           };
         }),
+      }),
+      e(CheckmarkGroup, {
+        options: [
+          {
+            label: i18n.terms.mask,
+            name: "mask",
+            state: this.props.state.terms.mask,
+            onChange: this.updateTerms,
+          },
+          {
+            label: i18n.terms.testing,
+            name: "testing",
+            state: this.props.state.terms.testing,
+            onChange: this.updateTerms,
+          },
+        ],
+        title: i18n.terms.title,
+        className: "c-apollon-checkmark-group",
       }),
       e("h3", {}, i18n.questions.title),
       e(
@@ -1482,6 +1510,10 @@ class Form extends React.Component {
             status: false,
           },
         ],
+        terms: {
+          mask: false,
+          testing: false,
+        },
         questions: "",
       },
       step: 1,

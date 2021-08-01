@@ -213,6 +213,11 @@
       gap: 10px;
     }
 
+    label {
+      display: grid !important;
+      grid-template-columns: auto 1fr;
+    }
+
     input {
       margin-right: 10px;
     }

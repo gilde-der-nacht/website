@@ -22,8 +22,11 @@ const i18n = {
   },
   fields: {
     title: "Kontaktdaten",
-    name: "Name",
-    mail: "E-Mail",
+    name: { label: "Name" },
+    mail: {
+      label: "E-Mail",
+      info: "Wir verwenden deine E-Mail nur für die Luzerner Rollenspieltage 2021.",
+    },
   },
   weekdays: {
     saturday: "Samstag, 28.8.21",
@@ -37,6 +40,8 @@ const i18n = {
   },
   genres: {
     title: "Genres",
+    description:
+      "Vermisst du ein konkretes Rollenspiel? Wir haben uns dieses Jahr bewusst dafür entschieden keine konkreten Spielrunden anzubieten. Wir möchten vor allem denjenigen entgegenkommen für die das Hobby neu ist und denjenigen die mutig sind und gerne etwas ausprobieren möchten.",
     missingGenre: "Vermisst du ein Genre?",
     preferences: {
       yes: "gerne",
@@ -71,6 +76,8 @@ const i18n = {
     addLabel: "hinzufügen",
   },
   gaming: {
+    description:
+      "Für alle unsere Spielrunden brauchst du keine Vorkenntnisse. Du musst nichts vorbereiten und ausser ein wenig Freude auch nichts mitbringen.",
     participate: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
     gameroundTypes: {
       title: "Arten von Spielrunden",
@@ -123,6 +130,12 @@ const i18n = {
       finance: "Kasse (Buffet oder Flohmarkt)",
       kitchen: "Küche",
     },
+  },
+  terms: {
+    title: "Auflagen des BAG",
+    mask: "Nein, ich nehme nicht teil, falls Maskenpflicht am Spieltisch gilt.",
+    testing:
+      "Nein, ich nehme nicht teil, falls Eintritt nur mit einem Impfausweis oder negativem Testergebnis erlaubt ist.",
   },
   questions: {
     title: "Noch Fragen?",
