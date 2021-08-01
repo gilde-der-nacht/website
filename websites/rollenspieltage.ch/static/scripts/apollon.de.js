@@ -163,6 +163,6 @@ const i18n = {
   },
   success: {
     description:
-      "Danke für deine Anmeldung. Du kannst deine Anmeldung hier weiterhin anpassen. Speichere die aktuelle Seite, wenn du später davon Gebrauch machen möchtest.",
+      "Danke für deine Anmeldung. Du kannst deine Anmeldung hier weiterhin anpassen. Speichere die aktuelle Seite, wenn du später davon Gebrauch machen möchtest. Du solltest ebenfalls eine E-Mail von uns erhalten haben als Bestätigung.",
   },
 };
