@@ -88,7 +88,7 @@ const i18n = {
       description:
         "We are interested in whether you would prefer to test many role-playing games in short rounds at the Luzerner Rollenspieltage or whether you would like to focus on a few, but longer rounds.",
       short: "short game rounds",
-      whatever: "doeesn't matter",
+      whatever: "doesn't matter",
       long: "long game rounds",
     },
     companions: {
