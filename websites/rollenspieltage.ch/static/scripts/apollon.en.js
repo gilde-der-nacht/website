@@ -111,6 +111,7 @@ const i18n = {
     maximum: "Maximum",
     playerCount: "Player count",
     gameroundTitle: "Game rounds",
+    description: "Description",
     patrons: {
       title: "Patrons",
       description: "Reserved seats for patron players you bring with you",

@@ -624,8 +624,8 @@ class EditGame extends React.Component {
       }),
       e(TextInput, {
         name: "description",
-        placeholder: "Beschreibung",
-        label: "Beschreibung",
+        placeholder: i18n.gamemastering.description,
+        label: i18n.gamemastering.description,
         required: true,
         disabled: this.props.disabled,
         state: this.props.state.description,
