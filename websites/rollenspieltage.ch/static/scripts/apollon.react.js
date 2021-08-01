@@ -1633,6 +1633,13 @@ class Form extends React.Component {
         action: SERVER + "/form/" + RESOURCE_UID,
         method: "POST",
       },
+      window.apollonEditMode &&
+        this.state.secretValid &&
+        e(
+          "div",
+          { className: "c-message c-message--success visible" },
+          i18n.success.description
+        ),
       e(StepSection, {
         state: this.state.step,
         updateState: this.updateState,

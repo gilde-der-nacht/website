@@ -162,8 +162,7 @@ const i18n = {
       "Der aktuelle Link ist fehlerhaft. Melde dich allenfalls bei uns direkt per Kontaktformular.",
   },
   success: {
-    beforeLink:
-      "Danke für deine Anmeldung. Du kannst die Anmeldung unter folgendem Link anpassen:",
-    link: "Anmeldung anpassen",
+    description:
+      "Danke für deine Anmeldung. Du kannst deine Anmeldung hier weiterhin anpassen. Speichere die aktuelle Seite, wenn du später davon Gebrauch machen möchtest.",
   },
 };

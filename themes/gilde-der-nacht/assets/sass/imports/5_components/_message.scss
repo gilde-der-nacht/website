@@ -4,17 +4,18 @@
     background-color: lightgray;
     color: darkslategray;
     padding: 10px;
+    line-height: 1.5;
 
     &--success {
         background-color: hsl(141, 53%, 53%);
         border-color: hsl(141, 53%, 30%);
-        color: white;
+        color: black;
     }
 
     &--spam {
-        background-color: hsl(348, 100%, 61%);
+        background-color: hsl(348, 100%, 80%);
         border-color: hsl(348, 100%, 40%);
-        color: white;
+        color: black;
     }
 
     &.visible {
