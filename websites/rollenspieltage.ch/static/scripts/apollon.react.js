@@ -2,6 +2,11 @@
 
 const e = React.createElement;
 
+const SERVER = "https://api.gildedernacht.ch";
+
+const RESOURCE_UID =
+  "38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf";
+
 const GENRE_LIST = [
   "fantasy",
   "scifi",
@@ -1424,29 +1429,6 @@ class ValidationSection extends React.Component {
   }
 }
 
-class SuccessMessage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return e(
-      "div",
-      { className: "c-message c-message--success visible" },
-      e("p", {}, i18n.success.beforeLink),
-      e(
-        "p",
-        {},
-        e(
-          "a",
-          { href: location.origin + this.props.editLink },
-          i18n.success.link
-        )
-      )
-    );
-  }
-}
-
 // Global
 
 class Form extends React.Component {
@@ -1541,7 +1523,6 @@ class Form extends React.Component {
         questions: "",
       },
       step: 1,
-      editLink: "",
     };
   }
 
@@ -1575,16 +1556,32 @@ class Form extends React.Component {
 
   updateState = (name, newState) => {
     this.setState({ [name]: newState });
-    this.saveStateToBrowser({ ...this.state, [name]: newState });
+    if (!window.apollonEditMode) {
+      this.saveStateToBrowser({ ...this.state, [name]: newState });
+    }
   };
 
   saveStateToBrowser = (state) => {
     localStorage.setItem("rst2021", JSON.stringify(state));
   };
 
-  componentDidMount = () => {
-    const prevState = JSON.parse(localStorage.getItem("rst2021"));
-    this.setState(prevState);
+  loadPrevState = async () => {
+    const olymp = new Olymp({ server: SERVER });
+    const params = new URLSearchParams(window.location.search);
+    const secret = params.get("secret");
+    return await olymp
+      .getRegistration(RESOURCE_UID, secret)
+      .then((data) => data.privateBody);
+  };
+
+  componentDidMount = async () => {
+    if (!window.apollonEditMode) {
+      const prevState = JSON.parse(localStorage.getItem("rst2021"));
+      this.setState(prevState);
+    } else {
+      const prevState = await this.loadPrevState();
+      this.setState(prevState);
+    }
   };
 
   copy = (obj) => {
@@ -1596,18 +1593,14 @@ class Form extends React.Component {
     if (this.validate().length > 0) {
       return;
     }
-    const olymp = new Olymp({ server: "https://api.gildedernacht.ch" });
+    const olymp = new Olymp({ server: SERVER });
     const res = await olymp.register(
-      "38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf",
+      RESOURCE_UID,
       this.state.intro.email,
       {},
       this.copy(this.state)
     );
-    const { entry_uid, secret } = res;
-    this.setState({ editLink: "/edit?id=" + entry_uid + "&secret=" + secret });
-    setTimeout(() => {
-      document.querySelector("h1").scrollIntoView();
-    }, 0);
+    window.location = "/edit?secret=" + res.secret;
   };
 
   goToStep = (step) => () => {
@@ -1621,16 +1614,13 @@ class Form extends React.Component {
     return e(
       "form",
       {
-        action:
-          "https://api.gildedernacht.ch/form/38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf",
+        action: SERVER + "/form/" + RESOURCE_UID,
         method: "POST",
       },
       e(StepSection, {
         state: this.state.step,
         updateState: this.updateState,
       }),
-      this.state.editLink.length > 0 &&
-        e(SuccessMessage, { editLink: this.state.editLink }),
       this.state.step === 1 &&
         e(IntroSection, {
           state: this.state.intro,
@@ -1661,7 +1651,7 @@ class Form extends React.Component {
         updateStep: this.goToStep,
         submit: this.submit,
         errors: this.validate(),
-      }),
+      })
     );
   }
 }
