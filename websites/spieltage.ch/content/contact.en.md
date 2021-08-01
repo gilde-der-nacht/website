@@ -8,7 +8,7 @@ menu:
 
 Write us and we will get back to you within 24 hours.
 
-{{< form/form uid="65adbe232fcbb16d738d57defcf2a9010d65e895f77a46e1542ff65df8aada34" >}}
+{{< form/form uid="65adbe232fcbb16d738d57defcf2a9010d65e895f77a46e1542ff65df8aada34" language="en" >}}
   {{< form/text-input name="private-name" type="text" placeholder="Name" label="Name" required="true" >}}
   {{< form/text-input name="private-email" type="email" placeholder="E-mail" label="E-mail" required="true" >}}
   {{< form/textarea name="private-message" placeholder="Message" label="Message" required="true" >}}

@@ -11,6 +11,9 @@
       <script>document.querySelector('.c-form--captcha').style.display = 'none';</script>
 
       <input class="c-btn" type="submit" value="{{ i18n "submit" }}">
+      {{ with .Get "language"}}
+      <input type="hidden" name="language" value="{{ . }}">
+      {{ end }}
       <input type="hidden" name="redirect" value="{{ .Page.Permalink }}">
       <input type="hidden" name="identification" value="{{ .Page.Permalink }}">
     </div>
