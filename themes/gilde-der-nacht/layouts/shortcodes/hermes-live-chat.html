@@ -1,15 +1,32 @@
+{{ $lang := .Get "language" }} {{ if eq $lang "en" }}
+<h2>Message History</h2>
+{{ else }}
 <h2>Nachrichtenverlauf</h2>
+{{ end }}
+
 <ul id="hermes-history">
   <li class="hermes-message-type-placeholder">
+    {{ if eq $lang "en" }}
+    <p>No messages so far</p>
+    {{ else }}
     <p>Bisher keine Nachrichten</p>
+    {{ end }}
   </li>
 </ul>
 
 <div class="c-form">
+  {{ if eq $lang "en" }}
+  <h2>Enter a message</h2>
+  {{ else }}
   <h2>Nachricht erfassen</h2>
+  {{ end }}
   <form action="#">
     <p class="c-form--item c-form-field--text">
+      {{ if eq $lang "en" }}
+      <label for="hermes-author">Choose your display name *</label>
+      {{ else }}
       <label for="hermes-author">Wähle dein Anzeigenamen *</label>
+      {{ end }}
       <input
         id="hermes-author"
         name="hermes-author"
@@ -18,7 +35,11 @@
       />
     </p>
     <p class="c-form--item c-form-field--text">
+      {{ if eq $lang "en" }}
+      <label for="hermes-send">Your message *</label>
+      {{ else }}
       <label for="hermes-send">Deine Nachricht *</label>
+      {{ end }}
       <input id="hermes-send" name="hermes-send" type="text" required="true" />
     </p>
   </form>
@@ -60,9 +81,17 @@
       li.appendChild(authorElement);
       const messageElement = document.createElement("p");
       if (subType === "connected") {
-        messageElement.textContent = "Live Chat wurde gestartet.";
+        const txt =
+          language === "en"
+            ? "Live chat has been started."
+            : "Live Chat wurde gestartet.";
+        messageElement.textContent = txt;
       } else if (subType === "disconnected") {
-        messageElement.textContent = "Live Chat wurde beendet.";
+        const txt =
+          language === "en"
+            ? "Live chat was terminated."
+            : "Live Chat wurde beendet.";
+        messageElement.textContent = txt;
       } else {
         messageElement.textContent = text;
       }

@@ -136,10 +136,11 @@ const i18n = {
     },
   },
   terms: {
-    title: "Auflagen des BAG",
+    title: "Mögliche Auflagen des BAG",
+    description: "",
     mask: "Nein, ich nehme nicht teil, falls Maskenpflicht am Spieltisch gilt.",
     testing:
-      "Nein, ich nehme nicht teil, falls Eintritt nur mit einem Impfausweis oder negativem Testergebnis erlaubt ist.",
+      "Nein, ich nehme nicht teil, falls Eintritt nur mit einem Impfzertifikat oder negativem Testergebnis erlaubt ist.",
   },
   questions: {
     title: "Noch Fragen?",

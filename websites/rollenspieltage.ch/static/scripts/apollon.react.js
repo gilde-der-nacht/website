@@ -211,7 +211,9 @@ class CheckmarkGroup extends React.Component {
           {},
           this.props.title
         ),
-      this.props.description && e("p", {}, this.props.description),
+      this.props.description &&
+        this.props.description.length > 0 &&
+        e("p", {}, this.props.description),
       e("ul", null, ...this.renderCheckmarks())
     );
   }
@@ -559,7 +561,11 @@ class GameListEntry extends React.Component {
             this.props.state.duration +
             " " +
             i18n.gamemastering.hours +
-            (this.props.state.duration === 1 ? "" : "n")
+            (this.props.state.duration === 1
+              ? ""
+              : i18n.language === "de"
+              ? "n"
+              : "s")
         ),
         e(
           "li",
@@ -1250,6 +1256,7 @@ class OutroSection extends React.Component {
           },
         ],
         title: i18n.terms.title,
+        description: i18n.terms.description,
         className: "c-apollon-checkmark-group",
       }),
       e("h3", {}, i18n.questions.title),
@@ -1610,7 +1617,8 @@ class Form extends React.Component {
       {},
       this.copy(this.state)
     );
-    window.location = "/edit?secret=" + res.secret;
+    const langPrefix = i18n.language === "en" ? "/en" : "";
+    window.location = langPrefix + "/edit?secret=" + res.secret;
   };
 
   goToStep = (step) => () => {
