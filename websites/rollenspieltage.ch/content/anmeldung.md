@@ -8,6 +8,7 @@ scripts:
 - 'apollon.de'
 - 'apollon.react'
 react: true
+olymp: true
 ---
 
 <div class="react c-apollon"></div>

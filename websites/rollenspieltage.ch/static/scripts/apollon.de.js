@@ -158,4 +158,8 @@ const i18n = {
     editMaxSmallerThanMin:
       "Die «Minimum» Spieleranzahl muss gleich oder kleiner als die «Maximum» Spieleranzahl sein.",
   },
+  success: {
+    beforeLink: "Danke für deine Anmeldung. Du kannst die Anmeldung unter folgendem Link anpassen:",
+    link: "Anmeldung anpassen",
+  }
 };

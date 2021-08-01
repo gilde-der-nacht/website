@@ -15,4 +15,7 @@
     <script src="https://unpkg.com/react@17/umd/react.{{ if .Site.IsServer }}development{{ else }}production.min{{ end }}.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.{{ if .Site.IsServer }}development{{ else }}production.min{{ end }}.js" crossorigin></script>
     {{ end }}
+    {{ if .Params.olymp }}
+    <script src="https://api.gildedernacht.ch/olymp.js" crossorigin></script>
+    {{ end }}
 </head>

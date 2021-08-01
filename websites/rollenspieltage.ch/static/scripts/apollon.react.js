@@ -1424,6 +1424,29 @@ class ValidationSection extends React.Component {
   }
 }
 
+class SuccessMessage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return e(
+      "div",
+      { className: "c-message c-message--success visible" },
+      e("p", {}, i18n.success.beforeLink),
+      e(
+        "p",
+        {},
+        e(
+          "a",
+          { href: location.origin + this.props.editLink },
+          i18n.success.link
+        )
+      )
+    );
+  }
+}
+
 // Global
 
 class Form extends React.Component {
@@ -1518,6 +1541,7 @@ class Form extends React.Component {
         questions: "",
       },
       step: 1,
+      editLink: "",
     };
   }
 
@@ -1563,12 +1587,27 @@ class Form extends React.Component {
     this.setState(prevState);
   };
 
-  submit = (e) => {
+  copy = (obj) => {
+    return JSON.parse(JSON.stringify(obj));
+  };
+
+  submit = async (e) => {
     e.preventDefault();
     if (this.validate().length > 0) {
       return;
     }
-    console.log(this.state);
+    const olymp = new Olymp({ server: "https://api.gildedernacht.ch" });
+    const res = await olymp.register(
+      "38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf",
+      this.state.intro.email,
+      {},
+      this.copy(this.state)
+    );
+    const { entry_uid, secret } = res;
+    this.setState({ editLink: "/edit?id=" + entry_uid + "&secret=" + secret });
+    setTimeout(() => {
+      document.querySelector("h1").scrollIntoView();
+    }, 0);
   };
 
   goToStep = (step) => () => {
@@ -1590,6 +1629,8 @@ class Form extends React.Component {
         state: this.state.step,
         updateState: this.updateState,
       }),
+      this.state.editLink.length > 0 &&
+        e(SuccessMessage, { editLink: this.state.editLink }),
       this.state.step === 1 &&
         e(IntroSection, {
           state: this.state.intro,
@@ -1621,7 +1662,6 @@ class Form extends React.Component {
         submit: this.submit,
         errors: this.validate(),
       }),
-      e("code", null, JSON.stringify(this.state, null, 2))
     );
   }
 }
