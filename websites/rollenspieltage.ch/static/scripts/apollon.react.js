@@ -1611,9 +1611,10 @@ class Form extends React.Component {
       return;
     }
     const olymp = new Olymp({ server: SERVER });
+    const identification = this.state.secret ? this.state.secret : "";
     const res = await olymp.register(
       RESOURCE_UID,
-      this.state.secret,
+      identification,
       {},
       this.copy(this.state)
     );
