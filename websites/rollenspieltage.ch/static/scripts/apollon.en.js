@@ -68,7 +68,7 @@ const i18n = {
   workshops: {
     title: "Workshops / discussion rounds",
     missingWorkshop:
-      "Are you interested in a workshop/discussion not listed here?",
+      "Are you interested in a workshops / discussion topics not listed here?",
     preferences: {
       yes: "yes",
       no: "no",
