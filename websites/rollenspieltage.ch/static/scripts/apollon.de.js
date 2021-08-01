@@ -3,6 +3,8 @@
 const i18n = {
   general: {
     delete: "Löschen",
+    introDescription:
+      "Wir geben unser Bestes, dir ein möglichst spannendes, auf dich zugeschnittenes Programm zusammenzustellen. Um uns dabei zu helfen, bitten wir dich, uns deine Präferenzen mitzuteilen über dieses Anmeldeformular.",
     helpNeeded:
       "Zögere nicht, uns bei Unklarheiten und Fragen direkt zu kontaktieren.",
   },
@@ -34,7 +36,7 @@ const i18n = {
   },
   time: {
     description:
-      "Bitte wähle die Stunden aus, an denen du am Anlass teilnehmen möchtest. Wir geben unser Bestes, dir ein möglichst spannendes, auf dich zugeschnittenes Programm zusammenzustellen.",
+      "Bitte wähle die Stunden aus, an denen du am Anlass teilnehmen möchtest.",
     title: "Zeitfenster",
     hour: "Uhr",
   },

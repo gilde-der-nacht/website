@@ -820,6 +820,7 @@ class IntroSection extends React.Component {
       "fieldset",
       {},
       e("h2", null, i18n.phases.intro),
+      e("p", null, i18n.general.introDescription),
       e("p", null, i18n.general.helpNeeded),
       e(
         "ul",
