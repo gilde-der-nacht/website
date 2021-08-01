@@ -1,6 +1,7 @@
 "use strict";
 
 const i18n = {
+  language: 'de',
   general: {
     delete: "Löschen",
     introDescription:

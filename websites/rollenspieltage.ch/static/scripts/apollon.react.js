@@ -1440,6 +1440,7 @@ class Form extends React.Component {
       intro: {
         name: "",
         email: "",
+        interfaceLanguage: i18n.language,
         languages: {
           german: true,
           english: false,
