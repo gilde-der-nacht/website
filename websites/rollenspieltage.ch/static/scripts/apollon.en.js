@@ -127,7 +127,8 @@ const i18n = {
     description: "Description",
     patrons: {
       title: "Patrons",
-      description: "Reserved seats for patron players you bring with you",
+      description:
+        "Here you have the possibility to reserve seats in your round for friends who accompany you.",
     },
     buddy: {
       title: "Buddy-system",
@@ -174,6 +175,8 @@ const i18n = {
     editMissingGenres: "Please select at least one genre.",
     editMaxSmallerThanMin:
       'The "Minimum" number of players must be equal to or less than the "Maximum" number of players.',
+    editPatronsCountTooBig:
+      'You cannot reserve all seats for friends ("Patrons" must be less than "Maximum").',
     editLinkNotValid:
       "The current link is incorrect. Please contact us directly via the contact form.",
   },

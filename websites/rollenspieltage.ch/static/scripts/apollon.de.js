@@ -127,7 +127,7 @@ const i18n = {
     description: "Beschreibung",
     patrons: {
       title: "Stammspieler",
-      description: "Reservierte Plätze für Stammspieler",
+      description: "Hier hast du die Möglichkeit, Plätze in deiner Runde für Freunde zu reservieren, die dich begleiten.",
     },
     buddy: {
       title: "Buddy-System",
@@ -174,6 +174,7 @@ const i18n = {
     editMissingGenres: "Bitte wähle mindestens ein Genre aus.",
     editMaxSmallerThanMin:
       "Die «Minimum» Spieleranzahl muss gleich oder kleiner als die «Maximum» Spieleranzahl sein.",
+    editPatronsCountTooBig: "Du kannst nicht alle Plätze für Freunde reservieren («Stammspieler» muss kleiner sein als «Maximum»).",
     editLinkNotValid:
       "Der aktuelle Link ist fehlerhaft. Melde dich allenfalls bei uns direkt per Kontaktformular.",
   },

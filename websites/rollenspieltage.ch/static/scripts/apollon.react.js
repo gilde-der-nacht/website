@@ -94,7 +94,7 @@ class NumberInput extends React.Component {
       "label",
       {},
       this.getLabel(),
-      this.props.description && e("small", {}, this.props.description),
+      this.props.description && e("small", {}, e("br"), this.props.description),
       e("input", {
         name: this.props.name,
         type: "number",
@@ -201,6 +201,13 @@ class CheckmarkGroup extends React.Component {
     );
   };
 
+  renderDescription = () => {
+    if (this.props.bigDescription) {
+      return e("p", {}, this.props.description);
+    }
+    return e("small", { className: "c-apollon-small" }, this.props.description);
+  };
+
   render() {
     return e(
       "div",
@@ -211,9 +218,10 @@ class CheckmarkGroup extends React.Component {
           {},
           this.props.title
         ),
+
       this.props.description &&
         this.props.description.length > 0 &&
-        e("p", {}, this.props.description),
+        this.renderDescription(),
       e("ul", null, ...this.renderCheckmarks())
     );
   }
@@ -424,9 +432,12 @@ class GamemasterGames extends React.Component {
     if (this.validateGenres(genres)) {
       errorKeys.push("editMissingGenres");
     }
-    const { min, max } = playerCount;
+    const { min, max, patrons } = playerCount;
     if (min > max) {
       errorKeys.push("editMaxSmallerThanMin");
+    }
+    if (patrons >= max) {
+      errorKeys.push("editPatronsCountTooBig");
     }
     return errorKeys;
   };
@@ -581,7 +592,7 @@ class GameListEntry extends React.Component {
           e(
             "li",
             {},
-            i18n.gamemastering.patrons.description +
+            i18n.gamemastering.patrons.title +
               ": " +
               this.props.state.playerCount.patrons
           )
@@ -697,6 +708,7 @@ class EditGame extends React.Component {
       }),
       e(NumberInput, {
         label: i18n.gamemastering.patrons.title,
+        description: i18n.gamemastering.patrons.description,
         state: this.props.state.playerCount.patrons,
         disabled: this.props.disabled,
         required: true,
@@ -1179,6 +1191,7 @@ class GamemasterSection extends React.Component {
           ],
           title: i18n.gamemastering.buddy.title,
           description: i18n.gamemastering.buddy.description,
+          bigDescription: true,
           className: "c-apollon-checkmark-group",
         }),
         e(GamemasterGames, {
@@ -1221,6 +1234,7 @@ class OutroSection extends React.Component {
       e(CheckmarkGroup, {
         title: i18n.helping.title,
         description: i18n.helping.description,
+        bigDescription: true,
         className: "c-apollon-options",
         options: this.props.state.helping.map((help) => {
           return {
