@@ -1,7 +1,7 @@
 "use strict";
 
 const i18n = {
-  language: 'de',
+  language: "de",
   general: {
     delete: "Löschen",
     introDescription:
@@ -74,8 +74,21 @@ const i18n = {
       no: "nein",
     },
     list: {
-      workshop_1: "Spielleiter Workshop #1",
-      demo_discussion: "Demo Diskussion",
+      worldbuilding: {
+        title: "Weltenbau mit Rollenspielen",
+        description:
+          "Du möchtest deine eigene Sprache, dein eigenes Königreich oder deine eigene Stadt erfinden? Dem ganzen auch eine Geschichte mit Vergangenheit geben? Wir schauen uns verschiedene Spiele an, die einem dabei helfen.",
+      },
+      whereToBegin: {
+        title: "Wo soll ich anfangen?",
+        description:
+          "Du möchtest gerne ein Rollenspiel mit deinen Freunden spielen? Aber die Unmenge an Büchern, Videos und Podcasts macht einem das Leben auch nicht gerade leichter? Wir reden gemeinsam darüber was ein Rollenspiel ausmacht, erfinden unser eigenes kleines Rollenspiel, dass wir dann auch sogleich ausprobieren. Zum Schluss vergleichen wir das noch mit oft gespielten Rollenspielen.",
+      },
+      gmWorkshop: {
+        title: "Spielleiter:innen Workshop",
+        description:
+          "Du übernimmst die Spielleitung, weisst aber nicht so genau wie weiter. Wir reden darüber was man vorbereiten kann, was es für Hilfsmittel gibt und dem vielleicht schwierigsten Punkt, dass trotz allem, du eine flexible Person am Tisch sein musst. Was auch immer deine Fragen zu dem Thema sind, gemeinsam finden wir bestimmt eine gute Idee.",
+      },
     },
     addLabel: "hinzufügen",
   },
@@ -105,7 +118,7 @@ const i18n = {
     saveGameround: "Spielrunde speichern",
     editGameround: "Spielrunde bearbeiten",
     gameTitle: "Titel",
-    duration: "Dauer",
+    duration: "Dauer (in Stunden)",
     hours: "Stunde",
     minimum: "Minimum",
     maximum: "Maximum",

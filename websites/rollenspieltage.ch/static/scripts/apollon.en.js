@@ -45,7 +45,7 @@ const i18n = {
   genres: {
     title: "Genres",
     description:
-      "Are you missing a specific role-playing game? We made a conscious decision this year not to offer any specific game rounds. We want to cater to those who are new to the hobby and those who are brave and want to try something out..",
+      "Are you missing a specific role-playing game? We made a conscious decision this year not to offer any specific game rounds. We want to cater to those who are new to the hobby and those who are brave and want to try something out.",
     missingGenre: "Are you missing a genre?",
     preferences: {
       yes: "gladly",
@@ -74,14 +74,27 @@ const i18n = {
       no: "no",
     },
     list: {
-      workshop_1: "Spielleiter Workshop #1",
-      demo_discussion: "Demo Diskussion",
+      worldbuilding: {
+        title: "World-building with Roleplaying Games",
+        description:
+          "Inventing your own language? Your own kingdom? City? Or a history for everything mentioned? We look at different roleplaying games, which help us to achieve this.",
+      },
+      whereToBegin: {
+        title: "Where should I begin?",
+        description:
+          "You like to play a roleplaying game with your friends? But countless number of books, videos and podcasts don't make your life easier? We talk together about the basics of many roleplaying games, invent our own tiny roleplaying game, which we immediately try to play. At the end, let us compare this with other, quite often played games.",
+      },
+      gmWorkshop: {
+        title: "GM Workshop",
+        description:
+          "You took the role of the GM, but don't know exactly how to proceed? We talk together what can be prepared, what tools exist but also about the most difficult point, that despite all preparations, you still have to be quite flexible at the table. Whatever question you have, together we will find an answer.",
+      },
     },
     addLabel: "add",
   },
   gaming: {
     description:
-      "For all our game rounds you don't need any previous experience. You don't need to prepare anything and you don't need to bring anything except a little bit of excitement.",
+      "You don't need any previous experience for any of our game rounds. You don't need to prepare anything and you don't need to bring anything except a little bit of excitement.",
     participate: "Yes, I would like to participate as a player.",
     gameroundTypes: {
       title: "Types of game rounds",
@@ -105,7 +118,7 @@ const i18n = {
     saveGameround: "save game round",
     editGameround: "edit game round",
     gameTitle: "Title",
-    duration: "Duration",
+    duration: "Duration (in hours)",
     hours: "Hour",
     minimum: "Minimum",
     maximum: "Maximum",

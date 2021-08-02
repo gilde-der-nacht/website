@@ -19,7 +19,7 @@ const GENRE_LIST = [
   "history",
 ];
 
-const WORKSHOP_LIST = ["workshop_1", "demo_discussion"];
+const WORKSHOP_LIST = ["worldbuilding", "whereToBegin", "gmWorkshop"];
 
 // Components
 
@@ -333,6 +333,11 @@ class Grid extends React.Component {
 
   renderList = () => {
     return this.props.state.map((entry) => {
+      const withDescription = !!this.props.withDescription;
+      const label = withDescription
+        ? i18n[this.props.type].list[entry.name].title
+        : i18n[this.props.type].list[entry.name];
+
       return e(
         React.Fragment,
         { key: entry.name },
@@ -342,14 +347,18 @@ class Grid extends React.Component {
             fix: entry.fix,
             onClick: () => this.props.deleteEntryFromGrid(entry.name),
           },
-          i18n[this.props.type].list[entry.name]
-            ? i18n[this.props.type].list[entry.name]
-            : entry.label
+          label ? label : entry.label
         ),
         e(RadioGroup, {
           options: this.buildOptions(entry),
           groupName: entry.name,
-        })
+        }),
+        withDescription &&
+          e(
+            "div",
+            { className: "c-apollon-grid-description" },
+            i18n[this.props.type].list[entry.name].description
+          )
       );
     });
   };
@@ -1021,6 +1030,7 @@ class PlayerSection extends React.Component {
                 },
               ],
               state: this.props.state.workshops,
+              withDescription: true,
               type: "workshops",
               disabled: !this.props.state.role,
               title: i18n.workshops.title,

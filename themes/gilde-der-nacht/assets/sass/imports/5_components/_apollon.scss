@@ -181,8 +181,16 @@
       }
     }
 
+    .c-apollon-grid-description {
+      grid-column: 1 / -1;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
     &.three {
-      grid-template-columns: 2fr repeat(2, 1fr);
+      grid-template-columns: 3fr repeat(2, 1fr);
     }
 
     &.four {
