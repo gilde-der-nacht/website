@@ -565,16 +565,7 @@ class GameListEntry extends React.Component {
         e(
           "li",
           {},
-          i18n.gamemastering.duration +
-            ": " +
-            this.props.state.duration +
-            " " +
-            i18n.gamemastering.hours +
-            (this.props.state.duration === 1
-              ? ""
-              : i18n.language === "de"
-              ? "n"
-              : "s")
+          i18n.gamemastering.duration + ": " + this.props.state.duration
         ),
         e(
           "li",
