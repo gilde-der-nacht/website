@@ -1447,7 +1447,6 @@ class Form extends React.Component {
       intro: {
         name: "",
         email: "",
-        interfaceLanguage: i18n.language,
         languages: {
           german: true,
           english: false,
@@ -1615,7 +1614,9 @@ class Form extends React.Component {
     const res = await olymp.register(
       RESOURCE_UID,
       identification,
-      {},
+      {
+        interfaceLanguage: i18n.language,
+      },
       this.copy(this.state)
     );
     const langPrefix = i18n.language === "en" ? "/en" : "";
