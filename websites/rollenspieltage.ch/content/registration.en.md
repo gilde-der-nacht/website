@@ -7,6 +7,9 @@ scripts:
 - 'apollon.react'
 react: true
 olymp: true
+menu:
+  main:
+    weight: 20
 ---
 
 <div class="react c-apollon"></div>
