@@ -343,7 +343,9 @@ class Grid extends React.Component {
     return this.props.state.map((entry) => {
       const withDescription = !!this.props.withDescription;
       const label = withDescription
-        ? i18n[this.props.type].list[entry.name].title
+        ? i18n[this.props.type].list[entry.name]
+          ? i18n[this.props.type].list[entry.name].title
+          : entry.name
         : i18n[this.props.type].list[entry.name];
 
       return e(
@@ -362,6 +364,8 @@ class Grid extends React.Component {
           groupName: entry.name,
         }),
         withDescription &&
+          i18n[this.props.type].list[entry.name] &&
+          i18n[this.props.type].list[entry.name].description &&
           e(
             "div",
             { className: "c-apollon-grid-description" },
