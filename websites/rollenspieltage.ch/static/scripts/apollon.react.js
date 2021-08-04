@@ -5,7 +5,7 @@ const e = React.createElement;
 const SERVER = "https://api.gildedernacht.ch";
 
 const RESOURCE_UID =
-  "38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf";
+  "43089652be549a1867a39e64e714c833e01168e1a14a1f4c627a11542ebd1209";
 
 const GENRE_LIST = [
   "fantasy",
