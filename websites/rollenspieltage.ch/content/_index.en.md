@@ -14,27 +14,21 @@ jumbotronImage:
 
 _First time here? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
 
-Dear friends of role-playing 
+Dear roleplayers, dear game masters, dear helpers
 
-The Luzerner Rollenspieltage are to take place again this year. We have put our heads together and thought about how this event should be held.
+**We are pleased to announce that the Luzerner Rollenspieltage 2021 will take place.**
 
-Since the Gilde der Nacht traditionally organizes offline events and personal exchange is an important factor to us, we are planning to hold the Rollenspieltage 2021 on site again. 
+From 28.8.21 13:00 until 29.8.21 19:00 there will be a variety of tabletop roleplaying sessions – for all those who would like to set foot into the world of roleplaying, but also for experienced players who would like to try something new.
 
-We will decide whether the event can be carried out on August 1st. An alternative programme is not currently planned.
+The Luzerner Rollenspieltage will be located at the Pfarrei St. Johannes at Schädrütistrasse 26 in 6006 Luzern (CH). Therefore, we will meet physically on site and not online. Food will be provided and participation is free of charge.
 
-So, save the date of August 28th and 29th, 2021! We will inform you again here on August 1st.
+You can register for the roleplaying rounds with this [registration form]({{< ref "registration" >}}). If you would like to run a session as game master or support us as a helper, you can also register there.
 
-We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
+Should the government adjust the measures for public events during August, we will inform you about a cancellation on 26.8.21 at the latest.
 
-{{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
+**We are looking forward seeing you!**
 
-# Game masters
-
-Esteemed game masters: Would you be willing to offer a roleplaying game on August 28th or 29th?
-
-Please [contact us via form]({{< ref "contact" >}}) if you’d like to guide a round.
-
-{{< minitron url="/images/luzerner-rollenspieltag-2018-21.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-21.jpg" offset="40%" >}}
+Information on how to get there can be found further down. If you have any questions, just get in touch with us via the [contact form]({{< ref "contact" >}}) or [live chat]({{< ref "livechat" >}}).
 
 # Informations
 
@@ -46,4 +40,4 @@ Please [contact us via form]({{< ref "contact" >}}) if you’d like to guide a r
 
 From the Lucerne train station, the location is easily reached in 15 minutes by bus 8 (Würzenbachmatte) or bus 14 (Schlösslirain).
 
-A (fee required) parking garage is 5 minutes walk away. Belongs to the Spar supermarket at the address [Würzenbachstrasse 19, Lucerne](https://www.google.com/maps/place/SPAR+Supermarkt+Luzern-W%C3%BCrzenbach/@47.0550262,8.3416737,17z/data=!3m1!4b1!4m5!3m4!1s0x478ffbe48d8adf9d:0xdd347929f81510b5!8m2!3d47.0550262!4d8.3438624).
+A (fee required) parking garage is 5 minutes walk away. Belongs to the Migros supermarket at the address [Würzenbachstrasse 19, Lucerne](https://www.google.com/maps/place/Migros+Supermarkt/@47.0548083,8.3433408,18.5z/data=!4m5!3m4!1s0x478ffb4e3b438fcf:0x44bae0889972cca5!8m2!3d47.0550141!4d8.3437071).
