@@ -1073,6 +1073,7 @@ class PlayerSection extends React.Component {
           e(TextInput, {
             label: i18n.gaming.companions.names,
             disabled: !this.props.state.role,
+            state: this.props.state.companions.names,
             handleChange: (_, value) =>
               this.updateStatePlayer("companions", {
                 ...this.props.state.companions,
