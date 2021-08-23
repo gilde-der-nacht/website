@@ -135,7 +135,6 @@ class Program extends React.Component {
     }
 
     render() {
-        console.log(this.state.name);
         return e(
             React.Fragment, null,
             e("h2", null, "Für ",
@@ -145,6 +144,9 @@ class Program extends React.Component {
             ),
             this.availableAt("saturday") && e(ProgramDay, { state: this.getProgramAt("saturday"), title: "Samstag, 28. August 2021" }),
             this.availableAt("sunday") && e(ProgramDay, { state: this.getProgramAt("sunday"), title: "Sonntag, 29. August 2021" }),
+            this.state.helping && this.state.helping.length > 0 && e("h4", null, "Helfereinteilung"),
+            this.state.helping && this.state.helping.length > 0 && "Die finale Helfereinteilung wurde noch nicht gemacht. Du wirst demnächst kontaktiert deswegen.",
+            e("hr"),
             e("pre", null, JSON.stringify(this.state, null, 2))
         );
     }
