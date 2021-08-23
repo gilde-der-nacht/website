@@ -2,15 +2,8 @@
 title: "Edit registration"
 slug: "edit"
 date: 2021-08-01
-scripts:
-- 'apollon.en'
-- 'apollon.react'
-react: true
-olymp: true
 ---
 
-<script>
-    window.apollonEditMode = true;
-</script>
+The registration period has expired and therefore your registration can no longer be edited.
 
-<div class="react c-apollon"></div>
+We will send you your personal program soon.

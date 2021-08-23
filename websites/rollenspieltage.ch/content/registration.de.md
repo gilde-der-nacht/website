@@ -4,14 +4,8 @@ slug: "anmeldung"
 aliases:
 - /registration/
 date: 2021-05-29
-scripts:
-- 'apollon.de'
-- 'apollon.react'
-react: true
-olymp: true
-menu:
-  main:
-    weight: 20
 ---
 
-<div class="react c-apollon"></div>
+Die Anmeldefrist ist abgelaufen. Wir schalten demnächst das Programm auf.
+
+Die meisten Spielrunden haben noch Platz frei, komm doch vorbei und mach auch ohne Anmeldung mit.
