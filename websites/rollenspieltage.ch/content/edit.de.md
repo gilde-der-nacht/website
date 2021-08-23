@@ -2,8 +2,15 @@
 title: "Anmeldung anpassen"
 slug: "edit"
 date: 2021-05-29
+scripts:
+- 'apollon.de'
+- 'apollon.react'
+react: true
+olymp: true
 ---
 
-Die Anmeldefrist ist abgelaufen und somit kann deine Anmeldung nicht mehr editiert werden.
+<script>
+    window.apollonEditMode = true;
+</script>
 
-Wir schicken dir demnächst dein persönliches Programm zu.
+<div class="react c-apollon"></div>
