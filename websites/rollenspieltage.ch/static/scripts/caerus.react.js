@@ -146,8 +146,8 @@ class Program extends React.Component {
             this.availableAt("sunday") && e(ProgramDay, { state: this.getProgramAt("sunday"), title: "Sonntag, 29. August 2021" }),
             this.state.helping && this.state.helping.length > 0 && e("h4", null, "Helfereinteilung"),
             this.state.helping && this.state.helping.length > 0 && "Die finale Helfereinteilung wurde noch nicht gemacht. Du wirst demnächst kontaktiert deswegen.",
-            e("hr"),
-            e("pre", null, JSON.stringify(this.state, null, 2))
+            // e("hr"),
+            // e("pre", null, JSON.stringify(this.state, null, 2))
         );
     }
 }
