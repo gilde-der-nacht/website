@@ -57,7 +57,9 @@ class ProgramDay extends React.Component {
                                 duration > 1 && e("br"),
                                 duration > 1 && e("em", null, (Number(hour) + duration) + " Uhr")
                             ),
-                            e("span", null, "Frei"),
+                            this.props.helping ?
+                                e("span", null, "Frei / Helfen") :
+                                e("span", null, "Frei"),
                         )
                     }
 
@@ -144,8 +146,8 @@ class Program extends React.Component {
                 this.state.companion_count > 0 && e("br"),
                 this.state.companion_count > 0 && e("span", null, "und ", e("span", { className: "c-caerus-friend-list" }, this.state.companion_names.join(" und "))),
             ),
-            this.availableAt("saturday") && e(ProgramDay, { state: this.getProgramAt("saturday"), title: "Samstag, 28. August 2021" }),
-            this.availableAt("sunday") && e(ProgramDay, { state: this.getProgramAt("sunday"), title: "Sonntag, 29. August 2021" }),
+            this.availableAt("saturday") && e(ProgramDay, { state: this.getProgramAt("saturday"), title: "Samstag, 28. August 2021", helping: (this.state.helping && this.state.helping.length > 0) }),
+            this.availableAt("sunday") && e(ProgramDay, { state: this.getProgramAt("sunday"), title: "Sonntag, 29. August 2021", helping: (this.state.helping && this.state.helping.length > 0) }),
             this.state.helping && this.state.helping.length > 0 && e("h4", null, "Helfereinteilung"),
             this.state.helping && this.state.helping.length > 0 && "Die finale Helfereinteilung wurde noch nicht gemacht. Du wirst demnächst kontaktiert deswegen.",
             // e("hr"),
