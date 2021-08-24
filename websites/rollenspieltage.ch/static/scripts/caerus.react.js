@@ -58,7 +58,7 @@ class ProgramDay extends React.Component {
                                 duration > 1 && e("em", null, (Number(hour) + duration) + " Uhr")
                             ),
                             this.props.helping ?
-                                e("span", null, "Frei / Helfen") :
+                                e("span", null, "Frei / Helfen (Helferplan folgt demnächst)") :
                                 e("span", null, "Frei"),
                         )
                     }
