@@ -4,7 +4,12 @@
     border: 10px solid transparent;
     border-top: none;
     padding: 10px;
-    border-image: linear-gradient(to bottom,var(--primary-brand-color) 0%,var(--dark-grey-color) 75%,var(--contrast-brand-color) 100%);
+    border-image: linear-gradient(
+        to bottom,
+        var(--primary-brand-color) 0%,
+        var(--dark-grey-color) 75%,
+        var(--contrast-brand-color) 100%
+    );
     border-image-slice: 1;
 }
 
@@ -14,21 +19,29 @@
 }
 
 .c-rounds div.c-container .c-btn.c-register {
-	background-color: var(--contrast-brand-color);
-	border-color: var(--contrast-brand-color);
+    background-color: var(--contrast-brand-color);
+    border-color: var(--contrast-brand-color);
 }
 
 .c-rounds div.c-container .c-btn.c-register:hover,
 .c-rounds div.c-container .c-btn.c-register:active {
-	background-color: var(--primary-brand-color);
-	border-color: var(--primary-brand-color);
-	cursor: pointer;
+    background-color: var(--primary-brand-color);
+    border-color: var(--primary-brand-color);
+    cursor: pointer;
 }
 
 .c-rounds {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-gap: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    > :nth-child(2n) {
+        margin-inline-start: 5rem;
+    }
+
+    > :nth-child(2n + 1) {
+        margin-inline-end: 5rem;
+    }
 
     label {
         background-color: var(--light-grey-color);
@@ -55,8 +68,8 @@
         }
     }
 
-    label.round-active, div.c-container {
-
+    label.round-active,
+    div.c-container {
         .c-btn {
             background-color: var(--primary-brand-color);
             border-color: var(--primary-brand-color);
@@ -78,14 +91,13 @@
         }
     }
 
-    input[type=checkbox] {
+    input[type="checkbox"] {
         display: none;
     }
 
-    input[type=button] {
+    input[type="button"] {
         pointer-events: none;
     }
-
 }
 
 #apollon-summary td {

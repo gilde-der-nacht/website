@@ -2,6 +2,7 @@
 title: "Program"
 date: 2019-06-21
 toc: true
+draft: true
 ---
 
 **If not specifically noted, the rounds will be played in German.**
