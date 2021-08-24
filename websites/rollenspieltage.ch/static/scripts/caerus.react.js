@@ -18,10 +18,12 @@ class ProgramDay extends React.Component {
         Object.entries(this.props.state).forEach(([hour, details]) => {
             const lastEntry = list.length ? list[list.length - 1] : { details: { game_id: undefined } };
 
-            if (hour === "12") {
-                list.push({ hour, details: { title: "Mittagspause" }, duration: 1 })
+            if (hour === "12" && this.props.title === "Samstag, 28. August 2021") {
+                list.push({ hour, details: { title: "Mittagessen (Kiosk verfügbar)" }, duration: 1 })
+            } else if (hour === "12") {
+                list.push({ hour, details: { title: "Mittagessen (warme Küche mit Menü verfügbar)" }, duration: 1 })
             } else if (hour === "19") {
-                list.push({ hour, details: { title: "Znachtpause" }, duration: 1 })
+                list.push({ hour, details: { title: "Abendessen (warme Küche mit Menü verfügbar)" }, duration: 1 })
             } else if (details === null) {
                 if (lastEntry.details === null) {
                     lastEntry.duration += 1;
