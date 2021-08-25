@@ -28,6 +28,15 @@ toc: false
 - Chef/Ansprechsperson (nur eine!) pro Thema festlegen
 - Von Beginn an festlegen was gemacht wird wenn eine Ansprechsperson Ihren Aufgaben nicht nachkommt
 
+### Offene Punkte
+
+- Für jede Aufgabe gibt eine einzige zuständige Person
+- Sich über Kommunikationsmittel einigen (Discord, Mail, Whatsapp, Trello, …)
+- Die Person die für eine Aufgabe zuständig ist, sagt selber an bis wann sie ein ein vorgegebenes Ziel erreicht, wird der Termin - - unbegründet nicht erreicht, … ???
+- Wer 2 mal unentschuldigt nicht an ein OK Treffen kommt, … ???
+- Was möchte man erreichen? Was sind die Ziele?
+- Was sind keine Ziele?
+
 ## Datum
 
 ### Aufgaben
