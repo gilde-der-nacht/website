@@ -18,7 +18,17 @@ class ProgramDay extends React.Component {
         Object.entries(this.props.state).forEach(([hour, details]) => {
             const lastEntry = list.length ? list[list.length - 1] : { details: { game_id: undefined } };
 
-            if (hour === "12" && this.props.title.startsWith("Samstag")) {
+
+            if (details && details.title.startsWith("Helfereinsatz")) {
+                if (lastEntry.details === null) {
+                    list.push({ hour, details, duration: 1 });
+                } else if (lastEntry.details.game_id === details.game_id) {
+                    lastEntry.duration += 1;
+                } else {
+                    list.push({ hour, details, duration: 1 });
+                }
+            }
+            else if (hour === "12" && this.props.title.startsWith("Samstag")) {
                 list.push({ hour, details: { title: "Mittagessen (Kiosk verfügbar)" }, duration: 1 })
             } else if (hour === "12") {
                 list.push({ hour, details: { title: "Mittagessen (warme Küche mit Menü verfügbar)" }, duration: 1 })
@@ -57,9 +67,7 @@ class ProgramDay extends React.Component {
                                 duration > 1 && e("br"),
                                 duration > 1 && e("em", null, (Number(hour) + duration) + " Uhr")
                             ),
-                            this.props.helping ?
-                                e("span", null, "Frei / Helfen (Helferplan folgt demnächst)") :
-                                e("span", null, "Frei"),
+                            e("span", null, "Frei"),
                         )
                     }
 
@@ -70,7 +78,7 @@ class ProgramDay extends React.Component {
                         );
                     }
 
-                    return e("li", { key: hour, className: "c-caerus-entry c-caerus-program-entry c-caerus-duration-" + duration },
+                    return e("li", { key: hour, className: "c-caerus-entry " + (details.title.startsWith("Helfereinsatz") ? "" : "c-caerus-program-entry") + " c-caerus-duration-" + duration },
                         e("span", null, hour + " Uhr",
                             duration > 1 && e("br"),
                             duration > 1 && e("em", null, "bis"),
@@ -78,7 +86,8 @@ class ProgramDay extends React.Component {
                             duration > 1 && e("em", null, (Number(hour) + duration) + " Uhr")
                         ),
                         e("span", null,
-                            details.title + " [#" + details.game_id + "]",
+                            details.title,
+                            !details.title.startsWith("Helfereinsatz") && " [#" + details.game_id + "]",
                             details.is_organiser && e("span", null, "(Leitung)"),
                             details.is_organiser && e("span", null, details.attendees_str),
                         ),
@@ -148,8 +157,8 @@ class Program extends React.Component {
             ),
             this.availableAt("saturday") && e(ProgramDay, { state: this.getProgramAt("saturday"), title: "Samstag, 28. August 2021", helping: (this.state.helping && this.state.helping.length > 0) }),
             this.availableAt("sunday") && e(ProgramDay, { state: this.getProgramAt("sunday"), title: "Sonntag, 29. August 2021", helping: (this.state.helping && this.state.helping.length > 0) }),
-            this.state.helping && this.state.helping.length > 0 && e("h4", null, "Helfereinteilung"),
-            this.state.helping && this.state.helping.length > 0 && "Die finale Helfereinteilung wurde noch nicht gemacht. Du wirst demnächst kontaktiert deswegen.",
+            // this.state.helping && this.state.helping.length > 0 && e("h4", null, "Helfereinteilung"),
+            // this.state.helping && this.state.helping.length > 0 && "Die finale Helfereinteilung wurde noch nicht gemacht. Du wirst demnächst kontaktiert deswegen.",
             // e("hr"),
             // e("pre", null, JSON.stringify(this.state, null, 2))
         );
