@@ -54,7 +54,7 @@
         }
     }
 
-    $durations: 1, 2, 3, 4, 5, 6;
+    $durations: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
     @each $duration in $durations {
         .c-caerus-duration-#{$duration} > span {
             grid-row: span #{$duration};
