@@ -1,8 +1,27 @@
 ---
-title: "What I Like Glossary"
+title: "Selbsteinschätzung"
 date: 2021-08-13
 toc: false
 ---
+
+# Selbsteinschätzung
+
+Drei verschiedene Arten sich Gedanken über seine eigene Wünsche und Vorlieben zu machen.
+
+In allen Beispielen, ist keine Kategorie wertend, d.h. weder positiv noch negativ.
+
+## Robin D. Laws Spieler Typen
+
+- Power Gamer: Charakter soll der beste sein
+- Butt-Kicker: Möglichst viel Unfrieden stiften
+- Tactician: Logisch handeln
+- Specialist: Spielt immer einen spezifischen Archetypen
+- Method Actor: Möchte sich so ausdrücken wie es sein Charakter tun würde
+- Casual Gamer: Das gemeinsame spielen an sich ist das wichtigste
+
+Robin's Law Of Good Game Mastering (Robin D. Laws, Steve Jackson Games, 2002, [sjgames.com](https://www.sjgames.com/robinslaws/))
+
+## What I Like Glossary
 
 ***Agon***: Der Nervenkitzel, gegen eine andere Person am Tisch zu gewinnen.
 
@@ -68,3 +87,16 @@ toc: false
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
 https://sites.google.com/site/amagigames/the-what-i-like-glossary
+
+## MDA Framework
+
+- Sinneseindrücke (Sensation): Hintergrundmusik, Stimmen immitieren, Würfeln, Figuren bewegen, ...
+- Illusion (Fantasy): Eintauchen in einer andere Welt
+- Erzählung (Narrative): Das erleben von Geschichten
+- Herausforderung (Challenge): Gewinnen und Verlieren
+- Zusammenspiel (Fellowship): Mit Freunden etwas zusammen machen
+- Entdecken (Discovery): Die Welt erkunden, Gegenstände finden, unbekannten Monstern auflauern, ...
+- Ausdrucksform (Expression): Eeinen Charakter mit all seinen positiven und negativen Seiten ausspielen
+- Beschäftigung (Submission): Unterhaltender Zeitvertreib
+
+https://en.wikipedia.org/wiki/MDA_framework

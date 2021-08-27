@@ -78,7 +78,7 @@ toc: false
   - Improvisationsmaxime: "ja und"
   - Was möchte ich? Was möchte meine Gruppe? Was mache ich für mich, was für andere?
   - Feedback: Stars and Wishes / Sterne und Wünsche
-  - Beispiel: What I Like Glossary
+  - [Selbsteinschätzung](../selbsteinschaetzung)
 - Hilfsmittel
   - Story Dice
   - The Story Engine Deck
@@ -109,6 +109,3 @@ toc: false
 - Maihre Spielleitertipps: [youtube.com](https://www.youtube.com/watch?v=rxGEVbAQ7So)
 - Play Unsafe: How Improvisation Can Change The Way You Roleplay (Graham Walmsley, 2009)
 - The Lazy Dungeon Master (Mike Shea, 2012, [slyflourish.com](https://slyflourish.com/lazydm/)) und Return of the Lazy Dungeon Master (Mike Shea, 2018, [slyflourish.com](https://slyflourish.com/returnofthelazydm/))
-- [What I Like Glossary](../what_i_like_glossary)
-- [MDA Framework](../mda_framework)
-- [Robin D. Laws Spieler Typen](../robin_d_laws_spieler_typen)
