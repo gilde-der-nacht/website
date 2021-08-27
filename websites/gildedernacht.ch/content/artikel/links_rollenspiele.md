@@ -1,5 +1,5 @@
 ---
-title: "Links Rollenspieltage"
+title: "Links Rollenspiele"
 date: 2019-05-01
 toc: true
 ---

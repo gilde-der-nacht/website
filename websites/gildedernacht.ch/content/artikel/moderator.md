@@ -4,9 +4,7 @@ date: 2018-12-09
 toc: false
 ---
 
-# Moderator
-
-Playing Games: "the voluntary attempt to overcome unnecessary obstacles" Bernard Suits
+> Playing Games: "the voluntary attempt to overcome unnecessary obstacles" — Bernard Suits
 
 ## Diskussionsrunde
 
