@@ -38,30 +38,77 @@ toc: false
 
 # Wo soll ich anfangen?
 
-- Session/Sitzung 0
+## Session/Sitzung 0
+
   - Charaktere
   - Motivation aller Teilnehmer: Zusammenarbeit, Fairness, ...
-  - Kein Gegeneinander
   - Wünsche: Ja gerne, Nein danke, ...
-  - Aufgabenteilung
-- Spielleiter:in Vorbereitung
-  - 1/2 Seite Regel Zusammenfassung
-  - Kleine Bühne
-  - Bausteine: NPCs, Orte, ...
-  - 3 Herausforderungen
-- Erste Spielrunde
+- Aufgabenteilung: Zeit, Ort, Snacks, Bücher Kaufen, ...
+- Kein Gegeneinander, mögt einander!
+- Begriffe: GM/MC, W6, D&D5e, ...
+
+## Spielleiter:in Vorbereitung
+
+- 1/2 Seite eigene Regel Zusammenfassung
+- Bausteine: NPCs, Orte, Gegenstände, Fraktionen, Szenen/Herausforderungen ...
+- Kopieren, verändern, ungewöhnlich machen
+- Kleine Bühne: Schiff auf dem Meer, Im Gefängniss, Kleinstadt, Dungeon, ...
+- Nicht mehr als 3 Herausforderungen
+- Gleichgewicht Vorbereitung/Improvisation
+
+## Erste Spielrunde
+
   - Beisammensein
-  - ???
-  - Geschenke: Erfahrung, Items, ...
+- Improvisation! (Spieler:innen werden kaum etwas wie geplant verwenden)
+- Notizen
+- Geschenke: Erfahrung, Gegenstände, ...
   - Rückmeldung & Wünsche
-  - Spontanität (Spieler:innen werden kaum etwas wie geplant verwenden)
+
+## Weiterführendes
+
+- Maihre Spielleitertipps: [youtube.com](https://www.youtube.com/watch?v=rxGEVbAQ7So)
+- Laser & Feelings: [erzaehlspiel-zine.de](https://www.erzaehlspiel-zine.de/ausgaben/ausgabe_null/lasers_and_feelings/)
 
 # Spielleiter:innen Workshop
 
 - Aufgabenverteilung: SL, Charaktererstellung, Snacks, Initiative- und Lebensverwaltung, Würfeln für den SL, Orakel, ...
+- Miteinander
+  - Umgang mit Widersprüchen: Zugeben, Verschieben, ...
+  - Fans voneinander sein
+  - Improvisationsmaxime: "ja und"
+  - Was möchte ich? Was möchte meine Gruppe? Was mache ich für mich, was für andere?
+  - Feedback: Stars and Wishes / Sterne und Wünsche
+  - Beispiel: What I Like Glossary
+- Hilfsmittel
+  - Story Dice
+  - The Story Engine Deck
 - Orakel/Listen/Generatoren: Karten, NPC, Flora, Fauna, Story, ...
-- Story Struktur: Linear, Verzweigungen, Inseln
-- Fiction First vs Rules
-- Was möchte ich, was möchte meine Gruppe
-- Feedback: Stars and Wishes / Sterne und Wünsche
-- Umgang mit Widersprüchen (Zugeben, Verschieben, ...)
+  - [Links Rollenspiele](../links_rollenspiele)
+- Charaktere
+  - Innere Konflikte (Ziele, Träume, Moral, Religion, ...)
+  - Äussere Konflikte (Rivalität, Beziehungen, Politik, ...)
+  - Gute Bösewichte haben auch Konflikte, ... sie sind nicht nur einfach "böse"
+- Mögliche Probleme
+  - Spieler-Charakter stirbt?
+  - Ganze Gruppe stirbt?
+  - Bösewicht frühzeitig im Himmel?
+  - Gruppe teilt sich auf?
+  - Magier/Hacker verliert sich in Listen und Tabellen?
+- Story
+  - Struktur: Linear, Verzweigungen, Inseln
+  - Besser handeln als erzählen: Handlung >> Erzählung
+  - Alle Sinne ansprechen: Geräusche, Gerüche, ...
+  - Spieler:innen müssen sich erklären: Der Turm brennt ... warum bist du dort?
+- Rollenspieltypen
+  - D&D alike
+  - PbtA alike
+  - GMless alike
+
+## Weiterführendes
+
+- Maihre Spielleitertipps: [youtube.com](https://www.youtube.com/watch?v=rxGEVbAQ7So)
+- Play Unsafe: How Improvisation Can Change The Way You Roleplay (Graham Walmsley, 2009)
+- The Lazy Dungeon Master (Mike Shea, 2012, [slyflourish.com](https://slyflourish.com/lazydm/)) und Return of the Lazy Dungeon Master (Mike Shea, 2018, [slyflourish.com](https://slyflourish.com/returnofthelazydm/))
+- [What I Like Glossary](../what_i_like_glossary)
+- [MDA Framework](../mda_framework)
+- [Robin D. Laws Spieler Typen](../robin_d_laws_spieler_typen)
