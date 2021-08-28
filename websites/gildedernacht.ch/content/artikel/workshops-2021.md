@@ -24,7 +24,7 @@ toc: false
 - 1/2 Seite eigene Regel Zusammenfassung
 - Bausteine: NPCs, Orte, Gegenstände, Fraktionen, Szenen/Herausforderungen ...
 - Kopieren, verändern, ungewöhnlich machen
-- Kleine Bühne: Schiff auf dem Meer, Im Gefängniss, Kleinstadt, Dungeon, ...
+- Kleine Bühne: Schiff auf dem Meer, Im Gefängnis, Kleinstadt, Dungeon, ...
 - Nicht mehr als 3 Herausforderungen
 - Gleichgewicht Vorbereitung/Improvisation
 
@@ -55,22 +55,28 @@ toc: false
   - Story Dice
   - The Story Engine Deck
   - Orakel/Listen/Generatoren: Karten, NPC, Flora, Fauna, Story, ...
+  - Rollenspiele mit Generator: Maze Rats, Worlds without Numbers, ...
   - [Links Rollenspiele](../links_rollenspiele)
 - Charaktere
   - Innere Konflikte (Ziele, Träume, Moral, Religion, ...)
   - Äussere Konflikte (Rivalität, Beziehungen, Politik, ...)
   - Gute Bösewichte haben auch Konflikte, ... sie sind nicht nur einfach "böse"
+  - Beziehungen und Standesunterschiede zwischen Charakteren
 - Mögliche Probleme
   - Spieler-Charakter stirbt?
   - Ganze Gruppe stirbt?
-  - Bösewicht frühzeitig im Himmel?
+  - Bösewicht zu früh im Himmel?
   - Gruppe teilt sich auf?
   - Magier/Hacker verliert sich in Listen und Tabellen?
+  - Spieler sind wandelende Schränke? "Inventar" stimmt schon lange nicht mehr?
+  - Spieler: würfelt ... Spielleiter: nichts passiert
+  - Gruppenbegleitende übermächtige NPCs?
 - Story
   - Struktur: Linear, Verzweigungen, Inseln
-  - Besser handeln als erzählen: Handlung >> Erzählung
+  - Besser handeln als erzählen
   - Alle Sinne ansprechen: Geräusche, Gerüche, ...
   - Spieler:innen müssen sich erklären: Der Turm brennt ... warum bist du dort?
+  - Lebendige Welt, die ein eigenes Leben hat
 - Rollenspieltypen
   - D&D alike
   - PbtA alike
