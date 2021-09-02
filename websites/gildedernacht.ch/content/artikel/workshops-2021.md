@@ -17,7 +17,7 @@ toc: false
 - Wünsche: Ja gerne, Nein danke, ...
 - Aufgabenteilung: Zeit, Ort, Snacks, Bücher Kaufen, ...
 - Kein Gegeneinander, mögt einander!
-- Begriffe: GM/MC, W6, D&D5e, ...
+- Begriffe: GM, MC, W100, D100, D&D5e, XP, Min/Max, Meta-Game, Level-Up, PK, TPK, PbtA, FitD, ...
 
 ## Spielleiter:in Vorbereitung
 
@@ -47,7 +47,7 @@ toc: false
 - Miteinander
   - Umgang mit Widersprüchen: Zugeben, Verschieben, ...
   - Fans voneinander sein
-  - Improvisationsmaxime: "ja und"
+  - Improvisationsmaxime: "ja und" (auch "ja aber", ein einfaches "Nein" vermeiden)
   - Was möchte ich? Was möchte meine Gruppe? Was mache ich für mich, was für andere?
   - Feedback: Stars and Wishes / Sterne und Wünsche
   - [Selbsteinschätzung](../selbsteinschaetzung)
@@ -88,7 +88,6 @@ toc: false
 - Maihre Spielleitertipps: [youtube.com](https://www.youtube.com/watch?v=rxGEVbAQ7So)
 - Play Unsafe: How Improvisation Can Change The Way You Roleplay (Graham Walmsley, 2009)
 - The Lazy Dungeon Master (Mike Shea, 2012, [slyflourish.com](https://slyflourish.com/lazydm/)) und Return of the Lazy Dungeon Master (Mike Shea, 2018, [slyflourish.com](https://slyflourish.com/returnofthelazydm/))
-
 
 # Weltenbau mit Rollenspielen
 
