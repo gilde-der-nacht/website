@@ -1,7 +1,7 @@
 ---
 title: "Kreativität"
 date: 2018-12-09
-toc: false
+
 ---
 
 https://de.wikipedia.org/wiki/Kreativit%C3%A4tstechniken

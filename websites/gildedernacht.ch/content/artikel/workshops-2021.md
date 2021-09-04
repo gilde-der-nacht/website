@@ -1,7 +1,7 @@
 ---
 title: "Workshops 2021"
 date: 2021-08-13
-toc: false
+
 ---
 
 - [Wo soll ich anfangen?](#wo-soll-ich-anfangen)

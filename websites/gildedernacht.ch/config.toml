@@ -35,3 +35,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   discord = "https://discord.gg/G7mkTTB"
   facebook = "https://www.facebook.com/GildederNacht/"
   meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern"
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 6
+    startLevel = 1

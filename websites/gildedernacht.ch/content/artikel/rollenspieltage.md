@@ -1,10 +1,14 @@
 ---
 title: "Planung Rollenspieltage"
 date: 2021-08-13
-toc: false
+toc2:
+  enable: true
+  startLevel: 1
+  endLevel: 6
+  style: ext
 ---
 
-## Rollen
+# Rollen
 
 - [CEO](#ceo)
 - [Datum](#datum)
@@ -19,16 +23,16 @@ toc: false
 - [Rollenspiele Offline](#rollenspiele-offline)
 - [Rollenspiele Online](#rollenspiele-online)
 
-## CEO
+# CEO
 
-### Aufgaben
+## Aufgaben
 
 - Termine für Sitzungen koordinieren
 - Wer schreibt das Protokoll
 - Chef/Ansprechsperson (nur eine!) pro Thema festlegen
 - Von Beginn an festlegen was gemacht wird wenn eine Ansprechsperson Ihren Aufgaben nicht nachkommt
 
-### Offene Punkte
+## Offene Punkte
 
 - Für jede Aufgabe gibt eine einzige zuständige Person
 - Sich über Kommunikationsmittel einigen (Discord, Mail, Whatsapp, Trello, …)
@@ -37,22 +41,22 @@ toc: false
 - Was möchte man erreichen? Was sind die Ziele?
 - Was sind keine Ziele?
 
-## Datum
+# Datum
 
-### Aufgaben
+## Aufgaben
 
 - Zeit für aktuelles Ereignis festlegen
 - Zeit für dasselbe Ereignise in einem Jahr festlegen
 - Termin-/Interessen-Koflikte zu anderen Terminen/Ereignissen abklären
 
-### Schulferien
+## Schulferien
 
 - Luzern https://www.schulferien.org/schweiz/ferien/luzern/
 - Zürich https://www.schulferien.org/schweiz/ferien/zuerich/
 - Bern https://www.schulferien.org/schweiz/ferien/bern/
 - Basel https://www.schulferien.org/schweiz/ferien/basel-stadt/
 
-### Schweiz
+## Schweiz
 
 - Islicon https://www.allerley.ch/islicon/
 - Fantasy Basel https://www.fantasybasel.ch/
@@ -72,26 +76,26 @@ toc: false
 - Basgame https://www.basgame.ch/
 - LUGA https://www.luga.ch/
 
-### International
+## International
 
 - RatCon https://www.ulisses-ratcon.de/
 - MPS, Mittelalterlich Phantasie Spectaculum https://www.spectaculum.de/
 - CCXP Köln https://www.ccxp-cologne.de
 
-### Eigene Anlässe
+## Eigene Anlässe
 
 - Luzerner Spieltage https://spieltage.ch
 - Luzerner Rollenspieltage https://rollenspieltage.ch/
 
-## Lokalität
+# Lokalität
 
-### Aufgaben
+## Aufgaben
 
 - Entscheiden Wo
 - Entscheiden welche Räume
 - Räume reservieren
 
-### Fragen
+## Fragen
 
 - Abfallentsorgung
 - Anbindung Öffentlicher Verkehr
@@ -119,15 +123,15 @@ toc: false
 - WLAN
 - Darf Alkohol ausgeschenkt werden? Folgen? (Kirchen haben andere Preise)
 
-## Marketing
+# Marketing
 
-### Aufgaben
+## Aufgaben
 
 - Texte vorbereiten
 - Bilder/Grafiken/Illustrationen vorbereiten
 - Kontakt mit dem entsprechendem Medium aufbauen und gegebenenfalls in Kontakt bleiben
 
-### Medien
+## Medien
 
 - 20 Min
 - Luzerner Zeitung Apero (erscheint alle 2 Wochen Papierform)
@@ -160,13 +164,13 @@ toc: false
 - Ausgewählte Discord Server
 - Discord "Adressbücher"
 
-## Sponsoring
+# Sponsoring
 
 Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 
-## Verpflegung
+# Verpflegung
 
-### Aufgaben
+## Aufgaben
 
 - Anzahl Personen abklären
 - Essens- und Getränkevorschlag, inklusive Preise vorbereiten
@@ -187,7 +191,7 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Kuchen/Dessert von Organisatoren
 - Falls Alkohol ausgeschenkt wird, entsprechende Lizenz vorhanden?
 
-### Material
+## Material
 
 - Flyer Lieferdienst
 - Popcorn: Mais, Salz, Zucker, Tüten, Maschine
@@ -198,22 +202,22 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Kaffeerahm
 - Servietten
 
-## Finanzen
+# Finanzen
 
-### Aufgaben
+## Aufgaben
 
 - Bei den Aufgaben nachfragen, was möglichge Einnahmen/Ausgaben sind
 - Einnahmen & Ausgaben aufschreiben
 
-### Material
+## Material
 
 - Wechselgeld
 - Kasse für Küche
 - Kasse für Flohmarkt
 
-## Webseite
+# Webseite
 
-### Aufgaben
+## Aufgaben
 
 - Design
 - Domain kaufen/erneuern/verwalten
@@ -221,7 +225,7 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Verwaltung Mailserver
 - Wer ist für welchen Inhalt zuständig
 
-### Inhalt
+## Inhalt
 
 - Blog
 - Code of Conduct
@@ -248,9 +252,9 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Vision
 - Was ist Rollenspiel?
 
-## Programm
+# Programm
 
-### Aufgaben
+## Aufgaben
 
 - Wer/Wann/Wieviele Aufbau
 - Wer/Wann/Wieviele Abbau (Putzen, Aufräumen, Küche, ..., unbedingt mit Personen welche die Räume kennen)
@@ -262,7 +266,7 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Workshops (Anderes Wort: Roundtable/Runder Tisch, Sitdown, Open Mind, Let's Talk, Am Lagerfeuer, Stammtisch, ...)
 - Farbige Kleber: Spielleiter Finden, Spieler Finden
 
-### Material
+## Material
 
 - Abfallsäcke
 - Kartonkiste Papiersammlung
@@ -276,19 +280,19 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - T-Shirts für Organisationsteam
 - Wegweiser
 
-### Ideen
+## Ideen
 
 - Buddy System (jeder Neuling bekommt jemand der sich um ihn kümmert, das kann auch an jedem Spieltisch jemand neuer sein)
 
-## Rollenspiele Allgemein
+# Rollenspiele Allgemein
 
-### Aufgaben
+## Aufgaben
 
 - Wo sucht man Spielleiter? (Facebook, ...)
 - Kontakt mit allen Spielleitern aufbauen
 - Spielrunden in ein Format übertragen dass es technische genutzt werden kann (JSON, ...)
 
-### Beschreibung Spelrunde
+## Beschreibung Spelrunde
 
 - Name
 - Kurze Beschreibung
@@ -307,12 +311,12 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Unterstützung? (durch Spieler und/oder Spielleiter mit Erfahrung)
 - Netzdiagramm
 
-## Rollenspiele Offline
+# Rollenspiele Offline
 
-### Aufgaben
+## Aufgaben
 
 - -> Rollenspiele Allgemein
-### Material
+## Material
 
 - Bleistifte & Blöcke (für Spieler)
 - Bleistift Spitzer
@@ -327,19 +331,19 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Farbige Kleber
 - Schnur
 
-## Rollenspiele Online
+# Rollenspiele Online
 
-### Aufgaben
+## Aufgaben
 
 - -> Rollenspiele Allgemein
 - Kanale Erstellen/Rechte
 - Technischer Support Wer/Wann/Dauer
 
-### Ideen
+## Ideen
 
 - Organistionsmitglieder setzen ihren Status
 
 
-## Code of Conduct
+# Code of Conduct
 
 Unser oberstes Anliegen als Organisatoren ist es, für alle Beteiligten eine schöne und sichere Veranstaltung zu machen. Dementsprechend werden wir keinerlei Verhalten tolerieren, das als Belästigung oder Übergriff wahrgenommen wird, einschliesslich Sexismus, Rassismus, Antisemitismus, Homo- oder Transphobie sowie Diskriminierung aufgrund von Behinderung, Alter, Aussehen, Herkunft oder Religion. Wenn eine Person sich so verhält, dass du oder jemand anderes sich dadurch unsicher, unwohl oder unwillkommen fühlt, melde das bitte der Organisation. Du erkennst uns an den T-Shirts. Wir werden mit deiner Meldung selbstverständlich respektvoll und diskret umgehen und uns dabei nach deinen Bedürfnissen richten.

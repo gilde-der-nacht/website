@@ -1,7 +1,7 @@
 ---
 title: "Moderator"
 date: 2018-12-09
-toc: false
+
 ---
 
 > Playing Games: "the voluntary attempt to overcome unnecessary obstacles" — Bernard Suits

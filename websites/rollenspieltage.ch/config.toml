@@ -27,3 +27,8 @@ meetup = "https://www.meetup.com/de-DE/Spieltreffen-Luzern/events/261972612/"
 [markup.goldmark]
 [markup.goldmark.renderer]
 unsafe = true
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 6
+    startLevel = 1

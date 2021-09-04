@@ -1,14 +1,12 @@
-/* hide third level of TOC, hugo/blackfriday seems to not have an option? */
-.u-toc {
-
-  >nav>ul {
+.u-toc:not(.u-toc-style-ext) {
+  > nav > ul {
     // toc of h1’s
     padding: 0;
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
 
-    >li {
+    > li {
       border: 3px solid var(--light-grey-color);
       padding: 5px 10px;
       margin-right: 10px;
@@ -27,11 +25,105 @@
         text-decoration: none;
         color: black;
       }
+    }
+  }
+}
 
-      >ul {
-        // toc of h2 and deeper
-        display: none;
+.u-toc-invisible-level {
+  padding: 0;
+  list-style: none;
+
+  > li > a {
+    display: none;
+  }
+}
+
+.u-toc-start-level-2 {
+  nav > ul {
+    @extend .u-toc-invisible-level;
+  }
+}
+
+.u-toc-start-level-3 {
+  nav > ul {
+    @extend .u-toc-invisible-level;
+    > li > ul {
+      @extend .u-toc-invisible-level;
+    }
+  }
+}
+
+.u-toc-start-level-4 {
+  nav > ul {
+    @extend .u-toc-invisible-level;
+    > li > ul {
+      @extend .u-toc-invisible-level;
+      > li > ul {
+        @extend .u-toc-invisible-level;
       }
     }
+  }
+}
+
+.u-toc-start-level-5 {
+  nav > ul {
+    @extend .u-toc-invisible-level;
+    > li > ul {
+      @extend .u-toc-invisible-level;
+      > li > ul {
+        @extend .u-toc-invisible-level;
+        > li > ul {
+          @extend .u-toc-invisible-level;
+        }
+      }
+    }
+  }
+}
+
+.u-toc-start-level-6 {
+  nav > ul {
+    @extend .u-toc-invisible-level;
+    > li > ul {
+      @extend .u-toc-invisible-level;
+      > li > ul {
+        @extend .u-toc-invisible-level;
+        > li > ul {
+          @extend .u-toc-invisible-level;
+          > li > ul {
+            @extend .u-toc-invisible-level;
+          }
+        }
+      }
+    }
+  }
+}
+
+.u-toc-end-level-1 {
+  nav > ul > li > ul {
+    display: none;
+  }
+}
+
+.u-toc-end-level-2 {
+  nav > ul > li > ul > li > ul {
+    display: none;
+  }
+}
+
+.u-toc-end-level-3 {
+  nav > ul > li > ul > li > ul > li > ul {
+    display: none;
+  }
+}
+
+.u-toc-end-level-4 {
+  nav > ul > li > ul > li > ul > li > ul > li > ul {
+    display: none;
+  }
+}
+
+.u-toc-end-level-5 {
+  nav > ul > li > ul > li > ul > li > ul > li > ul > li > ul {
+    display: none;
   }
 }
