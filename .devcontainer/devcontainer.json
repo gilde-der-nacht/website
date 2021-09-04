@@ -2,5 +2,8 @@
     "name": "Gilde der Nacht: Webseiten",
     "build": {
         "dockerfile": "./Dockerfile"
-    }
+	},
+	"extensions": [
+		"sibiraj-s.vscode-scss-formatter"
+	]
 }
