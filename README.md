@@ -3,11 +3,17 @@
 
 This repository contains all web pages which are maintained by the *Gilde der Nacht*.
 
-# Build
+# Serve
 
 - `hugo --buildFuture --buildDrafts --source ./websites/gildedernacht.ch server`
 - `hugo --buildFuture --buildDrafts --source ./websites/spieltage.ch server`
 - `hugo --buildFuture --buildDrafts --source ./websites/rollenspieltage.ch server`
+
+# Build
+
+- `hugo --source ./websites/gildedernacht.ch`
+- `hugo --source ./websites/spieltage.ch`
+- `hugo --source ./websites/rollenspieltage.ch`
 
 # Hugo
 
