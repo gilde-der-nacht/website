@@ -1,23 +1,46 @@
 /* Box sizing rules */
-*,
-*::before,
-*::after {
+html {
   box-sizing: border-box;
 }
 
-/* Remove default margin */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Remove default margin and padding */
+html,
 body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p,
-figure,
-blockquote,
-dl,
-dd {
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
   margin: 0;
 }
 
@@ -46,23 +69,44 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img,
-picture {
+picture,
+video {
   max-width: 100%;
-  display: block;
+  height: auto;
 }
 
 /* Inherit fonts for inputs and buttons */
 input,
 button,
+optgroup,
 textarea,
 select {
   font: inherit;
 }
 
+/* Iframe */
+iframe {
+  border: 0;
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+  &:not([align]) {
+    text-align: inherit;
+  }
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
   *,
   *::before,
