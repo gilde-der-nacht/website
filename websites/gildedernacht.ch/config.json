@@ -9,8 +9,8 @@
   ],
   "markup": {
     "tableOfContents": {
-      "endLevel": 6,
-      "startLevel": 1
+      "startLevel": 1,
+      "endLevel": 6
     }
   }
 }
