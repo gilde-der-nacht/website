@@ -1,4 +1,9 @@
 {{ define "main" }}
+  {{ if .Draft }}
+  <section class="c-message c-message--spam visible" data-type="spam">
+    Diese Seite ist ein Entwurf und wird nicht auf der Live-Seite angezeigt.
+  </section>
+  {{ end }}
   {{ if .Params.toc }}
     <div class="u-toc">
       {{ .TableOfContents }}
