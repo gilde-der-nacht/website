@@ -1,11 +1,11 @@
 .color-swatch {
-    --size: 10rem;
     @include border-radius;
-    @include box-shadow;
+    --size: 12rem;
     height: var(--size);
     width: var(--size);
     display: grid;
     place-content: center;
     font-size: 2em;
     font-weight: bold;
+    margin-block-end: 0.5rem;
 }

@@ -42,5 +42,28 @@
 }
 
 @mixin glow {
+    background: var(--color-one);
+    background: linear-gradient(45deg, var(--color-one), var(--color-two));
+    box-shadow: 0 0 3rem hsla(0, 0, 0, 0.2);
+    position: relative;
+    isolation: isolate;
 
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: inherit;
+    }
+
+    &::before {
+        opacity: 1;
+        filter: blur(0.5em);
+    }
+
+    &::after {
+        opacity: 0.5;
+        filter: blur(1em);
+    }
 }

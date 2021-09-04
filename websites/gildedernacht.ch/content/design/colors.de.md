@@ -15,8 +15,18 @@
 
 {{< design/color-swatch color="color-surface-secondary" >}}4{{< /design/color-swatch >}}
 
-{{< design/color-swatch color="color-surface-empasis" >}}5{{< /design/color-swatch >}}
+{{< design/color-swatch color="color-surface-emphasis" >}}5{{< /design/color-swatch >}}
 
 {{< /layout/cluster >}}
 
 # Verlauf
+
+{{< layout/cluster >}}
+
+{{< design/color-swatch-gradient kind="color-gradient-one" >}}6{{< /design/color-swatch-gradient >}}
+
+{{< design/color-swatch-gradient kind="color-gradient-two" >}}7{{< /design/color-swatch-gradient >}}
+
+{{< design/color-swatch-gradient kind="color-gradient-three" >}}8{{< /design/color-swatch-gradient >}}
+
+{{< /layout/cluster >}}

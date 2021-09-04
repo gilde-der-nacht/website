@@ -34,7 +34,7 @@
 
     --color-dark-surface-primary: hsl(var(--brand-hue) 10% 15%);
     --color-dark-surface-secondary: hsl(var(--brand-hue) 5% 25%);
-    --color-dark-surface-emphasis: hsl(var(--brand-hue) 10% 10%);
+    --color-dark-surface-emphasis: hsl(var(--brand-hue) 10% 5%);
 
     --shadow-dark-hue: var(--brand-hue);
     --shadow-dark-saturation: 50%;
@@ -105,6 +105,8 @@
 }
 // success / Warning / error/ info
 
+// Color combinations
+
 .color-brand {
     background-color: var(--color-brand);
     color: var(--color-light-surface-secondary);
@@ -128,4 +130,33 @@
 .color-surface-emphasis {
     background-color: var(--color-surface-emphasis);
     color: var(--color-text-primary);
+}
+
+// Gradient combinations
+
+.color-gradient-one {
+    @include glow;
+    --color-one: var(--color-brand);
+    --color-two: var(--color-accent);
+    color: var(--color-light-surface-primary);
+}
+
+.color-gradient-two {
+    @include glow;
+    --color-one: var(--color-brand);
+    --color-two: var(--color-surface-emphasis);
+    color: var(--color-text-primary);
+}
+
+.color-gradient-three {
+    @include glow;
+    --color-one: var(--color-accent);
+    --color-two: var(--color-surface-emphasis);
+    color: var(--color-text-primary);
+}
+
+// Shadows
+
+.dark-shadow {
+    @include box-shadow;
 }
