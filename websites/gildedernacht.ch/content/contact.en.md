@@ -8,17 +8,17 @@ menu:
 
 ## Write us
 
-{{< form/form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" language="en" >}}
+{< form/form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" language="en" >}}
 
-{{< form/text-input name="private-name" type="text" placeholder="Name" label="Name" required="true" >}}
+{< form/text-input name="private-name" type="text" placeholder="Name" label="Name" required="true" >}}
 
-{{< form/text-input name="private-email" type="email" placeholder="E-Mail" label="E-mail" required="true" >}}
+{< form/text-input name="private-email" type="email" placeholder="E-Mail" label="E-mail" required="true" >}}
 
-{{< form/textarea name="private-message" placeholder="Message" label="Message" required="true" >}}
+{< form/textarea name="private-message" placeholder="Message" label="Message" required="true" >}}
 
-{{< /form/form >}}
+{< /form/form >}}
 
-{{< messages spam="Error: Your message is sadly been marked as SPAM and not been forwarded. Please try again." success="Thank you for your message!" >}}
+{< messages spam="Error: Your message is sadly been marked as SPAM and not been forwarded. Please try again." success="Thank you for your message!" >}}
 
 ## The Board
 

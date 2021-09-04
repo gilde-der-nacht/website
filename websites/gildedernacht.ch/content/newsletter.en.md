@@ -3,4 +3,4 @@ title: "Newsletter"
 date: 2019-04-01
 ---
 
-{{< newsletter select="board-games" >}}
+{< newsletter select="board-games" >}}

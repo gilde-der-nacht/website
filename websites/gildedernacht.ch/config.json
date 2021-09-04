@@ -1,0 +1,16 @@
+{
+  "baseURL": "https://gildedernacht.ch/",
+  "DefaultContentLanguage": "de",
+  "theme": "burgundy",
+  "themesDir": "../../themes",
+  "disableKinds": [
+    "taxonomy",
+    "taxonomyTerm"
+  ],
+  "markup": {
+    "tableOfContents": {
+      "endLevel": 6,
+      "startLevel": 1
+    }
+  }
+}
