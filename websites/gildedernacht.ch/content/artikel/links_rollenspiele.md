@@ -1,7 +1,9 @@
 ---
 title: "Links Rollenspiele"
 date: 2019-05-01
-toc: true
+toc2:
+  enable: true
+  style: simple
 ---
 
 Die folgenden Links wurden vom Organisationskomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht]({{< ref "contact" >}}), mit deinem Vorschlag.

@@ -4,7 +4,9 @@ date: 2019-05-01
 menu:
   main:
     weight: 50
-toc: true
+toc2:
+  enable: true
+  style: simple
 draft: true
 ---
 
@@ -27,35 +29,35 @@ In return, you not only deserve our thanks. You will also be invited to a thank 
 
 The following jobs are available:
 
-### Kitchen
+## Kitchen
 * You are responsible for the well-being of all.
 * Under the guidance of our chef André, you work in a team and prepare the meals (don't worry, the menu is simply, you don't have to be a 5-star chef).
 * Of course, you are also responsible for all other things in the kitchen, including washing up, clearing up and keeping order in the kitchen.
 
-### Cashpoint
+## Cashpoint
 * You stand at the bar and serve the guests and supply them with drinks.
 * You take the orders and pass them on to the kitchen team.
 * Of course, you cash in, mental arithmetic or calculators are an advantage.
 
-### Flea market
+## Flea market
 * You're in charge of the flea market.
 * And you coordinate the sales.
 
-### Game tutor
+## Game tutor
 * You're here to play and still want to help out?
 * You are present around the tables and in the games library and consult our visitors based on your own experience, which game to recommend.
 * You are also responsible if someone has rule questions, so that even large and complex games can unfold their charm.
 * You address people, schedule new game rounds and draw people's attention to tournaments/events.
 
-### Infrastructure
+## Infrastructure
 * You help on Friday evening with the setup.
 * On Sunday, when the Spieltage are over, you'll help to dismantle and restore everything.
 
-### Speaker
+## Speaker
 * You announce the highlights of our program several times a day.
 * You announce the tournaments and announce the winner.
 
-### Game master for role-playing
+## Game master for role-playing
 * You run one (or more) rounds of a tabletop role-play game of your choice (for beginners).
 
 # Volunteer registration

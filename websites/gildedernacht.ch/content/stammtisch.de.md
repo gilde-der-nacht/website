@@ -1,6 +1,8 @@
 ---
 title: "Rollenspiel-Stammtisch"
-toc: true
+toc2:
+  enable: true
+  style: simple
 ---
 
 Liebe Rollenspielgemeinschaft
@@ -19,7 +21,7 @@ Keine Anmeldung nötig.
 
 Für Fragen und Anregungen stehen wir euch gerne zur Verfügung.
 
-## Umfrage
+# Umfrage
 
 Wir möchten mit unserem Stammtisch möglichst viele Rollenspieler glücklich machen. Dafür würde es uns enorm helfen, wenn wir von interessierten Personen wie dir einwenig mehr erfahren.
 

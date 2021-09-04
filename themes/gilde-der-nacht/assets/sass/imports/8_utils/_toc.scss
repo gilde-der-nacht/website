@@ -25,6 +25,11 @@
         text-decoration: none;
         color: black;
       }
+
+      // hide h2 and deeper
+      > ul {
+        display: none;
+      }
     }
   }
 }

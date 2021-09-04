@@ -1,13 +1,15 @@
 ---
 title: "Program"
 date: 2019-06-21
-toc: true
+toc2:
+  enable: true
+  style: simple
 draft: true
 ---
 
 **If not specifically noted, the rounds will be played in German.**
 
-## Saturday
+# Saturday
 
 _29. August 2020_
 
@@ -15,7 +17,7 @@ _29. August 2020_
   <em>Rounds are being loaded. Thanks for your patience.</em>
 </div>
 
-## Sunday
+# Sunday
 
 _30. August 2020_
 
@@ -23,11 +25,11 @@ _30. August 2020_
   <em>Rounds are being loaded. Thanks for your patience.</em>
 </div>
 
-## Registration
+# Registration
 
 The role play rounds and the **registration** take place on a specially prepared discord server. Click on the following link to open the server: https://discord.gg/ThDXTwP
 
-## What is Discord?
+# What is Discord?
 
 [Discord](https://discord.com/) is a free chat program that runs in a browser but can also be installed as an app (Windows, macOS, Android, iOS etc.). On our Discord server you will find several *channels*:
 

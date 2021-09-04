@@ -5,7 +5,9 @@ date: 2019-04-01
 menu:
   main:
     weight: 10
-toc: true
+toc2:
+  enable: true
+  style: simple
 jumbotronImage:
   url: /images/luzerner-rollenspieltag-2018-15.jpg
   source: Luzerner Rollenspieltag 2018

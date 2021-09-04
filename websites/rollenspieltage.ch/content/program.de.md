@@ -7,12 +7,14 @@ date: 2019-06-21
 menu:
   main:
     weight: 20
-toc: true
+toc2:
+  enable: true
+  style: simple
 ---
 
 Komm einfach vorbei und melde dich spontan an. Freie Plätze sind fast in allen Runden vorhanden.
 
-## Samstag
+# Samstag
 
 _28. August 2021_
 
@@ -126,7 +128,7 @@ _28. August 2021_
 
 </div>
 
-## Sonnntag
+# Sonnntag
 
 _29. August 2021_
 

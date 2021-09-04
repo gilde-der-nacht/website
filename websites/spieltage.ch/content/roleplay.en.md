@@ -1,7 +1,9 @@
 ---
 title: "Roleplay"
 date: 2020-02-01
-toc: true
+toc2:
+  enable: true
+  style: simple
 draft: true
 ---
 
