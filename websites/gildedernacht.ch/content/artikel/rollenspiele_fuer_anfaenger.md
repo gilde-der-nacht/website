@@ -2,15 +2,24 @@
 title: "Rollenspiele für Neulinge"
 date: 2021-09-01
 draft: true
+toc: false
 ---
+
+- [Kinder & Deutsch](#kinder--deutsch)
+- [Deutsch](#deutsch)
+- [Kinder & Englisch](#kinder--englisch)
 
 Bedingungen
 
-- Sprache auch Deutsch
+- Sprache?
 - Für Kinder: ☆☆☆☆☆/★★★★★ (was heisst das genau)
 - Preise jeweils aufgerundet
+- Ausleihen? Freakatorium? Game Place? Gilde der Nacht?
+- Altersgruppe angeben
 
-# So nicht Schurke / No Thank You, Evil
+# Kinder & Deutsch
+
+## So nicht, Schurke / No Thank You, Evil
 
 - Box: 30€
 - Seitenzahl: ???
@@ -18,7 +27,13 @@ Bedingungen
 
 [pegasusshop.de](https://pegasusshop.de/Sortiment/Spiele/Familienspiele/441/So-nicht-Schurke)
 
-# My Little Pony - Tales of Equestria
+## Äventyr
+
+[ulisses-spiele.de](https://ulisses-spiele.de/spielsysteme/aeventyr/)
+
+> Thomas: Ein Teil der Karte ist eher für Kinder < 9, ein anderer Teil eher für Kinder > 9, ausgelegt. Unnötiges rechnen das meiner Meinung nach aus Rollenspielen verschwinden sollte z.B. Intiative = Körper + Aufmerksamkeit.
+
+## My Little Pony - Tales of Equestria
 
 - Regelwerk Buch: 35€
 - Starterset: 25€
@@ -27,7 +42,9 @@ Bedingungen
 
 [ulisses-spiele.de](https://ulisses-spiele.de/spielsysteme/toe/)
 
-# Hero Kids
+fokus mehr auf zusammenarbeit
+
+## Hero Kids
 
 - PDF: 6$
 - Bundle PDF: 20$
@@ -36,9 +53,13 @@ Bedingungen
 
 [drivethrurpg.com](https://www.drivethrurpg.com/product/296972/Hero-Kids-Fantasy-Rollenspiel)
 
-Die Regeln sind sehr einfach, beziehen sich aber zu einem grossen Teil auf das kämpfen (das wird auch im Buch erwähnt). Es gibt für einen Kampf 4 Fertigkeiten (Nahkampf, Fernkampf, Magie und Verteidigung). Jeder Angriffsart macht im Normalfall 1 Schaden. Zusätzliche 4 Fertigkeiten sind auch für andere Situation nützlich (Geschichtswissen, Schleichen, Verfolgen, Überzeugen).
+> Thomas: Die Regeln sind sehr einfach, beziehen sich aber zu einem grossen Teil auf das kämpfen (das wird auch im Buch erwähnt). Es gibt für einen Kampf 4 Fertigkeiten (Nahkampf, Fernkampf, Magie und Verteidigung). Jeder Angriffsart macht im Normalfall 1 Schaden. 4 zusätzliche Fertigkeiten sind auch für andere Situation nützlich (Geschichtswissen, Schleichen, Verfolgen, Überzeugen). Charakter hat man in wenigen Minuten erstellt. Die Charakter-Blättern sind in einem Comic-Stil gehalten.
 
-# Lasers & Feelings
+# Deutsch
+
+Keines der folgenden Rollenspiele ist explizit für Kinder geschrieben.
+
+## Lasers & Feelings
 
 - PDF: Kostenlos
 - Seitenzahl: 1
@@ -46,18 +67,28 @@ Die Regeln sind sehr einfach, beziehen sich aber zu einem grossen Teil auf das k
 
 [erzaehlspiel-zine.de](https://www.erzaehlspiel-zine.de/ausgaben/ausgabe_null/lasers_and_feelings/)
 
-# Ironsworn
+## Ironsworn
 
 - Buch: 33€
 - Kartendeck: 15€
 - Spielmaterial: 13€
 - PDF Englisch: Kostenlos
 - Seitenzahl: ???
-- Genre: ???
+- Genre: Nordisch / Low Fantasy / Low Magic
 
 [system-matters.de](https://www.system-matters.de/produkt-kategorie/ironsworn/)
 
-# Monsterhearts
+## Die verbotenen Lande
+
+- Basis Box: 50€
+- Genre: Fantasy
+- Seitenzahl: ???
+
+[uhrwerk-verlag.de](https://shop.uhrwerk-verlag.de/uhrwerk-rollenspiele/die-verbotenen-lande/1156/die-verbotenen-lande-basisbox?c=13)
+
+> Thomas: Verwendet das Mutant Jahr Null Regelwerk. Hat Aspekte von einem Brettspiel. Wenn die Spieler auf der Karte ein neues Feld betretten, kann der Spielleiter in einer Tabelle nachgucken was dort passiert. Es gibt Ressourcen wie Nahrung, die zu Neige gehen können. Spieler können auch Gebäude bauen, wenn sie die entsprechenden Ressourcen haben. Als Spielleiter muss man vor einer Runde eigentlich nur wenig vorbereiten.
+
+## Monsterhearts
 
 - Buch: 24€
 - Seitenzahl: 284
@@ -65,7 +96,9 @@ Die Regeln sind sehr einfach, beziehen sich aber zu einem grossen Teil auf das k
 
 [system-matters.de](https://www.system-matters.de/shop/monsterhearts/)
 
-# Tales from the Loop
+> Thomas: Themen wie Sex und Gender sind Teil vom Setting. Wahrscheinlich nur geeignet wenn es Niemandem unangenehm ist über diese Themen zu reden.
+
+## Tales from the Loop
 
 - Buch: 45€
 - Seitenzahl: ???
@@ -73,7 +106,9 @@ Die Regeln sind sehr einfach, beziehen sich aber zu einem grossen Teil auf das k
 
 [f-shop.de](https://www.f-shop.de/detail/index/sArticle/1891)
 
-# D&D 5e
+> Thomas: Alle spielen Kinder. Ich habe bis jetzt mit einer Gruppe ein Abenteuer gespielt, welches ein Gewaltfreie Lösung erforderte, was ich als sehr positiv empfand.
+
+## D&D 5e
 
 - Box: ???
 - Seitenzahl: ???
@@ -82,11 +117,9 @@ Die Regeln sind sehr einfach, beziehen sich aber zu einem grossen Teil auf das k
 https://gameplace.ch
 einsteigerbox gibt es die noch?
 
-- Seitenzahl: ???
-
 ???
 
-# Das Schwarze Auge
+## Das Schwarze Auge
 
 - Einsteigerbox: 40€
 - Genre: Fantasy
@@ -94,9 +127,9 @@ einsteigerbox gibt es die noch?
 
 [f-shop.de](https://www.f-shop.de/das-schwarze-auge/rollenspiel/einsteigerprodukte/116/das-geheimnis-des-drachenritters-dsa-einsteigerbox)
 
-Grösstes deutsches Fantasy Rollenspiel.
+> Thomas: Grösstes deutsches Fantasy Rollenspiel. Hat eine sehr umfangreiche Welt, auch mit sehr viel Geschichte.
 
-# Splittermond
+## Splittermond
 
 - Einstiegsbox: 30€
 - Genre: Fantasy
@@ -104,7 +137,7 @@ Grösstes deutsches Fantasy Rollenspiel.
 
 [uhrwerk-verlag.de](https://shop.uhrwerk-verlag.de/splittermond/1453/splittermond-einstiegsbox-neuauflage?c=4)
 
-# Numenera
+## Numenera
 
 - Softcover: 40€
 - Genre: Science Fantasy
@@ -112,15 +145,7 @@ Grösstes deutsches Fantasy Rollenspiel.
 
 [uhrwerk-verlag.de](https://shop.uhrwerk-verlag.de/uhrwerk-rollenspiele/numenera/330/numenera-regelwerk-softcover)
 
-# Die verbotenen Lande
-
-- Basis Box: 50€
-- Genre: ???
-- Seitenzahl: ???
-
-[uhrwerk-verlag.de](https://shop.uhrwerk-verlag.de/uhrwerk-rollenspiele/die-verbotenen-lande/1156/die-verbotenen-lande-basisbox?c=13)
-
-# Arcane Codex 3
+## Arcane Codex 3
 
 - Buch: 50€
 - Genre: Dark-Fantasy
@@ -128,7 +153,9 @@ Grösstes deutsches Fantasy Rollenspiel.
 
 [nackterstahl.de](https://nackterstahl.de/produkt/arcane-codex-grundregelwerk-3/)
 
-# Frostzone
+> Thomas: Charaktererstellung hat viele Optionen, dauert aber auch relativ lange. Rechnen muss man auch immer wieder. Der Zufall hat teilweise eine Grosse Bandbreite. z.B. Trolle haben Waffen die machen 3W10 Schaden, das ist zwischen: "Kleiner Kratzer" bis "Tod" in einem einzigen Schlag alles möglich. Heiltränke sind so teuer, das man als magiebgebabtes Wesen mit Heilkräften besser gar nichts in Abenteuerleben einsteigt, sondern seinen Lebensabend mit 20 im Goldpalast geruhsam ausleiten lässt. Hat eine umfangreiche Geschichte und auch zusätzliche Bücher mit Hintergrundinformationen. Standard Fantasy Kost mit Regeln wie man sich auch schon vor 20 Jahren kannte.
+
+## Frostzone
 
 - Buch: 50€
 - Genre: Dark-Fantasy
@@ -136,7 +163,7 @@ Grösstes deutsches Fantasy Rollenspiel.
 
 [nackterstahl.de](https://nackterstahl.de/produkt/frostzone/)
 
-# Ratten!
+## Ratten!
 
 - Hardcover: 30€
 - Softcover: 15€
@@ -150,36 +177,39 @@ Grösstes deutsches Fantasy Rollenspiel.
 
 ??? Meinung Thomas: Bilder sind fast alle nicht für schwache Mägen und auch sprachlich nicht immer ein Zuckerschlecken
 
-# Avatar
+> Thomas: Bilder sind meiner Meinung nach zwar gut gezeichnet, aber nicht hübsch oder fröhlich. Auch die Sprache ist immer mal wieder etwas brutal: "Dann biss ihm etwas mit einer unglaublichen Wucht in die Hoden". Oder wie fest sich Kinder mit "Brandratten", "Müllschlinger", "Rotaugen" oder "Laborratten" identifzieren möchte, finde ich zumindest eine Frage wert.
+
+# Kinder & Englisch
+
+## Avatar
 
 Nur Englisch (ändert sich ganz sicher)
+Thomas: Habe persönlich das Gefühl das wäre für Kinder
 
 [magpiegames.com](https://magpiegames.com/avatarrpg/)
 
-# Mouse Guard
+## Mouse Guard
 
 Nur Englisch
+
+> Thomas: Sehr schön und hübsch gezeichnet. Gibt Comics dazu. Es gibt keine Menschen in der Welt. Die grössten Gefahren sind zu einem grossen Teil die Umwelt, oder Tiere die aus Sicht der Mäuse relativ gross ist.
 
 [kotohi.com](http://kotohi.com/ryuutama/)
 
-# Golden Sky Stories
-
-Nur Englisch
+## Golden Sky Stories
 
 [drivethrurpg.com](https://www.drivethrurpg.com/product/156668)
 
 Faerie Skies
 
-# Ryuutama
-
-Nur Englisch
+## Ryuutama
 
 [kotohi.co](http://kotohi.com/ryuutama/)
 
-# Mermaid Adventure
+## Mermaid Adventure
 
-??? DE?
+https://www.drivethrurpg.com/product/217101/Mermaid-Adventures-Revised
 
-# Amazing Tales
+## Amazing Tales
 
-??? DE?
+https://www.drivethrurpg.com/product/222950/Amazing-Tales-complete-kids-RPG
