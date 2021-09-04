@@ -1,7 +1,7 @@
 ---
 title: "Planung Rollenspieltage"
 date: 2021-08-13
-toc2:
+toc:
   enable: true
   startLevel: 1
   endLevel: 6
