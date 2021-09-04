@@ -1,7 +1,112 @@
-:root {
-    --brand-hue: 200;
-    --brand-saturation: 100%;
-    --brand-lightness: 50%;
+// light values
 
-    --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+:root {
+    --color-light-brand: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+    --color-light-accent: hsl(
+        calc(var(--brand-hue) + var(--accent-spin)) var(--brand-saturation)
+            calc(var(--brand-lightness) * var(--accent-lighter))
+    );
+
+    --color-light-text-primary: hsl(var(--brand-hue) var(--brand-saturation) 10%);
+    --color-light-text-secondary: hsl(var(--brand-hue) 30% 30%);
+
+    --color-light-surface-primary: hsl(var(--brand-hue) 25% 90%);
+    --color-light-surface-secondary: hsl(var(--brand-hue) 20% 85%);
+    --color-light-surface-emphasis: hsl(var(--brand-hue) 20% 99%);
+
+    --shadow-light-hue: var(--brand-hue);
+    --shadow-light-saturation: 10%;
+    --shadow-light-lightness: calc(var(--brand-lightness) / 5);
+    --shadow-light-strength: 0.02;
+}
+
+// dark values
+
+:root {
+    --color-dark-brand: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) * 1.25));
+    --color-dark-accent: hsl(
+        calc(var(--brand-hue) + var(--accent-spin)) var(--brand-saturation)
+            calc(var(--brand-lightness) * var(--accent-lighter) * 1.85)
+    );
+
+    --color-dark-text-primary: hsl(var(--brand-hue) 15% 85%);
+    --color-dark-text-secondary: hsl(var(--brand-hue) 5% 65%);
+
+    --color-dark-surface-primary: hsl(var(--brand-hue) 10% 15%);
+    --color-dark-surface-secondary: hsl(var(--brand-hue) 5% 25%);
+    --color-dark-surface-emphasis: hsl(var(--brand-hue) 10% 10%);
+
+    --shadow-dark-hue: var(--brand-hue);
+    --shadow-dark-saturation: 50%;
+    --shadow-dark-lightness: 3%;
+    --shadow-dark-strength: 0.8;
+}
+
+:root {
+    color-scheme: light;
+    --color-brand: var(--color-light-brand);
+    --color-accent: var(--color-light-accent);
+    --color-text-primary: var(--color-light-text-primary);
+    --color-text-secondary: var(--color-light-text-secondary);
+    --color-surface-primary: var(--color-light-surface-primary);
+    --color-surface-secondary: var(--color-light-surface-secondary);
+    --color-surface-emphasis: var(--color-light-surface-emphasis);
+    --shadow-hue: var(--shadow-light-hue);
+    --shadow-saturation: var(--shadow-light-saturation);
+    --shadow-lightness: var(--shadow-light-lightness);
+    --shadow-strength: var(--shadow-light-strength);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --color-brand: var(--color-dark-brand);
+        --color-accent: var(--color-dark-accent);
+        --color-text-primary: var(--color-dark-text-primary);
+        --color-text-secondary: var(--color-dark-text-secondary);
+        --color-surface-primary: var(--color-dark-surface-primary);
+        --color-surface-secondary: var(--color-dark-surface-secondary);
+        --color-surface-emphasis: var(--color-dark-surface-emphasis);
+        --shadow-hue: var(--shadow-dark-hue);
+        --shadow-saturation: var(--shadow-dark-saturation);
+        --shadow-lightness: var(--shadow-dark-lightness);
+        --shadow-strength: var(--shadow-dark-strength);
+    }
+}
+
+[color-scheme="light"] {
+    color-scheme: light;
+    --color-brand: var(--color-light-brand);
+    --color-accent: var(--color-light-accent);
+    --color-text-primary: var(--color-light-text-primary);
+    --color-text-secondary: var(--color-light-text-secondary);
+    --color-surface-primary: var(--color-light-surface-primary);
+    --color-surface-secondary: var(--color-light-surface-secondary);
+    --color-surface-emphasis: var(--color-light-surface-emphasis);
+    --shadow-hue: var(--shadow-light-hue);
+    --shadow-saturation: var(--shadow-light-saturation);
+    --shadow-lightness: var(--shadow-light-lightness);
+    --shadow-strength: var(--shadow-light-strength);
+}
+
+[color-scheme="dark"] {
+    color-scheme: dark;
+    --color-brand: var(--color-dark-brand);
+    --color-accent: var(--color-dark-accent);
+    --color-text-primary: var(--color-dark-text-primary);
+    --color-text-secondary: var(--color-dark-text-secondary);
+    --color-surface-primary: var(--color-dark-surface-primary);
+    --color-surface-secondary: var(--color-dark-surface-secondary);
+    --color-surface-emphasis: var(--color-dark-surface-emphasis);
+    --shadow-hue: var(--shadow-dark-hue);
+    --shadow-saturation: var(--shadow-dark-saturation);
+    --shadow-lightness: var(--shadow-dark-lightness);
+    --shadow-strength: var(--shadow-dark-strength);
+}
+// success / Warning / error/ info
+
+body {
+    background-color: var(--color-surface-primary);
+    color: var(--color-text-primary);
+    font-weight: bold;
 }

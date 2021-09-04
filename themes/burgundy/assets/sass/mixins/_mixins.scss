@@ -1,3 +1,42 @@
 @mixin border-radius {
-    border-radius: 0.3rem;
+    border-radius: $border-radius;
+}
+
+@mixin box-shadow {
+    box-shadow: 0 2.8px 2.2px
+            hsla(
+                var(--shadow-hue),
+                var(--shadow-saturation),
+                var(--shadow-lightness),
+                calc(var(--shadow-strength) + 0.03)
+            ),
+        0 6.7px 5.3px
+            hsla(
+                var(--shadow-hue),
+                var(--shadow-saturation),
+                var(--shadow-lightness),
+                calc(var(--shadow-strength) + 0.01)
+            ),
+        0 12.5px 10px
+            hsla(
+                var(--shadow-hue),
+                var(--shadow-saturation),
+                var(--shadow-lightness),
+                calc(var(--shadow-strength) + 0.02)
+            ),
+        0 22.3px 17.9px
+            hsla(
+                var(--shadow-hue),
+                var(--shadow-saturation),
+                var(--shadow-lightness),
+                calc(var(--shadow-strength) + 0.02)
+            ),
+        0 41.8px 33.4px
+            hsla(
+                var(--shadow-hue),
+                var(--shadow-saturation),
+                var(--shadow-lightness),
+                calc(var(--shadow-strength) + 0.03)
+            ),
+        0 100px 80px hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), var(--shadow-strength));
 }

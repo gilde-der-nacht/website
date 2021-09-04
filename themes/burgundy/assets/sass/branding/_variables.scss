@@ -1,0 +1,12 @@
+$border-radius: 0.3rem;
+
+
+// values that can change per brand
+:root {
+    --brand-hue: 210;
+    --brand-saturation: 100%;
+    --brand-lightness: 20%;
+
+    --accent-spin: 135;
+    --accent-lighter: 1.5;
+}

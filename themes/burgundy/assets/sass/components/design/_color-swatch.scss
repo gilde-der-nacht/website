@@ -1,5 +1,10 @@
-.swatch {
+.color-swatch {
     @include border-radius;
+    @include box-shadow;
     height: 5rem;
     width: 5rem;
+
+    &:hover {
+        background-color: var(--color-light-surface-primary);
+    }
 }
