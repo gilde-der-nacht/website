@@ -4,10 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {{ with .Site.Params.Meta.Description }}
-        <meta name="description" content="{{ . }}">
+    <meta name="description" content="{{ . }}">
     {{ end }}
     {{ with .Site.Params.Meta.Keywords }}
-        <meta name="keywords" content="{{ . }}">
+    <meta name="keywords" content="{{ . }}">
+    {{ end }}
+
+    {{ range .Translations }}
+    <link rel="alternate" href="{{ .RelPermalink }}" hreflang="{{ .Language }}">
     {{ end }}
 
     <title>{{ .Site.Title }}{{ with .Params.Title }} | {{ . }}{{ end }}</title>
