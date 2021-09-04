@@ -1,0 +1,20 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{ with .Site.Params.Meta.Description }}
+        <meta name="description" content="{{ . }}">
+    {{ end }}
+    {{ with .Site.Params.Meta.Keywords }}
+        <meta name="keywords" content="{{ . }}">
+    {{ end }}
+
+    <title>{{ .Site.Title }}{{ with .Params.Title }} | {{ . }}{{ end }}</title>
+
+    {{ hugo.Generator }}
+
+    {{ $stylesheetMain := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $stylesheetMain.RelPermalink }}" media="screen"
+        integrity="{{ $stylesheetMain.Data.Integrity }}" />
+</head>

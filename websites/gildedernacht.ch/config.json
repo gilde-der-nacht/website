@@ -1,6 +1,7 @@
 {
   "baseURL": "https://gildedernacht.ch/",
   "DefaultContentLanguage": "de",
+  "title": "Gilde der Nacht",
   "theme": "burgundy",
   "themesDir": "../../themes",
   "disableKinds": [
@@ -11,6 +12,24 @@
     "tableOfContents": {
       "startLevel": 1,
       "endLevel": 6
+    }
+  },
+  "languages": {
+    "de": {
+      "params": {
+        "meta": {
+          "description": "Dies ist eine Beschreibung",
+          "keywords": "Dies, sind, Schlüsselwörter"
+        }
+      }
+    },
+    "en": {
+      "params": {
+        "meta": {
+          "description": "This is the description",
+          "keywords": "These, are, some, keywords"
+        }
+      }
     }
   }
 }
