@@ -1,0 +1,6 @@
+{
+    "name": "Gilde der Nacht: Webseiten",
+    "build": {
+        "dockerfile": "./Dockerfile"
+    }
+}
