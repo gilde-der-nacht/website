@@ -1,4 +1,6 @@
-{{ $var := .Get "var"}}
+{{ $color := .Get "color"}}
 
-<div class="color-swatch" style="background-color: var({{ safeCSS $var }});"></div>
-<p>{{ $var }}</p>
+<div>
+    <div class="color-swatch {{ $color }}">{{ .Inner }}</div>
+    <p>.{{ $color }}</p>
+</div>

@@ -11,8 +11,8 @@
     --color-light-text-secondary: hsl(var(--brand-hue) 30% 30%);
 
     --color-light-surface-primary: hsl(var(--brand-hue) 25% 90%);
-    --color-light-surface-secondary: hsl(var(--brand-hue) 20% 85%);
-    --color-light-surface-emphasis: hsl(var(--brand-hue) 20% 99%);
+    --color-light-surface-secondary: hsl(var(--brand-hue) 20% 80%);
+    --color-light-surface-emphasis: hsl(var(--brand-hue) 10% 99%);
 
     --shadow-light-hue: var(--brand-hue);
     --shadow-light-saturation: 10%;
@@ -26,7 +26,7 @@
     --color-dark-brand: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) * 1.25));
     --color-dark-accent: hsl(
         calc(var(--brand-hue) + var(--accent-spin)) var(--brand-saturation)
-            calc(var(--brand-lightness) * var(--accent-lighter) * 1.85)
+            calc(var(--brand-lightness) * var(--accent-lighter) * 2.1)
     );
 
     --color-dark-text-primary: hsl(var(--brand-hue) 15% 85%);
@@ -105,8 +105,27 @@
 }
 // success / Warning / error/ info
 
-body {
+.color-brand {
+    background-color: var(--color-brand);
+    color: var(--color-light-surface-secondary);
+}
+
+.color-accent {
+    background-color: var(--color-accent);
+    color: var(--color-surface-primary);
+}
+
+.color-surface-primary {
     background-color: var(--color-surface-primary);
     color: var(--color-text-primary);
-    font-weight: bold;
+}
+
+.color-surface-secondary {
+    background-color: var(--color-surface-secondary);
+    color: var(--color-text-primary);
+}
+
+.color-surface-emphasis {
+    background-color: var(--color-surface-emphasis);
+    color: var(--color-text-primary);
 }

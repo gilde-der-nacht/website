@@ -1,10 +1,11 @@
 .color-swatch {
+    --size: 10rem;
     @include border-radius;
     @include box-shadow;
-    height: 5rem;
-    width: 5rem;
-
-    &:hover {
-        background-color: var(--color-light-surface-primary);
-    }
+    height: var(--size);
+    width: var(--size);
+    display: grid;
+    place-content: center;
+    font-size: 2em;
+    font-weight: bold;
 }

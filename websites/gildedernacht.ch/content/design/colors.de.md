@@ -5,16 +5,18 @@
 
 # Farben
 
-{{< design/color-swatch var="--color-brand" >}}
+{{< layout/cluster >}}
 
-{{< design/color-swatch var="--color-accent" >}}
+{{< design/color-swatch color="color-brand" >}}1{{< /design/color-swatch >}}
 
-{{< design/color-swatch var="--color-text-primary" >}}
+{{< design/color-swatch color="color-accent" >}}2{{< /design/color-swatch >}}
 
-{{< design/color-swatch var="--color-text-secondary" >}}
+{{< design/color-swatch color="color-surface-primary" >}}3{{< /design/color-swatch >}}
 
-{{< design/color-swatch var="--color-surface-primary" >}}
+{{< design/color-swatch color="color-surface-secondary" >}}4{{< /design/color-swatch >}}
 
-{{< design/color-swatch var="--color-surface-secondary" >}}
+{{< design/color-swatch color="color-surface-empasis" >}}5{{< /design/color-swatch >}}
 
-{{< design/color-swatch var="--color-surface-emphasis" >}}
+{{< /layout/cluster >}}
+
+# Verlauf
