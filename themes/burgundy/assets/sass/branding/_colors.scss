@@ -1,0 +1,7 @@
+:root {
+    --brand-hue: 200;
+    --brand-saturation: 100%;
+    --brand-lightness: 50%;
+
+    --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+}

@@ -4,3 +4,5 @@
 }
 
 # Farben
+
+{{< design/color-swatch var="--brand-light" >}}
