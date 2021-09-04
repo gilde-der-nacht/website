@@ -1,9 +1,15 @@
 {{ define "main" }}
 
-<h1>Das ist eine Seite des Typs "Section"</h1>
-
-{{ .Title }}
+<h1>{{ .Title }}</h1>
 
 {{ .Content }}
+
+<ul>
+    {{ range .Pages.ByDate.Reverse }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a> |  {{ .Date | time.Format "Monday, 2 Jan 2006" }}
+    </li>
+    {{ end }}
+</ul>
 
 {{ end }}
