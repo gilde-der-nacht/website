@@ -63,6 +63,12 @@ li::marker {
     color: var(--color-accent);
 }
 
+table {
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    overflow-x: auto;
+}
+
 tr th {
     border-block-end: var(--s-4) solid var(--color-surface-secondary);
 }
