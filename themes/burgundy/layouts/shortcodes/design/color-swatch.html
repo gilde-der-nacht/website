@@ -1,6 +1,11 @@
-{{ $color := .Get "color"}}
+{{ $colorSet := .Get "colorSet"}}
+{{ $colorVar := .Get "colorVar"}}
 
 <div>
-    <div class="color-swatch dark-shadow {{ $color }}">{{ .Inner }}</div>
-    <p>.{{ $color }}</p>
+    <div class="color-swatch dark-shadow {{ with $colorSet }}{{ . }}{{ end }}" {{ with $colorVar
+        }}style="background-color: var({{ safeCSS . }});" {{ end }}></div>
+    <p>
+        {{ with $colorSet }}.{{ . }}{{ end }}
+        {{ with $colorVar }}{{ . }}{{ end }}
+    </p>
 </div>

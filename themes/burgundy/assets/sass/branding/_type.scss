@@ -48,6 +48,7 @@ blockquote {
     @extend .font-emphasis;
     border-inline-start: var(--s-3) solid var(--color-accent);
     padding-inline-start: var(--s0);
+    color: var(--color-text-secondary);
 }
 
 ul,

@@ -7,15 +7,39 @@
 
 {{< layout/cluster >}}
 
-{{< design/color-swatch color="color-brand" >}}1{{< /design/color-swatch >}}
+{{< design/color-swatch colorVar="--color-brand" >}}
 
-{{< design/color-swatch color="color-accent" >}}2{{< /design/color-swatch >}}
+{{< design/color-swatch colorVar="--color-accent" >}}
 
-{{< design/color-swatch color="color-surface-primary" >}}3{{< /design/color-swatch >}}
+{{< design/color-swatch colorVar="--color-text-primary" >}}
 
-{{< design/color-swatch color="color-surface-secondary" >}}4{{< /design/color-swatch >}}
+{{< design/color-swatch colorVar="--color-text-secondary" >}}
 
-{{< design/color-swatch color="color-surface-emphasis" >}}5{{< /design/color-swatch >}}
+{{< design/color-swatch colorVar="--color-text-link-primary" >}}
+
+{{< design/color-swatch colorVar="--color-text-link-secondary" >}}
+
+{{< design/color-swatch colorVar="--color-surface-primary" >}}
+
+{{< design/color-swatch colorVar="--color-surface-secondary" >}}
+
+{{< design/color-swatch colorVar="--color-surface-emphasis" >}}
+
+{{< /layout/cluster >}}
+
+## Farbkombinationen
+
+{{< layout/cluster >}}
+
+{{< design/color-swatch colorSet="color-comb-brand" >}}
+
+{{< design/color-swatch colorSet="color-comb-accent" >}}
+
+{{< design/color-swatch colorSet="color-comb-primary" >}}
+
+{{< design/color-swatch colorSet="color-comb-secondary" >}}
+
+{{< design/color-swatch colorSet="color-comb-emphasis" >}}
 
 {{< /layout/cluster >}}
 
@@ -31,10 +55,10 @@ Default Text Farbe Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui
 
 {{< layout/cluster >}}
 
-{{< design/color-swatch-gradient kind="color-gradient-one" >}}6{{< /design/color-swatch-gradient >}}
+{{< design/color-swatch-gradient kind="color-gradient-one" >}}
 
-{{< design/color-swatch-gradient kind="color-gradient-two" >}}7{{< /design/color-swatch-gradient >}}
+{{< design/color-swatch-gradient kind="color-gradient-two" >}}
 
-{{< design/color-swatch-gradient kind="color-gradient-three" >}}8{{< /design/color-swatch-gradient >}}
+{{< design/color-swatch-gradient kind="color-gradient-three" >}}
 
 {{< /layout/cluster >}}

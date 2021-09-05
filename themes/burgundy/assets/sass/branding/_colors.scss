@@ -133,32 +133,32 @@ a {
 }
 
 ::selection {
-    @extend .color-accent;
+    @extend .color-comb-accent;
 }
 
 // Color combinations
 
-.color-brand {
+.color-comb-brand {
     background-color: var(--color-brand);
     color: var(--color-light-surface-secondary);
 }
 
-.color-accent {
+.color-comb-accent {
     background-color: var(--color-accent);
     color: var(--color-surface-primary);
 }
 
-.color-surface-primary {
+.color-comb-primary {
     background-color: var(--color-surface-primary);
     color: var(--color-text-primary);
 }
 
-.color-surface-secondary {
+.color-comb-secondary {
     background-color: var(--color-surface-secondary);
     color: var(--color-text-primary);
 }
 
-.color-surface-emphasis {
+.color-comb-emphasis {
     background-color: var(--color-surface-emphasis);
     color: var(--color-text-primary);
 }
