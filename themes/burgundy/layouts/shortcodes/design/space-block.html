@@ -1,0 +1,4 @@
+{{ $var := .Get "var"}}
+
+<div class="space-block" style="--size: var({{ safeCSS $var }})"></div>
+<p>{{ $var }}</p>
