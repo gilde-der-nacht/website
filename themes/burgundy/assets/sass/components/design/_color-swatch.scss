@@ -1,8 +1,7 @@
 .color-swatch {
     @include border-radius;
-    --size: 12rem;
-    height: var(--size);
-    width: var(--size);
+    height: var(--s5);
+    width: var(--s5);
     display: grid;
     place-content: center;
     font-size: 2em;

@@ -9,6 +9,6 @@
     }
 
     > * + * {
-        margin-top: var(--space, 1rem);
+        margin-top: var(--space, var(--s0));
     }
 }

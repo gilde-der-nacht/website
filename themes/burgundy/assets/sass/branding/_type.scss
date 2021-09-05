@@ -50,6 +50,36 @@ blockquote {
     padding-inline-start: var(--s0);
 }
 
+ul,
+ol {
+    margin-inline-start: var(--s0);
+
+    li + li {
+        margin-block-start: var(--s-3);
+    }
+}
+
+li::marker {
+    color: var(--color-accent);
+}
+
+tr th {
+    border-block-end: var(--s-4) solid var(--color-surface-secondary);
+}
+
+th,
+td {
+    padding: var(--s-3);
+}
+
+tr:nth-child(2n) {
+    background-color: var(--color-surface-secondary);
+}
+
+tr:hover {
+    background-color: var(--color-surface-emphasis);
+}
+
 * {
     max-width: 60ch;
 }
@@ -60,6 +90,7 @@ div,
 header,
 nav,
 main,
-footer {
+footer,
+table {
     max-width: none;
 }
