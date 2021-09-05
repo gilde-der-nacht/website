@@ -1,7 +1,7 @@
 @font-face {
     font-family: "Recursive";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 350;
     font-display: swap;
     src: url(/fonts/Recursive_VF_1.078.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
@@ -20,16 +20,26 @@ $steps: 0.2;
 @for $i from 1 through 6 {
     h#{$i} {
         font-size: (6 - $i) * $steps + 1em;
-        font-family: "Recursive";
+        font-family: "Recursive", $font-family-base;
         transition: font-variation-settings 0.25s ease-out;
-        font-variation-settings: "CASL" 0, "wght" 400;
+        font-variation-settings: "CASL" 0, "wght" 350;
+        color: var(--color-text-secondary);
 
         &:hover {
-            font-variation-settings: "CASL" 1, "wght" 800;
+            font-variation-settings: "CASL" 1, "wght" 550;
+            color: var(--color-text-primary);
         }
     }
 }
 
-p {
-    font-size: 1em;
+.font-emphasis {
+    font-family: "Recursive";
+    font-variation-settings: "CASL" 1, "wght" 450, "slnt" -10;
+    font-size: 0.95em;
+}
+
+.font-mono {
+    font-family: "Recursive";
+    font-variation-settings: "MONO" 1, "wght" 350;
+    font-size: 0.95em;
 }
