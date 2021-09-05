@@ -1,5 +1,7 @@
 $border-radius: 0.3rem;
 
+$font-size-min: 1rem;
+
 
 // values that can change per brand
 :root {
@@ -7,6 +9,6 @@ $border-radius: 0.3rem;
     --brand-saturation: 100%;
     --brand-lightness: 20%;
 
-    --accent-spin: 135;
-    --accent-lighter: 1.5;
+    --accent-adjust-hue: 135;
+    --accent-adjust-lightness: 1.5;
 }

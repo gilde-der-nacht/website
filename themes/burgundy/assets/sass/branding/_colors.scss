@@ -3,8 +3,8 @@
 :root {
     --color-light-brand: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
     --color-light-accent: hsl(
-        calc(var(--brand-hue) + var(--accent-spin)) var(--brand-saturation)
-            calc(var(--brand-lightness) * var(--accent-lighter))
+        calc(var(--brand-hue) + var(--accent-adjust-hue)) var(--brand-saturation)
+            calc(var(--brand-lightness) * var(--accent-adjust-lightness))
     );
 
     --color-light-text-primary: hsl(var(--brand-hue) var(--brand-saturation) 10%);
@@ -25,8 +25,8 @@
 :root {
     --color-dark-brand: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) * 1.25));
     --color-dark-accent: hsl(
-        calc(var(--brand-hue) + var(--accent-spin)) var(--brand-saturation)
-            calc(var(--brand-lightness) * var(--accent-lighter) * 2.1)
+        calc(var(--brand-hue) + var(--accent-adjust-hue)) var(--brand-saturation)
+            calc(var(--brand-lightness) * var(--accent-adjust-lightness) * 2.1)
     );
 
     --color-dark-text-primary: hsl(var(--brand-hue) 15% 85%);

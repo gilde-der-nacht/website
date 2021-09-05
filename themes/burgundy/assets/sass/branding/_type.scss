@@ -1,0 +1,13 @@
+:root {
+    font-size: calc(#{$font-size-min} + 0.25vw);
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-size: (6 - $i) * 0.2 + 1em;
+    }
+}
+
+p {
+    font-size: 1em;
+}
