@@ -132,6 +132,10 @@ a {
     }
 }
 
+::selection {
+    @extend .color-accent;
+}
+
 // Color combinations
 
 .color-brand {
