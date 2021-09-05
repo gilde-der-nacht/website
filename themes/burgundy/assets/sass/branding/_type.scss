@@ -43,3 +43,23 @@ $steps: 0.2;
     font-variation-settings: "MONO" 1, "wght" 350;
     font-size: 0.95em;
 }
+
+blockquote {
+    @extend .font-emphasis;
+    border-inline-start: var(--s-3) solid var(--color-accent);
+    padding-inline-start: var(--s0);
+}
+
+* {
+    max-width: 60ch;
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+    max-width: none;
+}
