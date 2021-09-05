@@ -22,11 +22,11 @@ $steps: 0.2;
         font-size: (6 - $i) * $steps + 1em;
         font-family: "Recursive", $font-family-base;
         transition: font-variation-settings 0.25s ease-out;
-        font-variation-settings: "CASL" 0, "wght" 350;
+        font-variation-settings: "CASL" 0, "wght" 350, "slnt" 0;
         color: var(--color-text-secondary);
 
         &:hover {
-            font-variation-settings: "CASL" 1, "wght" 550;
+            font-variation-settings: "CASL" 1, "wght" 550, "slnt" -10;
             color: var(--color-text-primary);
         }
     }
