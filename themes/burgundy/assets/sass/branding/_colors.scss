@@ -9,6 +9,8 @@
 
     --color-light-text-primary: hsl(var(--brand-hue) var(--brand-saturation) 10%);
     --color-light-text-secondary: hsl(var(--brand-hue) 30% 30%);
+    --color-light-text-link-primary: var(--color-light-brand);
+    --color-light-text-link-secondary: hsl(var(--brand-hue) var(--brand-saturation) calc(var(--brand-lightness) * 1.5));
 
     --color-light-surface-primary: hsl(var(--brand-hue) 25% 90%);
     --color-light-surface-secondary: hsl(var(--brand-hue) 20% 80%);
@@ -31,6 +33,8 @@
 
     --color-dark-text-primary: hsl(var(--brand-hue) 15% 85%);
     --color-dark-text-secondary: hsl(var(--brand-hue) 5% 65%);
+    --color-dark-text-link-primary: hsl(var(--brand-hue) var(--brand-saturation) calc(var(--brand-lightness) * 2.75));
+    --color-dark-text-link-secondary: hsl(var(--brand-hue) var(--brand-saturation) calc(var(--brand-lightness) * 3.25));
 
     --color-dark-surface-primary: hsl(var(--brand-hue) 10% 15%);
     --color-dark-surface-secondary: hsl(var(--brand-hue) 5% 25%);
@@ -48,6 +52,8 @@
     --color-accent: var(--color-light-accent);
     --color-text-primary: var(--color-light-text-primary);
     --color-text-secondary: var(--color-light-text-secondary);
+    --color-text-link-primary: var(--color-light-text-link-primary);
+    --color-text-link-secondary: var(--color-light-text-link-secondary);
     --color-surface-primary: var(--color-light-surface-primary);
     --color-surface-secondary: var(--color-light-surface-secondary);
     --color-surface-emphasis: var(--color-light-surface-emphasis);
@@ -64,6 +70,8 @@
         --color-accent: var(--color-dark-accent);
         --color-text-primary: var(--color-dark-text-primary);
         --color-text-secondary: var(--color-dark-text-secondary);
+        --color-text-link-primary: var(--color-dark-text-link-primary);
+        --color-text-link-secondary: var(--color-dark-text-link-secondary);
         --color-surface-primary: var(--color-dark-surface-primary);
         --color-surface-secondary: var(--color-dark-surface-secondary);
         --color-surface-emphasis: var(--color-dark-surface-emphasis);
@@ -80,6 +88,8 @@
     --color-accent: var(--color-light-accent);
     --color-text-primary: var(--color-light-text-primary);
     --color-text-secondary: var(--color-light-text-secondary);
+    --color-text-link-primary: var(--color-light-text-link-primary);
+    --color-text-link-secondary: var(--color-light-text-link-secondary);
     --color-surface-primary: var(--color-light-surface-primary);
     --color-surface-secondary: var(--color-light-surface-secondary);
     --color-surface-emphasis: var(--color-light-surface-emphasis);
@@ -95,6 +105,8 @@
     --color-accent: var(--color-dark-accent);
     --color-text-primary: var(--color-dark-text-primary);
     --color-text-secondary: var(--color-dark-text-secondary);
+    --color-text-link-primary: var(--color-dark-text-link-primary);
+    --color-text-link-secondary: var(--color-dark-text-link-secondary);
     --color-surface-primary: var(--color-dark-surface-primary);
     --color-surface-secondary: var(--color-dark-surface-secondary);
     --color-surface-emphasis: var(--color-dark-surface-emphasis);
@@ -103,7 +115,22 @@
     --shadow-lightness: var(--shadow-dark-lightness);
     --shadow-strength: var(--shadow-dark-strength);
 }
-// success / Warning / error/ info
+
+// base color
+
+body {
+    background-color: var(--color-surface-primary);
+    color: var(--color-text-primary);
+}
+
+a {
+    color: var(--color-text-link-primary);
+
+    &:hover,
+    &:focus {
+        color: var(--color-text-link-secondary);
+    }
+}
 
 // Color combinations
 
@@ -160,3 +187,5 @@
 .dark-shadow {
     @include box-shadow;
 }
+
+// TODO success / Warning / error/ info
