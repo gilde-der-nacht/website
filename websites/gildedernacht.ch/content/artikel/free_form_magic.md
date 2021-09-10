@@ -25,7 +25,7 @@ Das Talent Zaubern kann 1 Punkt Schaden (alle Waffentalente auch) machen. Zauber
 
 ## Maelstrom
 
-Es gibt eine einzige Fertigkeit zum zaubern. Der Charakter kann zaubern was er möchte und erzählt alle seine Wünsche der Spielleitung. Diese vergibt dann eine Schwierigkeit vor. Die Schwierigkeit bit auch an wie Wahrscheinlichkeit es ist, dass diese Effekt natürlich vorkommt:
+Es gibt eine einzige Fertigkeit zum zaubern. Der Charakter kann zaubern was er möchte und erzählt alle seine Wünsche der Spielleitung. Diese vergibt dann eine Schwierigkeit vor. Die Schwierigkeit gibt auch an wie Wahrscheinlichkeit es ist, dass diese Effekt natürlich vorkommt:
 
 - 1\. Wahrscheinlich
 - 2\. Unwahrscheinlich
@@ -33,8 +33,9 @@ Es gibt eine einzige Fertigkeit zum zaubern. Der Charakter kann zaubern was er m
 - 4\. Extrem unwahrscheinlich
 - 5\. Natürlicherweise unmöglich (fliegende Menschen, zu Toten sprechen, ...)
 
-Grundsätzlich ist damit fast nichts möglich, dass in der Natur nicht ohnehin passiert. Damit hat man immer auch eine "Glaubhafte Abstreitbarkeit"/"Plausible Deniability". Menschen können sich nie sicher sein, warum etwas aussergewöhnliches passiert ist. Damit lässt sich auch "klerikale" Magie umsetzen.
+Grundsätzlich ist damit fast nichts möglich, dass in der Natur nicht ohnehin passiert. Damit hat man immer auch eine "Glaubhafte Abstreitbarkeit"/"Plausible Deniability". Menschen können sich nie sicher sein, warum etwas aussergewöhnliches passiert ist.
 
+https://en.wikipedia.org/wiki/Maelstrom_(role-playing_game)
 ??? Link
 
 ## Ars Magica

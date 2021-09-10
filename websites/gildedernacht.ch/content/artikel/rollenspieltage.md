@@ -8,21 +8,6 @@ toc:
   style: ext
 ---
 
-# Rollen
-
-- [CEO](#ceo)
-- [Datum](#datum)
-- [Lokalität](#lokalität)
-- [Marketing](#marketing)
-- [Sponsoring](#sponsoring)
-- [Verpflegung](#verpflegung)
-- [Finanzen](#finanzen)
-- [Webseite](#webseite)
-- [Programm](#programm)
-- [Rollenspiele Allgemein](#rollenspiele-allgemein)
-- [Rollenspiele Offline](#rollenspiele-offline)
-- [Rollenspiele Online](#rollenspiele-online)
-
 # CEO
 
 ## Aufgaben
