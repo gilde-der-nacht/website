@@ -5,45 +5,11 @@ date: 2021-08-06
 
 # Konflikt
 
-## Was ist Konflikt?
+## Fragen
 
-https://www.duden.de/rechtschreibung/Konflikt
-
-- durch das Aufeinanderprallen widerstreitender Auffassungen, Interessen o. Ä. entstandene schwierige Situation, die zum Zerwürfnis führen kann
-- mit kriegerischen Mitteln ausgetragene Auseinandersetzung zwischen Gegnern
-- Zwiespalt, Widerstreit aufgrund innerer Probleme
-
-https://www.britannica.com/science/conflict-psychology
-
-Conflict, in psychology, the arousal of two or more strong motives that cannot be solved together.
-
-https://en.wikipedia.org/wiki/Conflict
-
-- Conflict (process), the general pattern of groups dealing with disparate ideas
-- Conflict continuum from cooperation (low intensity), to contest, to higher intensity (violence and war)
-- Conflict of interest, involvement in multiple interests which could possibly corrupt the motivation or decision-making
-- Cultural conflict, a type of conflict that occurs when different cultural values and beliefs clash
-- Ethnic conflict, a conflict between two or more contending ethnic groups
-- Group conflict, conflict between groups
-- Intragroup conflict, conflict within groups
-- Organizational conflict, discord caused by opposition of needs, values, and interests between people working together
-- Role conflict, incompatible demands placed upon a person such that compliance with both would be difficult
-- Social conflict, the struggle for agency or power in something
-- Work–family conflict, incompatible demands between the work and family roles of an individual
-
-https://en.wikipedia.org/wiki/Conflict_(process)
-
-A conflict is a clash of interest. The basis of conflict may vary but it is always a part of society.
-
-M. Afzalur, a professor at Western Kentucky University, notes there is no single universally accepted definition of conflict.
-
-https://tvtropes.org/pmwiki/pmwiki.php/Main/LitFic
-
-... characterized by an aspiration to literary merit and a greater focus on style, theme and psychological depth - as opposed to the focus on plot and narrative typical of genre fiction.
-
-Burning Wheel:
-
-Conflict means taking a stand
+- Kennt jemand ein Rollenspiel wo Konflikt/Drama im Vordergrund/Hintergrund steht und das regeltechnisch umgesetzt wird?
+- Kennt jemand ein Spiel wo innerer Konflikt regeltechnisch abgehandelt wird?
+- Beispiele für Konflikte und kann man diese Beispiele kategoriesieren?
 
 ## Zitate
 
@@ -104,11 +70,45 @@ wenig Konflikt
 - Amelie
 - Chef / Kiss the Cook
 
-## Fragen
+## Was ist Konflikt?
 
-- Kennt jemand ein Rollenspiel wo Konflikt/Drama im Vordergrund/Hintergrund steht und das regeltechnisch umgesetzt wird?
-- Kennt jemand ein Spiel wo innerer Konflikt regeltechnisch abgehandelt wird?
-- Beispiele für Konflikte und kann man diese Beispiele kategoriesieren?
+https://www.duden.de/rechtschreibung/Konflikt
+
+- durch das Aufeinanderprallen widerstreitender Auffassungen, Interessen o. Ä. entstandene schwierige Situation, die zum Zerwürfnis führen kann
+- mit kriegerischen Mitteln ausgetragene Auseinandersetzung zwischen Gegnern
+- Zwiespalt, Widerstreit aufgrund innerer Probleme
+
+https://www.britannica.com/science/conflict-psychology
+
+Conflict, in psychology, the arousal of two or more strong motives that cannot be solved together.
+
+https://en.wikipedia.org/wiki/Conflict
+
+- Conflict (process), the general pattern of groups dealing with disparate ideas
+- Conflict continuum from cooperation (low intensity), to contest, to higher intensity (violence and war)
+- Conflict of interest, involvement in multiple interests which could possibly corrupt the motivation or decision-making
+- Cultural conflict, a type of conflict that occurs when different cultural values and beliefs clash
+- Ethnic conflict, a conflict between two or more contending ethnic groups
+- Group conflict, conflict between groups
+- Intragroup conflict, conflict within groups
+- Organizational conflict, discord caused by opposition of needs, values, and interests between people working together
+- Role conflict, incompatible demands placed upon a person such that compliance with both would be difficult
+- Social conflict, the struggle for agency or power in something
+- Work–family conflict, incompatible demands between the work and family roles of an individual
+
+https://en.wikipedia.org/wiki/Conflict_(process)
+
+A conflict is a clash of interest. The basis of conflict may vary but it is always a part of society.
+
+M. Afzalur, a professor at Western Kentucky University, notes there is no single universally accepted definition of conflict.
+
+https://tvtropes.org/pmwiki/pmwiki.php/Main/LitFic
+
+... characterized by an aspiration to literary merit and a greater focus on style, theme and psychological depth - as opposed to the focus on plot and narrative typical of genre fiction.
+
+Burning Wheel:
+
+Conflict means taking a stand
 
 ## Zusammenfassung
 

@@ -1,7 +1,6 @@
 ---
 title: "Rezension: Play Unsafe"
 date: 2019-02-15
-
 ---
 
 # Rezension: Play Unsafe

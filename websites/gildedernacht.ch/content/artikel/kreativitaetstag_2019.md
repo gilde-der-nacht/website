@@ -1,7 +1,6 @@
 ---
 title: "Kreativitätstag 2019"
 date: 2019-03-23
-
 ---
 
 # Kreativitätstag 2019

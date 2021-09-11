@@ -1,7 +1,6 @@
 ---
 title: "Selbsteinschätzung"
 date: 2021-08-13
-
 ---
 
 # Selbsteinschätzung
