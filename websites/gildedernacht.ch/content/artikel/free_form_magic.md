@@ -119,9 +119,13 @@ http://www.woinrpg.com/magic/
 
 ### Open Legend
 
-???
+Es gibt im Spiel eine Liste von positiven und negativen Zustände genannt *Boons* und *Banes*. Falls in einer Welt mit Magie gespielt wird, können Sprüche ebenfalls Boons oder Banes, oder Kombinationen davon sein.
 
 https://openlegendrpg.com/
+
+*Thomas*
+
+Das erinnert ein wenig an die Elder Scrolls Computerspiel Reihe. Es gibt dort eine Reihe von positiven/negativen Effekten. Zauber, Alchemie, Verzauberungen, Klassen und Sternzeichen greifen alle auf dieselbe Effektliste zurück.
 
 ### Weitere
 
