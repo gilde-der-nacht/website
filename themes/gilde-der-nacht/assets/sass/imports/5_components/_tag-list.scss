@@ -1,0 +1,44 @@
+.c-tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  li {
+    font-size: 0.85em;
+    border-radius: 0.5em;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 1.5rem;
+    padding: 0 1em;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid transparent;
+    background-color: var(--primary-brand-color);
+    color: white;
+  }
+
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 2rem;
+
+    p {
+      margin: 0;
+    }
+
+    * + & {
+      margin-top: 1rem;
+    }
+  }
+}
+
+li.c-tag-info {
+  background-color: transparent;
+  color: #cc0029;
+  border-color: currentColor;
+}
