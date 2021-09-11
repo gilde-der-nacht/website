@@ -1,12 +1,17 @@
 ---
 title: "Free Form Magic"
-date: 2022-01-01
+date: 2021-12-24
 draft: true
+toc:
+  enable: true
+  startLevel: 2
+  endLevel: 3
+  style: ext
 ---
 
 # Free Form Magic
 
-# Fragen
+## Fragen
 
 - Kennst du Rollenspiele wo Spieler zaubern können was sie wollen?
 - Bücher? Filme? Wie gut ist die Umsetzung? Was für Probleme ergeben sich?
@@ -14,37 +19,32 @@ draft: true
 - Wie Macht limitieren? (wenn alles geht braucht man gar keine Regeln)
 - ???
 
-## Ironsworn
+## Beispiele
+
+### Ironsworn
 
 - Alle Zauber/Rituale können tendenziell auch ohne Magie erklärt werden (z.B. gibt es keine Feuerbälle die aus dem Nichts kommen, teleportieren geht gar nicht, ...)
 - Jeder Zauber/Ritual beinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft.
 
-## Hero Kids
+### Hero Kids
 
 Zaubern ist darauf reduziert Schaden zu machen und zu heilen.
 
 Das Talent Zaubern kann 1 Punkt Schaden (alle Waffentalente auch) machen. Zaubern kann im Kampf auch als Aktion eingesetzt werden um 1 Lebenspunkt zu heilen. Ausserhalb von einem Kampf kann Zaubern alle Lebenspunkte heilen.
 
-## Maelstrom
+### Maelstrom
 
-Es gibt eine einzige Fertigkeit zum zaubern. Der Charakter kann zaubern was er möchte und erzählt alle seine Wünsche der Spielleitung. Diese vergibt dann eine Schwierigkeit vor. Die Schwierigkeit gibt auch an wie Wahrscheinlichkeit es ist, dass diese Effekt natürlich vorkommt:
-
-- 1\. Wahrscheinlich
-- 2\. Unwahrscheinlich
-- 3\. Sehr unwahrscheinlich
-- 4\. Extrem unwahrscheinlich
-- 5\. Natürlicherweise unmöglich (fliegende Menschen, zu Toten sprechen, ...)
+Es gibt eine einzige Fertigkeit zum zaubern. Der Charakter kann zaubern was er möchte und erzählt alle seine Wünsche der Spielleitung. Diese vergibt dann eine Schwierigkeit vor. Die Schwierigkeit gibt auch an wie Wahrscheinlichkeit es ist, dass diese Effekt natürlich vorkommt. Die Schwierigkeit geht von 1-5, wobei 5 selbst für sehr erfahrene Zauberer fast unmöglich ist.
 
 Grundsätzlich ist damit fast nichts möglich, dass in der Natur nicht ohnehin passiert. Damit hat man immer auch eine "Glaubhafte Abstreitbarkeit"/"Plausible Deniability". Menschen können sich nie sicher sein, warum etwas aussergewöhnliches passiert ist.
 
 https://en.wikipedia.org/wiki/Maelstrom_(role-playing_game)
-??? Link
 
-## Ars Magica
+### Ars Magica
 
-https://en.wikipedia.org/wiki/Ars_Magica
+Technik und Form können beliebig kombiniert werden.
 
-Technik
+#### Technik
 
 - Creo: kreiren
 - Intellego: erkennen
@@ -52,7 +52,7 @@ Technik
 - Perdo: zerstören
 - Rego: kontrollieren
 
-Form
+#### Form
 
 - Animal: Fauna
 - Auram: Bitze und Gase
@@ -65,9 +65,7 @@ Form
 - Terram: Erde und Mineralien
 - Vim: Zauberei selber
 
-Technik und Form können beliebig kombiniert werden.
-
-Beispiele:
+#### Beispiele
 
 - Pflanze wachsen lassen: Muto Herbam
 - Feuer entzünden: Creo Ignem
@@ -75,6 +73,76 @@ Beispiele:
 - Tier kontrollieren: Rego Animal
 - Heilen: Creo Corpus
 
-## Blades in the Dark
+#### Links
 
-Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommunizieren um dort z.B. mit Geistern zu kommunizieren. Da jeder Spieler dieses Attribut hat, können das grundsätzlich auch alle. Vor jeder Aktion die ein Spieler macht, muss der Spielleiter anhand der Beschreibung des Spieler folgendes sagen: 1. wie gefährlich die aktuelle Situation ist/wird 2. wie effektiv die gewählte Aktion vom Spieler ist. Es ist daher immer der Spielleiter der schlussendlich entscheidet wie viel man mit der Magie erreichen kann, sich aber auch erklären muss.
+- https://en.wikipedia.org/wiki/Ars_Magica
+- http://www.bibliothek.bund-aquanox.org/index.php?title=Zauber
+- http://spellswiki.wikidot.com/creo-animal
+
+### Blades in the Dark
+
+Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommunizieren um dort z.B. mit Geistern zu kommunizieren. Da jeder Spieler dieses Attribut hat, können das auch alle. Vor jeder Aktion die ein Spieler macht, muss der Spielleiter anhand der Beschreibung des Spieler folgendes sagen: 1. wie gefährlich die aktuelle Situation ist/wird 2. wie effektiv die gewählte Aktion vom Spieler ist. Es ist daher immer der Spielleiter der schlussendlich entscheidet wie viel man mit der Magie erreichen kann, sich aber auch erklären muss.
+
+### Four By Five Magic
+
+"Actions" und "Realm" können frei kombiniert werden. Die "Potency" sagt aus wie stark der Spruch ist, aber auch wieviel Mana er kostet.
+
+#### Actions
+
+- dēferō Kommunizieren: lesen, suchen, informieren, spüren, verstehen, ...
+- īnfirmō Verringern: schwächen, schaden, zerstören, ...
+- augeō Steigern: stärken, heilen, reparieren, schärfen, ...
+- temperō Kontrollieren: formen, kommandieren, ...
+
+#### Realms
+
+- corpus Körper: Körper von empfindungsfähigen Lebewesen wie Tiere, Pflanzen, Menschen, ...
+- navitus Energie: Feuer, Wind, Schall, Elektrizität, ... je nach Spielleiter auch Zeit
+- materium Materie: Stein, Holz, Metall, Leder, Papier, Plastik, ...
+- mentus Geist: Gedanken
+- animus Geister: Geister
+
+#### Potency
+
+- Standard
+- Gut
+- Grossartig
+- Übernatürlich
+
+https://1d4chan.org/wiki/Four_By_Five_Magic
+
+### Woin
+
+???
+
+http://www.woinrpg.com/magic/
+
+### Open Legend
+
+???
+
+https://openlegendrpg.com/
+
+### Weitere
+
+- https://www.reddit.com/r/rpg/comments/98iudb/games_with_freeform_magic/
+
+## Persönliches
+
+*Ariana*
+
+symbiotische Beziehungen eignen sich meiner Meinung nach sehr gut für flexible (ggf. nicht genetische) Magiesysteme. Wie bei der Symbiose in der Natur können gut Limitationen definiert werden, die z.B. mit dem Kosmos der bestehenden Fantasy Welt harmonieren.  (in einem gewissen Mass sieht man z.B. bei Warlocks in D&D, wo ein Wesen seine Macht leiht - Limitation sind da der Wille der Kreatur und dessen individuelle Macht, wobei da natürlich die Spielendeninterpretation viel Freiraum zulässt und das Regelwerk gewisse Dinge vorgibt, damit nicht jeder Charakter standardmässig an das mächtigste Wesen gebunden ist und alle anderen Warlocks zu schwach sind).
+
+*Thomas*
+
+Als Anhaltspunkte für die Schwierigkeit:
+
+| Veränderung | Schwierigkeit | Beispiel |
+| - | - | - |
+| Zauberzeit | kürzer ➜ schwieriger | Das Ritual dauert 2 Tage ➜ das Zaubern dauert 1 Sekunde |
+| Dauer | länger ➜ schwieriger | Der Stein wird nur wenige Sekunden flüssig ➜ Der Stein bleibt über mehrere Tage flüssig |
+| Reichweite | grösser ➜ schwieriger | Ich berühre das Ziel ➜ das Ziel ist hinter dem Horizont |
+| Bereich | grösser ➜ schwieriger | Meine Hände sind voll Wasser ➜ die ganze Stadt wird überflutet |
+| Geschwindigkeit | schneller ➜ schwieriger | die Veränderung passiert in kurzer Zeit ➜ die Veränderung dauert mehrere Tage |
+| Natur | unnatürlicher ➜ schwieriger | Wasser in der Nähe vom See erschaffen ➜ Wasser in der Wüste erschaffen |
+| Stärke | grösser ➜ schwieriger | eine kleine Temperaturerhöhung ➜ alles beginnt zu brennen |
