@@ -2,12 +2,12 @@
 title: "Rollenspiele für Neulinge"
 date: 2021-09-01
 draft: true
-
+toc:
+  enable: true
+  startLevel: 1
+  endLevel: 2
+  style: ext
 ---
-
-- [Kinder & Deutsch](#kinder--deutsch)
-- [Deutsch](#deutsch)
-- [Kinder & Englisch](#kinder--englisch)
 
 Bedingungen
 
@@ -18,6 +18,8 @@ Bedingungen
 - Altersgruppe angeben
 
 # Kinder & Deutsch
+
+Deutsche Rollenspiele die von den Autoren explizit an Kinder gerichtet sind.
 
 ## So nicht, Schurke / No Thank You, Evil
 
@@ -31,7 +33,7 @@ Bedingungen
 
 [ulisses-spiele.de](https://ulisses-spiele.de/spielsysteme/aeventyr/)
 
-> Thomas: Ein Teil der Karte ist eher für Kinder < 9, ein anderer Teil eher für Kinder > 9, ausgelegt. Unnötiges rechnen das meiner Meinung nach aus Rollenspielen verschwinden sollte z.B. Intiative = Körper + Aufmerksamkeit.
+> Thomas: Ein Teil der Karte ist eher für Kinder < 9, ein anderer Teil eher für Kinder > 9, ausgelegt. Regeln sind komplizierter als sie sein müssten. Unnötiges Rechnen z.B. Intiative = Körper + Aufmerksamkeit. Oder klassische Attribute und Fertigkeiten, etwas was selbst Rollenspiele explizit für Erwachsene meistens nicht mehr haben. Es fühlt sich teilweise an als hätten die Autoren die letzten 20 Jahre Spieldesign verpasst.
 
 ## My Little Pony - Tales of Equestria
 
@@ -67,6 +69,8 @@ Keines der folgenden Rollenspiele ist explizit für Kinder geschrieben.
 
 [erzaehlspiel-zine.de](https://www.erzaehlspiel-zine.de/ausgaben/ausgabe_null/lasers_and_feelings/)
 
+> Thomas: Gut um zu zeigen wie wenig ein Rollenspiele eigentlich benötigt. Mit so wenig Regeln wie allen relativ schnell bewusst, dass nur die eigene Kreativität das Spiel unterhaltsam macht.
+
 ## Ironsworn
 
 - Buch: 33€
@@ -77,6 +81,8 @@ Keines der folgenden Rollenspiele ist explizit für Kinder geschrieben.
 - Genre: Nordisch / Low Fantasy / Low Magic
 
 [system-matters.de](https://www.system-matters.de/produkt-kategorie/ironsworn/)
+
+> Thomas: Sehr einfache Charaktererstellung. Kann Solo gespielt werden, oder auch dass alle die Rolle des Spielleitung miteinander teilen. Viele Hilfsmittel für die Spielleitung, wenn einem nicht gerade etwas in den Sinn kommt. Ausnahmslos alle Regeln befinden sich auf den ersten ca. 40 Seiten. Alle andere kann man gut im Spiel im Buch nachschlagen und muss vorher nicht gelesen werden. Hat ein paar Konzepte die etwas ungewohnt sind und nicht ganz einfach zu erklären sind (z.B. Momentum oder der Fortschritts Balken).
 
 ## Die verbotenen Lande
 
@@ -106,7 +112,7 @@ Keines der folgenden Rollenspiele ist explizit für Kinder geschrieben.
 
 [f-shop.de](https://www.f-shop.de/detail/index/sArticle/1891)
 
-> Thomas: Alle spielen Kinder. Ich habe bis jetzt mit einer Gruppe ein Abenteuer gespielt, welches ein Gewaltfreie Lösung erforderte, was ich als sehr positiv empfand.
+> Thomas: Alle spielen Kinder. Ich habe bis jetzt mit einer Gruppe ein Abenteuer gespielt, welches ein gewaltfreie Lösung erforderte, was ich als sehr positiv empfand.
 
 ## D&D 5e
 
@@ -127,7 +133,7 @@ einsteigerbox gibt es die noch?
 
 [f-shop.de](https://www.f-shop.de/das-schwarze-auge/rollenspiel/einsteigerprodukte/116/das-geheimnis-des-drachenritters-dsa-einsteigerbox)
 
-> Thomas: Grösstes deutsches Fantasy Rollenspiel. Hat eine sehr umfangreiche Welt, auch mit sehr viel Geschichte.
+> Thomas: Grösstes deutsches Fantasy Rollenspiel. Hat eine unglaublich umfangreiche Welt, auch mit sehr viel Geschichte. Auch die Regeln sind eher komplex und umfangreich. Es gibt unzählige Abenteuer und generell zu jedem erdenklichen Thema Bücher für dieses Rollenspiel.
 
 ## Splittermond
 
@@ -173,11 +179,9 @@ einsteigerbox gibt es die noch?
 
 [prometheusgames.de](https://www.prometheusgames.de/verlag/verlagsprodukte/pocket-rpgs/ratten/)
 
-??? Manuela?
+> Manuela: Hat andere Meinung als Thomas
 
-??? Meinung Thomas: Bilder sind fast alle nicht für schwache Mägen und auch sprachlich nicht immer ein Zuckerschlecken
-
-> Thomas: Bilder sind meiner Meinung nach zwar gut gezeichnet, aber nicht hübsch oder fröhlich. Auch die Sprache ist immer mal wieder etwas brutal: "Dann biss ihm etwas mit einer unglaublichen Wucht in die Hoden". Oder wie fest sich Kinder mit "Brandratten", "Müllschlinger", "Rotaugen" oder "Laborratten" identifzieren möchte, finde ich zumindest eine Frage wert.
+> Thomas: Bilder sind meiner Meinung nach zwar gut gezeichnet, aber nicht hübsch oder fröhlich (siehe z.B. [rpggeek.com](https://rpggeek.com/images/rpgitem/53540/ratten)). Auch die Sprache ist immer mal wieder etwas brutal: "Dann biss ihm etwas mit einer unglaublichen Wucht in die Hoden". Oder wie fest sich Kinder mit "Brandratten", "Müllschlinger", "Rotaugen" oder "Laborratten" identifzieren möchte, finde ich zumindest eine Frage wert.
 
 # Kinder & Englisch
 
@@ -213,3 +217,9 @@ https://www.drivethrurpg.com/product/217101/Mermaid-Adventures-Revised
 ## Amazing Tales
 
 https://www.drivethrurpg.com/product/222950/Amazing-Tales-complete-kids-RPG
+
+## Wanderhome
+
+[possumcreekgames.com](https://www.possumcreekgames.com/wanderhome)
+
+> Thomas: Komplett gewaltfrei. Jede Person spielt ein Tier. Hat keine Würfeln. Regeln sind kurz, vielleicht sogar etwas zu kurz. Ist für Erwachsene vielleicht sogar schwieriger als für Kinder, da man miteinander eher ein Märchen schreibt und dabei kreativ sein sollte.

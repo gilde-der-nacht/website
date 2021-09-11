@@ -1,25 +1,24 @@
 ---
 title: "Kreativität"
 date: 2018-12-09
-
 ---
 
 ## Morphologische Analyse
-
-https://de.wikipedia.org/wiki/Morphologische_Analyse_(Kreativit%C3%A4tstechnik)
 
 - Merkmale (Attribute, Faktoren, Paramter, Dimensionen, ...) bestimmen
 - Ausprägungen von Merkmalen bestimmen
 - Von jedem Merkmal eine Ausprägung auswählen
 
-## Methode 635
+https://de.wikipedia.org/wiki/Morphologische_Analyse_(Kreativit%C3%A4tstechnik)
 
-https://de.wikipedia.org/wiki/Methode_635
+## Methode 635
 
 - 6 Teilnehmer bekommen ein Blatt mit 18 (6 * 3) Kästchen
 - Jeder Teilnehmer füllt 3 Ideen zum Thema in 3 Kästchen
 - Blatt wird an den nächsten Teilnehmer weitergeben, der 3 weitere Ideen, die auf den bestehenden Aufbauen, einfüllt
 - Nach 6 Durchgängen hat man 6 Blätter mit 18 ausgefüllt Kästchen
+
+https://de.wikipedia.org/wiki/Methode_635
 
 ## Diverses
 

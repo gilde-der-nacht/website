@@ -18,6 +18,8 @@ In einer Welt mit Konsequenzen flieht der eine oder andere Gegner und kommt mit 
 
 Beispiel Shadow of the Demon Lord: Spieler die schreckliche Taten verüben, können "Corruption" bekommen. Jedesmal wenn man Corruption bekommt, würfelt man auf eine Tabelle mit einem W20. In der Tabelle hat es harmlosere Dinge wie: "Du sieht nie dein Spiegelbild in einem Spiegel" bis zu "Innerhalb einer Woche, kränkelt/stirbt ein Kind."
 
+??? alignment anpassen, thema gesinnung
+
 # Spieler-Charakter stirbt?
 
 *Thomas*
@@ -46,13 +48,13 @@ Beispiel technoir: Das ganze Spielsystem baut drauf auf dass sich Mitspieler und
 
 *Thomas*
 
-???
+??? wirklich komplett tot, meistens einfach mal bewusstlos, meistens hat niemand das Interesse einfach alle nur zu töten
 
 # Bösewicht zu früh im Himmel?
 
 *Thomas*
 
-???
+??? das ist ok, spielabend beenden / lebendige welt die auch weitergeht wenn der bösewicht tot ist / wenn die geschichte so auslegt dass man eine reihe von ideen hat, die reihenfolge aber egal ist, dann ist das auch weniger schlimm
 
 # Gruppe teilt sich auf?
 
@@ -64,9 +66,9 @@ Ich teile meiner Gruppe jeweils mit, dass es etwas ist das ich als Spielleiter v
 
 ???
 
-Leider gibt es Spielsystem die haben Subsystem da wird die Gruppe zwangsläufig aufgetrennt. Beispiele: Hacker in Cyberpunk 2020 der in die Matrix geht (das haben die Autoren zumindest irgendwann auch verstanden). Shadowrun wenn ein magiebegabter Charakter in die Zwischenwelt geht, eine Welt die anderen Regeln folgt. Auch das Hacken in Shadowrun kann komplex genug sein, dass es fast ein Spiel im Spiel ist. Magiesysteme in diversen System sind so umfangreich, dass man sich darin verlieren kann und den Rest der Gruppe zeitweise abhängt.
+Leider gibt es Spielsystem die haben Subsysteme da wird die Gruppe zwangsläufig aufgetrennt. Beispiele: Hacker in Cyberpunk 2020 der in die Matrix geht (das haben die Autoren zumindest irgendwann auch verstanden). Shadowrun wenn ein magiebegabter Charakter in die Zwischenwelt geht, eine Welt die anderen Regeln folgt (wäre eine Charakter genau so schnell wie vorher, wäre es wesentlich einfacher den Spielfluss beizubehalten). Auch das Hacken in Shadowrun kann komplex genug sein, dass es fast ein Spiel im Spiel ist. Magiesysteme in diversen System sind in Teilen so umfangreich, dass man sich darin verlieren kann und den Rest der Gruppe zeitweise abhängt.
 
-Alles das ist für mich erst mal mässiges Spieldesign und alle diese antworten im Sinne von "Dann mach es halt anders" sind eine Ausrede. Natürlich kann man das. Ich muss auch gar kein Buch kaufen, ich kann alles selber machen. Gruppen die neu in einem Spielsystem sind, werden fast mit Sicherheit in diese Fettnäpfchen tretten. Gute Brettspiele sind bekannt dafür weil sie ein sehr gutes Balancing haben und auch versuchen den Spielern gleiche Anteile an Zeit zu geben (oder anders gesagt, Brettspiele die so unfertig verkauft werden wie die meisten Rollenspiele würde heute wahrscheinlich niemand mehr kaufen). Genau das erwarte ich von einem Rollenspiel für das ich Geld gezahlt habe auch. In den unzähligen Playtesting Stunden muss das aufgefallen sein und es ist enweder mehrere Seiten im Regelbuch eine Diskussion Wert, oder wenn der Spieldesigner klever wäre, würde er das Design so gestalten dass die Probleme gar nicht erst entstehen.
+Alles das ist für mich erst mal mässiges Spieldesign und alle diese antworten im Sinne von "Dann mach es halt anders" sind eine Ausrede. Natürlich kann man das. Ich muss auch gar kein Buch kaufen, ich kann alles selber machen. Gruppen die neu in einem Spielsystem sind, werden fast mit Sicherheit in diese Fettnäpfchen tretten. Gute Brettspiele sind bekannt dafür weil sie ein sehr gutes Balancing haben und auch versuchen den Spielern gleiche Anteile an Zeit zu geben (oder anders gesagt, Brettspiele die so unfertig verkauft werden wie die meisten Rollenspiele würde heute wahrscheinlich niemand mehr kaufen). Genau das erwarte ich von einem Rollenspiel für das ich Geld gezahlt habe auch. In den unzähligen Playtesting Stunden muss das aufgefallen sein und es ist enweder mehrere Seiten im Regelbuch eine Diskussion Wert, oder wenn das Spieldesign klever wäre, würde das Design so gestaltet dass die Probleme gar nicht erst entstehen würden.
 
 Konkret sollte man unbedingt schauen dass alle Spieler Teil der Erfahrung sein können wenn es länger dauert (für kurze Intermezzos ist das, wie eingang schon erwähnt, auch kein Problem), oder man reduziert ganz bewusst die Zeit die ein Charakter eigenständig in seiner "Miniwelt" verbringt. In Cyberpunk können das z.B. VR/AR Brillen sein, welche es allen Mitspielern erlauben sinnvoll mitzuhelfen. Anderfalls stellt man eine 5 Minuten Sanduhr auf. In dieser Zeit muss alles erledigt sein.
 
@@ -106,13 +108,23 @@ Beispiel Blades in the Dark: Genau wie PbtA wird nur gewürfelt, wenn überhaupt
 
 *Thomas*
 
-hineweis immer geben, evtl. mehr oder weniger details
+Wenn ein Hinweis wichtig für die Story ist dann sollte man ihn den Spielern auch immmer geben, unabhängig von einem Würfelergebnis.
+
+Es kann auch die umgekehrte Problematik geben, dass Spieler einen Hinweis oder ein Werkzeug finden, damit aber nicht wissen wie damit umgehen. Der Spielleiter kann dann kurz die Perspektive des Charakters eine Spielers übernehmen, der natürlich genau versteht für was dieser Hinweis ist. Charaktere können durchaus mehr Wissen als der eigentliche Spieler. Ich finde es generell nicht toll wenn ein Spielleiter erwartet dass ein Rätsel zwingend von einem Spieler gespielt wird, oder dass ein Spieler beim "Überzeugen" selber überzeugend sein muss, oder Wissen muss wie ein Handwerk funktioniert. Genau dafür hat sein Charakter Werte oder eine Hintergrundgeschichte.
+
+Computerspiele wie Metroid und Zelda gehen auch interessant mit dem Problem um dass Spieler Werkzeuge finden, deren Nutzen nicht kennen. Meistens wird der Spieler zuerst vor ein Problem gestellt an dem er unmöglich weiter kommt. Kurz darauf findet er neues Werkzeug dass genau dieses Problem löst. Mein Gefühl ist aber dass das in Rollenspiele nicht gut ankommt. Es ist einerseits generell schwierig den Spielern mitzuteilen dass ein bestimmtes Problem im Moment unlösbar ist. Den Spielern dann kurz darauf, die Erlösung zu geben, sieht wiederum auch sehr fest nach vorgefertigtem Abenteuer aus, indem die Spieler eigentlich nur Marionetten sind, welche ein geführtes Theather durchspielen (aka Railroading).
 
 Es gibt Rollenspiele die haben eine Alternative Würfelmethode wenn eine Aktion länger dauert (z.B. etwas herstellen). Eine einzelne Person, oder sogar alle, addieren ihre Würfelergebnisse so lange bis sie einen vorgegebenen Wert erreichen. Wie oft gewürfelt wird, gibt einen Hinweis darauf wie lange etwas gedauert hat.
+
+??? Shadowrun hatte doch so etwas?
 
 Beispiel Gumshoe: Wurde entwickelt um genau dieses Problem zu umgehen. Das zeigt offensichtlich dass es die Problematik eine echte ist oder zumindest war. Der Grundgedanke vom Regelsystem ist aber relativ einfach. Wenn ein Ort mehrere Hinweise enthält, dann finden ihn die Spieler zu 100% den wichtigsten Hinweis. Das einzige was sie mit den Würfelergebnis erreichen können, ist bessere oder mehre Informationen zu bekommen.
 
 # Einbruchsplan dauert Stunden?
+
+*Thomas*
+
+???
 
 - stopuhr
 - erlaub dass aktionen in der vergangenheit gemacht werden dürfen

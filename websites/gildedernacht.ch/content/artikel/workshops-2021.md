@@ -1,12 +1,12 @@
 ---
 title: "Workshops 2021"
 date: 2021-08-13
-
+toc:
+  enable: true
+  startLevel: 1
+  endLevel: 1
+  style: ext
 ---
-
-- [Wo soll ich anfangen?](#wo-soll-ich-anfangen)
-- [Spielleiter:innen Workshop](#spielleiterinnen-workshop)
-- [Weltenbau mit Rollenspielen](#weltenbau-mit-rollenspielen)
 
 # Wo soll ich anfangen?
 
@@ -17,7 +17,7 @@ date: 2021-08-13
 - Wünsche: Ja gerne, Nein danke, ...
 - Aufgabenteilung: Zeit, Ort, Snacks, Bücher Kaufen, ...
 - Kein Gegeneinander, mögt einander!
-- Begriffe: GM, MC, W100, D100, D&D5e, XP, Min/Max, Meta-Game, Level-Up, PK, TPK, PbtA, FitD, ...
+- Begriffe: SL, GM, MC, W100, D100, D&D5e, XP, Min/Max, Meta-Game, Level-Up, PK, TPK, PbtA, FitD, Railroading, ...
 
 ## Spielleiter:in Vorbereitung
 

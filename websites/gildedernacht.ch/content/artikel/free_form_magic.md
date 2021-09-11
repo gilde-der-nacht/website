@@ -16,10 +16,12 @@ draft: true
 
 ## Ironsworn
 
-- Alle Zauber/Rituale können auch ohne Magie erklärt werden (z.B. gibt es keine Feuerbälle die aus dem Nichts kommen, teleportieren geht gar nicht, ...)
+- Alle Zauber/Rituale können tendenziell auch ohne Magie erklärt werden (z.B. gibt es keine Feuerbälle die aus dem Nichts kommen, teleportieren geht gar nicht, ...)
 - Jeder Zauber/Ritual beinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft.
 
 ## Hero Kids
+
+Zaubern ist darauf reduziert Schaden zu machen und zu heilen.
 
 Das Talent Zaubern kann 1 Punkt Schaden (alle Waffentalente auch) machen. Zaubern kann im Kampf auch als Aktion eingesetzt werden um 1 Lebenspunkt zu heilen. Ausserhalb von einem Kampf kann Zaubern alle Lebenspunkte heilen.
 
