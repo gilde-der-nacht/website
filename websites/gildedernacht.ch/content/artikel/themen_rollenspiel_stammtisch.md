@@ -20,6 +20,8 @@ draft: true
 - LARP im Rollenspiel (Beispiele? Interesse?)
 - Lebendige Spielwelt (Was heisst das? Wie kann ich das gut umsetzen?)
 - Regeln (Wieviel? Nutzen? Spassfaktor?)
+- Setting Cyberpunk 202x (Wie würde Cyberpunk aussehen wenn man es ausnahmsweise einmal wirklich neu denken würde? Welche Filme, Bücher und Serien kommen dir dazu in den Sinn?)
+- Setting Solarpunk 202x (Gibt es Rollenspiele zu dem Thema? Wie sieht deine Vorstellung einer guten Utopie aus?)
 - Spielleiter Wechseln (nach jeder Runde, innerhalb der Runde, ...)
 - Story Erfinden (Wie vorgehen? Fettnäpfchen? Gute Beispiele?)
 - Szenen (Was macht eine gute Szene aus? Aufbau? Kann man das strukturieren?)

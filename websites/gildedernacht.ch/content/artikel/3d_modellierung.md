@@ -22,7 +22,7 @@ Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen mög
 
 ### Software Ingenieur:innen
 
-Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucken, ...). In der Produktion sind unter anderem Reproduzierbarkeit, exakte Längenangaben und Toleranzen sehr wichtig.
+Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucken, ...). In der Produktion sind unter anderem Reproduzierbarkeit, Längenangaben und Toleranzen wichtig.
 
 - BlocksCAD: Grafische Oberfläche für OpenSCAD
 - FreeCAD: CAD Programm ***OpenSource***
@@ -46,7 +46,7 @@ Theorethisch wären Menschen nicht so schwer zu modellieren. Uns fallen aber kle
 
 https://www.blender.org/
 
-Blender ist in den letzten Jahren zu einer der populärsten Modellierungs Software geworden die auch sehr umfangreich ist. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht.
+Blender ist in den letzten Jahren zu einer der populärsten Modellierungs Software geworden. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht. Inzwischen gibt es auch eine Unmenge an kostenlosen Plugins.
 
 ### Shortcuts
 
@@ -76,12 +76,23 @@ Blender ist in den letzten Jahren zu einer der populärsten Modellierungs Softwa
 - Texturing
 - Shading
 - Animation
+- Rigging/Skinning
 - Simulation
 - Rendering
 - Game Engine
 - Scripting
 - Video Editing
 
-### Tutorials
+### Plugins
 
-- https://www.youtube.com/watch?v=TPrnSACiTJ4
+???
+
+- https://www.youtube.com/watch?v=n9nWAuKat60
+
+### Videos
+
+- Doughnut Tutorial: https://www.youtube.com/playlist?list=PLjEaoINr3zgEq0u2MzVgAaHEBt--xLB6U
+- Blender 2.8 Fundamentals: https://www.youtube.com/playlist?list=PLa1F2ddGya_-UvuAqHAksYnB0qL9yWDO6
+
+- https://www.youtube.com/watch?v=_9dEqM3H31g
+- https://www.youtube.com/watch?v=X0JqAF5cvGQ

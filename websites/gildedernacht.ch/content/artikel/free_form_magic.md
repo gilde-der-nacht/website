@@ -14,8 +14,8 @@ toc:
 ## Fragen
 
 - Kennst du Rollenspiele wo Spieler zaubern können was sie wollen?
-- Bücher? Filme? Wie gut ist die Umsetzung? Was für Probleme ergeben sich?
-- Wie garantieren dass die Regeln die nicht dauern ändern?
+- Bücher? Filme? Wie gut ist die Umsetzung? Was für Probleme ergeben sich im jeweiligen Buch/Film?
+- Wie umsetzen dass die Regeln nachvollziehbar sind?
 - Wie Macht limitieren? (wenn alles geht braucht man gar keine Regeln)
 - ???
 
@@ -110,12 +110,6 @@ Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommuniz
 - Übernatürlich
 
 https://1d4chan.org/wiki/Four_By_Five_Magic
-
-### Woin
-
-???
-
-http://www.woinrpg.com/magic/
 
 ### Open Legend
 
