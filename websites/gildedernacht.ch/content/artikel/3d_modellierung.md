@@ -15,7 +15,7 @@ toc:
 
 ### Software für Künstler:innen
 
-Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen möglichst schnell unterschiedlichste Modelle erstellen zu können. Die Ästhetik steht im Vordergrund.
+Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen möglichst effizient unterschiedlichste Modelle erstellen zu können. Die Ästhetik steht im Vordergrund.
 
 - Blender: Modellierung, Sculping, Animationen, Texturen, Visualisierung ***OpenSource***
 - SketchUp: Modellierung für Anfänger
@@ -27,16 +27,16 @@ Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucke
 - BlocksCAD: Grafische Oberfläche für OpenSCAD
 - FreeCAD: CAD Programm ***OpenSource***
 - Fusion 360: Professionelles CAD Programm (zwingende Anmeldung)
-- LeoCAD: Modelle mit Klemm-Bausteinen aufbauen
+- LeoCAD: Modelle mit Klemm-Bausteinen aufbauen ***OpenSource***
 - OpenJSCAD: Online Variante von OpenSCAD ***OpenSource***
 - OpenSCAD: Modelle mit Text aufbauen ***OpenSource***
-- TinkerCAD: Eingeschränkstes aber einfaches CAD Programm
+- TinkerCAD: Eingeschränktes aber einfaches CAD Programm
 
 ### Schwierigkeitsgrade
 
 Objekte die nahezu nur aus Ecken und Kanten bestehen, oder solche die gleichmässig abgerundet sind, sind tendenziell einfacher zu modellieren. Je mehr Details ein Objekt hat desto aufwändiger wird das modellieren.
 
-Theorethisch wären Menschen nicht so schwer zu modellieren. Uns fallen aber kleinste Unregelmässigkeiten in Proportionen negativ auf (siehe auch [Uncanny Valley](https://de.wikipedia.org/wiki/Uncanny_Valley)). Zusätzlich nicht ganz trivial sind auch Haare als auch das texturieren vorallem des Gesichts.
+Theoretisch wären Menschen nicht so schwer zu modellieren. Uns fallen aber kleinste Unregelmässigkeiten in Proportionen negativ auf (siehe auch [Uncanny Valley](https://de.wikipedia.org/wiki/Uncanny_Valley)). Zusätzlich Schwierigkeit sind Haare als auch das texturieren des Gesichtes.
 
 - Einfach: Gebäude, Möbel, Geschirr, Werkzeuge
 - Mittel: Bäume, Kleider, Fahrzeuge
@@ -46,7 +46,18 @@ Theorethisch wären Menschen nicht so schwer zu modellieren. Uns fallen aber kle
 
 https://www.blender.org/
 
-Blender ist in den letzten Jahren zu einer der populärsten Modellierungs Software geworden. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht. Inzwischen gibt es auch eine Unmenge an kostenlosen Plugins.
+Blender ist in den letzten Jahren zu einer der populärsten Modellierungs Software geworden. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht. Inzwischen gibt es auch viele kostenlose Plugins.
+
+### Vorbereitung
+
+Was benötigt man
+
+- Die Software "Blender". Herunterladen und installieren: https://www.blender.org/download/
+- Ein Computer/Laptop mit 3D Unterstützung (am besten Blender starten, wenn nach ein paar Sekunden der Bildschirm wie unten aussieht, stehen die Sterne schon mal günstig)
+- Idealerweise eine Maus mit 3 Tasten und Scroll-Rad (geht auch ohne)
+- Idealerweise eine Tastur mit einem Ziffernblock (geht auch ohne)
+
+![Blender 2.82 First Screen](../blender-2.82-first-screen.png)
 
 ### Shortcuts
 
@@ -82,12 +93,13 @@ Blender ist in den letzten Jahren zu einer der populärsten Modellierungs Softwa
 - Game Engine
 - Scripting
 - Video Editing
+- Audio
 
-### Plugins
+### Begriffe
 
-???
+Allgemein: Vertex, Edge, Face, Normal, UV, Mesh, FK=Forward Kinematic, IK=Inverse Kinematic, Shader
 
-- https://www.youtube.com/watch?v=n9nWAuKat60
+Blender: Eevee, Cycles, ...
 
 ### Videos
 
@@ -96,3 +108,7 @@ Blender ist in den letzten Jahren zu einer der populärsten Modellierungs Softwa
 
 - https://www.youtube.com/watch?v=_9dEqM3H31g
 - https://www.youtube.com/watch?v=X0JqAF5cvGQ
+
+### Plugins
+
+- https://www.youtube.com/watch?v=n9nWAuKat60

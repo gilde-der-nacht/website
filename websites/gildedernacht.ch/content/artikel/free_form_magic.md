@@ -13,7 +13,7 @@ toc:
 
 ## Fragen
 
-- Kennst du Rollenspiele wo Spieler zaubern können was sie wollen?
+- Kennst du Rollenspiele wo alle Spieler:innen zaubern können was sie wollen?
 - Bücher? Filme? Wie gut ist die Umsetzung? Was für Probleme ergeben sich im jeweiligen Buch/Film?
 - Wie umsetzen dass die Regeln nachvollziehbar sind?
 - Wie Macht limitieren? (wenn alles geht braucht man gar keine Regeln)
@@ -24,7 +24,7 @@ toc:
 ### Ironsworn
 
 - Alle Zauber/Rituale können tendenziell auch ohne Magie erklärt werden (z.B. gibt es keine Feuerbälle die aus dem Nichts kommen, teleportieren geht gar nicht, ...)
-- Jeder Zauber/Ritual beinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft.
+- Jeder Zauber und jedes Ritual beinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft. Es ist daher einfach (und auch im Buch erklärt) neue Rituale zu erfinden welche die Spiel-Balance nicht kaputt machen.
 
 ### Hero Kids
 
@@ -32,11 +32,15 @@ Zaubern ist darauf reduziert Schaden zu machen und zu heilen.
 
 Das Talent Zaubern kann 1 Punkt Schaden (alle Waffentalente auch) machen. Zaubern kann im Kampf auch als Aktion eingesetzt werden um 1 Lebenspunkt zu heilen. Ausserhalb von einem Kampf kann Zaubern alle Lebenspunkte heilen.
 
+Wie man den Zaubern innerhalb diesen festen Regeln definiert ist einem selber überlassen.
+
 ### Maelstrom
 
-Es gibt eine einzige Fertigkeit zum zaubern. Der Charakter kann zaubern was er möchte und erzählt alle seine Wünsche der Spielleitung. Diese vergibt dann eine Schwierigkeit vor. Die Schwierigkeit gibt auch an wie Wahrscheinlichkeit es ist, dass diese Effekt natürlich vorkommt. Die Schwierigkeit geht von 1-5, wobei 5 selbst für sehr erfahrene Zauberer fast unmöglich ist.
+Es gibt eine einzige Fertigkeit zum Zaubern. Der Charakter kann zaubern was er möchte und erzählt alle seine Wünsche der Spielleitung. Diese vergibt dann eine Schwierigkeit vor. Die Schwierigkeit gibt auch an wie Wahrscheinlich es ist, dass dieser Effekt natürlich in der Welt vorkommen würde. Die Schwierigkeit geht von 1-5, wobei 5 selbst für sehr erfahrene Zauberer fast unmöglich ist.
 
 Grundsätzlich ist damit fast nichts möglich, dass in der Natur nicht ohnehin passiert. Damit hat man immer auch eine "Glaubhafte Abstreitbarkeit"/"Plausible Deniability". Menschen können sich nie sicher sein, warum etwas aussergewöhnliches passiert ist.
+
+Konkret: Eine Welle im Meer zu erzeugen ist einfacher, als Wasser in der Wüste zu erschaffen.
 
 https://en.wikipedia.org/wiki/Maelstrom_(role-playing_game)
 
@@ -81,7 +85,7 @@ Technik und Form können beliebig kombiniert werden.
 
 ### Blades in the Dark
 
-Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommunizieren um dort z.B. mit Geistern zu kommunizieren. Da jeder Spieler dieses Attribut hat, können das auch alle. Vor jeder Aktion die ein Spieler macht, muss der Spielleiter anhand der Beschreibung des Spieler folgendes sagen: 1. wie gefährlich die aktuelle Situation ist/wird 2. wie effektiv die gewählte Aktion vom Spieler ist. Es ist daher immer der Spielleiter der schlussendlich entscheidet wie viel man mit der Magie erreichen kann, sich aber auch erklären muss.
+Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommunizieren um dort z.B. mit Geistern zu kommunizieren. Da alle Spieler:innen dieses Attribut haben, können das auch alle am Tisch. Vor jeder Aktion die Spieler:innen machen, muss die Spielleitung anhand der Beschreibung der Spieler:innen folgendes sagen: 1. wie gefährlich die aktuelle Situation ist/wird 2. wie effektiv die gewählte Aktion der Spieler:innen ist. Es ist daher die Spielleitung die entscheidet wie viel man mit der Magie erreichen kann, sich aber auch erklären muss.
 
 ### Four By Five Magic
 
@@ -97,7 +101,7 @@ Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommuniz
 #### Realms
 
 - corpus Körper: Körper von empfindungsfähigen Lebewesen wie Tiere, Pflanzen, Menschen, ...
-- navitus Energie: Feuer, Wind, Schall, Elektrizität, ... je nach Spielleiter auch Zeit
+- navitus Energie: Feuer, Wind, Schall, Elektrizität, ... je nach Spielleitung auch Zeit
 - materium Materie: Stein, Holz, Metall, Leder, Papier, Plastik, ...
 - mentus Geist: Gedanken
 - animus Geister: Geister
