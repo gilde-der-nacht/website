@@ -1,0 +1,19 @@
+name: Fetch Events
+
+on: repository_dispatch
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - shell: bash
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "7040739+Level8Broccoli@users.noreply.github.com"
+        
+        curl -X GET https://www.googleapis.com/calendar/v3/calendars/gildedernacht@gmail.com/events?key=AIzaSyBRXYQfvv3KHyZmZrhxzWDOghX_c7xfnGo&SameSite=None&timeMin=2021-09-17T18%3A53%3A41.546Z -o websites/gildedernacht.ch/data/calendar.json
+        git add .
+        git commit -m "fetch new event data"
+        git push
