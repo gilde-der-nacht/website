@@ -1,6 +1,6 @@
 name: Fetch Events
 
-on: repository_dispatch
+on: workflow_dispatch
 
 jobs:
   fetch:
