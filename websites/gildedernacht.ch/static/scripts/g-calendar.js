@@ -101,7 +101,8 @@ class GoogleCalendar {
       calendarID +
       "/events?key=" +
       apiKey +
-      "&SameSite=None";
+      "&SameSite=None" +
+      "&timeMin=" + (new Date()).toISOString();
   }
 
   async getDates() {
