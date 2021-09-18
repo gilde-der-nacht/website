@@ -17,20 +17,20 @@ toc:
 
 Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen möglichst effizient unterschiedlichste Modelle erstellen zu können. Die Ästhetik steht im Vordergrund.
 
-- Blender: Modellierung, Sculping, Animationen, Texturen, Visualisierung ***OpenSource***
-- SketchUp: Modellierung für Anfänger
+- [Blender](https://www.blender.org/): Modellierung, Sculping, Animationen, Texturen, Visualisierung ***OpenSource***
+- [SketchUp](https://www.sketchup.com/products/sketchup-for-web): Modellierung für Anfänger
 
 ### Software Ingenieur:innen
 
 Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucken, ...). In der Produktion sind unter anderem Reproduzierbarkeit, Längenangaben und Toleranzen wichtig.
 
-- BlocksCAD: Grafische Oberfläche für OpenSCAD
-- FreeCAD: CAD Programm ***OpenSource***
-- Fusion 360: Professionelles CAD Programm (zwingende Anmeldung)
-- LeoCAD: Modelle mit Klemm-Bausteinen aufbauen ***OpenSource***
-- OpenJSCAD: Online Variante von OpenSCAD ***OpenSource***
-- OpenSCAD: Modelle mit Text aufbauen ***OpenSource***
-- TinkerCAD: Eingeschränktes aber einfaches CAD Programm
+- [BlocksCAD](https://www.blockscad3d.com/): Grafische Oberfläche für OpenSCAD
+- [FreeCAD](https://www.freecadweb.org/): CAD Programm ***OpenSource***
+- [Fusion 360](https://www.autodesk.com/products/fusion-360/personal): Professionelles CAD Programm (zwingende Anmeldung)
+- [LeoCAD](https://www.leocad.org/): Modelle mit Klemm-Bausteinen aufbauen ***OpenSource***
+- [OpenJSCAD](https://openjscad.com/): Online Variante von OpenSCAD ***OpenSource***
+- [OpenSCAD](https://openscad.org/): Modelle mit Text aufbauen ***OpenSource***
+- [TinkerCAD](https://www.tinkercad.com/): Eingeschränktes aber einfaches CAD Programm
 
 ### Schwierigkeitsgrade
 
@@ -46,7 +46,7 @@ Obwohl Menschen verhältnismässig gleichmässig wären, fallen oft kleinste Unr
 
 https://www.blender.org/
 
-Blender ist in den letzten Jahren zu einer der populärsten Modellierungs Software geworden. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht. Inzwischen gibt es auch viele kostenlose Plugins.
+Blender ist in den letzten Jahren zu einer der bekannteren Modellierungs Software geworden. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht. Inzwischen gibt es auch viele kostenlose Plugins.
 
 ### Vorbereitung
 
@@ -66,8 +66,8 @@ Was benötigt man
 | Numpad 3 | View From X / Right |
 | Numpad 1 | View From Y / Front |
 | Numpad 7 | View From Z / Top |
-| MMB | View Rotate |
-| Shift + MMB | View Move |
+| Mittlere Maustaste | View Rotate |
+| Shift + Mittlere Maustaste | View Move |
 | Numpad . | View Focus |
 | Tab | Object/Edit Mode |
 | G | Move |
@@ -107,13 +107,6 @@ Blender: Eevee, Cycles
 - Doughnut Tutorial: https://www.youtube.com/playlist?list=PLjEaoINr3zgEq0u2MzVgAaHEBt--xLB6U
 - Blender 2.8 Fundamentals: https://www.youtube.com/playlist?list=PLa1F2ddGya_-UvuAqHAksYnB0qL9yWDO6
 
-- https://www.youtube.com/watch?v=_9dEqM3H31g
-- https://www.youtube.com/watch?v=X0JqAF5cvGQ
-
-### Plugins
-
-- https://www.youtube.com/watch?v=n9nWAuKat60
-
 ### Beispiele
 
 #### Airplane
@@ -143,8 +136,8 @@ Z-Fighting & Smooth/Flat Shading & ColorRamp Material
 
 #### Robot
 Texture & Parenting & Animation
-![Book](../robot.jpg)
-[Book](../robot.blend) & [Robot Texture](../robot.png)
+![Robot](../robot.jpg)
+[Robot](../robot.blend) & [Robot Texture](../robot.png)
 
 #### Water
 Fluid Simulation & Glass Material
@@ -159,4 +152,4 @@ Bones & Skin Modifier
 #### VFX
 Tracker & Solve Camera Motion
 ![VFX](../vfx.jpg)
-[VFX](../vfx.blend)
+[VFX](../vfx.blend) & [VFX Video](../vfx.mp4)
