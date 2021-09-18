@@ -36,7 +36,7 @@ Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucke
 
 Objekte die nahezu nur aus Ecken und Kanten bestehen, oder solche die gleichmässig abgerundet sind, sind tendenziell einfacher zu modellieren. Je mehr Details ein Objekt hat desto aufwändiger wird das modellieren.
 
-Theoretisch wären Menschen nicht so schwer zu modellieren. Uns fallen aber kleinste Unregelmässigkeiten in Proportionen negativ auf (siehe auch [Uncanny Valley](https://de.wikipedia.org/wiki/Uncanny_Valley)). Zusätzlich Schwierigkeit sind Haare als auch das texturieren des Gesichtes.
+Obwohl Menschen verhältnismässig gleichmässig wären, fallen oft kleinste Unregelmässigkeiten in Proportionen negativ auf (siehe auch [Uncanny Valley](https://de.wikipedia.org/wiki/Uncanny_Valley)). Eine zusätzliche Schwierigkeit sind die Haare als auch das texturieren des Gesichtes.
 
 - Einfach: Gebäude, Möbel, Geschirr, Werkzeuge
 - Mittel: Bäume, Kleider, Fahrzeuge
@@ -54,7 +54,7 @@ Was benötigt man
 
 - Die Software "Blender". Herunterladen und installieren: https://www.blender.org/download/
 - Ein Computer/Laptop mit 3D Unterstützung (am besten Blender starten, wenn nach ein paar Sekunden der Bildschirm wie unten aussieht, stehen die Sterne schon mal günstig)
-- Idealerweise eine Maus mit 3 Tasten und Scroll-Rad (geht auch ohne)
+- Eine Maus, idealerweise eine mit 3 Tasten und Scroll-Rad (geht auch ohne)
 - Idealerweise eine Tastur mit einem Ziffernblock (geht auch ohne)
 
 ![Blender 2.82 First Screen](../blender-2.82-first-screen.png)
@@ -87,19 +87,20 @@ Was benötigt man
 - Texturing
 - Shading
 - Animation
-- Rigging/Skinning
+- Rigging
 - Simulation
 - Rendering
 - Game Engine
 - Scripting
 - Video Editing
+- VFX
 - Audio
 
 ### Begriffe
 
-Allgemein: Vertex, Edge, Face, Normal, UV, Mesh, FK=Forward Kinematic, IK=Inverse Kinematic, Shader
+Allgemein: Vertex, Edge, Face, Normal, UV, Mesh, FK=Forward Kinematic, IK=Inverse Kinematic, Shader, Bones, Rigging, Skinning, BSDF=Bidirectional Scattering Distribution Function, SSS=Subsurface Scattering, SSAO=Screen Space Ambient Occlusion
 
-Blender: Eevee, Cycles, ...
+Blender: Eevee, Cycles
 
 ### Videos
 
@@ -112,3 +113,50 @@ Blender: Eevee, Cycles, ...
 ### Plugins
 
 - https://www.youtube.com/watch?v=n9nWAuKat60
+
+### Beispiele
+
+#### Airplane
+Mirror Modifier & Subdivision Modifier
+![Airplane](../airplane.jpg)
+[Airplane](../airplane.blend)
+
+#### Rope
+Array Modifier & Screw Modifier & Curve Modifier
+![Rope](../rope.jpg)
+[Rope](../rope.blend)
+
+#### Cloth
+Cloth Simulation & Collision Simulation & Vertex Group
+![Cloth](../cloth.jpg)
+[Cloth](../cloth.blend)
+
+#### Terrain
+Displace Modifier & ColorRamp Material
+![Terrain](../terrain.jpg)
+[Terrain](../terrain.blend) & [Terrain Heightmap](../wikipedia-heightmap.png)
+
+#### Comic
+Z-Fighting & Smooth/Flat Shading & ColorRamp Material
+![Comic](../comic.jpg)
+[Comic](../comic.blend)
+
+#### Robot
+Texture & Parenting & Animation
+![Book](../robot.jpg)
+[Book](../robot.blend) & [Robot Texture](../robot.png)
+
+#### Water
+Fluid Simulation & Glass Material
+![Water](../water.jpg)
+[Water](../water.blend)
+
+#### Body
+Bones & Skin Modifier
+![Body](../body.jpg)
+[Body](../body.blend)
+
+#### VFX
+Tracker & Solve Camera Motion
+![VFX](../vfx.jpg)
+[VFX](../vfx.blend)
