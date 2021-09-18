@@ -4,7 +4,7 @@ date: 2021-08-13
 toc:
   enable: true
   startLevel: 1
-  endLevel: 6
+  endLevel: 1
   style: ext
 ---
 
@@ -25,6 +25,10 @@ toc:
 - Wer 2 mal unentschuldigt nicht an ein OK Treffen kommt, … ???
 - Was möchte man erreichen? Was sind die Ziele?
 - Was sind keine Ziele?
+- Aufgabe: Fotomacher
+- Aufgabe: Leute entgegennehmen
+- Aufgabe: Ansagen (besprechen was)
+- Vision
 
 # Datum
 
@@ -215,16 +219,17 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Blog
 - Code of Conduct
 - Deutsch & Englisch
-- Discord Link
-- Facebook Link
+- Links
+  - Gilde der Nacht
+  - Discord
+  - Facebook
+  - Meetup
 - Forum
-- Gilde der Nacht Link
 - Interessante externe Links
 - Kontaktmöglichkeit
 - Kosten (Fester Preis, Kollekte, ...)
 - LiveChat
 - Lokalität & Anreisebeschreibung
-- Meetup Link
 - Mitfahrbörse
 - Neuigkeiten
 - Newsletter
@@ -234,7 +239,6 @@ Notiz: In den letzten Jahre wollte sich niemand darum kümmern
 - Spielpläne & Spieleranmeldung
 - Sponsoring
 - Übernachtungs-Tipps
-- Vision
 - Was ist Rollenspiel?
 
 # Programm
