@@ -1,7 +1,6 @@
 ---
-title: "Free Form Magic"
-date: 2021-12-24
-draft: true
+title: "Flexible Magiesysteme"
+date: 2021-10-08
 toc:
   enable: true
   startLevel: 2
@@ -9,9 +8,7 @@ toc:
   style: ext
 ---
 
-# Free Form Magic
-
-## Fragen
+# Fragen
 
 - Kennst du Rollenspiele wo alle Spieler:innen zaubern können was sie wollen?
 - Bücher? Filme? Wie gut ist die Umsetzung? Was für Probleme ergeben sich im jeweiligen Buch/Film?
@@ -19,14 +16,14 @@ toc:
 - Wie Macht limitieren? (wenn alles geht braucht man gar keine Regeln)
 - ???
 
-## Beispiele
+# Beispiele
 
-### Ironsworn
+## Ironsworn
 
 - Alle Zauber/Rituale können tendenziell auch ohne Magie erklärt werden (z.B. gibt es keine Feuerbälle die aus dem Nichts kommen, teleportieren geht gar nicht, ...)
 - Jeder Zauber und jedes Ritual beinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft. Es ist daher einfach (und auch im Buch erklärt) neue Rituale zu erfinden welche die Spiel-Balance nicht kaputt machen.
 
-### Hero Kids
+## Hero Kids
 
 Zaubern ist darauf reduziert Schaden zu machen und zu heilen.
 
@@ -34,7 +31,7 @@ Das Talent Zaubern kann 1 Punkt Schaden (alle Waffentalente auch) machen. Zauber
 
 Wie man den Zaubern innerhalb diesen festen Regeln definiert ist einem selber überlassen.
 
-### Maelstrom
+## Maelstrom
 
 Es gibt eine einzige Fertigkeit zum Zaubern. Der Charakter kann zaubern was er möchte und erzählt alle seine Wünsche der Spielleitung. Diese vergibt dann eine Schwierigkeit vor. Die Schwierigkeit gibt auch an wie Wahrscheinlich es ist, dass dieser Effekt natürlich in der Welt vorkommen würde. Die Schwierigkeit geht von 1-5, wobei 5 selbst für sehr erfahrene Zauberer fast unmöglich ist.
 
@@ -44,11 +41,11 @@ Konkret: Eine Welle im Meer zu erzeugen ist einfacher, als Wasser in der Wüste 
 
 https://en.wikipedia.org/wiki/Maelstrom_(role-playing_game)
 
-### Ars Magica
+## Ars Magica
 
 Technik und Form können beliebig kombiniert werden.
 
-#### Technik
+### Technik
 
 - Creo: kreiren
 - Intellego: erkennen
@@ -56,7 +53,7 @@ Technik und Form können beliebig kombiniert werden.
 - Perdo: zerstören
 - Rego: kontrollieren
 
-#### Form
+### Form
 
 - Animal: Fauna
 - Auram: Bitze und Gase
@@ -69,7 +66,7 @@ Technik und Form können beliebig kombiniert werden.
 - Terram: Erde und Mineralien
 - Vim: Zauberei selber
 
-#### Beispiele
+### Beispiele
 
 - Pflanze wachsen lassen: Muto Herbam
 - Feuer entzünden: Creo Ignem
@@ -77,28 +74,28 @@ Technik und Form können beliebig kombiniert werden.
 - Tier kontrollieren: Rego Animal
 - Heilen: Creo Corpus
 
-#### Links
+### Links
 
 - https://en.wikipedia.org/wiki/Ars_Magica
 - http://www.bibliothek.bund-aquanox.org/index.php?title=Zauber
 - http://spellswiki.wikidot.com/creo-animal
 
-### Blades in the Dark
+## Blades in the Dark
 
 Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommunizieren um dort z.B. mit Geistern zu kommunizieren. Da alle Spieler:innen dieses Attribut haben, können das auch alle am Tisch. Vor jeder Aktion die Spieler:innen machen, muss die Spielleitung anhand der Beschreibung der Spieler:innen folgendes sagen: 1. wie gefährlich die aktuelle Situation ist/wird 2. wie effektiv die gewählte Aktion der Spieler:innen ist. Es ist daher die Spielleitung die entscheidet wie viel man mit der Magie erreichen kann, sich aber auch erklären muss.
 
-### Four By Five Magic
+## Four By Five Magic
 
 "Actions" und "Realm" können frei kombiniert werden. Die "Potency" sagt aus wie stark der Spruch ist, aber auch wieviel Mana er kostet.
 
-#### Actions
+### Actions
 
 - dēferō Kommunizieren: lesen, suchen, informieren, spüren, verstehen, ...
 - īnfirmō Verringern: schwächen, schaden, zerstören, ...
 - augeō Steigern: stärken, heilen, reparieren, schärfen, ...
 - temperō Kontrollieren: formen, kommandieren, ...
 
-#### Realms
+### Realms
 
 - corpus Körper: Körper von empfindungsfähigen Lebewesen wie Tiere, Pflanzen, Menschen, ...
 - navitus Energie: Feuer, Wind, Schall, Elektrizität, ... je nach Spielleitung auch Zeit
@@ -106,7 +103,7 @@ Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommuniz
 - mentus Geist: Gedanken
 - animus Geister: Geister
 
-#### Potency
+### Potency
 
 - Standard
 - Gut
@@ -115,7 +112,7 @@ Es gibt eine Attribut Attune, welches erlaubt mit der magischen Welt zu kommuniz
 
 https://1d4chan.org/wiki/Four_By_Five_Magic
 
-### Open Legend
+## Open Legend
 
 Es gibt im Spiel eine Liste von positiven und negativen Zustände genannt *Boons* und *Banes*. Falls in einer Welt mit Magie gespielt wird, können Sprüche ebenfalls Boons oder Banes, oder Kombinationen davon sein.
 
@@ -125,11 +122,11 @@ https://openlegendrpg.com/
 
 Das erinnert ein wenig an die Elder Scrolls Computerspiel Reihe. Es gibt dort eine Reihe von positiven/negativen Effekten. Zauber, Alchemie, Verzauberungen, Klassen und Sternzeichen greifen alle auf dieselbe Effektliste zurück.
 
-### Weitere
+## Weitere
 
 - https://www.reddit.com/r/rpg/comments/98iudb/games_with_freeform_magic/
 
-## Persönliches
+# Persönliches
 
 *Ariana*
 

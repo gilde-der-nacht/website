@@ -1,7 +1,6 @@
 ---
 title: "3D Modellierung"
-date: 2021-12-24
-draft: true
+date: 2021-09-19
 toc:
   enable: true
   startLevel: 2
@@ -53,7 +52,7 @@ Blender ist in den letzten Jahren zu einer der bekannteren Modellierungs Softwar
 Was benötigt man
 
 - Die Software "Blender". Herunterladen und installieren: https://www.blender.org/download/
-- Ein Computer/Laptop mit 3D Unterstützung (am besten Blender starten, wenn nach ein paar Sekunden der Bildschirm wie unten aussieht, stehen die Sterne schon mal günstig)
+- Ein Laptop mit 3D Unterstützung (am besten Blender starten, wenn nach ein paar Sekunden der Bildschirm wie unten aussieht, stehen die Sterne schon mal günstig)
 - Eine Maus, idealerweise eine mit 3 Tasten und Scroll-Rad (geht auch ohne)
 - Idealerweise eine Tastur mit einem Ziffernblock (geht auch ohne)
 
