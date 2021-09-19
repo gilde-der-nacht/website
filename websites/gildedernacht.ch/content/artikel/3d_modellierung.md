@@ -8,18 +8,16 @@ toc:
   style: ext
 ---
 
-# 3D Modellierung
+# Grundlagen
 
-## Grundlagen
-
-### Software für Künstler:innen
+## Software für Künstler:innen
 
 Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen möglichst effizient unterschiedlichste Modelle erstellen zu können. Die Ästhetik steht im Vordergrund.
 
 - [Blender](https://www.blender.org/): Modellierung, Sculping, Animationen, Texturen, Visualisierung ***OpenSource***
 - [SketchUp](https://www.sketchup.com/products/sketchup-for-web): Modellierung für Anfänger
 
-### Software Ingenieur:innen
+## Software Ingenieur:innen
 
 Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucken, ...). In der Produktion sind unter anderem Reproduzierbarkeit, Längenangaben und Toleranzen wichtig.
 
@@ -31,7 +29,7 @@ Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucke
 - [OpenSCAD](https://openscad.org/): Modelle mit Text aufbauen ***OpenSource***
 - [TinkerCAD](https://www.tinkercad.com/): Eingeschränktes aber einfaches CAD Programm
 
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 
 Objekte die nahezu nur aus Ecken und Kanten bestehen, oder solche die gleichmässig abgerundet sind, sind tendenziell einfacher zu modellieren. Je mehr Details ein Objekt hat desto aufwändiger wird das modellieren.
 
@@ -41,13 +39,13 @@ Obwohl Menschen verhältnismässig gleichmässig wären, fallen oft kleinste Unr
 - Mittel: Bäume, Kleider, Fahrzeuge
 - Schwer: Tiere, Menschen
 
-## Blender
+# Blender
 
 https://www.blender.org/
 
 Blender ist in den letzten Jahren zu einer der bekannteren Modellierungs Software geworden. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht. Inzwischen gibt es auch viele kostenlose Plugins.
 
-### Vorbereitung
+## Vorbereitung
 
 Was benötigt man
 
@@ -58,7 +56,7 @@ Was benötigt man
 
 ![Blender 2.82 First Screen](../blender-2.82-first-screen.png)
 
-### Shortcuts
+## Shortcuts
 
 | Taste | Aktion |
 | - | - |
@@ -79,7 +77,7 @@ Was benötigt man
 | Alt + Z | X-Ray |
 | F3 | Search |
 
-### Funktionen
+## Funktionen
 
 - Modeling
 - Sculpting
@@ -95,60 +93,60 @@ Was benötigt man
 - VFX
 - Audio
 
-### Begriffe
+## Begriffe
 
 Allgemein: Vertex, Edge, Face, Normal, UV, Mesh, FK=Forward Kinematic, IK=Inverse Kinematic, Shader, Bones, Rigging, Skinning, BSDF=Bidirectional Scattering Distribution Function, SSS=Subsurface Scattering, SSAO=Screen Space Ambient Occlusion
 
 Blender: Eevee, Cycles
 
-### Videos
+## Videos
 
 - Doughnut Tutorial: https://www.youtube.com/playlist?list=PLjEaoINr3zgEq0u2MzVgAaHEBt--xLB6U
 - Blender 2.8 Fundamentals: https://www.youtube.com/playlist?list=PLa1F2ddGya_-UvuAqHAksYnB0qL9yWDO6
 
-### Beispiele
+## Beispiele
 
-#### Airplane
+### Airplane
 Mirror Modifier & Subdivision Modifier
 ![Airplane](../airplane.jpg)
 [Airplane](../airplane.blend)
 
-#### Rope
+### Rope
 Array Modifier & Screw Modifier & Curve Modifier
 ![Rope](../rope.jpg)
 [Rope](../rope.blend)
 
-#### Cloth
+### Cloth
 Cloth Simulation & Collision Simulation & Vertex Group
 ![Cloth](../cloth.jpg)
 [Cloth](../cloth.blend)
 
-#### Terrain
+### Terrain
 Displace Modifier & ColorRamp Material
 ![Terrain](../terrain.jpg)
 [Terrain](../terrain.blend) & [Terrain Heightmap](../wikipedia-heightmap.png)
 
-#### Comic
+### Comic
 Z-Fighting & Smooth/Flat Shading & ColorRamp Material
 ![Comic](../comic.jpg)
 [Comic](../comic.blend)
 
-#### Robot
+### Robot
 Texture & Parenting & Animation
 ![Robot](../robot.jpg)
 [Robot](../robot.blend) & [Robot Texture](../robot.png)
 
-#### Water
+### Water
 Fluid Simulation & Glass Material
 ![Water](../water.jpg)
 [Water](../water.blend)
 
-#### Body
+### Body
 Bones & Skin Modifier
 ![Body](../body.jpg)
 [Body](../body.blend)
 
-#### VFX
+### VFX
 Tracker & Solve Camera Motion
 ![VFX](../vfx.jpg)
 [VFX](../vfx.blend) & [VFX Video](../vfx.mp4)

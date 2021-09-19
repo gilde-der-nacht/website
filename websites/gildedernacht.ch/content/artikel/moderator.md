@@ -5,7 +5,7 @@ date: 2018-12-09
 
 > Playing Games: "the voluntary attempt to overcome unnecessary obstacles" — Bernard Suits
 
-## Diskussionsrunde
+# Diskussionsrunde
 
 Fragen an alle, bevor der Workshop beginnt.
 
@@ -14,7 +14,7 @@ Fragen an alle, bevor der Workshop beginnt.
 - Was für positive und negative Erfahrungen hast du gemacht?
 - Was erwartest du von diesem Workshop?
 
-## Spieltag
+# Spieltag
 
 Über was sollte man sich Gedanken machen wenn man eine Spielrunde organisiert.
 
@@ -28,7 +28,7 @@ Fragen an alle, bevor der Workshop beginnt.
 - Belohnung (Erfahrung, ...)
 - "Soziale" Zeit vor der Spielrunde (man möchte sich erzählen was in letzter Zeit passiert ist, ...)
 
-## Eigenschaften Rollenspiele
+# Eigenschaften Rollenspiele
 
 Spieler haben unterschiedliche Wünsche und Ansprüche. Es gibt vor allem in englischer Sprache tausende von Rollenspielen (z.B. auf drivethrurpg.com) die unterschiedlichste Bedürfnisse abdecken.
 
@@ -52,7 +52,7 @@ Spieler haben unterschiedliche Wünsche und Ansprüche. Es gibt vor allem in eng
 - Bekanntheit
   - DnD, Shadowrun, DSA, ..., Arcane Codex, ...
 
-## Spielelemente
+# Spielelemente
 
 Rollenspiele haben verschiedene Spielelemente. Sind in der Gruppe mehrere Spieler die gerne taktisch vorgehen, können Miniaturen vielleicht das Erlebnis verschönern.
 
@@ -66,7 +66,7 @@ Rollenspiele haben verschiedene Spielelemente. Sind in der Gruppe mehrere Spiele
 - Abenteuer
 - Listen (Waffen, Hilfsmittel, Boni/Mali, ...)
 
-## Abenteuer
+# Abenteuer
 
 - Umfang
   - One Shot (darf man nicht unterschätzen, Spieler sind teilweise mutiger weil es nichts zu verlieren gibt)
@@ -83,13 +83,13 @@ Rollenspiele haben verschiedene Spielelemente. Sind in der Gruppe mehrere Spiele
   - Dungeon
   - Keine Grossstadt
 
-## Spieler-Charaktere & Nichtspieler-Charaktere
+# Spieler-Charaktere & Nichtspieler-Charaktere
 
 - Innere Konflikte (Ziele, Träume, Moral, Religion, ...)
 - Äussere Konflikte (Rivalität, Beziehungen, Politik, ...)
 - Gute Bösewichte haben auch Konflikte, ... sie sind nicht nur einfach "böse"
 
-## Spieler & Moderator
+# Spieler & Moderator
 
 - Alle sollten sich bewusst sein, dass der Spielleiter nicht für alles verantwortlich ist, alle tragen zu einer lebendigen Welt, lebendigen Charakteren und einer lebendigen Geschichte bei
 - Fragen an Spieler bei der ersten Spielrunde
@@ -120,7 +120,7 @@ Rollenspiele haben verschiedene Spielelemente. Sind in der Gruppe mehrere Spiele
 - Wenn gewürfelt wird, dann hat es idealerweise immer eine Folge
   - Powered by the Apocalypse Spiele machen das konsequent, es wir nur gewürfelt wenn etwas riskiert wird, alles andere gelingt automatisch
 
-## Moderator
+# Moderator
 
 - Alte Elemente wieder integrieren an die sich Spieler erinnern können (Interessante Charaktere, Eine "gerettete" Stadt die nun aufblüht, ...)
 - Man wird Fehler machen, diese eingestehen
@@ -132,11 +132,11 @@ Rollenspiele haben verschiedene Spielelemente. Sind in der Gruppe mehrere Spiele
   - Freie Assoziationen (3 Gegenstände ausdenken, die irgendwie kombinieren)
   - Status von Personen und wie verändert er sich (König, Heirat, Kampfbruder, ...)
 
-## Online
+# Online
 
 - Risiko dass am Computer noch anderes gemacht wird nebenbei (falls ohne Kamera)
 
-## Spieldesign / Game Design
+# Spieldesign / Game Design
 
 Was sind wichtige Elemente eines Spiels? Die Zeit als wichtiger Faktor z.B. wird oft vergessen, wenn die Spieler-Charaktere langsam sind, kann man die Handlung auch selber vorwärts bringen.
 
@@ -148,9 +148,9 @@ Was sind wichtige Elemente eines Spiels? Die Zeit als wichtiger Faktor z.B. wird
   - Conflict: Obstacles, Opponents, Dillemmas
   - Outcome
 
-## Rollenspiele
+# Rollenspiele
 
-### Kostenlose Rollenspiele
+## Kostenlose Rollenspiele
 
 Rollenspiele müssen nicht unbedingt etwas kosten.
 
@@ -159,7 +159,7 @@ Rollenspiele müssen nicht unbedingt etwas kosten.
 - Fate (Neutrales Setting, Englisch & Deutsch)
 - Eclipse Phase (Sci-Fi, Creative Commons, Englisch)
 
-### Rollenspiele ohne Spielleiter (GM-Less)
+## Rollenspiele ohne Spielleiter (GM-Less)
 
 Kann hilfreich sein, damit Spieler eine Idee davon bekommen, dass es auch möglich ist etwas gemeinsam zu erreichen.
 
@@ -167,7 +167,7 @@ Kann hilfreich sein, damit Spieler eine Idee davon bekommen, dass es auch mögli
 - Microscope (Englisch, gemeinsam Geschichte schreiben)
 - Questlandia (Englisch)
 
-### Erwähnenswerte Rollenspiele
+## Erwähnenswerte Rollenspiele
 
 - Beyond the Wall (Spieler haben eine gemeinsame Geschichte)
 - City of Mist (Island/Sandkasten Modell)
@@ -177,7 +177,7 @@ Kann hilfreich sein, damit Spieler eine Idee davon bekommen, dass es auch mögli
 - Hillfolk (Spielleiter ist fast nur im Hintergrund und mehr ein Moderator)
 - Maze Rats (Spielleitertipps, Tabellen)
 
-## Bücher
+# Bücher
 
 - Play Unsafe: How Improvisation Can Change The Way You Roleplay (Graham Walmsley, 2009)
 - Robin's Law Of Good Game Mastering (Robin D. Laws, Steve Jackson Games, 2002, [sjgames.com](https://www.sjgames.com/robinslaws/))

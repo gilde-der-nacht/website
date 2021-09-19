@@ -3,7 +3,7 @@ title: "Kreativität"
 date: 2018-12-09
 ---
 
-## Morphologische Analyse
+# Morphologische Analyse
 
 - Merkmale (Attribute, Faktoren, Paramter, Dimensionen, ...) bestimmen
 - Ausprägungen von Merkmalen bestimmen
@@ -11,7 +11,7 @@ date: 2018-12-09
 
 https://de.wikipedia.org/wiki/Morphologische_Analyse_(Kreativit%C3%A4tstechnik)
 
-## Methode 635
+# Methode 635
 
 - 6 Teilnehmer bekommen ein Blatt mit 18 (6 * 3) Kästchen
 - Jeder Teilnehmer füllt 3 Ideen zum Thema in 3 Kästchen
@@ -20,7 +20,7 @@ https://de.wikipedia.org/wiki/Morphologische_Analyse_(Kreativit%C3%A4tstechnik)
 
 https://de.wikipedia.org/wiki/Methode_635
 
-## Diverses
+# Diverses
 
 - Anderes Medium wählen (Doodle, Zeichnen, Musik, Wortspiele, Ton, ...)
 - Problem anders/neu formulieren
@@ -33,7 +33,7 @@ https://de.wikipedia.org/wiki/Methode_635
 - Ideen sind neue Verbindungen zwischen bekannten Dingen
 - Eine Atmosphäre schaffen in welches alle Ideen akzeptiert werden (Fehler nicht bestrafen)
 
-### Links
+## Links
 
 - https://bid4papers.com/blog/creative-ideation-techniques/
 - https://www.cleverism.com/18-best-idea-generation-techniques/

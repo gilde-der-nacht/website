@@ -1,13 +1,16 @@
 ---
 title: "Kreativitätstag 2019"
 date: 2019-03-23
+toc:
+  enable: true
+  startLevel: 1
+  endLevel: 2
+  style: ext
 ---
 
-# Kreativitätstag 2019
+# Resultate
 
-## Resultate
-
-### Themen
+## Themen
 
 - Persönlichkeit
 - Umwelt/Natur
@@ -25,7 +28,7 @@ date: 2019-03-23
 - Schauplätze
 - Abstrakt
 
-### Spielmechaniken
+## Spielmechaniken
 
 - Druck/Zeitdruck
   - Jenga Turm
@@ -60,7 +63,7 @@ date: 2019-03-23
   - Dungeon World
   - Obligation (Star Wars)
 
-### Persönlichkeit
+## Persönlichkeit
 
 - Gründe für Äusserlichkeiten
 - Wesen (neugierig, verantwortungsbewusst, ...
@@ -86,7 +89,7 @@ date: 2019-03-23
 - Kultur (Hobbits, ...)
 - Innere Konflikte
 
-### Ereignisse
+## Ereignisse
 
 - Klassische Naturkatastrophen (Flut, Erdbeben, ...)
 - Fehlende Konflikte
@@ -107,25 +110,25 @@ date: 2019-03-23
 - Gute Tat/heldenhaftes handeln, Heldenmut
 - Gruppendynamisch / Geschichte schreiben
 
-## Ziel
+# Ziel
 
 Ein Nachmittag für Rollenspieler, im speziellen auch Rollenspiel-Leiter/Moderatoren, um möglichst viel Ideen und Methoden zu sammeln, die man in zukünftigen Abenteuern verwenden kann.
 
-## Datum
+# Datum
 
 13\. April 2019
 
-## Ort
+# Ort
 
 Pfarrei St. Johannes
 
 Schädrütistrasse 26, 6006 Luzern
 
-## Kosten
+# Kosten
 
 5 CHF
 
-## Zeitplan=
+# Zeitplan
 
 - 13:00 Organisationskomittee
   - Tische
@@ -154,9 +157,9 @@ Schädrütistrasse 26, 6006 Luzern
   - Offizielles Ende
   - Rollenspiel (z.B. Microscope, Follow, Fiasco, ...)
 
-### Einführung
+# Einführung
 
-#### Creative Commons
+## Creative Commons
 
 CC BY-SA
 
@@ -164,25 +167,25 @@ https://creativecommons.org/licenses/?lang=de
 
 Diese Lizenz erlaubt es anderen, Ihr Werk zu verbreiten, zu remixen, zu verbessern und darauf aufzubauen, auch kommerziell, solange Sie als Urheber des Originals genannt werden und die auf Ihrem Werk basierenden neuen Werke unter denselben Bedingungen veröffentlicht werden. Diese Lizenz wird oft mit "Copyleft"-Lizenzen im Bereich freier und Open Source Software verglichen. Alle neuen Werke, die auf Ihrem aufbauen, werden unter derselben Lizenz stehen, also auch kommerziell nutzbar sein. Dies ist die Lizenz, die auch von der Wikipedia eingesetzt wird, empfohlen für Werke, für die eine Einbindung von Wikipedia-Material oder anderen so lizenzierten Werken sinnvoll sein kann.
 
-#### Kreativitätsmethoden
+## Kreativitätsmethoden
 
 [Kreativität](../kreativitaet)
 
-### Auswahl Themen
+# Auswahl Themen
 
 Ganz grobe Themen welche im nächsten Schritt genauer ausgearbeitet werden. Anstatt diese Themen vorzugeben, wollen wir miteinander entscheiden welche Themen von grösstem Interesse sind. Beispiele: Ereignisse, Orte, Charaktere, Ausrüstung, Gegenstände, ...
 
-### Bearbeitung Themen
+# Bearbeitung Themen
 
 In kleinen Gruppen bearbeitet man ein Thema für 30 Minuten. Es kann unter Umständen sinnvoll sein sich auf ein Genre festzulegen (Beispiele: Zukunft, Fantasy, Gegenwart, ...). Wie das Thema beschrieben wird, ist der Gruppe überlassen (Beispiele: Listen, Flussdiagramme, ...). Wichtig ist dass die Grundzüge auf ein A4 Blatt passen. Zu komplex sollte es nicht sein, da der Kerngedanke ist dass man die Idee in Zukunft einfach wiederverwenden kann. Zusätzliche Listen mit Begriffen wird es wahrscheinlich auch geben, wobei dies nicht als zusätzliche Erklärung dienen sollen. Fotos von diesen Listen werden nach dem Kreativitätstag Online gestellt (CC BY-SA).
 
-### Testen & Ergänzen
+# Testen & Ergänzen
 
 Es gibt neue Gruppen die jeweils eine oder mehrere Ideen nehmen und sie in einem Rollenspiel ausprobieren (das Organisationskomitee bereitet ein paar Rollenspiele vor, falls sich nichts spontanes ergibt). Der Fokus liegt heute weniger darin ein grosses Abenteuer zu erleben, sondern herauszufinden ob die Ideen im vorherigen Schritt funktionieren und inwiefern sie sich noch verbessern und ergänzen lassen.
 
-## Organisationskomitee
+# Organisationskomitee
 
-### Material
+## Material
 
 Adrian
 

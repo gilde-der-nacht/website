@@ -3,13 +3,11 @@ title: "Selbsteinschätzung"
 date: 2021-08-13
 ---
 
-# Selbsteinschätzung
-
 Drei verschiedene Arten sich Gedanken über seine eigene Wünsche und Vorlieben zu machen.
 
 In allen Beispielen, ist keine Kategorie wertend, d.h. weder positiv noch negativ.
 
-## Robin D. Laws Spieler Typen
+# Robin D. Laws Spieler Typen
 
 - Power Gamer: Charakter soll der beste sein
 - Butt-Kicker: Möglichst viel Unfrieden stiften
@@ -20,7 +18,7 @@ In allen Beispielen, ist keine Kategorie wertend, d.h. weder positiv noch negati
 
 Robin's Law Of Good Game Mastering (Robin D. Laws, Steve Jackson Games, 2002, [sjgames.com](https://www.sjgames.com/robinslaws/))
 
-## What I Like Glossary
+# What I Like Glossary
 
 ***Agon***: Der Nervenkitzel, gegen eine andere Person am Tisch zu gewinnen.
 
@@ -87,7 +85,7 @@ Robin's Law Of Good Game Mastering (Robin D. Laws, Steve Jackson Games, 2002, [s
 
 https://sites.google.com/site/amagigames/the-what-i-like-glossary
 
-## MDA Framework
+# MDA Framework
 
 - Sinneseindrücke (Sensation): Hintergrundmusik, Stimmen immitieren, Würfeln, Figuren bewegen, ...
 - Illusion (Fantasy): Eintauchen in einer andere Welt

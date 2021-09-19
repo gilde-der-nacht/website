@@ -3,8 +3,6 @@ title: "Rezension: Play Unsafe"
 date: 2019-02-15
 ---
 
-# Rezension: Play Unsafe
-
 https://www.drivethrurpg.com/product/106247/Play-Unsafe
 
 - Offensichtlich sein
