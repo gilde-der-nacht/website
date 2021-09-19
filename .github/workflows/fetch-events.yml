@@ -13,7 +13,7 @@ jobs:
         git config --global user.name "GitHub Action"
         git config --global user.email "7040739+Level8Broccoli@users.noreply.github.com"
         curl \
-          'https://www.googleapis.com/calendar/v3/calendars/gildedernacht%40gmail.com/events?timeMin=2021-09-17T18%3A53%3A41.546Z&key=AIzaSyBRXYQfvv3KHyZmZrhxzWDOghX_c7xfnGo' \
+          'https://www.googleapis.com/calendar/v3/calendars/gildedernacht%40gmail.com/events?timeMin=$(date +'%Y-%m-%dT%T.000Z')&key=AIzaSyBRXYQfvv3KHyZmZrhxzWDOghX_c7xfnGo' \
           --header 'Accept: application/json' \
           --compressed \
           -o websites/gildedernacht.ch/data/calendar.json
