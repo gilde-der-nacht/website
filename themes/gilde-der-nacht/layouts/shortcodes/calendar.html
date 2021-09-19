@@ -1,0 +1,34 @@
+<ul class="g-calendar">
+
+  {{ range sort .Site.Data.calendar.items "start.dateTime" }}
+
+  <li data-year="{{.start.dateTime | time.Format "2006"}}" data-month="{{.start.dateTime | time.Format "01"}}" data-date="{{.start.dateTime | time.Format "02"}}">
+    {{ if in .summary "Spieltreffen" }}
+    <img src="/images/avatars/blue.png">
+    {{ else if in .summary "Spieltreffen" }}
+    <img src="/images/avatars/blue.png">
+    {{ else if in .summary "Spieltage" }}
+    <img src="/images/avatars/lst.png">
+    {{ else if in .summary "Rollenspieltage" }}
+    <img src="/images/avatars/rst.png">
+    {{ else if in .summary "Rollenspiel-Stammtisch" }}
+    <img src="/images/avatars/lila.png">
+    {{ else if in .summary "Stammtisch" }}
+    <img src="/images/avatars/green.png">
+    {{ else if in .summary "Spielabend" }}
+    <img src="/images/avatars/green.png">
+    {{ else if in .summary "Buchclub" }}
+    <img src="/images/avatars/green.png">
+    {{ else }}
+    <img src="/images/avatars/gdn.png">
+    {{ end }}
+    <div class="body">
+      <h1 class="title">{{ .summary }}</h1>
+      <p class="date">{{ .start.dateTime | time.Format ":date_full" }}, {{ .start.dateTime | time.Format ":time_short"
+        }} {{ if eq site.Language.Lang "de" }}Uhr{{ end }}</p>
+      <p>{{ safeHTML .description }}</p>
+    </div>
+  </li>
+
+  {{ end }}
+</ul>
