@@ -18,7 +18,8 @@ Komm einfach vorbei und melde dich spontan an. Freie Plätze sind fast in allen 
 
 _28. August 2021_
 
-<div class="c-rounds">
+
+{{< gameround-container >}}
 
 {{< gameround
   title="Everyone is John"
@@ -126,13 +127,13 @@ _28. August 2021_
   genres="Humor"
 >}}
 
-</div>
+{{< /gameround-container >}}
 
 # Sonnntag
 
 _29. August 2021_
 
-<div class="c-rounds">
+{{< gameround-container >}}
 
 {{< gameround
   title="D&D 5E, Rime of the Frostmaiden, Kurzabenteuer"
@@ -169,4 +170,5 @@ _29. August 2021_
   genres="Fantasy"
   description="Im Rollenspiel Ironsworn begibst du dich auf eine heldenhafte Reise durch die Eisenlande, einer rauen und unerforschten Fantasy-Welt. Knüpfe Bande zu abgelegenen Gemeinschaften, trage erbarmungslose Kämpfe aus und decke mystische Geheimnisse auf, um deine Queste zu erfüllen. Bist du bereit, Eiserne Eide zu schwören - und ihre Konsequenzen zu tragen?"
 >}}
-</div>
+
+{{< /gameround-container >}}
