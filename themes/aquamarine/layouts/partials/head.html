@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>{{ .Site.Title }}{{ with .Params.Title }} | {{ . }}{{ end }}</title>
   {{ hugo.Generator }}
-  {{ $stylesheetMain := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+  {{ $stylesheetMain := resources.Get "sass/main.scss" | toCSS (dict "outputStyle" "compressed") | fingerprint }}
   <link rel="stylesheet" href="{{ $stylesheetMain.RelPermalink }}" media="screen"
     integrity="{{ $stylesheetMain.Data.Integrity }}" />
     {{ range .Params.Scripts}}
