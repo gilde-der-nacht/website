@@ -10,11 +10,13 @@ toc:
 
 # Grundlagen
 
+Hinweis: Dieses Dokument ist die Grundlage für ein Workshop. Viele Begriffe werden hier bewusst nicht erklärt, sondern sind lediglich eine Diskussiongrundlage und lassen sich einfacher zeigen als erklären.
+
 ## Software für Künstler:innen
 
 Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen möglichst effizient unterschiedlichste Modelle erstellen zu können. Die Ästhetik steht im Vordergrund.
 
-- [Blender](https://www.blender.org/): Modellierung, Sculping, Animationen, Texturen, Visualisierung ***OpenSource***
+- [Blender](https://www.blender.org/): Modellierung, Animationen, Texturen, Simulation, Visualisierung, VFX, ... ***OpenSource***
 - [SketchUp](https://www.sketchup.com/products/sketchup-for-web): Modellierung für Anfänger
 
 ## Software Ingenieur:innen
@@ -33,7 +35,7 @@ Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucke
 
 Objekte die nahezu nur aus Ecken und Kanten bestehen, oder solche die gleichmässig abgerundet sind, sind tendenziell einfacher zu modellieren. Je mehr Details ein Objekt hat desto aufwändiger wird das modellieren.
 
-Obwohl Menschen verhältnismässig gleichmässig wären, fallen oft kleinste Unregelmässigkeiten in Proportionen negativ auf (siehe auch [Uncanny Valley](https://de.wikipedia.org/wiki/Uncanny_Valley)). Eine zusätzliche Schwierigkeit sind die Haare als auch das texturieren des Gesichtes.
+Obwohl Menschen verhältnismässig gleichmässig wären, fallen uns oft kleinste Unregelmässigkeiten in Proportionen sofort auf (siehe auch [Uncanny Valley](https://de.wikipedia.org/wiki/Uncanny_Valley)). Eine zusätzliche Schwierigkeit sind Kleider, die Haare und das texturieren des Gesichtes.
 
 - Einfach: Gebäude, Möbel, Geschirr, Werkzeuge
 - Mittel: Bäume, Kleider, Fahrzeuge
@@ -51,8 +53,8 @@ Was benötigt man
 
 - Die Software "Blender". Herunterladen und installieren: https://www.blender.org/download/
 - Ein Laptop mit 3D Unterstützung (am besten Blender starten, wenn nach ein paar Sekunden der Bildschirm wie unten aussieht, stehen die Sterne schon mal günstig)
-- Eine Maus, idealerweise eine mit 3 Tasten und Scroll-Rad (geht auch ohne)
-- Idealerweise eine Tastur mit einem Ziffernblock (geht auch ohne)
+- Eine Maus, idealerweise eine mit Scroll-Rad und einer mittleren Maustaste, was oftmals das Scroll-Rad selber ist (erleichtert die Bedienung, geht aber auch ohne)
+- Idealerweise eine Tastur mit einem Ziffernblock (erleichtert ebenfalls die Bedienung, geht aber auch ohne)
 
 ![Blender 2.82 First Screen](../blender-2.82-first-screen.png)
 
@@ -95,7 +97,7 @@ Was benötigt man
 
 ## Begriffe
 
-Allgemein: Vertex, Edge, Face, Normal, UV, Mesh, FK=Forward Kinematic, IK=Inverse Kinematic, Shader, Bones, Rigging, Skinning, BSDF=Bidirectional Scattering Distribution Function, SSS=Subsurface Scattering, SSAO=Screen Space Ambient Occlusion
+Allgemein: Vertex, Edge, Face, Normal, UV, Mesh, Rigid Body, Soft Body, Forward Kinematic (FK), Inverse Kinematic (IK), Shader, Bones, Rigging, Skinning, Shadow Mapping, Bidirectional Scattering Distribution Function (BSDF), Subsurface Scattering (SSS), Screen Space Ambient Occlusion (SSAO)
 
 Blender: Eevee, Cycles
 
