@@ -2,7 +2,7 @@ name: Test Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
   schedule:
     - cron:  '0 1 * * *'
