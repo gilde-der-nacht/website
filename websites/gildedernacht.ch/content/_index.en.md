@@ -18,4 +18,4 @@ The **Gilde der Nacht** organizes game meetings where all players are welcome. T
 
 # Calendar
 
-{{< calendar >}}
+{< calendar >}}
