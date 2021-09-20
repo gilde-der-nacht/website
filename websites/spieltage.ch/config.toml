@@ -1,6 +1,6 @@
 baseURL = "https://spieltage.ch/"
 DefaultContentLanguage = "de"
-theme = "gilde-der-nacht"
+theme = "aquamarine"
 themesDir = "../../themes"
 disableKinds = ["taxonomy", "taxonomyTerm"]
 

@@ -1,7 +1,7 @@
 DefaultContentLanguage = "de"
 baseURL = "https://rollenspieltage.ch/"
 disableKinds = ["taxonomy", "taxonomyTerm"]
-theme = "gilde-der-nacht"
+theme = "aquamarine"
 themesDir = "../../themes"
 
 [languages]
