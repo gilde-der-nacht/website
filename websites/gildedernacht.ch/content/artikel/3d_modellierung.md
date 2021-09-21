@@ -21,7 +21,7 @@ Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen mög
 
 ## Software Ingenieur:innen
 
-Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucken, ...). In der Produktion sind unter anderem Reproduzierbarkeit, Längenangaben und Toleranzen wichtig.
+Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucken, ...). In der Produktion sind unter anderem Reproduzierbarkeit, Massangaben und Toleranzen wichtig.
 
 - [BlocksCAD](https://www.blockscad3d.com/): Grafische Oberfläche für OpenSCAD
 - [FreeCAD](https://www.freecadweb.org/): CAD Programm ***OpenSource***
@@ -35,7 +35,7 @@ Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucke
 
 Objekte die nahezu nur aus Ecken und Kanten bestehen, oder solche die gleichmässig abgerundet sind, sind tendenziell einfacher zu modellieren. Je mehr Details ein Objekt hat desto aufwändiger wird das modellieren.
 
-Obwohl Menschen verhältnismässig gleichmässig wären, fallen uns oft kleinste Unregelmässigkeiten in Proportionen sofort auf (siehe auch [Uncanny Valley](https://de.wikipedia.org/wiki/Uncanny_Valley)). Eine zusätzliche Schwierigkeit sind Kleider, die Haare und das texturieren des Gesichtes.
+Obwohl Menschen verhältnismässig gleichmässig wären, fallen uns oft kleine Unregelmässigkeiten in Proportionen auf (siehe auch [Uncanny Valley](https://de.wikipedia.org/wiki/Uncanny_Valley)). Eine zusätzliche Schwierigkeit sind Kleider, die Haare und das texturieren des Gesichtes.
 
 - Einfach: Gebäude, Möbel, Geschirr, Werkzeuge
 - Mittel: Bäume, Kleider, Fahrzeuge
@@ -53,8 +53,8 @@ Was benötigt man
 
 - Die Software "Blender". Herunterladen und installieren: https://www.blender.org/download/
 - Ein Laptop mit 3D Unterstützung (am besten Blender starten, wenn nach ein paar Sekunden der Bildschirm wie unten aussieht, stehen die Sterne schon mal günstig)
-- Eine Maus, idealerweise eine mit Scroll-Rad und einer mittleren Maustaste, was oftmals das Scroll-Rad selber ist (erleichtert die Bedienung, geht aber auch ohne)
-- Idealerweise eine Tastur mit einem Ziffernblock (erleichtert ebenfalls die Bedienung, geht aber auch ohne)
+- Eine Maus, idealerweise eine mit Scroll-Rad und einer mittleren Maustaste, was oftmals das Scroll-Rad, das man auch drücken kann, selber ist (erleichtert die Bedienung, geht aber auch ohne)
+- Idealerweise eine Tastatur mit einem Ziffernblock (erleichtert ebenfalls die Bedienung, geht aber auch ohne)
 
 ![Blender 2.82 First Screen](../blender-2.82-first-screen.png)
 
@@ -73,10 +73,10 @@ Was benötigt man
 | S | Scale |
 | R | Rotate |
 | E | Extrude |
-| 1 | Vertex Select |
-| 2 | Edge Select |
-| 3 | Face Select |
-| Alt + Z | X-Ray |
+| 1 | Vertex Select Mode |
+| 2 | Edge Select Mode |
+| 3 | Face Select Mode |
+| Alt + Z | X-Ray Mode |
 | F3 | Search |
 
 ## Funktionen
@@ -97,9 +97,15 @@ Was benötigt man
 
 ## Begriffe
 
-Allgemein: Vertex, Edge, Face, Normal, UV, Mesh, Rigid Body, Soft Body, Forward Kinematic (FK), Inverse Kinematic (IK), Shader, Bones, Rigging, Skinning, Shadow Mapping, Bidirectional Scattering Distribution Function (BSDF), Subsurface Scattering (SSS), Screen Space Ambient Occlusion (SSAO)
+Allgemein: Vertex, Edge, Face, Normal, UV, Mesh, Rigid Body, Soft Body, Z-Buffer, Forward Kinematic (FK), Inverse Kinematic (IK), Shader, Bones, Rigging, Skinning, Shadow Mapping, Bidirectional Scattering Distribution Function (BSDF), Subsurface Scattering (SSS), Screen Space Ambient Occlusion (SSAO)
 
 Blender: Eevee, Cycles
+
+## Problemstellen
+
+- Object Scaling = 1.0
+- Lock Object Modes
+- Texture Speicherort
 
 ## Videos
 
