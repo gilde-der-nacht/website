@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33kfdam1ni2v60g\"",
+ "etag": "\"p334cr7tsjq6v60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-09-17T07:21:37.457Z",
+ "updated": "2021-09-20T09:28:31.629Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "COj2qsG8hfMCEAAYASDg0pC9AQ==",
+ "nextSyncToken": "CMjNn7yejfMCEAAYASCbh5y9AQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -28,10 +28,12 @@
     "self": true
    },
    "start": {
-    "dateTime": "2021-10-02T14:00:00+02:00"
+    "dateTime": "2021-10-02T14:00:00+02:00",
+    "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2021-10-02T22:00:00+02:00"
+    "dateTime": "2021-10-02T22:00:00+02:00",
+    "timeZone": "Europe/Zurich"
    },
    "iCalUID": "2mii104b8s5g2i5tba4kkrtjc0@google.com",
    "sequence": 0,
@@ -56,10 +58,12 @@
     "self": true
    },
    "start": {
-    "dateTime": "2021-11-13T14:00:00+01:00"
+    "dateTime": "2021-11-13T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2021-11-13T22:00:00+01:00"
+    "dateTime": "2021-11-13T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
    },
    "iCalUID": "6c6rhr1hbtq5a9ijre2pd9hnc1@google.com",
    "sequence": 0,
@@ -84,10 +88,12 @@
     "self": true
    },
    "start": {
-    "dateTime": "2021-12-11T14:00:00+01:00"
+    "dateTime": "2021-12-11T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2021-12-11T22:00:00+01:00"
+    "dateTime": "2021-12-11T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
    },
    "iCalUID": "473ibvd114es8hfshimjrvkjdd@google.com",
    "sequence": 0,
@@ -125,14 +131,14 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3263590325888000\"",
+   "etag": "\"3264260189130000\"",
    "id": "3n3g73chk3o01r5p74qvj43pet",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=M24zZzczY2hrM28wMXI1cDc0cXZqNDNwZXQgZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-09-16T12:26:02.000Z",
-   "updated": "2021-09-16T12:26:02.944Z",
+   "updated": "2021-09-20T09:28:14.565Z",
    "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "\u003cspan\u003eDiskussionsstarter: «\u003cspan\u003eFlexible Magiesysteme\u003c/span\u003e» \u003cbr\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003eMehr Infos unter:\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
+   "description": "\u003cspan\u003eDiskussionsstarter: «\u003cspan\u003eFlexible Magiesysteme\u003c/span\u003e» \u003cbr\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
    "location": "Discord",
    "creator": {
     "email": "nimboline@gmail.com"
@@ -142,10 +148,12 @@
     "self": true
    },
    "start": {
-    "dateTime": "2021-10-08T19:00:00+02:00"
+    "dateTime": "2021-10-08T19:00:00+02:00",
+    "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2021-10-08T22:00:00+02:00"
+    "dateTime": "2021-10-08T22:00:00+02:00",
+    "timeZone": "Europe/Zurich"
    },
    "iCalUID": "3n3g73chk3o01r5p74qvj43pet@google.com",
    "sequence": 0,
@@ -153,42 +161,14 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3263590615368000\"",
-   "id": "6hiut9i00uv14n5jmof3dk0gj6",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NmhpdXQ5aTAwdXYxNG41am1vZjNkazBnajYgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-16T12:28:27.000Z",
-   "updated": "2021-09-16T12:28:27.684Z",
-   "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "\u003cspan\u003eDiskussionsstarter: «\u003cspan\u003eRenovation Cyberpunk Setting\u003c/span\u003e» \u003cbr\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003eMehr Infos unter:\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
-   "location": "Discord",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-12-03T19:00:00+01:00"
-   },
-   "end": {
-    "dateTime": "2021-12-03T22:00:00+01:00"
-   },
-   "iCalUID": "6hiut9i00uv14n5jmof3dk0gj6@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3263726594914000\"",
+   "etag": "\"3264260205912000\"",
    "id": "0ndi2n9bli5hpnrsmt7t7bfp4h",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=MG5kaTJuOWJsaTVocG5yc210N3Q3YmZwNGggZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-09-16T12:26:47.000Z",
-   "updated": "2021-09-17T07:21:37.457Z",
+   "updated": "2021-09-20T09:28:22.956Z",
    "summary": "Rollenspiel-Stammtisch",
-   "description": "Diskussionsstarter: «\u003cspan\u003eZwischen den Spielrunden\u003c/span\u003e»&nbsp;\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003eOrt: \u003cspan\u003eBourbaki Bar, Luzern\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cbr\u003eMehr Infos unter:",
+   "description": "Diskussionsstarter: «\u003cspan\u003eZwischen den Spielrunden\u003c/span\u003e»&nbsp;\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003eOrt: \u003cspan\u003eBourbaki Bar, Luzern\u003c/span\u003e\u003c/span\u003e",
    "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
    "creator": {
     "email": "nimboline@gmail.com"
@@ -207,6 +187,36 @@
    },
    "iCalUID": "0ndi2n9bli5hpnrsmt7t7bfp4h@google.com",
    "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3264260223258000\"",
+   "id": "6hiut9i00uv14n5jmof3dk0gj6",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NmhpdXQ5aTAwdXYxNG41am1vZjNkazBnajYgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-09-16T12:28:27.000Z",
+   "updated": "2021-09-20T09:28:31.629Z",
+   "summary": "[Online] Rollenspiel-Stammtisch",
+   "description": "\u003cspan\u003eDiskussionsstarter: «\u003cspan\u003eRenovation Cyberpunk Setting\u003c/span\u003e» \u003cbr\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
+   "location": "Discord",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-12-03T19:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-12-03T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "6hiut9i00uv14n5jmof3dk0gj6@google.com",
+   "sequence": 0,
    "eventType": "default"
   }
  ]
