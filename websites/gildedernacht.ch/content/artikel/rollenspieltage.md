@@ -69,6 +69,7 @@ toc:
 - Manabar https://manabar.ch/events/
 - DuBischDra https://dubischdra.ch/dubischdra-events/
 - SwissRPG https://swissrpg.ch/
+- SwitzerLAN https://switzerlan.ch/
 
 ## International
 
