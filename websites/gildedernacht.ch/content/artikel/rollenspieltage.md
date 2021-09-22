@@ -64,6 +64,7 @@ toc:
 - Herofest https://www.herofest.ch/
 - Basgame https://www.basgame.ch/
 - LUGA https://www.luga.ch/
+- Zuger Spielnacht https://www.zugerspielnacht.ch/
 
 ## International
 
