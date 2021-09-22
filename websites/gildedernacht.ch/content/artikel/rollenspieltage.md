@@ -38,49 +38,7 @@ toc:
 - Zeit für dasselbe Ereignise in einem Jahr festlegen
 - Termin-/Interessen-Koflikte zu anderen Terminen/Ereignissen abklären
 
-## Schulferien
-
-- Luzern https://www.schulferien.org/schweiz/ferien/luzern/
-- Zürich https://www.schulferien.org/schweiz/ferien/zuerich/
-- Bern https://www.schulferien.org/schweiz/ferien/bern/
-- Basel https://www.schulferien.org/schweiz/ferien/basel-stadt/
-
-## Schweiz
-
-- Islicon https://www.allerley.ch/islicon/
-- Fantasy Basel https://www.fantasybasel.ch/
-- Zurich Game Show https://www.zurichgameshow.ch/
-- OerliCon https://oerlicon.jimdo.com/
-- Game Place https://gameplace.ch/
-- Mannsgöggeli https://www.mannsgoeggeli.ch/
-- Luzerner Fest
-- Lucerne Festival https://www.lucernefestival.ch/
-- Luzerner Sommerfest https://luzernerfest.ch/news
-- Fumetto https://www.fumetto.ch/
-- HelvetiaCon https://www.helvetiacon.ch/
-- Baselbieter Spiel-Nacht https://www.spiel-nacht.ch/
-- St. Galler SpieleNacht https://www.spielenacht.ch/
-- Polymanga http://www.polymanga.com/
-- Herofest https://www.herofest.ch/
-- Basgame https://www.basgame.ch/
-- LUGA https://www.luga.ch/
-- Zuger Spielnacht https://www.zugerspielnacht.ch/
-- Gameorama https://www.gameorama.ch/de/kalender
-- Manabar https://manabar.ch/events/
-- DuBischDra https://dubischdra.ch/dubischdra-events/
-- SwissRPG https://swissrpg.ch/
-- SwitzerLAN https://switzerlan.ch/
-
-## International
-
-- RatCon https://www.ulisses-ratcon.de/
-- MPS, Mittelalterlich Phantasie Spectaculum https://www.spectaculum.de/
-- CCXP Köln https://www.ccxp-cologne.de
-
-## Eigene Anlässe
-
-- Luzerner Spieltage https://spieltage.ch
-- Luzerner Rollenspieltage https://rollenspieltage.ch/
+siehe [Terminplanung]({{< ref "terminplanung" >}})
 
 # Lokalität
 
