@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p334cr7tsjq6v60g\"",
+ "etag": "\"p320frqvmka8f60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-09-20T09:28:31.629Z",
+ "updated": "2021-09-21T14:26:27.472Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CMjNn7yejfMCEAAYASCbh5y9AQ==",
+ "nextSyncToken": "CID96_aikPMCEAAYASCF9s29AQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -101,36 +101,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3261857950498000\"",
-   "id": "1fh9bicuvs2g1f2l89fm985qjh",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MWZoOWJpY3V2czJnMWYybDg5Zm05ODVxamggZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-08-02T19:29:07.000Z",
-   "updated": "2021-09-06T11:49:35.249Z",
-   "summary": "Buchclub: «A Master of Djinn» von P. Djèlí Clark",
-   "description": "Wir tauschen uns über den Roman «A Master of Djinn» von \u003cspan\u003eP. Djèlí Clark\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e aus.\u003cbr\u003e&nbsp;\u003cbr\u003eMehr Infos in unserer #lese-ecke auf unserem Discord-Server: http://chat.gildedernacht.ch",
-   "location": "Discord",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-10-01T20:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-10-01T21:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "1fh9bicuvs2g1f2l89fm985qjh@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3264260189130000\"",
    "id": "3n3g73chk3o01r5p74qvj43pet",
    "status": "confirmed",
@@ -216,6 +186,36 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "6hiut9i00uv14n5jmof3dk0gj6@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3264468774944000\"",
+   "id": "1fh9bicuvs2g1f2l89fm985qjh",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MWZoOWJpY3V2czJnMWYybDg5Zm05ODVxamggZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-08-02T19:29:07.000Z",
+   "updated": "2021-09-21T14:26:27.472Z",
+   "summary": "Buchclub: «A Master of Djinn» von P. Djèlí Clark",
+   "description": "Wir tauschen uns über den Roman «A Master of Djinn» von \u003cspan\u003eP. Djèlí Clark\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e aus.\u003cbr\u003e&nbsp;\u003cbr\u003eMehr Infos in unserer #lese-ecke auf unserem Discord-Server: \u003ca href=\"https://chat.gildedernacht.ch\" id=\"ow1094\" __is_owner=\"true\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e",
+   "location": "Discord",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-10-01T20:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-10-01T21:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "1fh9bicuvs2g1f2l89fm985qjh@google.com",
    "sequence": 0,
    "eventType": "default"
   }
