@@ -1,0 +1,172 @@
+---
+title: "Rollenspiel Einordnung"
+date: 2021-09-20
+draft: true
+---
+
+<h1>Spider</h1>
+
+<textarea id="definition" style="width: 500px; height: 200px">
+Kategorie 1: 0
+Kategorie 2: 1
+Kategorie 3: 2
+Kategorie 4: 3
+Kategorie 5: 2
+Kategorie 6: 1
+Kategorie 7: 1
+Kategorie 8: 1
+</textarea>
+
+<canvas id="spider" width="800" height="500">
+
+</canvas>
+
+<script>
+
+function drawSpider(id, categories) {
+	// TODO add settings parameter
+
+	// TODO setting to add possibility to "draw" as svg?
+	// SVG has the drawback that it not easily possible to make a (transparent) image out of it which can easily copied into other documents
+
+	const sides = categories.length;
+	const canvas = document.getElementById(id);
+	const style = window.getComputedStyle(canvas);
+	const ctx = canvas.getContext('2d');
+	const width = canvas.width;
+	const height = canvas.height;
+
+	//const textMaxWidth = 1111;
+	//const textMaxHeight = 111;
+
+	const centerX = width / 2;
+	const centerY = height / 2;
+
+	//ctx.font = style.fontFamily;
+	console.log(style.fontFamily);
+	//console.log(style.font);
+	ctx.font = '15pt Lato'; // TODO can this be taken/calculated from CSS?
+
+	const metrics = ctx.measureText(categories[0][0]);
+	const textHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+
+	const textDistance = 20;
+	const radiusMax = Math.min(centerX, centerY) - (textDistance + textHeight);
+
+	// TODO values are percentage? 0% - 100%
+
+	//const segments = Math.max(...categories.map($ => $[1])) + 1; // TODO this quite likely should be a user supplied number
+	const segments = 5;
+	const angleStep = (2 * Math.PI) / sides;
+
+	ctx.clearRect(0, 0, width, height);
+
+	ctx.lineWidth = 2;
+
+	ctx.strokeStyle = '#333';
+
+	ctx.save();
+	ctx.translate(centerX, centerY);
+
+	const angle90Deg = Math.PI / 2;
+	const angle270Deg = 3 * angle90Deg;
+	const angleEpsilon = 0.2;
+
+	// angles are upside down (because coordinate system of canvas is also upside down)
+	// TODO rotate the whole coordinate system?
+
+	for (let side = 0; side < sides; side += 1) {
+		const angle = side * angleStep;
+		const radius = radiusMax + textDistance;
+		const x = Math.cos(angle) * radius;
+		const y = Math.sin(angle) * radius;
+		if (Math.abs(angle - angle270Deg) < angleEpsilon) {
+			// top
+			ctx.textAlign = 'center';
+			ctx.textBaseline = 'middle';
+		} else if(Math.abs(angle - angle90Deg) < angleEpsilon) {
+			// bottom
+			ctx.textAlign = 'center';
+			ctx.textBaseline = 'middle';
+		} else if((angle > angle90Deg) && (angle < angle270Deg)) {
+			// left
+			ctx.textAlign = 'right';
+			ctx.textBaseline = 'middle';
+		} else {
+			// right
+			ctx.textAlign = 'left';
+			ctx.textBaseline = 'middle';
+		}
+		ctx.fillText(categories[side][0], x, y);
+	}
+
+	for (let segment = 0; segment < segments; segment += 1) {
+		const radius = ((segment + 1) / segments) * radiusMax;
+		ctx.beginPath();
+		for (let side = 0; side < sides; side += 1) {
+			const angle = side * angleStep;
+			const x = Math.cos(angle) * radius;
+			const y = Math.sin(angle) * radius;
+			ctx.lineTo(x, y);
+		}
+		ctx.closePath();
+		ctx.stroke();
+	}
+
+	ctx.beginPath();
+	for (let side = 0; side < sides; side += 1) {
+		const angle = side * angleStep;
+		const x = Math.cos(angle) * radiusMax;
+		const y = Math.sin(angle) * radiusMax;
+		ctx.moveTo(0, 0);
+		ctx.lineTo(x, y);
+	}
+	ctx.stroke();
+
+	ctx.strokeStyle = '#66f';
+	ctx.fillStyle = '#66f3';
+
+	ctx.beginPath();
+	for (let side = 0; side < sides; side += 1) {
+		const angle = side * angleStep;
+		const segment = categories[side][1];
+		const r = ((segment + 1) / segments) * radiusMax;
+		const x = Math.cos(angle) * r;
+		const y = Math.sin(angle) * r;
+		ctx.lineTo(x, y);
+	}
+	ctx.closePath();
+	ctx.fill();
+	ctx.stroke();
+
+	ctx.restore();
+}
+
+function run() {
+	function draw() {
+		const definition = document.getElementById('definition').value;
+		const categories = [];
+
+		// TODO just use JSON and the JS JSON parser?
+
+		definition.split('\n').forEach(line => {
+			if (line.includes(':')) {
+				const elements = line.split(':', 2);
+				const keyMaybe = elements[0].trim();
+				const valueMaybe = parseInt(elements[1]);
+				const key = typeof keyMaybe === 'string' ? keyMaybe : '?';
+				const value = Number.isInteger(valueMaybe) ? valueMaybe : 0;
+				categories.push([key, value]);
+			}
+		});
+		drawSpiderOnCanvas('spider', categories);
+	}
+	document.getElementById('definition').addEventListener('input', draw);
+	draw();
+
+	// TODO copy button? canvas.toDataURL("image/png");
+}
+
+run();
+
+</script>
