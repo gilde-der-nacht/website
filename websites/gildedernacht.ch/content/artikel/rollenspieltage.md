@@ -65,6 +65,10 @@ toc:
 - Basgame https://www.basgame.ch/
 - LUGA https://www.luga.ch/
 - Zuger Spielnacht https://www.zugerspielnacht.ch/
+- Gameorama https://www.gameorama.ch/de/kalender
+- Manabar https://manabar.ch/events/
+- DuBischDra https://dubischdra.ch/dubischdra-events/
+- SwissRPG https://swissrpg.ch/
 
 ## International
 
