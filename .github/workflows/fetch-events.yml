@@ -21,6 +21,4 @@ jobs:
           --header 'Accept: application/json' \
           --compressed \
           -o websites/gildedernacht.ch/data/calendar.json
-        git add .
-        git commit -m "fetch new event data"
-        if [ $? -eq 0 ]; then git push; fi
+        git diff --quiet && git diff --staged --quiet || git commit -am 'fetch new event data' && git push
