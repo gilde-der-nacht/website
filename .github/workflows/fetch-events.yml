@@ -23,4 +23,4 @@ jobs:
           -o websites/gildedernacht.ch/data/calendar.json
         git add .
         git commit -m "fetch new event data"
-        git push
+        if [ $? -eq 0 ]; then git push; fi
