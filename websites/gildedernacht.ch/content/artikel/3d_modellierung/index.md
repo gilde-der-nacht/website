@@ -56,7 +56,7 @@ Was benötigt man
 - Eine Maus, idealerweise eine mit Scroll-Rad und einer mittleren Maustaste, was oftmals das Scroll-Rad, das man auch drücken kann, selber ist (erleichtert die Bedienung, geht aber auch ohne)
 - Idealerweise eine Tastatur mit einem Ziffernblock (erleichtert ebenfalls die Bedienung, geht aber auch ohne)
 
-![Blender 2.82 First Screen](../assets/blender-2.82-first-screen.png)
+![Blender 2.82 First Screen](blender-2.82-first-screen.png)
 
 ## Shortcuts
 
@@ -116,45 +116,45 @@ Blender: Eevee, Cycles
 
 ### Airplane
 Mirror Modifier & Subdivision Modifier
-![Airplane](../assets/airplane.jpg)
-[Airplane](../assets/airplane.blend)
+![Airplane](airplane.jpg)
+[Airplane](airplane.blend)
 
 ### Rope
 Array Modifier & Screw Modifier & Curve Modifier
-![Rope](../assets/rope.jpg)
-[Rope](../assets/rope.blend)
+![Rope](rope.jpg)
+[Rope](rope.blend)
 
 ### Cloth
 Cloth Simulation & Collision Simulation & Vertex Group
-![Cloth](../assets/cloth.jpg)
-[Cloth](../assets/cloth.blend)
+![Cloth](cloth.jpg)
+[Cloth](cloth.blend)
 
 ### Terrain
 Displace Modifier & ColorRamp Material
-![Terrain](../assets/terrain.jpg)
-[Terrain](../assets/terrain.blend) & [Terrain Heightmap](../assets/wikipedia-heightmap.png)
+![Terrain](terrain.jpg)
+[Terrain](terrain.blend) & [Terrain Heightmap](wikipedia-heightmap.png)
 
 ### Comic
 Z-Fighting & Smooth/Flat Shading & ColorRamp Material
-![Comic](../assets/comic.jpg)
-[Comic](../assets/comic.blend)
+![Comic](comic.jpg)
+[Comic](comic.blend)
 
 ### Robot
 Texture & Parenting & Animation
-![Robot](../assets/robot.jpg)
-[Robot](../assets/robot.blend) & [Robot Texture](../assets/robot.png)
+![Robot](robot.jpg)
+[Robot](robot.blend) & [Robot Texture](robot.png)
 
 ### Water
 Fluid Simulation & Glass Material
-![Water](../assets/water.jpg)
-[Water](../assets/water.blend)
+![Water](water.jpg)
+[Water](water.blend)
 
 ### Body
 Bones & Skin Modifier
-![Body](../assets/body.jpg)
-[Body](../assets/body.blend)
+![Body](body.jpg)
+[Body](body.blend)
 
 ### VFX
 Tracker & Solve Camera Motion
-![VFX](../assets/vfx.jpg)
-[VFX](../assets/vfx.blend) & [VFX Video](../assets/vfx.mp4)
+![VFX](vfx.jpg)
+[VFX](vfx.blend) & [VFX Video](vfx.mp4)
