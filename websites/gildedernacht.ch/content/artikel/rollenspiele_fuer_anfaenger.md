@@ -33,7 +33,7 @@ Deutsche Rollenspiele die von den Autoren explizit an Kinder gerichtet sind.
 
 [ulisses-spiele.de](https://ulisses-spiele.de/spielsysteme/aeventyr/)
 
-> Thomas: Ein Teil der Karte ist eher für Kinder < 9, ein anderer Teil eher für Kinder > 9, ausgelegt. Regeln sind komplizierter als sie sein müssten. Unnötiges Rechnen z.B. Intiative = Körper + Aufmerksamkeit. Oder klassische Attribute und Fertigkeiten, etwas was selbst Rollenspiele explizit für Erwachsene meistens nicht mehr haben. Es fühlt sich teilweise an als hätten die Autoren die letzten 20 Jahre Spieldesign verpasst.
+> Thomas: Ein Teil der Karte ist eher für Kinder < 9, ein anderer Teil eher für Kinder > 9, ausgelegt. Regeln sind komplizierter als sie sein müssten. Unnötiges Rechnen z.B. Initiative = Körper + Aufmerksamkeit. Oder klassische Attribute und Fertigkeiten, etwas was selbst Rollenspiele explizit für Erwachsene meistens nicht mehr haben. Es fühlt sich teilweise an als hätten die Autoren die letzten 20 Jahre Spieldesign verpasst.
 
 ## My Little Pony - Tales of Equestria
 

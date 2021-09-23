@@ -10,7 +10,7 @@ toc:
 
 # Grundlagen
 
-Hinweis: Dieses Dokument ist die Grundlage für ein Workshop. Viele Begriffe werden hier bewusst nicht erklärt, sondern sind lediglich eine Diskussiongrundlage und lassen sich einfacher zeigen als erklären.
+Hinweis: Dieses Dokument ist die Grundlage für ein Workshop. Viele Begriffe werden hier bewusst nicht erklärt, sondern sind lediglich eine Diskussionsgrundlage und lassen sich einfacher zeigen als erklären.
 
 ## Software für Künstler:innen
 
@@ -45,7 +45,7 @@ Obwohl Menschen verhältnismässig gleichmässig wären, fallen uns oft kleine U
 
 https://www.blender.org/
 
-Blender ist in den letzten Jahren zu einer der bekannteren Modellierungs Software geworden. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht. Inzwischen gibt es auch viele kostenlose Plugins.
+Blender ist in den letzten Jahren zu einer der bekannteren Modellierungs-Software geworden. Blender wird seid 20 Jahren aktiv entwickelt, ständig erweitert und oft auch vereinfacht. Inzwischen gibt es auch viele kostenlose Plugins.
 
 ## Vorbereitung
 

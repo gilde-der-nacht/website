@@ -5,7 +5,7 @@ date: 2018-12-09
 
 # Morphologische Analyse
 
-- Merkmale (Attribute, Faktoren, Paramter, Dimensionen, ...) bestimmen
+- Merkmale (Attribute, Faktoren, Parameter, Dimensionen, ...) bestimmen
 - Ausprägungen von Merkmalen bestimmen
 - Von jedem Merkmal eine Ausprägung auswählen
 

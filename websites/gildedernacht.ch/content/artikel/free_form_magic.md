@@ -21,7 +21,7 @@ toc:
 ## Ironsworn
 
 - Alle Zauber/Rituale können tendenziell auch ohne Magie erklärt werden (z.B. gibt es keine Feuerbälle die aus dem Nichts kommen, teleportieren geht gar nicht, ...)
-- Jeder Zauber und jedes Ritual beinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft. Es ist daher einfach (und auch im Buch erklärt) neue Rituale zu erfinden welche die Spiel-Balance nicht kaputt machen.
+- Jeder Zauber und jedes Ritual beeinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft. Es ist daher einfach (und auch im Buch erklärt) neue Rituale zu erfinden welche die Spiel-Balance nicht kaputt machen.
 
 ## Hero Kids
 

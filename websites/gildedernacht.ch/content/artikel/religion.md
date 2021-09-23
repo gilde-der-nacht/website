@@ -9,4 +9,4 @@ date: 2021-07-02
 
 # Unser Eindruck
 
-- Niemand von uns hatte bis anhin mit (nicht fanatisch) religiösen Menschen Probleme in Rollenspielen
+- Niemand von uns hatte bis an hin mit (nicht fanatisch) religiösen Menschen Probleme in Rollenspielen

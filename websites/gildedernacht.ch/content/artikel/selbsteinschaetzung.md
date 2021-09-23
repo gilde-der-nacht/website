@@ -87,13 +87,13 @@ https://sites.google.com/site/amagigames/the-what-i-like-glossary
 
 # MDA Framework
 
-- Sinneseindrücke (Sensation): Hintergrundmusik, Stimmen immitieren, Würfeln, Figuren bewegen, ...
+- Sinneseindrücke (Sensation): Hintergrundmusik, Stimmen imitieren, Würfeln, Figuren bewegen, ...
 - Illusion (Fantasy): Eintauchen in einer andere Welt
 - Erzählung (Narrative): Das erleben von Geschichten
 - Herausforderung (Challenge): Gewinnen und Verlieren
 - Zusammenspiel (Fellowship): Mit Freunden etwas zusammen machen
 - Entdecken (Discovery): Die Welt erkunden, Gegenstände finden, unbekannten Monstern auflauern, ...
-- Ausdrucksform (Expression): Eeinen Charakter mit all seinen positiven und negativen Seiten ausspielen
+- Ausdrucksform (Expression): Einen Charakter mit all seinen positiven und negativen Seiten ausspielen
 - Beschäftigung (Submission): Unterhaltender Zeitvertreib
 
 https://en.wikipedia.org/wiki/MDA_framework

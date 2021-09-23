@@ -68,7 +68,7 @@ toc:
   - Bösewicht zu früh im Himmel?
   - Gruppe teilt sich auf?
   - Magier/Hacker verliert sich in Listen und Tabellen?
-  - Spieler sind wandelende Schränke? "Inventar" stimmt schon lange nicht mehr?
+  - Spieler sind wandelnde Schränke? "Inventar" stimmt schon lange nicht mehr?
   - Spieler: würfelt ... Spielleiter: nichts passiert
   - Gruppenbegleitende übermächtige NPCs?
 - Story

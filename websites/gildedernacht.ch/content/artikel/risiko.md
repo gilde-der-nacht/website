@@ -6,7 +6,7 @@ date: 2021-06-04
 - Möglichst alle Informationen sollten offen aufliegen
 - Es sollte abschätzbar sein was die positiven und negativen Effekte sind
 - Der zeitliche Abstand zwischen Risiko und dem Effekt sollte kurz sein
-- Die Folgen sollten nicht so einseiteig sein, dass das Risiko nie oder immer eingegangen wird
+- Die Folgen sollten nicht so einseitig sein, dass das Risiko nie oder immer eingegangen wird
 - Nicht in jedes Setting passen Regeln für Risiko hinein
 
 # Schlechte Beispiele

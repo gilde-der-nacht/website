@@ -7,9 +7,9 @@ date: 2021-08-06
 
 ## Fragen
 
-- Kennt jemand ein Rollenspiel wo Konflikt/Drama im Vordergrund/Hintergrund steht und das regeltechnisch umgesetzt wird?
-- Kennt jemand ein Spiel wo innerer Konflikt regeltechnisch abgehandelt wird?
-- Beispiele für Konflikte und kann man diese Beispiele kategoriesieren?
+- Kennt jemand ein Rollenspiel wo Konflikt/Drama im Vordergrund/Hintergrund steht und das mit Regeln umgesetzt wird?
+- Kennt jemand ein Spiel wo innerer Konflikt mit Regeln abgehandelt wird?
+- Beispiele für Konflikte und kann man diese Beispiele kategorisieren?
 
 ## Zitate
 
@@ -112,6 +112,6 @@ Conflict means taking a stand
 
 ## Zusammenfassung
 
-- Jeder definiert das Wort Konflikt anders. Diese Frage kann aus wissenschaftlicher Sicht interessant sein. Für unsere Rollenspielerunden ist folgende Frage wahrscheinlich praktischer: "Was macht uns Spass?".
+- Jeder definiert das Wort Konflikt anders. Diese Frage kann aus wissenschaftlicher Sicht interessant sein. Für unsere Rollenspielrunden ist folgende Frage wahrscheinlich praktischer: "Was macht uns Spass?".
 
 - Den Fokus nicht immer auf Konflikt setzen. Es gibt auf dieser Seite genügend Beispiele in denen ein Konflikt zwar vorkommen kann, der Kern der Geschichte/Story, aber ein ganz anderes Element ist.
