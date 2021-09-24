@@ -6,7 +6,15 @@ draft: true
 
 <h1>Spider</h1>
 
-<textarea id="definition" style="width: 500px; height: 200px">
+<!--
+<textarea id="config" style="width: 500px; height: 100px">
+{
+
+}
+</textarea>
+-->
+
+<textarea id="categories" style="width: 500px; height: 200px">
 Kategorie 1: 0
 Kategorie 2: 1
 Kategorie 3: 2
@@ -21,73 +29,92 @@ Kategorie 8: 1
 
 </canvas>
 
+<!--
+<button id="copy">Open Window</button>
+-->
+
 <script>
 
-function drawSpider(id, categories) {
+function limit(value, min, max) {
+	if (value < min) {
+		return min;
+	} else if (value > max) {
+		return max;
+	} else {
+		return value;
+	}
+}
+
+function drawSpider(config, categories) {
 	// TODO add settings parameter
 
-	// TODO setting to add possibility to "draw" as svg?
-	// SVG has the drawback that it not easily possible to make a (transparent) image out of it which can easily copied into other documents
+	const configMode = 'canvas'; // TODO svg (svg disadvantage: create png image)
+	const configID = config.id;
+	const configSegments = 5;
+	const configFont = config.font ?? '15pt Lato'; // TODO auto?
+	const configTextDistance = 10;
+	const configLineWidth = 2;
+	const configGridStroke = '#333';
+	const configAreaStroke = '#66f';
+	const configAreaFill = '#66f3';
+	const configBackgroundFill = 'transparent';
+	const configTextFill = '#300';
+	const configBorder = 10;
 
 	const sides = categories.length;
-	const canvas = document.getElementById(id);
+	const canvas = document.getElementById(configID);
 	const style = window.getComputedStyle(canvas);
 	const ctx = canvas.getContext('2d');
 	const width = canvas.width;
 	const height = canvas.height;
-
-	//const textMaxWidth = 1111;
-	//const textMaxHeight = 111;
-
 	const centerX = width / 2;
 	const centerY = height / 2;
 
-	//ctx.font = style.fontFamily;
-	console.log(style.fontFamily);
-	//console.log(style.font);
-	ctx.font = '15pt Lato'; // TODO can this be taken/calculated from CSS?
+	if (configFont === 'auto') {
+		// TODO
+		//ctx.font = style.fontFamily;
+	} else {
+		ctx.font = configFont;
+	}
 
 	const metrics = ctx.measureText(categories[0][0]);
 	const textHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+	console.log(textHeight);
 
-	const textDistance = 20;
-	const radiusMax = Math.min(centerX, centerY) - (textDistance + textHeight);
+	const radiusMax = Math.min(centerX, centerY) - (configTextDistance + textHeight + configBorder);
 
-	// TODO values are percentage? 0% - 100%
-
-	//const segments = Math.max(...categories.map($ => $[1])) + 1; // TODO this quite likely should be a user supplied number
-	const segments = 5;
-	const angleStep = (2 * Math.PI) / sides;
-
-	ctx.clearRect(0, 0, width, height);
-
-	ctx.lineWidth = 2;
-
-	ctx.strokeStyle = '#333';
-
-	ctx.save();
-	ctx.translate(centerX, centerY);
-
-	const angle90Deg = Math.PI / 2;
+	const angle360Deg = 2 * Math.PI;
+	const angle90Deg = angle360Deg / 4;
 	const angle270Deg = 3 * angle90Deg;
 	const angleEpsilon = 0.2;
 
-	// angles are upside down (because coordinate system of canvas is also upside down)
-	// TODO rotate the whole coordinate system?
+	const segments = configSegments;
+	const angleStep = angle360Deg / sides;
 
+	ctx.fillStyle = configBackgroundFill;
+	ctx.fillRect(0, 0, width, height);
+
+	/*
+	Because of the default canvas coordinate system, the angle calculation also
+	produces coordinates which are upside-down. E.g. 90° is a the bottom.
+	*/
+
+	ctx.fillStyle = configTextFill;
+	ctx.save();
+	ctx.translate(centerX, centerY);
 	for (let side = 0; side < sides; side += 1) {
 		const angle = side * angleStep;
-		const radius = radiusMax + textDistance;
+		const radius = radiusMax + configTextDistance;
 		const x = Math.cos(angle) * radius;
 		const y = Math.sin(angle) * radius;
 		if (Math.abs(angle - angle270Deg) < angleEpsilon) {
 			// top
 			ctx.textAlign = 'center';
-			ctx.textBaseline = 'middle';
+			ctx.textBaseline = 'bottom';
 		} else if(Math.abs(angle - angle90Deg) < angleEpsilon) {
 			// bottom
 			ctx.textAlign = 'center';
-			ctx.textBaseline = 'middle';
+			ctx.textBaseline = 'top';
 		} else if((angle > angle90Deg) && (angle < angle270Deg)) {
 			// left
 			ctx.textAlign = 'right';
@@ -100,6 +127,8 @@ function drawSpider(id, categories) {
 		ctx.fillText(categories[side][0], x, y);
 	}
 
+	ctx.lineWidth = configLineWidth;
+	ctx.strokeStyle = configGridStroke;
 	for (let segment = 0; segment < segments; segment += 1) {
 		const radius = ((segment + 1) / segments) * radiusMax;
 		ctx.beginPath();
@@ -112,7 +141,6 @@ function drawSpider(id, categories) {
 		ctx.closePath();
 		ctx.stroke();
 	}
-
 	ctx.beginPath();
 	for (let side = 0; side < sides; side += 1) {
 		const angle = side * angleStep;
@@ -123,13 +151,12 @@ function drawSpider(id, categories) {
 	}
 	ctx.stroke();
 
-	ctx.strokeStyle = '#66f';
-	ctx.fillStyle = '#66f3';
-
+	ctx.strokeStyle = configAreaStroke;
+	ctx.fillStyle = configAreaFill;
 	ctx.beginPath();
 	for (let side = 0; side < sides; side += 1) {
 		const angle = side * angleStep;
-		const segment = categories[side][1];
+		const segment = limit(categories[side][1], 0, segments - 1);
 		const r = ((segment + 1) / segments) * radiusMax;
 		const x = Math.cos(angle) * r;
 		const y = Math.sin(angle) * r;
@@ -144,12 +171,9 @@ function drawSpider(id, categories) {
 
 function run() {
 	function draw() {
-		const definition = document.getElementById('definition').value;
+		const categoriesString = document.getElementById('categories').value;
 		const categories = [];
-
-		// TODO just use JSON and the JS JSON parser?
-
-		definition.split('\n').forEach(line => {
+		categoriesString.split('\n').forEach(line => {
 			if (line.includes(':')) {
 				const elements = line.split(':', 2);
 				const keyMaybe = elements[0].trim();
@@ -159,12 +183,21 @@ function run() {
 				categories.push([key, value]);
 			}
 		});
-		drawSpider('spider', categories);
+		drawSpider({id: 'spider', font: '20pt Ubuntu'}, categories);
 	}
-	document.getElementById('definition').addEventListener('input', draw);
+
+	document.getElementById('categories').addEventListener('input', draw);
 	draw();
 
-	// TODO copy button? canvas.toDataURL("image/png");
+	/*
+	document.getElementById('copy').addEventListener('click', () => {
+		const canvas = document.getElementById('spider');
+		const png = canvas.toDataURL('image/png');
+		// https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
+		window.open(png);
+		// open window?
+	});
+	*/
 }
 
 run();
