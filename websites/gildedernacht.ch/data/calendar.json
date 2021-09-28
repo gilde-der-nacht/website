@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p320frqvmka8f60g\"",
+ "etag": "\"p338aj9mghmfv60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-09-21T14:26:27.472Z",
+ "updated": "2021-09-27T12:01:05.570Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CID96_aikPMCEAAYASDa7-K9AQ==",
+ "nextSyncToken": "CNCpptCNn_MCEAAYASDa7-K9AQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -191,14 +191,14 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3264468774944000\"",
+   "etag": "\"3265459843024000\"",
    "id": "1fh9bicuvs2g1f2l89fm985qjh",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=MWZoOWJpY3V2czJnMWYybDg5Zm05ODVxamggZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-08-02T19:29:07.000Z",
-   "updated": "2021-09-21T14:26:27.472Z",
+   "updated": "2021-09-27T08:05:21.512Z",
    "summary": "Buchclub: «A Master of Djinn» von P. Djèlí Clark",
-   "description": "Wir tauschen uns über den Roman «A Master of Djinn» von \u003cspan\u003eP. Djèlí Clark\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e aus.\u003cbr\u003e&nbsp;\u003cbr\u003eMehr Infos in unserer #lese-ecke auf unserem Discord-Server: \u003ca href=\"https://chat.gildedernacht.ch\" id=\"ow1094\" __is_owner=\"true\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e",
+   "description": "Wir tauschen uns über den Roman «A Master of Djinn» von \u003cspan\u003eP. Djèlí Clark\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e aus.\u003cbr\u003e&nbsp;\u003cbr\u003eMehr Infos in unserer #lese-ecke auf unserem Discord-Server: \u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003eOrt: \u003cspan\u003eBourbaki Bar, Luzern\u003c/span\u003e\u003c/span\u003e&nbsp;",
    "location": "Discord",
    "creator": {
     "email": "nimboline@gmail.com"
@@ -217,6 +217,37 @@
    },
    "iCalUID": "1fh9bicuvs2g1f2l89fm985qjh@google.com",
    "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3265488131140000\"",
+   "id": "6mkvn9qk9s9bh9e72cu94kg3qs",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=Nm1rdm45cWs5czliaDllNzJjdTk0a2czcXMgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-09-27T11:57:41.000Z",
+   "updated": "2021-09-27T12:01:05.570Z",
+   "summary": "Game Jam",
+   "description": "Erster Game Jam der Gilde der Nacht. Wir treffen uns, um gemeinsam zum Thema «jeder Tod hat eine Bedeutung» ein Gesellschaftspiel entwickeln (physisch; kein Videogame).\n \nOrt: Bourbaki Bar, Luzern",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-11-07T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-11-07T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "transparency": "transparent",
+   "iCalUID": "6mkvn9qk9s9bh9e72cu94kg3qs@google.com",
+   "sequence": 1,
    "eventType": "default"
   }
  ]
