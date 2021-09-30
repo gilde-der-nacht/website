@@ -79,7 +79,6 @@ function drawSpider(config, categories) {
 
 	const metrics = ctx.measureText(categories[0][0]);
 	const textHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
-	console.log(textHeight);
 
 	const radiusMax = Math.min(centerX, centerY) - (configTextDistance + textHeight + configBorder);
 

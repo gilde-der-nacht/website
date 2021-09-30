@@ -3,8 +3,8 @@ title: "Flexible Magiesysteme"
 date: 2021-10-08
 toc:
   enable: true
-  startLevel: 2
-  endLevel: 3
+  startLevel: 1
+  endLevel: 2
   style: ext
 ---
 
