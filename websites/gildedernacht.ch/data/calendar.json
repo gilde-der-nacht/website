@@ -11,36 +11,6 @@
  "items": [
   {
    "kind": "calendar#event",
-   "etag": "\"3261857369980000\"",
-   "id": "2mii104b8s5g2i5tba4kkrtjc0",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=Mm1paTEwNGI4czVnMmk1dGJhNGtrcnRqYzAgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-06T11:43:49.000Z",
-   "updated": "2021-09-06T11:44:44.990Z",
-   "summary": "Spieltreffen",
-   "description": "Ort: \u003cspan\u003eBourbaki Bar, Luzern\u003c/span\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-10-02T14:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-10-02T22:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "2mii104b8s5g2i5tba4kkrtjc0@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3261857406392000\"",
    "id": "6c6rhr1hbtq5a9ijre2pd9hnc1",
    "status": "confirmed",
