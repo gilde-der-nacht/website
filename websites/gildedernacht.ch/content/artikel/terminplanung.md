@@ -27,7 +27,6 @@ toc:
 - Lucerne Festival https://www.lucernefestival.ch/
 - Luzerner Sommerfest https://luzernerfest.ch/news
 - Fumetto https://www.fumetto.ch/
-- HelvetiaCon https://www.helvetiacon.ch/
 - Baselbieter Spiel-Nacht https://www.spiel-nacht.ch/
 - St. Galler SpieleNacht https://www.spielenacht.ch/
 - Polymanga http://www.polymanga.com/
@@ -92,6 +91,22 @@ Datum | Bemerkungen
 13. - 15. |
 20. - 22. | Spiele-Tag im Neubad
 27. - 29. | Fantasy Basel / Auffahrt
+
+### Juni
+
+Datum | Bemerkungen
+--- | ---
+3. - 5. |
+10. - 12. |
+17. - 19. |
+24. - 26. |
+
+### Juli
+
+Datum | Bemerkungen
+--- | ---
+1 - 3. |
+8. - 10. | Sommerferien LU BE
 
 ## Rollenspieltage
 
