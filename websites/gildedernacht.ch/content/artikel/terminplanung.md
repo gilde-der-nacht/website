@@ -96,7 +96,7 @@ Datum | Bemerkungen
 
 Datum | Bemerkungen
 --- | ---
-3. - 5. |
+3. - 5. | Pfingsten
 10. - 12. |
 17. - 19. |
 24. - 26. |
