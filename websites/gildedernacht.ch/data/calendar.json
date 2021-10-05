@@ -1,174 +1,24 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32g95kdjg6pv60g\"",
+ "etag": "\"p33obhi72gipv60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-10-05T09:59:38.996Z",
+ "updated": "2021-10-05T10:14:42.726Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CKCS0bOBs_MCEAAYASCtp7C-AQ==",
+ "nextSyncToken": "CPC4yOKEs_MCEAAYASCtp7C-AQ==",
  "items": [
   {
    "kind": "calendar#event",
-   "etag": "\"3261857406392000\"",
-   "id": "6c6rhr1hbtq5a9ijre2pd9hnc1",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NmM2cmhyMWhidHE1YTlpanJlMnBkOWhuYzEgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-06T11:45:03.000Z",
-   "updated": "2021-09-06T11:45:03.196Z",
-   "summary": "Spieltreffen",
-   "description": "Ort: \u003cspan\u003eBourbaki Bar, Luzern\u003c/span\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-11-13T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-11-13T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "6c6rhr1hbtq5a9ijre2pd9hnc1@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3261857432958000\"",
-   "id": "473ibvd114es8hfshimjrvkjdd",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NDczaWJ2ZDExNGVzOGhmc2hpbWpydmtqZGQgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-06T11:45:16.000Z",
-   "updated": "2021-09-06T11:45:16.479Z",
-   "summary": "Spieltreffen",
-   "description": "Ort: \u003cspan\u003eBourbaki Bar, Luzern\u003c/span\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-12-11T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-12-11T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "473ibvd114es8hfshimjrvkjdd@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3264260189130000\"",
-   "id": "3n3g73chk3o01r5p74qvj43pet",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=M24zZzczY2hrM28wMXI1cDc0cXZqNDNwZXQgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-16T12:26:02.000Z",
-   "updated": "2021-09-20T09:28:14.565Z",
-   "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "\u003cspan\u003eDiskussionsstarter: «\u003cspan\u003eFlexible Magiesysteme\u003c/span\u003e» \u003cbr\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
-   "location": "Discord",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-10-08T19:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-10-08T22:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "3n3g73chk3o01r5p74qvj43pet@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3264260205912000\"",
-   "id": "0ndi2n9bli5hpnrsmt7t7bfp4h",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MG5kaTJuOWJsaTVocG5yc210N3Q3YmZwNGggZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-16T12:26:47.000Z",
-   "updated": "2021-09-20T09:28:22.956Z",
-   "summary": "Rollenspiel-Stammtisch",
-   "description": "Diskussionsstarter: «\u003cspan\u003eZwischen den Spielrunden\u003c/span\u003e»&nbsp;\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003eOrt: \u003cspan\u003eBourbaki Bar, Luzern\u003c/span\u003e\u003c/span\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-11-12T19:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-11-12T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "0ndi2n9bli5hpnrsmt7t7bfp4h@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3264260223258000\"",
-   "id": "6hiut9i00uv14n5jmof3dk0gj6",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NmhpdXQ5aTAwdXYxNG41am1vZjNkazBnajYgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-16T12:28:27.000Z",
-   "updated": "2021-09-20T09:28:31.629Z",
-   "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "\u003cspan\u003eDiskussionsstarter: «\u003cspan\u003eRenovation Cyberpunk Setting\u003c/span\u003e» \u003cbr\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
-   "location": "Discord",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-12-03T19:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-12-03T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "6hiut9i00uv14n5jmof3dk0gj6@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3265488131140000\"",
+   "etag": "\"3266857578886000\"",
    "id": "6mkvn9qk9s9bh9e72cu94kg3qs",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=Nm1rdm45cWs5czliaDllNzJjdTk0a2czcXMgZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-09-27T11:57:41.000Z",
-   "updated": "2021-09-27T12:01:05.570Z",
+   "updated": "2021-10-05T10:13:09.443Z",
    "summary": "Game Jam",
-   "description": "Erster Game Jam der Gilde der Nacht. Wir treffen uns, um gemeinsam zum Thema «jeder Tod hat eine Bedeutung» ein Gesellschaftspiel entwickeln (physisch; kein Videogame).\n \nOrt: Bourbaki Bar, Luzern",
+   "description": "Erster Game Jam der Gilde der Nacht. Wir treffen uns, um gemeinsam zum Thema «jeder Tod hat eine Bedeutung» ein Gesellschaftspiel entwickeln (physisch; kein Videogame).",
    "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
    "creator": {
     "email": "nimboline@gmail.com"
@@ -192,14 +42,162 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3266855957992000\"",
+   "etag": "\"3266857632690000\"",
+   "id": "3n3g73chk3o01r5p74qvj43pet",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=M24zZzczY2hrM28wMXI1cDc0cXZqNDNwZXQgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-09-16T12:26:02.000Z",
+   "updated": "2021-10-05T10:13:36.345Z",
+   "summary": "[Online] Rollenspiel-Stammtisch",
+   "description": "\u003cspan\u003eDiskussionsstarter: **«\u003cspan\u003eFlexible Magiesysteme\u003c/span\u003e»** \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003eDer Stammtisch findet auf unserer Online-Plattform, Discord, statt. [Trette über diesen Link bei.](\u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e)\u003cbr\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
+   "location": "Discord",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-10-08T19:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-10-08T22:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "3n3g73chk3o01r5p74qvj43pet@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3266857658448000\"",
+   "id": "0ndi2n9bli5hpnrsmt7t7bfp4h",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MG5kaTJuOWJsaTVocG5yc210N3Q3YmZwNGggZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-09-16T12:26:47.000Z",
+   "updated": "2021-10-05T10:13:49.224Z",
+   "summary": "Rollenspiel-Stammtisch",
+   "description": "Diskussionsstarter: **«\u003cspan\u003eZwischen den Spielrunden\u003c/span\u003e»**",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-11-12T19:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-11-12T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "0ndi2n9bli5hpnrsmt7t7bfp4h@google.com",
+   "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3266857692312000\"",
+   "id": "6c6rhr1hbtq5a9ijre2pd9hnc1",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NmM2cmhyMWhidHE1YTlpanJlMnBkOWhuYzEgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-09-06T11:45:03.000Z",
+   "updated": "2021-10-05T10:14:06.156Z",
+   "summary": "Spieltreffen",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-11-13T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-11-13T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "6c6rhr1hbtq5a9ijre2pd9hnc1@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3266857712988000\"",
+   "id": "6hiut9i00uv14n5jmof3dk0gj6",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NmhpdXQ5aTAwdXYxNG41am1vZjNkazBnajYgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-09-16T12:28:27.000Z",
+   "updated": "2021-10-05T10:14:16.494Z",
+   "summary": "[Online] Rollenspiel-Stammtisch",
+   "description": "\u003cspan\u003eDiskussionsstarter: **«\u003cspan\u003eRenovation Cyberpunk Setting\u003c/span\u003e»**\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eDer Stammtisch findet auf unserer Online-Plattform, Discord, statt. [Trette über diesen Link bei.](https://chat.gildedernacht.ch)\u003c/span\u003e\u003c/span\u003e&nbsp; \u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
+   "location": "Discord",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-12-03T19:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-12-03T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "6hiut9i00uv14n5jmof3dk0gj6@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3266857730604000\"",
+   "id": "473ibvd114es8hfshimjrvkjdd",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NDczaWJ2ZDExNGVzOGhmc2hpbWpydmtqZGQgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-09-06T11:45:16.000Z",
+   "updated": "2021-10-05T10:14:25.302Z",
+   "summary": "Spieltreffen",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-12-11T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-12-11T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "473ibvd114es8hfshimjrvkjdd@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3266857765452000\"",
    "id": "0k44iakcha9s7abip0tvrthsve",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=MGs0NGlha2NoYTlzN2FiaXAwdHZydGhzdmUgZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-10-05T08:45:39.000Z",
-   "updated": "2021-10-05T09:59:38.996Z",
+   "updated": "2021-10-05T10:14:42.726Z",
    "summary": "Luzerner Rollenspieltage 2022",
-   "description": "\u003cspan\u003eMehr Infos unter:\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[rollenspieltage.ch](https://rollenspieltage.ch/)\u003cbr\u003e\u003c/span\u003e",
+   "description": "\u003cspan\u003eMehr Infos unter:\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[\u003ca href=\"http://rollenspieltage.ch\"\u003erollenspieltage.ch\u003c/a\u003e](\u003ca href=\"https://rollenspieltage.ch/\"\u003ehttps://rollenspieltage.ch/\u003c/a\u003e)\u003cbr\u003e\u003c/span\u003e",
    "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
    "creator": {
     "email": "nimboline@gmail.com"
