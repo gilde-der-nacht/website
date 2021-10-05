@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33sf1bmpg2pv60g\"",
+ "etag": "\"p32g95kdjg6pv60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-10-05T09:56:29.691Z",
+ "updated": "2021-10-05T09:59:38.996Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CPjwrtmAs_MCEAAYASCtp7C-AQ==",
+ "nextSyncToken": "CKCS0bOBs_MCEAAYASCtp7C-AQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -192,12 +192,12 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3266855579382000\"",
+   "etag": "\"3266855957992000\"",
    "id": "0k44iakcha9s7abip0tvrthsve",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=MGs0NGlha2NoYTlzN2FiaXAwdHZydGhzdmUgZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-10-05T08:45:39.000Z",
-   "updated": "2021-10-05T09:56:29.691Z",
+   "updated": "2021-10-05T09:59:38.996Z",
    "summary": "Luzerner Rollenspieltage 2022",
    "description": "\u003cspan\u003eMehr Infos unter:\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[rollenspieltage.ch](https://rollenspieltage.ch/)\u003cbr\u003e\u003c/span\u003e",
    "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
@@ -209,16 +209,14 @@
     "self": true
    },
    "start": {
-    "dateTime": "2022-08-27T10:00:00+02:00",
-    "timeZone": "Europe/Zurich"
+    "date": "2022-08-27"
    },
    "end": {
-    "dateTime": "2022-08-28T18:00:00+02:00",
-    "timeZone": "Europe/Zurich"
+    "date": "2022-08-29"
    },
    "transparency": "transparent",
    "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
-   "sequence": 1,
+   "sequence": 2,
    "eventType": "default"
   }
  ]
