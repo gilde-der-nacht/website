@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p338aj9mghmfv60g\"",
+ "etag": "\"p33kbtj7eu2pf60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-09-27T12:01:05.570Z",
+ "updated": "2021-10-05T08:45:39.249Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CNCpptCNn_MCEAAYASCtp7C-AQ==",
+ "nextSyncToken": "COi-zO7wsvMCEAAYASCtp7C-AQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -188,6 +188,34 @@
    "transparency": "transparent",
    "iCalUID": "6mkvn9qk9s9bh9e72cu94kg3qs@google.com",
    "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3266847078498000\"",
+   "id": "0k44iakcha9s7abip0tvrthsve",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MGs0NGlha2NoYTlzN2FiaXAwdHZydGhzdmUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-05T08:45:39.000Z",
+   "updated": "2021-10-05T08:45:39.249Z",
+   "summary": "Luzerner Rollenspieltage 2022",
+   "description": "\u003cspan\u003eMehr Infos unter:\u003cbr\u003e\u003c/span\u003e",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-08-27"
+   },
+   "end": {
+    "date": "2022-08-29"
+   },
+   "transparency": "transparent",
+   "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
+   "sequence": 0,
    "eventType": "default"
   }
  ]
