@@ -98,7 +98,7 @@ Datum | Bemerkungen
 --- | ---
 3. - 5. | Pfingsten
 10. - 12. |
-17. - 19. |
+17. - 19. | Fronleichnam
 24. - 26. |
 
 ### Juli
