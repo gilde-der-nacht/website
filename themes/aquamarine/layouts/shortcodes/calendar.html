@@ -12,6 +12,7 @@
       "title" .summary
       "description" (.description | markdownify)
       "location" .location
+      "link" .htmlLink
       "startDate" $startDate
       "endDate" $endDate
       "fullDay" $fullDay
@@ -45,6 +46,7 @@
     <div class="body">
       <h1 class="title">{{ .title }}</h1>
       <p class="date">
+        <small><a href="{{ .link }}" style="text-decoration: none;" target="_blank">📅</a></small>
         {{ .startDate | time.Format ":date_full" }}{{ if not .fullDay}}, {{ .startDate | time.Format ":time_short"
         }} {{ if eq site.Language.Lang "de" }}Uhr{{ end }} {{end}}
         {{ if .multipleDay }} <br /> <em>{{ if eq site.Language.Lang "de" }}bis{{else}}to{{ end }}</em>  {{ .endDate | time.Format ":date_full" }}{{ if not .fullDay}}, {{ .endDate | time.Format ":time_short"
@@ -52,10 +54,9 @@
       </p>
       <p>{{ .description }}</p>
       {{if and (not (in .title "Online")) (ne .location nil) }}
-      <p><a href="http://maps.google.com/?q={{.location}}">{{.location}}</a> <em style="display:inline-block;">(Google Maps)</em></p>
+      <p><a href="http://maps.google.com/?q={{.location}}" target="_blank">{{.location}}</a> <em style="display:inline-block;">(Google Maps)</em></p>
       {{end}}
     </div>
   </li>
-
   {{ end }}
 </ul>
