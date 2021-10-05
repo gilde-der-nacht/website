@@ -15,6 +15,7 @@ toc:
 - Themengebiete
   - Energie
   - Medizin
+  - Mobilität
   - Nahrung
   - Politik
   - Ländergrenzen
@@ -25,6 +26,9 @@ toc:
   - Verkehr
   - Wirtschaft
   - Wissenschaft
+  - Fashion
+
+- https://en.wikipedia.org/wiki/List_of_futurologists
 
 # Filme & Serien
 
@@ -44,14 +48,14 @@ toc:
 - 3x05: Männer aus Stahl: Soldaten werden so manipuliert dass sie in Feinden keine Menschen mehr sehen.
 - 3x06: Von allen gehasst: Künstlicher Bienen-Ersatz. Hasskultur führt zu Toten.
 - 4x01: USS Callister: Flucht in eine virtuelle Welt, wo ein Opfer zum Täter wird.
-- 4x02: Arkangel: ???
-- 4x03: Krokodil: ???
-- 4x04: Hang the DJ: ???
-- 4x05: Metallkopf: ???
-- 4x06: Black Museum: ???
+- 4x02: Arkangel: Eine Helikoptermutter kann ihre Tochter durch ihre Augen konstant überwachen und auf ihr Erleben Einfluss nehmen.
+- 4x03: Krokodil: Versicherungsangestellte dürfen in den Gedanken von nahejzu jeder Person herumwühlen. Dass führt aber zu nur noch mehr Morden.
+- 4x04: Hang the DJ: Ein App entscheidet wann und für wie lange man eine Beziehung hat um den angeblich perfekten Partner damit zu finden.
+- 4x05: Metallkopf: Kleine Roboter-Jadhunde verfolgen und töten Menschen.
+- 4x06: Black Museum: Das Bewusstsein von Menschen in Not wird für Versuchszwecke missbraucht.
 - Special: Black Mirror: Bandersnatch: ???
-- 5x01: Striking Vipers: ???
-- 5x02: Smithereens: ???
+- 5x01: Striking Vipers: Gender-Fluiditiy.
+- 5x02: Smithereens: Ständier Social-Media Konsum führt zu Fahrlässigkeit und Tod.
 - 5x03: Rachel, Jack and Ashley Too: ???
 
 Links
@@ -186,4 +190,21 @@ Links
 
 ## Thomas
 
-- Menschen sind Wissenschaftsfeindlich
+- Menschen sind Wissenschaftsfeindlich, selbst wenn sich die 99% aller Wissenschschafter weltweit einig sind und es keine versteckte Agenda gibt
+- Beziehungen werden über Gesetze und Anwälte geregelt
+- Problematisches Artensterben
+- Chaotische Naturgewalten
+- Überalterung, Bevölkerungsrückgang
+- Gesetze gibt es nie weniger
+- Informationsüberladung
+- Spam (Blog Spam, Advertisement, Fake News, ...)
+- Self Optmization
+- Wer generiert Wert? Finanzprodukte?
+- Migration
+- Russland Seewege
+- China, China Projekte
+- Afrika
+- Südamerika
+- Taiwan
+
+- Zukunftsforscher? Trends?
