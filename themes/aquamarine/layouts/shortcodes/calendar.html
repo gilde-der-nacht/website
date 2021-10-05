@@ -3,8 +3,10 @@
   {{ $data := slice }}
 
   {{ range .Site.Data.calendar.items }}
-    {{ $startDate := cond (isset .start "dateTime") .start.dateTime .start.date }}
-    {{ $endDate := cond (isset .end "dateTime") .end.dateTime .end.date }}
+    {{ $fullDay := isset .start "date"  }}
+    {{ $startDate := time (cond (isset .start "dateTime") .start.dateTime .start.date) }}
+    {{ $endDate := time (cond (isset .end "dateTime") .end.dateTime .end.date) }}
+    {{ if $fullDay }} {{ $endDate = $endDate.AddDate 0 0 -1 }} {{ end }}
 
     {{ $curr := dict
       "title" .summary
@@ -12,7 +14,7 @@
       "location" .location
       "startDate" $startDate
       "endDate" $endDate
-      "fullDay" (isset .start "date" )
+      "fullDay" $fullDay
       "multipleDay" (ne ($startDate | time.Format "02") ($endDate | time.Format "02"))
     }}
     {{ $data = $data | append $curr }}
@@ -50,7 +52,7 @@
       </p>
       <p>{{ .description }}</p>
       {{if and (not (in .title "Online")) (ne .location nil) }}
-      <p><a href="http://maps.google.com/?q={{.location}}">{{.location}} (Google Maps)</a></p>
+      <p><a href="http://maps.google.com/?q={{.location}}">{{.location}}</a> <em style="display:inline-block;">(Google Maps)</em></p>
       {{end}}
     </div>
   </li>
