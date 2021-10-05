@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33c9b8elgmpv60g\"",
+ "etag": "\"p328djtuai2pv60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-10-05T10:18:43.255Z",
+ "updated": "2021-10-05T11:07:34.394Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CNiVodWFs_MCEAAYASCtp7C-AQ==",
+ "nextSyncToken": "CJDZ98qQs_MCEAAYASC1lbu-AQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -130,14 +130,14 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3266858121712000\"",
+   "etag": "\"3266863516792000\"",
    "id": "3n3g73chk3o01r5p74qvj43pet",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=M24zZzczY2hrM28wMXI1cDc0cXZqNDNwZXQgZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-09-16T12:26:02.000Z",
-   "updated": "2021-10-05T10:17:40.856Z",
+   "updated": "2021-10-05T11:02:38.396Z",
    "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "Diskussionsstarter: **«Flexible Magiesysteme»** \u003cbr\u003e\u003cbr\u003eDer Stammtisch findet auf unserer Online-Plattform, Discord, statt. [Trette über diesen Link bei.](\u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e)",
+   "description": "Diskussionsstarter: **«Flexible Magiesysteme»**\n\nDer Stammtisch findet auf unserer Online-Plattform, Discord, statt. [Trette über diesen Link bei.](https://chat.gildedernacht.ch)",
    "location": "Discord",
    "creator": {
     "email": "nimboline@gmail.com"
@@ -160,43 +160,14 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3266858183896000\"",
-   "id": "0k44iakcha9s7abip0tvrthsve",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MGs0NGlha2NoYTlzN2FiaXAwdHZydGhzdmUgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-05T08:45:39.000Z",
-   "updated": "2021-10-05T10:18:11.948Z",
-   "summary": "Luzerner Rollenspieltage 2022",
-   "description": "Mehr Infos unter:\u003cbr\u003e \u003cbr\u003e[\u003ca href=\"http://rollenspieltage.ch\"\u003erollenspieltage.ch\u003c/a\u003e](\u003ca href=\"https://rollenspieltage.ch/\"\u003ehttps://rollenspieltage.ch/\u003c/a\u003e)",
-   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-08-27"
-   },
-   "end": {
-    "date": "2022-08-29"
-   },
-   "transparency": "transparent",
-   "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
-   "sequence": 2,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3266858246510000\"",
+   "etag": "\"3266864028914000\"",
    "id": "6hiut9i00uv14n5jmof3dk0gj6",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=NmhpdXQ5aTAwdXYxNG41am1vZjNkazBnajYgZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-09-16T12:28:27.000Z",
-   "updated": "2021-10-05T10:18:43.255Z",
+   "updated": "2021-10-05T11:06:54.457Z",
    "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "\u003cspan\u003eDiskussionsstarter: **«\u003cspan\u003eRenovation Cyberpunk Setting\u003c/span\u003e»**\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eDer Stammtisch findet auf unserer Online-Plattform, Discord, statt. [Trette über diesen Link bei.](\u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e)\u003c/span\u003e\u003c/span\u003e&nbsp; \u003c/span\u003e\u003cspan\u003e\u003c/span\u003e",
+   "description": "Diskussionsstarter: **«Renovation Cyberpunk Setting»**\n\nDer Stammtisch findet auf unserer Online-Plattform, Discord, statt. [Trette über diesen Link bei.](https://chat.gildedernacht.ch)",
    "location": "Discord",
    "creator": {
     "email": "nimboline@gmail.com"
@@ -215,6 +186,35 @@
    },
    "iCalUID": "6hiut9i00uv14n5jmof3dk0gj6@google.com",
    "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3266864108788000\"",
+   "id": "0k44iakcha9s7abip0tvrthsve",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MGs0NGlha2NoYTlzN2FiaXAwdHZydGhzdmUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-05T08:45:39.000Z",
+   "updated": "2021-10-05T11:07:34.394Z",
+   "summary": "Luzerner Rollenspieltage 2022",
+   "description": "Mehr Infos unter:\n\n[rollenspieltage.ch](https://rollenspieltage.ch/)",
+   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-08-27"
+   },
+   "end": {
+    "date": "2022-08-29"
+   },
+   "transparency": "transparent",
+   "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
+   "sequence": 2,
    "eventType": "default"
   }
  ]
