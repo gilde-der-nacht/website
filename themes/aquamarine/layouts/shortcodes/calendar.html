@@ -1,32 +1,57 @@
 <ul class="g-calendar">
 
-  {{ range sort .Site.Data.calendar.items "start.dateTime" }}
+  {{ $data := slice }}
 
-  <li data-year="{{.start.dateTime | time.Format "2006"}}" data-month="{{.start.dateTime | time.Format "01"}}" data-date="{{.start.dateTime | time.Format "02"}}">
-    {{ if in .summary "Spieltreffen" }}
+  {{ range .Site.Data.calendar.items }}
+    {{ $startDate := cond (isset .start "dateTime") .start.dateTime .start.date }}
+    {{ $endDate := cond (isset .end "dateTime") .end.dateTime .end.date }}
+
+    {{ $curr := dict
+      "title" .summary
+      "description" (.description | markdownify)
+      "location" .location
+      "startDate" $startDate
+      "endDate" $endDate
+      "fullDay" (isset .start "date" )
+      "multipleDay" (ne ($startDate | time.Format "02") ($endDate | time.Format "02"))
+    }}
+    {{ $data = $data | append $curr }}
+  {{ end }}
+
+  {{ range sort $data "startDate" }}
+
+  <li data-year="{{.startDate | time.Format "2006"}}" data-month="{{.startDate | time.Format "01"}}" data-date="{{.startDate | time.Format "02"}}">
+    {{ if in .title "Spieltreffen" }}
     <img src="/images/avatars/blue.png">
-    {{ else if in .summary "Spieltreffen" }}
+    {{ else if in .title "Spieltreffen" }}
     <img src="/images/avatars/blue.png">
-    {{ else if in .summary "Spieltage" }}
+    {{ else if in .title "Spieltage" }}
     <img src="/images/avatars/lst.png">
-    {{ else if in .summary "Rollenspieltage" }}
+    {{ else if in .title "Rollenspieltage" }}
     <img src="/images/avatars/rst.png">
-    {{ else if in .summary "Rollenspiel-Stammtisch" }}
+    {{ else if in .title "Rollenspiel-Stammtisch" }}
     <img src="/images/avatars/lila.png">
-    {{ else if in .summary "Stammtisch" }}
+    {{ else if in .title "Stammtisch" }}
     <img src="/images/avatars/green.png">
-    {{ else if in .summary "Spielabend" }}
+    {{ else if in .title "Spielabend" }}
     <img src="/images/avatars/green.png">
-    {{ else if in .summary "Buchclub" }}
+    {{ else if in .title "Buchclub" }}
     <img src="/images/avatars/green.png">
     {{ else }}
     <img src="/images/avatars/gdn.png">
     {{ end }}
     <div class="body">
-      <h1 class="title">{{ .summary }}</h1>
-      <p class="date">{{ .start.dateTime | time.Format ":date_full" }}, {{ .start.dateTime | time.Format ":time_short"
-        }} {{ if eq site.Language.Lang "de" }}Uhr{{ end }}</p>
-      <p>{{ safeHTML .description }}</p>
+      <h1 class="title">{{ .title }}</h1>
+      <p class="date">
+        {{ .startDate | time.Format ":date_full" }}{{ if not .fullDay}}, {{ .startDate | time.Format ":time_short"
+        }} {{ if eq site.Language.Lang "de" }}Uhr{{ end }} {{end}}
+        {{ if .multipleDay }} <br /> <em>{{ if eq site.Language.Lang "de" }}bis{{else}}to{{ end }}</em>  {{ .endDate | time.Format ":date_full" }}{{ if not .fullDay}}, {{ .endDate | time.Format ":time_short"
+      }} {{ if eq site.Language.Lang "de" }}Uhr{{ end }} {{end}}{{end}}
+      </p>
+      <p>{{ .description }}</p>
+      {{if and (not (in .title "Online")) (ne .location nil) }}
+      <p><a href="http://maps.google.com/?q={{.location}}">{{.location}} (Google Maps)</a></p>
+      {{end}}
     </div>
   </li>
 
