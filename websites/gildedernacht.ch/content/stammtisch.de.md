@@ -1,6 +1,6 @@
 ---
 title: "Rollenspiel-Stammtisch"
-toc2:
+toc:
   enable: true
   style: simple
 ---

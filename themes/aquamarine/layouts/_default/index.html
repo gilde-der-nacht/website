@@ -1,13 +1,8 @@
 {{ define "main" }}
 <div>
-  {{ if .Params.toc }}
-  <div class="u-toc">
-    {{ .TableOfContents }}
-  </div>
-  {{ end }}
-  {{ if .Params.toc2.enable }}
-  <div class="u-toc u-toc-start-level-{{ default " 1" .Params.toc2.startLevel }} u-toc-end-level-{{ default "6"
-    .Params.toc2.endLevel }} u-toc-style-{{ default "simple" .Params.toc2.style }}">
+  {{ if .Params.toc.enable }}
+  <div class="u-toc u-toc-start-level-{{ default " 1" .Params.toc.startLevel }} u-toc-end-level-{{ default "6"
+    .Params.toc.endLevel }} u-toc-style-{{ default "simple" .Params.toc.style }}">
     {{ .TableOfContents }}
   </div>
   {{ end }}

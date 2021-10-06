@@ -1,6 +1,6 @@
 ---
 title: "Statuten"
-toc2:
+toc:
   enable: true
   style: simple
 ---

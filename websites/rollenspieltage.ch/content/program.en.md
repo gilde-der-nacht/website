@@ -1,7 +1,7 @@
 ---
 title: "Program"
 date: 2019-06-21
-toc2:
+toc:
   enable: true
   style: simple
 draft: true

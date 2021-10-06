@@ -4,7 +4,7 @@ date: 2020-02-03
 menu:
   main:
     weight: 20
-toc2:
+toc:
   enable: true
   style: simple
 draft: true

@@ -5,7 +5,7 @@ date: 2019-04-01
 menu:
   main:
     weight: 10
-toc2:
+toc:
   enable: true
   style: simple
 jumbotronImage:
