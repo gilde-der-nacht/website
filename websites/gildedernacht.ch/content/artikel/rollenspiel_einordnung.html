@@ -90,6 +90,7 @@ function drawSpider(config, categories) {
 	const segments = configSegments;
 	const angleStep = angle360Deg / sides;
 
+	ctx.clearRect(0, 0, width, height);
 	ctx.fillStyle = configBackgroundFill;
 	ctx.fillRect(0, 0, width, height);
 
