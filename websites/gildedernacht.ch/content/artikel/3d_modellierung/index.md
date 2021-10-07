@@ -154,6 +154,11 @@ Bones & Skin Modifier
 ![Body](body.jpg)
 [Body](body.blend)
 
+### Cloud
+Volumetrics & Voronoi Texture
+![Cloud](cloud.jpg)
+[Cloud](cloud.blend)
+
 ### VFX
 Tracker & Solve Camera Motion
 ![VFX](vfx.jpg)
