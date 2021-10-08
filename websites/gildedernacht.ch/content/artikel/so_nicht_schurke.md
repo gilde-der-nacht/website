@@ -30,8 +30,6 @@ toc:
 
 # Regeln
 
-- Die Lebenspunkte einer Kreatur entsprechen normalerweise der Stufe der Kreatur [98]
-- Im Normalfall verursacht eine Kreatur 2 Schaden [98]
 - Eigenschaften
   - <span style="color: blue">stark</span>
   - <span style="color: red">schnell</span>
@@ -46,6 +44,8 @@ toc:
   6. ansprunchsvoll
   7. heroisch
   8. unmöglich
+- Die Lebenspunkte einer Kreatur entsprechen normalerweise der Stufe der Kreatur [98]
+- Im Normalfall verursacht eine Kreatur 2 Schaden [98]
 
 # Charaktererstellung
 

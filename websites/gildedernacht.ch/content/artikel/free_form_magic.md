@@ -13,15 +13,21 @@ toc:
 - Kennst du Rollenspiele wo alle Spieler:innen zaubern können was sie wollen?
 - Bücher? Filme? Wie gut ist die Umsetzung? Was für Probleme ergeben sich im jeweiligen Buch/Film?
 - Wie umsetzen dass die Regeln nachvollziehbar sind?
-- Wie Macht limitieren? (wenn alles geht braucht man gar keine Regeln)
+- Wie Macht limitieren? Wenn alles geht braucht man gar keine Regeln. z.B. Magie kann maximal ein Bonus von +X auf etwas geben was man ohnehin könnte?
+- Sind folgende Zaubersprüche problematisch? Teleport, Verwandeln, Unsichtbarkeit, Levitation, Heilen, Gedanken Lesen, Gedanken Verändern, AoE (Area of Effect) Zaubersprüche, ...
 - ???
 
 # Beispiele
 
 ## Ironsworn
 
-- Alle Zauber/Rituale können tendenziell auch ohne Magie erklärt werden (z.B. gibt es keine Feuerbälle die aus dem Nichts kommen, teleportieren geht gar nicht, ...)
-- Jeder Zauber und jedes Ritual beeinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft. Es ist daher einfach (und auch im Buch erklärt) neue Rituale zu erfinden welche die Spiel-Balance nicht kaputt machen.
+Alle Zauber/Rituale können tendenziell auch ohne Magie erklärt werden (z.B. gibt es keine Feuerbälle die aus dem Nichts kommen, teleportieren geht gar nicht, ...)
+
+Jeder Zauber und jedes Ritual beeinflusst entweder eine Spiel-Ressource oder ein Charakter-Wert um 1 oder um 2, dann aber an eine Bedingung verknüpft. Es ist daher einfach (und auch im Buch erklärt) neue Rituale zu erfinden welche die Spiel-Balance nicht kaputt machen.
+
+## City of Mist
+
+Mit jeder Fertigkeit (Normale Fertigkeiten, Zauber, ...) kann man machen was man will, aber jede Fertigkeit gibt nur +1. Wenn man einen grösseren Bonus hat muss man mehrere Fertigkeiten kombinieren (Power-Tags im Spiel genannt).
 
 ## Hero Kids
 

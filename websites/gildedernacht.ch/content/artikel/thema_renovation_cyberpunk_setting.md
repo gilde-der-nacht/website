@@ -32,6 +32,8 @@ toc:
 
 # Filme & Serien
 
+Keine Zusammenfassung, nur die Aspekte die eine denkbare Zukunft malen.
+
 ## Black Mirror
 
 - 1x01: The National Anthem: Öffentliche Meinung wird über Social-Media abgrundtief krass (!) manipuliert.
@@ -49,14 +51,14 @@ toc:
 - 3x06: Von allen gehasst: Künstlicher Bienen-Ersatz. Hasskultur führt zu Toten.
 - 4x01: USS Callister: Flucht in eine virtuelle Welt, wo ein Opfer zum Täter wird.
 - 4x02: Arkangel: Eine Helikoptermutter kann ihre Tochter durch ihre Augen konstant überwachen und auf ihr Erleben Einfluss nehmen.
-- 4x03: Krokodil: Versicherungsangestellte dürfen in den Gedanken von nahejzu jeder Person herumwühlen. Dass führt aber zu nur noch mehr Morden.
+- 4x03: Krokodil: Versicherungsangestellte dürfen in den Gedanken von nahejzu jeder Person herumwühlen. Dass führt selber zu nur noch mehr Verbrechen.
 - 4x04: Hang the DJ: Ein App entscheidet wann und für wie lange man eine Beziehung hat um den angeblich perfekten Partner damit zu finden.
 - 4x05: Metallkopf: Kleine Roboter-Jadhunde verfolgen und töten Menschen.
-- 4x06: Black Museum: Das Bewusstsein von Menschen in Not wird für Versuchszwecke missbraucht.
+- 4x06: Black Museum: Das Bewusstsein von Menschen in Not wird für Versuchs- und Belustigungszwecke missbraucht.
 - Special: Black Mirror: Bandersnatch: ???
-- 5x01: Striking Vipers: Gender-Fluiditiy.
+- 5x01: Striking Vipers: Gender-Fluidity.
 - 5x02: Smithereens: Ständier Social-Media Konsum führt zu Fahrlässigkeit und Tod.
-- 5x03: Rachel, Jack and Ashley Too: ???
+- 5x03: Rachel, Jack and Ashley Too: Menschen unterhalten sich lieber mit einer Puppe als miteinander. Musikstars werden zu opfern der eigenen Unterhaltungs-Industrie.
 
 Links
 
@@ -159,32 +161,8 @@ Links
 - Nur ein einzelner Mensch ist notwendig um ein komplette Fabrik auf dem Mond zu führen
 - Auf dem Mond wird Helium-3 zur Energiegewinnung abgebaut
 - Der "Mensch" auf der Station, ist eigentlich ein Klon
-- Der Klon hält ungefähr 3 Jahre und wird dann durch einen neuen Klon ersetzt
+- Der Klon hat eine Haltbarkeit von ungefähr 3 Jahre und wird dann durch einen neuen Klon ersetzt
 - Kommunikation mit seinen Geliebten geht nur zeitverzögert über den Bildschirm
-
-## Punishment Park
-
-???
-
-## Escape From New York
-
-???
-
-## Total Recall
-
-???
-
-## A Clockwork Orange
-
-???
-
-## Judge Dredd
-
-???
-
-## Bobiverse
-
-???
 
 # Persönliches
 
@@ -201,10 +179,10 @@ Links
 - Self Optmization
 - Wer generiert Wert? Finanzprodukte?
 - Migration
-- Russland Seewege
-- China, China Projekte
-- Afrika
-- Südamerika
-- Taiwan
-
+- Geopolitisch
+  - Russland Seewege
+  - China, neue Seidenstrasse, Aufstände von all den Minderheiten?
+  - Afrika, annexiert von China?
+  - Südamerika, losgekoppelt von Amerika
+  - Taiwan, Teil von China?
 - Zukunftsforscher? Trends?

@@ -7,10 +7,10 @@ date: 2021-09-11
 
 - 2021-12-03: Renovation Cyberpunk Setting <!-- (../thema_renovation_cyberpunk_setting) -->
 - 2021-11-12: Zwischen den Spielrunden <!-- (../thema_zwischen_den_spielrunden) -->
-- 2021-10-08: Flexible Magiesysteme <!-- (../free_form_magic) -->
 
 # Vergangene Themen
 
+- 2021-10-08: [Flexible Magiesysteme](../free_form_magic)
 - 2021-09-10: [Scheitern für Dummies](../scheitern_fuer_dummies)
 - 2021-08-06: [Konflikt](../konflikt)
 - 2021-07-02: [Risiko](../risiko)
