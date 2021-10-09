@@ -11,31 +11,32 @@ toc:
 
 # Grundlegendes
 
-- Das Land heisst Fabula und hat 4 Regionen
+- Das Land heisst Fabula und hat 4 Regionen [8]
   - Hinter den Büchern
   - Aus dem Fenster
   - Unter dem Bett
   - Im Schrank
-- Spielkomplexität
-  - Komplexität 1 <span style="color: orange">▲ Oranges Dreieck</span>
-  - Komplexität 2 <span style="color: green">■ Grünes Viereck</span>
-  - Komplexität 3 <span style="color: blue">● Blauer Kreis</span>
-- Abenteuer
+- Aufbau Abenteuer [9]
   1. Hilferuf
   2. Problem Erkennen
   3. Problem Lösen
   4. Feiern
-
-??? komplexität alter
+- Stufe [12]
+  - Stufe 1 <span style="color: orange">▲ Oranges Dreieck</span> (ab 4 Jahre)
+  - Stufe 2 <span style="color: green">■ Grünes Viereck</span> (6 bis 10 Jahre)
+  - Stufe 3 <span style="color: blue">● Blauer Kreis</span> (8 bis 14 Jahre)
 
 # Regeln
 
 - Eigenschaften
+  - Jede Handlung ist mit einer Eigenschaft verknüpft
+  - *fabelhaft* ist darauf beschränkt anderen Spielern zu helfen
   - <span style="color: blue">stark</span>
   - <span style="color: red">schnell</span>
   - <span style="color: green">schlau</span>
   - <span style="color: purple">fabelhaft</span>
-- Zielzahl
+- Zielzahl [12]
+  - Wenn die Zielzahl 1 ist, müssen die Spieler nicht würfeln
   1. einfach
   2. locker
   3. standard
@@ -44,42 +45,83 @@ toc:
   6. ansprunchsvoll
   7. heroisch
   8. unmöglich
-- Die Lebenspunkte einer Kreatur entsprechen normalerweise der Stufe der Kreatur [98]
-- Im Normalfall verursacht eine Kreatur 2 Schaden [98]
+- Kreaturen
+  - Die Lebenspunkte einer Kreatur entsprechen normalerweise der Stufe der Kreatur [98]
+  - Die Zielzahl bei einem Angriff entspricht der Stufe der Kreatur ???
+  - Die Zielzahl bei der Vertedigung gegen einer Kreature entspricht der Stufe der Kreatur [19]
+  - Im Normalfall verursacht eine Kreatur 2 Schaden [98]
+- Eigenschafts-Vorrat
+  - Jeder Charakter hat Vorräte gemäss Nomen
+  - Man kann sich *anstregen* und für eine Handlung einen entsprechenden Punkt ausgeben um eine Handlung um 1 zu erleichtern [16]
+  - Wenn alle Vorräte auf 0 sind ist der Charakter *schlapp* und kann nichts mehr machen bis er mindestens wieder 1 Punkt Vorrat hat [19]
+  - Alle Vorräte können mit einem 1 Punkt Freude aufgefüllt werden [19]
+  - Wenn man *schlapp* ist, können andere Spieler *fabelhaft* sein um 1 Punkt Freude zu schenken [29]
+  - Bei einer Verletzung verliert man Punkte aus dem *stark* Vorrat (bzw. schnell, schlau, fabelhaft falls die anderen leer sind) [19]
+- Handlung
+  - W6 würfeln
+  - hat eine Zielzahl
+  - wird mit einer Eigenschaft ausgeführt
+  - kann Mithilfe des Eigenschafts-Vorrat um 1 erleichtert werden
+  - kann Mithilfe von *fabelhaft* von anderen Mitspielern pro Punkt um 1 erleichter werden
+  - es können mehrere Spieler:innen gleichzeitig *fabelhaft* sein [24]
+  - Der Speilleiter würfelt nie, nur die Spieler:innen
+  - Gruppenhandlung: Alle Spieler:innen müssen den Zielzahl erreichen
+  - Beispiele
+    - Reparieren: *schlau* [15]
+    - Nahkampfangriff: *stark* oder *schnell* [18]
+    - Fernkampfangriffe: *schnell* [18]
+    - Verteidigung: ???
+    - Geistige Fernkampfangriffe: *schlau* [18]
+    - Tür ohne Schlüssel öffnen: *schlau* [17]
+    - Überzeugen: *schlau* [21]
 
 # Charaktererstellung
 
-- Komplexität 1 <span style="color: orange">▲</span>
+- Stufe 1 <span style="color: orange">▲</span>
+  - Stufe: 1, 2 oder 3
   - Name
-  - Nomen
+  - Nomen (Roboter, Spionin, Prinz, Astronautin, Monster, Superheldin, ...)
   - Eigenschaften
   - Freude Punkte
-  - Kram
+  - Kram [30]
+    - Die meisten Charaktere haben entweder eine Nah- oder Fernkampfwaffe [30] die üblicherweise 2 Punkte Schaden machen
+    - Kleidung
+    - Karte von Fabula
+    - Notizbuch
+    - Stifte
+    - Fabula Reisepass
+    - Taschenlampe (das Mutlicht)
+    - Etwas zum knabbern
+    - Hab-Dich-Rucksack
+    - Ein paar Münzen
   - Münzen
-  - Rüstung oder Hast
+  - Rüstung oder Hast [30]
+    - *Rüstung* verursacht 1 Punkt weniger Schaden
+    - *Hast* senkt die Zielzahl einer Vertedigung um 1
   - Kniff
   - Begleiter Name
-  - Begleiter Art
-- Komplexität 2 <span style="color: green">■</span>
+  - Begleiter Art (Fliegende Krake, Rennauto, Prachtpony, ...)
+- Stufe 2 <span style="color: green">■</span>
   - Adjektiv
   - Eigenschaftspunkt Addieren
   - Leckerlis
   - Begleiter Anfangs Trick
-- Komplexität 3 <span style="color: blue">●</span>
+- Stufe 3 <span style="color: blue">●</span>
   - Verb
   - Talent
-
-??? beispiele, referenz seite
 
 # Erste Eindrücke (2021-09-29)
 
 - Das Wort Nomen, muss man Charakterkarten nehmen, oder kann man Punkte auch selber verteilen?
 - Darf nur einer helfen oder mehere (Es dürfen mehrere Adrian hat es vorgelesen Seite?)
   - führt dazu dass je grösser die Gruppe ist, desto einfacher werden Proben
-  - Selbst ein Zielwert von 8 ist damit nicht mehr schwierig zu erreichen
+  - Selbst eine Zielzahl von 8 ist damit nicht mehr schwierig zu erreichen
 - Abenteuer sollte man vorher lesen, evtl. Schweizer Begriffe verwenden und nicht Deutsche
 - Erzählerbox
   - 3 Hefte die aber keine Erklärung beinhalten
   - Die Erklärung ist auf einer zweiseiten A5 Seite, wobei das Beispiel nicht anhand der Karten zu sein scheint, Beispiel erwähnt auch gar nicht alle Karten
   - Karten sind nicht alle angeschrieben
   - Karten sind nicht auf beiden Seiten angeschrieben
+- Kein Stichwortverzeichnis
+- Bei Charaktererstellung am Schluss die Zusammenfassung hat es keine Seitennummern wenn man nicht versteht was genau gemeint ist
+- Wieviel Münzen bekommen man Anfang ungefähr?

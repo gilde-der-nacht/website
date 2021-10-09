@@ -15,7 +15,11 @@ toc:
 - Wie umsetzen dass die Regeln nachvollziehbar sind?
 - Wie Macht limitieren? Wenn alles geht braucht man gar keine Regeln. z.B. Magie kann maximal ein Bonus von +X auf etwas geben was man ohnehin könnte?
 - Sind folgende Zaubersprüche problematisch? Teleport, Verwandeln, Unsichtbarkeit, Levitation, Heilen, Gedanken Lesen, Gedanken Verändern, AoE (Area of Effect) Zaubersprüche, ...
-- ???
+
+# Zusammenfassung
+
+- Viele Magiesystem ob nun frei oder mit festen Spruchlisten haben Lücken die von cleveren Spieler:innen ausgenützt werden können. Balancing ist generell ein schwieriges Thema.
+- Es gibt Magiesystem die versuchen durch Regeln im Magiesystem die Magie zu beschränken (D&D, Shadowrun, ...). Daneben gibt es die Magiesysteme bei denen Magie lediglich eine feste Art von Bonus für bestehende Regeln gibt (City of Mist, ...). Bei zweiterem ist es unmöglich dass Magie "OP" ist.
 
 # Beispiele
 
@@ -27,7 +31,7 @@ Jeder Zauber und jedes Ritual beeinflusst entweder eine Spiel-Ressource oder ein
 
 ## City of Mist
 
-Mit jeder Fertigkeit (Normale Fertigkeiten, Zauber, ...) kann man machen was man will, aber jede Fertigkeit gibt nur +1. Wenn man einen grösseren Bonus hat muss man mehrere Fertigkeiten kombinieren (Power-Tags im Spiel genannt).
+Mit jeder Fertigkeit (Normale Fertigkeiten, Zauber, ...) kann man machen was man will, aber jede Fertigkeit gibt nur +1. Wenn man einen grösseren Bonus hat möchte, muss man mehrere Fertigkeiten kombinieren (Power-Tags im Spiel genannt).
 
 ## Hero Kids
 
@@ -134,7 +138,7 @@ Das erinnert ein wenig an die Elder Scrolls Computerspiel Reihe. Es gibt dort ei
 
 # Persönliches
 
-*Ariana*
+*A. (per Discord)*
 
 symbiotische Beziehungen eignen sich meiner Meinung nach sehr gut für flexible (ggf. nicht genetische) Magiesysteme. Wie bei der Symbiose in der Natur können gut Limitationen definiert werden, die z.B. mit dem Kosmos der bestehenden Fantasy Welt harmonieren.  (in einem gewissen Mass sieht man z.B. bei Warlocks in D&D, wo ein Wesen seine Macht leiht - Limitation sind da der Wille der Kreatur und dessen individuelle Macht, wobei da natürlich die Spielendeninterpretation viel Freiraum zulässt und das Regelwerk gewisse Dinge vorgibt, damit nicht jeder Charakter standardmässig an das mächtigste Wesen gebunden ist und alle anderen Warlocks zu schwach sind).
 
