@@ -28,13 +28,10 @@ toc:
 
 # Regeln
 
-- Eigenschaften
+- Eigenschaften [15]
+  - <span style="color: blue">stark</span>, <span style="color: red">schnell</span>, <span style="color: green">schlau</span>, <span style="color: purple">fabelhaft</span>
   - Jede Handlung ist mit einer Eigenschaft verknüpft
-  - *fabelhaft* ist darauf beschränkt anderen Spielern zu helfen
-  - <span style="color: blue">stark</span>
-  - <span style="color: red">schnell</span>
-  - <span style="color: green">schlau</span>
-  - <span style="color: purple">fabelhaft</span>
+  - *fabelhaft* ist darauf beschränkt anderen Spielern zu helfen [15]
 - Zielzahl [12]
   - Wenn die Zielzahl 1 ist, müssen die Spieler nicht würfeln
   1. einfach
@@ -45,35 +42,35 @@ toc:
   6. ansprunchsvoll
   7. heroisch
   8. unmöglich
-- Kreaturen
-  - Die Lebenspunkte einer Kreatur entsprechen normalerweise der Stufe der Kreatur [98]
-  - Die Zielzahl bei einem Angriff entspricht der Stufe der Kreatur ???
-  - Die Zielzahl bei der Vertedigung gegen einer Kreature entspricht der Stufe der Kreatur [19]
-  - Im Normalfall verursacht eine Kreatur 2 Schaden [98]
 - Eigenschafts-Vorrat
-  - Jeder Charakter hat Vorräte gemäss Nomen
+  - Jeder Charakter hat Eigenschafts-Vorräte gemäss dem Nomen (z.B. Astronautin stark=2, schnell=3, schlau=4, fabelhaft=1)
   - Man kann sich *anstregen* und für eine Handlung einen entsprechenden Punkt ausgeben um eine Handlung um 1 zu erleichtern [16]
-  - Wenn alle Vorräte auf 0 sind ist der Charakter *schlapp* und kann nichts mehr machen bis er mindestens wieder 1 Punkt Vorrat hat [19]
+  - Bei einer Verletzung verliert man Punkte aus dem *stark* Vorrat (bzw. schnell, schlau, fabelhaft falls die anderen schon 0 sind) [19]
+  - Wenn alle Vorräte auf 0 sind, ist der Charakter *schlapp* und kann nichts mehr machen bis er mindestens wieder 1 Punkt Vorrat hat [19]
   - Alle Vorräte können mit einem 1 Punkt Freude aufgefüllt werden [19]
   - Wenn man *schlapp* ist, können andere Spieler *fabelhaft* sein um 1 Punkt Freude zu schenken [29]
-  - Bei einer Verletzung verliert man Punkte aus dem *stark* Vorrat (bzw. schnell, schlau, fabelhaft falls die anderen leer sind) [19]
 - Handlung
   - W6 würfeln
+  - Der Speilleiter würfelt nie, nur die Spieler:innen
   - hat eine Zielzahl
   - wird mit einer Eigenschaft ausgeführt
   - kann Mithilfe des Eigenschafts-Vorrat um 1 erleichtert werden
   - kann Mithilfe von *fabelhaft* von anderen Mitspielern pro Punkt um 1 erleichter werden
   - es können mehrere Spieler:innen gleichzeitig *fabelhaft* sein [24]
-  - Der Speilleiter würfelt nie, nur die Spieler:innen
   - Gruppenhandlung: Alle Spieler:innen müssen den Zielzahl erreichen
   - Beispiele
     - Reparieren: *schlau* [15]
     - Nahkampfangriff: *stark* oder *schnell* [18]
     - Fernkampfangriffe: *schnell* [18]
-    - Verteidigung: ???
+    - Verteidigung: *schnell* [19]
     - Geistige Fernkampfangriffe: *schlau* [18]
     - Tür ohne Schlüssel öffnen: *schlau* [17]
     - Überzeugen: *schlau* [21]
+- Kreaturen
+  - Die Lebenspunkte einer Kreatur entsprechen normalerweise der Stufe der Kreatur [98]
+  - Die Zielzahl bei einem Angriff entspricht der Stufe der Kreatur ???
+  - Die Zielzahl bei der Vertedigung gegen einer Kreature entspricht der Stufe der Kreatur [19]
+  - Im Normalfall verursacht eine Kreatur 2 Schaden [98]
 
 # Charaktererstellung
 
