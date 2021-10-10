@@ -30,9 +30,10 @@ toc:
 
 - Eigenschaften [15]
   - <span style="color: blue">stark</span>, <span style="color: red">schnell</span>, <span style="color: green">schlau</span>, <span style="color: purple">fabelhaft</span>
-  - Jede Handlung ist mit einer Eigenschaft verknüpft
+  - Jede Handlung ist mit einer der 4 Eigenschaften verknüpft
   - *fabelhaft* ist darauf beschränkt anderen Spielern zu helfen [15]
 - Zielzahl [12]
+  - Gibt an wie schwierig in Handlung ist
   - Wenn die Zielzahl 1 ist, müssen die Spieler nicht würfeln
   1. einfach
   2. locker
@@ -45,13 +46,13 @@ toc:
 - Eigenschafts-Vorrat
   - Jeder Charakter hat Eigenschafts-Vorräte gemäss dem Nomen (z.B. Astronautin stark=2, schnell=3, schlau=4, fabelhaft=1)
   - Man kann sich *anstregen* und für eine Handlung einen entsprechenden Punkt ausgeben um eine Handlung um 1 zu erleichtern [16]
-  - Bei einer Verletzung verliert man Punkte aus dem *stark* Vorrat (bzw. schnell, schlau, fabelhaft falls die anderen schon 0 sind) [19]
+  - Die Spielleitung entscheidet vor dem Spiel ob man sich vor einem Wurf oder nach einem Wurf *anstrengen* darf [16]
+  - Bei einer Verletzung verliert man meistens Punkte aus dem *stark* Vorrat (bzw. schnell, schlau, fabelhaft falls die anderen schon 0 sind) [19]
   - Wenn alle Vorräte auf 0 sind, ist der Charakter *schlapp* und kann nichts mehr machen bis er mindestens wieder 1 Punkt Vorrat hat [19]
-  - Alle Vorräte können mit einem 1 Punkt Freude aufgefüllt werden [19]
-  - Wenn man *schlapp* ist, können andere Spieler *fabelhaft* sein um 1 Punkt Freude zu schenken [29]
+  - Ein Charakter kann nur *schlapp* sein, sterben kann er nicht [29]
 - Handlung
   - W6 würfeln
-  - Der Speilleiter würfelt nie, nur die Spieler:innen
+  - Die Speilleiter:inn würfelt nie, nur die Spieler:innen [17]
   - hat eine Zielzahl
   - wird mit einer Eigenschaft ausgeführt
   - kann Mithilfe des Eigenschafts-Vorrat um 1 erleichtert werden
@@ -59,13 +60,17 @@ toc:
   - es können mehrere Spieler:innen gleichzeitig *fabelhaft* sein [24]
   - Gruppenhandlung: Alle Spieler:innen müssen den Zielzahl erreichen
   - Beispiele
-    - Reparieren: *schlau* [15]
     - Nahkampfangriff: *stark* oder *schnell* [18]
     - Fernkampfangriffe: *schnell* [18]
     - Verteidigung: *schnell* [19]
     - Geistige Fernkampfangriffe: *schlau* [18]
     - Tür ohne Schlüssel öffnen: *schlau* [17]
     - Überzeugen: *schlau* [21]
+    - Reparieren: *schlau* [15]
+- Freude
+  - Alle Vorräte können mit einem 1 Punkt Freude aufgefüllt werden [19] [23]
+  - Wenn man *schlapp* ist, können andere Spieler *fabelhaft* sein um 1 Punkt Freude zu schenken [29]
+  - Charaktere erhalten zusätzliche Freude Punkte durch: Erkunden, Entdecken, bewältigen von Aufgaben [29]
 - Kreaturen
   - Die Lebenspunkte einer Kreatur entsprechen normalerweise der Stufe der Kreatur [98]
   - Die Zielzahl bei einem Angriff entspricht der Stufe der Kreatur ???
@@ -90,12 +95,12 @@ toc:
     - Taschenlampe (das Mutlicht)
     - Etwas zum knabbern
     - Hab-Dich-Rucksack
-    - Ein paar Münzen
-  - Münzen
+  - Münzen [34+] (wieviel steht nur in der Charakterbeschreibung im Regelbuch, meistens 1)
   - Rüstung oder Hast [30]
     - *Rüstung* verursacht 1 Punkt weniger Schaden
     - *Hast* senkt die Zielzahl einer Vertedigung um 1
   - Kniff
+    - Jede Sonderfertigkeit kostet 1 Punkt aus einem Eigenschafs-Vorrat
   - Begleiter Name
   - Begleiter Art (Fliegende Krake, Rennauto, Prachtpony, ...)
 - Stufe 2 <span style="color: green">■</span>
