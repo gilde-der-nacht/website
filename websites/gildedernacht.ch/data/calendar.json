@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p330fnfujiqpv60g\"",
+ "etag": "\"p324etecrk71f60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-10-05T11:34:42.968Z",
+ "updated": "2021-10-11T11:31:54.293Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CMD7v9OWs_MCEAAYASC1lbu-AQ==",
+ "nextSyncToken": "CIjuuZuhwvMCEAAYASC1lbu-AQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -185,6 +185,35 @@
    "transparency": "transparent",
    "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
    "sequence": 2,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3267903828586000\"",
+   "id": "245jl30ehk8qtr9s0gcm466hgr",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MjQ1amwzMGVoazhxdHI5czBnY200NjZoZ3IgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-11T11:31:54.000Z",
+   "updated": "2021-10-11T11:31:54.293Z",
+   "summary": "Luzerner Spieltage 2022",
+   "description": "Mehr Infos unter:\\\n[www.spieltage.ch](https://spieltage.ch/)",
+   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-03-12"
+   },
+   "end": {
+    "date": "2022-03-14"
+   },
+   "transparency": "transparent",
+   "iCalUID": "245jl30ehk8qtr9s0gcm466hgr@google.com",
+   "sequence": 0,
    "eventType": "default"
   }
  ]
