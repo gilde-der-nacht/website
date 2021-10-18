@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p334abkvngraf60g\"",
+ "etag": "\"p3389de6btnaf60g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-10-18T13:22:15.181Z",
+ "updated": "2021-10-18T21:01:31.314Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CMil0_eG1PMCEAAYASCP443AAQ==",
+ "nextSyncToken": "CNCWuMvt1PMCEAAYASDo857AAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -218,14 +218,14 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3269126670362000\"",
+   "etag": "\"3269129431314000\"",
    "id": "1tjh4n7ncomav0tir9lmqrqn83",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=MXRqaDRuN25jb21hdjB0aXI5bG1xcnFuODMgZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-10-18T12:34:13.000Z",
-   "updated": "2021-10-18T13:22:15.181Z",
+   "updated": "2021-10-18T13:45:15.657Z",
    "summary": "Spiele-Tag im Neubad",
-   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch dabei.\n\nEintritt: CHF 10 pro Person\nKulinarisch wird man im Neubad Bistro verwöhnt.",
+   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
    "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
    "creator": {
     "email": "nimboline@gmail.com"
@@ -243,6 +243,186 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "1tjh4n7ncomav0tir9lmqrqn83@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3269181552534000\"",
+   "id": "1nno1olafmvpllvdrb8dpc717l",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MW5ubzFvbGFmbXZwbGx2ZHJiOGRwYzcxN2wgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T20:59:36.000Z",
+   "updated": "2021-10-18T20:59:36.267Z",
+   "summary": "Spiele-Tag im Neubad",
+   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-12-12T12:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-12-12T18:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "1nno1olafmvpllvdrb8dpc717l@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3269181608952000\"",
+   "id": "4h3kmsdf1rah3e0i3qrp70o41g",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NGgza21zZGYxcmFoM2UwaTNxcnA3MG80MWcgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:00:04.000Z",
+   "updated": "2021-10-18T21:00:04.476Z",
+   "summary": "Spiele-Tag im Neubad",
+   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-01-23T12:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-01-23T18:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "4h3kmsdf1rah3e0i3qrp70o41g@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3269181661614000\"",
+   "id": "272supnprt3jkr0ad2v7bbtshr",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:00:30.000Z",
+   "updated": "2021-10-18T21:00:30.807Z",
+   "summary": "Spiele-Tag im Neubad",
+   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-02-13T12:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-02-13T18:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3269181695766000\"",
+   "id": "1eu2st8b3tbooj826dqo01lj4e",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MWV1MnN0OGIzdGJvb2o4MjZkcW8wMWxqNGUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:00:47.000Z",
+   "updated": "2021-10-18T21:00:47.883Z",
+   "summary": "Spiele-Tag im Neubad",
+   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-03-27T12:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-03-27T18:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "1eu2st8b3tbooj826dqo01lj4e@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3269181752142000\"",
+   "id": "712hninpn6lq1sjp055lq7muop",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NzEyaG5pbnBuNmxxMXNqcDA1NWxxN211b3AgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:01:16.000Z",
+   "updated": "2021-10-18T21:01:16.071Z",
+   "summary": "Spiele-Tag im Neubad",
+   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-04-10T12:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-04-10T18:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "712hninpn6lq1sjp055lq7muop@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3269181782628000\"",
+   "id": "6ldcrpnh96j71v19uh15kiufmh",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NmxkY3Jwbmg5Nmo3MXYxOXVoMTVraXVmbWggZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:01:31.000Z",
+   "updated": "2021-10-18T21:01:31.314Z",
+   "summary": "Spiele-Tag im Neubad",
+   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-05-22T12:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-05-22T18:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "6ldcrpnh96j71v19uh15kiufmh@google.com",
    "sequence": 0,
    "eventType": "default"
   }
