@@ -39,6 +39,7 @@ toc:
 - DuBischDra https://dubischdra.ch/dubischdra-events/
 - SwissRPG https://swissrpg.ch/
 - SwitzerLAN https://switzerlan.ch/
+- SoloCon https://www.solocon.ch/
 
 # International
 
