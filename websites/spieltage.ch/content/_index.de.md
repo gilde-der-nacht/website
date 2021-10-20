@@ -12,7 +12,7 @@ jumbotronImage:
   comment: Bibliothek
 ---
 
-Am Wochenende vom 12./13. März 2022 verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
+Am Wochenende vom **12./13. März 2022** verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
 
 Falls du Fragen hast oder an den Spieltagen mithelfen möchtest, zögere nicht, uns über das [Kontaktformular]({{< ref "contact" >}}) anzuschreiben. Wir freuen uns auf deine Nachricht.
 
