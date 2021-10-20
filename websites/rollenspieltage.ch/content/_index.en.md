@@ -1,6 +1,6 @@
 ---
 title: "Startpage"
-subtitle: "The Luzerner Rollenspieltage 2021 will take place on <br/> August 28 + 29, 2021"
+subtitle: "28 + 29 August 2022"
 date: 2019-04-01
 menu:
   main:
