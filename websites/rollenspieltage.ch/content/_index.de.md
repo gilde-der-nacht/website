@@ -1,6 +1,6 @@
 ---
 title: "Startseite"
-subtitle: "Die Luzerner Rollenspieltage 2021 finden am <br/> 28. + 29. August 2021 statt"
+subtitle: "Die Luzerner Rollenspieltage 2022 finden am <br/> 27. + 28. August 2022 statt"
 date: 2019-04-01
 menu:
   main:
@@ -16,21 +16,20 @@ jumbotronImage:
 
 _Neu hier? [Unter diesem Link erfährst du, was ein Rollenspiel ist.]({{< ref "roleplay" >}})_
 
-Liebe Rollenspieler:innen, liebe Spielleiter:innen, liebe Helfer:innen
 
-**Wir freuen uns, euch heute mitteilen zu können, dass die Luzerner Rollenspieltage 2021 stattfinden werden.**
+Ungefähr einen Monat vor dem Anlass werden die Spielrunden hier bekannt gegeben. Du kannst dich dann online oder spontan vor Ort deinen Platz am Tisch reservieren.
 
-Vom 28.8.21 ab 13.00 Uhr bis am 29.8.21 um 19.00 Uhr werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
+Am besten abonnierst du unseren [Newsletter]({{< ref "newsletter" >}}), um nichts zu verpassen.
 
-Die Luzerner Rollenspieltage finden in der Pfarrei St. Johannes an der Schädrütistrasse 26 in 6006 Luzern (CH) statt. Wir treffen uns also physisch vor Ort und nicht im virtuellen Raum. Für Verpflegung ist gesorgt und die Teilnahme ist kostenlos.
+{{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
 
-Mit dem [Anmeldeformular]({{< ref "registration" >}}) kannst du dich für die Rollenspielrunden anmelden. Wenn du ein Rollenspiel leiten oder uns als Helfer:in unterstützen möchtest, kannst du dich ebenfalls dort anmelden.
+# Spielleiter
 
-Sollte der Bundesrat die Massnahmen im Verlauf des Augusts anpassen, werden wir euch spätestens am 26.8.21 über eine kurzfristige Absage informieren.
+Euch Spielleiter und Spielleiterinnen müssen wir nicht erklären, wie dankbar wir für euren Einsatz sind. Wir tun es trotzdem: Danke vielmals! Wir möchten euch darauf hinweisen, dass ihr bitte systemspezifisches Spielmaterial für eure Spieler mitnehmt. Für Schreibzeug sorgen wir.
 
-**Wir freuen uns auf euch!**
+Hast du noch nie geleitet oder fühlst dich noch unsicher als Spielleiter, darfst du dich gerne bei uns im Vorfeld melden. Erfahrene Spielleiter unterstützen dich vor Ort und stehen mit Rat und Tat zur Seite.
 
-Infos zur Anfahrt findet ihr weiter unten. Wenn du Fragen hast, melde dich einfach per [Kontaktformular]({{< ref "contact" >}}) oder [Live-Chat]({{< ref "livechat" >}}) bei uns.
+Bitte [schreib uns über das Kontaktformular]({{< ref "contact" >}}) an, wenn du gerne eine Spielrunde leiten möchtest.
 
 {{< minitron url="/images/luzerner-rollenspieltag-2018-21.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-21.jpg" offset="40%" >}}
 
