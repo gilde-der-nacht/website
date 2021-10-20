@@ -32,3 +32,17 @@ This modern chat platform gives you the opportunity to discuss directly with the
 This platform also runs under the banner of the Gilde der Nacht, the Lucerne game society.
 
 [More »](https://chat.gildedernacht.ch)
+
+{{< minitron url="/images/flohmarkt.jpg" attribution-title="Luzerner Spieltage 2019" attribution-source="/images/flohmarkt.jpg" offset="40%" >}}
+
+# Informations
+
+**Entry fee:** the event is free of charge (collection/donations are welcome)
+
+**Address:** Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern
+
+{{< map >}}
+
+From the Lucerne train station, the location is easily reached in 15 minutes by bus 8 (Würzenbachmatte) or bus 14 (Schlösslirain).
+
+A (fee required) parking garage is 5 minutes walk away. Belongs to the Migros supermarket at the address [Würzenbachstrasse 19, Lucerne](https://www.google.com/maps/place/Migros+Supermarkt/@47.0548083,8.3433408,18.5z/data=!4m5!3m4!1s0x478ffb4e3b438fcf:0x44bae0889972cca5!8m2!3d47.0550141!4d8.3437071).
