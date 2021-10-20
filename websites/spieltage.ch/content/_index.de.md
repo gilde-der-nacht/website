@@ -1,6 +1,6 @@
 ---
 title: "Startseite"
-subtitle: "Willkommen an den <br />Luzerner Spieltagen"
+subtitle: "12. + 13. März 2022"
 date: 2019-09-04
 menu:
   main:
