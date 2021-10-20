@@ -12,23 +12,9 @@ jumbotronImage:
   comment: Bibliothek
 ---
 
-{{< warning >}}
+Am Wochenende vom 12./13. März 2022 verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
 
-<p style="margin: 0; margin-bottom: 5px;"><strong>Absage der Luzerner Spieltage 2021</strong></p>
-
-<p>Liebe Spielfreunde,</p>
-
-<p>Das Organisationskomitee hat sich schweren Herzens aufgrund der aktuellen Pandemie zu einer <strong>Absage der Luzerner Spieltage 2021</strong> entschieden.</p>
-
-<p>Kleinere Spielevents findest du im <a href="https://gildedernacht.ch/">Kalender auf unserer Vereins-Startseite</a>, der regelmässig aktualisiert wird.</p>
-
-<p>Wir hoffen dich an den Luzerner Spieltagen 2022 begrüssen zu dürfen.</p>
-
-<p><em>Euer Organisationskomitee der Luzerner Spieltage 2021</em></p>
-
-<p>Bei Fragen, kontaktiert uns bitte über das <a href="./contact/">Kontaktformular</a>.</p>
-
-{{< /warning >}}
+Falls du Fragen hast oder an den Spieltagen mithelfen möchtest, zögere nicht, uns über das [Kontaktformular]({{< ref "contact" >}}) anzuschreiben. Wir freuen uns auf deine Nachricht.
 
 {{< minitron url="/images/DSCF4749.jpg" attribution-title="Luzerner Spieltage 2019" attribution-source="/images/DSCF4749.jpg" offset="60%" >}}
 
