@@ -1,6 +1,6 @@
 ---
 title: "Startpage"
-subtitle: "Welcome to the <br />Luzerner Spieltage"
+subtitle: "12 + 13 March 2022"
 date: 2019-09-04
 menu:
   main:
@@ -12,7 +12,7 @@ jumbotronImage:
   comment: Library
 ---
 
-On the weekend of **12./13. March 2022** we will transform the hall St. Johannes in Lucerne into an oasis for players. Whether young or old, whether strategist or team player, whether hobbyist or enthusiasts, we have something for everyone on the menu. Apropos menu: a tasty meal will of course be provided.
+On the weekend of **12 + 13 March 2022** we will transform the hall St. Johannes in Lucerne into an oasis for players. Whether young or old, whether strategist or team player, whether hobbyist or enthusiasts, we have something for everyone on the menu. Apropos menu: a tasty meal will of course be provided.
 
 Do not hesitate to contact us via the [contact form]({{< ref "contact" >}}), if you would like to know more or would like to help us with the planning or execution.
 
