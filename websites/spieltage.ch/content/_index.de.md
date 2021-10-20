@@ -1,6 +1,6 @@
 ---
 title: "Startseite"
-subtitle: "12. + 13. März 2022"
+subtitle: "Nächste Luzerner Spieltage <br/>12. + 13. März 2022"
 date: 2019-09-04
 menu:
   main:
