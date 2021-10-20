@@ -1,6 +1,6 @@
 ---
 title: "Startseite"
-subtitle: "27. + 28. August 2022"
+subtitle: "Nächste Luzerner Rollenspieltage <br/>27. + 28. August 2022"
 date: 2019-04-01
 menu:
   main:
