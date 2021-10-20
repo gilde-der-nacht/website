@@ -16,21 +16,21 @@ jumbotronImage:
 
 _First time here? [Let us explain what role-playing games are.]({{< ref "roleplay" >}})_
 
-Dear roleplayers, dear game masters, dear helpers
+At around a month before the event we will put all the game rounds online. You can then reserve your seat at the table, online or spontaneously.
 
-**We are pleased to announce that the Luzerner Rollenspieltage 2021 will take place.**
+We recommend that you subscribe to our [newsletter]({{< ref "newsletter" >}}).
 
-From 28.8.21 13:00 until 29.8.21 19:00 there will be a variety of tabletop roleplaying sessions – for all those who would like to set foot into the world of roleplaying, but also for experienced players who would like to try something new.
+{{< minitron url="/images/luzerner-rollenspieltag-2018-01.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-01.jpg" offset="40%" >}}
 
-The Luzerner Rollenspieltage will be located at the Pfarrei St. Johannes at Schädrütistrasse 26 in 6006 Luzern (CH). Therefore, we will meet physically on site and not online. Food will be provided and participation is free of charge.
+# Game masters
 
-You can register for the roleplaying rounds with this [registration form]({{< ref "registration" >}}). If you would like to run a session as game master or support us as a helper, you can also register there.
+It goes without saying, to the game masters, how grateful we are for your efforts, but we do it anyway: Thank you very much! We would like to point out, that we ask you to bring along system-specific game material for your players. We take care of writing utensils.
 
-Should the government adjust the measures for public events during August, we will inform you about a cancellation on 26.8.21 at the latest.
+If you never run a role-playing game or feel insecure as a game master, you are welcome to contact us in advance. If there is enough demand, we will offer a small workshop. Experienced game master, will also support you on site and are there to help and advise.
 
-**We are looking forward seeing you!**
+Please [contact us via form]({{< ref "contact" >}}) if you’d like to guide a round.
 
-Information on how to get there can be found further down. If you have any questions, just get in touch with us via the [contact form]({{< ref "contact" >}}) or [live chat]({{< ref "livechat" >}}).
+{{< minitron url="/images/luzerner-rollenspieltag-2018-21.jpg" attribution-title="Luzerner Rollenspieltag 2018" attribution-source="/images/luzerner-rollenspieltag-2018-21.jpg" offset="40%" >}}
 
 # Informations
 
