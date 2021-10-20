@@ -1,6 +1,6 @@
 ---
 title: "Startseite"
-subtitle: "Die Luzerner Rollenspieltage 2022 finden am <br/> 27. + 28. August 2022 statt"
+subtitle: "27. + 28. August 2022"
 date: 2019-04-01
 menu:
   main:
