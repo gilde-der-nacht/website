@@ -12,25 +12,9 @@ jumbotronImage:
   comment: Library
 ---
 
+On the weekend of 12./13. March 2022 we will transform the hall St. Johannes in Lucerne into an oasis for players. Whether young or old, whether strategist or team player, whether hobbyist or enthusiasts, we have something for everyone on the menu. Apropos menu: a tasty meal will of course be provided.
 
-
-{{< warning >}}
-
-<p style="margin: 0; margin-bottom: 5px;"><strong>Cancellation of the Luzerner Spieltage 2021</strong></p>
-
-<p>Dear friends,</p>
-
-<p>It is with a heavy heart that as a result of the pandemic the Organising Committee has decided to <strong>cancel the Luzerner Spieltage 2021</strong>.</p>
-
-<p>Smaller gaming events are being added to <a href="https://gildedernacht.ch/">our calendar on a regular basis</a>.</p>
-
-<p>We hope to welcome you at the Luzerner Spieltagen 2022.</p>
-
-<p><em>Your Organising Committee of the Luzerner Spieltage 2021</em></p>
-
-<p>For questions, please contact us via the <a href="./contact/">contact form</a>.</p>
-
-{{< /warning >}}
+Do not hesitate to contact us via the [contact form]({{< ref "contact" >}}), if you would like to know more or would like to help us with the planning or execution.
 
 {{< minitron url="/images/DSCF4749.jpg" attribution-title="Luzerner Spieltage 2019" attribution-source="/images/DSCF4749.jpg" offset="60%" >}}
 
