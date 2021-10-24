@@ -105,7 +105,8 @@ Blender: Eevee, Cycles
 
 - Object Scaling = 1.0
 - Lock Object Modes
-- Texture Speicherort
+- Speicherort Texturen
+- Grouping/Collections
 
 ## Videos
 
