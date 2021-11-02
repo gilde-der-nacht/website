@@ -5,8 +5,6 @@ date: 2019-04-10
 menu:
   main:
     weight: 1
-scripts:
-  - 'g-calendar'
 jumbotronImage:
   url: https://images.unsplash.com/photo-1547638375-ebf04735d792?SameSite=None
   source: Unsplash
