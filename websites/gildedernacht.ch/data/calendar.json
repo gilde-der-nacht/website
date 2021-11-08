@@ -7,39 +7,8 @@
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CNCWuMvt1PMCEAAYASDN84PCAQ==",
+ "nextSyncToken": "CNCWuMvt1PMCEAAYASCN5pTCAQ==",
  "items": [
-  {
-   "kind": "calendar#event",
-   "etag": "\"3266857578886000\"",
-   "id": "6mkvn9qk9s9bh9e72cu94kg3qs",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=Nm1rdm45cWs5czliaDllNzJjdTk0a2czcXMgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-27T11:57:41.000Z",
-   "updated": "2021-10-05T10:13:09.443Z",
-   "summary": "Game Jam",
-   "description": "Erster Game Jam der Gilde der Nacht. Wir treffen uns, um gemeinsam zum Thema «jeder Tod hat eine Bedeutung» ein Gesellschaftspiel entwickeln (physisch; kein Videogame).",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-11-07T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-11-07T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "transparency": "transparent",
-   "iCalUID": "6mkvn9qk9s9bh9e72cu94kg3qs@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
   {
    "kind": "calendar#event",
    "etag": "\"3266857658448000\"",
