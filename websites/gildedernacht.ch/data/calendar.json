@@ -11,65 +11,6 @@
  "items": [
   {
    "kind": "calendar#event",
-   "etag": "\"3266857658448000\"",
-   "id": "0ndi2n9bli5hpnrsmt7t7bfp4h",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MG5kaTJuOWJsaTVocG5yc210N3Q3YmZwNGggZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-16T12:26:47.000Z",
-   "updated": "2021-10-05T10:13:49.224Z",
-   "summary": "Rollenspiel-Stammtisch",
-   "description": "Diskussionsstarter: **«\u003cspan\u003eZwischen den Spielrunden\u003c/span\u003e»**",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-11-12T19:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-11-12T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "0ndi2n9bli5hpnrsmt7t7bfp4h@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3266857692312000\"",
-   "id": "6c6rhr1hbtq5a9ijre2pd9hnc1",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NmM2cmhyMWhidHE1YTlpanJlMnBkOWhuYzEgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-06T11:45:03.000Z",
-   "updated": "2021-10-05T10:14:06.156Z",
-   "summary": "Spieltreffen",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-11-13T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-11-13T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "6c6rhr1hbtq5a9ijre2pd9hnc1@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3266857730604000\"",
    "id": "473ibvd114es8hfshimjrvkjdd",
    "status": "confirmed",
