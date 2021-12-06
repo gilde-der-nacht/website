@@ -13,22 +13,50 @@ toc:
 - Wie würde das Cyberpunk Setting aussehen wenn wir es heute erfinden würden?
 - Welche Filme, Bücher und Serien kommen dir dazu in den Sinn?
 - Themengebiete
-  - Energie
+  - Mobilität/Verkehr
   - Medizin
-  - Mobilität
+    - Gesundheit
+    - Reproduktionsmedizin
   - Nahrung
-  - Politik
   - Ländergrenzen
+  - Migration
+  - Politik
+    - Wahlsysteme
+  - Militär
   - Religion
   - Soziologie
+    - Gender
+    - Individualisierung
+    - Bevölkerungspyramide
   - Technologie
     - Mensch <-> Maschine
-  - Verkehr
+    - Datensicherheit
+    - Nanotechnologie
+    - Kommunikation
+  - Energie
   - Wirtschaft
   - Wissenschaft
+  - Landwirtschaft
+    - Permakultur
+    - Hydroponics
+  - Bildung
+  - Klima
+  - Konsum
+  - Kunst
+    - Musik
   - Fashion
+  - Literatur
+  - Sprache
+  - Philosophie
+  - Patente
+  - Medien
+  - Architektur
+    - Vertical Gardening
 
 - https://en.wikipedia.org/wiki/List_of_futurologists
+
+- https://en.wikipedia.org/wiki/Library_of_Congress_Classification
+- https://en.wikipedia.org/wiki/Colon_classification
 
 # Filme & Serien
 
@@ -164,25 +192,36 @@ Links
 - Der Klon hat eine Haltbarkeit von ungefähr 3 Jahre und wird dann durch einen neuen Klon ersetzt
 - Kommunikation mit seinen Geliebten geht nur zeitverzögert über den Bildschirm
 
+## Better Than Us
+
+## Cowboy Bebop
+
 # Persönliches
 
 ## Thomas
 
-- Menschen sind Wissenschaftsfeindlich, selbst wenn sich die 99% aller Wissenschschafter weltweit einig sind und es keine versteckte Agenda gibt
-- Beziehungen werden über Gesetze und Anwälte geregelt
-- Problematisches Artensterben
-- Chaotische Naturgewalten
-- Überalterung, Bevölkerungsrückgang
-- Gesetze gibt es nie weniger
-- Informationsüberladung
-- Spam (Blog Spam, Advertisement, Fake News, ...)
-- Self Optmization
-- Wer generiert Wert? Finanzprodukte?
-- Migration
+- Soziologie
+  - Überalterung, Bevölkerungsrückgang
+  - Self Optimization
+- Recht
+  - Jegliche Beziehungen werden über Gesetze und Anwälte geregelt
+  - Gesetze gibt es nie weniger
+- Technologie
+  - Informationsüberladung
+  - Spam (Blog Spam, Ads, Fake News, ...)
+  - Teile der Bevölkerung Wissenschaftsfeindlich
+  - AI unterstützt in diverstestens Lebensbereichen
+- Ökonomie
+  - Wer generiert Wert? Finanzprodukte?
+  - Sektor 1 und 2 automatisiert?
+- Natur
+  - Chaotisch
+  - Kippt?
+  - Problematisches Artensterben
 - Geopolitisch
+  - Migration
   - Russland Seewege
-  - China, neue Seidenstrasse, Aufstände von all den Minderheiten?
+  - China, neue Seidenstrasse, Aufstände von Minderheiten?
   - Afrika, annexiert von China?
-  - Südamerika, losgekoppelt von Amerika
+  - Südamerika, losgekoppelt von Amerika?
   - Taiwan, Teil von China?
-- Zukunftsforscher? Trends?
