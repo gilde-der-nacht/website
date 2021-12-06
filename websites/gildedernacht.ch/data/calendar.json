@@ -40,36 +40,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3266867196248000\"",
-   "id": "6hiut9i00uv14n5jmof3dk0gj6",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NmhpdXQ5aTAwdXYxNG41am1vZjNkazBnajYgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-16T12:28:27.000Z",
-   "updated": "2021-10-05T11:33:18.124Z",
-   "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "Diskussionsstarter: **«Renovation Cyberpunk Setting»**\n\nDer Stammtisch findet auf unserer Online-Plattform, Discord, statt.\n[Über diesen Link kannst du teilnehmen.](https://chat.gildedernacht.ch)",
-   "location": "Discord",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-12-03T19:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-12-03T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "6hiut9i00uv14n5jmof3dk0gj6@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3266867365936000\"",
    "id": "0k44iakcha9s7abip0tvrthsve",
    "status": "confirmed",
