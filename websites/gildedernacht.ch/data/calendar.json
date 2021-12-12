@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33oclhv9gbff80g\"",
+ "etag": "\"p32gf7nsasvff80g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-12-12T10:11:15.782Z",
+ "updated": "2021-12-12T17:39:48.932Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CPDKx-mC3vQCEAAYASDw8_PFAQ==",
+ "nextSyncToken": "CKDz34rn3vQCEAAYASDw8_PFAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -217,15 +217,14 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3278607751564000\"",
-   "id": "1nno1olafmvpllvdrb8dpc717l",
+   "etag": "\"3278661088718000\"",
+   "id": "1octc3fo1jr5slv5j9dt9uj6i0",
    "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MW5ubzFvbGFmbXZwbGx2ZHJiOGRwYzcxN2wgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-18T20:59:36.000Z",
-   "updated": "2021-12-12T10:11:15.782Z",
-   "summary": "ABGESAGT! Spiele-Tag im Neubad",
-   "description": "Der Event wurde wegen aktueller Corona-Situation abgesagt.",
-   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MW9jdGMzZm8xanI1c2x2NWo5ZHQ5dWo2aTAgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-12-12T17:35:44.000Z",
+   "updated": "2021-12-12T17:35:44.359Z",
+   "summary": "Spieltreffen",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
    "creator": {
     "email": "nimboline@gmail.com"
    },
@@ -234,14 +233,103 @@
     "self": true
    },
    "start": {
-    "dateTime": "2021-12-12T12:00:00+01:00",
+    "dateTime": "2022-01-08T14:00:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2021-12-12T18:00:00+01:00",
+    "dateTime": "2022-01-08T22:00:00+01:00",
     "timeZone": "Europe/Zurich"
    },
-   "iCalUID": "1nno1olafmvpllvdrb8dpc717l@google.com",
+   "iCalUID": "1octc3fo1jr5slv5j9dt9uj6i0@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3278661122594000\"",
+   "id": "60hnbnem2dl8smgoec2omdscaf",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NjBobmJuZW0yZGw4c21nb2VjMm9tZHNjYWYgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-12-12T17:36:01.000Z",
+   "updated": "2021-12-12T17:36:01.297Z",
+   "summary": "Spieltreffen",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-02-05T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-02-05T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "60hnbnem2dl8smgoec2omdscaf@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3278661151966000\"",
+   "id": "4j2i63r9o7qaqgv2sr6l2stdqb",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NGoyaTYzcjlvN3FhcWd2MnNyNmwyc3RkcWIgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-12-12T17:36:15.000Z",
+   "updated": "2021-12-12T17:36:15.983Z",
+   "summary": "Spieltreffen",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-03-05T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-03-05T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "4j2i63r9o7qaqgv2sr6l2stdqb@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3278661577864000\"",
+   "id": "3dr12u75gtkclh3g3icljnms6k",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=M2RyMTJ1NzVndGtjbGgzZzNpY2xqbm1zNmsgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-12-12T17:39:48.000Z",
+   "updated": "2021-12-12T17:39:48.932Z",
+   "summary": "Game Jam (Gesellschaftsspiel)",
+   "description": "Fortsetzung des Game Jam der Gilde der Nacht. \n \nWarst du bei der ersten Ausgabe nicht dabei, melde dich doch im Vorfeld bei uns, damit wir dich auf den aktuellsten Stand bringen können.",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-01-30T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-01-30T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "transparency": "transparent",
+   "iCalUID": "3dr12u75gtkclh3g3icljnms6k@google.com",
    "sequence": 0,
    "eventType": "default"
   }
