@@ -1,43 +1,14 @@
 {
  "kind": "calendar#events",
- "etag": "\"p328c37f9tb9v80g\"",
+ "etag": "\"p33oclhv9gbff80g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-12-08T08:57:15.258Z",
+ "updated": "2021-12-12T10:11:15.782Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CJDBnenq0_QCEAAYASDw8_PFAQ==",
+ "nextSyncToken": "CPDKx-mC3vQCEAAYASDw8_PFAQ==",
  "items": [
-  {
-   "kind": "calendar#event",
-   "etag": "\"3266857730604000\"",
-   "id": "473ibvd114es8hfshimjrvkjdd",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NDczaWJ2ZDExNGVzOGhmc2hpbWpydmtqZGQgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-09-06T11:45:16.000Z",
-   "updated": "2021-10-05T10:14:25.302Z",
-   "summary": "Spieltreffen",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-12-11T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-12-11T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "473ibvd114es8hfshimjrvkjdd@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
   {
    "kind": "calendar#event",
    "etag": "\"3266867365936000\"",
@@ -93,36 +64,6 @@
    },
    "transparency": "transparent",
    "iCalUID": "245jl30ehk8qtr9s0gcm466hgr@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3269181552534000\"",
-   "id": "1nno1olafmvpllvdrb8dpc717l",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MW5ubzFvbGFmbXZwbGx2ZHJiOGRwYzcxN2wgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-18T20:59:36.000Z",
-   "updated": "2021-10-18T20:59:36.267Z",
-   "summary": "Spiele-Tag im Neubad",
-   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
-   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2021-12-12T12:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2021-12-12T18:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "1nno1olafmvpllvdrb8dpc717l@google.com",
    "sequence": 0,
    "eventType": "default"
   },
@@ -272,6 +213,36 @@
    },
    "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
    "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3278607751564000\"",
+   "id": "1nno1olafmvpllvdrb8dpc717l",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MW5ubzFvbGFmbXZwbGx2ZHJiOGRwYzcxN2wgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T20:59:36.000Z",
+   "updated": "2021-12-12T10:11:15.782Z",
+   "summary": "ABGESAGT! Spiele-Tag im Neubad",
+   "description": "Der Event wurde wegen aktueller Corona-Situation abgesagt.",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2021-12-12T12:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2021-12-12T18:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "1nno1olafmvpllvdrb8dpc717l@google.com",
+   "sequence": 0,
    "eventType": "default"
   }
  ]
