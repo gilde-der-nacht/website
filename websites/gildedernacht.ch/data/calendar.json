@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32gf7nsasvff80g\"",
+ "etag": "\"p33ob95mnraava0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2021-12-12T17:39:48.932Z",
+ "updated": "2022-01-03T13:40:45.158Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CKDz34rn3vQCEAAYASDrooPGAQ==",
+ "nextSyncToken": "CPC0ltfalfUCEAAYASDrooPGAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -189,34 +189,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3272964534596000\"",
-   "id": "272supnprt3jkr0ad2v7bbtshr",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-18T21:00:30.000Z",
-   "updated": "2021-11-09T18:24:27.298Z",
-   "summary": "Spielwochenende im Neubad",
-   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
-   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-02-12"
-   },
-   "end": {
-    "date": "2022-02-14"
-   },
-   "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3278661088718000\"",
    "id": "1octc3fo1jr5slv5j9dt9uj6i0",
    "status": "confirmed",
@@ -330,6 +302,64 @@
    },
    "transparency": "transparent",
    "iCalUID": "3dr12u75gtkclh3g3icljnms6k@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3282402034510000\"",
+   "id": "272supnprt3jkr0ad2v7bbtshr",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:00:30.000Z",
+   "updated": "2022-01-03T09:10:17.255Z",
+   "summary": "Gamedive – Spielwochenende im Neubad",
+   "description": "Genauere Infos folgen",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-02-12"
+   },
+   "end": {
+    "date": "2022-02-14"
+   },
+   "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
+   "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3282434490316000\"",
+   "id": "1o6ui04hsetjm0dc1gd7gepa4u",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-01-03T13:40:45.000Z",
+   "updated": "2022-01-03T13:40:45.158Z",
+   "summary": "Spielwochenende im Museum",
+   "description": "Verteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunde Platz, lass dir ein Spiel erklären und los geht's!",
+   "location": "Museum of Communication, Helvetiastrasse 16, 3000 Bern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-10-22T10:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-10-23T17:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
    "sequence": 0,
    "eventType": "default"
   }
