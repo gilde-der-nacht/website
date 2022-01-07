@@ -5,7 +5,9 @@ date: 2021-09-11
 
 # Zukünftige Themen
 
-Zurzeit Keine
+- 2022-01-07: Frustration (Wieso entsteht sie? Wie geht man damit um als Spielleitung oder Spieler? Vermeiden, reduzieren oder behandeln?)
+- 2022-02-04: Initiative (Notwendig? Sinnvoll? Verschiedene Systeme?)
+- 2022-03-04: Zeit (Vergessen wir das zu oft? Wie kann man das ins Spiel bringen?)
 
 # Vergangene Themen
 
@@ -28,9 +30,9 @@ Zurzeit Keine
 - Hilfsmittel (Was für Hilfsmittel verwendest du? Was sieht nach einem Hilfsmittel aus macht aber Leben eher komplizierter?)
 - Immersion (Wie bekommt man das hin? Meta Gespräche erlauben?)
 - Improvisation (Was gibt es für Möglichkeiten? Was sollte ich trotzdem vorbereiten?)
-- Initiative (Notwendig? Sinnvoll? Verschiedene Systeme?)
 - Konsequenzen (Hat mein Charakter überhaupt ein Einfluss? Verändert sich die Welt rund um die Charaktere?)
 - LARP im Rollenspiel (Beispiele? Interesse?)
+- PnP im LARP (Vorschlag Ursula: Werden PnP immer mehr in LARPs verwendet?)
 - Lebendige Spielwelt (Was heisst das? Wie kann ich das gut umsetzen?)
 - Regeln (Wie viele? Nutzen? Spassfaktor?)
 - Setting Cyberpunk 202x (Wie würde Cyberpunk aussehen wenn man es ausnahmsweise einmal wirklich neu denken würde? Welche Filme, Bücher und Serien kommen dir dazu in den Sinn?)
@@ -42,4 +44,4 @@ Zurzeit Keine
 - Teamplay Spieler:innen (Umgang mit verschiedenen Ansprüchen? Passive Spieler:innen? Stars and Wishes?)
 - Verschiedene Sinne (Sehen, Hören, Riechen, Fühlen, ...)
 - Wünsche (Was fehlt mir in Rollenspielen? Wenn ich etwas ändern könnte, was wäre es?)
-- Zeit (Vergessen wir das zu oft? Wie kann man das ins Spiel bringen?)
+- Gleichberechtigung: Wie sorge ich als Spielleitung dafür, dass alle Spielenden gleich viel Redezeit, Aktionsspielraum und Rampenlicht erhalten. Braucht es das? Wie mache ich leise Spielende hörbar und "bremse" laute Spielende?
