@@ -365,36 +365,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3282744411438000\"",
-   "id": "0hu8uasca0ujcjdbrj9vo58fc0",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MGh1OHVhc2NhMHVqY2pkYnJqOXZvNThmYzAgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-01-05T08:43:25.000Z",
-   "updated": "2022-01-05T08:43:25.719Z",
-   "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "Diskussionsstarter: **«Frustration»**\n\nDer Stammtisch findet auf unserer Online-Plattform, Discord, statt.\n[Über diesen Link kannst du teilnehmen.](https://chat.gildedernacht.ch)",
-   "location": "Discord",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-01-07T19:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-01-07T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "0hu8uasca0ujcjdbrj9vo58fc0@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3282744455642000\"",
    "id": "4fbh3lg3ugocoufju0qngfo44k",
    "status": "confirmed",
