@@ -2,5 +2,8 @@
   "name": "gilde-der-nacht-websites",
   "version": "1.0.0",
   "private": true,
-  "repository": "git@github.com:gilde-der-nacht/website.git"
+  "repository": "git@github.com:gilde-der-nacht/website.git",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0"
+  }
 }
