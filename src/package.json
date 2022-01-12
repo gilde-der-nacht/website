@@ -4,7 +4,8 @@
   "private": true,
   "repository": "git@github.com:gilde-der-nacht/website.git",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.0",
+    "sass": "^1.47.0"
   },
   "scripts": {
     "gdn:dev": "eleventy --config=websites/gildedernacht.ch/config.js --serve",
