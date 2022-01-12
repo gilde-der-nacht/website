@@ -1,6 +1,0 @@
-<div class="c-gallery">
-  {{ range .Page.Resources.ByType "image" }}
-    {{ $resized := .Resize "375x" }}
-    <img src="{{ $resized.RelPermalink }}">
-  {{ end }}
-</div>
