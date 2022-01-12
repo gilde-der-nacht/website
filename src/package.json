@@ -7,9 +7,9 @@
     "@11ty/eleventy": "^1.0.0"
   },
   "scripts": {
-    "gdn:dev": "eleventy --config=/websites/gildedernacht.ch/config.js --serve",
-    "rst:dev": "eleventy --config=/websites/rollenspieltage.ch/config.js --serve",
-    "gdn:build": "eleventy --config=/websites/gildedernacht.ch/config.js",
-    "rst:build": "eleventy --config=/websites/rollenspieltage.ch/config.js"
+    "gdn:dev": "eleventy --config=websites/gildedernacht.ch/config.js --serve",
+    "rst:dev": "eleventy --config=websites/rollenspieltage.ch/config.js --serve",
+    "gdn:build": "eleventy --config=websites/gildedernacht.ch/config.js",
+    "rst:build": "eleventy --config=websites/rollenspieltage.ch/config.js"
   }
 }
