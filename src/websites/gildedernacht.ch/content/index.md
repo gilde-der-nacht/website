@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: Gilde der Nacht
+title: Willkommen
 ---
 
 # Gilde der Nacht

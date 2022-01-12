@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: Rollenspieltage
+title: Willkommen
 ---
 
 # Rollenspieltage
