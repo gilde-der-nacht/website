@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: default
 title: Willkommen
 ---
 

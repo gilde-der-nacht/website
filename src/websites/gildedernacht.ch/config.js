@@ -2,6 +2,8 @@ module.exports = function (eleventyConfig) {
     const siteName = "gildedernacht.ch";
     const themeDir = "/themes/crimson/";
 
+    eleventyConfig.addLayoutAlias('default', 'base.njk');
+
     eleventyConfig.setBrowserSyncConfig({
         files: "./_site/" + siteName + '**/*.css'
     });
