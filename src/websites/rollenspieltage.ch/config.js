@@ -4,8 +4,10 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addLayoutAlias('default', 'base.njk');
     eleventyConfig.setBrowserSyncConfig({
-        files: "./_site/" + siteName + '**/*.css'
+        files: "./_site/" + siteName + '/**/*.css'
     });
+    eleventyConfig.ignores.add("**/*.scss");
+    eleventyConfig.addPassthroughCopy({ "themes/**/*.woff2": "fonts" });
 
     return {
         dir: {

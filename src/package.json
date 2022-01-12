@@ -10,10 +10,10 @@
   "scripts": {
     "all:dev": "yarn gdn:dev & yarn rst:dev",
     "gdn:dev": "yarn gdn:11ty:dev & yarn gdn:sass:dev",
-    "gdn:11ty:dev": "eleventy --config=websites/gildedernacht.ch/config.js --serve",
+    "gdn:11ty:dev": "eleventy --config=websites/gildedernacht.ch/config.js --port=1111 --serve",
     "gdn:sass:dev": "sass themes/crimson/sass/gildedernacht.ch.scss _site/gildedernacht.ch/style/style.css --watch",
     "rst:dev": "yarn rst:11ty:dev & yarn rst:sass:dev",
-    "rst:11ty:dev": "eleventy --config=websites/rollenspieltage.ch/config.js --serve",
+    "rst:11ty:dev": "eleventy --config=websites/rollenspieltage.ch/config.js --port=1112 --serve",
     "rst:sass:dev": "sass themes/crimson/sass/rollenspieltage.ch.scss _site/rollenspieltage.ch/style/style.css --watch",
     "all:build": "yarn gdn:build & yarn rst:build",
     "gdn:build": "yarn gdn:11ty:build & yarn gdn:sass:build",
@@ -21,6 +21,7 @@
     "gdn:sass:build": "sass themes/crimson/sass/gildedernacht.ch.scss _site/gildedernacht.ch/style/style.css --style=compressed",
     "rst:build": "yarn rst:11ty:build & yarn rst:sass:build",
     "rst:11ty:build": "eleventy --config=websites/rollenspieltage.ch/config.js",
-    "rst:sass:build": "sass themes/crimson/sass/rollenspieltage.ch.scss _site/rollenspieltage.ch/style/style.css --style=compressed"
+    "rst:sass:build": "sass themes/crimson/sass/rollenspieltage.ch.scss _site/rollenspieltage.ch/style/style.css --style=compressed",
+    "debug": "DEBUG=Eleventy* yarn all:build"
   }
 }

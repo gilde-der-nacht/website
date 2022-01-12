@@ -3,10 +3,11 @@ module.exports = function (eleventyConfig) {
     const themeDir = "/themes/crimson/";
 
     eleventyConfig.addLayoutAlias('default', 'base.njk');
-
     eleventyConfig.setBrowserSyncConfig({
-        files: "./_site/" + siteName + '**/*.css'
+        files: "./_site/" + siteName + '/**/*.css'
     });
+    eleventyConfig.ignores.add("**/*.scss");
+    eleventyConfig.addPassthroughCopy({ "themes/**/*.woff2": "fonts" });
 
     return {
         dir: {
