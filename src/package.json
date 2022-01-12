@@ -8,12 +8,14 @@
     "sass": "^1.47.0"
   },
   "scripts": {
+    "all:dev": "yarn gdn:dev & yarn rst:dev",
     "gdn:dev": "yarn gdn:11ty:dev & yarn gdn:sass:dev",
     "gdn:11ty:dev": "eleventy --config=websites/gildedernacht.ch/config.js --serve",
     "gdn:sass:dev": "sass themes/crimson/sass/gildedernacht.ch.scss _site/gildedernacht.ch/style/style.css --watch",
     "rst:dev": "yarn rst:11ty:dev & yarn rst:sass:dev",
     "rst:11ty:dev": "eleventy --config=websites/rollenspieltage.ch/config.js --serve",
     "rst:sass:dev": "sass themes/crimson/sass/rollenspieltage.ch.scss _site/rollenspieltage.ch/style/style.css --watch",
+    "all:build": "yarn gdn:build & yarn rst:build",
     "gdn:build": "yarn gdn:11ty:build & yarn gdn:sass:build",
     "gdn:11ty:build": "eleventy --config=websites/gildedernacht.ch/config.js",
     "gdn:sass:build": "sass themes/crimson/sass/gildedernacht.ch.scss _site/gildedernacht.ch/style/style.css --style=compressed",
