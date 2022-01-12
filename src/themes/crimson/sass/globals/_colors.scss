@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "../utils/hsl" as *;
 
 $color1: hsl(225 60% 99.4%) !default;
 $color2: hsl(223 100% 98.6%) !default;
