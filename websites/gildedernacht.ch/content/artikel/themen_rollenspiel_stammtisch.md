@@ -5,12 +5,12 @@ date: 2021-09-11
 
 # Zukünftige Themen
 
-- 2022-01-07: Frustration (Wieso entsteht sie? Wie geht man damit um als Spielleitung oder Spieler? Vermeiden, reduzieren oder behandeln?)
 - 2022-02-04: Initiative (Notwendig? Sinnvoll? Verschiedene Systeme?)
 - 2022-03-04: Zeit (Vergessen wir das zu oft? Wie kann man das ins Spiel bringen?)
 
 # Vergangene Themen
 
+- 2022-01-07: [Frustration](../thema_frustration)
 - 2021-12-03: [Renovation Cyberpunk Setting](../thema_renovation_cyberpunk_setting)
 - 2021-11-12: [Zwischen den Spielrunden](../thema_zwischen_den_spielrunden)
 - 2021-10-08: [Flexible Magiesysteme](../free_form_magic)
@@ -19,7 +19,7 @@ date: 2021-09-11
 - 2021-07-02: [Risiko](../risiko)
 - 2021-06-04: [Religion](../religion)
 
-# Mögliche Themen
+# Themenvorschläge für die Zukunft
 
 - Charakter/NPC (Wie kann ich die gut spielen? Hilfsmittel?)
 - Diversität/Rassismus (Wort Rasse?)
