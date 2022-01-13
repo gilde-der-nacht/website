@@ -5,14 +5,14 @@
   grid-template-columns: max-content 1fr max-content;
   align-items: stretch;
   background-color: c.get("background-solid");
-  border-bottom: 5px solid c.get("border-subtle");
+  border-bottom: 0.25rem solid c.get("border-subtle");
 }
 
 .site-name {
-  font-size: max(1rem, 1em);
-  line-height: 1;
-  border-left: 5px solid c.get("border-subtle");
-  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.1;
+  border-left: 0.25rem solid c.get("border-subtle");
+  padding: 0.75rem;
   display: grid;
   align-content: center;
 
@@ -27,4 +27,9 @@
   background-color: c.get("background-subtle");
   display: grid;
   place-content: center;
+  max-width: 4.5rem;
+
+  svg {
+    width: 100%;
+  }
 }
