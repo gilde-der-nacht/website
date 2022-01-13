@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p320d1ckgjidfa0g\"",
+ "etag": "\"p330ejuvjmamfa0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-01-05T08:44:12.416Z",
+ "updated": "2022-01-12T14:14:02.104Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CIDQspCcmvUCEAAYASCvg6XIAQ==",
+ "nextSyncToken": "CMDp-_OyrPUCEAAYASC0v8nIAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -64,36 +64,6 @@
    },
    "transparency": "transparent",
    "iCalUID": "245jl30ehk8qtr9s0gcm466hgr@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3269181608952000\"",
-   "id": "4h3kmsdf1rah3e0i3qrp70o41g",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NGgza21zZGYxcmFoM2UwaTNxcnA3MG80MWcgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-18T21:00:04.000Z",
-   "updated": "2021-10-18T21:00:04.476Z",
-   "summary": "Spiele-Tag im Neubad",
-   "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
-   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-01-23T12:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-01-23T18:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "4h3kmsdf1rah3e0i3qrp70o41g@google.com",
    "sequence": 0,
    "eventType": "default"
   },
@@ -391,6 +361,36 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "0h5im4brsbvdpta3pqnqg4sc9k@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3283993684208000\"",
+   "id": "4h3kmsdf1rah3e0i3qrp70o41g",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NGgza21zZGYxcmFoM2UwaTNxcnA3MG80MWcgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:00:04.000Z",
+   "updated": "2022-01-12T14:14:02.104Z",
+   "summary": "ABGESAGT! Spiele-Tag im Neubad",
+   "description": "\u003cspan\u003eDer Event wurde wegen aktueller Corona-Situation abgesagt.\u003c/span\u003e",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-01-23T12:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-01-23T18:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "4h3kmsdf1rah3e0i3qrp70o41g@google.com",
    "sequence": 0,
    "eventType": "default"
   }
