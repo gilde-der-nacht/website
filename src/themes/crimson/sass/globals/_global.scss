@@ -1,0 +1,44 @@
+@use "fonts" as f;
+@use "colors" as c;
+
+// Typography
+
+:root {
+  font-size: calc(1rem + 0.5vw);
+}
+
+body {
+  @include f.font-family;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include f.font-family("display");
+}
+
+strong {
+  @include f.font-weight(700);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+figcaption {
+  max-width: 60ch;
+}
+
+// Colors
+
+body {
+    background-color: c.get("background");
+    color: c.get("text-high-contrast");
+}

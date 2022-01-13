@@ -62,3 +62,11 @@
     font-family: var(--ff-body);
   }
 }
+
+@mixin font-weight($weight: normal) {
+  @if $weight == 700 {
+    font-weight: $weight;
+  } @else {
+    font-weight: 400;
+  }
+}
