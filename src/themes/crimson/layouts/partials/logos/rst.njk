@@ -2,9 +2,26 @@
     class="rst-logo">
     <defs>
         <style>
-            .rst-logo {
+            .rst-logo,
+            [color-scheme="light"] .rst-logo {
                 --clr-purple-base: hsl(265 30% 25%);
                 --clr-purple-light: hsl(265 100% 70%);
+                --clr-red-base: hsl(358 50% 30%);
+                --clr-red-light: hsl(358 90% 60%);
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .rst-logo {
+                    --clr-purple-base: hsl(265 30% 75%);
+                    --clr-purple-light: hsl(265 100% 100%);
+                    --clr-red-base: hsl(358 50% 30%);
+                    --clr-red-light: hsl(358 90% 60%);
+                }
+            }
+
+            [color-scheme="dark"] .rst-logo {
+                --clr-purple-base: hsl(265 30% 75%);
+                --clr-purple-light: hsl(265 100% 100%);
                 --clr-red-base: hsl(358 50% 30%);
                 --clr-red-light: hsl(358 90% 60%);
             }
