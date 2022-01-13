@@ -3,24 +3,24 @@
     <defs>
         <style>
             .lst-logo {
-                --clr-blue-base: hsl(203 78% 32%);
-                --clr-blue-light: hsl(83 68% 47%);
-                --clr-yellow-base: hsl(44 100% 61%);
-                --clr-yellow-light: hsl(358 100% 67%);
-                --clr-pink-base: hsl(265 32% 44%);
-                --clr-pink-light: hsl(203 77% 43%);
+                --clr-blue-to-green-start: hsl(210 100% 25%);
+                --clr-blue-to-green-end: hsl(83 70% 50%);
+                --clr-yellow-to-red-start: hsl(44 100% 50%);
+                --clr-yellow-to-red-end: hsl(20 100% 60%);
+                --clr-pink-to-purple-start: hsl(320 75% 40%);
+                --clr-pink-to-purple-end: hsl(270 100% 40%);
             }
 
             .lst-fill-1 {
-                fill: var(--clr-pink-base);
+                fill: var(--clr-pink-to-purple-start);
             }
 
             .lst-fill-2 {
-                fill: var(--clr-blue-base);
+                fill: var(--clr-blue-to-green-start);
             }
 
             .lst-fill-3 {
-                fill: var(--clr-yellow-base);
+                fill: var(--clr-yellow-to-red-start);
             }
 
             .lst-gradient-1 {
@@ -36,17 +36,17 @@
             }
         </style>
         <linearGradient id="lst-gradient-1" x1="820.05" y1="684.81" x2="820.05" y2="295" gradientUnits="userSpaceOnUse">
-            <stop offset="0.2" stop-color="var(--clr-blue-base)" />
-            <stop offset="1" stop-color="var(--clr-blue-light)" />
+            <stop offset="0.2" stop-color="var(--clr-blue-to-green-start)" />
+            <stop offset="1" stop-color="var(--clr-blue-to-green-end)" />
         </linearGradient>
         <linearGradient id="lst-gradient-2" x1="160" y1="224.03" x2="510" y2="224.03" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="var(--clr-yellow-light)" />
-            <stop offset="0.8" stop-color="var(--clr-yellow-base)" />
+            <stop offset="0" stop-color="var(--clr-yellow-to-red-end)" />
+            <stop offset="0.8" stop-color="var(--clr-yellow-to-red-start)" />
         </linearGradient>
         <linearGradient id="lst-gradient-3" x1="169.89" y1="778.56" x2="520.21" y2="778.56"
             gradientUnits="userSpaceOnUse">
-            <stop offset="0.2" stop-color="var(--clr-pink-base)" />
-            <stop offset="1" stop-color="var(--clr-pink-light)" />
+            <stop offset="0.2" stop-color="var(--clr-pink-to-purple-start)" />
+            <stop offset="1" stop-color="var(--clr-pink-to-purple-end)" />
         </linearGradient>
     </defs>
     <g>
