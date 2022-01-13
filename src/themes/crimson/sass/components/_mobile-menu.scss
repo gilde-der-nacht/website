@@ -1,7 +1,11 @@
-@use "../globals/colors" as c;
+.mobile-menu-container {
+  display: none;
+}
 
-.mobile-menu {
-    min-height: 100vh;
-    width: 100%;
-    background-color: c.get("background-element");
+.toggle-mobile-navigation {
+  cursor: pointer;
+  padding: 1.5rem;
+  color: white;
+  display: grid;
+  place-content: center;
 }

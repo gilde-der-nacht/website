@@ -13,13 +13,13 @@
         {% endif %}
         <title>{{ (title + ' | ') if title }}{{global.siteName}}</title>
         <link rel="stylesheet" href="style/style.css">
+        <script src="https://kit.fontawesome.com/ed5a2d737b.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
         {% include "./partials/header.njk" %}
         {{ content | safe }}
         {% include "./partials/footer.njk" %}
-        {# {% include "./partials/mobile/mobile-menu.njk" %} #}
     </body>
 
 </html>

@@ -1,3 +1,6 @@
 @forward "./globals";
 
+@use "./components/header";
 @use "./components/mobile-menu";
+
+@use "./utils/helpers";

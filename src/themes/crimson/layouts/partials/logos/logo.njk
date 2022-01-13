@@ -1,9 +1,11 @@
 <div class="site-logo">
-    {% if global.siteCode == "lst" %}
-        {% include "./lst.njk" %}
-    {% elif global.siteCode == "rst" %}
-        {% include "./rst.njk" %}
-    {% else %}
-        {% include "./gdn.njk" %}
-    {% endif %}
+    <a href="/">
+        {% if global.siteCode == "lst" %}
+            {% include "./lst.njk" %}
+        {% elif global.siteCode == "rst" %}
+            {% include "./rst.njk" %}
+        {% else %}
+            {% include "./gdn.njk" %}
+        {% endif %}
+    </a>
 </div>
