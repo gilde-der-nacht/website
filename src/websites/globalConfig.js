@@ -1,9 +1,12 @@
 function setupConfig(config, siteName) {
-    config.addLayoutAlias('default', 'base.njk');
+    // compiling SASS files is not done by the SSG
+    // but reload the browser, when CSS output changes
+    config.ignores.add("**/*.scss");
     config.setBrowserSyncConfig({
         files: "./_site/" + siteName + '/**/*.css'
     });
-    config.ignores.add("**/*.scss");
+
+    config.addLayoutAlias('default', 'base.njk');
     config.addPassthroughCopy({ "themes/**/*.woff2": "fonts" });
 }
 
