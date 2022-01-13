@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="de" dir="ltr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if global.description %}
-    <meta name="description" content="{{ global.description }}">
-    {% endif %}
-    {% if global.keywords %}
-    <meta name="keywords" content="{{ global.keywords }}">
-    {% endif %}
-    <title>{{ (title + ' | ') if title }}{{global.siteName}}</title>
-    <link rel="stylesheet" href="style/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if global.description %}
+            <meta name="description" content="{{ global.description }}">
+        {% endif %}
+        {% if global.keywords %}
+            <meta name="keywords" content="{{ global.keywords }}">
+        {% endif %}
+        <title>{{ (title + ' | ') if title }}{{global.siteName}}</title>
+        <link rel="stylesheet" href="style/style.css">
+    </head>
 
-<body>
-    {% include "./partials/header.njk" %}
-    {{ content | safe }}
-    {% include "./partials/footer.njk" %}
-    {% include "./partials/mobile/mobile-menu.njk" %}
-</body>
+    <body>
+        {% include "./partials/header.njk" %}
+        {{ content | safe }}
+        {% include "./partials/footer.njk" %}
+        {# {% include "./partials/mobile/mobile-menu.njk" %} #}
+    </body>
 
 </html>
