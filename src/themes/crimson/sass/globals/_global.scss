@@ -18,6 +18,7 @@ h4,
 h5,
 h6 {
   @include f.font-family("display");
+  text-transform: uppercase;
 }
 
 strong {

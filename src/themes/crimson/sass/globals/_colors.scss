@@ -97,6 +97,8 @@ $colorDark12: hsl(226 83% 96.3%) !default;
   --clr-12: #{$colorDark12};
 }
 
+// For a better understanding:
+// https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale
 $_semantical-colors: (
   "background": var(--clr-1),
   "background-subtle": var(--clr-2),
