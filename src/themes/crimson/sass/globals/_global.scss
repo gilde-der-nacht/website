@@ -39,6 +39,11 @@ figcaption {
 // Colors
 
 body {
-    background-color: c.get("background");
-    color: c.get("text-high-contrast");
+  background-color: c.get("background");
+  color: c.get("text-high-contrast");
+}
+
+::selection {
+  background-color: c.get("background-solid");
+  color: white;
 }
