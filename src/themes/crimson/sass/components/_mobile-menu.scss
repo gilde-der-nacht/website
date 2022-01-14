@@ -1,9 +1,6 @@
 @use "../globals/colors" as c;
 @use "../globals/variables" as var;
 
-.toggle-mobile-navigation {
-}
-
 #mobile-navigation {
   ~ .toggle-mobile-navigation {
     cursor: pointer;
@@ -46,4 +43,8 @@
       transform: translateX(0);
     }
   }
+}
+
+.mobile-menu-container {
+  padding: 1rem;
 }
