@@ -5,3 +5,12 @@
   background-color: c.get("background-solid");
   border-top: 0.25rem solid c.get("border-subtle");
 }
+
+.small-print {
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.5em 1em 1em;
+  color: white;
+  font-style: italic;
+  margin-inline: auto;
+}
