@@ -61,4 +61,28 @@
       border-width: 0 0 1px;
     }
   }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    border-left: 0.5rem solid c.get("background-solid");
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: c.get("accent");
+    border-bottom: 0.125rem solid currentColor;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    padding-inline: 0.25rem;
+
+    &:hover,
+    &:active {
+      color: c.get("accent-hover");
+    }
+  }
 }

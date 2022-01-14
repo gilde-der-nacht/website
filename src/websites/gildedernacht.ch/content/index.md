@@ -24,7 +24,7 @@ Deutsche Rollenspiele die von den Autoren explizit an Kinder gerichtet sind.
 
 [pegasusshop.de](https://pegasusshop.de/Sortiment/Spiele/Familienspiele/441/So-nicht-Schurke)
 
-> Thomas: Hat 3 Komplexitätststufen für unterschiedliche Altersgruppen. Sich einander helfen ist eine der 4 Eigenschaften die jeder Charakter hat. Der Spielleiter muss nie würfeln. Für mein Geschmack schon etwas zuviel Fokus auf Kampfsituationen (z.B. jeder Charakter hat Lebenspunkte, Nahkampfwaffen/Fernkampfwaffe). Schade: Zu wenig Marker damit es nur schon für 3 Spieler:innen reichen würde. Material ist generell schlecht angeschrieben.
+> Thomas: Hat 3 Komplexitätststufen für unterschiedliche Altersgruppen. [Sich einander](/) helfen ist eine der 4 Eigenschaften die jeder Charakter hat. Der Spielleiter muss nie würfeln. Für mein Geschmack schon etwas zuviel Fokus auf Kampfsituationen (z.B. jeder Charakter hat Lebenspunkte, Nahkampfwaffen/Fernkampfwaffe). Schade: Zu wenig Marker damit es nur schon für 3 Spieler:innen reichen würde. Material ist generell schlecht angeschrieben.
 
 ## Äventyr
 

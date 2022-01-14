@@ -27,6 +27,11 @@ $colorDark10: hsl(227 75.2% 61.6%) !default;
 $colorDark11: hsl(228 100% 75.9%) !default;
 $colorDark12: hsl(226 83% 96.3%) !default;
 
+$colorAccent1: hsl(42 100% 29%) !default;
+$colorAccent2: hsl(40 55% 13.5%) !default;
+$colorAccentDark1: hsl(53 92% 50%) !default;
+$colorAccentDark2: hsl(53 100% 91%) !default;
+
 :root {
   color-scheme: light;
 
@@ -42,6 +47,8 @@ $colorDark12: hsl(226 83% 96.3%) !default;
   --clr-10: #{$color10};
   --clr-11: #{$color11};
   --clr-12: #{$color12};
+  --clr-accent-1: #{$colorAccent1};
+  --clr-accent-2: #{$colorAccent2};
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,6 +67,8 @@ $colorDark12: hsl(226 83% 96.3%) !default;
     --clr-10: #{$colorDark10};
     --clr-11: #{$colorDark11};
     --clr-12: #{$colorDark12};
+    --clr-accent-1: #{$colorAccentDark1};
+    --clr-accent-2: #{$colorAccentDark2};
   }
 }
 
@@ -78,6 +87,8 @@ $colorDark12: hsl(226 83% 96.3%) !default;
   --clr-10: #{$color10};
   --clr-11: #{$color11};
   --clr-12: #{$color12};
+  --clr-accent-1: #{$colorAccent1};
+  --clr-accent-2: #{$colorAccent2};
 }
 
 [color-scheme="dark"] {
@@ -95,11 +106,13 @@ $colorDark12: hsl(226 83% 96.3%) !default;
   --clr-10: #{$colorDark10};
   --clr-11: #{$colorDark11};
   --clr-12: #{$colorDark12};
+  --clr-accent-1: #{$colorAccentDark1};
+  --clr-accent-2: #{$colorAccentDark2};
 }
 
 // For a better understanding:
 // https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale
-$_semantical-colors: (
+$semantical-colors: (
   "background": var(--clr-1),
   "background-subtle": var(--clr-2),
   "background-element": var(--clr-3),
@@ -112,11 +125,13 @@ $_semantical-colors: (
   "background-solid-hover": var(--clr-10),
   "text-low-contrast": var(--clr-11),
   "text-high-contrast": var(--clr-12),
+  "accent": var(--clr-accent-1),
+  "accent-hover": var(--clr-accent-2),
 );
 
 @function get($name) {
-  @if not map.has-key($_semantical-colors, $name) {
+  @if not map.has-key($semantical-colors, $name) {
     @error "Color '#{$name}' is not defined";
   }
-  @return map.get($_semantical-colors, $name);
+  @return map.get($semantical-colors, $name);
 }
