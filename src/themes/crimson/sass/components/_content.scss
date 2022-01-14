@@ -1,0 +1,64 @@
+@use "../globals/colors" as c;
+
+.content {
+  > blockquote,
+  > dl,
+  > ol,
+  > p,
+  > pre,
+  > table,
+  > ul {
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin-bottom: 0.5em;
+
+    &:not(:first-child) {
+      margin-top: 1.15em;
+    }
+  }
+
+  > blockquote {
+    background-color: c.get("background-element");
+    border-left: 0.5rem solid c.get("background-solid");
+    padding: 1.25em 1.5em;
+    font-style: italic;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+
+  > table {
+    text-align: left;
+    background-color: c.get("background-element");
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    tbody tr:hover {
+      background-color: c.get("background-subtle");
+    }
+
+    td,
+    th {
+      border-style: solid;
+      border-color: c.get("border-subtle");
+      vertical-align: top;
+      padding: 0.5em 0.75em;
+    }
+
+    th {
+      border-width: 0 0 2px;
+    }
+
+    td {
+      border-width: 0 0 1px;
+    }
+  }
+}
