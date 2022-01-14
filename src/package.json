@@ -5,6 +5,7 @@
   "repository": "git@github.com:gilde-der-nacht/website.git",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-navigation": "^0.3.2",
     "sass": "^1.47.0"
   },
   "scripts": {

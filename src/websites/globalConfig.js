@@ -1,3 +1,5 @@
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+
 function setupConfig(config, siteName, themeDir) {
     // compiling SASS files is not done by the SSG
     // but reload the browser, when CSS output changes
@@ -12,6 +14,8 @@ function setupConfig(config, siteName, themeDir) {
     config.addPassthroughCopy({ [themeDir + "images"]: "images" });
     config.addPassthroughCopy("websites/**/*.jpg");
     config.addPassthroughCopy("websites/**/*.png");
+
+    config.addPlugin(eleventyNavigationPlugin);
 }
 
 function options(siteName, themeDir) {

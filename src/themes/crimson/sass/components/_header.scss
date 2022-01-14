@@ -54,6 +54,7 @@
   aspect-ratio: 1;
 
   svg {
-    width: 100%;
+    width: calc(#{var.$header-height} - 1rem);
+    height: calc(#{var.$header-height} - 1rem);
   }
 }

@@ -1,21 +1,3 @@
 <nav class="main-navigation">
-    <ul role="list">
-        <li>
-            <a href="#">Startseite</a>
-        </li>
-        <li>
-            <a href="#">Programm</a>
-            <ul role="list">
-                <li>
-                    <a href="#">Brettspiele</a>
-                </li>
-                <li>
-                    <a href="#">Rollenspiele</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">Kontakt</a>
-        </li>
-    </ul>
+    {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
 </nav>
