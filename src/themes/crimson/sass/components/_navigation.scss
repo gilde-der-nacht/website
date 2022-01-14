@@ -1,0 +1,60 @@
+@use "../globals/fonts" as f;
+@use "../globals/colors" as c;
+
+.main-navigation {
+  li + li {
+    margin-top: 0.5rem;
+  }
+
+  ul ul > li + li {
+    margin-top: 0.1rem;
+  }
+
+  li > ul {
+    margin-top: 0.1rem;
+  }
+
+  > ul > li {
+    > a {
+      @include f.font-weight(700);
+    }
+
+    li {
+      padding-left: 1rem;
+    }
+  }
+
+  a {
+    color: c.get("text-high-contrast");
+    text-decoration: none;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 100%;
+      position: absolute;
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+      inset: 0;
+      z-index: -1;
+      opacity: 0;
+      background-color: c.get("text-low-contrast");
+      background: linear-gradient(
+        90deg,
+        c.get("text-high-contrast") 0%,
+        c.get("text-low-contrast") 100%
+      );
+      transition: opacity 0.2s 0s ease-in-out;
+    }
+
+    &:hover {
+      color: c.get("background");
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
