@@ -1,4 +1,4 @@
-function setupConfig(config, siteName) {
+function setupConfig(config, siteName, themeDir) {
     // compiling SASS files is not done by the SSG
     // but reload the browser, when CSS output changes
     config.ignores.add("**/*.scss");
@@ -7,7 +7,8 @@ function setupConfig(config, siteName) {
     });
 
     config.addLayoutAlias('default', 'base.njk');
-    config.addPassthroughCopy({ "themes/**/*.woff2": "fonts" });
+    config.addPassthroughCopy({ [themeDir + "**/*.woff2"]: "fonts" });
+    config.addPassthroughCopy({ [themeDir + "**/*.js"]: "scripts" });
 }
 
 function options(siteName, themeDir) {
@@ -15,8 +16,8 @@ function options(siteName, themeDir) {
         dir: {
             input: "./websites/" + siteName + "/content",
             output: "./_site/" + siteName,
-            includes: "../../.." + themeDir,
-            layouts: "../../.." + themeDir + "layouts",
+            includes: "../../../" + themeDir,
+            layouts: "../../../" + themeDir + "layouts",
             data: "../data"
         }
     }

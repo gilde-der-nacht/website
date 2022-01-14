@@ -1,14 +1,49 @@
 @use "../globals/colors" as c;
-
-.mobile-menu-container {
-  display: none;
-}
+@use "../globals/variables" as var;
 
 .toggle-mobile-navigation {
-  cursor: pointer;
-  padding: 1.5rem;
-  margin-bottom: 0.25rem;
-  color: white;
-  display: grid;
-  place-content: center;
+}
+
+#mobile-navigation {
+  ~ .toggle-mobile-navigation {
+    cursor: pointer;
+    padding: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: white;
+    display: grid;
+    place-content: center;
+
+    svg {
+      aspect-ratio: 1;
+    }
+
+    .close-menu-container {
+      display: none;
+    }
+  }
+
+  ~ .mobile-menu-container {
+    position: fixed;
+    overflow: auto;
+    inset: var.$header-height 0 0 0;
+    background-color: c.get("border-subtle");
+    transform: translateX(-150vw);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &:checked {
+    ~ .toggle-mobile-navigation {
+      .close-menu-container {
+        display: block;
+      }
+
+      .open-menu-container {
+        display: none;
+      }
+    }
+
+    ~ .mobile-menu-container {
+      transform: translateX(0);
+    }
+  }
 }

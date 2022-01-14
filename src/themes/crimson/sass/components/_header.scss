@@ -1,12 +1,16 @@
 @use "../globals/colors" as c;
+@use "../globals/variables" as var;
 
 .header {
   display: grid;
   grid-template-columns: max-content 1fr max-content;
   align-items: stretch;
   background-color: c.get("background-solid");
-  height: 5rem;
+  height: var.$header-height;
   border-bottom: 0.25rem solid c.get("border-subtle");
+  position: sticky;
+  top: 0;
+  overflow: hidden;
 }
 
 .site-name {
@@ -33,7 +37,7 @@
   background-color: c.get("background-subtle");
   display: grid;
   place-content: center;
-  width: 5rem;
+  width: var.$header-height;
   aspect-ratio: 1;
 
   svg {
