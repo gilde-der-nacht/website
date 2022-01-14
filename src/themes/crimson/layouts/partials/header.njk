@@ -1,5 +1,12 @@
 <header class="header">
     {% include "./mobile/navigation.njk" %}
-    <h1 class="site-name"><a href="/">{{global.siteName}}</a></h1>
+    <div class="site-name">
+        <a href="/">
+            <h1>{{global.siteName}}</h1>
+            {% if global.siteTagline %}
+                <h2>{{global.siteTagline}}</h2>
+            {% endif %}
+        </a>
+    </div>
     {% include "./logos/logo.njk" %}
 </header>
