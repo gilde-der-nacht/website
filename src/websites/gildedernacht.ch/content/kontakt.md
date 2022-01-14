@@ -1,6 +1,5 @@
 ---
 layout: default
-permalink: kontakt/
 eleventyNavigation:
   key: contact
   title: Kontakt
