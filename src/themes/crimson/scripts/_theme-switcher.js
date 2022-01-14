@@ -1,4 +1,4 @@
-import $ from "./_lib_blingbling.js";
+import $ from "./lib/blingbling.js";
 
 const storageKey = "theme-preference";
 const theme = { value: getColorPreference() };
@@ -51,9 +51,9 @@ export function toggleTheme() {
     });
 
     window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', ({ matches: isDark }) => {
-            theme.value = isDark ? 'dark' : 'light'
-            setPreference()
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", ({ matches: isDark }) => {
+            theme.value = isDark ? "dark" : "light";
+            setPreference();
         })
 }

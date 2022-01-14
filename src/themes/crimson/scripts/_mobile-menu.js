@@ -1,4 +1,4 @@
-import $ from "./_lib_blingbling.js";
+import $ from "./lib/blingbling.js";
 
 export function toggleScrolling() {
     const [bodyEl] = $("body");

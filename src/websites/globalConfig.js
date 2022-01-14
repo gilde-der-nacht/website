@@ -7,9 +7,9 @@ function setupConfig(config, siteName, themeDir) {
     });
 
     config.addLayoutAlias('default', 'base.njk');
-    config.addPassthroughCopy({ [themeDir + "**/*.woff2"]: "fonts" });
-    config.addPassthroughCopy({ [themeDir + "**/*.js"]: "scripts" });
-    config.addPassthroughCopy({ [themeDir + "**/*.svg"]: "images" });
+    config.addPassthroughCopy({ [themeDir + "fonts"]: "fonts" });
+    config.addPassthroughCopy({ [themeDir + "scripts"]: "scripts" });
+    config.addPassthroughCopy({ [themeDir + "images"]: "images" });
     config.addPassthroughCopy("websites/**/*.jpg");
     config.addPassthroughCopy("websites/**/*.png");
 }
