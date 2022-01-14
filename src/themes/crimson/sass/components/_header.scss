@@ -12,6 +12,10 @@
   position: sticky;
   top: 0;
   overflow: hidden;
+
+  ::selection {
+    background-color: c.get("background");
+  }
 }
 
 .site-name {
