@@ -22,7 +22,7 @@
   ~ .mobile-menu-container {
     position: fixed;
     overflow: auto;
-    inset: var.$header-height 0 0 0;
+    inset: var.$header-height 0 0;
     background-color: c.get("border-subtle");
     transform: translateX(-150vw);
     transition: transform 0.5s ease-in-out;
@@ -30,6 +30,13 @@
 
   &:checked {
     ~ .toggle-mobile-navigation {
+      &::after {
+        content: "";
+        position: fixed;
+        inset: var.$header-height 0 0;
+        background-color: rgba(10, 10, 10, 0.86);
+      }
+
       .close-menu-container {
         display: block;
       }
@@ -47,4 +54,5 @@
 
 .mobile-menu-container {
   padding: 1rem;
+  max-width: 25rem;
 }
