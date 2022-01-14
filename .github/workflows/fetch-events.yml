@@ -20,5 +20,5 @@ jobs:
           "https://www.googleapis.com/calendar/v3/calendars/gildedernacht%40gmail.com/events?timeMin=$(date +'%Y-%m-%dT%T.000Z')&key=AIzaSyBRXYQfvv3KHyZmZrhxzWDOghX_c7xfnGo" \
           --header 'Accept: application/json' \
           --compressed \
-          -o websites/gildedernacht.ch/data/calendar.json
+          -o src/websites/gildedernacht.ch/data/calendar.json
         git diff --quiet && git diff --staged --quiet || git commit -am 'fetch new event data' && git push
