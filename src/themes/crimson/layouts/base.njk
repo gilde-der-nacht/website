@@ -20,6 +20,8 @@
     <body {{ ('class=' + global.siteCode) if global.siteCode }}>
         {% include "./partials/header.njk" %}
         <main class="main-content">
+            {% include "./partials/theme-switcher.njk" %}
+
             {{ content | safe }}
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, et. Corrupti, excepturi. Culpa eaque distinctio est nam accusamus nobis enim quo, quos ipsa porro. Quasi veniam quidem excepturi dicta quo!</p>
