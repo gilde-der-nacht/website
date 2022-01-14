@@ -10,7 +10,6 @@
 body {
   @include f.font-family;
   @include f.font-weight;
-  overflow-wrap: break-word;
 }
 
 h1,

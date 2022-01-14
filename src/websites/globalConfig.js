@@ -10,6 +10,8 @@ function setupConfig(config, siteName, themeDir) {
     config.addPassthroughCopy({ [themeDir + "**/*.woff2"]: "fonts" });
     config.addPassthroughCopy({ [themeDir + "**/*.js"]: "scripts" });
     config.addPassthroughCopy({ [themeDir + "**/*.svg"]: "images" });
+    config.addPassthroughCopy("websites/**/*.jpg");
+    config.addPassthroughCopy("websites/**/*.png");
 }
 
 function options(siteName, themeDir) {

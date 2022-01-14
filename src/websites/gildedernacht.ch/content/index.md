@@ -39,8 +39,8 @@ Deutsche Rollenspiele die von den Autoren explizit an Kinder gerichtet sind.
 ## My Little Pony - Tales of Equestria
 
 - Regelwerk Buch: 35€ (PDF 12€)
-- Starterset: 25€
-- Seitenzahl: 152
+    - Starterset: 25€
+    - Seitenzahl: 152
 - Genre: Fantasy
 
 [ulisses-spiele.de](https://ulisses-spiele.de/spielsysteme/toe/)
@@ -52,6 +52,8 @@ Lieben Dank
 _Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet ($)._
 
 ![bild-01](./images/image-01.jpg)
+
+![bild-02](./images/image-02.JPG)
 
 # Geschichten
 

@@ -27,6 +27,16 @@ ol[role="list"] {
   padding: 0;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
@@ -46,7 +56,10 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img,
-picture {
+picture,
+video,
+canvas,
+svg {
   max-width: 100%;
   display: block;
 }
