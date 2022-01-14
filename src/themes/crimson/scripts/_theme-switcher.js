@@ -49,4 +49,11 @@ export function toggleTheme() {
             setPreference();
         });
     });
+
+    window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', ({ matches: isDark }) => {
+            theme.value = isDark ? 'dark' : 'light'
+            setPreference()
+        })
 }
