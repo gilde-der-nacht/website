@@ -68,7 +68,7 @@ Man sieht aus welchen Blöcken eine Story zusammengesetzt ist. Selbst wenn daher
 # Weltenbau mit Rollenspielen
 
 | Spiel | Thematik | Weltenbau | Link |
-| --- | --- | --- | --- |
+| ---: | :---: | --- | --- |
 | Microscope | Geschichte | ☆☆☆ | [lamemage.com](https://www.lamemage.com/microscope/) |
 | Kingdom | Königreich | ☆☆☆ | [lamemage.com](https://www.lamemage.com/kingdom/) |
 | Union | Familie | ☆☆☆ | [lamemage.com](https://www.lamemage.com/union/) |

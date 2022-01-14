@@ -10,6 +10,7 @@
 body {
   @include f.font-family;
   @include f.font-weight;
+  overflow-wrap: break-word;
 }
 
 h1,
@@ -34,7 +35,8 @@ h4,
 h5,
 h6,
 li,
-figcaption {
+figcaption,
+blockquote {
   max-width: 60ch;
 }
 
@@ -60,4 +62,11 @@ body.rst {
 ::selection {
   background-color: c.get("background-solid");
   color: white;
+}
+
+// Layout
+
+body {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
 }
