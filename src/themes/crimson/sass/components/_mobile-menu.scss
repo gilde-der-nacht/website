@@ -23,9 +23,10 @@
     position: fixed;
     overflow: auto;
     inset: var.$header-height 0 0;
-    background-color: c.get("border-subtle");
+    background-color: c.get("background-subtle");
     transform: translateX(-150vw);
     transition: transform 0.5s ease-in-out;
+    border-right: 0.25rem solid c.get("border-subtle");
   }
 
   &:checked {
@@ -66,5 +67,5 @@
 .mobile-footer {
   margin-inline: 0.5rem;
   padding-top: 0.5rem;
-  border-top: 0.25rem solid c.get("border-element");
+  border-top: 0.125rem solid c.get("border-subtle");
 }
