@@ -1,3 +1,5 @@
+@use "../globals/colors" as c;
+
 .mobile-menu-container {
   display: none;
 }
@@ -5,6 +7,7 @@
 .toggle-mobile-navigation {
   cursor: pointer;
   padding: 1.5rem;
+  margin-bottom: 0.25rem;
   color: white;
   display: grid;
   place-content: center;
