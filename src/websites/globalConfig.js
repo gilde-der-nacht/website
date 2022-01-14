@@ -9,6 +9,7 @@ function setupConfig(config, siteName, themeDir) {
     config.addLayoutAlias('default', 'base.njk');
     config.addPassthroughCopy({ [themeDir + "**/*.woff2"]: "fonts" });
     config.addPassthroughCopy({ [themeDir + "**/*.js"]: "scripts" });
+    config.addPassthroughCopy({ [themeDir + "**/*.svg"]: "images" });
 }
 
 function options(siteName, themeDir) {

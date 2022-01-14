@@ -45,6 +45,18 @@ body {
   color: c.get("text-high-contrast");
 }
 
+body.gdn {
+  background-image: url("/images/background-gdn.svg");
+}
+
+body.lst {
+  background-image: url("/images/background-lst.svg");
+}
+
+body.rst {
+  background-image: url("/images/background-rst.svg");
+}
+
 ::selection {
   background-color: c.get("background-solid");
   color: white;
