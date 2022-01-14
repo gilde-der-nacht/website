@@ -1,6 +1,6 @@
 @use "./utils/hsl" as *;
 
-@use "./global" with (
+@use "./main" with (
   $color1: hsl(225 60% 99.4%),
   $color2: hsl(223 100% 98.6%),
   $color3: hsl(223 98.4% 97.1%),
