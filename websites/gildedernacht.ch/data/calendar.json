@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p330ejuvjmamfa0g\"",
+ "etag": "\"p334elu74k6rva0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-01-12T14:14:02.104Z",
+ "updated": "2022-01-16T21:56:44.317Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CMDp-_OyrPUCEAAYASCV8uHIAQ==",
+ "nextSyncToken": "CMjq-OSht_UCEAAYASCV8uHIAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -248,34 +248,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3282402034510000\"",
-   "id": "272supnprt3jkr0ad2v7bbtshr",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-18T21:00:30.000Z",
-   "updated": "2022-01-03T09:10:17.255Z",
-   "summary": "Gamedive – Spielwochenende im Neubad",
-   "description": "Genauere Infos folgen",
-   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-02-12"
-   },
-   "end": {
-    "date": "2022-02-14"
-   },
-   "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3282434490316000\"",
    "id": "1o6ui04hsetjm0dc1gd7gepa4u",
    "status": "confirmed",
@@ -392,6 +364,34 @@
    },
    "iCalUID": "4h3kmsdf1rah3e0i3qrp70o41g@google.com",
    "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3284740408634000\"",
+   "id": "272supnprt3jkr0ad2v7bbtshr",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:00:30.000Z",
+   "updated": "2022-01-16T21:56:44.317Z",
+   "summary": "ABGESAGT/VERSCHOBEN! Gamedive – Spielwochenende im Neubad",
+   "description": "Wir hoffen, hier bald ein neues Datum bekannt geben zu dürfen.",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-02-12"
+   },
+   "end": {
+    "date": "2022-02-14"
+   },
+   "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
+   "sequence": 1,
    "eventType": "default"
   }
  ]
