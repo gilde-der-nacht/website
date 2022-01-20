@@ -1,0 +1,84 @@
+@use "../globals/fonts" as f;
+@use "../globals/colors" as c;
+
+form {
+  > :not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  > p {
+    max-width: 100%;
+  }
+}
+
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+}
+
+label {
+  @include f.font-weight(700);
+
+  > input,
+  > textarea {
+    @include f.font-weight();
+    margin-top: 0.5rem;
+  }
+}
+
+input,
+textarea,
+button {
+  &:focus-visible {
+    outline: 3px solid c.get("accent");
+  }
+}
+
+input,
+textarea {
+  box-shadow: inset 0 0.125em 0 c.get("text-low-contrast");
+  border: 0.0625rem solid c.get("background-solid");
+  border-radius: 0.25rem;
+  padding: 0.625rem 0.5rem 0.5rem;
+  background-color: c.get("background");
+
+  &::placeholder {
+    font-style: italic;
+  }
+}
+
+textarea {
+  min-height: 10em;
+  max-height: 40em;
+  resize: vertical;
+}
+
+button {
+  border: 0.0625rem solid c.get("background-solid");
+  padding: 0.25rem 0.5rem;
+  border-bottom-width: 0.25rem;
+  border-radius: 0.25rem;
+  color: c.get("text-low-contrast");
+  background-color: c.get("background");
+  @include f.font-weight(700);
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: c.get("text-high-contrast");
+    border-color: c.get("text-high-contrast");
+  }
+}
+
+.button-accent {
+  border-color: c.get("accent");
+  color: c.get("accent");
+
+  &:hover,
+  &:active {
+    color: c.get("accent-hover");
+    border-color: c.get("accent-hover");
+  }
+}

@@ -1,5 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const { TableContainer } = require("../themes/crimson/shortcodes/shortcodes");
+const { TableContainer, Form, Input, Textarea } = require("../themes/crimson/shortcodes/shortcodes");
 
 function setupConfig(config, siteName, themeDir) {
     // compiling SASS files is not done by the SSG
@@ -19,6 +19,9 @@ function setupConfig(config, siteName, themeDir) {
     config.addPlugin(eleventyNavigationPlugin);
 
     config.addPairedShortcode("tablecontainer", TableContainer);
+    config.addPairedShortcode("form", Form);
+    config.addShortcode("input", Input);
+    config.addShortcode("textarea", Textarea);
 }
 
 function options(siteName, themeDir) {
