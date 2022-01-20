@@ -28,11 +28,11 @@
 
   > blockquote {
     background-color: c.get("background-element");
-    border-left: 0.5rem solid c.get("background-solid");
     padding: 1.25em 1.5em;
     font-style: italic;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    border-bottom: 0.25rem solid c.get("background-solid");
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
   }
 
   > table {
@@ -67,9 +67,9 @@
   video,
   canvas,
   svg {
-    border-left: 0.5rem solid c.get("background-solid");
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    border-bottom: 0.25rem solid c.get("background-solid");
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
   }
 
   a {
