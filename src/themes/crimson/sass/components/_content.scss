@@ -7,7 +7,8 @@
   > p,
   > pre,
   > table,
-  > ul {
+  > ul,
+  > .table-container {
     &:not(:last-child) {
       margin-bottom: 1em;
     }
@@ -35,7 +36,7 @@
     border-bottom-left-radius: 0.5rem;
   }
 
-  > table {
+  table {
     text-align: left;
     background-color: c.get("background-element");
     border-collapse: collapse;
@@ -60,6 +61,13 @@
     td {
       border-width: 0 0 1px;
     }
+  }
+
+  .table-container {
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    overflow-y: hidden;
+    max-width: 100%;
   }
 
   img,

@@ -1,4 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const { TableContainer } = require("../themes/crimson/shortcodes/shortcodes");
 
 function setupConfig(config, siteName, themeDir) {
     // compiling SASS files is not done by the SSG
@@ -16,6 +17,8 @@ function setupConfig(config, siteName, themeDir) {
     config.addPassthroughCopy("websites/**/*.png");
 
     config.addPlugin(eleventyNavigationPlugin);
+
+    config.addPairedShortcode("tablecontainer", TableContainer);
 }
 
 function options(siteName, themeDir) {
@@ -25,8 +28,9 @@ function options(siteName, themeDir) {
             output: "./_site/" + siteName,
             includes: "../../../" + themeDir,
             layouts: "../../../" + themeDir + "layouts",
-            data: "../data"
-        }
+            data: "../data",
+        },
+        markdownTemplateEngine: "njk"
     }
 }
 

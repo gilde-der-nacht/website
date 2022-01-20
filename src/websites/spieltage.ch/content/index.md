@@ -69,6 +69,8 @@ Man sieht aus welchen Blöcken eine Story zusammengesetzt ist. Selbst wenn daher
 
 # Weltenbau mit Rollenspielen
 
+{% tablecontainer %}
+
 | Spiel | Thematik | Weltenbau | Link |
 | ---: | :---: | --- | --- |
 | Microscope | Geschichte | ☆☆☆ | [lamemage.com](https://www.lamemage.com/microscope/) |
@@ -87,6 +89,8 @@ Man sieht aus welchen Blöcken eine Story zusammengesetzt ist. Selbst wenn daher
 | Beak Feather Bone | Karte | ☆☆ | [kickstarter.com](https://www.kickstarter.com/projects/1013756372/beak-feather-and-bone-a-map-labeling-rpg) |
 | Beyond the Wall | Dorf | ☆ | [system-matters.de](https://www.system-matters.de/spiele/beyond-the-wall/) |
 | Apocalypse World 2 | Welt | ☆ | [kickstarter.com](https://www.kickstarter.com/projects/lumpleygames/apocalypse-world-2nd-edition?lang=de) |
+
+{% endtablecontainer %}
 
 ☆☆☆: Die Mehrheit der Kapitel beschäftigt sich mit Weltenbau. Hat vereinzelt Rollenspielelemente.
 
