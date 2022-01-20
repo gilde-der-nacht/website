@@ -1,5 +1,9 @@
 ---
 layout: default
+eleventyNavigation:
+  key: index
+  title: Startseite
+  order: 1
 ---
 
 # Bedingungen

@@ -1,5 +1,9 @@
 ---
 layout: default
+eleventyNavigation:
+  key: index
+  title: Startseite
+  order: 1
 ---
 
 # Bedingungen
@@ -51,9 +55,9 @@ Lieben Dank
 
 _Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet ($)._
 
-![bild-01](./images/image-01.jpg)
+![bild-01](https://images.unsplash.com/photo-1642687171209-a5c4518b2f3e)
 
-![bild-02](./images/image-02.JPG)
+![bild-02](https://images.unsplash.com/photo-1642621358837-3b1198ac46b8)
 
 # Geschichten
 
@@ -65,9 +69,11 @@ Die Internetseite [tvtropes.org](https://tvtropes.org) selber ist eine Fundgrube
 
 Man sieht aus welchen Blöcken eine Story zusammengesetzt ist. Selbst wenn daher eine einzelne Story eher uninteressant ist, so kann man sich zumindest über einen möglichen Au
 
-![bild-02](./images/image-02.JPG)
+![bild-02](https://images.unsplash.com/photo-1642621358837-3b1198ac46b8)
 
 # Weltenbau mit Rollenspielen
+
+{% tablecontainer %}
 
 | Spiel | Thematik | Weltenbau | Link |
 | ---: | :---: | --- | --- |
@@ -87,6 +93,8 @@ Man sieht aus welchen Blöcken eine Story zusammengesetzt ist. Selbst wenn daher
 | Beak Feather Bone | Karte | ☆☆ | [kickstarter.com](https://www.kickstarter.com/projects/1013756372/beak-feather-and-bone-a-map-labeling-rpg) |
 | Beyond the Wall | Dorf | ☆ | [system-matters.de](https://www.system-matters.de/spiele/beyond-the-wall/) |
 | Apocalypse World 2 | Welt | ☆ | [kickstarter.com](https://www.kickstarter.com/projects/lumpleygames/apocalypse-world-2nd-edition?lang=de) |
+
+{% endtablecontainer %}
 
 ☆☆☆: Die Mehrheit der Kapitel beschäftigt sich mit Weltenbau. Hat vereinzelt Rollenspielelemente.
 
