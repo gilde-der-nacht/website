@@ -1,4 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const formatDate = require("../themes/crimson/filters/formatDate");
 const markdownLib = require("../themes/crimson/plugins/markdown");
 const { TableContainer, Form, Input, Textarea } = require("../themes/crimson/shortcodes/shortcodes");
 
@@ -25,6 +26,8 @@ function setupConfig(config, siteName, themeDir) {
     config.addPairedShortcode("form", Form);
     config.addShortcode("input", Input);
     config.addShortcode("textarea", Textarea);
+
+    config.addFilter("formatDate", formatDate);
 }
 
 function options(siteName, themeDir) {

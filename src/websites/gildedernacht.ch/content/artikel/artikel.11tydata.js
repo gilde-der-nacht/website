@@ -1,13 +1,24 @@
+const formatDate = require("../../../../themes/crimson/filters/formatDate");
+
 const isDevEnv = process.env.ELEVENTY_ENV === 'development';
+function isDraft(data) { return 'draft' in data && data.draft !== false; }
+function isFutureDate(data) { return 'date' in data ? data.date > todaysDate : data.page.date > todaysDate; }
 const todaysDate = new Date();
 function showDraft(data) {
-    const isDraft = 'draft' in data && data.draft !== false;
-    const isFutureDate = data.page.date > todaysDate;
-    return isDevEnv || (!isDraft && !isFutureDate);
+    return isDevEnv || (!isDraft(data) && !isFutureDate(data));
+}
+function formattedDate(data) {
+    if ("date" in data) {
+        return formatDate(data.date);
+    } else {
+        return formatDate(data.page.date);
+    }
 }
 
 module.exports = function () {
     return {
+        tags: "article",
+        layout: "default",
         eleventyComputed: {
             eleventyExcludeFromCollections: function (data) {
                 if (showDraft(data)) {
@@ -19,12 +30,15 @@ module.exports = function () {
             },
             permalink: function (data) {
                 if (showDraft(data)) {
-                    return "artikel/" + data.page.fileSlug + "/index.html"
+                    return "artikel/" + data.page.fileSlug + "/index.html";
                 }
                 else {
                     return false;
                 }
-            }
+            },
+            isDraft,
+            isFutureDate,
+            formattedDate
         }
     }
 }

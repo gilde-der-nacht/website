@@ -7,6 +7,14 @@ title: Artikel
 
 <ul>
     {%- for article in collections.article -%}
-    <li>{{ article.data.title }}</li>
+    <li>
+        <h2>{{ article.data.title }}</h2>
+        <ul>
+            <li class="{{'future-date' if article.data.isFutureDate}}">{{ article.data.formattedDate }}</li>
+            {% if article.data.isDraft %}
+            <li>Entwurf</li>
+            {% endif %}
+        </ul>
+    </li>
     {%- endfor -%}
 </ul>
