@@ -1,0 +1,12 @@
+---
+layout: default
+title: Artikel
+---
+
+<h1>Artikel</h1>
+
+<ul>
+    {%- for article in collections.article -%}
+    <li>{{ article.data.title }}</li>
+    {%- endfor -%}
+</ul>

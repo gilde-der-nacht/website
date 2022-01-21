@@ -6,6 +6,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-navigation": "^0.3.2",
+    "dotenv": "^14.2.0",
     "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-toc-done-right": "^4.2.0",
@@ -14,7 +15,7 @@
     "slugify": "^1.6.5"
   },
   "scripts": {
-    "dev": "npm-run-all --parallel dev:*",
+    "dev": "ELEVENTY_ENV=development npm-run-all --parallel dev:*",
     "dev:gdn": "npm-run-all --parallel dev:gdn:*",
     "dev:gdn:11ty": "eleventy --config=websites/gildedernacht.ch/config.js --port=1111 --serve",
     "dev:gdn:sass": "sass themes/crimson/sass/gildedernacht.ch.scss _site/gildedernacht.ch/style/style.css --watch",
@@ -25,6 +26,7 @@
     "dev:rst:11ty": "eleventy --config=websites/rollenspieltage.ch/config.js --port=1113 --serve",
     "dev:rst:sass": "sass themes/crimson/sass/rollenspieltage.ch.scss _site/rollenspieltage.ch/style/style.css --watch",
     "build": "npm-run-all --parallel build:*",
+    "build-dev": "ELEVENTY_ENV=development yarn build",
     "build:gdn": "npm-run-all --parallel build:gdn:*",
     "build:gdn:11ty": "eleventy --config=websites/gildedernacht.ch/config.js",
     "build:gdn:sass": "sass themes/crimson/sass/gildedernacht.ch.scss _site/gildedernacht.ch/style/style.css --style=compressed",
