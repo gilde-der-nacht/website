@@ -25,6 +25,12 @@
     &:not(:first-child) {
       margin-top: 1.15em;
     }
+
+    .header-anchor {
+      border: none;
+      border-radius: 0;
+      color: inherit;
+    }
   }
 
   > blockquote {
@@ -91,6 +97,12 @@
     &:hover,
     &:active {
       color: c.get("accent-hover");
+    }
+
+    &:focus {
+      color: c.get("accent-hover");
+      outline: 0.25rem solid c.get("accent-hover");
+      outline-offset: 0.125rem;
     }
   }
 }

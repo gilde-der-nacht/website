@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Kontakt
 eleventyNavigation:
   key: contact
   title: Kontakt

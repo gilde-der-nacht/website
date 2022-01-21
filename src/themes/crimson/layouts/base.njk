@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="de" dir="ltr">
+<html lang="{{ locale if locale else 'de' }}" dir="ltr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% if global.description %}
-            <meta name="description" content="{{ global.description }}">
-        {% endif %}
-        {% if global.keywords %}
-            <meta name="keywords" content="{{ global.keywords }}">
-        {% endif %}
-        <title>{{ (title + ' | ') if title }}{{global.siteName}}</title>
-        <link rel="stylesheet" href="/style/style.css">
-        <script src="https://kit.fontawesome.com/ed5a2d737b.js" crossorigin="anonymous"></script>
-        <script src="/scripts/script.js" type="module" defer></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if global.description %}
+    <meta name="description" content="{{ global.description }}">
+    {% endif %}
+    {% if global.keywords %}
+    <meta name="keywords" content="{{ global.keywords }}">
+    {% endif %}
+    <title>{{ (title + ' | ') if title }}{{ global.siteName }}</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="https://kit.fontawesome.com/ed5a2d737b.js" crossorigin="anonymous"></script>
+    <script src="/scripts/script.js" type="module" defer></script>
     </head>
 
-    <body {{ ('class=' + global.siteCode) if global.siteCode }}>
+<body {{ ('class=' + global.siteCode) if global.siteCode }}>
         {% include "./partials/header.njk" %}
         <main class="main-content content">
             {{ content | safe }}

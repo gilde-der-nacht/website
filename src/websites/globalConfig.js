@@ -1,4 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const markdownLib = require("../themes/crimson/plugins/markdown");
 const { TableContainer, Form, Input, Textarea } = require("../themes/crimson/shortcodes/shortcodes");
 
 function setupConfig(config, siteName, themeDir) {
@@ -6,10 +7,10 @@ function setupConfig(config, siteName, themeDir) {
     // but reload the browser, when CSS output changes
     config.ignores.add("**/*.scss");
     config.setBrowserSyncConfig({
-        files: "./_site/" + siteName + '/**/*.css'
+        files: "./_site/" + siteName + "/**/*.css"
     });
 
-    config.addLayoutAlias('default', 'base.njk');
+    config.addLayoutAlias("default", "base.njk");
     config.addPassthroughCopy({ [themeDir + "fonts"]: "fonts" });
     config.addPassthroughCopy({ [themeDir + "scripts"]: "scripts" });
     config.addPassthroughCopy({ [themeDir + "images"]: "images" });
@@ -17,6 +18,8 @@ function setupConfig(config, siteName, themeDir) {
     config.addPassthroughCopy("websites/**/*.png");
 
     config.addPlugin(eleventyNavigationPlugin);
+
+    config.setLibrary("md", markdownLib);
 
     config.addPairedShortcode("tablecontainer", TableContainer);
     config.addPairedShortcode("form", Form);

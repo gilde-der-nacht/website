@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Kontakt
 eleventyNavigation:
   key: contact
   title: Kontakt
@@ -17,3 +18,5 @@ Schreib uns doch was Nettes:
 {% textarea label="Nachricht", name="private-message" %}
 
 {% endform %}
+
+{% input label="Name", name="private-name" %}

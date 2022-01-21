@@ -2,6 +2,14 @@
 @use "../globals/variables" as var;
 @use "../globals/fonts" as f;
 
+$_top-offset: calc(1rem + var.$header-height);
+:target::before {
+  content: "";
+  display: block;
+  height: $_top-offset;
+  margin-top: -1 * $_top-offset;
+}
+
 .header {
   display: grid;
   grid-template-columns: max-content 1fr max-content;
