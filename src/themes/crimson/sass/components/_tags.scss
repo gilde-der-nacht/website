@@ -15,10 +15,10 @@
   border: 0.0625rem solid c.get("border-element");
   border-bottom: 0.125rem solid c.get("border-element");
   color: white;
-}
 
-.tag.special-case {
-  background-color: c.get("background");
-  border-color: c.get("accent");
-  color: c.get("text-high-contrast");
+  &.special-case {
+    background-color: c.get("background");
+    border-color: c.get("accent");
+    color: c.get("text-high-contrast");
+  }
 }
