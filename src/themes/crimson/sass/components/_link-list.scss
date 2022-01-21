@@ -1,0 +1,16 @@
+.link-list {
+  > li + li {
+    margin-top: 1rem;
+  }
+
+  h2 {
+    font-size: max(1rem, 0.75em);
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    border: none;
+    border-radius: 0;
+    color: inherit;
+  }
+}

@@ -1,0 +1,24 @@
+@use "../globals/colors" as c;
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.125em 0.75em;
+  white-space: nowrap;
+  font-size: 0.5em;
+  background-color: c.get("background-solid");
+  border-radius: 0.125rem;
+  border: 0.0625rem solid c.get("border-element");
+  border-bottom: 0.125rem solid c.get("border-element");
+  color: white;
+}
+
+.tag.special-case {
+  background-color: c.get("background");
+  border-color: c.get("accent");
+  color: c.get("text-high-contrast");
+}

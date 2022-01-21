@@ -5,14 +5,14 @@ title: Artikel
 
 <h1>Artikel</h1>
 
-<ul>
+<ul class="link-list" role="list">
     {%- for article in collections.article -%}
     <li>
-        <h2>{{ article.data.title }}</h2>
-        <ul>
-            <li class="{{'future-date' if article.data.isFutureDate}}">{{ article.data.formattedDate }}</li>
+        <h2><a href="{{article.data.page.url}}">{{ article.data.title }}</a></h2>
+        <ul class="tags" role="list">
+            <li class="tag {{'special-case' if article.data.isFutureDate}}">{{ article.data.formattedDate }}</li>
             {% if article.data.isDraft %}
-            <li>Entwurf</li>
+            <li class="tag special-case">Entwurf</li>
             {% endif %}
         </ul>
     </li>
