@@ -1,4 +1,4 @@
-const formatDate = require("../../../../themes/crimson/filters/formatDate");
+const { formatJSDate } = require("../../../../themes/crimson/filters/formatDate");
 
 const isDevEnv = process.env.ELEVENTY_ENV === 'development';
 function isDraft(data) { return 'draft' in data && data.draft !== false; }
@@ -9,9 +9,9 @@ function showDraft(data) {
 }
 function formattedDate(data) {
     if ("date" in data) {
-        return formatDate(data.date);
+        return formatJSDate(data.date);
     } else {
-        return formatDate(data.page.date);
+        return formatJSDate(data.page.date);
     }
 }
 

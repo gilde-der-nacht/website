@@ -1,7 +1,6 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const formatDate = require("../themes/crimson/filters/formatDate");
 const markdownLib = require("../themes/crimson/plugins/markdown");
-const { TableContainer, Form, Input, Textarea } = require("../themes/crimson/shortcodes/shortcodes");
+const { TableContainer, Form, Input, Textarea, EventList } = require("../themes/crimson/shortcodes/shortcodes");
 
 function setupConfig(config, siteName, themeDir) {
     // compiling SASS files is not done by the SSG
@@ -26,8 +25,7 @@ function setupConfig(config, siteName, themeDir) {
     config.addPairedShortcode("form", Form);
     config.addShortcode("input", Input);
     config.addShortcode("textarea", Textarea);
-
-    config.addFilter("formatDate", formatDate);
+    config.addShortcode("eventList", EventList);
 }
 
 function options(siteName, themeDir) {

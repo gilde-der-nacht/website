@@ -10,4 +10,4 @@ Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und 
 
 # Kalender
 
-< calendar >}}
+{% eventList events=(calendar.items) %}
