@@ -1,6 +1,13 @@
-FROM alpine:3
+FROM node:16-slim
 
-RUN apk add --update --no-cache\
-    git\
-    nodejs\
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt update
+
+RUN apt install -y \
+    git \
+    nodejs \
     yarn
+
+RUN rm -rf /var/lib/apt/lists/* \
+    && apt clean
