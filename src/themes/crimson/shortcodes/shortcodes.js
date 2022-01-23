@@ -3,9 +3,9 @@ const { formatISODate, formatISODateTime } = require("../filters/formatDate");
 const markdownLib = require("../plugins/markdown");
 
 function html(strings, ...expr) {
-    return strings.reduce((acc, curr, i) => {
-        return acc + curr + (expr[i] ? expr[i] : "");
-    }, "").replace(/\n\s+?/g, "");
+    return strings
+        .reduce((acc, curr, i) => acc + expr[i - 1] + curr)
+        .replace(/\n\s+?/g, "");
 }
 
 function TableContainer(content) {
@@ -24,7 +24,7 @@ function Form(content, { uid }) {
 function Input({ label, name, type }) {
     return html`
 <label>${label}
-    <input type="${type ? type : 'text'}" name="${name}" placeholder="${label}" required></input>
+    <input type="${type ? type : 'text'}" name="${name}" placeholder="${label}" required/>
 </label>
     `;
 }
