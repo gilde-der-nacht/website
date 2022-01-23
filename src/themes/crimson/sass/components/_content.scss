@@ -34,10 +34,10 @@
   }
 
   > blockquote {
-    background-color: c.get("background-element");
+    background-color: c.get("background-solid");
     padding: 1.25em 1.5em;
     font-style: italic;
-    border-bottom: 0.25rem solid c.get("background-solid");
+    border-bottom: 0.25rem solid c.get("accent");
     border-bottom-right-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
   }
@@ -103,6 +103,25 @@
       color: c.get("accent-hover");
       outline: 0.25rem solid c.get("accent-hover");
       outline-offset: 0.125rem;
+    }
+  }
+
+  > blockquote,
+  > dl,
+  > ol,
+  > p,
+  > pre,
+  > table,
+  > ul {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: -0.5rem;
+      opacity: 0.75;
+      background-color: c.get("background-subtle");
     }
   }
 }

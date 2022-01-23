@@ -18,6 +18,7 @@ $_top-offset: calc(1rem + var.$header-height);
   height: var.$header-height;
   border-bottom: 0.25rem solid c.get("border-subtle");
   position: sticky;
+  z-index: 10;
   top: 0;
   overflow: hidden;
 }
