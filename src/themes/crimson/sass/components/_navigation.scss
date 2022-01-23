@@ -62,5 +62,10 @@
         opacity: 1;
       }
     }
+
+    &:focus-visible {
+      outline: 3px solid c.get("accent");
+      outline-offset: 0.25rem;
+    }
   }
 }

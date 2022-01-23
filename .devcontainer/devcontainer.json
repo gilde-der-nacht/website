@@ -1,6 +1,7 @@
 {
-    "name": "Gilde der Nacht: Webseiten",
-    "build": {
-        "dockerfile": "./Dockerfile"
-    }
+  "name": "Gilde der Nacht: Webseiten",
+  "build": {
+    "dockerfile": "./Dockerfile"
+  },
+  "extensions": ["esbenp.prettier-vscode"]
 }

@@ -1,6 +1,7 @@
 @use "../globals/colors" as c;
+@use "../globals/patterns" as p;
 
-.content {
+:where(.content) {
   > blockquote,
   > dl,
   > ol,
@@ -25,21 +26,12 @@
     &:not(:first-child) {
       margin-top: 1.15em;
     }
-
-    .header-anchor {
-      border: none;
-      border-radius: 0;
-      color: inherit;
-    }
   }
 
   > blockquote {
-    background-color: c.get("background-solid");
+    @include p.element;
     padding: 1.25em 1.5em;
     font-style: italic;
-    border-bottom: 0.25rem solid c.get("accent");
-    border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
   }
 
   table {
@@ -67,6 +59,10 @@
     td {
       border-width: 0 0 1px;
     }
+
+    tr:last-child td {
+      border-width: 0;
+    }
   }
 
   .table-container {
@@ -81,29 +77,24 @@
   video,
   canvas,
   svg:not([data-icon]) {
+    @include p.element;
     border-bottom: 0.25rem solid c.get("background-solid");
     border-bottom-right-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
   }
 
   a {
+    @include p.link;
     text-decoration: none;
-    color: c.get("accent");
-    border-bottom: 0.125rem solid currentColor;
-    border-bottom-left-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-    padding-inline: 0.25rem;
+  }
 
-    &:hover,
-    &:active {
-      color: c.get("accent-hover");
-    }
-
-    &:focus {
-      color: c.get("accent-hover");
-      outline: 0.25rem solid c.get("accent-hover");
-      outline-offset: 0.125rem;
-    }
+  .header-anchor,
+  .event-icon,
+  .event-tag,
+  .event-link {
+    border: none;
+    border-radius: 0;
+    padding: 0;
   }
 
   > blockquote,
@@ -124,5 +115,9 @@
       opacity: 0.75;
       background-color: c.get("background-subtle");
     }
+  }
+
+  .header-anchor {
+    color: inherit;
   }
 }

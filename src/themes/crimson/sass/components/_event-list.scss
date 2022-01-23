@@ -1,0 +1,71 @@
+@use "../globals/patterns" as p;
+@use "../globals/colors" as c;
+
+.event-list {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2.5rem;
+}
+
+.event-entry {
+  @include p.element;
+  padding: 1.25em 1.5em 0;
+  font-size: 0.6rem;
+  max-width: 100%;
+  display: grid;
+  grid-template-rows: max-content max-content 1fr max-content;
+  gap: 0.5rem;
+}
+
+.event-details,
+.event-tag,
+.event-link {
+  font-size: 0.83rem;
+}
+
+.event-date,
+.event-location,
+.event-tags,
+.event-tags ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.event-tags li {
+  display: contents;
+}
+
+.event-details svg {
+  color: c.get("text-low-contrast");
+}
+
+.event-links {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.event-link {
+  display: block;
+  padding: 0.25rem 0.5rem;
+  border: 0.0625rem solid c.get("border-element");
+  border-bottom-width: 0;
+  border-top-width: 0.25rem;
+
+  &:hover,
+  &:active {
+    color: c.get("accent-hover");
+    border-color: c.get("border-element-hover");
+  }
+
+  &:focus {
+    color: c.get("accent-hover");
+    outline: 0.25rem solid c.get("accent-hover");
+    outline-offset: 0.125rem;
+  }
+}

@@ -1,5 +1,6 @@
 @use "../globals/fonts" as f;
 @use "../globals/colors" as c;
+@use "../globals/patterns" as p;
 
 form {
   > :not(:last-child) {
@@ -29,20 +30,8 @@ label {
 }
 
 input,
-textarea,
-button {
-  &:focus-visible {
-    outline: 3px solid c.get("accent");
-  }
-}
-
-input,
 textarea {
-  box-shadow: inset 0 0.125em 0 c.get("text-low-contrast");
-  border: 0.0625rem solid c.get("background-solid");
-  border-radius: 0.25rem;
-  padding: 0.625rem 0.5rem 0.5rem;
-  background-color: c.get("background");
+  @include p.input;
 
   &::placeholder {
     font-style: italic;
@@ -56,20 +45,14 @@ textarea {
 }
 
 button {
-  border: 0.0625rem solid c.get("background-solid");
   padding: 0.25rem 0.5rem;
-  border-bottom-width: 0.25rem;
-  border-radius: 0.25rem;
-  color: c.get("text-low-contrast");
-  background-color: c.get("background");
+  @include p.button;
   @include f.font-weight(700);
-  cursor: pointer;
+}
 
-  &:hover,
-  &:active {
-    color: c.get("text-high-contrast");
-    border-color: c.get("text-high-contrast");
-  }
+.button {
+  @include p.button;
+  padding: 0.5rem 1rem;
 }
 
 .button-accent {

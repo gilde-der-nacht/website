@@ -9,7 +9,7 @@ function html(strings, ...expr) {
 }
 
 function TableContainer(content) {
-    return html`<div class="table-container">${content}</div>`;
+    return html`<div class="table-container">${markdownLib.render(content)}</div>`;
 }
 
 function Form(content, { uid }) {
@@ -39,34 +39,34 @@ function Textarea({ label, name }) {
 
 function EventEntry(event) {
     function renderDate(event) {
-        const icon = `<a href="${event.links.googleCalendar}"><i class="fa-duotone fa-calendar-range"></i></a>`;
+        const icon = `<a href="${event.links.googleCalendar}" class="event-icon"><i class="fa-duotone fa-calendar-range"></i></a>`;
         if (event.isFullDay && event.isMultipleDays) {
-            return html`<p>${icon} ${formatISODate(event.startDate)} bis ${formatISODate(event.endDate)}</p>`;
+            return html`<div class="event-date">${icon}${formatISODate(event.startDate)} bis ${formatISODate(event.endDate)}</div>`;
         } else if (event.isFullDay) {
-            return html`<p>${icon} ${formatISODate(event.startDate)}</p>`;
+            return html`<div class="event-date">${icon}${formatISODate(event.startDate)}</div>`;
         } else if (event.isMultipleDays) {
-            return html`<p>${icon} ${formatISODateTime(event.startDate)} bis ${formatISODateTime(event.endDate)}</p>`;
+            return html`<div class="event-date">${icon}${formatISODateTime(event.startDate)} bis ${formatISODateTime(event.endDate)}</div>`;
         } else {
-            return html`<p>${icon} ${formatISODateTime(event.startDate)}</p>`;
+            return html`<div class="event-date">${icon}${formatISODateTime(event.startDate)}</div>`;
         }
     }
 
     function renderLocation(event) {
         return html`
-            <p>
-                <a href="${event.links.googleMaps}"><i class="fa-duotone fa-location-dot"></i></a>
+            <div class="event-location">
+                <a href="${event.links.googleMaps}" class="event-icon"><i class="fa-duotone fa-location-dot"></i></a>
                 ${event.location}
-            </p>
+            </div>
         `;
     }
 
     function renderTags(event) {
         return html`
-            <div>
+            <div class="event-tags">
                 <i class="fa-duotone fa-tags"></i>
-                <ul role="list" class="event-links">
-                <li><a href="?tag=tag1">tag1</a></li>
-                <li><a href="?tag=tag2">tag2</a></li>
+                <ul role="list">
+                <li><a href="?tag=tag1" class="event-tag">tag1</a></li>
+                <li><a href="?tag=tag2" class="event-tag">tag2</a></li>
                 </ul>
             </div>
         `;
@@ -75,30 +75,35 @@ function EventEntry(event) {
     function renderLinks(event) {
         return html`
             <ul role="list" class="event-links">
-                <li><a href="">some links</a></li>
-                <li><a href="">some other links</a></li>
+                <li><a href="" class="event-link">some links</a></li>
+                <li><a href="" class="event-link">some other links</a></li>
             </ul>
         `;
     }
 
     return html`
         <li class="event-entry">
-            <h1>${event.title}</h1>
-            ${renderDate(event)}
-            ${renderLocation(event)}
-            ${renderTags(event)}
-            <p>${event.description ? markdownLib.render(event.description) : ""}</p>
+            <h1 class="event-title">${event.title}</h1>
+            <div class="event-details">
+                ${renderDate(event)}
+                ${renderLocation(event)}
+                ${renderTags(event)}
+            </div>
+            <div class="event-description">
+                ${event.description ? markdownLib.render(event.description) : ""}
+            </div>
             ${renderLinks(event)}
         </li>
     `;
 }
 
 function EventList({ events }) {
-    function cleanUpGoogleEvent({ htmlLink: link, summary: title, description, location, start, end }) {
+    function cleanUpGoogleEvent({ htmlLink: link, summary: title, description, location: loc, start, end }) {
         const startDate = DateTime.fromISO("dateTime" in start ? start.dateTime : start.date);
         const endDate = DateTime.fromISO("dateTime" in end ? end.dateTime : end.date);
         const isFullDay = "date" in start;
         const isMultipleDays = !startDate.hasSame(endDate, "day");
+        const location = loc.split(",")[0];
         const e = { title, description, location, links: { googleCalendar: link }, startDate, endDate, isFullDay, isMultipleDays };
         if (isFullDay) {
             e.endDate = DateTime.fromISO(e.endDate).minus({ seconds: 1 });
