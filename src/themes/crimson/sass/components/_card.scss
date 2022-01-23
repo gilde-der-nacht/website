@@ -1,0 +1,11 @@
+@use "../globals/patterns" as p;
+@use "../globals/colors" as c;
+
+.card {
+  @include p.element;
+  padding: 0.25rem 0.5rem;
+
+  &.info {
+      border-color: c.get("accent");
+  }
+}

@@ -1,4 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const { formatJSDate } = require("../themes/crimson/filters/formatDate");
 const markdownLib = require("../themes/crimson/plugins/markdown");
 const { TableContainer, Form, Input, Textarea, EventList } = require("../themes/crimson/shortcodes/shortcodes");
 
@@ -16,8 +17,11 @@ function setupConfig(config, siteName, themeDir) {
     config.addPassthroughCopy({ [themeDir + "images"]: "images" });
     config.addPassthroughCopy("websites/**/*.jpg");
     config.addPassthroughCopy("websites/**/*.png");
+    config.addPassthroughCopy("websites/**/*.glb");
 
     config.addPlugin(eleventyNavigationPlugin);
+
+    config.addFilter("formatJSDate", formatJSDate);
 
     config.setLibrary("md", markdownLib);
 

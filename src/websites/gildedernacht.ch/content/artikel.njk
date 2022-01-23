@@ -6,7 +6,7 @@ title: Artikel
 <h1>Artikel</h1>
 
 <ul class="link-list" role="list">
-    {%- for article in collections.article -%}
+    {%- for article in collections.article | reverse -%}
     <li>
         <h2><a href="{{article.data.page.url}}">{{ article.data.title }}</a></h2>
         <ul class="tags" role="list">

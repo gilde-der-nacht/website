@@ -16,5 +16,7 @@ const markdownLib = markdownIt({
         strict: true,
         locale: 'de'
     })
-}).use(markdownItTocDoneRight);
+}).use(markdownItTocDoneRight, {
+    level: 2
+});
 module.exports = markdownLib;

@@ -2,7 +2,7 @@
 
 @mixin element {
   background-color: c.get("background-element");
-  border: 0.0625rem solid c.get("border-element");
+  border: 0.125rem solid c.get("border-element");
   border-bottom-width: 0.25rem;
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
@@ -63,4 +63,12 @@
     outline: 3px solid c.get("accent");
     outline-offset: 0.25rem;
   }
+}
+
+@mixin tag {
+  background-color: c.get("background-solid");
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border: 0.0625rem solid c.get("border-element");
+  border-bottom: 0.125rem solid c.get("border-element");
 }

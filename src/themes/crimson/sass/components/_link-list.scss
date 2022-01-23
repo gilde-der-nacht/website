@@ -1,10 +1,13 @@
 .link-list {
+  li {
+    font-size: 0.9em;
+  }
+
   > li + li {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 
   h2 {
-    font-size: max(1rem, 0.75em);
     margin-bottom: 0.5rem;
   }
 
@@ -12,5 +15,6 @@
     border: none;
     border-radius: 0;
     color: inherit;
+    padding: 0;
   }
 }
