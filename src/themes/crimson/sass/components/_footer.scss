@@ -13,8 +13,4 @@
   color: white;
   font-style: italic;
   margin-inline: auto;
-
-  &::selection {
-    background-color: c.get("background");
-  }
 }

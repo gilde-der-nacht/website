@@ -59,7 +59,7 @@ body.rst {
 }
 
 ::selection {
-  background-color: c.get("background-solid");
+  background-color: c.get("accent");
   color: white;
 }
 
