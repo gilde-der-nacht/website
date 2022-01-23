@@ -5,7 +5,7 @@ const markdownLib = require("../plugins/markdown");
 function html(strings, ...expr) {
     return strings
         .reduce((acc, curr, i) => acc + expr[i - 1] + curr)
-        .replace(/\n\s+?/g, "");
+        .replace(/\n\s*/g, "");
 }
 
 function TableContainer(content) {
@@ -14,26 +14,26 @@ function TableContainer(content) {
 
 function Form(content, { uid }) {
     return html`
-<form action="https://api.gildedernacht.ch/form/${uid}" method="POST">
-    ${content}
-    <button type="submit" class="button-accent">Absenden</button>
-</form>
+        <form action="https://api.gildedernacht.ch/form/${uid}" method="POST">
+            ${content}
+            <button type="submit" class="button-accent">Absenden</button>
+        </form>
   `;
 }
 
 function Input({ label, name, type }) {
     return html`
-<label>${label}
-    <input type="${type ? type : 'text'}" name="${name}" placeholder="${label}" required/>
-</label>
+        <label>${label}
+            <input type="${type ? type : 'text'}" name="${name}" placeholder="${label}" required/>
+        </label>
     `;
 }
 
 function Textarea({ label, name }) {
     return html`
-<label>${label}
-    <textarea type="text" name="${name}" placeholder="${label}" required></textarea>
-</label>
+        <label>${label}
+            <textarea type="text" name="${name}" placeholder="${label}" required></textarea>
+        </label>
     `;
 }
 
@@ -113,7 +113,14 @@ function EventList({ events }) {
         return DateTime.fromISO(a.startDate) - DateTime.fromISO(b.startDate);
     }
 
-    return html`<ul class="event-list" role="list">${events.map(cleanUpGoogleEvent).sort(sortByStartDate).map(EventEntry).join("")}</ul>`;
+    return html`
+        <ul class="event-list" role="list">
+            ${events.map(cleanUpGoogleEvent)
+            .sort(sortByStartDate)
+            .map(EventEntry)
+            .join("")}
+        </ul>
+    `;
 }
 
 module.exports = { TableContainer, Form, Input, Textarea, EventList };
