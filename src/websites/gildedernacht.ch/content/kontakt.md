@@ -18,5 +18,3 @@ Schreib uns doch was Nettes:
 {% textarea label="Nachricht", name="private-message" %}
 
 {% endform %}
-
-{% input label="Name", name="private-name" %}

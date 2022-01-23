@@ -80,7 +80,7 @@
   picture,
   video,
   canvas,
-  svg {
+  svg:not([data-icon]) {
     border-bottom: 0.25rem solid c.get("background-solid");
     border-bottom-right-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;

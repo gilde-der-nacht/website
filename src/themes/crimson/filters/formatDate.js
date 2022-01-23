@@ -8,4 +8,8 @@ function formatISODate(dateString) {
     return DateTime.fromISO(dateString).setLocale("de").toLocaleString(DateTime.DATE_FULL);
 }
 
-module.exports = { formatJSDate, formatISODate };
+function formatISODateTime(dateString) {
+    return DateTime.fromISO(dateString).setLocale("de").setZone("CET").toLocaleString(DateTime.DATETIME_MED);
+}
+
+module.exports = { formatJSDate, formatISODate, formatISODateTime };
