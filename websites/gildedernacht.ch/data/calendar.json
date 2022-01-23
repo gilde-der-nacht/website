@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p334elu74k6rva0g\"",
+ "etag": "\"p32ke9lf3or3fa0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-01-16T21:56:44.317Z",
+ "updated": "2022-01-22T23:52:09.833Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CMjq-OSht_UCEAAYASDvu_LIAQ==",
+ "nextSyncToken": "CKjk1ePGxvUCEAAYASDvu_LIAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -248,36 +248,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3282434490316000\"",
-   "id": "1o6ui04hsetjm0dc1gd7gepa4u",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-01-03T13:40:45.000Z",
-   "updated": "2022-01-03T13:40:45.158Z",
-   "summary": "Spielwochenende im Museum",
-   "description": "Verteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunde Platz, lass dir ein Spiel erklären und los geht's!",
-   "location": "Museum of Communication, Helvetiastrasse 16, 3000 Bern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-10-22T10:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-10-23T17:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3282744455642000\"",
    "id": "4fbh3lg3ugocoufju0qngfo44k",
    "status": "confirmed",
@@ -391,6 +361,34 @@
     "date": "2022-02-14"
    },
    "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
+   "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3285791059666000\"",
+   "id": "1o6ui04hsetjm0dc1gd7gepa4u",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-01-03T13:40:45.000Z",
+   "updated": "2022-01-22T23:52:09.833Z",
+   "summary": "Spielwochenende im Museum",
+   "description": "Verteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunde Platz, lass dir ein Spiel erklären und los geht's!",
+   "location": "Museum of Communication, Helvetiastrasse 16, 3000 Bern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-10-22"
+   },
+   "end": {
+    "date": "2022-10-24"
+   },
+   "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
    "sequence": 1,
    "eventType": "default"
   }
