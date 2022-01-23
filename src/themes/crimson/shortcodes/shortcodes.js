@@ -4,8 +4,8 @@ const markdownLib = require("../plugins/markdown");
 
 function html(strings, ...expr) {
     return strings.reduce((acc, curr, i) => {
-        return acc + curr.replace(/\n\s+?/g, "") + (expr[i] ? expr[i] : "");
-    }, "");
+        return acc + curr + (expr[i] ? expr[i] : "");
+    }, "").replace(/\n\s+?/g, "");
 }
 
 function TableContainer(content) {
@@ -65,8 +65,8 @@ function EventEntry(event) {
             <div>
                 <i class="fa-duotone fa-tags"></i>
                 <ul role="list" class="event-links">
-                <li><a href="">tag1</a></li>
-                <li><a href="">tag2</a></li>
+                <li><a href="?tag=tag1">tag1</a></li>
+                <li><a href="?tag=tag2">tag2</a></li>
                 </ul>
             </div>
         `;
