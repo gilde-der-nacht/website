@@ -1,20 +1,20 @@
 const { DateTime } = require("luxon");
 var sanitizeHtml = require("sanitize-html");
 
-function removeLineBreaks(str) {
+function removeLineBreaksAtTheEnd(str) {
     const trimmed = str.trim();
     if (trimmed.endsWith("<br \/>")) {
         const removedOnce = trimmed.replace(/<br \/>$/, "");
-        return removeLineBreaks(removedOnce);
+        return removeLineBreaksAtTheEnd(removedOnce);
     } else if (trimmed.endsWith("\n")) {
         const removedOnce = trimmed.replace(/\n$/, "");
-        return removeLineBreaks(removedOnce);
+        return removeLineBreaksAtTheEnd(removedOnce);
     }
     return trimmed;
 }
 
 function sanitize(str) {
-    return removeLineBreaks(
+    return removeLineBreaksAtTheEnd(
         sanitizeHtml(str, {
             allowedTags: ["br"],
             allowedAttributes: {}
