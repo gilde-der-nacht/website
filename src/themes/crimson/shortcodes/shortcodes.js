@@ -63,7 +63,9 @@ function EventEntry(event) {
     function renderTags(event) {
         return html`
             <div class="event-tags">
-                <i class="fa-duotone fa-tags"></i>
+                <div class="event-icon">
+                    <i class="fa-duotone fa-tags"></i>
+                </div>
                 <ul role="list">
                 <li><a href="?tag=tag1" class="event-tag">tag1</a></li>
                 <li><a href="?tag=tag2" class="event-tag">tag2</a></li>
