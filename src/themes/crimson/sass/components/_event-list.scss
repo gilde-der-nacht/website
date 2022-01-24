@@ -52,7 +52,6 @@
   gap: 0.25rem;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 1rem;
   max-width: 100%;
 }
 
@@ -78,4 +77,13 @@
 
 .event-icon {
   width: 1em;
+}
+
+.event-description {
+  color: c.get("text-low-contrast");
+  padding-block: 1rem 1.25rem;
+
+  p + p {
+    margin-top: 0.5rem;
+  }
 }
