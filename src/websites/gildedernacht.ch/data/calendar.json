@@ -1,398 +1,368 @@
 {
     "kind": "calendar#events",
-    "etag": "\"p334elu74k6rva0g\"",
+    "etag": "\"p33ca9udalj5va0g\"",
     "summary": "Gilde der Nacht",
     "description": "Spielanlässe",
-    "updated": "2022-01-16T21:56:44.317Z",
+    "updated": "2022-01-24T21:37:10.247Z",
     "timeZone": "Europe/Zurich",
     "accessRole": "reader",
     "defaultReminders": [],
-    "nextSyncToken": "CMjq-OSht_UCEAAYASDvu_LIAQ==",
+    "nextSyncToken": "CNik-aqsy_UCEAAYASDvu_LIAQ==",
     "items": [
-        {
-            "kind": "calendar#event",
-            "etag": "\"3266867365936000\"",
-            "id": "0k44iakcha9s7abip0tvrthsve",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=MGs0NGlha2NoYTlzN2FiaXAwdHZydGhzdmUgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-10-05T08:45:39.000Z",
-            "updated": "2021-10-05T11:34:42.968Z",
-            "summary": "Luzerner Rollenspieltage 2022",
-            "description": "Mehr Infos unter:\\\n[www.rollenspieltage.ch](https://rollenspieltage.ch/)",
-            "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "date": "2022-08-27"
-            },
-            "end": {
-                "date": "2022-08-29"
-            },
-            "transparency": "transparent",
-            "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
-            "sequence": 2,
-            "eventType": "default"
+    {
+        "kind": "calendar#event",
+        "etag": "\"3266867365936000\"",
+        "id": "0k44iakcha9s7abip0tvrthsve",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=MGs0NGlha2NoYTlzN2FiaXAwdHZydGhzdmUgZ2lsZGVkZXJuYWNodEBt",
+        "created": "2021-10-05T08:45:39.000Z",
+        "updated": "2021-10-05T11:34:42.968Z",
+        "summary": "Luzerner Rollenspieltage 2022",
+        "description": "Mehr Infos unter:\\\n[www.rollenspieltage.ch](https://rollenspieltage.ch/)",
+        "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
+        "creator": {
+            "email": "nimboline@gmail.com"
         },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3267903828586000\"",
-            "id": "245jl30ehk8qtr9s0gcm466hgr",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=MjQ1amwzMGVoazhxdHI5czBnY200NjZoZ3IgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-10-11T11:31:54.000Z",
-            "updated": "2021-10-11T11:31:54.293Z",
-            "summary": "Luzerner Spieltage 2022",
-            "description": "Mehr Infos unter:\\\n[www.spieltage.ch](https://spieltage.ch/)",
-            "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "date": "2022-03-12"
-            },
-            "end": {
-                "date": "2022-03-14"
-            },
-            "transparency": "transparent",
-            "iCalUID": "245jl30ehk8qtr9s0gcm466hgr@google.com",
-            "sequence": 0,
-            "eventType": "default"
+        "organizer": {
+            "email": "gildedernacht@gmail.com",
+            "self": true
         },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3269181695766000\"",
-            "id": "1eu2st8b3tbooj826dqo01lj4e",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=MWV1MnN0OGIzdGJvb2o4MjZkcW8wMWxqNGUgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-10-18T21:00:47.000Z",
-            "updated": "2021-10-18T21:00:47.883Z",
-            "summary": "Spiele-Tag im Neubad",
-            "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
-            "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-03-27T12:00:00+02:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-03-27T18:00:00+02:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "1eu2st8b3tbooj826dqo01lj4e@google.com",
-            "sequence": 0,
-            "eventType": "default"
+        "start": {
+            "date": "2022-08-27"
         },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3269181752142000\"",
-            "id": "712hninpn6lq1sjp055lq7muop",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=NzEyaG5pbnBuNmxxMXNqcDA1NWxxN211b3AgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-10-18T21:01:16.000Z",
-            "updated": "2021-10-18T21:01:16.071Z",
-            "summary": "Spiele-Tag im Neubad",
-            "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
-            "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-04-10T12:00:00+02:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-04-10T18:00:00+02:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "712hninpn6lq1sjp055lq7muop@google.com",
-            "sequence": 0,
-            "eventType": "default"
+        "end": {
+            "date": "2022-08-29"
         },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3269181782628000\"",
-            "id": "6ldcrpnh96j71v19uh15kiufmh",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=NmxkY3Jwbmg5Nmo3MXYxOXVoMTVraXVmbWggZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-10-18T21:01:31.000Z",
-            "updated": "2021-10-18T21:01:31.314Z",
-            "summary": "Spiele-Tag im Neubad",
-            "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
-            "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-05-22T12:00:00+02:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-05-22T18:00:00+02:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "6ldcrpnh96j71v19uh15kiufmh@google.com",
-            "sequence": 0,
-            "eventType": "default"
-        },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3278661122594000\"",
-            "id": "60hnbnem2dl8smgoec2omdscaf",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=NjBobmJuZW0yZGw4c21nb2VjMm9tZHNjYWYgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-12-12T17:36:01.000Z",
-            "updated": "2021-12-12T17:36:01.297Z",
-            "summary": "Spieltreffen",
-            "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-02-05T14:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-02-05T22:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "60hnbnem2dl8smgoec2omdscaf@google.com",
-            "sequence": 0,
-            "eventType": "default"
-        },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3278661151966000\"",
-            "id": "4j2i63r9o7qaqgv2sr6l2stdqb",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=NGoyaTYzcjlvN3FhcWd2MnNyNmwyc3RkcWIgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-12-12T17:36:15.000Z",
-            "updated": "2021-12-12T17:36:15.983Z",
-            "summary": "Spieltreffen",
-            "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-03-05T14:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-03-05T22:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "4j2i63r9o7qaqgv2sr6l2stdqb@google.com",
-            "sequence": 0,
-            "eventType": "default"
-        },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3278661577864000\"",
-            "id": "3dr12u75gtkclh3g3icljnms6k",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=M2RyMTJ1NzVndGtjbGgzZzNpY2xqbm1zNmsgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-12-12T17:39:48.000Z",
-            "updated": "2021-12-12T17:39:48.932Z",
-            "summary": "Game Jam (Gesellschaftsspiel)",
-            "description": "Fortsetzung des Game Jam der Gilde der Nacht. \n \nWarst du bei der ersten Ausgabe nicht dabei, melde dich doch im Vorfeld bei uns, damit wir dich auf den aktuellsten Stand bringen können.",
-            "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-01-30T14:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-01-30T22:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "transparency": "transparent",
-            "iCalUID": "3dr12u75gtkclh3g3icljnms6k@google.com",
-            "sequence": 0,
-            "eventType": "default"
-        },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3282434490316000\"",
-            "id": "1o6ui04hsetjm0dc1gd7gepa4u",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2022-01-03T13:40:45.000Z",
-            "updated": "2022-01-03T13:40:45.158Z",
-            "summary": "Spielwochenende im Museum",
-            "description": "Verteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunde Platz, lass dir ein Spiel erklären und los geht's!",
-            "location": "Museum of Communication, Helvetiastrasse 16, 3000 Bern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-10-22T10:00:00+02:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-10-23T17:00:00+02:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
-            "sequence": 0,
-            "eventType": "default"
-        },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3282744455642000\"",
-            "id": "4fbh3lg3ugocoufju0qngfo44k",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=NGZiaDNsZzN1Z29jb3VmanUwcW5nZm80NGsgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2022-01-05T08:43:47.000Z",
-            "updated": "2022-01-05T08:43:47.821Z",
-            "summary": "Rollenspiel-Stammtisch",
-            "description": "Diskussionsstarter: **«Initiative»**",
-            "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-02-04T19:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-02-04T22:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "4fbh3lg3ugocoufju0qngfo44k@google.com",
-            "sequence": 0,
-            "eventType": "default"
-        },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3282744504832000\"",
-            "id": "0h5im4brsbvdpta3pqnqg4sc9k",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=MGg1aW00YnJzYnZkcHRhM3BxbnFnNHNjOWsgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2022-01-05T08:44:12.000Z",
-            "updated": "2022-01-05T08:44:12.416Z",
-            "summary": "[Online] Rollenspiel-Stammtisch",
-            "description": "Diskussionsstarter: **«Zeit»**\n\nDer Stammtisch findet auf unserer Online-Plattform, Discord, statt.\n[Über diesen Link kannst du teilnehmen.](https://chat.gildedernacht.ch)",
-            "location": "Discord",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-03-04T19:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-03-04T22:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "0h5im4brsbvdpta3pqnqg4sc9k@google.com",
-            "sequence": 0,
-            "eventType": "default"
-        },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3283993684208000\"",
-            "id": "4h3kmsdf1rah3e0i3qrp70o41g",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=NGgza21zZGYxcmFoM2UwaTNxcnA3MG80MWcgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-10-18T21:00:04.000Z",
-            "updated": "2022-01-12T14:14:02.104Z",
-            "summary": "ABGESAGT! Spiele-Tag im Neubad",
-            "description": "\u003cspan\u003eDer Event wurde wegen aktueller Corona-Situation abgesagt.\u003c/span\u003e",
-            "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "dateTime": "2022-01-23T12:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "end": {
-                "dateTime": "2022-01-23T18:00:00+01:00",
-                "timeZone": "Europe/Zurich"
-            },
-            "iCalUID": "4h3kmsdf1rah3e0i3qrp70o41g@google.com",
-            "sequence": 0,
-            "eventType": "default"
-        },
-        {
-            "kind": "calendar#event",
-            "etag": "\"3284740408634000\"",
-            "id": "272supnprt3jkr0ad2v7bbtshr",
-            "status": "confirmed",
-            "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
-            "created": "2021-10-18T21:00:30.000Z",
-            "updated": "2022-01-16T21:56:44.317Z",
-            "summary": "ABGESAGT/VERSCHOBEN! Gamedive – Spielwochenende im Neubad",
-            "description": "Wir hoffen, hier bald ein neues Datum bekannt geben zu dürfen.",
-            "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-            "creator": {
-                "email": "nimboline@gmail.com"
-            },
-            "organizer": {
-                "email": "gildedernacht@gmail.com",
-                "self": true
-            },
-            "start": {
-                "date": "2022-02-12"
-            },
-            "end": {
-                "date": "2022-02-14"
-            },
-            "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
-            "sequence": 1,
-            "eventType": "default"
-        }
+        "transparency": "transparent",
+        "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
+        "sequence": 2,
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+    "etag": "\"3269181695766000\"",
+    "id": "1eu2st8b3tbooj826dqo01lj4e",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MWV1MnN0OGIzdGJvb2o4MjZkcW8wMWxqNGUgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2021-10-18T21:00:47.000Z",
+    "updated": "2021-10-18T21:00:47.883Z",
+    "summary": "Spiele-Tag im Neubad",
+    "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+    "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+        "dateTime": "2022-03-27T12:00:00+02:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "end": {
+        "dateTime": "2022-03-27T18:00:00+02:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "iCalUID": "1eu2st8b3tbooj826dqo01lj4e@google.com",
+    "sequence": 0,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3269181752142000\"",
+    "id": "712hninpn6lq1sjp055lq7muop",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NzEyaG5pbnBuNmxxMXNqcDA1NWxxN211b3AgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2021-10-18T21:01:16.000Z",
+    "updated": "2021-10-18T21:01:16.071Z",
+    "summary": "Spiele-Tag im Neubad",
+    "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+    "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+        "dateTime": "2022-04-10T12:00:00+02:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "end": {
+        "dateTime": "2022-04-10T18:00:00+02:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "iCalUID": "712hninpn6lq1sjp055lq7muop@google.com",
+    "sequence": 0,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3269181782628000\"",
+    "id": "6ldcrpnh96j71v19uh15kiufmh",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NmxkY3Jwbmg5Nmo3MXYxOXVoMTVraXVmbWggZ2lsZGVkZXJuYWNodEBt",
+    "created": "2021-10-18T21:01:31.000Z",
+    "updated": "2021-10-18T21:01:31.314Z",
+    "summary": "Spiele-Tag im Neubad",
+    "description": "Unsere Kollegen von [**Mannsgöggeli**](https://www.mannsgoeggeli.ch) laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\n\nKulinarisch wird man im Neubad Bistro verwöhnt.\n\nEintritt: CHF 10 pro Person",
+    "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+        "dateTime": "2022-05-22T12:00:00+02:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "end": {
+        "dateTime": "2022-05-22T18:00:00+02:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "iCalUID": "6ldcrpnh96j71v19uh15kiufmh@google.com",
+    "sequence": 0,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3285905377342000\"",
+    "id": "1o6ui04hsetjm0dc1gd7gepa4u",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2022-01-03T13:40:45.000Z",
+    "updated": "2022-01-23T15:44:48.671Z",
+    "summary": "Spielwochenende im Museum",
+    "description": "Verteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunde Platz, lass dir ein Spiel erklären und los geht's!",
+    "location": "Museum für Kommunikation, Helvetiastrasse 16, 3000 Bern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+        "date": "2022-10-22"
+    },
+    "end": {
+        "date": "2022-10-24"
+    },
+    "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
+    "sequence": 1,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3286118962044000\"",
+    "id": "60hnbnem2dl8smgoec2omdscaf",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NjBobmJuZW0yZGw4c21nb2VjMm9tZHNjYWYgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2021-12-12T17:36:01.000Z",
+    "updated": "2022-01-24T21:24:41.022Z",
+    "summary": "Spieltreffen",
+    "description": "\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen, Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e",
+    "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+        "dateTime": "2022-02-05T14:00:00+01:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "end": {
+        "dateTime": "2022-02-05T22:00:00+01:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "iCalUID": "60hnbnem2dl8smgoec2omdscaf@google.com",
+    "sequence": 0,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3286119360392000\"",
+    "id": "4j2i63r9o7qaqgv2sr6l2stdqb",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NGoyaTYzcjlvN3FhcWd2MnNyNmwyc3RkcWIgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2021-12-12T17:36:15.000Z",
+    "updated": "2022-01-24T21:28:00.196Z",
+    "summary": "Spieltreffen",
+    "description": "\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen, Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e",
+    "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+        "dateTime": "2022-03-05T14:00:00+01:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "end": {
+        "dateTime": "2022-03-05T22:00:00+01:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "iCalUID": "4j2i63r9o7qaqgv2sr6l2stdqb@google.com",
+    "sequence": 0,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3286119957624000\"",
+    "id": "3dr12u75gtkclh3g3icljnms6k",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=M2RyMTJ1NzVndGtjbGgzZzNpY2xqbm1zNmsgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2021-12-12T17:39:48.000Z",
+    "updated": "2022-01-24T21:32:58.812Z",
+    "summary": "Game Jam",
+    "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003eFortsetzung des Game Jam der Gilde der Nacht. \u003cbr\u003e&nbsp;\u003cbr\u003eWarst du bei der ersten Ausgabe nicht dabei, melde dich doch im Vorfeld bei uns, damit wir dich auf den aktuellsten Stand bringen können.\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e---\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e&nbsp;\u003cu\u003e\u003c/u\u003e\u003cbr\u003e[tags]Game Jam[/tags] \u003cbr\u003e\u003cu\u003e\u003c/u\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e[theme]special[/theme]\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e[icon]fa-alien-8bit[/icon]\u003cbr\u003e\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
+    "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+        "dateTime": "2022-01-30T14:00:00+01:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "end": {
+        "dateTime": "2022-01-30T22:00:00+01:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "transparency": "transparent",
+    "iCalUID": "3dr12u75gtkclh3g3icljnms6k@google.com",
+    "sequence": 0,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3286120025990000\"",
+    "id": "4fbh3lg3ugocoufju0qngfo44k",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NGZiaDNsZzN1Z29jb3VmanUwcW5nZm80NGsgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2022-01-05T08:43:47.000Z",
+    "updated": "2022-01-24T21:33:32.995Z",
+    "summary": "Rollenspiel-Stammtisch",
+    "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003eDiskussionsstarter: **«Initiative»**\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[icon] \u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
+    "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+    "dateTime": "2022-02-04T19:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+},
+"end": {
+    "dateTime": "2022-02-04T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+},
+    "iCalUID": "4fbh3lg3ugocoufju0qngfo44k@google.com",
+    "sequence": 0,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3286120114552000\"",
+    "id": "272supnprt3jkr0ad2v7bbtshr",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2021-10-18T21:00:30.000Z",
+    "updated": "2022-01-24T21:34:17.276Z",
+    "summary": "ABGESAGT / VERSCHOBEN! Gamedive – Spielwochenende im Neubad",
+    "description": "\u003chtml-blob\u003eWir hoffen, hier bald ein neues Datum bekannt geben zu dürfen.\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Brettspiele, Mannsgöggeli, Weekend[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Neubad, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]danger[/theme]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[links]GameDive{\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\"\u003ehttps://gamedive.ch/}[/links]\u003c/a\u003e \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-water[/icon]\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/html-blob\u003e",
+    "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+    "date": "2022-02-12"
+},
+"end": {
+    "date": "2022-02-14"
+},
+    "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
+    "sequence": 1,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3286120149496000\"",
+    "id": "0h5im4brsbvdpta3pqnqg4sc9k",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MGg1aW00YnJzYnZkcHRhM3BxbnFnNHNjOWsgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2022-01-05T08:44:12.000Z",
+    "updated": "2022-01-24T21:34:34.748Z",
+    "summary": "[Online] Rollenspiel-Stammtisch",
+    "description": "\u003chtml-blob\u003eDiskussionsstarter: **«Zeit»**\u003cbr\u003e\u003cbr\u003eDer Stammtisch findet auf unserer Online-Plattform, Discord, statt.\u003cbr\u003e[Über diesen Link kannst du teilnehmen.](\u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e)\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Discord{\u003cspan\u003e\u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e\u003c/span\u003e}[/links] \u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[icon] \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/html-blob\u003e",
+    "location": "Discord",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+        "dateTime": "2022-03-04T19:00:00+01:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "end": {
+        "dateTime": "2022-03-04T22:00:00+01:00",
+        "timeZone": "Europe/Zurich"
+    },
+    "iCalUID": "0h5im4brsbvdpta3pqnqg4sc9k@google.com",
+    "sequence": 0,
+    "eventType": "default"
+},
+{
+    "kind": "calendar#event",
+    "etag": "\"3286120460494000\"",
+    "id": "245jl30ehk8qtr9s0gcm466hgr",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MjQ1amwzMGVoazhxdHI5czBnY200NjZoZ3IgZ2lsZGVkZXJuYWNodEBt",
+    "created": "2021-10-11T11:31:54.000Z",
+    "updated": "2022-01-24T21:37:10.247Z",
+    "summary": "Luzerner Spieltage 2022",
+    "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003eMehr Infos unter:\\\u003cbr\u003e[\u003ca href=\"http://www.spieltage.ch\"\u003ewww.spieltage.ch\u003c/a\u003e](\u003ca href=\"https://spieltage.ch/\"\u003ehttps://spieltage.ch/\u003c/a\u003e)\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e&nbsp;\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Brettspiele, Rollenspiele, Tabletop, Weekend[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]St. Johannes, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]special[/theme]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[links]Luzerner Spieltage{\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\"\u003ehttps://spieltage.ch/}[/links]\u003c/a\u003e&nbsp; \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e[icon]fa-fire-flame[/icon]\u003cbr\u003e\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
+    "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
+    "creator": {
+        "email": "nimboline@gmail.com"
+    },
+    "organizer": {
+        "email": "gildedernacht@gmail.com",
+        "self": true
+    },
+    "start": {
+    "date": "2022-03-12"
+},
+"end": {
+    "date": "2022-03-14"
+},
+    "transparency": "transparent",
+    "iCalUID": "245jl30ehk8qtr9s0gcm466hgr@google.com",
+    "sequence": 0,
+    "eventType": "default"
+    }
     ]
 }

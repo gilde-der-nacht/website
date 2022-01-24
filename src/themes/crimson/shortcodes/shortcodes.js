@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const { formatISODate, formatISODateTime } = require("../filters/formatDate");
+const { cleanUpGoogleEvent } = require("./helper/google-calendar");
 const markdownLib = require("../plugins/markdown");
 
 function html(strings, ...expr) {
@@ -74,6 +75,13 @@ function EventEntry(event) {
         `;
     }
 
+    function renderDescription(event) {
+        if (!event.description) {
+            return "";
+        }
+        return html`${markdownLib.render(event.description)}`;
+    }
+
     function renderLinks(event) {
         return html`
             <ul role="list" class="event-links">
@@ -92,31 +100,13 @@ function EventEntry(event) {
                 ${renderLocation(event)}
                 ${renderTags(event)}
             </div>
-            <div class="event-description content">
-                ${event.description ? markdownLib.render(event.description) : ""}
-            </div>
+            <div class="event-description content">${renderDescription(event)}</div>
             ${renderLinks(event)}
         </li>
     `;
 }
 
 function EventList({ events }) {
-    function cleanUpGoogleEvent({ htmlLink: link, summary: title, description, location: loc, start, end }) {
-        const startDate = DateTime.fromISO("dateTime" in start ? start.dateTime : start.date);
-        const endDate = DateTime.fromISO("dateTime" in end ? end.dateTime : end.date);
-        const isFullDay = "date" in start;
-        const isMultipleDays = !startDate.hasSame(endDate, "day");
-        const location = loc.split(",")[0];
-        const e = { title, description, location, links: { googleCalendar: link }, startDate, endDate, isFullDay, isMultipleDays };
-        if (isFullDay) {
-            e.endDate = DateTime.fromISO(e.endDate).minus({ seconds: 1 });
-        }
-        if (!(["discord", "online"].includes(location.toString().toLowerCase()))) {
-            e.links.googleMaps = `http://maps.google.com/?q=${location}`;
-        }
-        return e;
-    }
-
     function sortByStartDate(a, b) {
         return DateTime.fromISO(a.startDate) - DateTime.fromISO(b.startDate);
     }
