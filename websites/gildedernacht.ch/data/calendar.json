@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32ke9lf3or3fa0g\"",
+ "etag": "\"p33oad45qs34fa0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-01-22T23:52:09.833Z",
+ "updated": "2022-01-23T20:52:21.510Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CKjk1ePGxvUCEAAYASDvu_LIAQ==",
+ "nextSyncToken": "CPCmkLrgyPUCEAAYASD34bXJAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -308,15 +308,15 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3283993684208000\"",
-   "id": "4h3kmsdf1rah3e0i3qrp70o41g",
+   "etag": "\"3285905377342000\"",
+   "id": "1o6ui04hsetjm0dc1gd7gepa4u",
    "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NGgza21zZGYxcmFoM2UwaTNxcnA3MG80MWcgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-18T21:00:04.000Z",
-   "updated": "2022-01-12T14:14:02.104Z",
-   "summary": "ABGESAGT! Spiele-Tag im Neubad",
-   "description": "\u003cspan\u003eDer Event wurde wegen aktueller Corona-Situation abgesagt.\u003c/span\u003e",
-   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-01-03T13:40:45.000Z",
+   "updated": "2022-01-23T15:44:48.671Z",
+   "summary": "Spielwochenende im Museum",
+   "description": "Verteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunde Platz, lass dir ein Spiel erklären und los geht's!",
+   "location": "Museum für Kommunikation, Helvetiastrasse 16, 3000 Bern, Switzerland",
    "creator": {
     "email": "nimboline@gmail.com"
    },
@@ -325,26 +325,24 @@
     "self": true
    },
    "start": {
-    "dateTime": "2022-01-23T12:00:00+01:00",
-    "timeZone": "Europe/Zurich"
+    "date": "2022-10-22"
    },
    "end": {
-    "dateTime": "2022-01-23T18:00:00+01:00",
-    "timeZone": "Europe/Zurich"
+    "date": "2022-10-24"
    },
-   "iCalUID": "4h3kmsdf1rah3e0i3qrp70o41g@google.com",
-   "sequence": 0,
+   "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
+   "sequence": 1,
    "eventType": "default"
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3284740408634000\"",
+   "etag": "\"3285942283020000\"",
    "id": "272supnprt3jkr0ad2v7bbtshr",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
    "created": "2021-10-18T21:00:30.000Z",
-   "updated": "2022-01-16T21:56:44.317Z",
-   "summary": "ABGESAGT/VERSCHOBEN! Gamedive – Spielwochenende im Neubad",
+   "updated": "2022-01-23T20:52:21.510Z",
+   "summary": "ABGESAGT / VERSCHOBEN! Gamedive – Spielwochenende im Neubad",
    "description": "Wir hoffen, hier bald ein neues Datum bekannt geben zu dürfen.",
    "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
    "creator": {
@@ -361,34 +359,6 @@
     "date": "2022-02-14"
    },
    "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3285791059666000\"",
-   "id": "1o6ui04hsetjm0dc1gd7gepa4u",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-01-03T13:40:45.000Z",
-   "updated": "2022-01-22T23:52:09.833Z",
-   "summary": "Spielwochenende im Museum",
-   "description": "Verteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunde Platz, lass dir ein Spiel erklären und los geht's!",
-   "location": "Museum of Communication, Helvetiastrasse 16, 3000 Bern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-10-22"
-   },
-   "end": {
-    "date": "2022-10-24"
-   },
-   "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
    "sequence": 1,
    "eventType": "default"
   }
