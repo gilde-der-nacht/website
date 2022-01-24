@@ -39,8 +39,16 @@ function Textarea({ label, name }) {
 }
 
 function EventEntry(event) {
+    function renderBackgroundIcon(event) {
+        if (!event.icon) {
+            return "";
+        }
+
+        return html`<div class="event-background-icon"><i class="fa-duotone ${event.icon}"></i></div>`;
+    }
+
     function renderDate(event) {
-        const icon = `<a href="${event.links.googleCalendar}" class="event-icon"><i class="fa-duotone fa-calendar-range"></i></a>`;
+        const icon = `<a href="${event.googleLinks.googleCalendar}" class="event-icon"><i class="fa-duotone fa-calendar-range"></i></a>`;
         if (event.isFullDay && event.isMultipleDays) {
             return html`<div class="event-date">${icon}${formatISODate(event.startDate)} bis ${formatISODate(event.endDate)}</div>`;
         } else if (event.isFullDay) {
@@ -55,21 +63,26 @@ function EventEntry(event) {
     function renderLocation(event) {
         return html`
             <div class="event-location">
-                <a href="${event.links.googleMaps}" class="event-icon"><i class="fa-duotone fa-location-dot"></i></a>
+                <a href="${event.googleLinks.googleMaps}" class="event-icon"><i class="fa-duotone fa-location-dot"></i></a>
                 ${event.location}
             </div>
         `;
     }
-
     function renderTags(event) {
+        function renderTag(tag) {
+            return html`<li><a href="?tag=${tag}" class="event-tag">${tag}</a></li>`;
+        }
+
+        if (!event.tags.length) {
+            return "";
+        }
         return html`
             <div class="event-tags">
                 <div class="event-icon">
                     <i class="fa-duotone fa-tags"></i>
                 </div>
                 <ul role="list">
-                <li><a href="?tag=tag1" class="event-tag">tag1</a></li>
-                <li><a href="?tag=tag2" class="event-tag">tag2</a></li>
+                    ${event.tags.map(renderTag).join("")}
                 </ul>
             </div>
         `;
@@ -83,17 +96,26 @@ function EventEntry(event) {
     }
 
     function renderLinks(event) {
+        function renderLink(link) {
+            return html`
+                <li><a href="${link.url}" class="event-link"><i class="fa-duotone fa-arrow-turn-down-right event-icon"></i> ${link.label}</a></li>
+            `;
+        }
+
+        if (!event.links.length) {
+            return "";
+        }
+
         return html`
             <ul role="list" class="event-links">
-                <li><a href="" class="event-link">some links</a></li>
-                <li><a href="" class="event-link">some other links</a></li>
+                ${event.links.map(renderLink).join("")}
             </ul>
         `;
     }
 
     return html`
-        <li class="event-entry">
-            <div class="event-background-icon"><i class="fa-duotone fa-alien-8bit"></i></div>
+        <li class="event-entry ${event.theme || ""}" data-event-tags="${event.tags.join(",")}">
+            ${renderBackgroundIcon(event)}
             <h1 class="event-title">${event.title}</h1>
             <div class="event-details">
                 ${renderDate(event)}

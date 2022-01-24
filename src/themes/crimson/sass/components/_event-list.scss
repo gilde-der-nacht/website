@@ -61,6 +61,15 @@
   text-transform: unset;
 }
 
+.event-details {
+  display: grid;
+  gap: 0.125rem;
+
+  svg {
+    color: var(--event-color);
+  }
+}
+
 .event-details,
 .event-tag,
 .event-link {
@@ -72,7 +81,6 @@
 .event-tags,
 .event-tags ul {
   display: flex;
-  flex-wrap: wrap;
   gap: 0.25rem;
   align-items: center;
 }
@@ -81,15 +89,11 @@
   display: contents;
 }
 
-.event-details svg {
-  color: var(--event-color);
-}
-
 .event-links {
   display: flex;
   gap: 0.25rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   max-width: 100%;
 }
 
@@ -116,6 +120,7 @@
 
 .event-icon {
   width: 1em;
+  margin-inline-end: 0.125rem;
 }
 
 .event-description {
