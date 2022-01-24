@@ -1,6 +1,6 @@
 const { DateTime } = require("luxon");
 const { formatISODate, formatISODateTime } = require("../filters/formatDate");
-const { cleanUpGoogleEvent } = require("./helper/google-calendar");
+const { cleanUpGoogleEvent, getListOfTags } = require("./helper/google-calendar");
 const markdownLib = require("../plugins/markdown");
 
 function html(strings, ...expr) {
@@ -128,6 +128,24 @@ function EventEntry(event) {
     `;
 }
 
+function EventFilters({ events }) {
+    function renderFilterList(filter) {
+        return html`<li><a href="?tag=${filter}">${filter}</a></li>`;
+    }
+
+    const listOfTags = [... new Set(events.map(getListOfTags).flat())].sort();
+
+    return html`
+        <div class="event-filters">
+            <h2>Filter</h2>
+            <div class="event-filters-reset"><a href="?tag=">Filter entfernen <i class="fa-duotone fa-circle-xmark"></i></a></div>
+            <ul role="list">
+                ${listOfTags.map(renderFilterList).join("")}
+            </ul>
+        </div>
+    `;
+}
+
 function EventList({ events }) {
     function sortByStartDate(a, b) {
         return DateTime.fromISO(a.startDate) - DateTime.fromISO(b.startDate);
@@ -143,4 +161,4 @@ function EventList({ events }) {
     `;
 }
 
-module.exports = { TableContainer, Form, Input, Textarea, EventList };
+module.exports = { TableContainer, Form, Input, Textarea, EventList, EventFilters };

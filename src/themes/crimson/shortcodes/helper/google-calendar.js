@@ -88,4 +88,8 @@ function cleanUpGoogleEvent({ htmlLink: link, summary: title, description: body,
     return e;
 }
 
-module.exports = { cleanUpGoogleEvent };
+function getListOfTags({ description }) {
+    return parseTags(extractTagContent(description, "tags"))
+}
+
+module.exports = { cleanUpGoogleEvent, getListOfTags };
