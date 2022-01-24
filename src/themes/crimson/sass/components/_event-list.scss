@@ -9,13 +9,51 @@
 }
 
 .event-entry {
-  @include p.element;
+  --event-color: #{c.get("text-low-contrast")};
+  --event-background-color: #{c.get("background-element")};
+  --event-border-color: #{c.get("border-element")};
+  --event-border-color-hover: #{c.get("border-element-hover")};
+  background-color: var(--event-background-color);
+  border: 0.125rem solid var(--event-border-color);
+  border-bottom-width: 0.25rem;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   padding: 1.25em 1.5em 0;
   font-size: 0.6rem;
   max-width: 100%;
   display: grid;
   grid-template-rows: max-content max-content 1fr max-content;
   gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+
+  &.gray {
+    --event-color: #{c.getGray("text-low-contrast")};
+    --event-background-color: #{c.getGray("background-element")};
+    --event-border-color: #{c.getGray("border-element")};
+    --event-border-color-hover: #{c.getGray("border-element-hover")};
+  }
+
+  &.danger {
+    --event-color: #{c.getDanger("text-low-contrast")};
+    --event-background-color: #{c.getDanger("background-element")};
+    --event-border-color: #{c.getDanger("border-element")};
+    --event-border-color-hover: #{c.getDanger("border-element-hover")};
+  }
+
+  &.success {
+    --event-color: #{c.getSuccess("text-low-contrast")};
+    --event-background-color: #{c.getSuccess("background-element")};
+    --event-border-color: #{c.getSuccess("border-element")};
+    --event-border-color-hover: #{c.getSuccess("border-element-hover")};
+  }
+
+  &.special {
+    --event-color: #{c.getSpecial("text-low-contrast")};
+    --event-background-color: #{c.getSpecial("background-element")};
+    --event-border-color: #{c.getSpecial("border-element")};
+    --event-border-color-hover: #{c.getSpecial("border-element-hover")};
+  }
 }
 
 .event-title {
@@ -44,7 +82,7 @@
 }
 
 .event-details svg {
-  color: c.get("text-low-contrast");
+  color: var(--event-color);
 }
 
 .event-links {
@@ -58,14 +96,15 @@
 .event-link {
   display: block;
   padding: 0.25rem 0.5rem;
-  border: 0.0625rem solid c.get("border-element");
+  border: 0.0625rem solid var(--event-border-color);
   border-bottom-width: 0;
   border-top-width: 0.25rem;
+  color: c.get("accent");
 
   &:hover,
   &:active {
     color: c.get("accent-hover");
-    border-color: c.get("border-element-hover");
+    border-color: var(--event-border-color-hover);
   }
 
   &:focus {
@@ -80,10 +119,15 @@
 }
 
 .event-description {
-  color: c.get("text-low-contrast");
   padding-block: 1rem 1.25rem;
+  color: var(--event-color);
+}
 
-  p + p {
-    margin-top: 0.5rem;
-  }
+.event-background-icon {
+  color: var(--event-color);
+  font-size: 16em;
+  position: absolute;
+  top: -3.5rem;
+  right: -1.5rem;
+  opacity: 0.5;
 }

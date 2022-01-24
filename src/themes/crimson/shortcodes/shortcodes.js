@@ -85,13 +85,14 @@ function EventEntry(event) {
 
     return html`
         <li class="event-entry">
+            <div class="event-background-icon"><i class="fa-duotone fa-alien-8bit"></i></div>
             <h1 class="event-title">${event.title}</h1>
             <div class="event-details">
                 ${renderDate(event)}
                 ${renderLocation(event)}
                 ${renderTags(event)}
             </div>
-            <div class="event-description">
+            <div class="event-description content">
                 ${event.description ? markdownLib.render(event.description) : ""}
             </div>
             ${renderLinks(event)}
