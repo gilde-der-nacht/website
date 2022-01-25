@@ -70,7 +70,7 @@ function EventEntry(event) {
     }
     function renderTags(event) {
         function renderTag(tag) {
-            return html`<li><a href="?tag=${tag}" class="event-tag">${tag}</a></li>`;
+            return html`<li><a href="?tags=${tag}" class="event-tag">${tag}</a></li>`;
         }
 
         if (!event.tags.length) {
@@ -130,7 +130,7 @@ function EventEntry(event) {
 
 function EventFilters({ events }) {
     function renderFilterList(filter) {
-        return html`<li><a href="?tag=${filter}">${filter}</a></li>`;
+        return html`<li><a href="?tags=${filter}">${filter}</a></li>`;
     }
 
     const listOfTags = [... new Set(events.map(getListOfTags).flat())].sort();
@@ -138,7 +138,7 @@ function EventFilters({ events }) {
     return html`
         <div class="event-filters">
             <h2>Filter</h2>
-            <div class="event-filters-reset"><a href="?tag=">Filter entfernen <i class="fa-duotone fa-circle-xmark"></i></a></div>
+            <div class="event-filters-reset"><a href="?">Filter entfernen <i class="fa-duotone fa-circle-xmark"></i></a></div>
             <ul role="list">
                 ${listOfTags.map(renderFilterList).join("")}
             </ul>

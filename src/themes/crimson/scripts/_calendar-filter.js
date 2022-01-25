@@ -2,8 +2,8 @@ import $ from "./lib/blingbling.js";
 
 function getActiveFilters() {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("tag")) {
-        return [... new Set(urlParams.getAll("tag").map(str => str.split(",")).flat().filter(str => str.length > 0))];
+    if (urlParams.has("tags")) {
+        return [... new Set(urlParams.getAll("tags").map(str => str.split(",")).flat().filter(str => str.length > 0))];
     }
     return [];
 }
