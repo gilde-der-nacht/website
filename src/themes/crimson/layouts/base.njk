@@ -13,11 +13,12 @@
     {% endif %}
     <title>{{ (title + ' | ') if title }}{{ global.siteName }}</title>
     <link rel="stylesheet" href="/style/style.css">
-    <link rel="preconnect" href="https://kit.fontawesome.com"> 
+    <link rel="preconnect" href="https://kit.fontawesome.com">
     <script src="https://kit.fontawesome.com/ed5a2d737b.js" crossorigin="anonymous" defer></script>
     <script src="/scripts/script.js" type="module" defer></script>
     <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/krona-one-normal-400.woff2" type="font/woff2">
     <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/dm-sans-normal-400.woff2" type="font/woff2">
+    {% include "./partials/favicon.njk" %}
 </head>
 
 <body {{ ('class=' + global.siteCode) if global.siteCode }}>
