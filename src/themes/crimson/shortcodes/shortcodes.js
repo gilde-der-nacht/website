@@ -50,13 +50,13 @@ function EventEntry(event) {
     function renderDate(event) {
         const icon = `<a href="${event.googleLinks.googleCalendar}" class="event-icon"><i class="fa-duotone fa-calendar-range"></i></a>`;
         if (event.isFullDay && event.isMultipleDays) {
-            return html`<div class="event-date">${icon}${formatISODate(event.startDate)} bis ${formatISODate(event.endDate)}</div>`;
+            return html`<div class="event-date">${icon}<span>${formatISODate(event.startDate)} bis ${formatISODate(event.endDate)}</span></div>`;
         } else if (event.isFullDay) {
-            return html`<div class="event-date">${icon}${formatISODate(event.startDate)}</div>`;
+            return html`<div class="event-date">${icon}<span>${formatISODate(event.startDate)}</span></div>`;
         } else if (event.isMultipleDays) {
-            return html`<div class="event-date">${icon}${formatISODateTime(event.startDate)} bis ${formatISODateTime(event.endDate)}</div>`;
+            return html`<div class="event-date">${icon}<span>${formatISODateTime(event.startDate)} bis ${formatISODateTime(event.endDate)}</span></div>`;
         } else {
-            return html`<div class="event-date">${icon}${formatISODateTime(event.startDate)}</div>`;
+            return html`<div class="event-date">${icon}<span>${formatISODateTime(event.startDate)}</span></div>`;
         }
     }
 
@@ -64,7 +64,7 @@ function EventEntry(event) {
         return html`
             <div class="event-location">
                 <a href="${event.googleLinks.googleMaps}" class="event-icon"><i class="fa-duotone fa-location-dot"></i></a>
-                ${event.location}
+                <span>${event.location}</span>
             </div>
         `;
     }
