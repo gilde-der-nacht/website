@@ -34,8 +34,8 @@ h4,
 h5,
 h6,
 li,
-ol,
-ul,
+ol:not([role="list"]),
+ul:not([role="list"]),
 figcaption,
 blockquote {
   max-width: 60ch;
