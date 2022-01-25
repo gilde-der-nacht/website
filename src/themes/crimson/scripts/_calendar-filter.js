@@ -3,7 +3,7 @@ import $ from "./lib/blingbling.js";
 function getActiveFilters() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("tags")) {
-        return [... new Set(urlParams.getAll("tags").map(str => str.split(",")).flat().filter(str => str.length > 0))];
+        return [... new Set(urlParams.getAll("tags").map(str => str.split(",")).flat().filter(str => str.length > 0).map(str => str.toLowerCase()))];
     }
     return [];
 }
@@ -19,7 +19,7 @@ export function updateCalendarFilters() {
     const filteredEvents = events.map(e => e.attr("data-event-tags")).filter(tags => {
         let found = false;
         activeFilters.forEach(filter => {
-            if (tags.includes(filter)) {
+            if (tags.toLowerCase().includes(filter)) {
                 found = true;
             }
         });
@@ -31,7 +31,10 @@ export function updateCalendarFilters() {
     events.forEach(e => {
         let hasTag = false;
         activeFilters.forEach(filter => {
-            if (e.attr("data-event-tags").includes(filter)) {
+            if (e
+                .attr("data-event-tags")
+                .toLowerCase()
+                .includes(filter)) {
                 hasTag = true;
             }
         });
