@@ -1,11 +1,7 @@
 name: Test Pages
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
-  schedule:
-    - cron:  '0 1 * * *'
 
 jobs:
   deploy-test-pages:
