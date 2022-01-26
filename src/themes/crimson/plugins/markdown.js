@@ -1,7 +1,6 @@
 const markdownIt = require("markdown-it");
-const { default: anchor } = require("markdown-it-anchor");
-const markdownItAnchor = require("markdown-it-anchor");
-const markdownItTocDoneRight = require("markdown-it-toc-done-right");
+const anchor = require("markdown-it-anchor");
+const toc = require("markdown-it-toc-done-right");
 const slugify = require('slugify');
 
 const markdownLib = markdownIt({
@@ -9,14 +8,14 @@ const markdownLib = markdownIt({
     typographer: true,
     quotes: "«»‹›",
     linkify: true,
-}).use(markdownItAnchor, {
+}).use(anchor, {
     permalink: anchor.permalink.headerLink(),
     slugify: (str) => slugify(str, {
         lower: true,
         strict: true,
         locale: 'de'
     })
-}).use(markdownItTocDoneRight, {
+}).use(toc, {
     level: 2
 });
 module.exports = markdownLib;
