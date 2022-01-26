@@ -1,14 +1,17 @@
 ---
 title: "Game Design"
+draft: true
 ---
 
-# Fragen
+# Game Design
+
+## Fragen
 
 - Gute/Schlechte Beispiele?
 - Warum?
 - Nur in einem bestimmten Kontext?
 
-# Beispiele
+## Beispiele
 
 - Shadowrun Magier Zwischenwelt
 - Shadowrun Hacking
