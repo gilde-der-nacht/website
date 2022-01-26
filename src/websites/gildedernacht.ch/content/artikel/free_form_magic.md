@@ -145,8 +145,6 @@ symbiotische Beziehungen eignen sich meiner Meinung nach sehr gut für flexible 
 
 Als Anhaltspunkte für die Schwierigkeit:
 
-{% tablecontainer %}
-
 | Veränderung | Schwierigkeit | Beispiel |
 | - | - | - |
 | Zauberzeit | kürzer ➜ schwieriger | Das Ritual dauert 2 Tage ➜ das Zaubern dauert 1 Sekunde |
@@ -156,5 +154,3 @@ Als Anhaltspunkte für die Schwierigkeit:
 | Geschwindigkeit | schneller ➜ schwieriger | die Veränderung passiert in kurzer Zeit ➜ die Veränderung dauert mehrere Tage |
 | Natur | unnatürlicher ➜ schwieriger | Wasser in der Nähe vom See erschaffen ➜ Wasser in der Wüste erschaffen |
 | Stärke | grösser ➜ schwieriger | eine kleine Temperaturerhöhung ➜ alles beginnt zu brennen |
-
-{% endtablecontainer %}

@@ -59,8 +59,6 @@ Was benötigt man
 
 ### Shortcuts
 
-{% tablecontainer %}
-
 | Taste | Aktion |
 | - | - |
 | Numpad 3 | View From X / Right |
@@ -79,8 +77,6 @@ Was benötigt man
 | 3 | Face Select Mode |
 | Alt + Z | X-Ray Mode |
 | F3 | Search |
-
-{% endtablecontainer %}
 
 ### Funktionen
 

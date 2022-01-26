@@ -2,7 +2,6 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { formatJSDate } = require("../themes/crimson/filters/formatDate");
 const markdownLib = require("../themes/crimson/plugins/markdown");
 const {
-  TableContainer,
   Form,
   Input,
   Textarea,
@@ -33,7 +32,6 @@ function setupConfig(config, siteName, themeDir) {
 
   config.setLibrary("md", markdownLib);
 
-  config.addPairedShortcode("tablecontainer", TableContainer);
   config.addPairedShortcode("form", Form);
   config.addShortcode("input", Input);
   config.addShortcode("textarea", Textarea);
