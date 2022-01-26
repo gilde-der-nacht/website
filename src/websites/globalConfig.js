@@ -7,6 +7,7 @@ const {
   Textarea,
   EventList,
   EventFilters,
+  NewsletterForm
 } = require("../themes/crimson/shortcodes/shortcodes");
 
 function setupConfig(config, siteName, themeDir) {
@@ -32,11 +33,12 @@ function setupConfig(config, siteName, themeDir) {
 
   config.setLibrary("md", markdownLib);
 
-  config.addPairedShortcode("form", Form);
-  config.addShortcode("input", Input);
-  config.addShortcode("textarea", Textarea);
-  config.addShortcode("eventFilters", EventFilters);
-  config.addShortcode("eventList", EventList);
+  config.addPairedShortcode("Form", Form);
+  config.addShortcode("Input", Input);
+  config.addShortcode("Textarea", Textarea);
+  config.addShortcode("EventFilters", EventFilters);
+  config.addShortcode("EventList", EventList);
+  config.addShortcode("NewsletterForm", NewsletterForm);
 }
 
 function options(siteName, themeDir) {
