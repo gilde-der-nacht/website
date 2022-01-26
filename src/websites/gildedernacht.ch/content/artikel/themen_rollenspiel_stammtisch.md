@@ -43,7 +43,9 @@ date: 2021-09-11
 - Story Erfinden (Wie vorgehen? Fettnäpfchen? Gute Beispiele?)
 - Szenen (Was macht eine gute Szene aus? Aufbau? Kann man das strukturieren?)
 - Teamplay Charaktere (Wie fördert man ein gutes Spiele Charakteren? Umgang mit Konflikten?)
-- Teamplay Spieler:innen (Umgang mit verschiedenen Ansprüchen? Passive Spieler:innen? Stars and Wishes?)
+- Teamplay Spieler:innen (Umgang mit verschiedenen Ansprüchen? Passive Spieler:innen? Stars and Wishes? Wie können Spieler:innen einander unterstützen?)
 - Verschiedene Sinne (Sehen, Hören, Riechen, Fühlen, ...)
 - Wünsche (Was fehlt mir in Rollenspielen? Wenn ich etwas ändern könnte, was wäre es?)
 - Gleichberechtigung: Wie sorge ich als Spielleitung dafür, dass alle Spielenden gleich viel Redezeit, Aktionsspielraum und Rampenlicht erhalten. Braucht es das? Wie mache ich leise Spielende hörbar und "bremse" laute Spielende?
+- Game Design (Gute/Schlechte Beispiele? Warum? Nur in einem bestimmten Kontext?)
+- PDF Design (Gute Beispiele? Wichtige Punkte?)
