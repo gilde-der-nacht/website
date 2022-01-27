@@ -1,6 +1,8 @@
 const html = require("./helper/html");
 
-function NewsletterForm() {
+function NewsletterForm({ theme, frequenzy }) {
+    theme = theme || "Brettspiele";
+    frequenzy = frequenzy || "oft";
     return html`
 <section>
     <form action="https://gildedernacht.us9.list-manage.com/subscribe/post?u=ac8c826d7db864c54a3c2f001&amp;id=c6bec31754" method="post">
@@ -12,22 +14,22 @@ function NewsletterForm() {
 
         <h2>Thema</h2>
         <p>Wähle mindestens ein Thema aus, das dich interessiert. Ansonsten wirst du keine E-Mails erhalten.</p>
-        <ul>
+        <ul role="list" class="checkbox-list">
             <li>
-                <label>
-                    <input type="checkbox" value="128" name="group[48105][128]">
+                <label class="input-checkbox">
+                    <input type="checkbox" value="128" name="group[48105][128]" ${theme === "Brettspiele" && "checked"}>
                     Brettspiele
                 </label>
             </li>
             <li>
-                <label>
-                    <input type="checkbox" value="256" name="group[48105][256]">
+                <label class="input-checkbox">
+                    <input type="checkbox" value="256" name="group[48105][256]" ${theme === "Rollenspiele" && "checked"}>
                     Rollenspiele
                 </label>
             </li>
             <li>
-                <label>
-                    <input type="checkbox" value="512" name="group[48105][512]">
+                <label class="input-checkbox">
+                    <input type="checkbox" value="512" name="group[48105][512]" ${theme === "Tabletop" && "checked"}>
                     Tabletop
                 </label>
             </li>
@@ -35,16 +37,16 @@ function NewsletterForm() {
 
         <h2>Häufigkeit</h2>
         <p>Wenn du dich für weniger häufige E-Mails entscheidest, werden wir dich hauptsächlich über grössere Events informieren.</p>
-        <ul>
+        <ul role="list" class="radio-list">
             <li>
-                <label>
-                    <input type="radio" value="1024" name="group[48109]">
+                <label class="input-radio">
+                    <input type="radio" value="1024" name="group[48109]" ${frequenzy === "oft" && "checked"}>
                     max. 2/Monat
                 </label>
             </li>
             <li>
-                <label>
-                    <input type="radio" value="2048" name="group[48109]">
+                <label class="input-radio">
+                    <input type="radio" value="2048" name="group[48109]" ${frequenzy !== "oft" && checked}>
                     max. 8/Jahr
                 </label>
             </li>
