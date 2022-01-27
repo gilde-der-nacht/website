@@ -8,7 +8,7 @@ eleventyNavigation:
 ---
 
 {% Box type="special", link="/en", linkLabel="to the english version" %}
-  Do you prefer to read up on us in English?
+Do you prefer to read up on us in English?
 {% endBox %}
 
 # Herzlich willkommen
