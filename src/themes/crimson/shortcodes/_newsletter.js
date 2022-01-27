@@ -52,7 +52,7 @@ function NewsletterForm({ theme, frequenzy }) {
             </li>
         </ul>
 
-        <button type="submit" class="button-accent">Abonnieren</button>
+        <button type="submit" class="button-success">Abonnieren</button>
     </form>
 </section>
     `;

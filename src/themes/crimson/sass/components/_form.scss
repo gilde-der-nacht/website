@@ -66,6 +66,42 @@ button {
   }
 }
 
+.button-success {
+  border-color: c.getSuccess("background-solid");
+  color: c.getSuccess("background-solid");
+
+  &:hover,
+  &:active {
+    background-color: c.getSuccess("background-subtle");
+    color: c.getSuccess("text-low-contrast");
+    border-color: c.getSuccess("text-low-contrast");
+  }
+}
+
+.button-danger {
+  border-color: c.getDanger("background-solid");
+  color: c.getDanger("background-solid");
+
+  &:hover,
+  &:active {
+    background-color: c.getDanger("background-subtle");
+    color: c.getDanger("text-low-contrast");
+    border-color: c.getDanger("text-low-contrast");
+  }
+}
+
+.button-special {
+  border-color: c.getSpecial("background-solid");
+  color: c.getSpecial("background-solid");
+
+  &:hover,
+  &:active {
+    background-color: c.getSpecial("background-subtle");
+    color: c.getSpecial("text-low-contrast");
+    border-color: c.getSpecial("text-low-contrast");
+  }
+}
+
 .checkbox-list,
 .radio-list {
   display: grid;
