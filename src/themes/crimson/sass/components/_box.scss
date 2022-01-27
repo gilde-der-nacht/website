@@ -1,0 +1,30 @@
+@use "../globals/patterns" as p;
+@use "../globals/colors" as c;
+
+.box {
+  @include p.element;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+
+  &-special {
+    @extend .box;
+    border-color: c.getSpecial("background-solid");
+    color: c.getSpecial("text-low-contrast");
+  }
+
+  &-success {
+    @extend .box;
+    border-color: c.getSuccess("background-solid");
+    color: c.getSuccess("text-low-contrast");
+  }
+
+  &-danger {
+    @extend .box;
+    border-color: c.getDanger("background-solid");
+    color: c.getDanger("text-low-contrast");
+  }
+}

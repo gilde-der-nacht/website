@@ -1,17 +1,5 @@
 @forward "./globals";
 
-@use "./components/logos";
-@use "./components/header";
-@use "./components/footer";
-@use "./components/navigation";
-@use "./components/main-content";
-@use "./components/content";
-@use "./components/form";
-@use "./components/mobile-menu";
-@use "./components/tags";
-@use "./components/link-list";
-@use "./components/event-list";
-@use "./components/event-filters";
-@use "./components/card";
+@use "./components";
 
 @use "./utils/helpers";

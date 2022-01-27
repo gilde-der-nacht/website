@@ -7,7 +7,8 @@ const {
   Textarea,
   EventList,
   EventFilters,
-  NewsletterForm
+  NewsletterForm,
+  Box
 } = require("../themes/crimson/shortcodes/shortcodes");
 
 function setupConfig(config, siteName, themeDir) {
@@ -34,6 +35,7 @@ function setupConfig(config, siteName, themeDir) {
   config.setLibrary("md", markdownLib);
 
   config.addPairedShortcode("Form", Form);
+  config.addPairedShortcode("Box", Box);
   config.addShortcode("Input", Input);
   config.addShortcode("Textarea", Textarea);
   config.addShortcode("EventFilters", EventFilters);

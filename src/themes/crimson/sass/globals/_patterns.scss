@@ -32,7 +32,7 @@
   border-bottom-width: 0.25rem;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  color: c.get("background-solid");
+  color: c.get("accent");
   background-color: c.get("background");
   cursor: pointer;
   touch-action: manipulation;
@@ -40,7 +40,7 @@
   &:hover,
   &:active {
     background-color: c.get("background-subtle");
-    color: c.get("text-high-contrast");
+    color: c.get("accent-hover");
     border-color: c.get("text-high-contrast");
   }
 

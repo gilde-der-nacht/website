@@ -92,14 +92,17 @@ button {
 
 .button-special {
   border-color: c.getSpecial("background-solid");
-  color: c.getSpecial("background-solid");
 
   &:hover,
   &:active {
     background-color: c.getSpecial("background-subtle");
-    color: c.getSpecial("text-low-contrast");
     border-color: c.getSpecial("text-low-contrast");
   }
+}
+
+.button-small {
+  font-size: 0.83rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .checkbox-list,
@@ -119,7 +122,7 @@ button {
 
   input {
     padding: 0.25rem;
-    background: c.getGray("background-solid");
+    background: c.getGray("text-high-contrast");
     inline-size: 2rem;
     block-size: 1rem;
     border: 0.125rem solid c.get("background-solid");

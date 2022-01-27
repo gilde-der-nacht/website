@@ -7,9 +7,15 @@ eleventyNavigation:
   order: 1
 ---
 
-Die Gilde der Nacht organisiert Spieltreffen, an denen alle Brett-, Rollen- und Tabletop-Spieler herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter](/newsletter) einzutragen, dann erhältst du jeweils eine Woche vor den Events eine Erinnerungs-Mail.
+{% Box type="special", link="/en", linkLabel="to the english version" %}
+  Do you prefer to read up on us in English?
+{% endBox %}
 
-# Kalender
+# Herzlich willkommen
+
+Die **Gilde der Nacht** organisiert Spieltreffen, an denen alle **Brett-, Rollen- und Tabletop-Spieler:innen** herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter](/newsletter) einzutragen, um nichts zu verpassen.
+
+## Kalender
 
 {% EventFilters events=(calendar.items) %}
 
