@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p3289396bvr6va0g\"",
+ "etag": "\"p32sepr4vu37va0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-01-25T22:50:29.242Z",
+ "updated": "2022-01-26T16:51:39.539Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CJCRpMv-zfUCEAAYASDvu_LIAQ==",
+ "nextSyncToken": "CLjs7J_wz_UCEAAYASDvu_LIAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -98,34 +98,6 @@
    "transparency": "transparent",
    "iCalUID": "3dr12u75gtkclh3g3icljnms6k@google.com",
    "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3286120114552000\"",
-   "id": "272supnprt3jkr0ad2v7bbtshr",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-18T21:00:30.000Z",
-   "updated": "2022-01-24T21:34:17.276Z",
-   "summary": "ABGESAGT / VERSCHOBEN! Gamedive – Spielwochenende im Neubad",
-   "description": "\u003chtml-blob\u003eWir hoffen, hier bald ein neues Datum bekannt geben zu dürfen.\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Brettspiele, Mannsgöggeli, Weekend[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Neubad, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]danger[/theme]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[links]GameDive{\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\"\u003ehttps://gamedive.ch/}[/links]\u003c/a\u003e \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-water[/icon]\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/html-blob\u003e",
-   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-02-12"
-   },
-   "end": {
-    "date": "2022-02-14"
-   },
-   "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
-   "sequence": 1,
    "eventType": "default"
   },
   {
@@ -391,6 +363,34 @@
    "transparency": "transparent",
    "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
    "sequence": 2,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3286431799078000\"",
+   "id": "272supnprt3jkr0ad2v7bbtshr",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=Mjcyc3VwbnBydDNqa3IwYWQydjdiYnRzaHIgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2021-10-18T21:00:30.000Z",
+   "updated": "2022-01-26T16:51:39.539Z",
+   "summary": "ABGESAGT / VERSCHOBEN! Gamedive – Spielwochenende im Neubad",
+   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003eWir hoffen, hier bald ein neues Datum bekannt geben zu dürfen.\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Brettspiele, Rollenspiele, Mannsgöggeli, Weekend[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Neubad, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]danger[/theme]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[links]GameDive{\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\"\u003ehttps://gamedive.ch/}[/links]\u003c/a\u003e \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-water[/icon]\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-02-12"
+   },
+   "end": {
+    "date": "2022-02-14"
+   },
+   "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
+   "sequence": 1,
    "eventType": "default"
   }
  ]
