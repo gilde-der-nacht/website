@@ -28,7 +28,7 @@
 }
 
 @mixin button {
-  border: 0.0625rem solid c.get("background-solid");
+  border: 0.125rem solid c.get("background-solid");
   border-bottom-width: 0.25rem;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -51,7 +51,7 @@
 }
 
 @mixin input {
-  border: 0.0625rem solid c.get("background-solid");
+  border: 0.125rem solid c.get("background-solid");
   padding: 0.25rem 0.5rem;
   border-bottom-width: 0.25rem;
   border-bottom-left-radius: 0.5rem;

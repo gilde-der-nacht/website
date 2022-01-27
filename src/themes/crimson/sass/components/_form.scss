@@ -122,14 +122,16 @@ button {
     background: c.getGray("background-solid");
     inline-size: 2rem;
     block-size: 1rem;
-    border: 0.1rem solid c.get("background-solid");
+    border: 0.125rem solid c.get("background-solid");
     border-bottom-width: 0.25rem;
     border-radius: 0.5rem;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
 
     appearance: none;
     pointer-events: none;
     touch-action: pan-y;
-    outline-offset: 5px;
+    outline-offset: 0.25rem;
     box-sizing: content-box;
 
     flex-shrink: 0;
@@ -152,6 +154,8 @@ button {
       background: c.get("background");
       box-shadow: 0 0 0 var(--highlight-size) c.get("accent");
       border-radius: 0.25rem;
+      border-top-left-radius: 0.125rem;
+      border-top-right-radius: 0.125rem;
       transform: translateX(0%);
     }
 
