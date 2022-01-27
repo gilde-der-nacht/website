@@ -1,6 +1,7 @@
 ---
 layout: default
 eleventyNavigation:
+  parent: main
   key: index
   title: Startseite
   order: 1

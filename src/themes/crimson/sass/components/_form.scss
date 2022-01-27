@@ -3,7 +3,7 @@
 @use "../globals/patterns" as p;
 
 form {
-  > :not(:last-child) {
+  > :not(:last-child):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
     margin-bottom: 1em;
   }
 

@@ -4,16 +4,16 @@ function NewsletterForm({ theme, frequenzy }) {
     theme = theme || "Brettspiele";
     frequenzy = frequenzy || "oft";
     return html`
-<section>
-    <form action="https://gildedernacht.us9.list-manage.com/subscribe/post?u=ac8c826d7db864c54a3c2f001&amp;id=c6bec31754" method="post">
-        <h1>Erinnerungs-Newsletter</h1>
+<section class="content">
+    <h1>Erinnerungs-Newsletter</h1>
 
+    <form action="https://gildedernacht.us9.list-manage.com/subscribe/post?u=ac8c826d7db864c54a3c2f001&amp;id=c6bec31754" method="post" class="content">
         <label>E-Mail-Adresse<input type="email" value="" name="EMAIL" placeholder="E-Mail-Adresse" required=""></label>
         <label>Vorname<input type="text" value="" name="FNAME" placeholder="Vorname" required=""></label>
         <label>Nachname<input type="text" value="" name="LNAME" placeholder="Nachname" required=""></label>
 
         <h2>Thema</h2>
-        <p>Wähle mindestens ein Thema aus, das dich interessiert. Ansonsten wirst du keine E-Mails erhalten.</p>
+        <p>Wähle mindestens ein Thema aus, das dich interessiert.<br />Ansonsten wirst du keine E-Mails erhalten.</p>
         <ul role="list" class="checkbox-list">
             <li>
                 <label class="input-checkbox">
@@ -36,18 +36,18 @@ function NewsletterForm({ theme, frequenzy }) {
         </ul>
 
         <h2>Häufigkeit</h2>
-        <p>Wenn du dich für weniger häufige E-Mails entscheidest, werden wir dich hauptsächlich über grössere Events informieren.</p>
+        <p>Wenn du dich für weniger häufigere E-Mails entscheidest <em>(maximal 8 E-Mails / Jahr)</em>,<br />werden wir dich hauptsächlich über grössere Events informieren.</p>
         <ul role="list" class="radio-list">
             <li>
                 <label class="input-radio">
                     <input type="radio" value="1024" name="group[48109]" ${frequenzy === "oft" && "checked"}>
-                    max. 2/Monat
+                    maximal 2 E-Mails / Monat
                 </label>
             </li>
             <li>
                 <label class="input-radio">
                     <input type="radio" value="2048" name="group[48109]" ${frequenzy !== "oft" && checked}>
-                    max. 8/Jahr
+                    maximal 8 E-Mails / Jahr
                 </label>
             </li>
         </ul>

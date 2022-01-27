@@ -1,0 +1,5 @@
+{% if (collections.all | eleventyNavigation("secondary") | length) > 0 %}
+    <nav class="secondary-navigation" aria-label="secondary navigation">
+        {{ collections.all | eleventyNavigation("secondary") | eleventyNavigationToHtml | safe }}
+    </nav>
+{% endif %}
