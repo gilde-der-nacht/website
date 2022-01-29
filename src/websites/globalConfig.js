@@ -27,6 +27,7 @@ function setupConfig(config, siteName, themeDir) {
 
   config.addLayoutAlias("default", "base.njk");
   config.addPassthroughCopy({ [themeDir + "fonts"]: "fonts" });
+  config.addPassthroughCopy({ [themeDir + "icons"]: "icons" });
   config.addPassthroughCopy({ [themeDir + "scripts"]: "scripts" });
   config.addPassthroughCopy({ [themeDir + "images"]: "images" });
   config.addPassthroughCopy("websites/**/*.jpg");
