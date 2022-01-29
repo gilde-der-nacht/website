@@ -9,7 +9,8 @@ const {
   EventFilters,
   NewsletterForm,
   ContactForm,
-  Box
+  Box,
+  ButtonLink
 } = require("../themes/crimson/shortcodes/shortcodes");
 
 function setupConfig(config, siteName, themeDir) {
@@ -43,6 +44,7 @@ function setupConfig(config, siteName, themeDir) {
   config.addShortcode("EventList", EventList);
   config.addShortcode("NewsletterForm", NewsletterForm);
   config.addShortcode("ContactForm", ContactForm);
+  config.addShortcode("ButtonLink", ButtonLink);
 }
 
 function options(siteName, themeDir) {
