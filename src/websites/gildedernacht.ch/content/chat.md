@@ -12,16 +12,16 @@ eleventyNavigation:
 
 Diskutiere direkt mit den Organisatoren und anderen Spielinteressierten auf **Discord**.
 
+{% Box type="special" %}
+[**Discord**](https://discord.com/) ist ein kostenloses Chatprogramm, das im Browser läuft aber auch als App installiert werden kann (Windows, macOS, Android, iOS etc.).
+{% endBox %}
+
 Auf Discord unterhalten wir uns zu den verschiedensten Themen: Rollenspiele, Brettspiele, Tabletop und viel Klatsch und Tratsch.
 
-- Discord-Logo und nächsten Abschnitt in einem "Info-Kasten"
+Dieses Programm bietet uns sowohl Text- als auch Sprachchats.
 
-[Discord](https://discord.com/) ist ein kostenloses Chatprogramm, das im Browser läuft aber auch als App installiert werden kann (Windows, macOS, Android, iOS etc.).
-
-Dieses Programm bietet uns sowohl Text- als auch Sprachchats und ist fast auf allen Plattformen verfügbar.
-
-- Button/Link um sich anzumelden
+{% ButtonLink link="//chat.gildedernacht.ch", label="trete unserem Discord-Server bei" %}
 
 ## Probleme / Unterstützung
 
-Hast du Unklarheiten oder Probleme beim Anmelden auf Discord, kontaktiere uns bitte über das [Kontaktformular](/kontakt), damit wir dich dabei unterstützen können.
+Hast du Probleme mit Discord, kontaktiere uns bitte über das [Kontaktformular](/kontakt) damit wir dich dabei unterstützen können.

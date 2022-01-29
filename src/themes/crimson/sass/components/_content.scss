@@ -9,7 +9,7 @@
   > pre,
   > table,
   > ul,
-  > .table-container {
+  > div {
     &:not(:last-child) {
       margin-bottom: 1em;
     }
@@ -83,6 +83,20 @@
   a {
     @include p.link;
     text-decoration: none;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a[href*="//"]:not([href*="gildedernacht.com"]):not([href*="spieltage.com"]):not([href*="rollenspieltage.com"]):not(.button)::after
+    {
+      content: "↝";
+      margin-inline-start: 0.25rem;
+    }
   }
 
   .header-anchor,
