@@ -11,18 +11,22 @@ function Form(content, { uid, language }) {
   `;
 }
 
-function Input({ label, name, type }) {
+function Input({ label, name, type, required }) {
+    required = typeof required === "undefined" ? true : required;
+
     return html`
         <label>${label}
-            <input type="${type ? type : 'text'}" name="${name}" placeholder="${label}" required/>
+            <input type="${type ? type : 'text'}" name="${name}" placeholder="${label}" ${required ? "required" : ""}/>
         </label>
     `;
 }
 
-function Textarea({ label, name }) {
+function Textarea({ label, name, required }) {
+    required = typeof required === "undefined" ? true : required;
+
     return html`
         <label>${label}
-            <textarea type="text" name="${name}" placeholder="${label}" required></textarea>
+            <textarea type="text" name="${name}" placeholder="${label}" ${required ? "required" : ""}></textarea>
         </label>
     `;
 }
