@@ -21,3 +21,5 @@ Der erste Gilde der Nacht Verein wurde im **Spätherbst 2011** von 4 passioniert
 3 Jahre später wurde uns klar, das Magic nicht alles ist (versteht uns nicht falsch, Magic ist ein fantastisches Spiel — aber manchmal haben wir das Bedürfnis uns gegenseitig mit Plastikminiaturen das Leben zur Hölle zu machen oder dank einem genialen Partyspiel, vor Lachen in die Hosen zu machen). So entstand der Spielverein Element 15.
 
 Als auch dieser rasch an Popularität zunahm, beschlossen wir an der Fusions-Generalversammlung vom 9. Mai 2015 diese beiden Vereine zusammenzulegen und setzten uns zum Ziel, alle glücklich zu machen; Ob Magic-, Strategie-, Party-, Rollen- oder Tabletop-Spieler:innen.
+
+{% Image src="./websites/gildedernacht.ch/content/verein/7.png", alt="2016; Spieltreffen" %}

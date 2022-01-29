@@ -1,4 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const Image = require("@11ty/eleventy-img");
 const { formatJSDate } = require("../themes/crimson/filters/formatDate");
 const { md } = require("../themes/crimson/plugins/markdown");
 const {
@@ -17,7 +18,23 @@ const {
   ButtonLink
 } = require("../themes/crimson/shortcodes/shortcodes");
 
-function setupConfig(config, siteName, themeDir) {
+async function setupConfig(config, siteName, themeDir) {
+  async function ImageShortcode({ src, alt }) {
+    let metadata = await Image(src, {
+      widths: [600],
+      formats: ["avif", "jpeg"],
+      outputDir: "./_site/" + siteName + "/images",
+      urlPath: "/images/"
+    });
+    let imageAttributes = {
+      alt,
+      sizes: "100vw",
+      loading: "lazy",
+      decoding: "async",
+    };
+    return Image.generateHTML(metadata, imageAttributes);
+  }
+
   // compiling SASS files is not done by the SSG
   // but reload the browser, when CSS output changes
   config.ignores.add("**/*.scss");
@@ -54,6 +71,7 @@ function setupConfig(config, siteName, themeDir) {
   config.addShortcode("ButtonLink", ButtonLink);
   config.addShortcode("Checkbox", Checkbox);
   config.addShortcode("Radio", Radio);
+  config.addAsyncShortcode("Image", ImageShortcode);
 }
 
 function options(siteName, themeDir) {
