@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% Box type="special", link="/", linkLabel="go back" %}
+{% Box type="special", link="/", linkLabel="go back to the German website" %}
 Looking for the German version?
 {% endBox %}
 
@@ -11,6 +11,8 @@ Looking for the German version?
 The **Gilde der Nacht** organizes game meetings where **board game lovers, roleplayer and tabletop enthusiasts** are welcome. To make sure you don't miss anything, we recommend that you subscribe to our [newsletter](/newsletter) (German).
 
 ## Calendar
+
+In the following section you find our upcoming events. The events are not translated to English. If you wish to know more about those, feel free to [contact us](#contact).
 
 {% EventFilters events=(calendar.items), language="en" %}
 

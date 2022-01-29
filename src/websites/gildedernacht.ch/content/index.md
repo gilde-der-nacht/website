@@ -7,7 +7,7 @@ eleventyNavigation:
   order: 1
 ---
 
-{% Box type="special", link="/en", linkLabel="to the english version" %}
+{% Box type="special", link="/en", linkLabel="take me to the English summary" %}
 Do you prefer to read up on us in English?
 {% endBox %}
 
