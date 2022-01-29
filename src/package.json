@@ -5,6 +5,7 @@
   "repository": "git@github.com:gilde-der-nacht/website.git",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-img": "^1.0.0",
     "@11ty/eleventy-navigation": "^0.3.2",
     "luxon": "^2.3.0",
     "markdown-it": "^12.3.2",
