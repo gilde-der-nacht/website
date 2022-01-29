@@ -8,4 +8,6 @@ eleventyNavigation:
   order: 5
 ---
 
+# Erinnerungs-Newsletter
+
 {% NewsletterForm %}

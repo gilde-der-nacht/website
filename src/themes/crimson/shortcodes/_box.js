@@ -1,11 +1,11 @@
-const markdownLib = require("../plugins/markdown");
+const { md } = require("../plugins/markdown");
 const html = require("./helper/html");
 
 function Box(content, { type, link, linkLabel }) {
     const linkHtml = (link && linkLabel && html`<a href="${link}" class="button button-small button-${type}"><i class="fa-duotone fa-arrow-turn-down-right event-icon"></i> ${linkLabel}</a>`) || "";
     return html`
     <div class="box-${type}">
-        <span>${markdownLib.render(content)}</span>
+        <span>${md.render(content)}</span>
         ${linkHtml}
     </div>
     `;

@@ -1,10 +1,14 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { formatJSDate } = require("../themes/crimson/filters/formatDate");
-const markdownLib = require("../themes/crimson/plugins/markdown");
+const { md } = require("../themes/crimson/plugins/markdown");
 const {
   Form,
   Input,
   Textarea,
+  CheckboxList,
+  Checkbox,
+  RadioList,
+  Radio,
   EventList,
   EventFilters,
   NewsletterForm,
@@ -34,10 +38,12 @@ function setupConfig(config, siteName, themeDir) {
 
   config.addFilter("formatJSDate", formatJSDate);
 
-  config.setLibrary("md", markdownLib);
+  config.setLibrary("md", md);
 
   config.addPairedShortcode("Form", Form);
   config.addPairedShortcode("Box", Box);
+  config.addPairedShortcode("CheckboxList", CheckboxList);
+  config.addPairedShortcode("RadioList", RadioList);
   config.addShortcode("Input", Input);
   config.addShortcode("Textarea", Textarea);
   config.addShortcode("EventFilters", EventFilters);
@@ -45,6 +51,8 @@ function setupConfig(config, siteName, themeDir) {
   config.addShortcode("NewsletterForm", NewsletterForm);
   config.addShortcode("ContactForm", ContactForm);
   config.addShortcode("ButtonLink", ButtonLink);
+  config.addShortcode("Checkbox", Checkbox);
+  config.addShortcode("Radio", Radio);
 }
 
 function options(siteName, themeDir) {

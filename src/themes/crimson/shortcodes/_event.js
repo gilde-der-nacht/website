@@ -1,5 +1,5 @@
 const { DateTime } = require("luxon");
-const markdownLib = require("../plugins/markdown");
+const { md } = require("../plugins/markdown");
 const { formatISODate, formatISODateTime } = require("../filters/formatDate");
 const html = require("./helper/html");
 const { cleanUpGoogleEvent, getListOfTags } = require("./helper/google-calendar");
@@ -58,7 +58,7 @@ function EventEntry(event) {
         if (!event.description) {
             return "";
         }
-        return html`${markdownLib.render(event.description)}`;
+        return html`${md.render(event.description)}`;
     }
 
     function renderLinks(event) {

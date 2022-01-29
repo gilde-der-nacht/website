@@ -10,7 +10,7 @@ const customSlugify = (str) => slugify(str, {
     locale: 'de'
 });
 
-const markdownLib = markdownIt({
+const md = markdownIt({
     html: true,
     typographer: true,
     quotes: "«»‹›",
@@ -25,4 +25,4 @@ const markdownLib = markdownIt({
     level: 2,
     slugify: customSlugify
 });
-module.exports = markdownLib;
+module.exports = { md };
