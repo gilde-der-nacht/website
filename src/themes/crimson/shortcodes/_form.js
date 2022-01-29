@@ -1,10 +1,12 @@
 const html = require("./helper/html");
 
-function Form(content, { uid }) {
+function Form(content, { uid, language }) {
+    language = language || "de";
+
     return html`
         <form action="https://api.gildedernacht.ch/form/${uid}" method="POST">
             ${content}
-            <button type="submit" class="button-accent">Absenden</button>
+            <button type="submit" class="button-accent">${language === "de" ? "Absenden" : "Submit"}</button>
         </form>
   `;
 }

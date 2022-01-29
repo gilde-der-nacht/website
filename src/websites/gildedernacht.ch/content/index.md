@@ -13,7 +13,7 @@ Do you prefer to read up on us in English?
 
 # Herzlich willkommen
 
-Die **Gilde der Nacht** organisiert Spieltreffen, an denen alle **Brett-, Rollen- und Tabletop-Spieler:innen** herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter](/newsletter) einzutragen, um nichts zu verpassen.
+Die **Gilde der Nacht** organisiert Spieltreffen, an denen alle **Brett-, Rollen- und Tabletop-Spieler:innen** herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter](/newsletter) einzutragen.
 
 ## Kalender
 

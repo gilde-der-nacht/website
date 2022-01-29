@@ -94,7 +94,9 @@ function EventEntry(event) {
     `;
 }
 
-function EventFilters({ events }) {
+function EventFilters({ events, language }) {
+    language = language || "de";
+
     function renderFilterList(filter) {
         return html`<li><a href="?tags=${filter}">${filter}</a></li>`;
     }
@@ -104,7 +106,7 @@ function EventFilters({ events }) {
     return html`
         <div class="event-filters">
             <h2>Filter</h2>
-            <div class="event-filters-reset"><a href="?">Filter entfernen <i class="fa-duotone fa-circle-xmark"></i></a></div>
+            <div class="event-filters-reset"><a href="?">${language === "de" ? "Filter entfernen" : "remove filter"} <i class="fa-duotone fa-circle-xmark"></i></a></div>
             <ul role="list">
                 ${listOfTags.map(renderFilterList).join("")}
             </ul>
