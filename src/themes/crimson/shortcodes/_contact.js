@@ -1,7 +1,6 @@
 const { Form, Input, Textarea } = require("./_form");
 
-function ContactForm({ uid, language }) {
-    language = language || "de";
+function ContactForm({ uid, language = "de" }) {
     const nameLabel = "Name";
     const mailLabel = language === "de" ? "E-Mail" : "Email";
     const messageLabel = language === "de" ? "Nachricht" : "Message";

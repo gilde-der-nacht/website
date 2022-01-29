@@ -1,7 +1,6 @@
 const html = require("./helper/html");
 
-function Form({ uid, action, submitLabel, language }, ...content) {
-    language = language || "de";
+function Form({ uid, action, submitLabel, language = "de" }, ...content) {
     action = typeof uid === "undefined" ? action : "https://api.gildedernacht.ch/form/" + uid;
     submitLabel = typeof submitLabel === "undefined" ? (language === "de" ? "Absenden" : "Submit") : submitLabel;
 
@@ -13,9 +12,7 @@ function Form({ uid, action, submitLabel, language }, ...content) {
   `;
 }
 
-function Input({ label, name, type, required }) {
-    required = typeof required === "undefined" ? true : required;
-
+function Input({ label, name, type, required = true }) {
     return html`
         <label>${label}
             <input type="${type ? type : 'text'}" name="${name}" placeholder="${label}" ${required ? "required" : ""}/>
@@ -23,9 +20,7 @@ function Input({ label, name, type, required }) {
     `;
 }
 
-function Textarea({ label, name, required }) {
-    required = typeof required === "undefined" ? true : required;
-
+function Textarea({ label, name, required = true }) {
     return html`
         <label>${label}
             <textarea type="text" name="${name}" placeholder="${label}" ${required ? "required" : ""}></textarea>

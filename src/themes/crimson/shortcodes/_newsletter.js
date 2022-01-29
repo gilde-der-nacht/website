@@ -1,10 +1,7 @@
 const html = require("./helper/html");
 const { Form, Input, CheckboxList, Checkbox, RadioList, Radio } = require("./_form");
 
-function NewsletterForm({ theme, frequenzy }) {
-    theme = theme || "Brettspiele";
-    frequenzy = frequenzy || "oft";
-
+function NewsletterForm({ theme = "Brettspiele", frequenzy = "oft" }) {
     const themeIntro = html`
         <h2>Thema</h2>
         <p>Wähle mindestens ein Thema aus, das dich interessiert.
