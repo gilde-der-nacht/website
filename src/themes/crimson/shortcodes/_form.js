@@ -1,13 +1,13 @@
 const html = require("./helper/html");
 
-function Form(content, { uid, action, submitLabel, language }) {
+function Form({ uid, action, submitLabel, language }, ...content) {
     language = language || "de";
     action = typeof uid === "undefined" ? action : "https://api.gildedernacht.ch/form/" + uid;
     submitLabel = typeof submitLabel === "undefined" ? (language === "de" ? "Absenden" : "Submit") : submitLabel;
 
     return html`
         <form action="${action}" method="POST">
-            ${content}
+            ${content.join("")}
             <button type="submit" class="button-accent">${submitLabel}</button>
         </form>
   `;

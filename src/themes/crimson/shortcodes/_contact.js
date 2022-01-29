@@ -6,11 +6,11 @@ function ContactForm({ uid, language }) {
     const mailLabel = language === "de" ? "E-Mail" : "Email";
     const messageLabel = language === "de" ? "Nachricht" : "Message";
 
-    return Form(
-        Input({ label: nameLabel, name: "private-name" })
-        + Input({ label: mailLabel, name: "private-email", type: "email" })
-        + Textarea({ label: messageLabel, name: "private-message" }),
-        { uid, language });
+    return Form({ uid, language },
+        Input({ label: nameLabel, name: "private-name" }),
+        Input({ label: mailLabel, name: "private-email", type: "email" }),
+        Textarea({ label: messageLabel, name: "private-message" }),
+    );
 }
 
 module.exports = { ContactForm };
