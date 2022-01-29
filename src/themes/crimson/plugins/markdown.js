@@ -4,6 +4,12 @@ const anchor = require("markdown-it-anchor");
 const toc = require("markdown-it-toc-done-right");
 const slugify = require('slugify');
 
+const customSlugify = (str) => slugify(str, {
+    lower: true,
+    strict: true,
+    locale: 'de'
+});
+
 const markdownLib = markdownIt({
     html: true,
     typographer: true,
@@ -14,12 +20,9 @@ const markdownLib = markdownIt({
     class: "table-container"
 }).use(anchor, {
     permalink: anchor.permalink.headerLink(),
-    slugify: (str) => slugify(str, {
-        lower: true,
-        strict: true,
-        locale: 'de'
-    })
+    slugify: customSlugify
 }).use(toc, {
-    level: 2
+    level: 2,
+    slugify: customSlugify
 });
 module.exports = markdownLib;
