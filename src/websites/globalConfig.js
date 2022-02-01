@@ -17,6 +17,8 @@ const {
   ButtonLink
 } = require("../themes/crimson/shortcodes/shortcodes");
 
+const passThroughCopyFormats = ["*.glb"];
+
 async function setupConfig(config, siteName, themeDir) {
   // compiling SASS files is not done by the SSG
   // but reload the browser, when CSS output changes
@@ -30,10 +32,10 @@ async function setupConfig(config, siteName, themeDir) {
   config.addPassthroughCopy({ [themeDir + "icons"]: "icons" });
   config.addPassthroughCopy({ [themeDir + "scripts"]: "scripts" });
   config.addPassthroughCopy({ [themeDir + "images"]: "images" });
-  config.addPassthroughCopy("websites/**/*.jpg");
-  config.addPassthroughCopy("websites/**/*.png");
-  config.addPassthroughCopy("websites/**/*.glb");
   config.addPassthroughCopy({ ["websites/" + siteName + "/public/"]: "/" });
+  passThroughCopyFormats.forEach((format) => {
+    config.addPassthroughCopy("websites/**/" + format);
+  });
 
   config.addPlugin(eleventyNavigationPlugin);
 
