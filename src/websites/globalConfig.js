@@ -27,7 +27,6 @@ async function setupConfig(config, siteName, themeDir) {
     files: "./_site/" + siteName + "/**/*.css",
   });
 
-  config.addLayoutAlias("default", "base.njk");
   config.addPassthroughCopy({ [themeDir + "fonts"]: "fonts" });
   config.addPassthroughCopy({ [themeDir + "icons"]: "icons" });
   config.addPassthroughCopy({ [themeDir + "scripts"]: "scripts" });
