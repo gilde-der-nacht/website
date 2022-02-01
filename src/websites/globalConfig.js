@@ -17,7 +17,7 @@ const {
   ButtonLink
 } = require("../themes/crimson/shortcodes/shortcodes");
 
-const passThroughCopyFormats = ["glb"];
+const passThroughCopyFormats = ["glb", "blend", "mp4"];
 
 async function setupConfig(config, siteName, themeDir) {
   // compiling SASS files is not done by the SSG
