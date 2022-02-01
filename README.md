@@ -20,13 +20,4 @@ Our web pages are mainly static and are being hosted on Github Pages.
 
 ## Development / Building
 
-### Requirements
-
-* nodejs
-* yarn or npm
-
-There is a [Dockerfile](https://github.com/gilde-der-nacht/website/blob/theme-crimson/.devcontainer/Dockerfile) which can be use to build a development environment.
-
-### Getting it up and running
-
 See https://github.com/gilde-der-nacht/website/tree/theme-crimson/src for further informations.
