@@ -52,9 +52,13 @@ function generateImages({ src, outputDir }) {
 }
 
 function markdownImagePlugin(md, params) {
+    const oldRenderer = md.renderer.rules.image;
     md.renderer.rules.image = function (tokens, idx, options, env, self) {
         var token = tokens[idx];
         const srcAttr = token.attrs[token.attrIndex("src")][1];
+        if (/^http/.test(srcAttr)) {
+            return oldRenderer(tokens, idx, options, env, self);
+        }
         const alt = token.content;
         const { inputPath, outputPath } = env.page;
         const src = path.join(path.dirname(inputPath), srcAttr);
