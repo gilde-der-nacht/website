@@ -16,15 +16,18 @@ const md = markdownIt({
     typographer: true,
     quotes: "«»‹›",
     linkify: true,
-}).use(markdownImagePlugin, {
-}).use(markdownTableContainerPlugin, {
-    element: "div",
-    class: "table-container"
-}).use(anchor, {
-    permalink: anchor.permalink.headerLink(),
-    slugify: customSlugify
-}).use(toc, {
-    level: 2,
-    slugify: customSlugify
-});
+})
+    .use(markdownImagePlugin)
+    .use(markdownTableContainerPlugin, {
+        element: "div",
+        class: "table-container"
+    })
+    .use(anchor, {
+        permalink: anchor.permalink.headerLink(),
+        slugify: customSlugify
+    })
+    .use(toc, {
+        level: 2,
+        slugify: customSlugify
+    });
 module.exports = { md };

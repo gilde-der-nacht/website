@@ -51,7 +51,7 @@ function generateImages({ src, outputDir }) {
     return Image.statsSync(src, options);
 }
 
-function markdownImagePlugin(md, params) {
+function markdownImagePlugin(md) {
     const oldRenderer = md.renderer.rules.image;
     md.renderer.rules.image = function (tokens, idx, options, env, self) {
         var token = tokens[idx];
