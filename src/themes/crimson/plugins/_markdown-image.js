@@ -1,27 +1,57 @@
 const path = require('path');
 const Image = require("@11ty/eleventy-img");
+const html = require('../shortcodes/helper/html');
 
-function generateImages({ src, outputDir, alt }) {
-    console.log({ src, outputDir });
+function fallbackImage(metadata, alt) {
+    const lowsrc = metadata.jpeg[0];
+    const highsrc = metadata.jpeg[metadata.jpeg.length - 1];
+    return html`
+        <img
+            src="${lowsrc.url}"
+            width="${highsrc.width}"
+            height="${highsrc.height}"
+            alt="${alt}"
+            loading="lazy"
+            decoding="async"/>
+    `;
+}
+
+function sources(metadata, sizes) {
+    return Object.values(metadata).map(imageFormat => {
+        return html`
+            <source
+                type="${imageFormat[0].sourceType}"
+                srcset="${imageFormat.map(entry => entry.srcset).join(", ")}"
+                sizes="${sizes}">
+        `;
+    });
+}
+
+function generateHtml({ metadata, alt }) {
+    const id = metadata.jpeg[0].filename.substring(0, 10);
+    return html`
+    <figure aria-labelledby="caption-${id}">
+        <picture>
+            ${sources(metadata, "100vw").join("\n")}
+            ${fallbackImage(metadata, alt)}
+        </picture>
+        <figcaption id="caption-${id}">${alt}</figcaption>
+    </figure>
+  `;
+}
+
+function generateImages({ src, outputDir }) {
     const options = {
         widths: [600],
         formats: ["avif", "jpeg"],
-        outputDir: outputDir
+        outputDir: outputDir,
+        urlPath: path.join("/", outputDir.split(path.sep).slice(2).join(path.sep))
     };
     Image(src, options);
-    const metadata = Image.statsSync(src, options);
-
-    // let imageAttributes = {
-    //   alt,
-    //   sizes: "100vw",
-    //   loading: "lazy",
-    //   decoding: "async",
-    // };
-    // return Image.generateHTML(metadata, imageAttributes);
+    return Image.statsSync(src, options);
 }
 
 function markdownImagePlugin(md, params) {
-    const before = md.renderer.rules.image;
     md.renderer.rules.image = function (tokens, idx, options, env, self) {
         var token = tokens[idx];
         const srcAttr = token.attrs[token.attrIndex("src")][1];
@@ -29,8 +59,8 @@ function markdownImagePlugin(md, params) {
         const { inputPath, outputPath } = env.page;
         const src = path.join(path.dirname(inputPath), srcAttr);
         const outputDir = path.join(path.dirname(outputPath), path.dirname(srcAttr));
-        generateImages({ src, outputDir, alt })
-        return before(tokens, idx, options, env, self);
+        const metadata = generateImages({ src, outputDir })
+        return generateHtml({ metadata, alt });
     }
 }
 
