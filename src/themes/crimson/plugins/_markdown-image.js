@@ -35,7 +35,7 @@ function generateHtml({ metadata, alt }) {
             ${sources(metadata, "100vw").join("\n")}
             ${fallbackImage(metadata, alt)}
         </picture>
-        <figcaption id="caption-${id}">${alt}</figcaption>
+        ${alt.length > 0 ? html`<figcaption id="caption-${id}">${alt}</figcaption>` : ""}
     </figure>
   `;
 }
