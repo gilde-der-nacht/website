@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32sepr4vu37va0g\"",
+ "etag": "\"p33sd7jmgrrdva0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-01-26T16:51:39.539Z",
+ "updated": "2022-01-31T10:04:46.827Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CLjs7J_wz_UCEAAYASDvu_LIAQ==",
+ "nextSyncToken": "CPjTztDe2_UCEAAYASDvu_LIAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -66,36 +66,6 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "4j2i63r9o7qaqgv2sr6l2stdqb@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3286225288902000\"",
-   "id": "0h5im4brsbvdpta3pqnqg4sc9k",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MGg1aW00YnJzYnZkcHRhM3BxbnFnNHNjOWsgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-01-05T08:44:12.000Z",
-   "updated": "2022-01-25T12:10:44.451Z",
-   "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003eDiskussionsstarter: **«Zeit»**\u003cbr\u003e\u003cbr\u003eDer Stammtisch findet auf unserer Online-Plattform, Discord, statt.\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Discord{\u003cspan\u003e\u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e\u003c/span\u003e}[/links] \u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon] \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
-   "location": "Discord",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-03-04T19:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-03-04T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "0h5im4brsbvdpta3pqnqg4sc9k@google.com",
    "sequence": 0,
    "eventType": "default"
   },
@@ -360,6 +330,36 @@
    },
    "iCalUID": "272supnprt3jkr0ad2v7bbtshr@google.com",
    "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3287246973654000\"",
+   "id": "0h5im4brsbvdpta3pqnqg4sc9k",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MGg1aW00YnJzYnZkcHRhM3BxbnFnNHNjOWsgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-01-05T08:44:12.000Z",
+   "updated": "2022-01-31T10:04:46.827Z",
+   "summary": "[Online] Rollenspiel-Stammtisch",
+   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003eDiskussionsstarter: **«Zeit»**\u003cbr\u003e\u003cbr\u003eDer Stammtisch findet auf unserer Online-Plattform, Discord, statt.\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Online/Discord[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Discord{\u003cspan\u003e\u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e\u003c/span\u003e}[/links] \u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon] \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
+   "location": "Discord",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-03-04T19:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-03-04T22:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "0h5im4brsbvdpta3pqnqg4sc9k@google.com",
+   "sequence": 0,
    "eventType": "default"
   }
  ]
