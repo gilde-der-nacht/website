@@ -79,6 +79,18 @@
     @include p.element;
   }
 
+  figure {
+    picture img {
+      border-radius: 0;
+    }
+
+    figcaption {
+      @include p.element;
+      font-size: 0.83rem;
+      padding: 0.125rem 0.5rem;
+    }
+  }
+
   a {
     @include p.link;
     text-decoration: none;
