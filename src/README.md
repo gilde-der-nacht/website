@@ -41,6 +41,8 @@ $ yarn build:lst # for spieltage.ch
 $ yarn build:rst # for rollenspieltage.ch
 ```
 
+### Drafts and future pages
+
 To build also the drafts and future pages, set the environment variable `ELEVENTY_ENV=development`. 
 
 This can also be achieved by running the script `yarn build-dev` which builds all pages incl. drafts and future pages.
