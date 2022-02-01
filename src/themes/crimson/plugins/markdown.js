@@ -1,5 +1,6 @@
 const markdownIt = require("markdown-it");
-const markdownTableContainerPlugin = require("./_markdown-table-container");
+const { markdownTableContainerPlugin } = require("./_markdown-table-container");
+const { markdownImagePlugin } = require("./_markdown-image");
 const anchor = require("markdown-it-anchor");
 const toc = require("markdown-it-toc-done-right");
 const slugify = require('slugify');
@@ -15,6 +16,7 @@ const md = markdownIt({
     typographer: true,
     quotes: "«»‹›",
     linkify: true,
+}).use(markdownImagePlugin, {
 }).use(markdownTableContainerPlugin, {
     element: "div",
     class: "table-container"

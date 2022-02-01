@@ -44,4 +44,4 @@ function markdownTableContainerPlugin(md, params) {
     });
 }
 
-module.exports = markdownTableContainerPlugin;
+module.exports = { markdownTableContainerPlugin };
