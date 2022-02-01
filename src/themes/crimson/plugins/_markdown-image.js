@@ -56,11 +56,14 @@ function markdownImagePlugin(md, params) {
     md.renderer.rules.image = function (tokens, idx, options, env, self) {
         var token = tokens[idx];
         const srcAttr = token.attrs[token.attrIndex("src")][1];
+        const alt = token.content;
+        const { inputPath, outputPath } = env.page;
+        if (alt === undefined || alt.length === 0) {
+            throw new Error(`Missing \`alt\` on responsive image \`${srcAttr}\`!`);
+        }
         if (/^http/.test(srcAttr)) {
             return oldRenderer(tokens, idx, options, env, self);
         }
-        const alt = token.content;
-        const { inputPath, outputPath } = env.page;
         const src = path.join(path.dirname(inputPath), srcAttr);
         const outputDir = path.join(path.dirname(outputPath), path.dirname(srcAttr));
         const metadata = generateImages({ src, outputDir })
