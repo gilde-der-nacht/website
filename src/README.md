@@ -2,8 +2,8 @@
 
 ### Requirements
 
-* nodejs
-* yarn or npm
+* nodejs v16
+* yarn v1.22
 
 There is a [Dockerfile](https://github.com/gilde-der-nacht/website/blob/theme-crimson/.devcontainer/Dockerfile) which can be use to build a development environment.
 
@@ -12,7 +12,7 @@ Install yarn: https://classic.yarnpkg.com/en/docs/install
 ## Install Dependencies
 
 ```sh
-$ varn --version
+$ yarn --version
 $ yarn
 ```
 
