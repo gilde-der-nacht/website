@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33sd7jmgrrdva0g\"",
+ "etag": "\"p32oc7an7ibffa0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-01-31T10:04:46.827Z",
+ "updated": "2022-02-01T09:03:32.590Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CPjTztDe2_UCEAAYASDvu_LIAQ==",
+ "nextSyncToken": "CLDDqueS3vUCEAAYASCzhO_KAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -359,6 +359,34 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "0h5im4brsbvdpta3pqnqg4sc9k@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3287412425180000\"",
+   "id": "6c0750kedjflb38k2dmqinfig9",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NmMwNzUwa2VkamZsYjM4azJkbXFpbmZpZzkgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-02-01T09:03:32.000Z",
+   "updated": "2022-02-01T09:03:32.590Z",
+   "summary": "Tapetenwechsel-Party",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-02-06T19:30:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-02-06T20:30:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "6c0750kedjflb38k2dmqinfig9@google.com",
    "sequence": 0,
    "eventType": "default"
   }
