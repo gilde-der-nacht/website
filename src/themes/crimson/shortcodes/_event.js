@@ -27,6 +27,10 @@ function EventEntry(event) {
     }
 
     function renderLocation(event) {
+        if (!event.location?.length) {
+            return "";
+        }
+
         return html`
             <div class="event-location">
                 <a href="${event.googleLinks.googleMaps}" class="event-icon"><i class="fa-duotone fa-location-dot"></i></a>
@@ -39,7 +43,7 @@ function EventEntry(event) {
             return html`<li><a href="?tags=${tag}" class="event-tag">${tag}</a></li>`;
         }
 
-        if (!event.tags.length) {
+        if (!event.tags?.length) {
             return "";
         }
         return html`
@@ -68,7 +72,7 @@ function EventEntry(event) {
             `;
         }
 
-        if (!event.links.length) {
+        if (!event.links?.length) {
             return "";
         }
 
@@ -80,7 +84,7 @@ function EventEntry(event) {
     }
 
     return html`
-        <li class="event-entry ${event.theme || ""}" data-event-tags="${event.tags.join(",")}">
+        <li class="event-entry ${event.theme || ""}" data-event-tags="${event.tags?.join(",") || ''}">
             ${renderBackgroundIcon(event)}
             <h1 class="event-title">${event.title}</h1>
             <div class="event-details">

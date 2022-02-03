@@ -76,13 +76,13 @@ function cleanUpGoogleEvent({ htmlLink: link, summary: title, description: body,
     const isFullDay = "date" in start;
     const isMultipleDays = !startDate.hasSame(endDate, "day");
     const parsed = parseBody(body);
-    const location = parsed.location || loc;
+    const location = parsed.location || loc || "";
     const { tags, theme, icon, links, description } = parsed;
     const e = { title, tags, theme, icon, description, location, links, startDate, endDate, isFullDay, isMultipleDays, googleLinks: { googleCalendar: link } };
     if (isFullDay) {
         e.endDate = DateTime.fromISO(e.endDate).minus({ seconds: 1 });
     }
-    if (!(["discord", "online"].includes(location.toString().toLowerCase()))) {
+    if (location.length > 0 && !(["discord", "online"].includes(location.toString().toLowerCase()))) {
         e.googleLinks.googleMaps = `http://maps.google.com/?q=${location}`;
     }
     return e;
