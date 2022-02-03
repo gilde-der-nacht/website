@@ -2,11 +2,11 @@
 @use "../globals/variables" as var;
 @use "../globals/fonts" as f;
 
-$_top-offset: calc(1rem + var.$header-height);
+$_top-offset: calc(1rem + var.$header-block-size);
 :target::before {
   content: "";
   display: block;
-  height: $_top-offset;
+  block-size: $_top-offset;
   margin-top: -1 * $_top-offset;
 }
 
@@ -15,7 +15,7 @@ $_top-offset: calc(1rem + var.$header-height);
   grid-template-columns: max-content 1fr max-content;
   align-items: stretch;
   background-color: c.get("background-solid");
-  height: var.$header-height;
+  block-size: var.$header-block-size;
   border-bottom: 0.25rem solid c.get("border-subtle");
   position: sticky;
   z-index: 10;
@@ -55,11 +55,11 @@ $_top-offset: calc(1rem + var.$header-height);
   background-color: c.get("background-subtle");
   display: grid;
   place-content: center;
-  width: var.$header-height;
+  inline-size: var.$header-block-size;
   aspect-ratio: 1;
 
   svg {
-    width: calc(#{var.$header-height} - 1rem);
-    height: calc(#{var.$header-height} - 1rem);
+    inline-size: calc(#{var.$header-block-size} - 1rem);
+    block-size: calc(#{var.$header-block-size} - 1rem);
   }
 }

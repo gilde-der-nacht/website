@@ -39,7 +39,7 @@
 
     &::after {
       content: "";
-      height: 100%;
+      block-size: 100%;
       position: absolute;
       border-top-left-radius: 0.25rem;
       border-bottom-left-radius: 0.25rem;

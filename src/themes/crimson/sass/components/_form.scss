@@ -8,7 +8,7 @@ form {
   }
 
   > p {
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 }
 
@@ -16,7 +16,7 @@ label,
 input:not([type="checkbox"]):not([type="radio"]),
 textarea {
   display: block;
-  width: 100%;
+  inline-size: 100%;
 }
 
 label {
@@ -39,8 +39,8 @@ textarea {
 }
 
 textarea {
-  min-height: 10em;
-  max-height: 40em;
+  min-block-size: 10em;
+  max-block-size: 40em;
   resize: vertical;
 }
 

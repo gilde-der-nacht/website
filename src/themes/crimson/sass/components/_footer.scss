@@ -1,7 +1,7 @@
 @use "../globals/colors" as c;
 
 .footer {
-  min-height: 1rem;
+  min-block-size: 1rem;
   background-color: c.get("background-solid");
   border-top: 0.25rem solid c.get("border-subtle");
 }

@@ -37,7 +37,7 @@ li,
 ol:not([role="list"]),
 ul:not([role="list"]),
 blockquote {
-  max-width: 60ch;
+  max-inline-size: 60ch;
 }
 
 h1 {

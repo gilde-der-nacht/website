@@ -12,7 +12,7 @@
 
     svg {
       aspect-ratio: 1;
-      height: 1em;
+      block-size: 1em;
     }
 
     .close-menu-container {
@@ -23,7 +23,7 @@
   ~ .mobile-menu-container {
     position: fixed;
     overflow: auto;
-    inset: var.$header-height 0 0;
+    inset: var.$header-block-size 0 0;
     background-color: c.get("background-subtle");
     transform: translateX(-150vw);
     transition: transform 0.5s ease-in-out;
@@ -35,7 +35,7 @@
       &::after {
         content: "";
         position: fixed;
-        inset: var.$header-height 0 0;
+        inset: var.$header-block-size 0 0;
         background-color: rgba(10, 10, 10, 0.86);
       }
 
@@ -60,7 +60,7 @@
   }
 
   padding-block: 0.5rem;
-  max-width: 20rem;
+  max-inline-size: 20rem;
   display: grid;
   grid-template-rows: 1fr max-content;
 }
