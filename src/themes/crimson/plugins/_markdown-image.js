@@ -24,7 +24,7 @@ function sources(metadata, sizes) {
                 srcset="${imageFormat.map(entry => entry.srcset).join(", ")}"
                 sizes="${sizes}">
         `;
-    });
+    }).join("\n");
 }
 
 function generateHtml({ metadata, alt }) {
@@ -32,7 +32,7 @@ function generateHtml({ metadata, alt }) {
     return html`
     <figure aria-labelledby="caption-${id}">
         <picture>
-            ${sources(metadata, "100vw").join("\n")}
+            ${sources(metadata, "80vw")}
             ${fallbackImage(metadata, alt)}
         </picture>
         ${alt.length > 0 ? html`<figcaption id="caption-${id}">${alt}</figcaption>` : ""}
@@ -42,7 +42,7 @@ function generateHtml({ metadata, alt }) {
 
 function generateImages({ src, outputDir }) {
     const options = {
-        widths: [600],
+        widths: [300, 600, 1200],
         formats: ["avif", "jpeg"],
         outputDir: outputDir,
         urlPath: path.join("/", outputDir.split(path.sep).slice(2).join(path.sep))
