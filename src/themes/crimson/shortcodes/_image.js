@@ -23,7 +23,7 @@ function sources(metadata, sizes) {
                 srcset="${imageFormat.map(entry => entry.srcset).join(", ")}"
                 sizes="${sizes}">
         `;
-    });
+    }).join("\n");
 }
 
 
@@ -40,7 +40,7 @@ async function ImageShortcode({ src, alt = "" }) {
     return html`
         <figure aria-labelledby="caption-${id}">
             <picture>
-                ${sources(metadata, "100vw").join("\n")}
+                ${sources(metadata, "100vw")}
                 ${fallbackImage(metadata, alt)}
             </picture>
             <figcaption id="caption-${id}">${alt}</figcaption>

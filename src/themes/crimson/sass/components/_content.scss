@@ -80,14 +80,10 @@
   }
 
   figure {
-    picture img {
-      border-radius: 0;
-    }
-
     figcaption {
-      @include p.element;
+      display: none;
       font-size: 0.83rem;
-      padding: 0.125rem 0.5rem;
+      font-style: italic;
     }
   }
 
