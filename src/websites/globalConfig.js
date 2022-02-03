@@ -14,7 +14,8 @@ const {
   NewsletterForm,
   ContactForm,
   Box,
-  ButtonLink
+  ButtonLink,
+  Slider
 } = require("../themes/crimson/shortcodes/shortcodes");
 
 const passThroughCopyFormats = ["glb", "blend", "mp4"];
@@ -46,6 +47,7 @@ async function setupConfig(config, siteName, themeDir) {
   config.addPairedShortcode("Box", Box);
   config.addPairedShortcode("CheckboxList", CheckboxList);
   config.addPairedShortcode("RadioList", RadioList);
+  config.addPairedShortcode("Slider", Slider);
   config.addShortcode("Input", Input);
   config.addShortcode("Textarea", Textarea);
   config.addShortcode("EventFilters", EventFilters);

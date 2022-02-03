@@ -22,4 +22,17 @@ Der erste Gilde der Nacht Verein wurde im **Spätherbst 2011** von 4 passioniert
 
 Als auch dieser rasch an Popularität zunahm, beschlossen wir an der Fusions-Generalversammlung vom 9. Mai 2015 diese beiden Vereine zusammenzulegen und setzten uns zum Ziel, alle glücklich zu machen; Ob Magic-, Strategie-, Party-, Rollen- oder Tabletop-Spieler:innen.
 
-![Spieltreffen 2022](./images/1.jpg)
+{% Slider %}
+
+![2021, Luzerner Rollenspieltage](./images/2021-rollenspieltage.jpg)
+![2019, Luzerner Spieltage](./images/2019-spieltage.jpg)
+![2018, Luzerner Rollenspieltag](./images/2018-rollenspieltag.jpg)
+![2018, Luzerner Spieltage](./images/2018-spieltage.jpg)
+![2017, Spieltreffen](./images/2017-spieltreffen.jpg)
+![2017, Gratis-Rollenspieltag](./images/2017-gratis-rollenspieltag.jpg)
+![2015, Tabletop Day](./images/2015-tabletop-day.jpg)
+![2014, Spieltreffen](./images/2014-spieltreffen.jpg)
+![2014, Magic the Gathering Turnier](./images/2014-mtg-turnier.jpg)
+![2011, Erste Version der Vereinswebseite](./images/2011-website.png)
+
+{% endSlider %}
