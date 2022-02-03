@@ -72,21 +72,6 @@
     max-inline-size: 100%;
   }
 
-  img,
-  video,
-  canvas,
-  svg:not([data-icon]) {
-    @include p.element;
-  }
-
-  figure {
-    figcaption {
-      display: none;
-      font-size: 0.83rem;
-      font-style: italic;
-    }
-  }
-
   a {
     @include p.link;
     text-decoration: none;

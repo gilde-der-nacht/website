@@ -22,4 +22,4 @@ Der erste Gilde der Nacht Verein wurde im **Spätherbst 2011** von 4 passioniert
 
 Als auch dieser rasch an Popularität zunahm, beschlossen wir an der Fusions-Generalversammlung vom 9. Mai 2015 diese beiden Vereine zusammenzulegen und setzten uns zum Ziel, alle glücklich zu machen; Ob Magic-, Strategie-, Party-, Rollen- oder Tabletop-Spieler:innen.
 
-![Der Alt Text hier](./images/1.jpg)
+![Spieltreffen 2022](./images/1.jpg)
