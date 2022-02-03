@@ -30,11 +30,18 @@
       border-bottom-left-radius: 0.5rem;
       opacity: 0.7;
       transform: translateY(100%);
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
     }
 
-    &:hover figcaption {
-      transform: translateY(0%);
+    &:hover {
+      figcaption {
+        transform: translateY(0%);
+      background-color: c.get("background-solid");
+      }
+
+      img {
+        border-color: c.get("background-solid");
+      }
     }
   }
 }

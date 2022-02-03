@@ -1,0 +1,36 @@
+@use "../globals/colors" as c;
+
+.slider {
+  --gap: 1rem;
+  --number-of-items: 4;
+  --offset: 0%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(
+    (100% / var(--number-of-items) - var(--offset)) - var(--gap) /
+      var(--number-of-items) * (var(--number-of-items) - 1)
+  );
+  gap: var(--gap);
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: inline mandatory;
+  background-color: c.get("background-element");
+  padding: var(--gap);
+  scroll-padding-inline: var(--gap);
+  border: 1px solid c.get("border-subtle");
+
+  > * {
+    scroll-snap-align: start;
+  }
+
+  > p {
+    display: none;
+  }
+
+  img {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+}
