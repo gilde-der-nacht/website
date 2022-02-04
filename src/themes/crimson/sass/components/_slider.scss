@@ -1,28 +1,43 @@
 @use "../globals/colors" as c;
 
 .slider {
-  --gap: 1rem;
-  --number-of-items: 4;
-  --offset: 0%;
+  --gap: 0.5rem;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc(
-    (100% / var(--number-of-items) - var(--offset)) - var(--gap) /
-      var(--number-of-items) * (var(--number-of-items) - 1)
-  );
+  grid-auto-columns: min(25rem, 100%);
   gap: var(--gap);
   overflow-x: auto;
   overflow-y: visible;
   overscroll-behavior-inline: contain;
   -webkit-overflow-scrolling: touch;
+  scrollbar-color: c.get("accent") c.get("border-subtle");
   scroll-snap-type: inline mandatory;
   background-color: c.get("background-element");
   padding: var(--gap);
   scroll-padding-inline: var(--gap);
   border: 1px solid c.get("border-subtle");
 
+  &::-webkit-scrollbar {
+    block-size: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: c.get("border-subtle");
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: c.get("border-subtle");
+    background-image: linear-gradient(
+      c.get("border-subtle") 0,
+      c.get("border-subtle") 0.25rem,
+      c.get("accent") 0.25rem,
+      c.get("accent") 0.75rem,
+      c.get("border-subtle") 0.75rem
+    );
+  }
+
   > * {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
   }
 
   > p {
