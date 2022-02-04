@@ -4,7 +4,7 @@
   --gap: 0.5rem;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(25rem, 100%);
+  grid-auto-columns: min(25rem, 85%);
   gap: var(--gap);
   overflow-x: auto;
   overflow-y: visible;
