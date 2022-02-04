@@ -52,3 +52,7 @@ date: 2022-02-04
 - Mistborn RPG
   - Zuerst defklariert jede Person eine Aktion, abhängig von der Weisheit, tief zuerst, hoch zuletzt.
   - Die Aktionen werden ahbängig von der Stärke durchgeführt, hoch zuerst, tief zuletzt.
+- Shadowrun
+  - Jede Person macht ein Iniativwurf.
+  - Man gehört der Reihenfolge (hoch -> tief) und zieht bei jeder Aktion 10 Punkte von seinem Iniativewert ab.
+  - Es kann passieren dass in einer Runde einzelne Involviert mehrmals eine Aktion ausführen können.
