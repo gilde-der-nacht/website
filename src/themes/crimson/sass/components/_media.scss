@@ -7,10 +7,11 @@
   canvas,
   svg:not([data-icon]) {
     @include p.element;
+    background-color: c.get("border-element");
   }
 
   figure {
-    display: inline grid;
+    display: inline-grid;
     overflow: hidden;
     border-bottom-right-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
@@ -24,6 +25,7 @@
       font-size: 0.83rem;
       font-style: italic;
       background-color: c.get("border-element");
+      color: white;
       align-self: end;
       padding: 0.25rem 1rem 0.5rem;
       border-bottom-right-radius: 0.5rem;
