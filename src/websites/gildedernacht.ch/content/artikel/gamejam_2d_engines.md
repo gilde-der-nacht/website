@@ -65,6 +65,7 @@ Eine lose und opinionated Sammlung von Fragen und Gedanken zu den jeweiligen Eng
   - Ein leeres Projekt ist einige MB gross (2022-02-02 ein leeres Core 2D ist 130 MB) und hat hunderte von Dateien. Die [gitignore](https://github.com/github/gitignore/blob/main/Unity.gitignore) Datei die GitHub offiziell vorschlägt ist verhältnismässig gross. Eventuell wird man git LFS benötigen.
   - Kleine Änderung z.B. an einer Scene, führen oft dazu dass sich eine Datei teilweise komplett ändert (es gibt keine unification) was die Verwendung von git/diffs nicht vereinfacht.
   - Man braucht zusätzlich einen Code Editor (z.B. Visual Studio Code) wenn man in C# entwickeln möchte.
+  - Man merkt immer wieder dass die Engine intern alles in 3D Koordinaten hält. Wenn man etwas animiert, sieht man trotzdem 3D Koordinaten. Partikel Effekte sind auch in 2D eigentlich 3D.
 - Phaser
   - Benötigt einen Webserver (z.B. Live Server in Visual Studio Code).
   - Für Phaser alleine verwendet man seinen eigenen Standard Entwicklungseditor (z.B. Visual Studio Code).
