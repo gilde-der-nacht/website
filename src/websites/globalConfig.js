@@ -57,6 +57,8 @@ async function setupConfig(config, siteName, themeDir) {
   config.addShortcode("ButtonLink", ButtonLink);
   config.addShortcode("Checkbox", Checkbox);
   config.addShortcode("Radio", Radio);
+
+  config.addGlobalData("development", () => process.env.ELEVENTY_ENV === "development");
 }
 
 function options(siteName, themeDir) {
