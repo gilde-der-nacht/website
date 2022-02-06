@@ -15,10 +15,13 @@ jobs:
 
     strategy:
       matrix:
-        site:
-          - gildedernacht
-          - rollenspieltage
-          - spieltage
+        include:
+          - site: gildedernacht
+            siteCode: gdn
+          - site: rollenspieltage
+            siteCode: rst
+          - site: spieltage
+            siteCode: lst
 
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +32,7 @@ jobs:
         node-version: '16'
     - run: cd src && npm install
 
-    - run: cd src && npm run build
+    - run: cd src && npm run build:${{matrix.siteCode}}
       env:
         ELEVENTY_ENV: development
 
