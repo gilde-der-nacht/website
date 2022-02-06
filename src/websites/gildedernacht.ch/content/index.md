@@ -15,7 +15,7 @@ Do you prefer to read up on us in English?
 
 Die **Gilde der Nacht** organisiert Spieltreffen, an denen alle **Brett-, Rollen- und Tabletop-Spieler:innen** herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter](/newsletter) einzutragen.
 
-{% Slider %}
+{% Slider size="small" %}
 
 ![2018, Luzerner Rollenspieltag](./images/2018-rollenspieltag.jpg)
 ![2017, Spieltreffen](./images/2017-spieltreffen.jpg)

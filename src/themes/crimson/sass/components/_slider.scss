@@ -17,6 +17,10 @@
   scroll-padding-inline: var(--gap);
   border: 1px solid c.get("border-subtle");
 
+  &-small {
+    grid-auto-columns: min(15rem, 85%);
+  }
+
   &::-webkit-scrollbar {
     block-size: 1rem;
   }
