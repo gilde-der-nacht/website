@@ -1,0 +1,41 @@
+name: Live Pages
+
+on:
+  push:
+    tags: [ v* ]
+  workflow_dispatch:
+  # schedule:
+  #   - cron:  '0 1 * * *'
+
+jobs:
+  deploy-test-pages:
+    name: ${{ matrix.site }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        site:
+          - gildedernacht
+          # - rollenspieltage
+          # - spieltage
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - run: cd src && npm install
+
+    - run: cd src && npm run build
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        external_repository: gilde-der-nacht/${{ matrix.site }}.ch
+        publish_branch: master
+        publish_dir: ./src/_site/${{ matrix.site }}.ch
+        cname: ${{ matrix.site }}.ch
