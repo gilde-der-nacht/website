@@ -110,7 +110,7 @@ function EventFilters({ events, language }) {
     return html`
         <div class="event-filters">
             <h2>Filter</h2>
-            <div class="event-filters-reset"><a href="?">${language === "de" ? "Filter entfernen" : "remove filter"} <i class="fa-duotone fa-circle-xmark"></i></a></div>
+            <div class="event-filters-reset"><a href="?" data-event-filter-remove>${language === "de" ? "Filter entfernen" : "remove filter"} <i class="fa-duotone fa-circle-xmark"></i></a></div>
             <ul role="list">
                 ${listOfTags.map(renderFilterList).join("")}
             </ul>

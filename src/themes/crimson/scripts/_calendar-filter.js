@@ -53,7 +53,6 @@ function updateDOM() {
 function setupFilterLink(link) {
     link.on("click", (e) => {
         e.preventDefault();
-
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.delete("tags");
         urlParams.append("tags", e.target.dataset.eventFilter);
@@ -64,7 +63,20 @@ function setupFilterLink(link) {
     });
 }
 
+function setupFilterRemoveLink(link) {
+    link.on("click", (e) => {
+        e.preventDefault();
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.delete("tags");
+        const newUrl = new URL(window.location);
+        newUrl.search = urlParams;
+        history.pushState(urlParams, "", newUrl);
+        updateDOM();
+    });
+}
+
 export function updateCalendarFilters() {
     $("[data-event-filter]").map(setupFilterLink);
+    $("[data-event-filter-remove]").map(setupFilterRemoveLink);
     updateDOM();
 }
