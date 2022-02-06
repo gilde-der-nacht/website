@@ -18,10 +18,10 @@ jobs:
         include:
           - site: gildedernacht
             siteCode: gdn
-          - site: rollenspieltage
-            siteCode: rst
-          - site: spieltage
-            siteCode: lst
+          # - site: rollenspieltage
+          #   siteCode: rst
+          # - site: spieltage
+          #   siteCode: lst
 
     steps:
       - uses: actions/checkout@v2
