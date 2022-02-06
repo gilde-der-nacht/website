@@ -11,36 +11,6 @@
  "items": [
   {
    "kind": "calendar#event",
-   "etag": "\"3286118962044000\"",
-   "id": "60hnbnem2dl8smgoec2omdscaf",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NjBobmJuZW0yZGw4c21nb2VjMm9tZHNjYWYgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-12-12T17:36:01.000Z",
-   "updated": "2022-01-24T21:24:41.022Z",
-   "summary": "Spieltreffen",
-   "description": "\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen, Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-02-05T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-02-05T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "60hnbnem2dl8smgoec2omdscaf@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3286119360392000\"",
    "id": "4j2i63r9o7qaqgv2sr6l2stdqb",
    "status": "confirmed",
