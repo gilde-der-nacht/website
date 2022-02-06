@@ -8,18 +8,19 @@ function getActiveFilters() {
     return [];
 }
 
-export function updateCalendarFilters() {
+function updateDOM() {
     const events = $("[data-event-tags]");
     events.map(e => e.classList.remove("hidden"));
-
     const activeFilters = getActiveFilters();
     if (!activeFilters.length) {
         return;
     }
-    activeFilters.forEach(filter => {
-        console.log({ filter });
-        const filterLink = $(`[data-event-filter=${filter}]`);
-        filterLink.map(e => e.classList.add("active"));
+    $("[data-event-filter").forEach(filter => {
+        if (activeFilters.includes($(filter).attr("data-event-filter"))) {
+            filter.classList.add("active");
+        } else {
+            filter.classList.remove("active");
+        }
     });
     const filteredEvents = events.map(e => e.attr("data-event-tags")).filter(tags => {
         let found = false;
@@ -47,4 +48,23 @@ export function updateCalendarFilters() {
             e.classList.add("hidden");
         }
     })
+}
+
+function setupFilterLink(link) {
+    link.on("click", (e) => {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.delete("tags");
+        urlParams.append("tags", e.target.dataset.eventFilter);
+        const newUrl = new URL(window.location);
+        newUrl.search = urlParams;
+        history.pushState(urlParams, "", newUrl);
+        updateDOM();
+    });
+}
+
+export function updateCalendarFilters() {
+    $("[data-event-filter]").map(setupFilterLink);
+    updateDOM();
 }

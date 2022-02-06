@@ -102,7 +102,7 @@ function EventFilters({ events, language }) {
     language = language || "de";
 
     function renderFilterList(filter) {
-        return html`<li><a href="?tags=${filter}" data-event-filter="${filter.toLowerCase()}">${filter}</a></li>`;
+        return html`<li><a href="?tags=${filter.toLowerCase()}" data-event-filter="${filter.toLowerCase()}">${filter}</a></li>`;
     }
 
     const listOfTags = [... new Set(events.map(getListOfTags).flat())].sort();
