@@ -28,7 +28,6 @@
     "dev:rst:11ty": "ELEVENTY_ENV=development eleventy --config=websites/rollenspieltage.ch/config.js --port=1113 --serve",
     "dev:rst:sass": "sass themes/crimson/sass/rollenspieltage.ch.scss _site/rollenspieltage.ch/style/style.css --watch",
     "build": "npm-run-all --parallel build:*",
-    "build-dev": "ELEVENTY_ENV=development yarn build",
     "build:gdn": "npm-run-all --parallel build:gdn:*",
     "build:gdn:11ty": "eleventy --config=websites/gildedernacht.ch/config.js",
     "build:gdn:sass": "sass themes/crimson/sass/gildedernacht.ch.scss _site/gildedernacht.ch/style/style.css --style=compressed",

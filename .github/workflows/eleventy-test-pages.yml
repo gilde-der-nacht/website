@@ -29,7 +29,9 @@ jobs:
         node-version: '16'
     - run: cd src && npm install
 
-    - run: cd src && npm run build-dev
+    - run: cd src && npm run build
+      env:
+        ELEVENTY_ENV: development
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
