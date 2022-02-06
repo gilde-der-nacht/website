@@ -16,6 +16,11 @@ export function updateCalendarFilters() {
     if (!activeFilters.length) {
         return;
     }
+    activeFilters.forEach(filter => {
+        console.log({ filter });
+        const filterLink = $(`[data-event-filter=${filter}]`);
+        filterLink.map(e => e.classList.add("active"));
+    });
     const filteredEvents = events.map(e => e.attr("data-event-tags")).filter(tags => {
         let found = false;
         activeFilters.forEach(filter => {
