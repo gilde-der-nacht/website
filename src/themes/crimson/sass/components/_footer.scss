@@ -3,6 +3,7 @@
 .footer {
   min-block-size: 1rem;
   background-color: c.get("background-solid");
+  color: white;
   border-top: 0.25rem solid c.get("border-subtle");
   margin-block-start: 2.5rem;
 }
