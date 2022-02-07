@@ -5,19 +5,23 @@ function Form({ uid, action, submitLabel, language = "de" }, ...content) {
     submitLabel = typeof submitLabel === "undefined" ? (language === "de" ? "Absenden" : "Submit") : submitLabel;
 
     return html`
-        <form action="${action}" method="POST">
+        <form action="${action}" method="POST" ${typeof uid !== "undefined" ? 'id="form-' + uid.substring(0, 4) + '"' : ''}">
             ${content.join("")}
             <button type="submit" class="button-accent">${submitLabel}</button>
         </form>
   `;
 }
 
-function Input({ label, name, type, required = true }) {
+function Input({ label, name, type, required = true, isHoneypot = false }) {
     return html`
-        <label>${label}
+        <label ${isHoneypot ? 'class="honey"' : ''}>${label}
             <input type="${type ? type : 'text'}" name="${name}" placeholder="${label}" ${required ? "required" : ""}/>
         </label>
     `;
+}
+
+function HiddenInput({ name, value }) {
+    return html`<input type="hidden" name="${name}" value="${value}"/>`;
 }
 
 function Textarea({ label, name, required = true }) {
@@ -58,4 +62,4 @@ function Radio({ label, name, value, checked }) {
     `;
 }
 
-module.exports = { Form, Input, Textarea, CheckboxList, Checkbox, RadioList, Radio };
+module.exports = { Form, Input, Textarea, CheckboxList, Checkbox, RadioList, Radio, HiddenInput };

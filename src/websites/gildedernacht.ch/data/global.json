@@ -2,5 +2,9 @@
     "siteName": "Gilde der Nacht",
     "siteTagline": "Luzerner Spielverein",
     "siteSmallprint": "wir spielen Karten-, Brett- und Rollenspiele und Tabletop",
-    "siteCode": "gdn"
+    "siteCode": "gdn",
+    "url": {
+        "live": "https://gildedernacht.ch",
+        "test": "https://test.gildedernacht.ch"
+    }
 }

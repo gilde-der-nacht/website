@@ -2,5 +2,9 @@
     "siteName": "Luzerner Spieltage",
     "siteTagline": "12. + 13. März 2022",
     "siteSmallprint": "ein Event des Spielvereins «Gilde der Nacht»",
-    "siteCode": "lst"
+    "siteCode": "lst",
+    "url": {
+        "live": "https://spieltage.ch",
+        "test": "https://test.spieltage.ch"
+    }
 }
