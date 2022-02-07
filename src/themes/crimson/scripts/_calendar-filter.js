@@ -58,7 +58,7 @@ function setupFilterLink(link) {
         urlParams.append("tags", e.target.dataset.eventFilter);
         const newUrl = new URL(window.location);
         newUrl.search = urlParams;
-        history.replaceState(urlParams, "", newUrl);
+        history.replaceState(e.target.dataset.eventFilter, "", newUrl);
         updateDOM();
     });
 }
