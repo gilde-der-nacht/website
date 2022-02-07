@@ -274,34 +274,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3287412425180000\"",
-   "id": "6c0750kedjflb38k2dmqinfig9",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NmMwNzUwa2VkamZsYjM4azJkbXFpbmZpZzkgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-02-01T09:03:32.000Z",
-   "updated": "2022-02-01T09:03:32.590Z",
-   "summary": "Tapetenwechsel-Party",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-02-06T19:30:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-02-06T20:30:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "6c0750kedjflb38k2dmqinfig9@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3288350205322000\"",
    "id": "4j2i63r9o7qaqgv2sr6l2stdqb",
    "status": "confirmed",
