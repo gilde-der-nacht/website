@@ -1,5 +1,6 @@
 ---
 layout: default
+locale: en
 ---
 
 {% Box type="special", link="/", linkLabel="go back to the German website" %}
