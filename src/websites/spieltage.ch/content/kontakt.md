@@ -2,10 +2,10 @@
 layout: default
 title: Kontakt
 eleventyNavigation:
-  parent: main
+  parent: secondary
   key: contact
   title: Kontakt
-  order: 9
+  order: 1
 ---
 
 # Kontakt
