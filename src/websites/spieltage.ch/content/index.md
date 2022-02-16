@@ -29,9 +29,11 @@ Falls du Fragen hast oder an den Spieltagen [**mithelfen**](/helfen) möchtest, 
 
 ## Spieltage «Light»
 
-{% Box type="special" %}
-Nach zwei Jahren Pandemie-bedingter Pause, starten wir im 2022 etwas reduziert:\
-**DIE SPIELTAGE 2022 FINDEN NUR AM SAMSTAG STATT!**
+Nach zwei Jahren Pandemie-bedingter Pause, starten wir im 2022 etwas reduziert:
+
+{% Box type="special", link="https://gildedernacht.ch/#kalender", linkLabel="zum Kalender der Gilde der Nacht" %}
+**DIE SPIELTAGE 2022 FINDEN NUR AM SAMSTAG STATT!**\
+Falls dir ein Tag zu wenig ist, schau doch im Kalender des Spielvereins **Gilde der Nacht** vorbei. Bereits am Tag nach den Luzerner Spieltagen findet ein Spieltreffen statt.
 {% endBox %}
 
 ### Corona-Auflagen
@@ -69,7 +71,3 @@ Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört 
 #### Verpflegung
 
 Ein Kiosk steht während den Öffnungszeiten zur Verfügung und **am Mittag und am Abend kochen** wir etwas Leckeres für euch.
-
-{% Box type="special", link="https://gildedernacht.ch/#kalender", linkLabel="zum Kalender der Gilde der Nacht" %}
-Falls dir ein Tag zu wenig ist, schau doch im Kalender des Spielvereins **Gilde der Nacht** vorbei. Bereits am Tag nach den Luzerner Spieltagen findet ein Spieltreffen statt.
-{% endBox %}
