@@ -18,11 +18,11 @@ Wir suchen Helfer in der Küche, an der Kasse (Kiosk/Flohmarkt) und als Erklärb
 
 Melde dich doch noch heute und gib deinen Traumjob an. Wir versuchen natürlich auf deine Wünsche einzugehen, sind aber froh wenn du flexibel bist.
 
-Unser Ziel ist es die Helfereinsätze so kurz wie möglich zu halten. Aber dafür sind wir auf viele Helfer angewiesen. Die Spieltage dauern wie folgt:
+Unser Ziel ist es, die Helfereinsätze so kurz wie möglich zu halten. Aber dafür sind wir auf viele Helfer angewiesen. Die Spieltage dauern wie folgt:
 
 **Samstag, 12. März 2022, 9.00 bis 0.30 Uhr**
 
-Als Gegenleistung gebührt dir nicht nur unser aller Dank. Du wirst auch zum Helferessen eingeladen. Da werden wir mit Speis und Trank bis in die Abendstunden das ein oder andere Brettspiel-Abenteuer bestehen.
+Als Gegenleistung gebührt dir nicht nur unser aller Dank, sondern du wirst auch zum Helferessen eingeladen. Da werden wir mit Speis und Trank bis in die Abendstunden das eine oder andere Brettspiel-Abenteuer bestehen.
 
 ## Anmeldung Helfer
 
