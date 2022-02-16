@@ -14,6 +14,8 @@ Die nächsten Luzerner Spieltage stehen vor der Tür.
 
 **Und dazu brauchen wir dich!**
 
+Wir suchen Helfer in der Küche, an der Kasse (Kiosk/Flohmarkt) und als Erklärbären.
+
 Melde dich doch noch heute und gib deinen Traumjob an. Wir versuchen natürlich auf deine Wünsche einzugehen, sind aber froh wenn du flexibel bist.
 
 Unser Ziel ist es die Helfereinsätze so kurz wie möglich zu halten. Aber dafür sind wir auf viele Helfer angewiesen. Die Spieltage dauern wie folgt:
