@@ -3,7 +3,7 @@ layout: default
 locale: en
 ---
 
-{% Box type="special", link="/", linkLabel="go back to the German website" %}
+{% Box type="success", link="/", linkLabel="go back to the German website" %}
 Looking for the German version?
 {% endBox %}
 
@@ -13,7 +13,7 @@ On **Saturday, March 12, 2022** (9:00 a.m. to 0:30 a.m.) we will transform the [
 
 ## Spieltage "Light"
 
-{% Box type="special" %}
+{% Box type="success" %}
 After a two years (pandemic-related) break, we start in 2022 somewhat reduced:\
 **THE LUZERNER SPIELTAGE 2022 WILL ONLY TAKE PLACE ON SATURDAY!**
 {% endBox %}
@@ -54,7 +54,7 @@ A (paid) parking garage is located a 5-minute walk away. Belongs to Migros at th
 
 A kiosk will be available during opening hours and **at lunch and in the evening** we will cook something delicious for you.
 
-{% Box type="special", link="https://gildedernacht.ch/en/#calendar", linkLabel="to the Gilde der Nacht calendar" %}
+{% Box type="success", link="https://gildedernacht.ch/en/#calendar", linkLabel="to the Gilde der Nacht calendar" %}
 If one day is too little for you, have a look at the calendar of the gaming club **Gilde der Nacht**. There is a game meetup already planned the day after the Luzerner Spieltage.
 {% endBox %}
 

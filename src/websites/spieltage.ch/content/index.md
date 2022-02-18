@@ -7,7 +7,7 @@ eleventyNavigation:
   order: 1
 ---
 
-{% Box type="special", link="/en", linkLabel="take me to the English summary" %}
+{% Box type="success", link="/en", linkLabel="take me to the English summary" %}
 Looking for a short and sweet overview in English?
 {% endBox %}
 
@@ -31,7 +31,7 @@ Falls du Fragen hast oder an den Spieltagen [**mithelfen**](/helfen) möchtest, 
 
 Nach zwei Jahren Pandemie-bedingter Pause, starten wir im 2022 etwas reduziert:
 
-{% Box type="special", link="https://gildedernacht.ch/#kalender", linkLabel="zum Kalender der Gilde der Nacht" %}
+{% Box type="success", link="https://gildedernacht.ch/#kalender", linkLabel="zum Kalender der Gilde der Nacht" %}
 **DIE SPIELTAGE 2022 FINDEN NUR AM SAMSTAG STATT!**\
 Falls dir ein Tag zu wenig ist, schau doch im Kalender des Spielvereins **Gilde der Nacht** vorbei. Bereits am Tag nach den Luzerner Spieltagen findet ein Spieltreffen statt.
 {% endBox %}

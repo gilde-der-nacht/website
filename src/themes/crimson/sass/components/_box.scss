@@ -27,4 +27,10 @@
     border-color: c.getDanger("background-solid");
     color: c.getDanger("text-low-contrast");
   }
+
+  &-gray {
+    @extend .box;
+    border-color: c.getGray("background-solid");
+    color: c.getGray("text-low-contrast");
+  }
 }

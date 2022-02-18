@@ -12,7 +12,7 @@ eleventyNavigation:
 
 Diskutiere direkt mit den Organisatoren und anderen Spielinteressierten auf **Discord**.
 
-{% Box type="special" %}
+{% Box type="success" %}
 [**Discord**](https://discord.com/) ist ein kostenloses Chatprogramm, das im Browser läuft aber auch als App installiert werden kann (Windows, macOS, Android, iOS etc.).
 {% endBox %}
 
