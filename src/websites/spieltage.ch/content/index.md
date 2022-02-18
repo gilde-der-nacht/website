@@ -36,10 +36,6 @@ Nach zwei Jahren Pandemie-bedingter Pause, starten wir im 2022 etwas reduziert:
 Falls dir ein Tag zu wenig ist, schau doch im Kalender des Spielvereins **Gilde der Nacht** vorbei. Bereits am Tag nach den Luzerner Spieltagen findet ein Spieltreffen statt.
 {% endBox %}
 
-### Corona-Auflagen
-
-Informationen werden auf [dieser Unterseite](/corona) regelmässig aktualisiert.
-
 ### Programm
 
 Komm vorbei uns lass dir eines der **unzähligen Brettspiele** von unseren Erklärbären erklären.

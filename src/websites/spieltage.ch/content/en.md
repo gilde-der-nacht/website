@@ -18,10 +18,6 @@ After a two years (pandemic-related) break, we start in 2022 somewhat reduced:\
 **THE LUZERNER SPIELTAGE 2022 WILL ONLY TAKE PLACE ON SATURDAY!**
 {% endBox %}
 
-### Corona Terms
-
-Information will be updated regularly on [this subpage](/corona).
-
 ### Program
 
 Come by and have one of the **numerous board games** explained by us.
