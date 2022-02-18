@@ -70,7 +70,7 @@ function setupFilterRemoveLink(link) {
         urlParams.delete("tags");
         const newUrl = new URL(window.location);
         newUrl.search = urlParams;
-        history.pushState(urlParams, "", newUrl);
+        history.replaceState(null, "", newUrl);
         updateDOM();
     });
 }
