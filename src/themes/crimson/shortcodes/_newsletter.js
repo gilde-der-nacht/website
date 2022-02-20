@@ -1,5 +1,5 @@
 const html = require("./helper/html");
-const { Form, Input, CheckboxList, Checkbox, RadioList, Radio } = require("./_form");
+const { Form, Input, HiddenInput, CheckboxList, Checkbox, RadioList, Radio } = require("./_form");
 
 function NewsletterForm({ theme = "Brettspiele", frequenzy = "oft" }) {
     const themeIntro = html`
@@ -30,7 +30,8 @@ function NewsletterForm({ theme = "Brettspiele", frequenzy = "oft" }) {
         RadioList(
             Radio({ label: "maximal 2 E-Mails / Monat", name: "group[48109]", value: "1024", checked: frequenzy === "oft" }),
             Radio({ label: "maximal 8 E-Mails / Jahr", name: "group[48109]", value: "2048", checked: frequenzy !== "oft" }),
-        )
+        ),
+        HiddenInput({ name: "FORMLOC", value: (this.ctx.development ? this.ctx.global.url.test : this.ctx.global.url.live) + this.page.url }),
     );
 }
 
