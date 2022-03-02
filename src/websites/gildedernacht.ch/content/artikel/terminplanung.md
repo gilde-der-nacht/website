@@ -57,12 +57,12 @@ date: 2021-09-22
 
 #### Februar
 
-Datum | Bemerkungen
---- | ---
-4. - 6. |
-11. - 13. |
-18. - 20. | Sportferien LU
-25. - 27. | Sportferien LU
+| Datum | Bemerkungen |
+| --- | --- |
+| 4. - 6. | |
+| 11. - 13. | |
+| 18. - 20. | Sportferien LU |
+| 25. - 27. | Sportferien LU |
 
 #### März
 
