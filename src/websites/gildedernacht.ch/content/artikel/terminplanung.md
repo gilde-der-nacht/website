@@ -66,63 +66,63 @@ date: 2021-09-22
 
 #### März
 
-Datum | Bemerkungen
---- | ---
-4. - 6. | Sportferien LU
-11. - 13. |
-18. - 20. | Joseftag (Feiertag)
-25. - 27. | Spiele-Tag im Neubad
+| Datum | Bemerkungen |
+| --- | --- |
+| 4. - 6. | Sportferien LU |
+| 11. - 13. | |
+| 18. - 20. | Joseftag (Feiertag) |
+| 25. - 27. | Spiele-Tag im Neubad |
 
 #### April
 
-Datum | Bemerkungen
---- | ---
-1 - 3. | Frühlingsferien BE / Fumetto
-8. - 10. | Frühlingsferien BE / Spiele-Tag im Neubad / Fumetto
-15. - 17. | Frühlingsferien LU ZH BE / Ostern / Polymanga
-22. - 24. | Frühlingsferien LU ZH / gA Kickoff / LUGA
-29. - 1. | Frühlingsferien LU ZH / gA Kickoff / Tag der Arbeit / LUGA
+| Datum | Bemerkungen |
+| --- | --- |
+| 1 - 3. | Frühlingsferien BE / Fumetto |
+| 8. - 10. | Frühlingsferien BE / Spiele-Tag im Neubad / Fumetto |
+| 15. - 17. | Frühlingsferien LU ZH BE / Ostern / Polymanga |
+| 22. - 24. | Frühlingsferien LU ZH / gA Kickoff / LUGA |
+| 29. - 1. | Frühlingsferien LU ZH / gA Kickoff / Tag der Arbeit / LUGA |
 
 #### Mai
 
-Datum | Bemerkungen
---- | ---
-6. - 8. |
-13. - 15. |
-20. - 22. | Spiele-Tag im Neubad
-27. - 29. | Fantasy Basel / Auffahrt
+| Datum | Bemerkungen |
+| --- | --- |
+| 6. - 8. | |
+| 13. - 15. | |
+| 20. - 22. | Spiele-Tag im Neubad |
+| 27. - 29. | Fantasy Basel / Auffahrt |
 
 #### Juni
 
-Datum | Bemerkungen
---- | ---
-3. - 5. | Pfingsten
-10. - 12. |
-17. - 19. | Fronleichnam
-24. - 26. |
+| Datum | Bemerkungen |
+| --- | --- |
+| 3. - 5. | Pfingsten |
+| 10. - 12. | |
+| 17. - 19. | Fronleichnam |
+| 24. - 26. | |
 
 #### Juli
 
-Datum | Bemerkungen
---- | ---
-1 - 3. |
-8. - 10. | Sommerferien LU BE
+| Datum | Bemerkungen |
+| --- | --- |
+| 1 - 3. | |
+| 8. - 10. | Sommerferien LU BE |
 
 ### Rollenspieltage
 
 #### August
 
-Datum | Bemerkungen
---- | ---
-19. - 21. | Sommerferien LU ZH
-26. - 28. |
+| Datum | Bemerkungen |
+| --- | --- |
+| 19. - 21. | Sommerferien LU ZH |
+| 26. - 28. | |
 
 #### September
 
-Datum | Bemerkungen
---- | ---
-2. - 4. |
-9. - 11. | Spielnacht Basel
-16. - 18. |
-23. - 25. |
-30. - 2. | Herbstferien LU
+| Datum | Bemerkungen |
+| --- | --- |
+| 2. - 4. | |
+| 9. - 11. | Spielnacht Basel |
+| 16. - 18. | |
+| 23. - 25. | |
+| 30. - 2. | Herbstferien LU |
