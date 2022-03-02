@@ -22,7 +22,7 @@ date: 2021-09-22
 - OerliCon https://oerlicon.jimdo.com/
 - Game Place https://gameplace.ch/
 - Mannsgöggeli https://www.mannsgoeggeli.ch/
-- Luzerner Fest
+- Luzerner Fest («wie bisher am letzten Juni-Wochenende»)
 - Lucerne Festival https://www.lucernefestival.ch/
 - Luzerner Sommerfest https://luzernerfest.ch/news
 - Fumetto https://www.fumetto.ch/
@@ -51,73 +51,62 @@ date: 2021-09-22
 - Luzerner Spieltage https://spieltage.ch
 - Luzerner Rollenspieltage https://rollenspieltage.ch/
 
-## Beispiel Planung 2022
+## Spieltage 2023
 
-### Spieltage 2022
-
-#### Februar
+### Februar
 
 | Datum | Bemerkungen |
 | --- | --- |
-| 4. - 6. | |
-| 11. - 13. | |
-| 18. - 20. | Sportferien LU |
-| 25. - 27. | Sportferien LU |
+| 3. - 5. | |
+| 10. - 12. | Fasnachtsferien LU |
+| 17. - 19. | Fasnachtsferien LU |
+| 24. - 26. | Fasnachtsferien LU |
 
-#### März
-
-| Datum | Bemerkungen |
-| --- | --- |
-| 4. - 6. | Sportferien LU |
-| 11. - 13. | |
-| 18. - 20. | Joseftag (Feiertag) |
-| 25. - 27. | Spiele-Tag im Neubad |
-
-#### April
+### März
 
 | Datum | Bemerkungen |
 | --- | --- |
-| 1 - 3. | Frühlingsferien BE / Fumetto |
-| 8. - 10. | Frühlingsferien BE / Spiele-Tag im Neubad / Fumetto |
-| 15. - 17. | Frühlingsferien LU ZH BE / Ostern / Polymanga |
-| 22. - 24. | Frühlingsferien LU ZH / gA Kickoff / LUGA |
-| 29. - 1. | Frühlingsferien LU ZH / gA Kickoff / Tag der Arbeit / LUGA |
-
-#### Mai
-
-| Datum | Bemerkungen |
-| --- | --- |
-| 6. - 8. | |
-| 13. - 15. | |
-| 20. - 22. | Spiele-Tag im Neubad |
-| 27. - 29. | Fantasy Basel / Auffahrt |
-
-#### Juni
-
-| Datum | Bemerkungen |
-| --- | --- |
-| 3. - 5. | Pfingsten |
+| 3. - 5. | |
 | 10. - 12. | |
-| 17. - 19. | Fronleichnam |
+| 17. - 19. | Joseftag (Feiertag) |
 | 24. - 26. | |
+| 31. - 2. | |
 
-#### Juli
-
-| Datum | Bemerkungen |
-| --- | --- |
-| 1 - 3. | |
-| 8. - 10. | Sommerferien LU BE |
-
-### Rollenspieltage
-
-#### August
+### April
 
 | Datum | Bemerkungen |
 | --- | --- |
-| 19. - 21. | Sommerferien LU ZH |
-| 26. - 28. | |
+| 7. - 9. | Osterferien LU BE |
+| 14. - 16. | Osterferien LU BE |
+| 21. - 23. | Osterferien LU BE ZH |
+| 28. - 30. | Osterferien ZH |
 
-#### September
+### Mai
+
+| Datum | Bemerkungen |
+| --- | --- |
+| 5. - 7. | Osterferien ZH |
+| 12. - 14. | |
+| 19. - 21. | Auffahrt (Fantasy Basel?) |
+| 26. - 28. | Pfingsten |
+
+### Juni
+
+| Datum | Bemerkungen |
+| --- | --- |
+| 2. - 4. | |
+| 9. - 11. | Fronleichnam |
+| 16. - 18. | |
+| 23. - 25. | Luzerner Fest |
+| 30. - 2. | |
+
+### Juli
+
+| Datum | Bemerkungen |
+| --- | --- |
+| 7. - 9. | Sommerferien LU BE |
+
+### September
 
 | Datum | Bemerkungen |
 | --- | --- |
