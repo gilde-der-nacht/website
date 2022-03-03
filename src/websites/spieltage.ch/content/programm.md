@@ -18,6 +18,26 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 
 Die grosse Bibliothek mit Spielen für Jung und Alt, für Strategen und Geniesser, für Einzel- oder Teamkämpfer steht im Fokus des Anlasses – entdecke mit uns Spiele, welche wir dir vor Ort erklären, ohne dass du das Regelbuch in die Hand nehmen musst.
 
+### Kinder & Familien
+
+_10 bis 17 Uhr_
+
+Das [Team Hess (Spielbude)](https://www.spielbude.ch/zug) bringt Kinderspiele für die Altersgruppe drei bis sieben Jahre mit.
+
+### Klask-Turnier
+
+_14 bis 16 Uhr_
+
+Das [Gameorama (Interaktives Spielmuseum)](https://www.gameorama.ch/) organisiert an den Spieltagen ein Klask-Turnier, an dem spannende Preise gewonnen werden können.
+
+Anmeldung vor Ort. Teilnahme kostenlos. Keine Altersbeschränkungen.
+
+### Spiel-Demo: HEROPOLIS
+
+_10 bis 17 Uhr_
+
+In der Welt von [Heropolis](https://www.spielpraxis.ch/) schlüpft ihr in die Haut eines witzigen Comic-Helden, entdeckt längst verlassene Quartiere und stampft eine komplett neue Metropole aus dem Boden!
+
 ![2018, Luzerner Spieltage](./images/2018-spieltage-01.jpg)
 
 ## Rollenspiele
