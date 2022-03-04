@@ -22,7 +22,7 @@ Die grosse Bibliothek mit Spielen für Jung und Alt, für Strategen und Geniesse
 
 _10 bis 17 Uhr_
 
-Das [Team Hess (Spielbude)](https://www.spielbude.ch/zug) bringt Kinderspiele für die Altersgruppe drei bis sieben Jahre mit.
+Die [Spielbude Zug](https://www.spielbude.ch/zug) bringt Kinderspiele für die Altersgruppe drei bis sieben Jahre mit.
 
 ### Klask-Turnier
 

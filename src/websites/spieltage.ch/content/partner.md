@@ -23,11 +23,18 @@ Das **Gameorama** in Luzern ist ein schweizweit einmaliger Museum, in dem sich a
 </div>
 </div>
 
-## Team Hess &ndash; Spielbude
+## Spielbude Zug
+
+<div class="partner-logo">
+<img src="/partner/Logo_Spielbude.jpg" alt="Spielbude Zug"/>
+<div>
 
 Wir haben uns zum Ziel gesetzt, die Zentralschweiz mit unserer Spiel-Euphorie anzustecken!
 
-{% ButtonLink link="https://www.spielbude.ch/zug", label="Team Hess" %}
+{% ButtonLink link="https://www.spielbude.ch/zug", label="Spielbude Zug" %}
+
+</div>
+</div>
 
 ## Mannsgöggeli
 
