@@ -49,3 +49,4 @@ date: 2021-09-11
 - Gleichberechtigung: Wie sorge ich als Spielleitung dafür, dass alle Spielenden gleich viel Redezeit, Aktionsspielraum und Rampenlicht erhalten. Braucht es das? Wie mache ich leise Spielende hörbar und "bremse" laute Spielende?
 - Game Design (Gute/Schlechte Beispiele? Warum? Nur in einem bestimmten Kontext?)
 - PDF Design (Gute Beispiele? Wichtige Punkte?)
+- Haptische Gimmicks (Welche Rollenspiele nutzen das? Wie wichtig ist es?)

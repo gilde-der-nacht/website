@@ -65,7 +65,14 @@ Eine lose und opinionated Sammlung von Fragen und Gedanken zu den jeweiligen Eng
   - Ein leeres Projekt ist einige MB gross (2022-02-02 ein leeres Core 2D ist 130 MB) und hat hunderte von Dateien. Die [gitignore](https://github.com/github/gitignore/blob/main/Unity.gitignore) Datei die GitHub offiziell vorschlägt ist verhältnismässig gross. Eventuell wird man git LFS benötigen.
   - Kleine Änderung z.B. an einer Scene, führen oft dazu dass sich eine Datei teilweise komplett ändert (es gibt keine unification) was die Verwendung von git/diffs nicht vereinfacht.
   - Man braucht zusätzlich einen Code Editor (z.B. Visual Studio Code) wenn man in C# entwickeln möchte.
-  - Man merkt immer wieder dass die Engine intern alles in 3D Koordinaten hält. Wenn man etwas animiert, sieht man trotzdem 3D Koordinaten. Partikel Effekte sind auch in 2D eigentlich 3D.
+  - Man merkt immer wieder dass die Engine intern alles in 3D Koordinaten hält. Wenn man etwas in 2D animiert, sieht man trotzdem 3D Koordinaten. Partikel Effekte z.B. gibt es auch nur in 3D.
+  - Hat neben dem Render-Loop auch ein Physics-Loop.
+  - Mit der 2011 Version (bei 2010 ein Package) hat ein Visual Programming Modul mit dem man Scripts und auch State Diagramme machen kann. Der erste Eindruck war, dass das einen guten Stand hat.
+  - Wenn man ein GameObject, mit all seinen Components mehrmals verwenden möchte, macht man daraus ein Prefab.
+  - Hat ein ECS, und umgeht damit einige Nachteile wenn man nur auf Inheritance setzt (Wie das z.B. Godot macht).
+- Godot
+  - Setzt nahezu überall auf das Konzept der Vererbung. Es wird in der Dokumentation auch versucht diese Designentscheidung zu verteidigen. "Vererbung" versucht die Softwarentwicklung aber schon länger zu vermeiden. Als Alternative wird oft "Composition over Inhertiance" erwähnt auch schon im Buch "Design Pattern" von 1994. Ein ECS System wie das von Unity, folgt ebenfalls diesem Prinzip.
+  - Hat ein Visual Programming Editor. Das hat zwar funktioniert, aber fühlte sich teilweise an dass einfache Dinge mühsamer waren als man das vielleicht erwarten würde.
 - Phaser
   - Benötigt einen Webserver (z.B. Live Server in Visual Studio Code).
   - Für Phaser alleine verwendet man seinen eigenen Standard Entwicklungseditor (z.B. Visual Studio Code).
