@@ -60,4 +60,10 @@ Du möchtest deine persönliche Spielesammlung aufstocken? Kein Problem, stöber
 
 Oder bring deine Spiele mit, die du sowieso nicht mehr spielst und finde bei uns ein neues Zuhause?
 
+{% Box type="success", link="https://docs.google.com/spreadsheets/d/1-oDSvZDeQ9KFp0mp7Ddg5sBtxPl_RdOBte0QBSSe6kw/edit?usp=sharing", linkLabel="Spiele eintragen" %}
+Möchtest du mehr als **fünf Spiele** im Flohmarkt platzieren, sind wir dir dankbar, wenn du uns bereits vor dem Event deine Spiele mitteilst.
+{% endBox %}
+
+_10% des Flohmarkt-Umsatzes gehen in die Vereinskasse der Organisatoren ([Gilde der Nacht](https://gildedernacht.ch/))._
+
 ![2019, Luzerner Spieltage](./images/2019-spieltage-08.jpg)
