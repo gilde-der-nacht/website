@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32k9r6lboa1fc0g\"",
+ "etag": "\"p33kf58v3nimvc0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-02-15T20:12:01.977Z",
+ "updated": "2022-03-04T22:11:37.713Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CKidmqvCgvYCEAAYASDUkL7NAQ==",
+ "nextSyncToken": "COjyo-O8rfYCEAAYASC_ye_NAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -187,36 +187,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3287246973654000\"",
-   "id": "0h5im4brsbvdpta3pqnqg4sc9k",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MGg1aW00YnJzYnZkcHRhM3BxbnFnNHNjOWsgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-01-05T08:44:12.000Z",
-   "updated": "2022-01-31T10:04:46.827Z",
-   "summary": "[Online] Rollenspiel-Stammtisch",
-   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003eDiskussionsstarter: **«Zeit»**\u003cbr\u003e\u003cbr\u003eDer Stammtisch findet auf unserer Online-Plattform, Discord, statt.\u003cbr\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Online/Discord[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Discord{\u003cspan\u003e\u003ca href=\"https://chat.gildedernacht.ch\"\u003ehttps://chat.gildedernacht.ch\u003c/a\u003e\u003c/span\u003e}[/links] \u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon] \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
-   "location": "Discord",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-03-04T19:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-03-04T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "0h5im4brsbvdpta3pqnqg4sc9k@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3288350205322000\"",
    "id": "4j2i63r9o7qaqgv2sr6l2stdqb",
    "status": "confirmed",
@@ -304,6 +274,35 @@
    "transparency": "transparent",
    "iCalUID": "245jl30ehk8qtr9s0gcm466hgr@google.com",
    "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3292863795426000\"",
+   "id": "6qcn9c0u2cc0jps3ils2dgd912",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NnFjbjljMHUyY2MwanBzM2lsczJkZ2Q5MTIgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-03-04T22:11:37.000Z",
+   "updated": "2022-03-04T22:11:37.713Z",
+   "summary": "Zuger Spielnacht",
+   "description": "\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eFamiliennachmittag und Spielnacht für Erwachsene\u003c/span\u003e\u003c/span\u003e \u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e---\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e[tags]Brettspiele[/tags] [location]Burgbachsaal, Zug[/location][theme]gray[/theme][links]Zuger Spielnacht{https://www.zugerspielnacht.ch/\u003ca href=\"https://www.mfk.ch/%7D%5B/links%5D\" id=\"ow502\" __is_owner=\"true\"\u003e}[/links]\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e",
+   "location": "Burgbach-Saal, Dorfstrasse 12, 6300 Zug, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-09-24"
+   },
+   "end": {
+    "date": "2022-09-25"
+   },
+   "transparency": "transparent",
+   "iCalUID": "6qcn9c0u2cc0jps3ils2dgd912@google.com",
+   "sequence": 0,
    "eventType": "default"
   }
  ]
