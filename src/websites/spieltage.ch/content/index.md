@@ -38,7 +38,7 @@ Falls dir ein Tag zu wenig ist, schau doch im Kalender des Spielvereins **Gilde 
 
 ### Programm
 
-Komm vorbei uns lass dir eines der **unzähligen Brettspiele** von unseren Erklärbären erklären.
+Komm vorbei und lass dir eines der **unzähligen Brettspiele** von unseren Erklärbären erklären.
 
 Hast du noch nie ein **Rollenspiel** oder ein **Tabletop/Miniaturspiel** ausprobiert? Bei uns erhältst du die Gelegenheit dazu reinzuschnuppern.
 
