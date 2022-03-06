@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33kf58v3nimvc0g\"",
+ "etag": "\"p32gel0knimofc0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-03-04T22:11:37.713Z",
+ "updated": "2022-03-05T23:52:28.020Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "COjyo-O8rfYCEAAYASC_ye_NAQ==",
+ "nextSyncToken": "CKDqgpeVsPYCEAAYASC_ye_NAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -101,34 +101,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3286225837536000\"",
-   "id": "1o6ui04hsetjm0dc1gd7gepa4u",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-01-03T13:40:45.000Z",
-   "updated": "2022-01-25T12:15:18.768Z",
-   "summary": "Spielwochenende im Museum",
-   "description": "Verteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunde Platz, lass dir ein Spiel erklären und los geht's!\n \n ---\n \n[tags]Brettspiele[/tags] \n[location]Museum für Kommunikation, Bern[/location]\n[theme]gray[/theme]\n[links]Museum für Kommunikation{https://www.mfk.ch/}[/links]",
-   "location": "Museum für Kommunikation, Helvetiastrasse 16, 3000 Bern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-10-22"
-   },
-   "end": {
-    "date": "2022-10-24"
-   },
-   "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3286301921902000\"",
    "id": "26a0nejhgsuduijvkv9qou6i9o",
    "status": "confirmed",
@@ -183,36 +155,6 @@
    "transparency": "transparent",
    "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
    "sequence": 2,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3288350205322000\"",
-   "id": "4j2i63r9o7qaqgv2sr6l2stdqb",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NGoyaTYzcjlvN3FhcWd2MnNyNmwyc3RkcWIgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-12-12T17:36:15.000Z",
-   "updated": "2022-02-06T19:18:22.661Z",
-   "summary": "Spieltreffen",
-   "description": "\u003chtml-blob\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eSpiel mit uns Brettspiele – Anmeldung nicht notwendig.\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen, Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-03-05T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-03-05T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "4j2i63r9o7qaqgv2sr6l2stdqb@google.com",
-   "sequence": 0,
    "eventType": "default"
   },
   {
@@ -303,6 +245,34 @@
    "transparency": "transparent",
    "iCalUID": "6qcn9c0u2cc0jps3ils2dgd912@google.com",
    "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3293048696040000\"",
+   "id": "1o6ui04hsetjm0dc1gd7gepa4u",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-01-03T13:40:45.000Z",
+   "updated": "2022-03-05T23:52:28.020Z",
+   "summary": "Spielwochenende im Museum",
+   "description": "\u003chtml-blob\u003eVerteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunden Platz, lass dir ein Spiel erklären und los geht's!\u003cbr\u003e&nbsp;\u003cbr\u003e&nbsp;---\u003cbr\u003e&nbsp;\u003cbr\u003e[tags]Brettspiele[/tags] \u003cbr\u003e[location]Museum für Kommunikation, Bern[/location]\u003cbr\u003e[theme]gray[/theme]\u003cbr\u003e[links]Museum für Kommunikation{\u003ca href=\"https://www.mfk.ch/%7D%5B/links%5D\"\u003ehttps://www.mfk.ch/}[/links]\u003c/a\u003e\u003c/html-blob\u003e",
+   "location": "Museum für Kommunikation, Helvetiastrasse 16, 3000 Bern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2022-10-22"
+   },
+   "end": {
+    "date": "2022-10-24"
+   },
+   "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
+   "sequence": 1,
    "eventType": "default"
   }
  ]
