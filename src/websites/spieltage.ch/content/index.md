@@ -13,6 +13,10 @@ Looking for a short and sweet overview in English?
 
 # Herzlich willkommen
 
+{% Box type="special" %}
+**Wir sehen uns nächstes Jahr am 11. + 12. März 2023.**
+{% endBox %}
+
 Am **Samstag, 12. März 2022** (9.00 bis 0.30 Uhr) verwandeln wir den [Pfarreisaal St. Johannes im Würzenbach-Quartier](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403) in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
 
 Falls du Fragen hast oder an den Spieltagen [**mithelfen**](/helfen) möchtest, zögere nicht, uns über das [Kontaktformular](/kontakt) anzuschreiben. Wir freuen uns auf deine Nachricht.

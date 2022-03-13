@@ -9,6 +9,10 @@ Looking for the German version?
 
 # Welcome
 
+{% Box type="special" %}
+**See you next year on March 11 + 12, 2023.**
+{% endBox %}
+
 On **Saturday, March 12, 2022** (9:00 a.m. to 0:30 a.m.) we will transform the [Pfarreisaal St. Johannes](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403) into an oasis for players. Whether young or old, whether strategist or team player, whether hobbyist or enthusiasts, we have something for everyone on the menu. Apropos menu: a tasty meal will be provided.
 
 ## Spieltage "Light"
