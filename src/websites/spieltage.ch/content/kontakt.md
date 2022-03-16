@@ -5,7 +5,7 @@ eleventyNavigation:
   parent: secondary
   key: contact
   title: Kontakt
-  order: 1
+  order: 9
 ---
 
 # Kontakt

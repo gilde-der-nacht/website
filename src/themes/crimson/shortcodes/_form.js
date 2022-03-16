@@ -1,5 +1,9 @@
 const html = require("./helper/html");
 
+function FormShortcode(content, obj) {
+    return Form(obj, content);
+}
+
 function Form({ uid, action, submitLabel, language = "de" }, ...content) {
     action = typeof uid === "undefined" ? action : "https://api.gildedernacht.ch/form/" + uid;
     submitLabel = typeof submitLabel === "undefined" ? (language === "de" ? "Absenden" : "Submit") : submitLabel;
@@ -62,4 +66,4 @@ function Radio({ label, name, value, checked }) {
     `;
 }
 
-module.exports = { Form, Input, Textarea, CheckboxList, Checkbox, RadioList, Radio, HiddenInput };
+module.exports = { Form, FormShortcode, Input, Textarea, CheckboxList, Checkbox, RadioList, Radio, HiddenInput };

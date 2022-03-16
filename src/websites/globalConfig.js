@@ -2,7 +2,7 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { formatJSDate } = require("../themes/crimson/filters/formatDate");
 const { md } = require("../themes/crimson/plugins/markdown");
 const {
-  Form,
+  FormShortcode,
   Input,
   Textarea,
   CheckboxList,
@@ -43,7 +43,7 @@ async function setupConfig(config, siteName, themeDir) {
 
   config.setLibrary("md", md);
 
-  config.addPairedShortcode("Form", Form);
+  config.addPairedShortcode("Form", FormShortcode);
   config.addPairedShortcode("Box", Box);
   config.addPairedShortcode("CheckboxList", CheckboxList);
   config.addPairedShortcode("RadioList", RadioList);
