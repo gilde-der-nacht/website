@@ -27,6 +27,9 @@
     "dev:rst": "npm-run-all --parallel dev:rst:*",
     "dev:rst:11ty": "ELEVENTY_ENV=development eleventy --config=websites/rollenspieltage.ch/config.js --port=1113 --serve",
     "dev:rst:sass": "sass themes/crimson/sass/rollenspieltage.ch.scss _site/rollenspieltage.ch/style/style.css --watch",
+    "dev:ttt": "npm-run-all --parallel dev:ttt:*",
+    "dev:ttt:11ty": "ELEVENTY_ENV=development eleventy --config=websites/tabletoptage.ch/config.js --port=1114 --serve",
+    "dev:ttt:sass": "sass themes/crimson/sass/tabletoptage.ch.scss _site/tabletoptage.ch/style/style.css --watch",
     "build": "npm-run-all --parallel build:*",
     "build:gdn": "npm-run-all --parallel build:gdn:*",
     "build:gdn:11ty": "eleventy --config=websites/gildedernacht.ch/config.js",
@@ -37,6 +40,9 @@
     "build:rst": "npm-run-all --parallel build:rst:*",
     "build:rst:11ty": "eleventy --config=websites/rollenspieltage.ch/config.js",
     "build:rst:sass": "sass themes/crimson/sass/rollenspieltage.ch.scss _site/rollenspieltage.ch/style/style.css --style=compressed",
+    "build:ttt": "npm-run-all --parallel build:ttt:*",
+    "build:ttt:11ty": "eleventy --config=websites/tabletoptage.ch/config.js",
+    "build:ttt:sass": "sass themes/crimson/sass/tabletoptage.ch.scss _site/tabletoptage.ch/style/style.css --style=compressed",
     "debug": "DEBUG=Eleventy* yarn build"
   }
 }

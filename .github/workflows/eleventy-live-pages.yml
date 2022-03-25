@@ -22,6 +22,8 @@ jobs:
             siteCode: lst
           # - site: rollenspieltage
           #   siteCode: rst
+          - site: tabletoptage
+            siteCode: ttt
 
     steps:
       - uses: actions/checkout@v2

@@ -1,0 +1,10 @@
+{
+    "siteName": "Luzerner Tabletoptage",
+    "siteTagline": "15. + 16. Oktober 2022",
+    "siteSmallprint": "ein Event des Spielvereins «Gilde der Nacht»",
+    "siteCode": "ttt",
+    "url": {
+        "live": "https://tabletoptage.ch",
+        "test": "https://test.tabletoptage.ch"
+    }
+}

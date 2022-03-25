@@ -9,7 +9,7 @@ function Form({ uid, action, submitLabel, language = "de" }, ...content) {
     submitLabel = typeof submitLabel === "undefined" ? (language === "de" ? "Absenden" : "Submit") : submitLabel;
 
     return html`
-        <form action="${action}" method="POST" ${typeof uid !== "undefined" ? 'id="form-' + uid.substring(0, 4) + '"' : ''}">
+        <form action="${action}" method="POST" ${typeof uid !== "undefined" ? 'id="form-' + uid.substring(0, 4) + '"' : ''}>
             ${content.join("")}
             <button type="submit" class="button-accent">${submitLabel}</button>
         </form>
