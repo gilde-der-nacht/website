@@ -30,6 +30,8 @@ $ yarn dev:gdn # for gildedernacht.ch
 $ yarn dev:lst # for spieltage.ch
 
 $ yarn dev:rst # for rollenspieltage.ch
+
+$ yarn dev:ttt # for tabletoptage.ch
 ```
 
 ## Build
@@ -44,6 +46,8 @@ $ yarn build:gdn # for gildedernacht.ch
 $ yarn build:lst # for spieltage.ch
 
 $ yarn build:rst # for rollenspieltage.ch
+
+$ yarn build:ttt # for tabletoptage.ch
 ```
 
 ### Drafts and future pages
