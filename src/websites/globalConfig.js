@@ -4,6 +4,7 @@ const { md } = require("../themes/crimson/plugins/markdown");
 const {
   FormShortcode,
   Input,
+  HiddenInput,
   Textarea,
   CheckboxList,
   Checkbox,
@@ -49,6 +50,7 @@ async function setupConfig(config, siteName, themeDir) {
   config.addPairedShortcode("RadioList", RadioList);
   config.addPairedShortcode("Slider", Slider);
   config.addShortcode("Input", Input);
+  config.addShortcode("HiddenInput", HiddenInput);
   config.addShortcode("Textarea", Textarea);
   config.addShortcode("EventFilters", EventFilters);
   config.addShortcode("EventList", EventList);

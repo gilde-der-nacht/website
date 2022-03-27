@@ -34,5 +34,9 @@ _Die Umfrage ist anonym_
 {% Input label="Wie oft würdest du an einem Rollenspiel-Stammtisch teilnehmen?", name="private-frequency" %}
 {% Input label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?", name="private-expectations" %}
 {% Textarea label="Bemerkungen", name="private-message", required=false %}
+{% HiddenInput name="language", value="de" %}
+{% HiddenInput name="redirect", value="https://gildedernacht.ch/event/rollenspiel-stammtisch/" %}
+{% HiddenInput name="identification", value="https://gildedernacht.ch/event/rollenspiel-stammtisch/" %}
+
 
 {% endForm %}

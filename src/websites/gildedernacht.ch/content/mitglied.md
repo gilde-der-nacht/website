@@ -13,5 +13,8 @@ title: Mitglied werden
 {% Input label="E-Mail", name="private-email", type="email" %}
 {% Input label="Mobil", name="private-mobil", type="tel", required=false %}
 {% Textarea label="Kommentar", name="private-message", required=false %}
+{% HiddenInput name="language", value="de" %}
+{% HiddenInput name="redirect", value="https://gildedernacht.ch/mitglied/" %}
+{% HiddenInput name="identification", value="https://gildedernacht.ch/mitglied/" %}
 
 {% endForm %}
