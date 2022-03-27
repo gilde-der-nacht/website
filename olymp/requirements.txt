@@ -3,7 +3,7 @@ asgiref==3.5.0
 asn1crypto==0.24.0
 autopep8==1.6.0
 click==8.0.4
-cryptography==2.6.1
+cryptography==3.3.2
 entrypoints==0.3
 fastapi==0.75.0
 h11==0.13.0
