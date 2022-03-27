@@ -6,7 +6,10 @@ app = FastAPI()
 
 
 @app.get("/")
-def read_root():
+def get_status():
+    """
+    Get status of Olymp.
+    """
     return {"status": "Olymp is Up 💚"}
 
 

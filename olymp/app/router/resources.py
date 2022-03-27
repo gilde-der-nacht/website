@@ -16,6 +16,13 @@ fake_db = []
 class ResourceIn(BaseModel):
     name: str
     description: Optional[str] = None
+    class Config:
+        schema_extra = {
+            "example": {
+                "name": "Name of the new resource",
+                "description": "Short description of the resource (optional)"
+            }
+        }
 
 
 class ResourceOut(ResourceIn):
@@ -27,11 +34,17 @@ class ResourceOut(ResourceIn):
 
 @router.get("/", response_model=List[ResourceOut])
 def read_resources():
+    """
+    Retrieve all resources.
+    """
     return fake_db
 
 
 @router.post("/", response_model=UUID)
 def create_resource(resource: ResourceIn):
+    """
+    Create a new resource.
+    """
     now = datetime.now()
     new_resource: ResourceOut = {
         "uuid": uuid4(),
