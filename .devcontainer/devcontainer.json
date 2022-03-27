@@ -3,5 +3,5 @@
   "build": {
     "dockerfile": "./Dockerfile"
   },
-  "extensions": ["esbenp.prettier-vscode"]
+  "extensions": ["esbenp.prettier-vscode", "ms-python.python"]
 }

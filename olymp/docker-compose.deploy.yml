@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  olymp:
+    build: .
+    container_name: olymp
+    volumes:
+      - ./app:/app
+    ports:
+      - 8003:80

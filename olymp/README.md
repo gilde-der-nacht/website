@@ -21,4 +21,6 @@ $ uvicorn app.main:app --reload
 ## Deployment
 
 ```sh
+$ docker-compose -f ./docker-compose.deploy.yml up -d # locally
+$ DOCKER_HOST="ssh://[user]@[host]:[port]" docker-compose -f ./docker-compose.deploy.yml up -d # remote
 ```
