@@ -29,10 +29,10 @@ _Die Umfrage ist anonym_
 
 {% Form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" %}
 
-{% Input label="Wo wohnst du?", name="private-location" %}
-{% Input label="Wie weit würdest du reisen für einen Stammtisch?", name="private-journey" %}
-{% Input label="Wie oft würdest du an einem Rollenspiel-Stammtisch teilnehmen?", name="private-frequency" %}
-{% Input label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?", name="private-expectations" %}
+{% Input label="Wo wohnst du?", name="private-print-location" %}
+{% Input label="Wie weit würdest du reisen für einen Stammtisch?", name="private-print-journey" %}
+{% Input label="Wie oft würdest du an einem Rollenspiel-Stammtisch teilnehmen?", name="private-print-frequency" %}
+{% Input label="Was sind deine Erwartungen an einen Rollenspiel-Stammtisch?", name="private-print-expectations" %}
 {% Textarea label="Bemerkungen", name="private-message", required=false %}
 {% HiddenInput name="language", value="de" %}
 {% HiddenInput name="redirect", value="https://gildedernacht.ch/event/rollenspiel-stammtisch/" %}
