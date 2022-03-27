@@ -1,4 +1,5 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException, status
+from fastapi.encoders import jsonable_encoder
 from datetime import datetime
 from uuid import UUID, uuid4
 from pydantic import BaseModel
@@ -7,7 +8,6 @@ from typing import List, Optional
 router = APIRouter(
     prefix="/resources",
     tags=["resources"],
-    responses={404: {"description": "Not found"}},
 )
 
 fake_db = []
@@ -16,6 +16,7 @@ fake_db = []
 class ResourceIn(BaseModel):
     name: str
     description: Optional[str] = None
+
     class Config:
         schema_extra = {
             "example": {
@@ -33,26 +34,60 @@ class ResourceOut(ResourceIn):
 
 
 @router.get("/", response_model=List[ResourceOut])
-def read_resources():
+def read_resources(status: Optional[str] = None):
     """
-    Retrieve all resources.
+    Retrieve all resources. Use the `status` query to filter only "active" or "inactive" resources.
     """
-    return fake_db
+    if not status:
+        return fake_db
+    return [res for res in fake_db if res.get("status") == status]
 
 
-@router.post("/", response_model=UUID)
+@router.post("/", response_model=UUID, status_code=status.HTTP_201_CREATED)
 def create_resource(resource: ResourceIn):
     """
     Create a new resource.
     """
     now = datetime.now()
-    new_resource: ResourceOut = {
+    new_resource = {
+        **jsonable_encoder(resource),
         "uuid": uuid4(),
-        "name": resource.name,
-        "description": resource.description,
         "created": now,
         "updated": now,
-        "status": "active"
+        "status": "active",
     }
+
     fake_db.append(new_resource)
     return new_resource.get("uuid")
+
+
+@router.put("/{uuid}", response_model=ResourceOut)
+def update_resource(uuid: UUID, resource: ResourceIn):
+    """
+    Update an existing resource.
+    """
+    now = datetime.now()
+    r = next((res for res in fake_db
+              if res.get("uuid") == uuid and res.get("status") == "active"), None)
+
+    if not r:
+        raise HTTPException(status_code=404, detail="Resource not found")
+
+    r.update({**jsonable_encoder(resource), "updated": now})
+    return r
+
+
+@router.delete("/{uuid}", response_model=ResourceOut)
+def deactivate_resource(uuid: UUID):
+    """
+    Deactivates a resource (does not delete it).
+    """
+    now = datetime.now()
+    r = next((res for res in fake_db
+              if res.get("uuid") == uuid and res.get("status") == "active"), None)
+
+    if not r:
+        raise HTTPException(status_code=404, detail="Resource not found")
+
+    r.update({"updated": now, "status": "inactive"})
+    return r
