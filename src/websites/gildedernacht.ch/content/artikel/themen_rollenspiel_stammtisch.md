@@ -7,11 +7,15 @@ date: 2021-09-11
 
 ## Zukünftige Themen
 
-- 2022-02-04: Initiative (Notwendig? Sinnvoll? Verschiedene Systeme?)
-- 2022-03-04: Zeit (Vergessen wir das zu oft? Wie kann man das ins Spiel bringen?)
+- 2022-05-06: Rollenspiel: Wir spielen gemeinsam das Rollenspiele ???.
+- 2022-06-03: Thema Rampenlicht: Haben alle Spielerinnen und Spieler ungefähr gleichviel Redezeit und Aktionsspielraum. Wir besprechen gemeinsam diese Thema.
+- 2022-07-01: D&D: Wir spielen ein vereinfachtes Dungeons & Dragons das maximal eine Stunde dauert. Keine Vorkenntnisse notwendig. Zum kennenlernen.
+- 2022-08-05: Spielwelt Erfinden: Wir erfinden gemeinsam eine Spielwelt. Die Welt werden wir an den Rollenspieltagen die Ende August stattfinden weiter leben lassen.
 
 ## Vergangene Themen
 
+- 2022-02-04: [Initiative](../thema_initiative)
+- 2022-03-04: [Zeit](../thema_zeit)
 - 2022-01-07: [Frustration](../thema_frustration)
 - 2021-12-03: [Renovation Cyberpunk Setting](../thema_renovation_cyberpunk_setting)
 - 2021-11-12: [Zwischen den Spielrunden](../thema_zwischen_den_spielrunden)
@@ -37,7 +41,6 @@ date: 2021-09-11
 - PnP im LARP (Vorschlag Ursula: Werden PnP immer mehr in LARPs verwendet?)
 - Lebendige Spielwelt (Was heisst das? Wie kann ich das gut umsetzen?)
 - Regeln (Wie viele? Nutzen? Spassfaktor?)
-- Setting Cyberpunk 202x (Wie würde Cyberpunk aussehen wenn man es ausnahmsweise einmal wirklich neu denken würde? Welche Filme, Bücher und Serien kommen dir dazu in den Sinn?)
 - Setting Solarpunk 202x (Gibt es Rollenspiele zu dem Thema? Wie sieht deine Vorstellung einer guten Utopie aus?)
 - Spielleiter Wechseln (nach jeder Runde, innerhalb der Runde, ...)
 - Story Erfinden (Wie vorgehen? Fettnäpfchen? Gute Beispiele?)
@@ -46,7 +49,9 @@ date: 2021-09-11
 - Teamplay Spieler:innen (Umgang mit verschiedenen Ansprüchen? Passive Spieler:innen? Stars and Wishes? Wie können Spieler:innen einander unterstützen?)
 - Verschiedene Sinne (Sehen, Hören, Riechen, Fühlen, ...)
 - Wünsche (Was fehlt mir in Rollenspielen? Wenn ich etwas ändern könnte, was wäre es?)
-- Gleichberechtigung: Wie sorge ich als Spielleitung dafür, dass alle Spielenden gleich viel Redezeit, Aktionsspielraum und Rampenlicht erhalten. Braucht es das? Wie mache ich leise Spielende hörbar und "bremse" laute Spielende?
+- Rampenlicht: Wie sorge ich als Spielleitung dafür, dass alle Spielenden gleich viel Redezeit, Aktionsspielraum und Rampenlicht erhalten. Braucht es das? Wie mache ich leise Spielende hörbar und "Bremse" laute Spielende?
 - Game Design (Gute/Schlechte Beispiele? Warum? Nur in einem bestimmten Kontext?)
 - PDF Design (Gute Beispiele? Wichtige Punkte?)
 - Haptische Gimmicks (Welche Rollenspiele nutzen das? Wie wichtig ist es?)
+- Konkretes einzelnes Rollenspiel zum vorstellen (Was macht das Spiel anders als alle anderen? Was ist besser? Warum? Welche Teile sind so mittelmässig? Warum? Was würdest du noch ändern?)
+- Gleichberechtigung: Welche Rollenspiele sind hier ein speziell positives Beispiel? Waren vielleicht ihrer Zeit voraus? Was müssten wir genrell alle besser machen? Wie können wir besser Alle ansprechen?
