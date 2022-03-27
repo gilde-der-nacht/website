@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33o8tv4qtvbvc0g\"",
+ "etag": "\"p33ga1o4tgrjvc0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-03-21T18:49:05.286Z",
+ "updated": "2022-03-27T19:42:01.212Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CPCO_Jrv1_YCEAAYASCDnZbQAQ==",
+ "nextSyncToken": "COCg4J2G5_YCEAAYASCDnZbQAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -245,36 +245,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3294705430900000\"",
-   "id": "1eu2st8b3tbooj826dqo01lj4e",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MWV1MnN0OGIzdGJvb2o4MjZkcW8wMWxqNGUgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-18T21:00:47.000Z",
-   "updated": "2022-03-15T13:58:35.450Z",
-   "summary": "Spiele-Tag im Neubad",
-   "description": "\u003chtml-blob\u003eUnsere Kollegen von **Mannsgöggeli** laden zu einem gemütlichen Spielnachmittag im Neubad ein. Da sind wir natürlich auch mit dabei.\u003cbr\u003e\u003cbr\u003eKulinarisch wird man im Neubad Bistro verwöhnt.\u003cbr\u003e\u003cbr\u003eEintritt: CHF 10 pro Person\u003cbr\u003e\u003cbr\u003e&nbsp;&nbsp;\u003cbr\u003e---\u003cbr\u003e&nbsp;\u003cbr\u003e[tags]Brettspiele, Mannsgöggeli[/tags] \u003cbr\u003e[location]Neubad, Luzern[/location]\u003cbr\u003e[theme]gray[/theme]\u003cbr\u003e[links]Mannsgöggeli{\u003ca href=\"https://www.mannsgoeggeli.ch\"\u003ehttps://www.mannsgoeggeli.ch\u003c/a\u003e}[/links]\u003c/html-blob\u003e",
-   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-03-27T12:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-03-27T18:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "1eu2st8b3tbooj826dqo01lj4e@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3294705451640000\"",
    "id": "712hninpn6lq1sjp055lq7muop",
    "status": "confirmed",
@@ -330,6 +300,126 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "6ldcrpnh96j71v19uh15kiufmh@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3296819724690000\"",
+   "id": "7kjevln9brb71adnff3driohk9",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=N2tqZXZsbjlicmI3MWFkbmZmM2RyaW9oazkgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-03-27T12:34:51.000Z",
+   "updated": "2022-03-27T19:37:42.345Z",
+   "summary": "Rollenspiel-Stammtisch",
+   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003eDiesen Monat spielen wir eine Runde «Space Train Space Heist» (2 Stunden).\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon]&nbsp;\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e[links]Rollenspiel-Stammtisch{https://gildedernacht.ch/event/rollenspiel-stammtisch/}[/links]\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-05-06T19:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-05-06T22:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "7kjevln9brb71adnff3driohk9@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3296819815454000\"",
+   "id": "2q6os259fkjo2hecbhlg026aev",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MnE2b3MyNTlma2pvMmhlY2JobGcwMjZhZXYgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-03-27T12:35:02.000Z",
+   "updated": "2022-03-27T19:38:27.727Z",
+   "summary": "Rollenspiel-Stammtisch",
+   "description": "\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003eDiesen Monat ist das Thema \"Rampenlicht\".&nbsp;\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003eWir stellen uns die Frage: Wie erhalten alle Spielenden ungefähr gleich viel Redezeit und Aktionsspielraum?\u003cbr\u003e&nbsp;\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon]&nbsp;\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e[links]Rollenspiel-Stammtisch{https://gildedernacht.ch/event/rollenspiel-stammtisch/}[/links]\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/span\u003e\u003c/span\u003e",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-06-03T19:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-06-03T22:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "2q6os259fkjo2hecbhlg026aev@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3296820079172000\"",
+   "id": "2lhudtasp5sdkhqjcbobd4qcpq",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MmxodWR0YXNwNXNka2hxamNib2JkNHFjcHEgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-03-27T12:35:11.000Z",
+   "updated": "2022-03-27T19:40:39.586Z",
+   "summary": "Rollenspiel-Stammtisch",
+   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003eDiesen Monat spielen wir ein vereinfachtes «Dungeons &amp; Dragons» Abenteuer. Die Runde dauert etwa eine Stunde.\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e\u003cbr\u003e\u003ci\u003e\u003cem\u003eKeine Dungeons &amp; Dragons Vorkenntnisse notwendig.\u003c/em\u003e Ideal, wenn du noch gar nie ein Rollenspiel gespielt hast.\u003c/i\u003e\u003cbr\u003e\u003c/html-blob\u003e\u003cbr\u003e\u003chtml-blob\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e-\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e--\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon]&nbsp;\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e[links]Rollenspiel-Stammtisch{\u003ca href=\"https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch/}[/links]\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-07-01T19:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-07-01T22:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "2lhudtasp5sdkhqjcbobd4qcpq@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3296820242424000\"",
+   "id": "2uo4ann4jseidqjsqli710nc79",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MnVvNGFubjRqc2VpZHFqc3FsaTcxMG5jNzkgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-03-27T12:35:20.000Z",
+   "updated": "2022-03-27T19:42:01.212Z",
+   "summary": "Rollenspiel-Stammtisch",
+   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003eWir erfinden gemeinsam eine Spielwelt. In dieser Welt werden dann an den Luzerner Rollenspieltagen 2022 (Ende August) Abenteuer Runden stattfinden.\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon]&nbsp;\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Luzerner Rollenspieltage{\u003ca href=\"https://rollenspieltage.ch\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\" id=\"ow2171\" __is_owner=\"true\"\u003e},\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eRollenspiel-Stammtisch{\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D\" id=\"ow2175\" __is_owner=\"true\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e[/links]&nbsp; \u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2022-08-05T19:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2022-08-05T22:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "2uo4ann4jseidqjsqli710nc79@google.com",
    "sequence": 0,
    "eventType": "default"
   }
