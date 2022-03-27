@@ -18,7 +18,7 @@ pydantic==1.9.0
 PyGObject==3.30.4
 python-apt==1.8.4.3
 python-dotenv==0.20.0
-pyxdg==0.25
+pyxdg==0.26
 PyYAML==6.0
 SecretStorage==2.3.1
 six==1.12.0
