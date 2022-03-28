@@ -1,7 +1,7 @@
 from datetime import datetime
 from uuid import uuid4
 
-from ..model.status import Status
+from app.model.status import Status
 
 class FakeDatabase:
     data = []

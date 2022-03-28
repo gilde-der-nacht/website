@@ -3,7 +3,7 @@ from typing import Optional
 from uuid import UUID, uuid4
 from pydantic import BaseModel
 
-from .status import Status
+from app.model.status import Status
 
 
 class ResourceIn(BaseModel):

@@ -3,9 +3,9 @@ from fastapi.encoders import jsonable_encoder
 from uuid import UUID
 from typing import List, Optional
 
-from ..storage.db import FakeDatabase, get_fake_db
-from ..model.resource import ResourceIn, ResourceOut
-from ..model.status import Status
+from app.storage.db import FakeDatabase, get_fake_db
+from app.model.resource import ResourceIn, ResourceOut
+from app.model.status import Status
 
 
 router = APIRouter(
