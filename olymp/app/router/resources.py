@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, status, Depends
 from fastapi.encoders import jsonable_encoder
 from datetime import datetime
 from uuid import UUID, uuid4
@@ -6,12 +6,13 @@ from pydantic import BaseModel
 from typing import List, Optional
 from enum import Enum
 
+from ..storage import db
+
 router = APIRouter(
     prefix="/resources",
     tags=["resources"],
 )
 
-fake_db = []
 
 
 class Status(str, Enum):
@@ -50,19 +51,18 @@ class ResourceOut(ResourceIn):
             }
         }
 
-
 @router.get("/", response_model=List[ResourceOut])
-def read_resources(status: Optional[Status] = None):
+def read_resources(status: Optional[Status] = None, db = Depends(db.get_fake_db)):
     """
     Retrieve all resources. Use the `status` query to filter only "active" or "inactive" resources.
     """
     if not status:
-        return fake_db
-    return [res for res in fake_db if res.get("status") == status]
+        return db
+    return [res for res in db if res.get("status") == status]
 
 
 @router.post("/", response_model=UUID, status_code=status.HTTP_201_CREATED)
-def create_resource(resource: ResourceIn):
+def create_resource(resource: ResourceIn, db = Depends(db.get_fake_db)):
     """
     Create a new resource.
     """
@@ -75,15 +75,15 @@ def create_resource(resource: ResourceIn):
         "status": Status.active,
     }
 
-    fake_db.append(new_resource)
+    db.append(new_resource)
     return new_resource.get("uuid")
 
 @router.get("/{r_uuid}", response_model=ResourceOut)
-def read_resource(r_uuid: UUID):
+def read_resource(r_uuid: UUID, db = Depends(db.get_fake_db)):
     """
     Retrive one resource.
     """
-    r = next((res for res in fake_db
+    r = next((res for res in db
               if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
 
     if not r:
@@ -92,12 +92,12 @@ def read_resource(r_uuid: UUID):
 
 
 @router.put("/{r_uuid}", response_model=ResourceOut)
-def update_resource(r_uuid: UUID, resource: ResourceIn):
+def update_resource(r_uuid: UUID, resource: ResourceIn, db = Depends(db.get_fake_db)):
     """
     Update an existing resource.
     """
     now = datetime.now()
-    r = next((res for res in fake_db
+    r = next((res for res in db
               if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
 
     if not r:
@@ -108,12 +108,12 @@ def update_resource(r_uuid: UUID, resource: ResourceIn):
 
 
 @router.delete("/{r_uuid}", response_model=ResourceOut)
-def deactivate_resource(r_uuid: UUID):
+def deactivate_resource(r_uuid: UUID, db = Depends(db.get_fake_db)):
     """
     Deactivates a resource (does not delete it).
     """
     now = datetime.now()
-    r = next((res for res in fake_db
+    r = next((res for res in db
               if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
 
     if not r:
