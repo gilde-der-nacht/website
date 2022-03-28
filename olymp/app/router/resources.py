@@ -6,13 +6,12 @@ from pydantic import BaseModel
 from typing import List, Optional
 from enum import Enum
 
-from ..storage import db
+from ..storage.db import FakeDatabase, get_fake_db
 
 router = APIRouter(
     prefix="/resources",
     tags=["resources"],
 )
-
 
 
 class Status(str, Enum):
@@ -51,40 +50,31 @@ class ResourceOut(ResourceIn):
             }
         }
 
+
 @router.get("/", response_model=List[ResourceOut])
-def read_resources(status: Optional[Status] = None, db = Depends(db.get_fake_db)):
+def read_resources(status: Optional[Status] = None, db: FakeDatabase = Depends(get_fake_db)):
     """
     Retrieve all resources. Use the `status` query to filter only "active" or "inactive" resources.
     """
     if not status:
-        return db
-    return [res for res in db if res.get("status") == status]
+        return db.data
+    return db.filtered_data(status)
 
 
 @router.post("/", response_model=UUID, status_code=status.HTTP_201_CREATED)
-def create_resource(resource: ResourceIn, db = Depends(db.get_fake_db)):
+def create_resource(resource: ResourceIn, db: FakeDatabase = Depends(get_fake_db)):
     """
     Create a new resource.
     """
-    now = datetime.now()
-    new_resource = {
-        **jsonable_encoder(resource),
-        "uuid": uuid4(),
-        "created": now,
-        "updated": now,
-        "status": Status.active,
-    }
+    return db.create_resource(jsonable_encoder(resource))
 
-    db.append(new_resource)
-    return new_resource.get("uuid")
 
 @router.get("/{r_uuid}", response_model=ResourceOut)
-def read_resource(r_uuid: UUID, db = Depends(db.get_fake_db)):
+def read_resource(r_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     """
     Retrive one resource.
     """
-    r = next((res for res in db
-              if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
+    r = db.resource_by_id(r_uuid)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
@@ -92,32 +82,25 @@ def read_resource(r_uuid: UUID, db = Depends(db.get_fake_db)):
 
 
 @router.put("/{r_uuid}", response_model=ResourceOut)
-def update_resource(r_uuid: UUID, resource: ResourceIn, db = Depends(db.get_fake_db)):
+def update_resource(r_uuid: UUID, resource: ResourceIn, db: FakeDatabase = Depends(get_fake_db)):
     """
     Update an existing resource.
     """
-    now = datetime.now()
-    r = next((res for res in db
-              if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
+    r = db.update_resource(r_uuid, jsonable_encoder(resource))
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
 
-    r.update({**jsonable_encoder(resource), "updated": now})
     return r
 
 
 @router.delete("/{r_uuid}", response_model=ResourceOut)
-def deactivate_resource(r_uuid: UUID, db = Depends(db.get_fake_db)):
+def deactivate_resource(r_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     """
     Deactivates a resource (does not delete it).
     """
-    now = datetime.now()
-    r = next((res for res in db
-              if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
+    r = db.deactivate_resource(r_uuid)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
-
-    r.update({"updated": now, "status": Status.inactive})
     return r
