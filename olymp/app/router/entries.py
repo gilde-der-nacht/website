@@ -53,12 +53,41 @@ def read_entry(r_uuid: UUID, e_uuid: UUID, db: FakeDatabase = Depends(get_fake_d
     Retrive one entry.
     """
     r = db.resource_by_id(r_uuid)
-
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
-    e =  next((entry for entry in r.get("entries")
-         if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
-
+    e = next((entry for entry in r.get("entries")
+              if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
     if not e:
         raise HTTPException(status_code=404, detail="Entry not found")
+    return e
+
+
+@router.put("/{e_uuid}", response_model=EntryOut)
+def update_entry(r_uuid: UUID, e_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fake_db)):
+    """
+    Update an existing entry.
+    """
+    r = db.resource_by_id(r_uuid)
+    if not r:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    e = next((entry for entry in r.get("entries")
+              if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
+    if not e:
+        raise HTTPException(status_code=404, detail="Entry not found")
+    now = datetime.now()
+    e.update({**jsonable_encoder(entry), "updated": now})
+    return e
+
+
+@router.delete("/{e_uuid}", response_model=EntryOut)
+def deactivate_entry(r_uuid: UUID, e_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
+    r = db.resource_by_id(r_uuid)
+    if not r:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    e = next((entry for entry in r.get("entries")
+              if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
+    if not e:
+        raise HTTPException(status_code=404, detail="Entry not found")
+    e.update({"updated": now, "status": Status.inactive})
+    now = datetime.now()
     return e
