@@ -17,73 +17,41 @@ router = APIRouter(
 )
 
 
-def get_resource_by_id(r_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
-    r = db.resource_by_id(r_uuid)
-    if not r:
-        raise HTTPException(status_code=404, detail="Resource not found")
-    return r
-
-
 @router.get("/", response_model=List[EntryOut])
-def read_entries(res: ResourceOut = Depends(get_resource_by_id)):
+def read_entries(r_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     """
     Retrieve all entries of a specific resource.
     """
-    return res.get("entries")
+    return db.entries_by_resource_id(r_uuid)
 
 
 @router.post("/", response_model=UUID, status_code=status.HTTP_201_CREATED)
-def create_entry(entry: EntryIn, res: ResourceOut = Depends(get_resource_by_id)):
+def create_entry(r_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fake_db)):
     """
     Create a new entry.
     """
-    now = datetime.now()
-    new_entry = {
-        **jsonable_encoder(entry),
-        "uuid": uuid4(),
-        "created": now,
-        "updated": now,
-        "status": Status.active,
-    }
-    res.get("entries").append(new_entry)
-    return new_entry.get("uuid")
+    return db.create_entry(r_uuid, jsonable_encoder(entry))
 
 
 @router.get("/{e_uuid}/", response_model=EntryOut)
-def read_entry(e_uuid: UUID, res: ResourceOut = Depends(get_resource_by_id)):
+def read_entry(r_uuid: UUID, e_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     """
     Retrive one entry.
     """
-    e = next((entry for entry in res.get("entries")
-              if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
-    if not e:
-        raise HTTPException(status_code=404, detail="Entry not found")
-    return e
+    return db.entry_by_id(r_uuid, e_uuid)
 
 
 @router.put("/{e_uuid}/", response_model=EntryOut)
-def update_entry(e_uuid: UUID, entry: EntryIn, res: ResourceOut = Depends(get_resource_by_id)):
+def update_entry(r_uuid: UUID, e_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fake_db)):
     """
     Update an existing entry.
     """
-    e = next((entry for entry in res.get("entries")
-              if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
-    if not e:
-        raise HTTPException(status_code=404, detail="Entry not found")
-    now = datetime.now()
-    e.update({**jsonable_encoder(entry), "updated": now})
-    return e
+    return db.update_resource(r_uuid, e_uuid, jsonable_encoder(entry))
 
 
 @router.delete("/{e_uuid}/", response_model=EntryOut)
-def deactivate_entry(e_uuid: UUID, res: ResourceOut = Depends(get_resource_by_id)):
+def deactivate_entry(r_uuid: UUID, e_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     """
     Deactivates a entry (does not delete it).
     """
-    e = next((entry for entry in res.get("entries")
-              if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
-    if not e:
-        raise HTTPException(status_code=404, detail="Entry not found")
-    e.update({"updated": now, "status": Status.inactive})
-    now = datetime.now()
-    return e
+    return db.deactivate_entry(r_uuid, e_uuid)
