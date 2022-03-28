@@ -32,6 +32,18 @@ class ResourceOut(ResourceIn):
     updated: datetime
     status: str
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "name": "Resource name",
+                "description": "Short description of the resource (can be null)",
+                "uuid": uuid4(),
+                "created": datetime.now(),
+                "udpated": datetime.now(),
+                "status": "active"
+            }
+        }
+
 
 @router.get("/", response_model=List[ResourceOut])
 def read_resources(status: Optional[str] = None):
