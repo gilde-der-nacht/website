@@ -8,6 +8,7 @@ from fastapi.encoders import jsonable_encoder
 from app.model.entry import EntryOut, EntryIn
 from app.model.status import Status
 from app.storage.db import FakeDatabase, get_fake_db
+from app.model.resource import ResourceOut
 
 router = APIRouter(
     prefix="/resources/{r_uuid}/entries",
@@ -16,19 +17,23 @@ router = APIRouter(
 )
 
 
-@router.get("/", response_model=List[EntryOut])
-def read_entries(r_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
-    """
-    Retrieve all entries of a specific resource.
-    """
+def get_resource_by_id(r_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     r = db.resource_by_id(r_uuid)
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
-    return r.get("entries")
+    return r
+
+
+@router.get("/", response_model=List[EntryOut])
+def read_entries(res: ResourceOut = Depends(get_resource_by_id)):
+    """
+    Retrieve all entries of a specific resource.
+    """
+    return res.get("entries")
 
 
 @router.post("/", response_model=UUID, status_code=status.HTTP_201_CREATED)
-def create_entry(r_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fake_db)):
+def create_entry(entry: EntryIn, res: ResourceOut = Depends(get_resource_by_id)):
     """
     Create a new entry.
     """
@@ -40,22 +45,16 @@ def create_entry(r_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fa
         "updated": now,
         "status": Status.active,
     }
-    r = db.resource_by_id(r_uuid)
-    if not r:
-        raise HTTPException(status_code=404, detail="Resource not found")
-    r.get("entries").append(new_entry)
+    res.get("entries").append(new_entry)
     return new_entry.get("uuid")
 
 
 @router.get("/{e_uuid}", response_model=EntryOut)
-def read_entry(r_uuid: UUID, e_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
+def read_entry(e_uuid: UUID, res: ResourceOut = Depends(get_resource_by_id)):
     """
     Retrive one entry.
     """
-    r = db.resource_by_id(r_uuid)
-    if not r:
-        raise HTTPException(status_code=404, detail="Resource not found")
-    e = next((entry for entry in r.get("entries")
+    e = next((entry for entry in res.get("entries")
               if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
     if not e:
         raise HTTPException(status_code=404, detail="Entry not found")
@@ -63,14 +62,11 @@ def read_entry(r_uuid: UUID, e_uuid: UUID, db: FakeDatabase = Depends(get_fake_d
 
 
 @router.put("/{e_uuid}", response_model=EntryOut)
-def update_entry(r_uuid: UUID, e_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fake_db)):
+def update_entry(e_uuid: UUID, entry: EntryIn, res: ResourceOut = Depends(get_resource_by_id)):
     """
     Update an existing entry.
     """
-    r = db.resource_by_id(r_uuid)
-    if not r:
-        raise HTTPException(status_code=404, detail="Resource not found")
-    e = next((entry for entry in r.get("entries")
+    e = next((entry for entry in res.get("entries")
               if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
     if not e:
         raise HTTPException(status_code=404, detail="Entry not found")
@@ -80,11 +76,11 @@ def update_entry(r_uuid: UUID, e_uuid: UUID, entry: EntryIn, db: FakeDatabase = 
 
 
 @router.delete("/{e_uuid}", response_model=EntryOut)
-def deactivate_entry(r_uuid: UUID, e_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
-    r = db.resource_by_id(r_uuid)
-    if not r:
-        raise HTTPException(status_code=404, detail="Resource not found")
-    e = next((entry for entry in r.get("entries")
+def deactivate_entry(e_uuid: UUID, res: ResourceOut = Depends(get_resource_by_id)):
+    """
+    Deactivates a entry (does not delete it).
+    """
+    e = next((entry for entry in res.get("entries")
               if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
     if not e:
         raise HTTPException(status_code=404, detail="Entry not found")
