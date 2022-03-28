@@ -1,12 +1,7 @@
 from datetime import datetime
-from enum import Enum
 from uuid import uuid4
 
-
-class Status(str, Enum):
-    active = "active"
-    inactive = "inactive"
-
+from ..model.status import Status
 
 class FakeDatabase:
     data = []

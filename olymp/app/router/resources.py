@@ -1,54 +1,17 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from fastapi.encoders import jsonable_encoder
-from datetime import datetime
-from uuid import UUID, uuid4
-from pydantic import BaseModel
+from uuid import UUID
 from typing import List, Optional
-from enum import Enum
 
 from ..storage.db import FakeDatabase, get_fake_db
+from ..model.resource import ResourceIn, ResourceOut
+from ..model.status import Status
+
 
 router = APIRouter(
     prefix="/resources",
     tags=["resources"],
 )
-
-
-class Status(str, Enum):
-    active = "active"
-    inactive = "inactive"
-
-
-class ResourceIn(BaseModel):
-    name: str
-    description: Optional[str] = ""
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "name": "Name of the new resource",
-                "description": "Short description of the resource (optional)"
-            }
-        }
-
-
-class ResourceOut(ResourceIn):
-    uuid: UUID
-    created: datetime
-    updated: datetime
-    status: Status
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "name": "Resource name",
-                "description": "Short description of the resource (can be empty)",
-                "uuid": uuid4(),
-                "created": datetime.now(),
-                "udpated": datetime.now(),
-                "status": Status.active
-            }
-        }
 
 
 @router.get("/", response_model=List[ResourceOut])
