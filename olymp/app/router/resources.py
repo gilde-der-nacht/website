@@ -78,27 +78,27 @@ def create_resource(resource: ResourceIn):
     fake_db.append(new_resource)
     return new_resource.get("uuid")
 
-@router.get("/{uuid}", response_model=ResourceOut)
-def read_resource(uuid: UUID):
+@router.get("/{r_uuid}", response_model=ResourceOut)
+def read_resource(r_uuid: UUID):
     """
     Retrive one resource.
     """
     r = next((res for res in fake_db
-              if res.get("uuid") == uuid and res.get("status") == Status.active), None)
+              if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
     return r
 
 
-@router.put("/{uuid}", response_model=ResourceOut)
-def update_resource(uuid: UUID, resource: ResourceIn):
+@router.put("/{r_uuid}", response_model=ResourceOut)
+def update_resource(r_uuid: UUID, resource: ResourceIn):
     """
     Update an existing resource.
     """
     now = datetime.now()
     r = next((res for res in fake_db
-              if res.get("uuid") == uuid and res.get("status") == Status.active), None)
+              if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
@@ -107,14 +107,14 @@ def update_resource(uuid: UUID, resource: ResourceIn):
     return r
 
 
-@router.delete("/{uuid}", response_model=ResourceOut)
-def deactivate_resource(uuid: UUID):
+@router.delete("/{r_uuid}", response_model=ResourceOut)
+def deactivate_resource(r_uuid: UUID):
     """
     Deactivates a resource (does not delete it).
     """
     now = datetime.now()
     r = next((res for res in fake_db
-              if res.get("uuid") == uuid and res.get("status") == Status.active), None)
+              if res.get("uuid") == r_uuid and res.get("status") == Status.active), None)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
