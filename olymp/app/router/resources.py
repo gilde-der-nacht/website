@@ -58,7 +58,7 @@ def read_resources(status: Optional[Status] = None, db: FakeDatabase = Depends(g
     """
     if not status:
         return db.data
-    return db.filtered_data(status)
+    return db.resources_by_status(status)
 
 
 @router.post("/", response_model=UUID, status_code=status.HTTP_201_CREATED)

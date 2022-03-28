@@ -11,7 +11,7 @@ class Status(str, Enum):
 class FakeDatabase:
     data = []
 
-    def filtered_data(self, status):
+    def resources_by_status(self, status):
         return [res for res in self.data if res.get("status") == status]
 
     def resource_by_id(self, uuid):
