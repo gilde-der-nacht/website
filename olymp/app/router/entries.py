@@ -49,7 +49,7 @@ def create_entry(entry: EntryIn, res: ResourceOut = Depends(get_resource_by_id))
     return new_entry.get("uuid")
 
 
-@router.get("/{e_uuid}", response_model=EntryOut)
+@router.get("/{e_uuid}/", response_model=EntryOut)
 def read_entry(e_uuid: UUID, res: ResourceOut = Depends(get_resource_by_id)):
     """
     Retrive one entry.
@@ -61,7 +61,7 @@ def read_entry(e_uuid: UUID, res: ResourceOut = Depends(get_resource_by_id)):
     return e
 
 
-@router.put("/{e_uuid}", response_model=EntryOut)
+@router.put("/{e_uuid}/", response_model=EntryOut)
 def update_entry(e_uuid: UUID, entry: EntryIn, res: ResourceOut = Depends(get_resource_by_id)):
     """
     Update an existing entry.
@@ -75,7 +75,7 @@ def update_entry(e_uuid: UUID, entry: EntryIn, res: ResourceOut = Depends(get_re
     return e
 
 
-@router.delete("/{e_uuid}", response_model=EntryOut)
+@router.delete("/{e_uuid}/", response_model=EntryOut)
 def deactivate_entry(e_uuid: UUID, res: ResourceOut = Depends(get_resource_by_id)):
     """
     Deactivates a entry (does not delete it).
