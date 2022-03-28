@@ -33,24 +33,24 @@ def create_resource(resource: ResourceIn, db: FakeDatabase = Depends(get_fake_db
     return db.create_resource(jsonable_encoder(resource))
 
 
-@router.get("/{r_uuid}/", response_model=ResourceOut)
-def read_resource(r_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
+@router.get("/{resource_uuid}/", response_model=ResourceOut)
+def read_resource(resource_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     """
     Retrive one resource.
     """
-    r = db.resource_by_id(r_uuid)
+    r = db.resource_by_id(resource_uuid)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
     return r
 
 
-@router.put("/{r_uuid}/", response_model=ResourceOut)
-def update_resource(r_uuid: UUID, resource: ResourceIn, db: FakeDatabase = Depends(get_fake_db)):
+@router.put("/{resource_uuid}/", response_model=ResourceOut)
+def update_resource(resource_uuid: UUID, resource: ResourceIn, db: FakeDatabase = Depends(get_fake_db)):
     """
     Update an existing resource.
     """
-    r = db.update_resource(r_uuid, jsonable_encoder(resource))
+    r = db.update_resource(resource_uuid, jsonable_encoder(resource))
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
@@ -58,12 +58,12 @@ def update_resource(r_uuid: UUID, resource: ResourceIn, db: FakeDatabase = Depen
     return r
 
 
-@router.delete("/{r_uuid}/", response_model=ResourceOut)
-def deactivate_resource(r_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
+@router.delete("/{resource_uuid}/", response_model=ResourceOut)
+def deactivate_resource(resource_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     """
     Deactivates a resource (does not delete it).
     """
-    r = db.deactivate_resource(r_uuid)
+    r = db.deactivate_resource(resource_uuid)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")

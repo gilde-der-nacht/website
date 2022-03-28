@@ -22,7 +22,7 @@ class ResourceIn(BaseModel):
 
 class ResourceOut(ResourceIn):
     entries: List[EntryOut]
-    uuid: UUID
+    resource_uuid: UUID
     created: datetime
     updated: datetime
     status: Status
@@ -33,11 +33,11 @@ class ResourceOut(ResourceIn):
                 "name": "Resource name",
                 "description": "Short description of the resource (can be empty)",
                 "entries": [EntryOut(
-                    uuid=uuid4(),
+                    entry_uuid=uuid4(),
                     created=datetime.now(),
                     updated=datetime.now(),
                     status=Status.active)],
-                "uuid": uuid4(),
+                "resource_uuid": uuid4(),
                 "created": datetime.now(),
                 "udpated": datetime.now(),
                 "status": Status.active

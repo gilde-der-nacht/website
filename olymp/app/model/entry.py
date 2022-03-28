@@ -25,7 +25,7 @@ class EntryIn(BaseModel):
 
 
 class EntryOut(EntryIn):
-    uuid: UUID
+    entry_uuid: UUID
     created: datetime
     updated: datetime
     status: Status
@@ -40,7 +40,7 @@ class EntryOut(EntryIn):
                     "key": 3,
                     "key_2": None,
                 },
-                "uuid": uuid4(),
+                "entry_uuid": uuid4(),
                 "created": datetime.now(),
                 "udpated": datetime.now(),
                 "status": Status.active

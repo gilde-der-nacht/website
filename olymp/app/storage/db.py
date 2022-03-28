@@ -13,88 +13,88 @@ class FakeDatabase:
     def resources_by_status(self, status: Status) -> List[ResourceOut]:
         return [res for res in self.data if res.get("status") == status]
 
-    def resource_by_id(self, uuid: UUID):
+    def resource_by_id(self, resource_uuid: UUID):
         return next((res for res in self.data
-                     if res.get("uuid") == uuid and res.get("status") == Status.active), None)
+                     if res.get("resource_uuid") == resource_uuid and res.get("status") == Status.active), None)
 
     def create_resource(self, res: ResourceIn) -> UUID:
         now = datetime.now()
         new_resource = {
             **res,
             "entries": [],
-            "uuid": uuid4(),
+            "resource_uuid": uuid4(),
             "created": now,
             "updated": now,
             "status": Status.active,
         }
         self.data.append(new_resource)
-        return new_resource.get("uuid")
+        return new_resource.get("resource_uuid")
 
-    def update_resource(self, uuid: UUID, res: ResourceIn) -> ResourceOut:
+    def update_resource(self, resource_uuid: UUID, res: ResourceIn) -> ResourceOut:
         now = datetime.now()
-        r = self.resource_by_id(uuid)
+        r = self.resource_by_id(resource_uuid)
         if not r:
             return None
         r.update({**res, "updated": now})
         return r
 
-    def deactivate_resource(self, uuid: UUID) -> ResourceOut:
+    def deactivate_resource(self, resource_uuid: UUID) -> ResourceOut:
         now = datetime.now()
-        r = self.resource_by_id(uuid)
+        r = self.resource_by_id(resource_uuid)
         if not r:
             return None
         r.update({"updated": now, "status": Status.inactive})
         return r
 
-    def entries_by_resource_id(self, uuid: UUID) -> List[EntryOut]:
-        res = self.resource_by_id(uuid)
+    def entries_by_resource_id(self, resource_uuid: UUID) -> List[EntryOut]:
+        res = self.resource_by_id(resource_uuid)
         if not res:
             return None
         return res.get("entries")
 
-    def create_entry(self, uuid: UUID, entry: EntryIn) -> UUID:
-        res = self.resource_by_id(uuid)
+    def create_entry(self, resource_uuid: UUID, entry: EntryIn) -> UUID:
+        res = self.resource_by_id(resource_uuid)
         if not res:
             return None
         now = datetime.now()
         new_entry = {
             **entry,
-            "uuid": uuid4(),
+            "entry_uuid": uuid4(),
             "created": now,
             "updated": now,
             "status": Status.active,
         }
         res.get("entries").append(new_entry)
-        return new_entry.get("uuid")
+        return new_entry.get("entry_uuid")
 
-    def entry_by_id(self, r_uuid, e_uuid) -> EntryOut:
-        res = self.resource_by_id(r_uuid)
+    def entry_by_id(self, resource_uuid, entry_uuid) -> EntryOut:
+        res = self.resource_by_id(resource_uuid)
         if not res:
             return None
         e = next((entry for entry in res.get("entries")
-                  if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
+                  if entry.get("entry_uuid") == entry_uuid and entry.get("status") == Status.active), None)
         if not e:
             return None
         return e
 
-    def update_resource(self, r_uuid: UUID, e_uuid: UUID, entry: EntryIn) -> EntryOut:
-        res = self.resource_by_id(r_uuid)
+    def update_resource(self, resource_uuid: UUID, entry_uuid: UUID, entry: EntryIn) -> EntryOut:
+        res = self.resource_by_id(resource_uuid)
         if not res:
             return None
         e = next((entry for entry in res.get("entries")
-                  if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
+                  if entry.get("entry_uuid") == entry_uuid and entry.get("status") == Status.active), None)
         if not e:
             return None
         now = datetime.now()
         e.update({**entry, "updated": now})
         return e
 
-    def deactivate_entry(self, r_uuid: UUID, e_uuid: UUID) -> EntryOut:
-        res = self.resource_by_id(r_uuid)
+    def deactivate_entry(self, resource_uuid: UUID, entry_uuid: UUID) -> EntryOut:
+        res = self.resource_by_id(resource_uuid)
         if not res:
             return None
         e = next((entry for entry in res.get("entries")
-                  if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
+                  if entry.get("entry_uuid") == entry_uuid and entry.get("status") == Status.active), None)
         if not e:
             return None
         e.update({"updated": now, "status": Status.inactive})
