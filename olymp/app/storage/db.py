@@ -17,6 +17,7 @@ class FakeDatabase:
         now = datetime.now()
         new_resource = {
             **res,
+            "entries": [],
             "uuid": uuid4(),
             "created": now,
             "updated": now,

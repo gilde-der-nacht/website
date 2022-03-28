@@ -11,6 +11,7 @@ from app.model.status import Status
 router = APIRouter(
     prefix="/resources",
     tags=["resources"],
+    responses={404: {"description": "Not found"}},
 )
 
 
