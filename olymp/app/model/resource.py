@@ -1,10 +1,10 @@
 from datetime import datetime
 from typing import List, Optional
 from uuid import UUID, uuid4
-from pydantic import BaseModel
 
-from app.model.status import Status
 from app.model.entry import EntryOut
+from app.model.status import Status
+from pydantic import BaseModel
 
 
 class ResourceIn(BaseModel):
@@ -32,11 +32,12 @@ class ResourceOut(ResourceIn):
             "example": {
                 "name": "Resource name",
                 "description": "Short description of the resource (can be empty)",
-                "entries": [EntryOut(
-                    entry_uuid=uuid4(),
-                    created=datetime.now(),
-                    updated=datetime.now(),
-                    status=Status.active)],
+                "entries": [{
+                    "entry_uuid": uuid4(),
+                    "group_uuid": uuid4(),
+                    "created": datetime.now(),
+                    "updated": datetime.now(),
+                    "status": Status.active}],
                 "resource_uuid": uuid4(),
                 "created": datetime.now(),
                 "udpated": datetime.now(),

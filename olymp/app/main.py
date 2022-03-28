@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.router import resources, entries
+from app.router import entries, resources
 
 app = FastAPI(
     title="Olymp",

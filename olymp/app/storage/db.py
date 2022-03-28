@@ -1,104 +1,112 @@
-from datetime import datetime
+from datetime import date, datetime
 from typing import List
 from uuid import UUID, uuid4
 
-from app.model.status import Status
-from app.model.resource import ResourceIn, ResourceOut
 from app.model.entry import EntryIn, EntryOut
+from app.model.resource import ResourceIn, ResourceOut
+from app.model.status import Status
 
 
 class FakeDatabase:
-    data = []
+    data: List[ResourceOut] = []
 
     def resources_by_status(self, status: Status) -> List[ResourceOut]:
-        return [res for res in self.data if res.get("status") == status]
+        return [res for res in self.data if res.status == status]
 
     def resource_by_id(self, resource_uuid: UUID):
-        return next((res for res in self.data
-                     if res.get("resource_uuid") == resource_uuid and res.get("status") == Status.active), None)
+        r = next((res for res in self.data
+                  if res.resource_uuid == resource_uuid and res.status == Status.active), None)
+        if not r:
+            raise BaseException("Resource not found")
+        return r
 
     def create_resource(self, res: ResourceIn) -> UUID:
         now = datetime.now()
-        new_resource = {
-            **res,
-            "entries": [],
-            "resource_uuid": uuid4(),
-            "created": now,
-            "updated": now,
-            "status": Status.active,
-        }
-        self.data.append(new_resource)
-        return new_resource.get("resource_uuid")
+        new_res = ResourceOut(
+            name=res.name,
+            description=res.description,
+            entries=[],
+            resource_uuid=uuid4(),
+            created=now,
+            updated=now,
+            status=Status.active,
+        )
+        self.data.append(new_res)
+        return new_res.resource_uuid
 
     def update_resource(self, resource_uuid: UUID, res: ResourceIn) -> ResourceOut:
-        now = datetime.now()
         r = self.resource_by_id(resource_uuid)
         if not r:
-            return None
-        r.update({**res, "updated": now})
+            raise BaseException("Resource not found")
+        r.name = res.name
+        r.description = res.description
+        r.updated = datetime.now()
         return r
 
     def deactivate_resource(self, resource_uuid: UUID) -> ResourceOut:
-        now = datetime.now()
         r = self.resource_by_id(resource_uuid)
         if not r:
-            return None
-        r.update({"updated": now, "status": Status.inactive})
+            raise BaseException("Resource not found")
+        r.status = Status.inactive
+        r.updated = datetime.now()
         return r
 
     def entries_by_resource_id(self, resource_uuid: UUID) -> List[EntryOut]:
         res = self.resource_by_id(resource_uuid)
         if not res:
-            return None
-        return res.get("entries")
+            raise BaseException("Resource not found")
+        return res.entries
 
     def create_entry(self, resource_uuid: UUID, entry: EntryIn) -> UUID:
         res = self.resource_by_id(resource_uuid)
         if not res:
-            return None
+            raise BaseException("Resource not found")
         now = datetime.now()
-        new_entry = {
-            **entry,
-            "entry_uuid": uuid4(),
-            "created": now,
-            "updated": now,
-            "status": Status.active,
-        }
-        res.get("entries").append(new_entry)
-        return new_entry.get("entry_uuid")
+        new_entry = EntryOut(
+            private_body=entry.private_body,
+            public_body=entry.public_body,
+            entry_uuid=uuid4(),
+            group_uuid=uuid4(),
+            created=now,
+            updated=now,
+            status=Status.active,
+        )
+        res.entries.append(new_entry)
+        return new_entry.entry_uuid
 
     def entry_by_id(self, resource_uuid, entry_uuid) -> EntryOut:
         res = self.resource_by_id(resource_uuid)
         if not res:
-            return None
-        e = next((entry for entry in res.get("entries")
-                  if entry.get("entry_uuid") == entry_uuid and entry.get("status") == Status.active), None)
+            raise BaseException("Resource not found")
+        e = next((entry for entry in res.entries
+                  if entry.entry_uuid == entry_uuid and entry.status == Status.active), None)
         if not e:
-            return None
+            raise BaseException("Entry not found")
         return e
 
-    def update_resource(self, resource_uuid: UUID, entry_uuid: UUID, entry: EntryIn) -> EntryOut:
+    def update_entry(self, resource_uuid: UUID, entry_uuid: UUID, entry: EntryIn) -> EntryOut:
         res = self.resource_by_id(resource_uuid)
         if not res:
-            return None
-        e = next((entry for entry in res.get("entries")
-                  if entry.get("entry_uuid") == entry_uuid and entry.get("status") == Status.active), None)
+            raise BaseException("Resource not found")
+        e = next((entry for entry in res.entries
+                  if entry.entry_uuid == entry_uuid and entry.status == Status.active), None)
         if not e:
-            return None
-        now = datetime.now()
-        e.update({**entry, "updated": now})
+            raise BaseException("Entry not found")
+        e.private_body = entry.private_body
+        e.public_body = entry.public_body
+        e.updated = datetime.now()
         return e
 
     def deactivate_entry(self, resource_uuid: UUID, entry_uuid: UUID) -> EntryOut:
         res = self.resource_by_id(resource_uuid)
         if not res:
-            return None
-        e = next((entry for entry in res.get("entries")
-                  if entry.get("entry_uuid") == entry_uuid and entry.get("status") == Status.active), None)
+            raise BaseException("Resource not found")
+        e = next((entry for entry in res.entries
+                  if entry.entry_uuid == entry_uuid and entry.status == Status.active), None)
         if not e:
-            return None
-        e.update({"updated": now, "status": Status.inactive})
-        now = datetime.now()
+            raise BaseException("Entry not found")
+        e.updated = datetime.now()
+        e.status = Status.inactive
         return e
 
 
