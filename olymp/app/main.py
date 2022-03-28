@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.router import resources
+from app.router import resources, entries
 
 app = FastAPI(
     title="Olymp",
@@ -20,3 +20,4 @@ def get_status():
 
 
 app.include_router(resources.router)
+app.include_router(entries.router)
