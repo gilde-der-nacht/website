@@ -21,7 +21,7 @@ class Status(str, Enum):
 
 class ResourceIn(BaseModel):
     name: str
-    description: Optional[str] = None
+    description: Optional[str] = ""
 
     class Config:
         schema_extra = {
@@ -42,7 +42,7 @@ class ResourceOut(ResourceIn):
         schema_extra = {
             "example": {
                 "name": "Resource name",
-                "description": "Short description of the resource (can be null)",
+                "description": "Short description of the resource (can be empty)",
                 "uuid": uuid4(),
                 "created": datetime.now(),
                 "udpated": datetime.now(),
