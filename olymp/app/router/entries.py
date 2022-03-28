@@ -45,3 +45,20 @@ def create_entry(r_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fa
         raise HTTPException(status_code=404, detail="Resource not found")
     r.get("entries").append(new_entry)
     return new_entry.get("uuid")
+
+
+@router.get("/{e_uuid}", response_model=EntryOut)
+def read_entry(r_uuid: UUID, e_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
+    """
+    Retrive one entry.
+    """
+    r = db.resource_by_id(r_uuid)
+
+    if not r:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    e =  next((entry for entry in r.get("entries")
+         if entry.get("uuid") == e_uuid and entry.get("status") == Status.active), None)
+
+    if not e:
+        raise HTTPException(status_code=404, detail="Entry not found")
+    return e
