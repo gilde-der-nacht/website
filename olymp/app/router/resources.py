@@ -4,6 +4,7 @@ from datetime import datetime
 from uuid import UUID, uuid4
 from pydantic import BaseModel
 from typing import List, Optional
+from enum import Enum
 
 router = APIRouter(
     prefix="/resources",
@@ -11,6 +12,11 @@ router = APIRouter(
 )
 
 fake_db = []
+
+
+class Status(str, Enum):
+    active = "active"
+    inactive = "inactive"
 
 
 class ResourceIn(BaseModel):
@@ -30,7 +36,7 @@ class ResourceOut(ResourceIn):
     uuid: UUID
     created: datetime
     updated: datetime
-    status: str
+    status: Status
 
     class Config:
         schema_extra = {
@@ -40,13 +46,13 @@ class ResourceOut(ResourceIn):
                 "uuid": uuid4(),
                 "created": datetime.now(),
                 "udpated": datetime.now(),
-                "status": "active"
+                "status": Status.active
             }
         }
 
 
 @router.get("/", response_model=List[ResourceOut])
-def read_resources(status: Optional[str] = None):
+def read_resources(status: Optional[Status] = None):
     """
     Retrieve all resources. Use the `status` query to filter only "active" or "inactive" resources.
     """
@@ -66,7 +72,7 @@ def create_resource(resource: ResourceIn):
         "uuid": uuid4(),
         "created": now,
         "updated": now,
-        "status": "active",
+        "status": Status.active,
     }
 
     fake_db.append(new_resource)
@@ -80,7 +86,7 @@ def update_resource(uuid: UUID, resource: ResourceIn):
     """
     now = datetime.now()
     r = next((res for res in fake_db
-              if res.get("uuid") == uuid and res.get("status") == "active"), None)
+              if res.get("uuid") == uuid and res.get("status") == Status.active), None)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
@@ -96,10 +102,10 @@ def deactivate_resource(uuid: UUID):
     """
     now = datetime.now()
     r = next((res for res in fake_db
-              if res.get("uuid") == uuid and res.get("status") == "active"), None)
+              if res.get("uuid") == uuid and res.get("status") == Status.active), None)
 
     if not r:
         raise HTTPException(status_code=404, detail="Resource not found")
 
-    r.update({"updated": now, "status": "inactive"})
+    r.update({"updated": now, "status": Status.inactive})
     return r
