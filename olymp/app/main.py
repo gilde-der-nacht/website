@@ -2,7 +2,13 @@ from fastapi import FastAPI
 
 from .router import resources
 
-app = FastAPI()
+app = FastAPI(
+    title="Olymp",
+    contact={
+        "name": "Gilde der Nacht",
+        "url": "https://gildedernacht.ch/kontakt"
+    }
+)
 
 
 @app.get("/")
