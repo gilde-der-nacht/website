@@ -32,9 +32,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - run: cd src && npm install
+      - run: cd ssg && npm install
 
-      - run: cd src && npm run build:${{ matrix.siteCode }}
+      - run: cd ssg && npm run build:${{ matrix.siteCode }}
         env:
           ELEVENTY_ENV: development
 
@@ -44,5 +44,5 @@ jobs:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch
           publish_branch: master
-          publish_dir: ./src/_site/${{ matrix.site }}.ch
+          publish_dir: ./ssg/_site/${{ matrix.site }}.ch
           cname: test.${{ matrix.site }}.ch
