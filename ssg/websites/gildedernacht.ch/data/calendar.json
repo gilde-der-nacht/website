@@ -7,7 +7,7 @@
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CICfz82H5_YCEAAYASCDnZbQAQ==",
+ "nextSyncToken": "CICfz82H5_YCEAAYASDJx6XQAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -391,35 +391,6 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "7kjevln9brb71adnff3driohk9@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3296820980064000\"",
-   "id": "26a0nejhgsuduijvkv9qou6i9o",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MjZhMG5lamhnc3VkdWlqdmt2OXFvdTZpOW8gZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-01-25T22:49:20.000Z",
-   "updated": "2022-03-27T19:48:10.032Z",
-   "summary": "Buchclub: «The Political Potential of Sortition» von Oliver Dowlen",
-   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003eWir tauschen uns über das Sachbuch «The Political Potential of Sortition» von Oliver Dowlen aus.\u003cbr\u003e&nbsp;\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[theme]success[/theme]\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[tags]Buchclub[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Online (Discord)[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-books[/icon] \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-03-28T20:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-03-28T21:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "26a0nejhgsuduijvkv9qou6i9o@google.com",
    "sequence": 0,
    "eventType": "default"
   }
