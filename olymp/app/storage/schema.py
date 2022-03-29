@@ -16,6 +16,7 @@ class Resource(Base):
 
     entries = relationship("Entry", back_populates="resource")
 
+
 class Entry(Base):
     __tablename__ = "entries"
 
