@@ -34,7 +34,6 @@ class ResourceOut(ResourceIn):
                 "description": "Short description of the resource (can be empty)",
                 "entries": [{
                     "entry_uuid": uuid4(),
-                    "group_uuid": uuid4(),
                     "created": datetime.now(),
                     "updated": datetime.now(),
                     "status": Status.active}],

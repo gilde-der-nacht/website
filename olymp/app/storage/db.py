@@ -66,7 +66,6 @@ class FakeDatabase:
             private_body=entry.private_body,
             public_body=entry.public_body,
             entry_uuid=uuid4(),
-            group_uuid=uuid4(),
             created=now,
             updated=now,
             status=Status.active,
