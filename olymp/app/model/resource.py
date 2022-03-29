@@ -28,6 +28,7 @@ class ResourceOut(ResourceIn):
     status: Status
 
     class Config:
+        orm_mode = True
         schema_extra = {
             "example": {
                 "name": "Resource name",

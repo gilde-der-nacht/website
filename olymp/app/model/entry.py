@@ -31,6 +31,7 @@ class EntryOut(EntryIn):
     status: Status
 
     class Config:
+        orm_mode = True
         schema_extra = {
             "example": {
                 "private_body": {
