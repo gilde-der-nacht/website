@@ -5,6 +5,6 @@ services:
     build: .
     container_name: olymp
     volumes:
-      - ./app:/app
+      - /root/olymp/:/code/app/storage/db/
     ports:
       - 8003:80
