@@ -10,7 +10,6 @@ from app.storage.db import FakeDatabase, get_fake_db
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-
 schema.Base.metadata.create_all(bind=engine)
 
 
@@ -34,7 +33,9 @@ def read_resources(status: Optional[Status] = None, db: Session = Depends(get_db
     """
     Retrieve all resources. Use the `status` query to filter only "active" or "inactive" resources.
     """
-    return crud.get_resources(db, status=status)
+    if status is None:
+        return crud.get_resources(db)
+    return crud.get_resources_by_status(db, status=status)
 
 
 @router.post("/", response_model=ResourceOut, status_code=status.HTTP_201_CREATED)
@@ -43,13 +44,15 @@ def create_resource(resource: ResourceIn, db: Session = Depends(get_db)):
     Create a new resource.
     """
     now = datetime.now()
-    new_resource = ResourceOut(resource_uuid=uuid4(),
-                               name=resource.name,
-                               description=resource.description,
-                               entries=[],
-                               created=now,
-                               updated=now,
-                               status=Status.active)
+    new_resource = ResourceOut(
+        resource_uuid=uuid4(),
+        name=resource.name,
+        description=resource.description,
+        entries=[],
+        created=now,
+        updated=now,
+        status=Status.active,
+    )
     return crud.create_resource(db, new_resource)
 
 
@@ -64,8 +67,10 @@ def read_resource(resource_uuid: UUID, db: Session = Depends(get_db)):
     return db_resource
 
 
-@ router.put("/{resource_uuid}/", response_model=ResourceOut)
-def update_resource(resource_uuid: UUID, resource: ResourceIn, db: FakeDatabase = Depends(get_fake_db)):
+@router.put("/{resource_uuid}/", response_model=ResourceOut)
+def update_resource(
+    resource_uuid: UUID, resource: ResourceIn, db: FakeDatabase = Depends(get_fake_db)
+):
     """
     Update an existing resource.
     """
@@ -75,7 +80,7 @@ def update_resource(resource_uuid: UUID, resource: ResourceIn, db: FakeDatabase 
         raise HTTPException(status_code=404, detail=str(e))
 
 
-@ router.delete("/{resource_uuid}/", response_model=ResourceOut)
+@router.delete("/{resource_uuid}/", response_model=ResourceOut)
 def deactivate_resource(resource_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
     """
     Deactivates a resource (does not delete it).

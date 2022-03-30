@@ -5,10 +5,7 @@ from app.router import entries, resources
 
 app = FastAPI(
     title="Olymp",
-    contact={
-        "name": "Gilde der Nacht",
-        "url": "https://gildedernacht.ch/kontakt"
-    }
+    contact={"name": "Gilde der Nacht", "url": "https://gildedernacht.ch/kontakt"},
 )
 
 origins = [
