@@ -2,7 +2,7 @@
 
 ### Requirements
 
-* Python 3.6+
+- Python 3.6+
 
 There is a [Dockerfile](https://github.com/gilde-der-nacht/website/blob/theme-crimson/.devcontainer/Dockerfile) which can be use to build a development environment.
 
@@ -23,4 +23,11 @@ $ uvicorn app.main:app --reload
 ```sh
 $ docker-compose -f ./docker-compose.deploy.yml up -d # locally
 $ DOCKER_HOST="ssh://[user]@[host]:[port]" docker-compose -f ./docker-compose.deploy.yml up -d # remote
+```
+
+## Migrations
+
+```sh
+$ alembic revision --autogenerate -m "message" # create a new version in the migrations history
+$ alembic upgrade head # upgrade the database to the latest schema
 ```
