@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.router import entries, resources
 
 app = FastAPI(
-    title="Olymp",
+    title="Olymp API",
     contact={"name": "Gilde der Nacht", "url": "https://gildedernacht.ch/kontakt"},
 )
 
