@@ -12,6 +12,12 @@ There is a [Dockerfile](https://github.com/gilde-der-nacht/website/blob/theme-cr
 $ pip3 install -r requirements.txt
 ```
 
+## Setup database
+
+```sh
+$ alembic upgrade head # upgrade the database to the latest schema
+```
+
 ## Develop
 
 ```sh
@@ -28,7 +34,5 @@ $ DOCKER_HOST="ssh://[user]@[host]:[port]" docker-compose -f ./docker-compose.de
 ## Migrations
 
 ```sh
-$ alembic upgrade head # upgrade the database to the latest schema
-
 $ alembic revision --autogenerate -m "message" # create a new version in the migrations history
 ```
