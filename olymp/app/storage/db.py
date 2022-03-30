@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import datetime
 from typing import List
 from uuid import UUID, uuid4
 
@@ -14,8 +14,14 @@ class FakeDatabase:
         return [res for res in self.data if res.status == status]
 
     def resource_by_id(self, resource_uuid: UUID):
-        r = next((res for res in self.data
-                  if res.resource_uuid == resource_uuid and res.status == Status.active), None)
+        r = next(
+            (
+                res
+                for res in self.data
+                if res.resource_uuid == resource_uuid and res.status == Status.active
+            ),
+            None,
+        )
         if not r:
             raise BaseException("Resource not found")
         return r
@@ -77,18 +83,32 @@ class FakeDatabase:
         res = self.resource_by_id(resource_uuid)
         if not res:
             raise BaseException("Resource not found")
-        e = next((entry for entry in res.entries
-                  if entry.entry_uuid == entry_uuid and entry.status == Status.active), None)
+        e = next(
+            (
+                entry
+                for entry in res.entries
+                if entry.entry_uuid == entry_uuid and entry.status == Status.active
+            ),
+            None,
+        )
         if not e:
             raise BaseException("Entry not found")
         return e
 
-    def update_entry(self, resource_uuid: UUID, entry_uuid: UUID, entry: EntryIn) -> EntryOut:
+    def update_entry(
+        self, resource_uuid: UUID, entry_uuid: UUID, entry: EntryIn
+    ) -> EntryOut:
         res = self.resource_by_id(resource_uuid)
         if not res:
             raise BaseException("Resource not found")
-        e = next((entry for entry in res.entries
-                  if entry.entry_uuid == entry_uuid and entry.status == Status.active), None)
+        e = next(
+            (
+                entry
+                for entry in res.entries
+                if entry.entry_uuid == entry_uuid and entry.status == Status.active
+            ),
+            None,
+        )
         if not e:
             raise BaseException("Entry not found")
         e.private_body = entry.private_body
@@ -100,8 +120,14 @@ class FakeDatabase:
         res = self.resource_by_id(resource_uuid)
         if not res:
             raise BaseException("Resource not found")
-        e = next((entry for entry in res.entries
-                  if entry.entry_uuid == entry_uuid and entry.status == Status.active), None)
+        e = next(
+            (
+                entry
+                for entry in res.entries
+                if entry.entry_uuid == entry_uuid and entry.status == Status.active
+            ),
+            None,
+        )
         if not e:
             raise BaseException("Entry not found")
         e.updated = datetime.now()

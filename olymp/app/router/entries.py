@@ -24,7 +24,9 @@ def read_entries(resource_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
 
 
 @router.post("/", response_model=UUID, status_code=status.HTTP_201_CREATED)
-def create_entry(resource_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fake_db)):
+def create_entry(
+    resource_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fake_db)
+):
     """
     Create a new entry.
     """
@@ -35,7 +37,9 @@ def create_entry(resource_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends
 
 
 @router.get("/{entry_uuid}/", response_model=EntryOut)
-def read_entry(resource_uuid: UUID, entry_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
+def read_entry(
+    resource_uuid: UUID, entry_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)
+):
     """
     Retrive one entry.
     """
@@ -46,7 +50,12 @@ def read_entry(resource_uuid: UUID, entry_uuid: UUID, db: FakeDatabase = Depends
 
 
 @router.put("/{entry_uuid}/", response_model=EntryOut)
-def update_entry(resource_uuid: UUID, entry_uuid: UUID, entry: EntryIn, db: FakeDatabase = Depends(get_fake_db)):
+def update_entry(
+    resource_uuid: UUID,
+    entry_uuid: UUID,
+    entry: EntryIn,
+    db: FakeDatabase = Depends(get_fake_db),
+):
     """
     Update an existing entry.
     """
@@ -57,7 +66,9 @@ def update_entry(resource_uuid: UUID, entry_uuid: UUID, entry: EntryIn, db: Fake
 
 
 @router.delete("/{entry_uuid}/", response_model=EntryOut)
-def deactivate_entry(resource_uuid: UUID, entry_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
+def deactivate_entry(
+    resource_uuid: UUID, entry_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)
+):
     """
     Deactivates a entry (does not delete it).
     """

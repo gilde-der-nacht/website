@@ -19,7 +19,7 @@ class EntryIn(BaseModel):
                 "public_body": {
                     "key": 3,
                     "key_2": None,
-                }
+                },
             }
         }
 
@@ -44,6 +44,6 @@ class EntryOut(EntryIn):
                 "entry_uuid": uuid4(),
                 "created": datetime.now(),
                 "udpated": datetime.now(),
-                "status": Status.active
+                "status": Status.active,
             }
         }
