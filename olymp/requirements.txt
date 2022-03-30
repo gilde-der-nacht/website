@@ -1,3 +1,4 @@
+alembic==1.7.7
 black==22.3.0
 fastapi==0.75.0
 pydantic==1.9.0
