@@ -1,3 +1,4 @@
+"""Imports"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -14,6 +15,7 @@ origins = [
     "https://rollenspieltage.ch/",
     "https://tabletoptage.ch/",
     "https://admin.gdn.lvl8.io/",
+    "https://admin.olymp.gildedernacht.ch/",
 ]
 
 app.add_middleware(

@@ -1,16 +1,21 @@
+"""Imports"""
 from datetime import datetime
 from typing import Dict, Optional
 from uuid import UUID, uuid4
 
-from app.model.status import Status
+from app.model.state import State
 from pydantic import BaseModel
 
 
 class EntryIn(BaseModel):
+    """Model for incoming, user provided entries."""
+
     private_body: Optional[Dict] = {}
     public_body: Optional[Dict] = {}
 
     class Config:
+        """Additional configuration of the pydantic model."""
+
         schema_extra = {
             "example": {
                 "private_body": {
@@ -25,12 +30,16 @@ class EntryIn(BaseModel):
 
 
 class EntryOut(EntryIn):
+    """Model for outgoing entries."""
+
     entry_uuid: UUID
     created: datetime
     updated: datetime
-    status: Status
+    state: State
 
     class Config:
+        """Additional configuration of the pydantic model."""
+
         orm_mode = True
         schema_extra = {
             "example": {
@@ -44,6 +53,6 @@ class EntryOut(EntryIn):
                 "entry_uuid": uuid4(),
                 "created": datetime.now(),
                 "udpated": datetime.now(),
-                "status": Status.active,
+                "state": State.ACTIVE,
             }
         }

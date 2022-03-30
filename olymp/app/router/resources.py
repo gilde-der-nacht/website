@@ -1,9 +1,10 @@
+"""Imports"""
 from datetime import datetime
 from typing import List, Optional
 from uuid import UUID, uuid4
 
 from app.model.resource import ResourceIn, ResourceOut
-from app.model.status import Status
+from app.model.state import State
 from app.storage import crud, schema
 from app.storage.database import SessionLocal, engine
 from app.storage.db import FakeDatabase, get_fake_db
@@ -21,25 +22,26 @@ router = APIRouter(
 
 
 def get_db():
-    db = SessionLocal()
+    """Get an independent database session per request."""
+    database = SessionLocal()
     try:
-        yield db
+        yield database
     finally:
-        db.close()
+        database.close()
 
 
 @router.get("/", response_model=List[ResourceOut])
-def read_resources(status: Optional[Status] = None, db: Session = Depends(get_db)):
+def read_resources(state: Optional[State] = None, database: Session = Depends(get_db)):
     """
-    Retrieve all resources. Use the `status` query to filter only "active" or "inactive" resources.
+    Retrieve all resources. Use the `state` query to filter only "active" or "inactive" resources.
     """
-    if status is None:
-        return crud.get_resources(db)
-    return crud.get_resources_by_status(db, status=status)
+    if state is None:
+        return crud.get_resources(database)
+    return crud.get_resources_by_state(database, state=state)
 
 
 @router.post("/", response_model=ResourceOut, status_code=status.HTTP_201_CREATED)
-def create_resource(resource: ResourceIn, db: Session = Depends(get_db)):
+def create_resource(resource: ResourceIn, database: Session = Depends(get_db)):
     """
     Create a new resource.
     """
@@ -51,17 +53,17 @@ def create_resource(resource: ResourceIn, db: Session = Depends(get_db)):
         entries=[],
         created=now,
         updated=now,
-        status=Status.active,
+        state=State.ACTIVE,
     )
-    return crud.create_resource(db, new_resource)
+    return crud.create_resource(database, new_resource)
 
 
 @router.get("/{resource_uuid}/", response_model=ResourceOut)
-def read_resource(resource_uuid: UUID, db: Session = Depends(get_db)):
+def read_resource(resource_uuid: UUID, database: Session = Depends(get_db)):
     """
     Retrive one resource.
     """
-    db_resource = crud.get_resource(db, resource_uuid=resource_uuid)
+    db_resource = crud.get_resource(database, resource_uuid=resource_uuid)
     if db_resource is None:
         raise HTTPException(status_code=404, detail="Resource not found")
     return db_resource
@@ -69,23 +71,27 @@ def read_resource(resource_uuid: UUID, db: Session = Depends(get_db)):
 
 @router.put("/{resource_uuid}/", response_model=ResourceOut)
 def update_resource(
-    resource_uuid: UUID, resource: ResourceIn, db: FakeDatabase = Depends(get_fake_db)
+    resource_uuid: UUID,
+    resource: ResourceIn,
+    database: FakeDatabase = Depends(get_fake_db),
 ):
     """
     Update an existing resource.
     """
     try:
-        return db.update_resource(resource_uuid, resource)
+        return database.update_resource(resource_uuid, resource)
     except BaseException as e:
         raise HTTPException(status_code=404, detail=str(e))
 
 
 @router.delete("/{resource_uuid}/", response_model=ResourceOut)
-def deactivate_resource(resource_uuid: UUID, db: FakeDatabase = Depends(get_fake_db)):
+def deactivate_resource(
+    resource_uuid: UUID, database: FakeDatabase = Depends(get_fake_db)
+):
     """
     Deactivates a resource (does not delete it).
     """
     try:
-        return db.deactivate_resource(resource_uuid)
+        return database.deactivate_resource(resource_uuid)
     except BaseException as e:
         raise HTTPException(status_code=404, detail=str(e))

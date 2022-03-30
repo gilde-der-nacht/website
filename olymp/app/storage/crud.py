@@ -1,36 +1,44 @@
+"""Imports"""
+from typing import List, Optional
 from uuid import UUID
 
 from app.model.resource import ResourceOut
-from app.model.status import Status
+from app.model.state import State
 from app.storage.schema import Resource
 from sqlalchemy.orm import Session
 
 
-def get_resources(db: Session):
-    return db.query(Resource).all()
+def get_resources(database: Session) -> List[ResourceOut]:
+    """Get a list of all resources, irrespective of state."""
+    return database.query(Resource).all()
 
 
-def get_resources_by_status(db: Session, status: Status):
-    return db.query(Resource).filter(Resource.status == status.value).all()
+def get_resources_by_state(database: Session, state: State) -> List[ResourceOut]:
+    """Get a list of all resources, filtered by state."""
+    return database.query(Resource).filter(Resource.state == state.value).all()
 
 
-def create_resource(db: Session, resource: ResourceOut):
+def create_resource(database: Session, resource: ResourceOut) -> ResourceOut:
+    """Create a new resource."""
     db_resource = Resource(
         resource_uuid=str(resource.resource_uuid),
         name=resource.name,
         description=resource.description,
         created=resource.created,
         updated=resource.updated,
-        status=resource.status,
+        state=resource.state,
         entries=resource.entries,
     )
-    db.add(db_resource)
-    db.commit()
-    db.refresh(db_resource)
+    database.add(db_resource)
+    database.commit()
+    database.refresh(db_resource)
     return db_resource
 
 
-def get_resource(db: Session, resource_uuid: UUID):
+def get_resource(database: Session, resource_uuid: UUID) -> Optional[ResourceOut]:
+    """Get an existing resource."""
     return (
-        db.query(Resource).filter(Resource.resource_uuid == str(resource_uuid)).first()
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .first()
     )

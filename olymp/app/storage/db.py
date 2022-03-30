@@ -1,24 +1,25 @@
+"""Imports"""
 from datetime import datetime
 from typing import List
 from uuid import UUID, uuid4
 
 from app.model.entry import EntryIn, EntryOut
 from app.model.resource import ResourceIn, ResourceOut
-from app.model.status import Status
+from app.model.state import State
 
 
 class FakeDatabase:
     data: List[ResourceOut] = []
 
-    def resources_by_status(self, status: Status) -> List[ResourceOut]:
-        return [res for res in self.data if res.status == status]
+    def resources_by_status(self, status: State) -> List[ResourceOut]:
+        return [res for res in self.data if res.state == status]
 
     def resource_by_id(self, resource_uuid: UUID):
         r = next(
             (
                 res
                 for res in self.data
-                if res.resource_uuid == resource_uuid and res.status == Status.active
+                if res.resource_uuid == resource_uuid and res.state == State.ACTIVE
             ),
             None,
         )
@@ -35,7 +36,7 @@ class FakeDatabase:
             resource_uuid=uuid4(),
             created=now,
             updated=now,
-            status=Status.active,
+            state=State.ACTIVE,
         )
         self.data.append(new_res)
         return new_res.resource_uuid
@@ -53,7 +54,7 @@ class FakeDatabase:
         r = self.resource_by_id(resource_uuid)
         if not r:
             raise BaseException("Resource not found")
-        r.status = Status.inactive
+        r.state = State.INACTIVE
         r.updated = datetime.now()
         return r
 
@@ -74,7 +75,7 @@ class FakeDatabase:
             entry_uuid=uuid4(),
             created=now,
             updated=now,
-            status=Status.active,
+            state=State.ACTIVE,
         )
         res.entries.append(new_entry)
         return new_entry.entry_uuid
@@ -87,7 +88,7 @@ class FakeDatabase:
             (
                 entry
                 for entry in res.entries
-                if entry.entry_uuid == entry_uuid and entry.status == Status.active
+                if entry.entry_uuid == entry_uuid and entry.state == State.ACTIVE
             ),
             None,
         )
@@ -105,7 +106,7 @@ class FakeDatabase:
             (
                 entry
                 for entry in res.entries
-                if entry.entry_uuid == entry_uuid and entry.status == Status.active
+                if entry.entry_uuid == entry_uuid and entry.state == State.ACTIVE
             ),
             None,
         )
@@ -124,14 +125,14 @@ class FakeDatabase:
             (
                 entry
                 for entry in res.entries
-                if entry.entry_uuid == entry_uuid and entry.status == Status.active
+                if entry.entry_uuid == entry_uuid and entry.state == State.ACTIVE
             ),
             None,
         )
         if not e:
             raise BaseException("Entry not found")
         e.updated = datetime.now()
-        e.status = Status.inactive
+        e.state = State.INACTIVE
         return e
 
 
