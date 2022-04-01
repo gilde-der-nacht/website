@@ -7,10 +7,10 @@ date: 2021-09-11
 
 ## Zukünftige Themen
 
-- 2022-05-06: Rollenspiel: Wir spielen gemeinsam das Rollenspiele ???.
-- 2022-06-03: Thema Rampenlicht: Haben alle Spielerinnen und Spieler ungefähr gleichviel Redezeit und Aktionsspielraum. Wir besprechen gemeinsam diese Thema.
+- 2022-05-06: Rollenspiel: Wir spielen gemeinsam das Rollenspiel «Space Train Space Heist».
+- 2022-06-03: Thema Rampenlicht: Haben alle Spielerinnen und Spieler ungefähr gleichviel Redezeit und Aktionsspielraum. Gemeinsam besprechen wir dieses Thema.
 - 2022-07-01: D&D: Wir spielen ein vereinfachtes Dungeons & Dragons das maximal eine Stunde dauert. Keine Vorkenntnisse notwendig. Zum kennenlernen.
-- 2022-08-05: Spielwelt Erfinden: Wir erfinden gemeinsam eine Spielwelt. Die Welt werden wir an den Rollenspieltagen die Ende August stattfinden weiter leben lassen.
+- 2022-08-05: Spielwelt Erfinden: Wir erfinden gemeinsam eine Spielwelt. Diese Welt werden wir an den Rollenspieltagen, die Ende August stattfinden, weiter leben lassen.
 
 ## Vergangene Themen
 
