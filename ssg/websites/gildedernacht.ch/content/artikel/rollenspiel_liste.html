@@ -5,359 +5,392 @@ draft: true
 ---
 
 <style>
+	abbr {
+		margin: 5px;
+	}
 
-body {
-	font-size: 150%;
-}
-
-abbr {
-	margin: 5px;
-}
-
-abbr.selected {
-	background-color: #99f;
-}
-
-div.game {
-	border: 1px dotted;
-}
-
+	abbr.selected {
+		background-color: #99f;
+	}
 </style>
 
 <script>
 
-const TAGS = {
-	'[1-Seite]': 'Das komplette Rollenspiel passt auf ganz weniger als 20 Seiten, meistens sogar nur 1 Seite.',
-	'[Apocalypse]': 'Die Zivilisiation ist zum einem grösseren Teil durch eine Katatrophe untergangen.',
-	'[DE]': 'Gibt es in Deutsch',
-	'[EN]': 'Gibt es in Englisch',
-	'[Erklärbär:in]': 'Jemand aus der Gilde der Nacht könnte dir einiges über das Rollenspiel erzählen, allenfalls dir auch dabei helfen eine Runde zu leiten.',
-	'[Fantasy]': 'Spielt in einer Fantasie-Welt, in welcher oft, aber nicht immer, auch Elfen, Orks und Zwerge vorkommen.',
-	'[FR]': 'Gibt es in Französisch',
-	'[Hard Sci-Fi]': 'Im Gegensatz zu Sci-Fi, gelten hier die Gesetzte der Physik überdurchschnittlich oft.',
-	'[Historisch]': 'Spielt in einer alternativen Zeitlinie der Vergangenheit unserer Welt. Geschichts- oder Sagenkenntnisse von unserer Welt können hilfreich sein.',
-	'[Horror]': 'Horror Elemente sind ein wesentlicher Aspekt.',
-	'[Investigation]': 'Aufklärung eines Verbrechens, oder einer Verschwörung, sind ein wichtiger Teil des Spieles.',
-	'[Kampf]': 'Das kämpfen ist ein wesentlicher Aspekt des spieles. Im Grundregelwerk hat es wahrscheinlich mehr Seiten über das kämpfen, als über alles andere.',
-	'[Kinder]': 'Spielbeschreibung hat regelmässig Hinweise um den unterschidlichen Altersgruppen gerechet zu werden.',
-	'[Klassiker]': 'Sehr populäres Rollenspiel dass es schon seid mindestens 10 Jahren gibt. Diese Spiele sind oftmals auch in mehreren Versionen und Auflagen erhältlich.',
-	'[Kooperativ]': '???',
-	'[Kostenlos]': 'Zumindest das Grundregelwerk ist elektronisch nahezu komplett kostenlos erhähtlich. Das Spiel ist damit spielbar ohne dass man zusätzliche etwas kaufen muss. Zusatzmaterial darf aber durchaus kosten.',
-	'[Lo-Prep]': 'Spiel dass darauf ausgelegt wurde, dass sich die Spielleitung nicht vorbeiten sollte.',
-	'[Low-Magic]': 'Es existiert zwar eine Form der Magie, aber sie ist kaum von natürlichen Phänomenen zu entscheiden. Es gibt immer eine Alternative glaubwürdige Erklärung, warum etwas aussergewöhnliches passiert sein könnte.',
-	'[Magie]': 'Es existiert Magie in der Welt mit welcher Dinge gemacht werden können die mit physikalischen Gesetzten meist kaum oder gar nicht erklärt werden könnten.',
-	'[Sandkasten]': 'Das Regelwerk hat ausführliche Anleitungen wie man eigene Welten kreiert. Teilweise auch zusammen mit seinen Mitspielern.',
-	'[Sci-Fi]': 'Spielt in einer fiktiven Zukunft. Die technischen Möglichkeiten sind aber oft fantastisch und die Gesetzte der Physik gelten auch nicht so wirklich.',
-	'[Superhelden]': 'Die Charakter sind alle Superheld:innen die alle aussergewöhnliche Fähigkeiten haben. Oft spielen solche in der heutigen Zeit, oft auch auf unserer Erde.',
-	'[Überfall]': 'Man spielt eine Gruppe von Banditen, die meistens nicht gutes im Sinn hat.',
-	'[Urban]': 'Charakter und Geschichte spielen oft ein einer regulären Stadt.',
-	'[Zombies]': 'Leichenfledderei gehört zur Tagesordnung.',
-	'[Drama]': 'Es mag Spielregeln in diesem Spiel geben, aber der Fokus liegt ganz klar darauf, dass sowohl in der Spielwelt, aber vielleicht auch am Spieltisch eskaliert.',
-	'[Fortgeschrittene]': 'Das Spiel hat viele Nuancen hat, die teilweise ganz einfach zu durchschauen sind und teilweise auch nicht explizit erwähnt werden.',
-	'[Ausleihe]': 'Kann jemand von aus der Gilde der Nacht an Interessierte ausleihen. Internet Hinweis: Das ist zurzeit nur was ich glaube was Oliver hat.',
-	'[Elektronische Hilfsmittel]': 'Es gibt diverse Online Tools für verschiedene Aspekte des Spieles. Diese sind aber meistens nicht Deutsch.',
-	'[Offene Charaktererstellung]': 'Die Charaktererstellung ist so offen, dass man nahezu jede denkbare Rolle umsetzen kann. Sollte etwas fehlen, dann gibt es sehr kurze und einfache Regeln, wie man Erängzungen anbringt, ohne dass die Spielbalance auseinander fällt.',
-	'[PbtA]': 'Basiert auf dem «Powered by the Apocalypse» Regelwerk.',
-	'[Sexualität]': 'Emotionale Bindungen, inklusive Sex in all seinen Varianten, sind ein relevantes Spielelement.',
-	'[Player-Driven]': 'Die Spielleitung ist viel mehr im Hintergrund im Vergleich zu traditionellen Spielen. Die Spieler treiben die Geschichte wesentlich voran und dürfen sogar bei der Erstellung der Welt mithelfen.',
-};
+	const TAGS = {
+		'[1-Seite]': 'Das komplette Rollenspiel passt auf ganz weniger als 20 Seiten, meistens sogar nur 1 Seite.',
+		'[Apocalypse]': 'Die Zivilisiation ist zum einem grösseren Teil durch eine Katatrophe untergangen.',
+		'[Ausleihe]': 'Kann jemand von aus der Gilde der Nacht an Interessierte ausleihen. Internet Hinweis: Das ist zurzeit nur was ich glaube was Oliver hat.',
+		'[DE]': 'Gibt es in Deutsch',
+		'[Drama]': 'Es mag Spielregeln in diesem Spiel geben, aber der Fokus liegt ganz klar darauf, dass sowohl in der Spielwelt, aber vielleicht auch am Spieltisch eskaliert.',
+		'[Elektronische Hilfsmittel]': 'Es gibt diverse Online Tools für verschiedene Aspekte des Spieles. Diese sind aber meistens nicht Deutsch.',
+		'[EN]': 'Gibt es in Englisch',
+		'[Erklärbär:in]': 'Jemand aus der Gilde der Nacht könnte dir einiges über das Rollenspiel erzählen, allenfalls dir auch dabei helfen eine Runde zu leiten.',
+		'[Fantasy]': 'Spielt in einer Fantasie-Welt, in welcher oft, aber nicht immer, auch Elfen, Orks und Zwerge vorkommen.',
+		'[Fortgeschrittene]': 'Das Spiel hat viele Nuancen hat, die teilweise ganz einfach zu durchschauen sind und teilweise auch nicht explizit erwähnt werden.',
+		'[FR]': 'Gibt es in Französisch',
+		'[Hard Sci-Fi]': 'Im Gegensatz zu Sci-Fi, gelten hier die Gesetzte der Physik überdurchschnittlich oft.',
+		'[Historisch]': 'Spielt in einer alternativen Zeitlinie der Vergangenheit unserer Welt. Geschichts- oder Sagenkenntnisse von unserer Welt können hilfreich sein.',
+		'[Horror]': 'Horror Elemente sind ein wesentlicher Aspekt.',
+		'[Investigation]': 'Aufklärung eines Verbrechens, oder einer Verschwörung, sind ein wichtiger Teil des Spieles.',
+		'[Kampf]': 'Das kämpfen ist ein wesentlicher Aspekt des spieles. Im Grundregelwerk hat es wahrscheinlich mehr Seiten über das kämpfen, als über alles andere.',
+		'[Kinder]': 'Spielbeschreibung hat regelmässig Hinweise um den unterschidlichen Altersgruppen gerechet zu werden.',
+		'[Klassiker]': 'Sehr populäres Rollenspiel dass es schon seid mindestens 10 Jahren gibt. Diese Spiele sind oftmals auch in mehreren Versionen und Auflagen erhältlich.',
+		'[Kooperativ]': '???',
+		'[Kostenlos]': 'Zumindest das Grundregelwerk ist elektronisch nahezu komplett kostenlos erhähtlich. Das Spiel ist damit spielbar ohne dass man zusätzliche etwas kaufen muss. Zusatzmaterial darf aber durchaus kosten.',
+		'[Lo-Prep]': 'Spiel dass darauf ausgelegt wurde, dass sich die Spielleitung nicht vorbeiten sollte.',
+		'[Low-Magic]': 'Es existiert zwar eine Form der Magie, aber sie ist kaum von natürlichen Phänomenen zu entscheiden. Es gibt immer eine Alternative glaubwürdige Erklärung, warum etwas aussergewöhnliches passiert sein könnte.',
+		'[Magie]': 'Es existiert Magie in der Welt mit welcher Dinge gemacht werden können die mit physikalischen Gesetzten meist kaum oder gar nicht erklärt werden könnten.',
+		'[Offene Charaktererstellung]': 'Die Charaktererstellung ist so offen, dass man nahezu jede denkbare Rolle umsetzen kann. Sollte etwas fehlen, dann gibt es sehr kurze und einfache Regeln, wie man Ergänzungen anbringt, ohne dass die Spielbalance auseinander fällt.',
+		'[One-Shot]': 'Gut geeignet um das Spiel auch nur einen Abend zu spielen.',
+		'[PbtA]': 'Basiert auf dem «Powered by the Apocalypse» Regelwerk.',
+		'[Player-Driven]': 'Die Spielleitung ist viel mehr im Hintergrund im Vergleich zu traditionellen Spielen. Die Spieler treiben die Geschichte wesentlich voran und dürfen sogar bei der Erstellung der Welt mithelfen.',
+		'[Sandkasten]': 'Das Regelwerk hat ausführliche Anleitungen wie man eigene Welten kreiert. Teilweise auch zusammen mit seinen Mitspielern.',
+		'[Sci-Fi]': 'Spielt in einer fiktiven Zukunft. Die technischen Möglichkeiten sind aber oft fantastisch und die Gesetzte der Physik gelten auch nicht so wirklich.',
+		'[Sexualität]': 'Emotionale Bindungen, inklusive Sex in all seinen Varianten, sind ein relevantes Spielelement.',
+		'[Superhelden]': 'Die Charakter sind alle Superheld:innen die alle aussergewöhnliche Fähigkeiten haben. Oft spielen solche in der heutigen Zeit, oft auch auf unserer Erde.',
+		'[Überfall]': 'Man spielt eine Gruppe von Banditen, die meistens nicht gutes im Sinn hat.',
+		'[Urban]': 'Charakter und Geschichte spielen oft ein einer regulären Stadt.',
+		'[Zombies]': 'Leichenfledderei gehört zur Tagesordnung.',
+	};
 
-const GAMES = [
-	{
-		name: 'Apocalypse World 2',
-		tags: ['[PbtA]', '[Apocalypse]', '[EN]', '[Erklärbär:in]', '[Player-Driven]'],
-		url: 'http://apocalypse-world.com/',
-	},
-	{
-		name: 'Arcane Codex',
-		tags: ['[DE]', '[Fantasy]', '[Magie]', '[Kampf]', '[Erklärbär:in]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/5188/arcane-codex-grundregelwerk-3.-auflage',
-	},
-	{
-		name: 'Ars Magica',
-		tags: ['[Magie]', '[EN]', '[Fortgeschrittene]'],
-		url: 'https://www.atlas-games.com/arsmagica/',
-	},
-	{
-		name: 'Blades in the Dark',
-		tags: ['[Fantasy]', '[Überfall]', '[EN]', '[Low-Magic]', '[Erklärbär:in]', '[Player-Driven]'],
-		url: 'https://www.evilhat.com/home/blades-in-the-dark',
-	},
-	{
-		name: 'City of Mist',
-		tags: ['[Fantasy]', '[Superhelden]', '[Urban]', '[EN]', '[Erklärbär:in]', '[DE]', '[Investigation]', '[Offene Charaktererstellung]'],
-		url: 'https://truant.com/portfolio/city-of-mist',
-	},
-	{
-		name: 'Cthulhu',
-		tags: ['[Horror]', '[Urban]', '[Fantasy]', '[EN]', '[DE]', '[Klassiker]', '[Investigation]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/361/cthulhu-grundregelwerk-hardcover',
-	},
-	{
-		name: 'Cyberpunk RED',
-		tags: ['[DE]', '[Sci-Fi]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/13009/cyberpunk-red-grundregelwerk',
-	},
-	{
-		name: 'Das Schwarze Auge 5',
-		tags: ['[Fantasy]', '[Magie]', '[DE]', '[Klassiker]', '[Erklärbär:in]'],
-		url: 'https://ulisses-spiele.de/dsa5-regelwerk-hardcover/',
-	},
-	{
-		name: 'Die Verbotenen Lande',
-		tags: ['[DE]', '[Fantasy]', '[Magie]', '[Player-Driven]', '[EN]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/9603/die-verbotenen-lande-basisbox',
-	},
-	{
-		name: 'Dread',
-		tags: ['[Horror]', '[DE]', '[EN]', '[Ausleihe]'],
-		url: 'https://www.system-matters.de/shop/dread/',
-	},
-	{
-		name: 'Dream Askew',
-		tags: ['[Apocalypse]', '[Kooperativ]', '[EN]', '[Erklärbär:in]', '[Fortgeschrittene]'],
-		url: 'https://buriedwithoutceremony.com/dream-askew',
-	},
-	{
-		name: 'Dungeons & Dragons 5e',
-		tags: ['[Fantasy]', '[Magie]', '[EN]', '[DE]', '[Klassiker]', '[Kampf]', '[Erklärbär:in]', '[Elektronische Hilfsmittel]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/12811/d-d-players-handbook-spielerhandbuch-deutsch',
-	},
-	{
-		name: 'Dungeon World',
-		tags: ['[PbtA]', '[Fantasy]', '[Magie]', '[DE]', '[Erklärbär:in]', '[Player-Driven]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/10712/dungeon-world-grundregelwerk?c=0',
-	},
-	{
-		name: 'Eclipse Phase 2',
-		tags: ['[Sci-Fi]', '[Hard Sci-Fi]', '[EN]', '[Erklärbär:in]'],
-		url: 'https://posthuman.shop/products/eclipse-phase-second-edition',
-	},
-	{
-		name: 'Everyone is John',
-		tags: ['[1-Seite]', '[Lo-Prep]', '[Kostenlos]', '[Erklärbär:in]', '[EN]', '[DE]'],
-		url: 'https://www.stefan-graf.com/wp-content/files/everyone_is_john.jpg',
-	},
-	{
-		name: 'Fall of Magic',
-		tags: ['[EN]', '[Kooperativ]'],
-		url: 'https://heartofthedeernicorn.com/product/fall-of-magic-revised-edition',
-	},
-	{
-		name: 'Fate',
-		tags: ['[DE]', '[EN]', '[Kostenlos]', '[Erklärbär:in]', '[Offene Charaktererstellung]'],
-		url: 'https://faterpg.de/downloads'
-	},
-	{
-		name: 'Fiasko',
-		tags: ['[Kooperativ]', '[DE]', '[EN]', '[Erklärbär:in]', '[Drama]'],
-		url: 'https://www.drivethrurpg.com/product/155667/Fiasko-German',
-	},
-	{
-		name: 'Ironsworn',
-		tags: ['[Kooperativ]', '[Fantasy]', '[Low-Magic]', '[EN]', '[DE]', '[Lo-Prep]', '[Erklärbär:in]', '[Player-Driven]', '[Offene Charaktererstellung]', '[Ausleihe]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/13433/ironsworn-grundregelwerk',
-	},
-	{
-		name: 'Lasers and Feelings',
-		tags: ['[DE]', '[1-Seite]', '[Sci-Fi]', '[Kostenlos]', '[Erklärbär:in]'],
-		url: 'https://www.erzaehlspiel-zine.de/ausgaben/ausgabe_null/lasers_and_feelings/',
-	},
-	{
-		name: 'Microscope',
-		tags: ['[Kooperativ]', '[Erklärbär:in]'],
-		url: 'https://www.lamemage.com/microscope/',
-	},
-	{
-		name: 'Midgard',
-		tags: ['[DE]', '[Fantasy]'],
-		url: 'https://branwensbasar.de/produkte/midgard/regel-und-quellenbuecher/das-fantasy-rollenspiel_42075.html',
-	},
-	{
-		name: 'Monsterhearts 2',
-		tags: ['[Sexualität]', '[Fortgeschrittene]', '[PbtA]'],
-		url: 'https://buriedwithoutceremony.com/monsterhearts',
-	},
-	{
-		name: 'Mutant Jahr Null',
-		tags: ['[DE]', '[EN]', '[Apocalypse]', '[Erklärbär:in]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/8486/mutant-jahr-null-grundregelwerk',
-	},
-	{
-		name: 'Numenera',
-		tags: ['[Sci-Fi]', '[DE]', '[EN]'],
-		url: 'https://shop.uhrwerk-verlag.de/uhrwerk-rollenspiele/numenera/330/numenera-regelwerk-softcover',
-	},
-	{
-		name: 'Paranoia',
-		tags: ['[Sci-Fi]', '[Drama]', '[EN]'],
-		url: 'https://www.mongoosepublishing.com/collections/paranoia',
-	},
-	{
-		name: 'Pendragon',
-		tags: ['[EN]', '[Fantasy]', '[Historisch]'],
-		url: 'https://www.chaosium.com/pendragon/',
-	},
-	{
-		name: 'Runequest',
-		tags: ['[DE]', '[Fantasy]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/12214/runequest-abenteuer-in-glorantha-grundregelwerk',
-	},
-	{
-		name: 'Savage Worlds',
-		tags: ['[DE]', '[Ausleihe]', '[Erklärbär:in]'],
-		url: 'https://www.f-shop.de/savage-worlds/',
-	},
-	{
-		name: 'Schatten des Dämonenfürsten',
-		tags: ['[DE]', '[EN]', '[Magie]', '[Kampf]', '[Erklärbär:in]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/10731/der-schatten-des-daemonenfuersten-grundregelwerk',
-	},
-	{
-		name: 'Shadowrun 5',
-		tags: ['[Sci-Fi]', '[Magie]', '[EN]', '[DE]', '[Erklärbär:in]', '[Ausleihe]'],
-		url: 'https://www.pegasusdigital.de/product/123269/Shadowrun-5-Grundregelwerk&language=de',
-	},
-	{
-		name: 'So nicht, Schurke!',
-		tags: ['[DE]', '[Kinder]', '[Kampf]', '[Erklärbär:in]', '[Ausleihe]'],
-		url: 'https://pegasusshop.de/Sortiment/Spiele/Familienspiele/441/So-nicht-Schurke',
-	},
-	{
-		name: 'Space Heist Space Train',
-		tags: ['[1-Seite]', '[Sci-Fi]', '[Lo-Prep]', '[Kostenlos]', '[EN]'],
-		url: 'https://sdunnewold.itch.io/space-train-space-heist',
-	},
-	{
-		name: 'Splittermond',
-		tags: ['[Fantasy]', '[Magie]', '[Kostenlos]', '[DE]', '[Erklärbär:in]'],
-		url: 'https://www.splittermond.de/downloads-neu/',
-	},
-	{
-		name: 'Stage',
-		tags: ['[DE]', '[Kostenlos]', '[Lo-Prep]'],
-		url: 'https://rollenhoerspiel.de/stage/',
-	},
-	{
-		name: 'Stars Without Numbers',
-		tags: ['[EN]', '[Sandkasten]', '[Magie]', '[Mecha]', '[Kostenlos]', '[Erklärbär:in]', '[Elektronische Hilfsmittel]'],
-		url: 'https://www.drivethrurpg.com/product/230009/Stars-Without-Number-Revised-Edition-Free-Version',
-	},
-	{
-		name: 'Tales from the Loop',
-		tags: ['[EN]', '[Historisch]', '[Sci-Fi]'],
-		url: 'https://www.ulisses-ebooks.de/product/323157/Tales-from-the-Loop--Regelwerk-PDF-als-Download-kaufen&language=de',
-	},
-	{
-		name: 'Vaesen',
-		tags: ['[EN]', '[Historisch]', '[Investigation]', '[DE]'],
-		url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/12801/vaesen-schauriges-rollenspiel-im-mythischen-norden-grundregelwerk?c=0',
-	},
-	{
-		name: 'Vampire 5',
-		tags: ['[DE]', '[EN]'],
-		url: 'https://www.ulisses-ebooks.de/product/316778/V5--Vampire--Die-Maskerade-Regelwerk-PDF-als-Download-kaufen',
-	},
-	{
-		name: 'Warhammer Fantasy Rollenspiel',
-		tags: ['[DE]', '[Fantasy]'],
-		url: 'https://www.f-shop.de/warhammer-fantasy-warhammer-40k/regel-und-quellenbaende/',
-	},
-	{
-		name: 'La derniere Apocalypse',
-		tags: ['[FR]', '[Zombies]', '[Apocalypse]'],
-		url: 'https://unknown.com/',
-		description: 'angelehnt ans White Wolf Universum & Zombie Apocalypse',
-	},
-	{
-		name: 'Nihil sub Sole Novum',
-		tags: ['[FR]', '[Fantasy]'],
-		url: 'https://unknown.com/',
-		description: 'Fantasywelt, nachdem unsere untergegangen ist, Magiepunk',
-	},
-	{
-		name: 'La Geste du Nadir',
-		tags: ['[FR]', '[Historisch]'],
-		url: 'https://unknown.com/',
-		description: '5 Jahre nach König Artus, die Ritter der Tafelrunde',
+	const GAMES = [
+		{
+			name: 'Apocalypse World 2',
+			tags: ['[PbtA]', '[Apocalypse]', '[EN]', '[Erklärbär:in]', '[Player-Driven]'],
+			url: 'http://apocalypse-world.com/',
+			description: 'TODO',
+		},
+		{
+			name: 'Arcane Codex',
+			tags: ['[DE]', '[Fantasy]', '[Magie]', '[Kampf]', '[Erklärbär:in]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/5188/arcane-codex-grundregelwerk-3.-auflage',
+			description: 'TODO',
+		},
+		{
+			name: 'Ars Magica',
+			tags: ['[Magie]', '[EN]', '[Fortgeschrittene]'],
+			url: 'https://www.atlas-games.com/arsmagica/',
+			description: 'TODO',
+		},
+		{
+			name: 'Blades in the Dark',
+			tags: ['[Fantasy]', '[Überfall]', '[EN]', '[Low-Magic]', '[Erklärbär:in]', '[Player-Driven]'],
+			url: 'https://www.evilhat.com/home/blades-in-the-dark',
+			description: 'TODO',
+		},
+		{
+			name: 'City of Mist',
+			tags: ['[Fantasy]', '[Superhelden]', '[Urban]', '[EN]', '[Erklärbär:in]', '[DE]', '[Investigation]', '[Offene Charaktererstellung]'],
+			url: 'https://truant.com/portfolio/city-of-mist',
+			description: 'TODO',
+		},
+		{
+			name: 'Cthulhu',
+			tags: ['[Horror]', '[Urban]', '[Fantasy]', '[EN]', '[DE]', '[Klassiker]', '[Investigation]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/361/cthulhu-grundregelwerk-hardcover',
+			description: 'TODO',
+		},
+		{
+			name: 'Cyberpunk RED',
+			tags: ['[DE]', '[Sci-Fi]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/13009/cyberpunk-red-grundregelwerk',
+			description: 'TODO',
+		},
+		{
+			name: 'Das Schwarze Auge 5',
+			tags: ['[Fantasy]', '[Magie]', '[DE]', '[Klassiker]', '[Erklärbär:in]'],
+			url: 'https://ulisses-spiele.de/dsa5-regelwerk-hardcover/',
+			description: 'TODO',
+		},
+		{
+			name: 'Die Verbotenen Lande',
+			tags: ['[DE]', '[Fantasy]', '[Magie]', '[Player-Driven]', '[EN]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/9603/die-verbotenen-lande-basisbox',
+			description: 'TODO',
+		},
+		{
+			name: 'Dread',
+			tags: ['[Horror]', '[DE]', '[EN]', '[Ausleihe]'],
+			url: 'https://www.system-matters.de/shop/dread/',
+			description: 'TODO',
+		},
+		{
+			name: 'Dream Askew',
+			tags: ['[Apocalypse]', '[Kooperativ]', '[EN]', '[Erklärbär:in]', '[Fortgeschrittene]'],
+			url: 'https://buriedwithoutceremony.com/dream-askew',
+			description: 'TODO',
+		},
+		{
+			name: 'Dungeons & Dragons 5e',
+			tags: ['[Fantasy]', '[Magie]', '[EN]', '[DE]', '[Klassiker]', '[Kampf]', '[Erklärbär:in]', '[Elektronische Hilfsmittel]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/12811/d-d-players-handbook-spielerhandbuch-deutsch',
+			description: 'TODO',
+		},
+		{
+			name: 'Dungeon World',
+			tags: ['[PbtA]', '[Fantasy]', '[Magie]', '[DE]', '[Erklärbär:in]', '[Player-Driven]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/10712/dungeon-world-grundregelwerk?c=0',
+			description: 'TODO',
+		},
+		{
+			name: 'Eclipse Phase 2',
+			tags: ['[Sci-Fi]', '[Hard Sci-Fi]', '[EN]', '[Erklärbär:in]'],
+			url: 'https://posthuman.shop/products/eclipse-phase-second-edition',
+			description: 'TODO',
+		},
+		{
+			name: 'Everyone is John',
+			tags: ['[1-Seite]', '[Lo-Prep]', '[Kostenlos]', '[Erklärbär:in]', '[EN]', '[DE]', '[One-Shot]'],
+			url: 'https://www.stefan-graf.com/wp-content/files/everyone_is_john.jpg',
+			description: 'TODO',
+		},
+		{
+			name: 'Fall of Magic',
+			tags: ['[EN]', '[Kooperativ]', '[One-Shot]'],
+			url: 'https://heartofthedeernicorn.com/product/fall-of-magic-revised-edition',
+			description: 'TODO',
+		},
+		{
+			name: 'Fate',
+			tags: ['[DE]', '[EN]', '[Kostenlos]', '[Erklärbär:in]', '[Offene Charaktererstellung]'],
+			url: 'https://faterpg.de/downloads',
+			description: 'TODO',
+		},
+		{
+			name: 'Fiasko',
+			tags: ['[Kooperativ]', '[DE]', '[EN]', '[Erklärbär:in]', '[Drama]', '[One-Shot]'],
+			url: 'https://www.drivethrurpg.com/product/155667/Fiasko-German',
+			description: 'TODO',
+		},
+		{
+			name: 'Ironsworn',
+			tags: ['[Kooperativ]', '[Fantasy]', '[Low-Magic]', '[EN]', '[DE]', '[Lo-Prep]', '[Erklärbär:in]', '[Player-Driven]', '[Offene Charaktererstellung]', '[Ausleihe]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/13433/ironsworn-grundregelwerk',
+			description: 'TODO',
+		},
+		{
+			name: 'Lasers and Feelings',
+			tags: ['[DE]', '[1-Seite]', '[Sci-Fi]', '[Kostenlos]', '[Erklärbär:in]', '[One-Shot]'],
+			url: 'https://www.erzaehlspiel-zine.de/ausgaben/ausgabe_null/lasers_and_feelings/',
+			description: 'TODO',
+		},
+		{
+			name: 'Microscope',
+			tags: ['[Kooperativ]', '[Erklärbär:in]', '[One-Shot]', '[EN]', '[Ausleihe]'],
+			url: 'https://www.lamemage.com/microscope/',
+			description: 'TODO',
+		},
+		{
+			name: 'Midgard',
+			tags: ['[DE]', '[Fantasy]'],
+			url: 'https://branwensbasar.de/produkte/midgard/regel-und-quellenbuecher/das-fantasy-rollenspiel_42075.html',
+			description: 'TODO',
+		},
+		{
+			name: 'Monsterhearts 2',
+			tags: ['[Sexualität]', '[Fortgeschrittene]', '[PbtA]'],
+			url: 'https://buriedwithoutceremony.com/monsterhearts',
+			description: 'TODO',
+		},
+		{
+			name: 'Mutant Jahr Null',
+			tags: ['[DE]', '[EN]', '[Apocalypse]', '[Erklärbär:in]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/8486/mutant-jahr-null-grundregelwerk',
+			description: 'TODO',
+		},
+		{
+			name: 'Numenera',
+			tags: ['[Sci-Fi]', '[DE]', '[EN]'],
+			url: 'https://shop.uhrwerk-verlag.de/uhrwerk-rollenspiele/numenera/330/numenera-regelwerk-softcover',
+			description: 'TODO',
+		},
+		{
+			name: 'Paranoia',
+			tags: ['[Sci-Fi]', '[Drama]', '[EN]'],
+			url: 'https://www.mongoosepublishing.com/collections/paranoia',
+			description: 'TODO',
+		},
+		{
+			name: 'Pendragon',
+			tags: ['[EN]', '[Fantasy]', '[Historisch]'],
+			url: 'https://www.chaosium.com/pendragon/',
+			description: 'TODO',
+		},
+		{
+			name: 'Runequest',
+			tags: ['[DE]', '[Fantasy]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/12214/runequest-abenteuer-in-glorantha-grundregelwerk',
+			description: 'TODO',
+		},
+		{
+			name: 'Savage Worlds',
+			tags: ['[DE]', '[Ausleihe]', '[Erklärbär:in]'],
+			url: 'https://www.f-shop.de/savage-worlds/',
+			description: 'TODO',
+		},
+		{
+			name: 'Schatten des Dämonenfürsten',
+			tags: ['[DE]', '[EN]', '[Magie]', '[Kampf]', '[Erklärbär:in]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/10731/der-schatten-des-daemonenfuersten-grundregelwerk',
+			description: 'TODO',
+		},
+		{
+			name: 'Shadowrun 5',
+			tags: ['[Sci-Fi]', '[Magie]', '[EN]', '[DE]', '[Erklärbär:in]', '[Ausleihe]'],
+			url: 'https://www.pegasusdigital.de/product/123269/Shadowrun-5-Grundregelwerk&language=de',
+			description: 'TODO',
+		},
+		{
+			name: 'So nicht, Schurke!',
+			tags: ['[DE]', '[Kinder]', '[Kampf]', '[Erklärbär:in]', '[Ausleihe]', '[One-Shot]'],
+			url: 'https://pegasusshop.de/Sortiment/Spiele/Familienspiele/441/So-nicht-Schurke',
+			description: 'TODO',
+		},
+		{
+			name: 'Space Heist Space Train',
+			tags: ['[1-Seite]', '[Sci-Fi]', '[Lo-Prep]', '[Kostenlos]', '[EN]', '[One-Shot]'],
+			url: 'https://sdunnewold.itch.io/space-train-space-heist',
+			description: 'TODO',
+		},
+		{
+			name: 'Splittermond',
+			tags: ['[Fantasy]', '[Magie]', '[Kostenlos]', '[DE]', '[Erklärbär:in]'],
+			url: 'https://www.splittermond.de/downloads-neu/',
+			description: 'TODO',
+		},
+		{
+			name: 'Stage',
+			tags: ['[DE]', '[Kostenlos]', '[Lo-Prep]', '[One-Shot]', '[Kooperativ]'],
+			url: 'https://rollenhoerspiel.de/stage/',
+			description: 'TODO',
+		},
+		{
+			name: 'Stars Without Numbers',
+			tags: ['[EN]', '[Sandkasten]', '[Magie]', '[Mecha]', '[Kostenlos]', '[Erklärbär:in]', '[Elektronische Hilfsmittel]'],
+			url: 'https://www.drivethrurpg.com/product/230009/Stars-Without-Number-Revised-Edition-Free-Version',
+			description: 'TODO',
+		},
+		{
+			name: 'Tales from the Loop',
+			tags: ['[EN]', '[Historisch]', '[Sci-Fi]'],
+			url: 'https://www.ulisses-ebooks.de/product/323157/Tales-from-the-Loop--Regelwerk-PDF-als-Download-kaufen&language=de',
+			description: 'TODO',
+		},
+		{
+			name: 'Vaesen',
+			tags: ['[EN]', '[Historisch]', '[Investigation]', '[DE]'],
+			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/12801/vaesen-schauriges-rollenspiel-im-mythischen-norden-grundregelwerk?c=0',
+			description: 'TODO',
+		},
+		{
+			name: 'Vampire 5',
+			tags: ['[DE]', '[EN]'],
+			url: 'https://www.ulisses-ebooks.de/product/316778/V5--Vampire--Die-Maskerade-Regelwerk-PDF-als-Download-kaufen',
+			description: 'TODO',
+		},
+		{
+			name: 'Warhammer Fantasy Rollenspiel',
+			tags: ['[DE]', '[Fantasy]'],
+			url: 'https://www.f-shop.de/warhammer-fantasy-warhammer-40k/regel-und-quellenbaende/',
+			description: 'TODO',
+		},
+		{
+			name: 'La derniere Apocalypse',
+			tags: ['[FR]', '[Zombies]', '[Apocalypse]'],
+			url: 'https://unknown.com/',
+			description: 'angelehnt ans White Wolf Universum & Zombie Apocalypse',
+		},
+		{
+			name: 'Nihil sub Sole Novum',
+			tags: ['[FR]', '[Fantasy]'],
+			url: 'https://unknown.com/',
+			description: 'Fantasywelt, nachdem unsere untergegangen ist, Magiepunk',
+		},
+		{
+			name: 'La Geste du Nadir',
+			tags: ['[FR]', '[Historisch]'],
+			url: 'https://unknown.com/',
+			description: '5 Jahre nach König Artus, die Ritter der Tafelrunde',
+		}
+	];
+
+	function selectTag(event) {
+		const node = event.target;
+		node.classList.toggle('selected');
+		updateGames();
 	}
-];
 
-function selectTag(event) {
-	const node = event.target;
-	node.classList.toggle('selected');
-	updateGames();
-}
-
-function selectedTags() {
-	const tags = []
-	var nodeSelectedAbbrs = document.querySelectorAll('abbr.selected');
-	for (var i = 0; i < nodeSelectedAbbrs.length; i += 1) {
-		const nodeAbbr = nodeSelectedAbbrs[i]
-		tags.push(nodeAbbr.innerText);
+	function selectedTags() {
+		const tags = []
+		var nodeSelectedAbbrs = document.querySelectorAll('abbr.selected');
+		for (var i = 0; i < nodeSelectedAbbrs.length; i += 1) {
+			const nodeAbbr = nodeSelectedAbbrs[i]
+			tags.push(nodeAbbr.innerText);
+		}
+		return tags;
 	}
-	return tags;
-}
 
-function updateGames() {
-	const nodeTags = document.getElementById('tags');
-	const nodeGames = document.getElementById('games');
-	const nodeGameTemplate = document.getElementById('game-template');
-	const tags = selectedTags();
+	function updateGames() {
+		const nodeTags = document.getElementById('tags');
+		const nodeGames = document.getElementById('games');
+		const nodeGameTemplate = document.getElementById('game-template');
+		const tags = selectedTags();
 
-	nodeGames.innerHTML = ''; // remove all children
+		nodeGames.innerHTML = ''; // remove all children
 
-	for (let gameIndex in GAMES) {
+		for (let gameIndex in GAMES) {
 
-		const game = GAMES[gameIndex];
-		let display = true;
-		for (let tagIndex in tags) {
-			const tag = tags[tagIndex]
+			const game = GAMES[gameIndex];
+			let display = true;
+			for (let tagIndex in tags) {
+				const tag = tags[tagIndex]
 
-			if (!game.tags.includes(tag)) {
-				display = false;
+				if (!game.tags.includes(tag)) {
+					display = false;
+				}
+			}
+
+			if (display) {
+				const nodeGame = nodeGameTemplate.content.cloneNode(true);
+				const nodeURL = nodeGame.querySelector("#url");
+				const nodeName = nodeGame.querySelector("#name");
+				const nodeDescription = nodeGame.querySelector("#description");
+				nodeName.innerText = game.name;
+				nodeURL.innerText = (new URL(game.url)).host;
+				nodeURL.href = game.url;
+				nodeDescription.innerText = game.description;
+				nodeGames.appendChild(nodeGame);
 			}
 		}
 
-		if (display) {
-			const nodeGame = nodeGameTemplate.content.cloneNode(true);
-			const nodeURL = nodeGame.querySelector("#url");
-			const nodeName = nodeGame.querySelector("#name");
-			nodeName.innerText = game.name;
-			nodeURL.innerText = (new URL(game.url)).host;
-			nodeURL.href = game.url;
-			nodeGames.appendChild(nodeGame);
+	}
+
+	function main() {
+		const nodeTags = document.getElementById('tags');
+		let html = '';
+		for (let tag in TAGS) {
+			const nodeAbbr = document.createElement('abbr');
+			nodeAbbr.innerText = tag;
+			nodeAbbr.title = TAGS[tag];
+			nodeAbbr.addEventListener('click', selectTag);
+			nodeTags.appendChild(nodeAbbr);
 		}
 	}
 
-}
-
-function main() {
-	const nodeTags = document.getElementById('tags');
-	let html = '';
-	for (let tag in TAGS) {
-		const nodeAbbr = document.createElement('abbr');
-		nodeAbbr.innerText = tag;
-		nodeAbbr.title = TAGS[tag];
-		nodeAbbr.addEventListener('click', selectTag);
-		nodeTags.appendChild(nodeAbbr);
-	}
-}
-
-window.addEventListener('load', main);
+	window.addEventListener('load', main);
 
 </script>
-</head>
-<body>
 
 <template id="game-template">
 	<div class="game">
-		<p id="name">?</p>
-		<a id="url">Link</a>
+		<h3 id="name">?</h3>
+		<a id="url" href="?">?</a>
+		<p id="description">?</p>
 	</div>
 </template>
 
-<p>Wähle ein paar Tags welche dich ansprechen. Wenn du mit der Maus über ein Tag fährst, erhälst du noch zusätzliche Informationen.</p>
+<p>Wähle ein paar Tags welche dich ansprechen. Wenn du mit der Maus über ein Tag fährst, erhälst du noch zusätzliche
+	Informationen.</p>
 
 <div id="tags"></div>
 <div id="games"></div>
