@@ -1,6 +1,6 @@
 """Imports"""
 from datetime import datetime
-from typing import Dict, Optional
+from typing import Dict
 from uuid import UUID, uuid4
 
 from app.model.state import State
@@ -10,8 +10,8 @@ from pydantic import BaseModel
 class EntryIn(BaseModel):
     """Model for incoming, user provided entries."""
 
-    private_body: Optional[Dict] = {}
-    public_body: Optional[Dict] = {}
+    private_body: Dict | None = {}
+    public_body: Dict | None = {}
 
     class Config:
         """Additional configuration of the pydantic model."""

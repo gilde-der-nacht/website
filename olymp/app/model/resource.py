@@ -1,6 +1,6 @@
 """Imports"""
 from datetime import datetime
-from typing import List, Optional
+from typing import List
 from uuid import UUID, uuid4
 
 from app.model.entry import EntryOut
@@ -12,7 +12,7 @@ class ResourceIn(BaseModel):
     """Model for incoming, user provided resources."""
 
     name: str
-    description: Optional[str] = ""
+    description: str | None = ""
 
     class Config:
         """Additional configuration of the pydantic model."""
