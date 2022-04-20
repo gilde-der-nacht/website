@@ -139,3 +139,23 @@ def create_entry(database: Session, resource_uuid: UUID, entry: EntryOut) -> Ent
     database.commit()
     database.refresh(db_entry)
     return entry
+
+
+def get_entry(
+    database: Session, resource_uuid: UUID, entry_uuid: UUID
+) -> EntryOut | None:
+    """Retrive one entry."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    return (
+        database.query(Entry)
+        .filter(Entry.resource == resource)
+        .filter(Entry.entry_uuid == str(entry_uuid))
+        .first()
+    )

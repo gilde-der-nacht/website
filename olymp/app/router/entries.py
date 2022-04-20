@@ -68,13 +68,16 @@ def create_entry(
 
 @router.get("/{entry_uuid}/", response_model=EntryOut)
 def read_entry(
-    resource_uuid: UUID, entry_uuid: UUID, database: FakeDatabase = Depends(get_fake_db)
+    resource_uuid: UUID, entry_uuid: UUID, database: Session = Depends(get_db)
 ):
     """Retrive one entry."""
     try:
-        return database.entry_by_id(resource_uuid, entry_uuid)
+        db_entry = crud.get_entry(database, resource_uuid, entry_uuid)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
+    if db_entry is None:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    return db_entry
 
 
 @router.put("/{entry_uuid}/", response_model=EntryOut)
