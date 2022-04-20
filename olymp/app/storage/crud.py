@@ -1,6 +1,4 @@
 """Imports"""
-import json
-import uuid
 from datetime import datetime
 from typing import List
 from uuid import UUID
@@ -33,6 +31,7 @@ def create_resource(database: Session, resource: ResourceOut) -> ResourceOut:
         state=resource.state,
         entries=resource.entries,
     )
+    print(db_resource)
     database.add(db_resource)
     database.commit()
     database.refresh(db_resource)
