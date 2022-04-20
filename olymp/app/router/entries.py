@@ -85,13 +85,17 @@ def update_entry(
     resource_uuid: UUID,
     entry_uuid: UUID,
     entry: EntryIn,
-    database: FakeDatabase = Depends(get_fake_db),
+    database: Session = Depends(get_db),
 ):
     """Update an existing entry."""
+    now = datetime.now()
     try:
-        return database.update_entry(resource_uuid, entry_uuid, entry)
+        db_entry = crud.update_entry(database, resource_uuid, entry_uuid, entry, now)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
+    if db_entry is None:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    return db_entry
 
 
 @router.delete("/{entry_uuid}/", response_model=EntryOut)

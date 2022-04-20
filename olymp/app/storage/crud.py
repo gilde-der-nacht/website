@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import List
 from uuid import UUID
 
-from app.model.entry import EntryOut
+from app.model.entry import EntryIn, EntryOut
 from app.model.resource import ResourceIn, ResourceOut
 from app.model.state import State
 from app.storage.schema import Entry, Resource
@@ -153,6 +153,40 @@ def get_entry(
     )
     if resource is None:
         raise BaseException("Resource not found")
+    return (
+        database.query(Entry)
+        .filter(Entry.resource == resource)
+        .filter(Entry.entry_uuid == str(entry_uuid))
+        .first()
+    )
+
+
+def update_entry(
+    database: Session,
+    resource_uuid: UUID,
+    entry_uuid: UUID,
+    entry: EntryIn,
+    now: datetime,
+) -> EntryOut | None:
+    """Update an existing entry."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    database.query(Entry).filter(Entry.resource == resource).filter(
+        Entry.entry_uuid == str(entry_uuid)
+    ).update(
+        {
+            Entry.public_body: entry.public_body,
+            Entry.private_body: entry.private_body,
+            Entry.updated: now,
+        }
+    )
+    database.commit()
     return (
         database.query(Entry)
         .filter(Entry.resource == resource)
