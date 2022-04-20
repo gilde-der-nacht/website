@@ -20,8 +20,8 @@ def read_entries(resource_uuid: UUID, database: FakeDatabase = Depends(get_fake_
     """
     try:
         return database.entries_by_resource_id(resource_uuid)
-    except BaseException as e:
-        raise HTTPException(status_code=404, detail=str(e))
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
 
 
 @router.post("/", response_model=UUID, status_code=status.HTTP_201_CREATED)
@@ -33,8 +33,8 @@ def create_entry(
     """
     try:
         return database.create_entry(resource_uuid, entry)
-    except BaseException as e:
-        raise HTTPException(status_code=404, detail=str(e))
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
 
 
 @router.get("/{entry_uuid}/", response_model=EntryOut)
@@ -46,8 +46,8 @@ def read_entry(
     """
     try:
         return database.entry_by_id(resource_uuid, entry_uuid)
-    except BaseException as e:
-        raise HTTPException(status_code=404, detail=str(e))
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
 
 
 @router.put("/{entry_uuid}/", response_model=EntryOut)
@@ -62,8 +62,8 @@ def update_entry(
     """
     try:
         return database.update_entry(resource_uuid, entry_uuid, entry)
-    except BaseException as e:
-        raise HTTPException(status_code=404, detail=str(e))
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
 
 
 @router.delete("/{entry_uuid}/", response_model=EntryOut)
@@ -75,5 +75,5 @@ def deactivate_entry(
     """
     try:
         return database.deactivate_entry(resource_uuid, entry_uuid)
-    except BaseException as e:
-        raise HTTPException(status_code=404, detail=str(e))
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err

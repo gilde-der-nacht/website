@@ -80,8 +80,8 @@ def update_resource(
     """
     try:
         return database.update_resource(resource_uuid, resource)
-    except BaseException as e:
-        raise HTTPException(status_code=404, detail=str(e))
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
 
 
 @router.delete("/{resource_uuid}/", response_model=ResourceOut)
@@ -93,5 +93,5 @@ def deactivate_resource(
     """
     try:
         return database.deactivate_resource(resource_uuid)
-    except BaseException as e:
-        raise HTTPException(status_code=404, detail=str(e))
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
