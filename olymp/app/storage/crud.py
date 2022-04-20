@@ -193,3 +193,27 @@ def update_entry(
         .filter(Entry.entry_uuid == str(entry_uuid))
         .first()
     )
+
+
+def deactivate_entry(
+    database: Session, resource_uuid: UUID, entry_uuid: UUID, now: datetime
+) -> EntryOut | None:
+    """Deactivates an entry (does not delete it)."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    database.query(Entry).filter(Entry.resource == resource).filter(
+        Entry.entry_uuid == str(entry_uuid)
+    ).update({Entry.updated: now, Entry.state: State.INACTIVE})
+    database.commit()
+    return (
+        database.query(Entry)
+        .filter(Entry.resource == resource)
+        .filter(Entry.entry_uuid == str(entry_uuid))
+        .first()
+    )

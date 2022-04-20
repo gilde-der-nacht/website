@@ -100,10 +100,14 @@ def update_entry(
 
 @router.delete("/{entry_uuid}/", response_model=EntryOut)
 def deactivate_entry(
-    resource_uuid: UUID, entry_uuid: UUID, database: FakeDatabase = Depends(get_fake_db)
+    resource_uuid: UUID, entry_uuid: UUID, database: Session = Depends(get_db)
 ):
-    """Deactivates a entry (does not delete it)."""
+    """Deactivates an entry (does not delete it)."""
+    now = datetime.now()
     try:
-        return database.deactivate_entry(resource_uuid, entry_uuid)
+        db_entry = crud.deactivate_entry(database, resource_uuid, entry_uuid, now)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
+    if db_entry is None:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    return db_entry
