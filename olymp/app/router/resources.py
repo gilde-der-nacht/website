@@ -7,7 +7,6 @@ from app.model.resource import ResourceIn, ResourceOut
 from app.model.state import State
 from app.storage import crud, schema
 from app.storage.database import SessionLocal, engine
-from app.storage.db import FakeDatabase, get_fake_db
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
@@ -86,13 +85,12 @@ def update_resource(
 
 
 @router.delete("/{resource_uuid}/", response_model=ResourceOut)
-def deactivate_resource(
-    resource_uuid: UUID, database: FakeDatabase = Depends(get_fake_db)
-):
+def deactivate_resource(resource_uuid: UUID, database: Session = Depends(get_db)):
     """
     Deactivates a resource (does not delete it).
     """
+    now = datetime.now()
     try:
-        return database.deactivate_resource(resource_uuid)
+        return crud.deactivate_resource(database, resource_uuid, now)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err

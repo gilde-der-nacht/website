@@ -67,3 +67,21 @@ def update_resource(
         raise BaseException("Resource not found")
     database.commit()
     return existing_resource
+
+
+def deactivate_resource(
+    database: Session, resource_uuid: UUID, now: datetime
+) -> ResourceOut:
+    """Deactivates a resource (does not delete it)."""
+    database.query(Resource).filter(
+        Resource.resource_uuid == str(resource_uuid)
+    ).update({Resource.updated: now, Resource.state: State.INACTIVE})
+    existing_resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .first()
+    )
+    if existing_resource is None:
+        raise BaseException("Resource not found")
+    database.commit()
+    return existing_resource
