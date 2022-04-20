@@ -102,6 +102,26 @@ def get_entries(database: Session, resource_uuid: UUID) -> List[EntryOut]:
     return resource.entries
 
 
+def get_entries_by_state(
+    database: Session, resource_uuid: UUID, state: State
+) -> List[EntryOut]:
+    """Get a list of all entries of a resources, filtered by state."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    return (
+        database.query(Entry)
+        .filter(Entry.resource == resource)
+        .filter(Entry.state == state.value)
+        .all()
+    )
+
+
 def create_entry(database: Session, resource_uuid: UUID, entry: EntryOut) -> EntryOut:
     """Create a new entry."""
     resource: ResourceOut | None = (

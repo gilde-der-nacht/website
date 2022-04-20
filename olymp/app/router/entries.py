@@ -31,10 +31,17 @@ def get_db():
 
 
 @router.get("/", response_model=List[EntryOut])
-def read_entries(resource_uuid: UUID, database: Session = Depends(get_db)):
-    """Retrieve all entries of a specific resource."""
+def read_entries(
+    resource_uuid: UUID, state: State | None = None, database: Session = Depends(get_db)
+):
+    """Retrieve all entries of a specific resource. Use the `state` query to filter only "active" or "inactive" entries."""
+    if state is None:
+        try:
+            return crud.get_entries(database, resource_uuid)
+        except BaseException as err:
+            raise HTTPException(status_code=404, detail=str(err)) from err
     try:
-        return crud.get_entries(database, resource_uuid)
+        return crud.get_entries_by_state(database, resource_uuid, state=state)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
 
