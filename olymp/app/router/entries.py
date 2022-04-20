@@ -3,8 +3,14 @@ from typing import List
 from uuid import UUID
 
 from app.model.entry import EntryIn, EntryOut
+from app.storage import crud, schema
+from app.storage.database import SessionLocal, engine
 from app.storage.db import FakeDatabase, get_fake_db
 from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.orm import Session
+
+schema.Base.metadata.create_all(bind=engine)
+
 
 router = APIRouter(
     prefix="/resources/{resource_uuid}/entries",
@@ -13,13 +19,22 @@ router = APIRouter(
 )
 
 
+def get_db():
+    """Get an independent database session per request."""
+    database = SessionLocal()
+    try:
+        yield database
+    finally:
+        database.close()
+
+
 @router.get("/", response_model=List[EntryOut])
-def read_entries(resource_uuid: UUID, database: FakeDatabase = Depends(get_fake_db)):
+def read_entries(resource_uuid: UUID, database: Session = Depends(get_db)):
     """
     Retrieve all entries of a specific resource.
     """
     try:
-        return database.entries_by_resource_id(resource_uuid)
+        return crud.get_entries(database, resource_uuid)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
 

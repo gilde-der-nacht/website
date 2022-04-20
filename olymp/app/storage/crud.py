@@ -3,9 +3,10 @@ from datetime import datetime
 from typing import List
 from uuid import UUID
 
+from app.model.entry import EntryOut
 from app.model.resource import ResourceIn, ResourceOut
 from app.model.state import State
-from app.storage.schema import Resource
+from app.storage.schema import Entry, Resource
 from sqlalchemy.orm import Session
 
 
@@ -85,3 +86,16 @@ def deactivate_resource(
         raise BaseException("Resource not found")
     database.commit()
     return existing_resource
+
+
+def get_entries(database: Session, resource_uuid: UUID) -> List[EntryOut]:
+    """Get a list of all entries of a resources, irrespective of their state."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    return resource.entries
