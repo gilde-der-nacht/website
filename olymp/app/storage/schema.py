@@ -1,6 +1,6 @@
 """Imports"""
 from app.storage.database import Base
-from sqlalchemy import Column, DateTime, ForeignKey, String
+from sqlalchemy import JSON, Column, DateTime, ForeignKey, String
 from sqlalchemy.orm import relationship
 
 
@@ -26,8 +26,8 @@ class Entry(Base):
 
     resource_uuid = Column(String, ForeignKey("resources.resource_uuid"))
     entry_uuid = Column(String, primary_key=True, index=True)
-    private_body = Column(String)
-    public_body = Column(String)
+    private_body = Column(JSON)
+    public_body = Column(JSON)
     created = Column(DateTime)
     updated = Column(DateTime)
     state = Column(String, default="active")
