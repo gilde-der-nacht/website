@@ -7,7 +7,6 @@ from app.model.entry import EntryIn, EntryOut
 from app.model.state import State
 from app.storage import crud, schema
 from app.storage.database import SessionLocal, engine
-from app.storage.db import FakeDatabase, get_fake_db
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
