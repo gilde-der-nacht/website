@@ -41,9 +41,7 @@ def read_resources(state: State | None = None, database: Session = Depends(get_d
 
 @router.post("/", response_model=ResourceOut, status_code=status.HTTP_201_CREATED)
 def create_resource(resource: ResourceIn, database: Session = Depends(get_db)):
-    """
-    Create a new resource.
-    """
+    """Create a new resource."""
     now = datetime.now()
     new_resource = ResourceOut(
         resource_uuid=uuid4(),
@@ -59,9 +57,7 @@ def create_resource(resource: ResourceIn, database: Session = Depends(get_db)):
 
 @router.get("/{resource_uuid}/", response_model=ResourceOut)
 def read_resource(resource_uuid: UUID, database: Session = Depends(get_db)):
-    """
-    Retrive one resource.
-    """
+    """Retrive one resource."""
     db_resource = crud.get_resource(database, resource_uuid=resource_uuid)
     if db_resource is None:
         raise HTTPException(status_code=404, detail="Resource not found")
@@ -74,9 +70,7 @@ def update_resource(
     resource: ResourceIn,
     database: Session = Depends(get_db),
 ):
-    """
-    Update an existing resource.
-    """
+    """Update an existing resource."""
     now = datetime.now()
     try:
         return crud.update_resource(database, resource_uuid, resource, now)
@@ -86,9 +80,7 @@ def update_resource(
 
 @router.delete("/{resource_uuid}/", response_model=ResourceOut)
 def deactivate_resource(resource_uuid: UUID, database: Session = Depends(get_db)):
-    """
-    Deactivates a resource (does not delete it).
-    """
+    """Deactivates a resource (does not delete it)."""
     now = datetime.now()
     try:
         return crud.deactivate_resource(database, resource_uuid, now)

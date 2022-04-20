@@ -1,4 +1,6 @@
 """Imports"""
+import json
+import uuid
 from datetime import datetime
 from typing import List
 from uuid import UUID
@@ -99,3 +101,28 @@ def get_entries(database: Session, resource_uuid: UUID) -> List[EntryOut]:
     if resource is None:
         raise BaseException("Resource not found")
     return resource.entries
+
+
+def create_entry(database: Session, resource_uuid: UUID, entry: EntryOut) -> EntryOut:
+    """Create a new entry."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    db_entry = Entry(
+        entry_uuid=str(entry.entry_uuid),
+        public_body=entry.public_body,
+        private_body=entry.private_body,
+        created=entry.created,
+        updated=entry.updated,
+        state=entry.state,
+        resource=resource,
+    )
+    database.add(db_entry)
+    database.commit()
+    database.refresh(db_entry)
+    return entry
