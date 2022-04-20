@@ -72,17 +72,17 @@ def update_resource(
 ):
     """Update an existing resource."""
     now = datetime.now()
-    try:
-        return crud.update_resource(database, resource_uuid, resource, now)
-    except BaseException as err:
-        raise HTTPException(status_code=404, detail=str(err)) from err
+    db_resource = crud.update_resource(database, resource_uuid, resource, now)
+    if db_resource is None:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    return db_resource
 
 
 @router.delete("/{resource_uuid}/", response_model=ResourceOut)
 def deactivate_resource(resource_uuid: UUID, database: Session = Depends(get_db)):
     """Deactivates a resource (does not delete it)."""
     now = datetime.now()
-    try:
-        return crud.deactivate_resource(database, resource_uuid, now)
-    except BaseException as err:
-        raise HTTPException(status_code=404, detail=str(err)) from err
+    db_resource = crud.deactivate_resource(database, resource_uuid, now)
+    if db_resource is None:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    return db_resource

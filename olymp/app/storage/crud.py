@@ -49,7 +49,7 @@ def get_resource(database: Session, resource_uuid: UUID) -> ResourceOut | None:
 
 def update_resource(
     database: Session, resource_uuid: UUID, resource: ResourceIn, now: datetime
-) -> ResourceOut:
+) -> ResourceOut | None:
     """Update an existing resource"""
     database.query(Resource).filter(
         Resource.resource_uuid == str(resource_uuid)
@@ -60,33 +60,27 @@ def update_resource(
             Resource.updated: now,
         }
     )
-    existing_resource: ResourceOut | None = (
+    database.commit()
+    return (
         database.query(Resource)
         .filter(Resource.resource_uuid == str(resource_uuid))
         .first()
     )
-    if existing_resource is None:
-        raise BaseException("Resource not found")
-    database.commit()
-    return existing_resource
 
 
 def deactivate_resource(
     database: Session, resource_uuid: UUID, now: datetime
-) -> ResourceOut:
+) -> ResourceOut | None:
     """Deactivates a resource (does not delete it)."""
     database.query(Resource).filter(
         Resource.resource_uuid == str(resource_uuid)
     ).update({Resource.updated: now, Resource.state: State.INACTIVE})
-    existing_resource: ResourceOut | None = (
+    database.commit()
+    return (
         database.query(Resource)
         .filter(Resource.resource_uuid == str(resource_uuid))
         .first()
     )
-    if existing_resource is None:
-        raise BaseException("Resource not found")
-    database.commit()
-    return existing_resource
 
 
 def get_entries(database: Session, resource_uuid: UUID) -> List[EntryOut]:
