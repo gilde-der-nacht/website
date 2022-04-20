@@ -73,13 +73,14 @@ def read_resource(resource_uuid: UUID, database: Session = Depends(get_db)):
 def update_resource(
     resource_uuid: UUID,
     resource: ResourceIn,
-    database: FakeDatabase = Depends(get_fake_db),
+    database: Session = Depends(get_db),
 ):
     """
     Update an existing resource.
     """
+    now = datetime.now()
     try:
-        return database.update_resource(resource_uuid, resource)
+        return crud.update_resource(database, resource_uuid, resource, now)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
 

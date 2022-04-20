@@ -1,8 +1,9 @@
 """Imports"""
-from typing import List, Optional
+from datetime import datetime
+from typing import List
 from uuid import UUID
 
-from app.model.resource import ResourceOut
+from app.model.resource import ResourceIn, ResourceOut
 from app.model.state import State
 from app.storage.schema import Resource
 from sqlalchemy.orm import Session
@@ -35,10 +36,34 @@ def create_resource(database: Session, resource: ResourceOut) -> ResourceOut:
     return db_resource
 
 
-def get_resource(database: Session, resource_uuid: UUID) -> Optional[ResourceOut]:
+def get_resource(database: Session, resource_uuid: UUID) -> ResourceOut | None:
     """Get an existing resource."""
     return (
         database.query(Resource)
         .filter(Resource.resource_uuid == str(resource_uuid))
         .first()
     )
+
+
+def update_resource(
+    database: Session, resource_uuid: UUID, resource: ResourceIn, now: datetime
+) -> ResourceOut:
+    """Update an existing resource"""
+    database.query(Resource).filter(
+        Resource.resource_uuid == str(resource_uuid)
+    ).update(
+        {
+            Resource.name: resource.name,
+            Resource.description: resource.description,
+            Resource.updated: now,
+        }
+    )
+    existing_resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .first()
+    )
+    if existing_resource is None:
+        raise BaseException("Resource not found")
+    database.commit()
+    return existing_resource
