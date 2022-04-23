@@ -35,6 +35,9 @@ class Entry(Base):
 
     resource_uuid = Column(String, ForeignKey("resources.resource_uuid"))
     entry_uuid = Column(String, primary_key=True, index=True, nullable=False)
+    snapshot_uuid = Column(
+        String, server_default="00000000-0000-0000-0000-000000000000"
+    )
     private_body = Column(JSON)
     public_body = Column(JSON)
     created = Column(DateTime)

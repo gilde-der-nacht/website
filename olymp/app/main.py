@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.router import entries, resources
+from app.router import entries, resources, snapshots
 
 app = FastAPI(
     title="Olymp API",
@@ -37,3 +37,4 @@ def get_status():
 
 app.include_router(resources.router)
 app.include_router(entries.router)
+app.include_router(snapshots.router)

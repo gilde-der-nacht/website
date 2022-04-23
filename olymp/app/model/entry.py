@@ -32,6 +32,7 @@ class EntryOut(EntryIn):
     """Model for outgoing entries."""
 
     entry_uuid: UUID
+    snapshot_uuid: UUID
     created: datetime
     updated: datetime
     state: State

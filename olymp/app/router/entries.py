@@ -54,6 +54,7 @@ def create_entry(
     now = datetime.now()
     new_entry = EntryOut(
         entry_uuid=uuid4(),
+        snapshot_uuid=uuid4(),
         public_body=entry.public_body,
         private_body=entry.private_body,
         created=now,
