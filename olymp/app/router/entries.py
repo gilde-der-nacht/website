@@ -1,6 +1,5 @@
 """Imports"""
 from datetime import datetime
-from typing import List
 from uuid import UUID, uuid4
 
 from app.model.entry import EntryIn, EntryOut
@@ -29,11 +28,13 @@ def get_db():
         database.close()
 
 
-@router.get("/", response_model=List[EntryOut])
+@router.get("/", response_model=list[EntryOut])
 def read_entries(
     resource_uuid: UUID, state: State | None = None, database: Session = Depends(get_db)
 ):
-    """Retrieve all entries of a specific resource. Use the `state` query to filter only "active" or "inactive" entries."""
+    """
+    Retrieve all entries of a specific resource. Use the `state` query to filter only "active" or "inactive" entries.
+    """
     if state is None:
         try:
             return crud.get_entries(database, resource_uuid)

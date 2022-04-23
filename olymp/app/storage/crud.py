@@ -1,6 +1,5 @@
 """Imports"""
 from datetime import datetime
-from typing import List
 from uuid import UUID
 
 from app.model.entry import EntryIn, EntryOut
@@ -10,12 +9,12 @@ from app.storage.schema import Entry, Resource
 from sqlalchemy.orm import Session
 
 
-def get_resources(database: Session) -> List[ResourceOut]:
+def get_resources(database: Session) -> list[ResourceOut]:
     """Get a list of all resources, irrespective of state."""
     return database.query(Resource).all()
 
 
-def get_resources_by_state(database: Session, state: State) -> List[ResourceOut]:
+def get_resources_by_state(database: Session, state: State) -> list[ResourceOut]:
     """Get a list of all resources, filtered by state."""
     return database.query(Resource).filter(Resource.state == state.value).all()
 
@@ -83,7 +82,7 @@ def deactivate_resource(
     )
 
 
-def get_entries(database: Session, resource_uuid: UUID) -> List[EntryOut]:
+def get_entries(database: Session, resource_uuid: UUID) -> list[EntryOut]:
     """Get a list of all entries of a resources, irrespective of their state."""
     resource: ResourceOut | None = (
         database.query(Resource)
@@ -98,7 +97,7 @@ def get_entries(database: Session, resource_uuid: UUID) -> List[EntryOut]:
 
 def get_entries_by_state(
     database: Session, resource_uuid: UUID, state: State
-) -> List[EntryOut]:
+) -> list[EntryOut]:
     """Get a list of all entries of a resources, filtered by state."""
     resource: ResourceOut | None = (
         database.query(Resource)

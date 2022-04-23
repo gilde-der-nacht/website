@@ -1,6 +1,5 @@
 """Imports"""
 from datetime import datetime
-from typing import List
 from uuid import UUID, uuid4
 
 from app.model.resource import ResourceIn, ResourceOut
@@ -29,7 +28,7 @@ def get_db():
         database.close()
 
 
-@router.get("/", response_model=List[ResourceOut])
+@router.get("/", response_model=list[ResourceOut])
 def read_resources(state: State | None = None, database: Session = Depends(get_db)):
     """
     Retrieve all resources. Use the `state` query to filter only "active" or "inactive" resources.
