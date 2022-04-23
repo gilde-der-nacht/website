@@ -67,3 +67,23 @@ def read_snapshot(
     if db_snapshot is None:
         raise HTTPException(status_code=404, detail="Snapshot not found")
     return db_snapshot
+
+
+@router.put("/{snapshot_uuid}/", response_model=EntryOut)
+def update_snapshot(
+    resource_uuid: UUID,
+    snapshot_uuid: UUID,
+    entry: EntryIn,
+    database: Session = Depends(get_db),
+):
+    """Update an existing entry."""
+    now = datetime.now()
+    try:
+        db_entry = crud.update_snapshot(
+            database, resource_uuid, snapshot_uuid, entry, now
+        )
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
+    if db_entry is None:
+        raise HTTPException(status_code=404, detail="Snapshot not found")
+    return db_entry

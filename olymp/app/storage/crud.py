@@ -1,6 +1,6 @@
 """Imports"""
 from datetime import datetime
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from app.model.entry import EntryIn, EntryOut
 from app.model.resource import ResourceIn, ResourceOut
@@ -234,5 +234,54 @@ def get_snapshot(
         database.query(Entry)
         .filter(Entry.resource == resource)
         .filter(Entry.snapshot_uuid == str(snapshot_uuid))
+        .all()
+    )[-1]
+
+
+def update_snapshot(
+    database: Session,
+    resource_uuid: UUID,
+    snapshot_uuid: UUID,
+    entry: EntryIn,
+    now: datetime,
+) -> EntryOut | None:
+    """Update an existing snapshot."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.state == State.ACTIVE)
         .first()
     )
+    if resource is None:
+        raise BaseException("Resource not found")
+    latest_snapshot: EntryOut | None = (
+        database.query(Entry)
+        .filter(Entry.resource == resource)
+        .filter(Entry.snapshot_uuid == str(snapshot_uuid))
+        .all()
+    )[-1]
+    if latest_snapshot is None:
+        raise BaseException("Snapshot not found")
+    updated_snapshot = EntryOut(
+        entry_uuid=uuid4(),
+        snapshot_uuid=latest_snapshot.snapshot_uuid,
+        public_body=entry.public_body,
+        private_body=entry.private_body,
+        created=latest_snapshot.created,
+        updated=now,
+        state=latest_snapshot.state,
+    )
+    db_entry = Entry(
+        entry_uuid=str(updated_snapshot.entry_uuid),
+        snapshot_uuid=str(updated_snapshot.snapshot_uuid),
+        public_body=updated_snapshot.public_body,
+        private_body=updated_snapshot.private_body,
+        created=updated_snapshot.created,
+        updated=updated_snapshot.updated,
+        state=updated_snapshot.state,
+        resource=resource,
+    )
+    database.add(db_entry)
+    database.commit()
+    database.refresh(db_entry)
+    return updated_snapshot
