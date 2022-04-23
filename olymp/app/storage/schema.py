@@ -18,7 +18,7 @@ class Resource(Base):
 
     __tablename__ = "resources"
 
-    resource_uuid = Column(String, primary_key=True, index=True)
+    resource_uuid = Column(String, primary_key=True, index=True, nullable=False)
     name = Column(String)
     description = Column(String)
     created = Column(DateTime)
@@ -34,7 +34,7 @@ class Entry(Base):
     __tablename__ = "entries"
 
     resource_uuid = Column(String, ForeignKey("resources.resource_uuid"))
-    entry_uuid = Column(String, primary_key=True, index=True)
+    entry_uuid = Column(String, primary_key=True, index=True, nullable=False)
     private_body = Column(JSON)
     public_body = Column(JSON)
     created = Column(DateTime)

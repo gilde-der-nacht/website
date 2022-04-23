@@ -9,8 +9,8 @@ from pydantic import BaseModel
 class EntryIn(BaseModel):
     """Model for incoming, user provided entries."""
 
-    private_body: dict | None = {}
-    public_body: dict | None = {}
+    private_body: dict = {}
+    public_body: dict = {}
 
     class Config:
         """Additional configuration of the pydantic model."""
