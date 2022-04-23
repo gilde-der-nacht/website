@@ -51,6 +51,7 @@ class EntryOut(EntryIn):
                     "key_2": None,
                 },
                 "entry_uuid": uuid4(),
+                "snapshot_uuid": uuid4(),
                 "created": datetime.now(),
                 "udpated": datetime.now(),
                 "state": State.ACTIVE,

@@ -33,7 +33,8 @@ def read_entries(
     resource_uuid: UUID, state: State | None = None, database: Session = Depends(get_db)
 ):
     """
-    Retrieve all entries of a specific resource. Use the `state` query to filter only "active" or "inactive" entries.
+    Retrieve all entries of a specific resource.
+    Use the `state` query to filter only "active" or "inactive" entries.
     """
     if state is None:
         try:
@@ -77,7 +78,7 @@ def read_entry(
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
     if db_entry is None:
-        raise HTTPException(status_code=404, detail="Resource not found")
+        raise HTTPException(status_code=404, detail="Entry not found")
     return db_entry
 
 
@@ -95,7 +96,7 @@ def update_entry(
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
     if db_entry is None:
-        raise HTTPException(status_code=404, detail="Resource not found")
+        raise HTTPException(status_code=404, detail="Entry not found")
     return db_entry
 
 
@@ -110,5 +111,5 @@ def deactivate_entry(
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
     if db_entry is None:
-        raise HTTPException(status_code=404, detail="Resource not found")
+        raise HTTPException(status_code=404, detail="Entry not found")
     return db_entry

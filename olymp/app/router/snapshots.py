@@ -28,7 +28,7 @@ def get_db():
 
 
 @router.post("/", response_model=EntryOut, status_code=status.HTTP_201_CREATED)
-def create_entry(
+def create_snapshot(
     resource_uuid: UUID, entry: EntryIn, database: Session = Depends(get_db)
 ):
     """
@@ -49,3 +49,21 @@ def create_entry(
         return crud.create_entry(database, resource_uuid, new_entry)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
+
+
+@router.get("/{snapshot_uuid}/", response_model=EntryOut)
+def read_snapshot(
+    resource_uuid: UUID, snapshot_uuid: UUID, database: Session = Depends(get_db)
+):
+    """
+    Retrive one entry.
+    Compared to `GET:/resources/{resource_uuid}/entries/{entry_uuid}/`,
+    this does only gets the latest entry with the `snapshot_uuid`.
+    """
+    try:
+        db_snapshot = crud.get_snapshot(database, resource_uuid, snapshot_uuid)
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
+    if db_snapshot is None:
+        raise HTTPException(status_code=404, detail="Snapshot not found")
+    return db_snapshot

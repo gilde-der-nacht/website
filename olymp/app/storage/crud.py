@@ -126,6 +126,7 @@ def create_entry(database: Session, resource_uuid: UUID, entry: EntryOut) -> Ent
         raise BaseException("Resource not found")
     db_entry = Entry(
         entry_uuid=str(entry.entry_uuid),
+        snapshot_uuid=str(entry.snapshot_uuid),
         public_body=entry.public_body,
         private_body=entry.private_body,
         created=entry.created,
@@ -213,5 +214,25 @@ def deactivate_entry(
         database.query(Entry)
         .filter(Entry.resource == resource)
         .filter(Entry.entry_uuid == str(entry_uuid))
+        .first()
+    )
+
+
+def get_snapshot(
+    database: Session, resource_uuid: UUID, snapshot_uuid: UUID
+) -> EntryOut | None:
+    """Retrive latest snapshot."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    return (
+        database.query(Entry)
+        .filter(Entry.resource == resource)
+        .filter(Entry.snapshot_uuid == str(snapshot_uuid))
         .first()
     )
