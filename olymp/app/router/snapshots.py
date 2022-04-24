@@ -27,12 +27,33 @@ def get_db():
         database.close()
 
 
+@router.get("/", response_model=list[EntryOut])
+def read_snapshots(
+    resource_uuid: UUID, state: State | None = None, database: Session = Depends(get_db)
+):
+    """
+    Retrieve all snapshots of a specific resource.
+    Use the `state` query to filter only "active" or "inactive" snapshots.
+    Compared to `GET:/resources/{resource_uuid}/`,
+    this does only gets the latest entries of the same `snapshot_uuid`.
+    """
+    if state is None:
+        try:
+            return crud.get_snapshots(database, resource_uuid)
+        except BaseException as err:
+            raise HTTPException(status_code=404, detail=str(err)) from err
+    try:
+        return crud.get_snapshots_by_state(database, resource_uuid, state=state)
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
+
+
 @router.post("/", response_model=EntryOut, status_code=status.HTTP_201_CREATED)
 def create_snapshot(
     resource_uuid: UUID, entry: EntryIn, database: Session = Depends(get_db)
 ):
     """
-    Create a new entry.
+    Create a new entry/snapshot.
     Behaves exactly the same as the `POST:/resources/{resource_uuid}/entries/` endpoint.
     """
     now = datetime.now()

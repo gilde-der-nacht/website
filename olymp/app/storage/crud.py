@@ -210,6 +210,75 @@ def deactivate_entry(
     )
 
 
+def get_snapshots(database: Session, resource_uuid: UUID) -> list[EntryOut]:
+    """Get a list of all the latest snapshots of a resources, irrespective of their state."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == resource_uuid)
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    all_entries: list[EntryOut] = (
+        database.query(Entry).filter(Entry.resource == resource).all()
+    )
+    all_snapshot_uuids = {entry.snapshot_uuid for entry in all_entries}
+    return sorted(
+        [
+            (
+                database.query(Entry)
+                .filter(Entry.resource == resource)
+                .filter(Entry.snapshot_uuid == snapshot_uuids)
+                .all()
+            )[-1]
+            for snapshot_uuids in all_snapshot_uuids
+        ],
+        key=lambda entry: entry.updated,
+        reverse=True,
+    )
+
+
+def get_snapshots_by_state(
+    database: Session, resource_uuid: UUID, state: State
+) -> list[EntryOut]:
+    """Get a list of all the latest snapshots of a resources, filtered by state."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == resource_uuid)
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == resource_uuid)
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    all_entries: list[EntryOut] = (
+        database.query(Entry).filter(Entry.resource == resource).all()
+    )
+    all_snapshot_uuids = {entry.snapshot_uuid for entry in all_entries}
+    all_snapshots: list[EntryOut] = sorted(
+        [
+            (
+                database.query(Entry)
+                .filter(Entry.resource == resource)
+                .filter(Entry.snapshot_uuid == snapshot_uuids)
+                .all()
+            )[-1]
+            for snapshot_uuids in all_snapshot_uuids
+        ],
+        key=lambda entry: entry.updated,
+        reverse=True,
+    )
+    return [snapshot for snapshot in all_snapshots if snapshot.state == state]
+
+
 def get_snapshot(
     database: Session, resource_uuid: UUID, snapshot_uuid: UUID
 ) -> EntryOut | None:
