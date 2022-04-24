@@ -25,51 +25,57 @@ date: 2022-04-01
 
 <script>
 
-	const TAGS = {
-		'[1-Seite]': 'Das komplette Rollenspiel passt auf weniger als 5 Seiten.',
-		'[Apocalypse]': 'Die Zivilisation ist zum einem grösseren Teil durch eine Katastrophe untergegangen.',
-		'[Ausleihe]': 'Kann jemand aus der Gilde der Nacht an Interessierte ausleihen. Interner Hinweis: Das ist zurzeit nur was ich glaube was Oliver hat.',
-		'[DE]': 'Gibt es in Deutsch.',
-		'[Drama]': 'Es mag Spielregeln in diesem Rollenspiel geben, aber der Fokus liegt ganz klar darauf, dass sowohl in der Spielwelt, aber vielleicht auch am Spieltisch eskaliert.',
-		'[Internet Hilfsmittel]': 'Es gibt diverse Online Tools für verschiedene Aspekte des Rollenspiels. Diese sind aber meistens nicht Deutsch.',
-		'[EN]': 'Gibt es in Englisch',
-		'[Erklärbär:in]': 'Jemand aus der Gilde der Nacht könnte dir einiges über das Rollenspiel erzählen, allenfalls dir auch dabei helfen eine Runde zu leiten.',
-		'[Fantasy]': 'Spielt in einer Fantasie-Welt, in welcher oft, aber nicht immer, auch Elfen, Orks und Zwerge vorkommen.',
-		'[Fortgeschrittene]': 'Dieses Rollenspiel hat viele Nuancen, die teilweise nicht ganz einfach zu durchschauen sind und teilweise auch nicht explizit erwähnt werden.',
-		'[FR]': 'Gibt es in Französisch',
-		'[Hard Sci-Fi]': 'Im Gegensatz zu Sci-Fi, gelten hier die Gesetze der Physik überdurchschnittlich oft.',
-		'[Historisch]': 'Spielt in einer alternativen Zeitlinie der Vergangenheit unserer Welt. Geschichts- oder Sagenkenntnisse von unserer Welt können hilfreich sein.',
-		'[Horror]': 'Horror Elemente sind ein wesentlicher Aspekt.',
-		'[Investigation]': 'Aufklärung eines Verbrechens, oder einer Verschwörung, sind ein wichtiger Teil des Spieles.',
-		'[Kampf]': 'Das kämpfen ist ein wesentlicher Aspekt des Spieles. Im Grundregelwerk hat es wahrscheinlich mehr Seiten über den Kampf, als über alles andere.',
-		'[Kinder]': 'Die Spielbeschreibung hat regelmässig Hinweise, um den unterschiedlichen Altersgruppen gerecht zu werden.',
-		'[Klassiker]': 'Sehr populäres Rollenspiel dass es schon seid mindestens 20 Jahren gibt und in mehreren Versionen und Auflagen erhältlich ist.',
-		'[Kooperativ]': 'Ein Rollenspiel in dem Alle die Rolle der Spielleitung übernehmen.',
-		'[Kostenlos]': 'Der grosse Teil des Grundregelwerkes ist kostenlos elektronisch erhältlich. Das Spiel ist damit spielbar ohne dass man zusätzlich etwas kaufen müsste. Optionales Zusatzmaterial darf aber durchaus etwas kosten.',
-		'[Minimale Vorbereitung]': 'Rollenspiel dass darauf ausgelegt wurde, dass sich die Spielleitung wenig oder gar nicht vorbereiten sollte.',
-		'[Low-Magic]': 'Es existiert zwar eine Form der Magie, aber sie ist kaum von natürlichen Phänomenen zu entscheiden. Es gibt immer eine alternative, glaubwürdige Erklärung, warum etwas aussergewöhnliches passiert sein könnte.',
-		'[Magie]': 'Es existiert Magie in der Welt, mit welcher Dinge gemacht werden können die mit physikalischen Gesetzen meist kaum oder gar nicht erklärt werden könnten.',
-		'[Sei Wer Du Willst]': 'Die Charaktererstellung ist so offen, dass man nahezu jede denkbare Rolle umsetzen kann. Sollte etwas fehlen, dann gibt es sehr kurze und einfache Regeln, wie man Ergänzungen anbringt, ohne dass die Spielbalance auseinander fällt.',
-		'[One-Shot]': 'Gut geeignet um das Rollenspiel auch nur einen Abend zu spielen.',
-		'[PbtA]': 'Basiert auf dem «Powered by the Apocalypse» Regelwerk. Die Spielleitung in diesen Rollenspielen stellt primär viele Fragen. Für die Spieler gibt es eine begrenzte Auswahl von Charakterbögen, die relativ schnell ausgefüllt sind und auch einfach zu verstehen sind ohne dass man noch zusätzliche Tabellen benötigen würde.',
-		'[Spieler Motiviert]': 'Es gibt eine Spielleitung, aber die Spielleitung ist mehr im Hintergrund im Vergleich zu traditionellen Rollenspielen. Die Spieler treiben die Geschichte wesentlich voran und entwerfen auch wichtige Teile der Welt gemeinsam mit der Spielleitung.',
-		'[Sandkasten]': 'Das Regelwerk hat ausführliche Anleitungen wie man eigene Welten kreiert. Teilweise auch zusammen mit seinen Mitspielern.',
-		'[Sci-Fi]': 'Spielt in einer fiktiven Zukunft. Die technischen Möglichkeiten sind aber oft fantastisch und die Gesetze der Physik sind optional.',
-		'[Sexualität]': 'Emotionale Bindungen, inklusive Sex in all seinen Varianten, sind ein relevantes Spielelement.',
-		'[Superhelden]': 'Die Charakter sind alle Superheld:innen die alle aussergewöhnliche Fähigkeiten haben. Oft spielen solche Rollenspiele in der heutigen Zeit, oft auch auf unserer Erde.',
-		'[Überfall]': 'Man spielt eine Gruppe von Banditen, die meistens nicht gutes im Sinn hat.',
-		'[Urban]': 'Charakter und Geschichte spielen oft ein einer regulären Stadt.',
-		'[Zombies]': 'Leichenfledderei gehört zur Tagesordnung.',
-	};
+	// Ideen: Religion? Wenn ja, welches Spiel wäre das? Dogs in the Vineyard?
+	// Weitere Rollenspiele: Hillfolk?
+
+	const TAGS = [
+		{ tag: '[1-Seite]', description: 'Das komplette Rollenspiel passt auf weniger als 5 Seiten.' },
+		{ tag: '[Apocalypse]', description: 'Die Zivilisation ist zum einem grösseren Teil durch eine Katastrophe untergegangen.' },
+		{ tag: '[Ausleihe]', description: 'Kann jemand aus der Gilde der Nacht an Interessierte ausleihen. Interner Hinweis: Das ist zurzeit nur was ich glaube was Oliver hat.' },
+		{ tag: '[DE]', description: 'Gibt es in Deutsch.' },
+		{ tag: '[Drama]', description: 'Es mag Spielregeln in diesem Rollenspiel geben, aber der Fokus liegt ganz klar darauf, dass sowohl in der Spielwelt, aber vielleicht auch am Spieltisch eskaliert.' },
+		{ tag: '[Internet Hilfsmittel]', description: 'Es gibt diverse Online Tools für verschiedene Aspekte des Rollenspiels. Diese sind aber meistens nicht Deutsch.' },
+		{ tag: '[EN]', description: 'Gibt es in Englisch' },
+		{ tag: '[Erklärbär:in]', description: 'Jemand aus der Gilde der Nacht hat das Rollenpsiel schon einmal gespielt und könnte dir einiges über das Rollenspiel erzählen, allenfalls dir auch dabei helfen eine eigene Runde zu leiten.' },
+		{ tag: '[Fantasy]', description: 'Spielt in einer Fantasie-Welt, in welcher oft, aber nicht immer, auch Elfen, Orks und Zwerge vorkommen.' },
+		{ tag: '[Fortgeschrittene]', description: 'Dieses Rollenspiel hat viele Nuancen, die teilweise nicht ganz einfach zu durchschauen sind und teilweise auch nicht explizit erwähnt werden.' },
+		{ tag: '[FR]', description: 'Gibt es in Französisch' },
+		{ tag: '[Hard Sci-Fi]', description: 'Im Gegensatz zu Sci-Fi, gelten hier die Gesetze der Physik überdurchschnittlich oft.' },
+		{ tag: '[Historisch]', description: 'Spielt in einer alternativen Zeitlinie der Vergangenheit unserer Welt. Geschichts- oder Sagenkenntnisse von unserer Welt können hilfreich sein.' },
+		{ tag: '[Haptisch]', description: 'Hat ausser Würfel und Papier mindesens ein weiteres, wichtiges Spielelement das man anfassen kann.' },
+		{ tag: '[Horror]', description: 'Horror Elemente sind ein wesentlicher Aspekt.' },
+		{ tag: '[Investigation]', description: 'Aufklärung eines Verbrechens, oder einer Verschwörung, sind ein wichtiger Teil des Spieles.' },
+		{ tag: '[Kampf]', description: 'Das kämpfen ist ein wesentlicher Aspekt des Spieles. Im Grundregelwerk hat es wahrscheinlich mehr Seiten über den Kampf, als über alles andere.' },
+		{ tag: '[Kinder]', description: 'Die Spielbeschreibung hat regelmässig Hinweise, um den unterschiedlichen Altersgruppen gerecht zu werden.' },
+		{ tag: '[Klassiker]', description: 'Sehr populäres Rollenspiel dass es schon seid mindestens 20 Jahren gibt und in mehreren Versionen und Auflagen erhältlich ist.' },
+		{ tag: '[Kooperativ]', description: 'Ein Rollenspiel in dem Alle die Rolle der Spielleitung übernehmen.' },
+		{ tag: '[Kostenlos]', description: 'Der grosse Teil des Grundregelwerkes ist kostenlos elektronisch erhältlich. Das Spiel ist damit spielbar ohne dass man zusätzlich etwas kaufen müsste. Optionales Zusatzmaterial darf aber durchaus etwas kosten.' },
+		{ tag: '[Minimale Vorbereitung]', description: 'Rollenspiel dass darauf ausgelegt wurde, dass sich die Spielleitung wenig oder gar nicht vorbereiten sollte.' },
+		{ tag: '[Low-Magic]', description: 'Es existiert zwar eine Form der Magie, aber sie ist kaum von natürlichen Phänomenen zu entscheiden. Es gibt immer eine alternative, glaubwürdige Erklärung, warum etwas aussergewöhnliches passiert sein könnte.' },
+		{ tag: '[Magie]', description: 'Es existiert Magie in der Welt, mit welcher Dinge gemacht werden können die mit physikalischen Gesetzen meist kaum oder gar nicht erklärt werden könnten.' },
+		{ tag: '[Sei Wer Du Willst]', description: 'Die Charaktererstellung ist so offen, dass man nahezu jede denkbare Rolle umsetzen kann. Sollte etwas fehlen, dann gibt es sehr kurze und einfache Regeln, wie man Ergänzungen anbringt, ohne dass die Spielbalance auseinander fällt.' },
+		{ tag: '[One-Shot]', description: 'Gut geeignet um das Rollenspiel auch nur einen Abend zu spielen.' },
+		{ tag: '[PbtA]', description: 'Basiert auf dem «Powered by the Apocalypse» Regelwerk. Die Spielleitung in diesen Rollenspielen stellt primär viele Fragen. Für die Spieler gibt es eine begrenzte Auswahl von Charakterbögen, die relativ schnell ausgefüllt sind und auch einfach zu verstehen sind ohne dass man zusätzliche Tabellen benötigen würde.' },
+		{ tag: '[Spieler Motiviert]', description: 'Es gibt eine Spielleitung, aber die Spielleitung ist mehr im Hintergrund im Vergleich zu traditionellen Rollenspielen. Die Spieler treiben die Geschichte wesentlich voran und entwerfen auch wichtige Teile der Welt gemeinsam mit der Spielleitung.' },
+		{ tag: '[Sandkasten]', description: 'Das Regelwerk hat ausführliche Anleitungen wie man eigene Welten kreiert. Teilweise auch zusammen mit seinen Mitspielern.' },
+		{ tag: '[Sci-Fi]', description: 'Spielt in einer fiktiven Zukunft. Die technischen Möglichkeiten sind aber oft fantastisch und die Gesetze der Physik sind optional.' },
+		{ tag: '[Sexualität]', description: 'Emotionale Bindungen, inklusive Sex in all seinen Varianten, sind ein relevantes Spielelement.' },
+		{ tag: '[Superhelden]', description: 'Die Charakter sind alle Superheld:innen die alle aussergewöhnliche Fähigkeiten haben. Oft spielen solche Rollenspiele in der heutigen Zeit, oft auch auf unserer Erde.' },
+		{ tag: '[Überfall]', description: 'Man spielt eine Gruppe von Banditen, die meistens nicht gutes im Sinn hat.' },
+		{ tag: '[Urban]', description: 'Charakter und Geschichte spielen oft ein einer regulären Stadt.' },
+		{ tag: '[Zombies]', description: 'Leichenfledderei gehört zur Tagesordnung.' },
+	];
 
 	const GAMES = [
 		{
+			// Erklärbär:in: Oliver, Thomas
 			name: 'Apocalypse World 2',
-			tags: ['[PbtA]', '[Apocalypse]', '[EN]', '[Erklärbär:in]', '[Spieler Motiviert]'],
+			tags: ['[PbtA]', '[Apocalypse]', '[EN]', '[Erklärbär:in]', '[Spieler Motiviert]', '[Ausleihe]'],
 			url: 'http://apocalypse-world.com/',
 			description: '',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Arcane Codex',
 			tags: ['[DE]', '[Fantasy]', '[Magie]', '[Kampf]', '[Erklärbär:in]'],
 			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/5188/arcane-codex-grundregelwerk-3.-auflage',
@@ -82,12 +88,14 @@ date: 2022-04-01
 			description: '',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Blades in the Dark',
 			tags: ['[Fantasy]', '[Überfall]', '[EN]', '[Low-Magic]', '[Erklärbär:in]', '[Spieler Motiviert]', '[Minimale Vorbereitung]'],
 			url: 'https://www.evilhat.com/home/blades-in-the-dark',
 			description: 'Man beginnt als kleine Banditengruppe in einer Stadt nach und nach seinen Ruf zu verbessern. Die Banditen die man spielt, haben alle ihre Laster, denen sie früher oder später auch zum Opfern fallen werden. Das Regelwerk ist die Grundlage für das frei verfügbare «Forged in the Dark». Die Regeln lassen sich komplett auf 2 A4 Seiten zusammenfassen, es dauert aber ein paar Runden bis man versteht, dass diese wenigen Regeln eigentlich sehr schön ineinander greifen.',
 		},
 		{
+			// Erklärbär:in: Oliver, Thomas
 			name: 'City of Mist',
 			tags: ['[Fantasy]', '[Superhelden]', '[Urban]', '[EN]', '[Erklärbär:in]', '[DE]', '[Investigation]', '[Sei Wer Du Willst]'],
 			url: 'https://truant.com/portfolio/city-of-mist',
@@ -106,84 +114,97 @@ date: 2022-04-01
 			description: 'Klassisches Cyberpunk mit Geld, Waffen und Hacking. Cyberpunk RED ist eine Neuauflage des wesentlich älteren Cyberpunk 2020. Inspiriert wurde Cyberpunk RED auch vom Computerspiel Cyberpunk 2077. Im Vergleich zu Shadowrun, hat Cyberpunk RED einen kleineren Umfang und keine Magie.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Das Schwarze Auge 5',
 			tags: ['[Fantasy]', '[Magie]', '[DE]', '[Klassiker]', '[Erklärbär:in]'],
 			url: 'https://ulisses-spiele.de/dsa5-regelwerk-hardcover/',
 			description: 'Eines der ältesten und zugleich auch grössten deutschen Rollenspiele. Hat eine sehr umfangreiche Charaktererstellung, detaillierte Regeln eine riesige und bis ins kleinste Detail ausgearbeitete Welt, Karten, sehr viele Abenteuerbände u.s.w. Das Gesamtpaket ist in sich auch relativ kohärent.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Die Verbotenen Lande',
 			tags: ['[DE]', '[Fantasy]', '[Magie]', '[Spieler Motiviert]', '[EN]', '[Minimale Vorbereitung]'],
 			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/9603/die-verbotenen-lande-basisbox',
 			description: 'Klassische Fantasy mit Elfen, Zwergen und Menschen. Der Twist an diesem Rollenspiel ist, dass sich die Spieler auf einer Karte bewegen und es für viele Punkte auf dieser Karte vorgefertigte Möglichkeiten gibt. Das geht vom Fischen bis hin zum Schlossbau.',
 		},
 		{
+			// Erklärbär:in: Oliver
 			name: 'Dread',
-			tags: ['[Horror]', '[DE]', '[EN]', '[Ausleihe]'],
+			tags: ['[Horror]', '[DE]', '[EN]', '[Ausleihe]', '[Haptisch]'],
 			url: 'https://www.system-matters.de/shop/dread/',
 			description: '',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Dream Askew',
 			tags: ['[Apocalypse]', '[Kooperativ]', '[EN]', '[Erklärbär:in]', '[Fortgeschrittene]'],
 			url: 'https://buriedwithoutceremony.com/dream-askew',
-			description: 'Alle Spieler:innen spielen einen Charakter in einer Queer Enklave. Neben dem Charakter spielt jede Person auch noch ein Thema und übernimmt damit eine Teilaufgabe der Spielleitung. Da sowohl das Setting als auch die Regeln etwas ungewöhnlich sind, empfiehlt sich das Spiel nicht unbedingt für eine Gruppe die sonst noch nie Rollenspiele gespielt hat.',
+			description: 'Alle Spieler:innen spielen einen Charakter in einer Queer Enklave. Neben dem Charakter spielt jede Person zusätzlich ein Thema und übernimmt damit eine Teilaufgabe der Spielleitung. Da sowohl das Setting als auch die Regeln etwas ungewöhnlich sind, empfiehlt sich das Spiel nicht unbedingt für eine Gruppe die sonst noch nie Rollenspiele gespielt hat.',
 		},
 		{
+			// Erklärbär:in: Michelle, Oliver, Thomas
 			name: 'Dungeons & Dragons 5e',
 			tags: ['[Fantasy]', '[Magie]', '[EN]', '[DE]', '[Klassiker]', '[Kampf]', '[Erklärbär:in]', '[Internet Hilfsmittel]'],
 			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/12811/d-d-players-handbook-spielerhandbuch-deutsch',
 			description: 'Eines der ältesten Rollenspiele die es gibt. Die Version 5e ist Vergleich zu anderen Edition einfacher und flüssiger zu spielen. Die Regeln sind primär auf Kampf und Dungeon Crawling ausgelegt. Es gibt eine Unmenge an Zusatzmaterial und Abenteuer zu diesem Spiel.',
 		},
 		{
+			// Erklärbär:in: Oliver, Thomas
 			name: 'Dungeon World',
 			tags: ['[PbtA]', '[Fantasy]', '[Magie]', '[DE]', '[Erklärbär:in]', '[Spieler Motiviert]'],
 			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/10712/dungeon-world-grundregelwerk',
 			description: 'Ähnelt vom Setting her einem Dungeon & Dragon, verwendet aber das «Powered by the Apocalypse» Regelwerk und verändert damit auch die Rolle der Spieler:innen die Teile der Welt migestalten und die Geschichte aktiver vorantreiben dürfen.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Eclipse Phase 2',
 			tags: ['[Sci-Fi]', '[Hard Sci-Fi]', '[EN]', '[Erklärbär:in]'],
 			url: 'https://posthuman.shop/products/eclipse-phase-second-edition',
 			description: 'Transhumanismus und Post-Scarity Anarachie sind wichtige Themen. Eines der wenigen Sci-Fi Rollenspiele, dass wirklich versucht eine Zukunft zu denken die nicht einfach nur nach einer Neuromancer Kopie aussieht.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Everyone is John',
 			tags: ['[1-Seite]', '[Minimale Vorbereitung]', '[Kostenlos]', '[Erklärbär:in]', '[EN]', '[DE]', '[One-Shot]'],
 			url: 'https://www.stefan-graf.com/wp-content/files/everyone_is_john.jpg',
-			description: '',
+			description: 'Jede Spieler:in spielt eine Stimme im Kopf von John. Anhand von wenigen einfachen Regeln wird entschieden welche Stimme gerade Hoheit hat.',
 		},
 		{
 			name: 'Fall of Magic',
-			tags: ['[EN]', '[Kooperativ]', '[One-Shot]'],
+			tags: ['[EN]', '[Kooperativ]', '[One-Shot]', '[Haptisch]'],
 			url: 'https://heartofthedeernicorn.com/product/fall-of-magic-revised-edition',
 			description: '',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Fate',
-			tags: ['[DE]', '[EN]', '[Kostenlos]', '[Erklärbär:in]', '[Sei Wer Du Willst]'],
+			tags: ['[DE]', '[EN]', '[Kostenlos]', '[Erklärbär:in]', '[Sei Wer Du Willst]', '[Fortgeschrittene]'],
 			url: 'https://faterpg.de/downloads',
-			description: '',
+			description: 'Die Charaktererschaffung besthet zu einem grossen Teil darin dass man sich ein paar, komplett frei definierbare, Aspekte/Adjektiv zuschreibt. Zusätzlich speziell an den Regeln ist, wenn die Spielleitung sich dass wirklich zu herzen nimmt, dass Spieler:innen die Welt regeltechnisch beeinflussen können. Das Grundregelwerk selber ist vielleicht etwas zu offen und die Erfahrung hat gezeigt, dass das Anfängern teilweise etwas Mühe bereitet komplett frei zu sein. Es gibt aber sehr viel Zusatzmaterial, dass dem teilweise überaus schön entgegenwirken kann.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Fiasko',
 			tags: ['[Kooperativ]', '[DE]', '[EN]', '[Erklärbär:in]', '[Drama]', '[One-Shot]'],
 			url: 'https://www.drivethrurpg.com/product/155667/Fiasko-German',
 			description: 'Jede Person am Tisch spielt einen Charakter. Anhand einem vorgegebenen kleinen Abenteuer und wenig Regeln, spielt man reihum kleine Szenen. Die «Abenteuer» sind so geschrieben, dass eher früher als später eskalieren wird. Eignet sich wunderbar für einen einzelnen Abend.',
 		},
 		{
+			// Erklärbär:in: Oliver, Thomas
 			name: 'Ironsworn',
 			tags: ['[Kooperativ]', '[Fantasy]', '[Low-Magic]', '[EN]', '[DE]', '[Minimale Vorbereitung]', '[Erklärbär:in]', '[Spieler Motiviert]', '[Sei Wer Du Willst]', '[Ausleihe]'],
 			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/13433/ironsworn-grundregelwerk',
-			description: '',
+			description: 'Wikinger inspiriertes Setting. Sehr einfach aber flexible Charaktererstellung. Eines der wenigen Rollenspiele des Regeln so gestaltet sind dass man auch ohne Spielleitung spielen könnte.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Lasers and Feelings',
 			tags: ['[DE]', '[1-Seite]', '[Sci-Fi]', '[Kostenlos]', '[Erklärbär:in]', '[One-Shot]'],
 			url: 'https://www.erzaehlspiel-zine.de/ausgaben/ausgabe_null/lasers_and_feelings/',
-			description: '',
+			description: 'Sehr simples Konzept. Jede Spieler:in muss sich entscheiden ob sie eine Situation eher mit Menschenkenntniss (Feelings) oder Gewalt (Lasers) lösen möchte. Im Gegensatz zu nahezu allen anderen Rollenspielen, gibt es keine zusätzlichen Regeln für Kämpfe. Das kleine Regelwerk ist im Grundsatz ein klassischen Rollenspiel, zeigt aber gut auf was der eigentlich der Kern von Rollenspiel ist.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Microscope',
 			tags: ['[Kooperativ]', '[Erklärbär:in]', '[One-Shot]', '[EN]', '[Ausleihe]'],
 			url: 'https://www.lamemage.com/microscope/',
@@ -202,20 +223,22 @@ date: 2022-04-01
 			description: '',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Mutant Jahr Null',
 			tags: ['[DE]', '[EN]', '[Apocalypse]', '[Erklärbär:in]'],
 			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/8486/mutant-jahr-null-grundregelwerk',
 			description: '',
 		},
 		{
+			// Erklärbär:in: Oliver
 			name: 'Numenera',
-			tags: ['[Sci-Fi]', '[DE]', '[EN]'],
+			tags: ['[Sci-Fi]', '[DE]', '[EN]', '[Ausleihe]'],
 			url: 'https://shop.uhrwerk-verlag.de/uhrwerk-rollenspiele/numenera/330/numenera-regelwerk-softcover',
 			description: '',
 		},
 		{
 			name: 'Paranoia',
-			tags: ['[Sci-Fi]', '[Drama]', '[EN]'],
+			tags: ['[Sci-Fi]', '[Drama]', '[EN]', '[Ausleihe]'],
 			url: 'https://www.mongoosepublishing.com/collections/paranoia',
 			description: '',
 		},
@@ -232,70 +255,80 @@ date: 2022-04-01
 			description: '',
 		},
 		{
+			// Erklärbär:in: Oliver
 			name: 'Savage Worlds',
-			tags: ['[DE]', '[Ausleihe]', '[Erklärbär:in]'],
+			tags: ['[DE]', '[Erklärbär:in]'],
 			url: 'https://www.f-shop.de/savage-worlds/',
 			description: '',
 		},
 		{
+			// Erklärbär:in: Oliver
 			name: 'Schatten des Dämonenfürsten',
 			tags: ['[DE]', '[EN]', '[Magie]', '[Kampf]', '[Erklärbär:in]'],
 			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/10731/der-schatten-des-daemonenfuersten-grundregelwerk',
 			description: 'Ein modernes Fantasy Rollenspiel mit Schwertkampf und Magier. Das Rollenspiel versucht ziemlich erfolgreich viele Denkfehler die andere Rollenspiele machen nicht zu wiederholen.',
 		},
 		{
+			// Erklärbär:in: Adrian, Oliver, Thomas
 			name: 'Shadowrun 5',
 			tags: ['[Sci-Fi]', '[Magie]', '[EN]', '[DE]', '[Erklärbär:in]', '[Ausleihe]', '[Fantasy]'],
 			url: 'https://www.pegasusdigital.de/product/123269/Shadowrun-5-Grundregelwerk&language=de',
 			description: 'Cyberpunk, Elfen, Magie, Zwerge ... ein Potpourri aus Fantasy und Science Fiction. Es gibt sehr umfangreiche Regeln und es kann durchaus die Gefahr bestehen dass man sich darin verlieren kann.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'So nicht, Schurke!',
 			tags: ['[DE]', '[Kinder]', '[Kampf]', '[Erklärbär:in]', '[Ausleihe]', '[One-Shot]'],
 			url: 'https://pegasusshop.de/Sortiment/Spiele/Familienspiele/441/So-nicht-Schurke',
 			description: 'Speziell für verschiedene Altersgruppen geschrieben. Jedes Abenteuer beginnen im eigenen Kinderzimmer mit einer kleinen Reise in eine andere Welt. Trotzdem es für Kinder ist, fokussiert sich die Charaktererstellung stark aufs kämpfen.',
 		},
 		{
+			// Erklärbär:in: Oliver?
 			name: 'Space Heist Space Train',
 			tags: ['[Sci-Fi]', '[Minimale Vorbereitung]', '[Kostenlos]', '[EN]', '[One-Shot]'],
 			url: 'https://sdunnewold.itch.io/space-train-space-heist',
 			description: 'Man spielt eine kleine Banditengruppe auf Galaxie durchquerenden Zug. Ist ganz bewusst auf One-Shots zugeschnitten. Basiert auf dem offenen Forged-In-The-Dark Regelwerk.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Splittermond',
 			tags: ['[Fantasy]', '[Magie]', '[Kostenlos]', '[DE]', '[Erklärbär:in]'],
 			url: 'https://www.splittermond.de/downloads-neu/',
 			description: 'Klassisches deutsches Fantasy Rollenspiel. Die Welt ist teilweise bewusst und auch geschichtlich nachvollziehbar beschrieben, so gestaltet, dass sie offene, weisse Flecken hat.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Stage',
 			tags: ['[DE]', '[Kostenlos]', '[Minimale Vorbereitung]', '[One-Shot]', '[Kooperativ]'],
 			url: 'https://rollenhoerspiel.de/stage/',
 			description: '',
 		},
 		{
+			// Erklärbär:in: Oliver?, Thomas
 			name: 'Stars Without Numbers',
-			tags: ['[EN]', '[Sandkasten]', '[Magie]', '[Mecha]', '[Kostenlos]', '[Erklärbär:in]', '[Internet Hilfsmittel]'],
+			tags: ['[EN]', '[Sandkasten]', '[Magie]', '[Mecha]', '[Kostenlos]', '[Erklärbär:in]', '[Internet Hilfsmittel]', '[Ausleihe]'],
 			url: 'https://www.drivethrurpg.com/product/230009/Stars-Without-Number-Revised-Edition-Free-Version',
 			description: 'Als Spielleitung bekommst du umfangreiche Hilfsmittel um einen eigenen Sternensektor zu kreieren. Mit Planeten, Geschichten, Fraktionen und vielem mehr. Die Charaktererstellung ähnelt einem vereinfachten Dungeon & Dragons.',
 		},
 		{
+			// Erklärbär:in: Thomas
 			name: 'Tales from the Loop',
 			tags: ['[EN]', '[Historisch]', '[Sci-Fi]', '[Mecha]', '[DE]'],
 			url: 'https://www.ulisses-ebooks.de/product/323157/Tales-from-the-Loop--Regelwerk-PDF-als-Download-kaufen&language=de',
-			description: 'Man spielt Kinder in einem alternativen Zeitstrang der frühen 80er Jahre. Schauplatz ist Skandinavien, wo man immer auch wieder Maschinen mitten auf der Strasse antreffen kann. Regelwerk ist inspiriert von «Mutant Jahr Null».',
+			description: 'Man spielt Kinder in einem alternativen Zeitstrang der frühen 80er Jahre. Schauplatz ist Skandinavien, wo man immer auch wieder Maschinen mitten auf der Strasse antreffen kann. Regelwerk ist angelehnt an «Mutant Jahr Null».',
 		},
 		{
+			// Erklärbär:in: Thomas, Ursula?
 			name: 'Vaesen',
 			tags: ['[EN]', '[Historisch]', '[Investigation]', '[DE]', '[Horror]'],
 			url: 'https://pegasusshop.de/sortiment/rollenspiele-buecher-comics/buecher/12801/vaesen-schauriges-rollenspiel-im-mythischen-norden-grundregelwerk?c=0',
-			description: '19. Jahrhundert, irgendwo im Norden. Irgend etwas aussergewöhnliches ist passiert, dass du aufklären musst. Regelwerk ist inspiriert von «Mutant Jahr Null».',
+			description: '19. Jahrhundert, irgendwo im Norden. Irgend etwas aussergewöhnliches ist passiert, dass du aufklären musst. Regelwerk ist angelehnt an «Mutant Jahr Null».',
 		},
 		{
 			name: 'Vampire 5',
 			tags: ['[DE]', '[EN]', '[Urban]', '[Sexualität]'],
 			url: 'https://www.ulisses-ebooks.de/product/316778/V5--Vampire--Die-Maskerade-Regelwerk-PDF-als-Download-kaufen',
-			description: '',
+			description: 'Man spiel ein Vampir in unserer Zeit, der zu einer ausführlich ausgestalteten, Gruppierung dazugehört. Gewalt, Sex und Kraftausdrücke, sind zumindest im Regelwerk häufiger anzutreffen.',
 		},
 		{
 			name: 'Warhammer Fantasy Rollenspiel',
@@ -304,21 +337,24 @@ date: 2022-04-01
 			description: '',
 		},
 		{
-			name: 'La derniere Apocalypse',
+			// Erklärbär:in: Ursula?
+			name: 'La dernière Apocalypse',
 			tags: ['[FR]', '[Zombies]', '[Apocalypse]'],
-			url: 'https://unknown.com/',
+			url: 'https://www.gameontabletop.com/cf721/la-derniere-apocalypse.html',
 			description: 'Angelehnt an das White Wolf Universum & Zombie Apocalypse',
 		},
 		{
+			// Erklärbär:in: Ursula?
 			name: 'Nihil Sub Sole Novum',
 			tags: ['[FR]', '[Fantasy]'],
 			url: 'https://unknown.com/',
 			description: 'Fantasywelt, nachdem unsere untergegangen ist, Magiepunk',
 		},
 		{
+			// Erklärbär:in: Ursula?
 			name: 'La Geste du Nadir',
 			tags: ['[FR]', '[Historisch]'],
-			url: 'https://unknown.com/',
+			url: 'https://de.ulule.com/la-geste-du-nadir-le-jdr/',
 			description: '5 Jahre nach König Artus, die Ritter der Tafelrunde',
 		}
 	];
@@ -332,7 +368,7 @@ date: 2022-04-01
 	function getAllSelectedTags() {
 		const tags = [];
 		const nodeSelectedAbbrs = document.querySelectorAll('abbr.selected');
-		for (var i = 0; i < nodeSelectedAbbrs.length; i += 1) {
+		for (let i = 0; i < nodeSelectedAbbrs.length; i += 1) {
 			const nodeAbbr = nodeSelectedAbbrs[i]
 			tags.push(nodeAbbr.innerText);
 		}
@@ -347,10 +383,10 @@ date: 2022-04-01
 
 		nodeGames.innerHTML = ''; // remove all children
 
-		for (let gameIndex in GAMES) {
+		for (const gameIndex in GAMES) {
 			const game = GAMES[gameIndex];
 			let displayGame = true;
-			for (let tagIndex in tags) {
+			for (const tagIndex in tags) {
 				const tag = tags[tagIndex]
 				if (!game.tags.includes(tag)) {
 					displayGame = false;
@@ -374,11 +410,15 @@ date: 2022-04-01
 	}
 
 	function main() {
+		TAGS.sort(_ => _.tag);
+		GAMES.sort(_ => _.name);
+
 		const nodeTags = document.getElementById('tags');
-		for (let tag in TAGS) {
+		for (const tagIndex in TAGS) {
+			const tag = TAGS[tagIndex];
 			const nodeAbbr = document.createElement('abbr');
-			nodeAbbr.innerText = tag;
-			nodeAbbr.title = TAGS[tag];
+			nodeAbbr.innerText = tag.tag;
+			nodeAbbr.title = tag.description;
 			nodeAbbr.addEventListener('click', selectTag);
 			nodeTags.appendChild(nodeAbbr);
 		}
@@ -400,7 +440,7 @@ date: 2022-04-01
 
 <p>Klicke eine paar der folgenden Tags (jeweils in [] Klammern) an, welche dich ansprechen. Sobald du ein paar Tags
 	ausgewählt hast, werden nur noch Rollenspiele mit diesen Tags angezeigt. Wenn du mit der Maus über ein Tag fährst,
-	erhälst du noch zusätzliche Informationen.</p>
+	erhälst du zusätzliche Informationen.</p>
 
 <div id="tags"></div>
 <div id="games"></div>
