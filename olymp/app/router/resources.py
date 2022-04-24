@@ -71,7 +71,9 @@ def update_resource(
 ):
     """Update an existing resource."""
     now = datetime.now()
-    db_resource = crud.update_resource(database, resource_uuid, resource, now)
+    db_resource = crud.update_resource(
+        database, resource, now, resource_uuid=resource_uuid
+    )
     if db_resource is None:
         raise HTTPException(status_code=404, detail="Resource not found")
     return db_resource
@@ -81,7 +83,7 @@ def update_resource(
 def deactivate_resource(resource_uuid: UUID, database: Session = Depends(get_db)):
     """Deactivates a resource (does not delete it)."""
     now = datetime.now()
-    db_resource = crud.deactivate_resource(database, resource_uuid, now)
+    db_resource = crud.deactivate_resource(database, now, resource_uuid=resource_uuid)
     if db_resource is None:
         raise HTTPException(status_code=404, detail="Resource not found")
     return db_resource

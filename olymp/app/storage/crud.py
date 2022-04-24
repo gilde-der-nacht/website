@@ -44,7 +44,7 @@ def get_resource(database: Session, resource_uuid: UUID) -> ResourceOut | None:
 
 
 def update_resource(
-    database: Session, resource_uuid: UUID, resource: ResourceIn, now: datetime
+    database: Session, resource: ResourceIn, now: datetime, resource_uuid: UUID
 ) -> ResourceOut | None:
     """Update an existing resource"""
     database.query(Resource).filter(Resource.resource_uuid == resource_uuid).update(
@@ -61,7 +61,7 @@ def update_resource(
 
 
 def deactivate_resource(
-    database: Session, resource_uuid: UUID, now: datetime
+    database: Session, now: datetime, resource_uuid: UUID
 ) -> ResourceOut | None:
     """Deactivates a resource (does not delete it)."""
     database.query(Resource).filter(Resource.resource_uuid == resource_uuid).update(
@@ -106,7 +106,7 @@ def get_entries_by_state(
     )
 
 
-def create_entry(database: Session, resource_uuid: UUID, entry: EntryOut) -> EntryOut:
+def create_entry(database: Session, entry: EntryOut, resource_uuid: UUID) -> EntryOut:
     """Create a new entry."""
     resource: ResourceOut | None = (
         database.query(Resource)
@@ -154,10 +154,10 @@ def get_entry(
 
 def update_entry(
     database: Session,
-    resource_uuid: UUID,
-    entry_uuid: UUID,
     entry: EntryIn,
     now: datetime,
+    resource_uuid: UUID,
+    entry_uuid: UUID,
 ) -> EntryOut | None:
     """Update an existing entry."""
     resource: ResourceOut | None = (
@@ -187,7 +187,7 @@ def update_entry(
 
 
 def deactivate_entry(
-    database: Session, resource_uuid: UUID, entry_uuid: UUID, now: datetime
+    database: Session, now: datetime, resource_uuid: UUID, entry_uuid: UUID
 ) -> EntryOut | None:
     """Deactivates an entry (does not delete it)."""
     resource: ResourceOut | None = (
@@ -301,10 +301,10 @@ def get_snapshot(
 
 def update_snapshot(
     database: Session,
-    resource_uuid: UUID,
-    snapshot_uuid: UUID,
     entry: EntryIn,
     now: datetime,
+    resource_uuid: UUID,
+    snapshot_uuid: UUID,
 ) -> EntryOut | None:
     """Update an existing snapshot."""
     resource: ResourceOut | None = (

@@ -38,11 +38,13 @@ def read_entries(
     """
     if state is None:
         try:
-            return crud.get_entries(database, resource_uuid)
+            return crud.get_entries(database, resource_uuid=resource_uuid)
         except BaseException as err:
             raise HTTPException(status_code=404, detail=str(err)) from err
     try:
-        return crud.get_entries_by_state(database, resource_uuid, state=state)
+        return crud.get_entries_by_state(
+            database, resource_uuid=resource_uuid, state=state
+        )
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
 
@@ -63,7 +65,7 @@ def create_entry(
         state=State.ACTIVE,
     )
     try:
-        return crud.create_entry(database, resource_uuid, new_entry)
+        return crud.create_entry(database, new_entry, resource_uuid=resource_uuid)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
 
@@ -74,7 +76,9 @@ def read_entry(
 ):
     """Retrive one entry."""
     try:
-        db_entry = crud.get_entry(database, resource_uuid, entry_uuid)
+        db_entry = crud.get_entry(
+            database, resource_uuid=resource_uuid, entry_uuid=entry_uuid
+        )
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
     if db_entry is None:
@@ -92,7 +96,9 @@ def update_entry(
     """Update an existing entry."""
     now = datetime.now()
     try:
-        db_entry = crud.update_entry(database, resource_uuid, entry_uuid, entry, now)
+        db_entry = crud.update_entry(
+            database, entry, now, resource_uuid=resource_uuid, entry_uuid=entry_uuid
+        )
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
     if db_entry is None:
@@ -107,7 +113,9 @@ def deactivate_entry(
     """Deactivates an entry (does not delete it)."""
     now = datetime.now()
     try:
-        db_entry = crud.deactivate_entry(database, resource_uuid, entry_uuid, now)
+        db_entry = crud.deactivate_entry(
+            database, now, resource_uuid=resource_uuid, entry_uuid=entry_uuid
+        )
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
     if db_entry is None:

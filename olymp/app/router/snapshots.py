@@ -39,11 +39,13 @@ def read_snapshots(
     """
     if state is None:
         try:
-            return crud.get_snapshots(database, resource_uuid)
+            return crud.get_snapshots(database, resource_uuid=resource_uuid)
         except BaseException as err:
             raise HTTPException(status_code=404, detail=str(err)) from err
     try:
-        return crud.get_snapshots_by_state(database, resource_uuid, state=state)
+        return crud.get_snapshots_by_state(
+            database, resource_uuid=resource_uuid, state=state
+        )
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
 
@@ -67,7 +69,7 @@ def create_snapshot(
         state=State.ACTIVE,
     )
     try:
-        return crud.create_entry(database, resource_uuid, new_entry)
+        return crud.create_entry(database, new_entry, resource_uuid=resource_uuid)
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
 
@@ -82,7 +84,9 @@ def read_snapshot(
     this does only gets the latest entry with the `snapshot_uuid`.
     """
     try:
-        db_snapshot = crud.get_snapshot(database, resource_uuid, snapshot_uuid)
+        db_snapshot = crud.get_snapshot(
+            database, resource_uuid=resource_uuid, snapshot_uuid=snapshot_uuid
+        )
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
     if db_snapshot is None:
@@ -101,7 +105,11 @@ def update_snapshot(
     now = datetime.now()
     try:
         db_entry = crud.update_snapshot(
-            database, resource_uuid, snapshot_uuid, entry, now
+            database,
+            entry,
+            now,
+            resource_uuid=resource_uuid,
+            snapshot_uuid=snapshot_uuid,
         )
     except BaseException as err:
         raise HTTPException(status_code=404, detail=str(err)) from err
