@@ -346,3 +346,48 @@ def update_snapshot(
     database.commit()
     database.refresh(db_entry)
     return updated_snapshot
+
+
+def deactivate_snapshot(
+    database: Session, now: datetime, resource_uuid: UUID, snapshot_uuid: UUID
+) -> EntryOut | None:
+    """Deactivates a snapshot (creates a new snapshot with the `inactive` state)."""
+    resource: ResourceOut | None = (
+        database.query(Resource)
+        .filter(Resource.resource_uuid == resource_uuid)
+        .filter(Resource.state == State.ACTIVE)
+        .first()
+    )
+    if resource is None:
+        raise BaseException("Resource not found")
+    latest_snapshot: EntryOut | None = (
+        database.query(Entry)
+        .filter(Entry.resource == resource)
+        .filter(Entry.snapshot_uuid == snapshot_uuid)
+        .all()
+    )[-1]
+    if latest_snapshot is None:
+        raise BaseException("Snapshot not found")
+    updated_snapshot = EntryOut(
+        entry_uuid=uuid4(),
+        snapshot_uuid=latest_snapshot.snapshot_uuid,
+        public_body=latest_snapshot.public_body,
+        private_body=latest_snapshot.private_body,
+        created=latest_snapshot.created,
+        updated=now,
+        state=State.INACTIVE,
+    )
+    db_entry = Entry(
+        entry_uuid=updated_snapshot.entry_uuid,
+        snapshot_uuid=updated_snapshot.snapshot_uuid,
+        public_body=updated_snapshot.public_body,
+        private_body=updated_snapshot.private_body,
+        created=updated_snapshot.created,
+        updated=updated_snapshot.updated,
+        state=updated_snapshot.state,
+        resource=resource,
+    )
+    database.add(db_entry)
+    database.commit()
+    database.refresh(db_entry)
+    return updated_snapshot

@@ -116,3 +116,20 @@ def update_snapshot(
     if db_entry is None:
         raise HTTPException(status_code=404, detail="Snapshot not found")
     return db_entry
+
+
+@router.delete("/{snapshot_uuid}/", response_model=EntryOut)
+def deactivate_snapshot(
+    resource_uuid: UUID, snapshot_uuid: UUID, database: Session = Depends(get_db)
+):
+    """Deactivates a snapshot (creates a new snapshot with the `inactive` state)."""
+    now = datetime.now()
+    try:
+        db_entry = crud.deactivate_snapshot(
+            database, now, resource_uuid=resource_uuid, snapshot_uuid=snapshot_uuid
+        )
+    except BaseException as err:
+        raise HTTPException(status_code=404, detail=str(err)) from err
+    if db_entry is None:
+        raise HTTPException(status_code=404, detail="Snapshot not found")
+    return db_entry
