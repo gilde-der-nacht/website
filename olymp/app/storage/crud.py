@@ -22,7 +22,7 @@ def get_resources_by_state(database: Session, state: State) -> list[ResourceOut]
 def create_resource(database: Session, resource: ResourceOut) -> ResourceOut:
     """Create a new resource."""
     db_resource = Resource(
-        resource_uuid=str(resource.resource_uuid),
+        resource_uuid=resource.resource_uuid,
         name=resource.name,
         description=resource.description,
         created=resource.created,
@@ -39,9 +39,7 @@ def create_resource(database: Session, resource: ResourceOut) -> ResourceOut:
 def get_resource(database: Session, resource_uuid: UUID) -> ResourceOut | None:
     """Get an existing resource."""
     return (
-        database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
-        .first()
+        database.query(Resource).filter(Resource.resource_uuid == resource_uuid).first()
     )
 
 
@@ -49,9 +47,7 @@ def update_resource(
     database: Session, resource_uuid: UUID, resource: ResourceIn, now: datetime
 ) -> ResourceOut | None:
     """Update an existing resource"""
-    database.query(Resource).filter(
-        Resource.resource_uuid == str(resource_uuid)
-    ).update(
+    database.query(Resource).filter(Resource.resource_uuid == resource_uuid).update(
         {
             Resource.name: resource.name,
             Resource.description: resource.description,
@@ -60,9 +56,7 @@ def update_resource(
     )
     database.commit()
     return (
-        database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
-        .first()
+        database.query(Resource).filter(Resource.resource_uuid == resource_uuid).first()
     )
 
 
@@ -70,14 +64,12 @@ def deactivate_resource(
     database: Session, resource_uuid: UUID, now: datetime
 ) -> ResourceOut | None:
     """Deactivates a resource (does not delete it)."""
-    database.query(Resource).filter(
-        Resource.resource_uuid == str(resource_uuid)
-    ).update({Resource.updated: now, Resource.state: State.INACTIVE})
+    database.query(Resource).filter(Resource.resource_uuid == resource_uuid).update(
+        {Resource.updated: now, Resource.state: State.INACTIVE}
+    )
     database.commit()
     return (
-        database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
-        .first()
+        database.query(Resource).filter(Resource.resource_uuid == resource_uuid).first()
     )
 
 
@@ -85,7 +77,7 @@ def get_entries(database: Session, resource_uuid: UUID) -> list[EntryOut]:
     """Get a list of all entries of a resources, irrespective of their state."""
     resource: ResourceOut | None = (
         database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.resource_uuid == resource_uuid)
         .filter(Resource.state == State.ACTIVE)
         .first()
     )
@@ -100,7 +92,7 @@ def get_entries_by_state(
     """Get a list of all entries of a resources, filtered by state."""
     resource: ResourceOut | None = (
         database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.resource_uuid == resource_uuid)
         .filter(Resource.state == State.ACTIVE)
         .first()
     )
@@ -118,15 +110,15 @@ def create_entry(database: Session, resource_uuid: UUID, entry: EntryOut) -> Ent
     """Create a new entry."""
     resource: ResourceOut | None = (
         database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.resource_uuid == resource_uuid)
         .filter(Resource.state == State.ACTIVE)
         .first()
     )
     if resource is None:
         raise BaseException("Resource not found")
     db_entry = Entry(
-        entry_uuid=str(entry.entry_uuid),
-        snapshot_uuid=str(entry.snapshot_uuid),
+        entry_uuid=entry.entry_uuid,
+        snapshot_uuid=entry.snapshot_uuid,
         public_body=entry.public_body,
         private_body=entry.private_body,
         created=entry.created,
@@ -146,7 +138,7 @@ def get_entry(
     """Retrive one entry."""
     resource: ResourceOut | None = (
         database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.resource_uuid == resource_uuid)
         .filter(Resource.state == State.ACTIVE)
         .first()
     )
@@ -155,7 +147,7 @@ def get_entry(
     return (
         database.query(Entry)
         .filter(Entry.resource == resource)
-        .filter(Entry.entry_uuid == str(entry_uuid))
+        .filter(Entry.entry_uuid == entry_uuid)
         .first()
     )
 
@@ -170,14 +162,14 @@ def update_entry(
     """Update an existing entry."""
     resource: ResourceOut | None = (
         database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.resource_uuid == resource_uuid)
         .filter(Resource.state == State.ACTIVE)
         .first()
     )
     if resource is None:
         raise BaseException("Resource not found")
     database.query(Entry).filter(Entry.resource == resource).filter(
-        Entry.entry_uuid == str(entry_uuid)
+        Entry.entry_uuid == entry_uuid
     ).update(
         {
             Entry.public_body: entry.public_body,
@@ -189,7 +181,7 @@ def update_entry(
     return (
         database.query(Entry)
         .filter(Entry.resource == resource)
-        .filter(Entry.entry_uuid == str(entry_uuid))
+        .filter(Entry.entry_uuid == entry_uuid)
         .first()
     )
 
@@ -200,20 +192,20 @@ def deactivate_entry(
     """Deactivates an entry (does not delete it)."""
     resource: ResourceOut | None = (
         database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.resource_uuid == resource_uuid)
         .filter(Resource.state == State.ACTIVE)
         .first()
     )
     if resource is None:
         raise BaseException("Resource not found")
     database.query(Entry).filter(Entry.resource == resource).filter(
-        Entry.entry_uuid == str(entry_uuid)
+        Entry.entry_uuid == entry_uuid
     ).update({Entry.updated: now, Entry.state: State.INACTIVE})
     database.commit()
     return (
         database.query(Entry)
         .filter(Entry.resource == resource)
-        .filter(Entry.entry_uuid == str(entry_uuid))
+        .filter(Entry.entry_uuid == entry_uuid)
         .first()
     )
 
@@ -224,7 +216,7 @@ def get_snapshot(
     """Retrive latest snapshot."""
     resource: ResourceOut | None = (
         database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.resource_uuid == resource_uuid)
         .filter(Resource.state == State.ACTIVE)
         .first()
     )
@@ -233,7 +225,7 @@ def get_snapshot(
     return (
         database.query(Entry)
         .filter(Entry.resource == resource)
-        .filter(Entry.snapshot_uuid == str(snapshot_uuid))
+        .filter(Entry.snapshot_uuid == snapshot_uuid)
         .all()
     )[-1]
 
@@ -248,7 +240,7 @@ def update_snapshot(
     """Update an existing snapshot."""
     resource: ResourceOut | None = (
         database.query(Resource)
-        .filter(Resource.resource_uuid == str(resource_uuid))
+        .filter(Resource.resource_uuid == resource_uuid)
         .filter(Resource.state == State.ACTIVE)
         .first()
     )
@@ -257,7 +249,7 @@ def update_snapshot(
     latest_snapshot: EntryOut | None = (
         database.query(Entry)
         .filter(Entry.resource == resource)
-        .filter(Entry.snapshot_uuid == str(snapshot_uuid))
+        .filter(Entry.snapshot_uuid == snapshot_uuid)
         .all()
     )[-1]
     if latest_snapshot is None:
@@ -272,8 +264,8 @@ def update_snapshot(
         state=latest_snapshot.state,
     )
     db_entry = Entry(
-        entry_uuid=str(updated_snapshot.entry_uuid),
-        snapshot_uuid=str(updated_snapshot.snapshot_uuid),
+        entry_uuid=updated_snapshot.entry_uuid,
+        snapshot_uuid=updated_snapshot.snapshot_uuid,
         public_body=updated_snapshot.public_body,
         private_body=updated_snapshot.private_body,
         created=updated_snapshot.created,

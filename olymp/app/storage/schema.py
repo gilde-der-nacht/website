@@ -2,6 +2,7 @@
 import enum
 
 from app.storage.database import Base
+from app.storage.db.custom_types import UUIDv4
 from sqlalchemy import JSON, Column, DateTime, Enum, ForeignKey, String
 from sqlalchemy.orm import relationship
 
@@ -18,7 +19,7 @@ class Resource(Base):
 
     __tablename__ = "resources"
 
-    resource_uuid = Column(String, primary_key=True, index=True, nullable=False)
+    resource_uuid = Column(UUIDv4, primary_key=True, index=True, nullable=False)
     name = Column(String)
     description = Column(String)
     created = Column(DateTime)
@@ -33,10 +34,10 @@ class Entry(Base):
 
     __tablename__ = "entries"
 
-    resource_uuid = Column(String, ForeignKey("resources.resource_uuid"))
-    entry_uuid = Column(String, primary_key=True, index=True, nullable=False)
+    resource_uuid = Column(UUIDv4, ForeignKey("resources.resource_uuid"))
+    entry_uuid = Column(UUIDv4, primary_key=True, index=True, nullable=False)
     snapshot_uuid = Column(
-        String, server_default="00000000-0000-0000-0000-000000000000"
+        UUIDv4, server_default="00000000-0000-0000-0000-000000000000"
     )
     private_body = Column(JSON)
     public_body = Column(JSON)
