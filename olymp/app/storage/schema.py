@@ -2,9 +2,26 @@
 import enum
 
 from app.storage.database import Base
-from app.storage.db.custom_types import UUIDv4
-from sqlalchemy import JSON, Column, DateTime, Enum, ForeignKey, String
+from sqlalchemy import JSON, Column, DateTime, Enum, ForeignKey, String, TypeDecorator
 from sqlalchemy.orm import relationship
+
+
+class UUIDv4(TypeDecorator):
+    """Uses STRING."""
+
+    impl = String
+    cache_ok = True
+
+    def load_dialect_impl(self, dialect):
+        return dialect.type_descriptor(String)
+
+    def process_bind_param(self, value, _dialect):
+        if value is None:
+            return value
+        return str(value)
+
+    def process_result_value(self, value, _dialect):
+        return value
 
 
 class State(str, enum.Enum):
