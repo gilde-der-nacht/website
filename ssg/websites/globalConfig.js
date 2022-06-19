@@ -15,6 +15,7 @@ const {
   NewsletterForm,
   ContactForm,
   Box,
+  BoxGrid,
   ButtonLink,
   Slider
 } = require("../themes/crimson/shortcodes/shortcodes");
@@ -46,6 +47,7 @@ async function setupConfig(config, siteName, themeDir) {
 
   config.addPairedShortcode("Form", FormShortcode);
   config.addPairedShortcode("Box", Box);
+  config.addPairedShortcode("BoxGrid", BoxGrid);
   config.addPairedShortcode("CheckboxList", CheckboxList);
   config.addPairedShortcode("RadioList", RadioList);
   config.addPairedShortcode("Slider", Slider);

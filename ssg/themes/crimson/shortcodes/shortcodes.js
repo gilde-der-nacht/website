@@ -3,7 +3,8 @@ const { Form, FormShortcode, Input, HiddenInput, Textarea, CheckboxList, Checkbo
 const { NewsletterForm } = require("./_newsletter");
 const { ContactForm } = require("./_contact");
 const { Box } = require("./_box.js");
+const { BoxGrid } = require("./_box-grid.js");
 const { ButtonLink } = require("./_button-link");
 const { Slider } = require("./_slider");
 
-module.exports = { Form, FormShortcode, Input, HiddenInput, Textarea, EventList, EventFilters, NewsletterForm, ContactForm, Box, ButtonLink, CheckboxList, Checkbox, RadioList, Radio, Slider };
+module.exports = { Form, FormShortcode, Input, HiddenInput, Textarea, EventList, EventFilters, NewsletterForm, ContactForm, Box, ButtonLink, CheckboxList, Checkbox, RadioList, Radio, Slider, BoxGrid };

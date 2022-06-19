@@ -104,6 +104,16 @@ button {
   }
 }
 
+.button-gray {
+  border-color: c.getGray("background-solid");
+
+  &:hover,
+  &:active {
+    background-color: c.getGray("background-subtle");
+    border-color: c.getGray("text-low-contrast");
+  }
+}
+
 .button-small {
   font-size: 0.83rem;
   padding: 0.25rem 0.5rem;

@@ -7,94 +7,78 @@ eleventyNavigation:
   order: 1
 ---
 
-# Bedingungen
+{% Box type="success", link="/en", linkLabel="take me to the English summary" %}
+Looking for a short and sweet overview in English?
+{% endBox %}
 
-- Sprache?
-- Für Kinder: ☆☆☆☆☆/★★★★★ (was heisst das genau)
-- Preise jeweils aufgerundet
-- Ausleihen? Freakatorium? Game Place? Gilde der Nacht?
-- Altersgruppe angeben
+# Herzlich willkommen
 
-# Kinder & Deutsch
+Am **27. und 28. August 2022** werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
 
-Deutsche Rollenspiele die von den Autoren explizit an Kinder gerichtet sind.
+{% Slider %}
 
-## So nicht, Schurke / No Thank You, Evil
+![2021, Luzerner Rollenspieltage](./images/2021-rollenspieltage-01.jpg)
+![2021, Luzerner Rollenspieltage](./images/2021-rollenspieltage-02.jpg)
+![2019, Luzerner Rollenspieltage](./images/2019-rollenspieltage-04.jpg)
+![2019, Luzerner Rollenspieltage](./images/2019-rollenspieltage-03.jpg)
+![2019, Luzerner Rollenspieltage](./images/2019-rollenspieltage-01.jpg)
+![2018, Luzerner Rollenspieltage](./images/2018-rollenspieltage-04.jpg)
 
-- Basis Box: 30€
-- Monster Box: ?€
-- Erzähler Box: ?€
-- Seitenzahl: 108 (Regelbuch) & 48 (Abenteuer)
-- Genre: Fantasy / High-Magic
+{% endSlider %}
 
-[pegasusshop.de](https://pegasusshop.de/Sortiment/Spiele/Familienspiele/441/So-nicht-Schurke)
+## Im Detail
 
-> Thomas: Hat 3 Komplexitätststufen für unterschiedliche Altersgruppen. [Sich einander](/) helfen ist eine der 4 Eigenschaften die jeder Charakter hat. Der Spielleiter muss nie würfeln. Für mein Geschmack schon etwas zuviel Fokus auf Kampfsituationen (z.B. jeder Charakter hat Lebenspunkte, Nahkampfwaffen/Fernkampfwaffe). Schade: Zu wenig Marker damit es nur schon für 3 Spieler:innen reichen würde. Material ist generell schlecht angeschrieben.
+{% BoxGrid %}
 
-## Äventyr
+{% Box type="success", link="/neueinsteiger", linkLabel="für Neueinsteiger" %}
+Hast du bisher **noch keine oder wenig Erfahrung** mit Rollenspielen sammeln dürfen, dann haben wir für dich eine Seite zusammengestellt.
+{% endBox %}
 
-- Buch: ???
-- Seitenzahl: ???
-- Genre: Fantasy
+{% Box type="special", link="/familien", linkLabel="für Familien" %}
+Seid ihr eine **Familie mit Kindern**, dann lest bitte hier weiter.
+{% endBox %}
 
-[ulisses-spiele.de](https://ulisses-spiele.de/spielsysteme/aeventyr/)
+{% Box type="gray", link="/spielleiterinnen", linkLabel="für Spielleiter" %}
+Du möchtest gerne eine oder mehrere Spielrunden **leiten**, dann bist du hier an der richtigen Stelle.
+{% endBox %}
 
-> Thomas: Ein Teil der Karte ist eher für Kinder jünger als 9, ein anderer Teil eher für Kinder älter als 9, ausgelegt. Regeln sind komplizierter als sie sein müssten. Unnötiges Rechnen z.B. Initiative = Körper + Aufmerksamkeit. Klassische Attribute und Fertigkeiten, etwas was selbst Rollenspiele explizit für Erwachsene oft nicht mehr haben. Es fühlt sich teilweise wie 20 Jahre altes Spieldesign an.
+{% Box type="danger", link="/veteranen", linkLabel="für Veteranen" %}
+Du hast schon so einiges erlebt, möchtest gerne was Neues ausprobieren und deinen Horizont erweitern?
+{% endBox %}
 
-## My Little Pony - Tales of Equestria
+{% endBoxGrid %}
 
-- Regelwerk Buch: 35€ (PDF 12€)
-    - Starterset: 25€
-    - Seitenzahl: 152
-- Genre: Fantasy
+## Die wichtigsten Informationen auf einen Blick
 
-[ulisses-spiele.de](https://ulisses-spiele.de/spielsysteme/toe/)
+### Öffnungszeiten
 
-Die folgenden Links wurden vom Organisationskomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine [Nachricht](/kontakt), mit deinem Vorschlag.
+Samstag, 27. August 2022, 10 bis 22 Uhr.\
+Sonntag, 28. August 2022, 10 bis 18 Uhr.
 
-Lieben Dank
+## Eintritt & Anmeldung
 
-_Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wiki/Affiliate-Marketing). Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet ($)._
+{% Box type="success", link="/newsletter", linkLabel="zum Newsletter" %}
+Die Anmeldung wird demnächst aufgeschalten. Möchtest du nichts verpassen, abonniere doch unseren Mail-Newsletter.
+{% endBox %}
 
-![bild-01](https://images.unsplash.com/photo-1642687171209-a5c4518b2f3e)
+Der Eintritt ist kostenfrei.
 
-![bild-02](https://images.unsplash.com/photo-1642621358837-3b1198ac46b8)
+Das Programm wird aufgrund der Anmeldungen zusammengestellt.
 
-# Geschichten
+Für spontane Spieler:innen werden wir einige freie Plätze zur Verfügung haben. Weisst du aber bereits im Vorfeld, dass du teilnehmen wirst, können wir das Programm besser auf deine Wünsche eingehen, wenn du dich anmeldest.
 
-[Story Generator (tvtropes.org)](https://tvtropes.org/pmwiki/storygen.php)
+## Anreise
 
-Die Internetseite [tvtropes.org](https://tvtropes.org) selber ist eine Fundgrube mit einer Unzahl an Ideen. Tausende von Bücher, Filmen, Videospielen, Comics, ... werden nach Gemeinsamkeiten (unter anderem den nammensstifftenden [Tropen](https://de.wikipedia.org/wiki/Tropus_(Rhetorik))) analysiert.
+Die Adresse lautet: [Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403)
 
-[Plot Generator (plot-generator.org.uk)](https://www.plot-generator.org.uk)
+Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per **Bus 8** (Aussteigen an der _Würzenbachmatte_ Haltestelle) oder **Bus 14** (Aussteigen an der _Schlösslirain_ Haltestelle).
 
-Man sieht aus welchen Blöcken eine Story zusammengesetzt ist. Selbst wenn daher eine einzelne Story eher uninteressant ist, so kann man sich zumindest über einen möglichen Au
+Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zur Migros an der Adresse [Würzenbachstrasse 19, Luzern](https://www.google.com/maps/place/Migros+Supermarkt/@47.0548083,8.3433408,18.5z/data=!4m5!3m4!1s0x478ffb4e3b438fcf:0x44bae0889972cca5!8m2!3d47.0550141!4d8.3437071).
 
-![bild-02](https://images.unsplash.com/photo-1642621358837-3b1198ac46b8)
+## Verpflegung
 
-# Weltenbau mit Rollenspielen
+Ein Kiosk steht während den Öffnungszeiten zur Verfügung und am Mittag und am Abend kochen wir etwas Leckeres für euch.
 
-| Spiel | Thematik | Weltenbau | Link |
-| ---: | :---: | --- | --- |
-| Microscope | Geschichte | ☆☆☆ | [lamemage.com](https://www.lamemage.com/microscope/) |
-| Kingdom | Königreich | ☆☆☆ | [lamemage.com](https://www.lamemage.com/kingdom/) |
-| Union | Familie | ☆☆☆ | [lamemage.com](https://www.lamemage.com/union/) |
-| Street Magic | Stadt, Charaktere | ☆☆☆ | [itch.io](https://seaexcursion.itch.io/street-magic) |
-| Dialect | Sprache | ☆☆☆ | [thornygames.com](https://thornygames.com/pages/dialect) |
-| Sign | Sprache | ☆☆☆ | [thornygames.com](https://thornygames.com/pages/sign) |
-| Ex Umbra | Dungeon | ☆☆☆ | [itch.io](https://sharkbombs.itch.io/ex-umbra) |
-| Ex Novo | Stadt | ☆☆☆ | [itch.io](https://sharkbombs.itch.io/ex-novo) |
-| Questlandia | Karte, Charaktere | ☆☆ | [itch.io](https://turtlebun.itch.io/questlandia) |
-| technoir | Story | ☆☆ | [drivethrurpg.com](https://www.drivethrurpg.com/product/93378/Technoir) |
-| Stars Without Number | Galaxy, Fraktionen | ☆☆ | [drivethrurpg.com](https://www.drivethrurpg.com/product/230009/Stars-Without-Number-Revised-Edition-Free-Version) |
-| Worlds Without Number | Geographie, Nation | ☆☆ | [drivethrurpg.com](https://www.drivethrurpg.com/product/348809/Worlds-Without-Number-Free-Edition) |
-| The Quiet Year | Karte | ☆☆ | [buriedwithoutceremony.com](https://buriedwithoutceremony.com/the-quiet-year) |
-| Beak Feather Bone | Karte | ☆☆ | [kickstarter.com](https://www.kickstarter.com/projects/1013756372/beak-feather-and-bone-a-map-labeling-rpg) |
-| Beyond the Wall | Dorf | ☆ | [system-matters.de](https://www.system-matters.de/spiele/beyond-the-wall/) |
-| Apocalypse World 2 | Welt | ☆ | [kickstarter.com](https://www.kickstarter.com/projects/lumpleygames/apocalypse-world-2nd-edition?lang=de) |
+## Rahmenprogramm
 
-☆☆☆: Die Mehrheit der Kapitel beschäftigt sich mit Weltenbau. Hat vereinzelt Rollenspielelemente.
-
-☆☆: Einzelne Kapitel beschäftigen sich mit Weltenbau. Ist aber im wesentlichen immer noch ein klassisches Rollenspiel.
-
-☆: Weltenbau passiert vereinzelt. Hauptsächlich ein Rollenspiel.
+Neben den Rollenspielrunden wird es auch die Möglichkeit geben, **Brettspiele** zu spielen und Spiele und Spielzubehör auf dem **Flohmarkt** zu kaufen und zu verkaufen.
