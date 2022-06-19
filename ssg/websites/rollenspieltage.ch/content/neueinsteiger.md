@@ -1,6 +1,11 @@
 ---
 layout: default
 title: Für Neueinsteiger
+eleventyNavigation:
+  parent: main
+  key: new
+  title: für Neueinsteiger
+  order: 2
 ---
 
 # Für Neueinsteiger

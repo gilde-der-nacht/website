@@ -1,6 +1,11 @@
 ---
 layout: default
 title: Für Veteranen
+eleventyNavigation:
+  parent: main
+  key: veterans
+  title: für Veteranen
+  order: 4
 ---
 
 # Für Veteranen

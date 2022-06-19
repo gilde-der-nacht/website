@@ -1,6 +1,11 @@
 ---
 layout: default
 title: Für Spielleiter:innen
+eleventyNavigation:
+  parent: main
+  key: gamemaster
+  title: für Spielleiter:innen
+  order: 3
 ---
 
 # Für Spielleiter:innen

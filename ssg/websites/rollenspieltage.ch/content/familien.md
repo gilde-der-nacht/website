@@ -1,6 +1,11 @@
 ---
 layout: default
 title: Für Familien
+eleventyNavigation:
+  parent: main
+  key: family
+  title: für Familien
+  order: 3
 ---
 
 # Für Familien
