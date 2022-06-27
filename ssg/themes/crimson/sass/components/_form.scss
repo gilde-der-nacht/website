@@ -169,7 +169,7 @@ button {
       inline-size: 1rem;
       block-size: 1rem;
       background: c.get("background");
-      box-shadow: 0 0 0 var(--highlight-size) c.get("accent");
+      box-shadow: 0 0 0 var(--highlight-size) c.get("background");
       border-radius: 0.25rem;
       border-top-left-radius: 0.125rem;
       border-top-right-radius: 0.125rem;
