@@ -73,45 +73,49 @@ button {
 
 .button-success {
   border-color: c.getSuccess("background-solid");
-  color: c.getSuccess("background-solid");
+  color: c.getSuccess("text-low-contrast");
 
   &:hover,
   &:active {
     background-color: c.getSuccess("background-subtle");
-    color: c.getSuccess("text-low-contrast");
     border-color: c.getSuccess("text-low-contrast");
+    color: c.getSuccess("text-high-contrast");
   }
 }
 
 .button-danger {
   border-color: c.getDanger("background-solid");
-  color: c.getDanger("background-solid");
+  color: c.getDanger("text-low-contrast");
 
   &:hover,
   &:active {
     background-color: c.getDanger("background-subtle");
-    color: c.getDanger("text-low-contrast");
     border-color: c.getDanger("text-low-contrast");
+    color: c.getDanger("text-high-contrast");
   }
 }
 
 .button-special {
   border-color: c.getSpecial("background-solid");
+  color: c.getSpecial("text-low-contrast");
 
   &:hover,
   &:active {
     background-color: c.getSpecial("background-subtle");
     border-color: c.getSpecial("text-low-contrast");
+    color: c.getSpecial("text-high-contrast");
   }
 }
 
 .button-gray {
   border-color: c.getGray("background-solid");
+  color: c.getGray("text-low-contrast");
 
   &:hover,
   &:active {
     background-color: c.getGray("background-subtle");
     border-color: c.getGray("text-low-contrast");
+    color: c.getGray("text-high-contrast");
   }
 }
 
