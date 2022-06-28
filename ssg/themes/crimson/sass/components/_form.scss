@@ -57,6 +57,7 @@ button {
 .button {
   @include p.button;
   padding: 0.5rem 1rem;
+  @include f.font-weight(700);
 }
 
 .button-accent {
