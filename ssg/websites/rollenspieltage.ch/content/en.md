@@ -9,7 +9,7 @@ Looking for the German version?
 
 # Welcome
 
-Am **27. und 28. August 2022** werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
+On **27 and 28 August 2022,** there will be a variety of role-playing rounds - for all those who would like to get a taste of the world of role-playing games, but also for experienced players who would like to try out something new.
 
 ## Program
 
