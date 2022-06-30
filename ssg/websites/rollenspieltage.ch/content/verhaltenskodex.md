@@ -25,7 +25,7 @@ Wir tolerieren keinerlei Verhalten, das als Belästigung oder Übergriff wahrgen
 ## Grenzen sind individuell
 
 Bedeutet eine Aktion für die einen Freude, kann sie bei anderen Angst und Beklemmung auslösen. Nicht alle Spielenden müssen zu allem bereit sein. Will jemand beispielsweise nicht, dass der eigene Charakter gefesselt wird, gilt es dies zu respektieren. Die persönlichen Grenzen sind ernst zu nehmen und stehen nicht zur Debatte.
- 
+
 Die Spielleitenden erklären vor Spielbeginn das Setting und geben Einblick in die Themen, die vorkommen. Dies gibt den Mitspielenden die Möglichkeit, vorab zu entscheiden, ob sie sich in dieser Umgebung wohlfühlen oder nicht. Erfahrene Spielende lassen unerfahrenen Spielenden genügend Raum und Zeit für die Entscheidung. Auch sie können neben der spielleitenden Person ihre Erfahrungen weitergeben und so unterstützend wirken, wenn sie das möchten.
  
 ## Codewörter
@@ -35,7 +35,7 @@ Mit dem Codewort "Stop" wird die laufende Szene sofort abgebrochen. Alle Spielle
 ## Das Wohlbefinden steht über dem Spiel
 
 Jede Szene darf jederzeit von allen Beteiligten abgebrochen werden. Bricht eine Person eine Szene ab, akzeptieren das alle Teilnehmenden, ohne die betreffende Person dafür anzugreifen.
- 
+
 Auch wenn es nicht möglich ist, die Gedanken des Gegenübers zu lesen, bitten wir euch, aufeinander zu achten. Es gibt Menschen, die in stressigen und unangenehmen Situationen erstarren. Sie können in solchen Momenten ihr Unbehagen nicht deutlich ausdrücken und sind nicht in der Lage, eine laufende Szene mit einem "Halt" abzubrechen. Daher wird es von allen vorbehaltlos akzeptiert, wenn eine Person ohne weitere Erklärung den Spieltisch verlässt oder sich erst zeitversetzt äussert.
 
 ## Vertrauensperson
@@ -46,5 +46,4 @@ Die Personen mit den roten T-Shirts stehen allen Beteiligten (Spielleitenden und
 
 Spielleitende und Spielende sind offen für Feedback. Es kann sofort oder zu einem späteren Zeitpunkt gegeben werden. Jedoch immer konstruktiv und auf sachlicher Ebene. Eine solche Rückmeldung ist wertvoll, da Missverständnisse unmittelbar oder in Zukunft entschärft oder gar vermieden werden können. Zudem wird unangemessenes Verhalten entdeckt und die betroffene Person hat die Möglichkeit, es anzupassen.
 
-Dieser Verhaltenskodex gilt für alle Teilnehmenden der Luzerner Rollenspieltage. 
-
+Dieser Verhaltenskodex gilt für alle Teilnehmenden der Luzerner Rollenspieltage.
