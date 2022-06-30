@@ -20,8 +20,8 @@ jobs:
             siteCode: gdn
           - site: spieltage
             siteCode: lst
-          # - site: rollenspieltage
-          #   siteCode: rst
+          - site: rollenspieltage
+            siteCode: rst
           - site: tabletoptage
             siteCode: ttt
 
