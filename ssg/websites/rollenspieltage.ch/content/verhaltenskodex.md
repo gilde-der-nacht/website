@@ -17,7 +17,7 @@ Während eines Rollenspiels tauchen wir in fremde Welten ein, schlüpfen in eine
 
 Damit sich alle an den Luzerner Rollenspieltagen wohlfühlen, gilt unser Verhaltenskodex für alle Teilnehmenden. Belästigungen oder übergriffiges Verhalten tolerieren in keinem Fall. Wir pflegen einen konstruktiven und sachlichen Umgangston und respektieren die Grenzen des anderen. Wir akzeptieren vorbehaltlos, wenn eine Szene – auch ohne Erklärung – abgebrochen wird. Wir vom Organisationsteam stehen allen Spielenden und Spielleitenden als Vertrauenspersonen zur Verfügung.
 {% endBox %}
- 
+
 ## Grundsätzliches
 
 Wir tolerieren keinerlei Verhalten, das als Belästigung oder Übergriff wahrgenommen wird, insbesondere aber nicht ausschliesslich: Sexismus, Rassismus, Antisemitismus, Homo- oder Transphobie sowie Diskriminierung aufgrund von Behinderung, Alter, Aussehen, Herkunft oder Religion.
@@ -32,7 +32,8 @@ Die Spielleitenden erklären vor Spielbeginn das Setting und geben Einblick in d
 
 Mit dem Codewort "Stop" wird die laufende Szene sofort abgebrochen. Alle Spielleitenden weisen ihre Spielenden vor der Runde nochmals auf diese Möglichkeit hin. 
 
-Das Wohlbefinden steht über dem Spiel
+## Das Wohlbefinden steht über dem Spiel
+
 Jede Szene darf jederzeit von allen Beteiligten abgebrochen werden. Bricht eine Person eine Szene ab, akzeptieren das alle Teilnehmenden, ohne die betreffende Person dafür anzugreifen.
  
 Auch wenn es nicht möglich ist, die Gedanken des Gegenübers zu lesen, bitten wir euch, aufeinander zu achten. Es gibt Menschen, die in stressigen und unangenehmen Situationen erstarren. Sie können in solchen Momenten ihr Unbehagen nicht deutlich ausdrücken und sind nicht in der Lage, eine laufende Szene mit einem "Halt" abzubrechen. Daher wird es von allen vorbehaltlos akzeptiert, wenn eine Person ohne weitere Erklärung den Spieltisch verlässt oder sich erst zeitversetzt äussert.
