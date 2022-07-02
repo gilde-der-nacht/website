@@ -156,36 +156,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3296820874152000\"",
-   "id": "2lhudtasp5sdkhqjcbobd4qcpq",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MmxodWR0YXNwNXNka2hxamNib2JkNHFjcHEgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-03-27T12:35:11.000Z",
-   "updated": "2022-03-27T19:47:17.076Z",
-   "summary": "Rollenspiel-Stammtisch",
-   "description": "Diesen Monat spielen wir ein vereinfachtes «Dungeons &amp; Dragons» Abenteuer. Die Runde dauert etwa eine Stunde.\u003cbr\u003e\u003cbr\u003e_Keine Dungeons &amp; Dragons Vorkenntnisse notwendig. Ideal, wenn du noch gar nie ein Rollenspiel gespielt hast._\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e---\u003cbr\u003e \u003cbr\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003cbr\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003cbr\u003e[theme]success[/theme]\u003cbr\u003e[icon]fa-comment-dots[/icon] \u003cbr\u003e[links]Stammtisch{\u003ca href=\"https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch/}[/links]\u003c/a\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-07-01T19:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-07-01T22:00:00+02:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "2lhudtasp5sdkhqjcbobd4qcpq@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3312828570118000\"",
    "id": "3r0sjjgf67s52l6ajsccesdjhl",
    "status": "confirmed",
