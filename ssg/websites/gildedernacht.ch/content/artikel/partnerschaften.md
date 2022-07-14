@@ -153,6 +153,13 @@ date: 2021-10-07
 * **Kontakt:** Ursula Staudinger
 * **Tags:** _Kostüme, LARP, Accessoirs, Shop_
 
+## Spielpraxis
+
+* **Webseite:** https://www.spielpraxis.ch/
+* **Ort:** Bern
+* **Kontakt:** Michelle Schulz & Matthieu Chanton
+* **Tags:** _Spieldesigner, Events_
+
 ## Bibliotheken und Ludothek
 
 ???
