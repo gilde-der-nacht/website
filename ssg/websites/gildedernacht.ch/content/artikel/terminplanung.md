@@ -110,17 +110,17 @@ date: 2021-09-22
 
 ### August
 
-Datum | Bemerkungen
---- | ---
-19. - 21. | Sommerferien LU ZH
-26. - 28. |
+| Datum | Bemerkungen
+| --- | ---
+| 19. - 21. | Sommerferien LU ZH
+| 26. - 28. |
 
 ### September
 
-Datum | Bemerkungen
---- | ---
-2. - 4. |
-9. - 11. | Spielnacht Basel
-16. - 18. |
-23. - 25. |
-30. - 2. | Herbstferien LU
+| Datum | Bemerkungen
+| --- | ---
+| 2. - 4. |
+| 9. - 11. | Spielnacht Basel
+| 16. - 18. |
+| 23. - 25. |
+| 30. - 2. | Herbstferien LU
