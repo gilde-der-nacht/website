@@ -15,6 +15,7 @@ date: 2021-08-13
 - Wer schreibt das Protokoll
 - Chef/Ansprechsperson (nur eine!) pro Thema festlegen
 - Von Beginn an festlegen was gemacht wird wenn eine Ansprechsperson Ihren Aufgaben nicht nachkommt
+- Event-Telefonnummer? (Gibt anscheinend Apps für das)
 
 ### Offene Punkte
 
