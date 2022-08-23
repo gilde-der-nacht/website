@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32g8pu4iq62fi0g\"",
+ "etag": "\"p33cb3fceqndfi0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-07-19T09:25:56.628Z",
+ "updated": "2022-08-22T14:32:38.519Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CKCM-JLRhPkCEAAYASD72fjeAQ==",
+ "nextSyncToken": "CNixvY7V2vkCEAAYASCukIPfAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -330,6 +330,35 @@
    },
    "transparency": "transparent",
    "iCalUID": "6ia75bm9i8fh44cepoke00vbmj@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3322357517038000\"",
+   "id": "0daghmj474c7d4opd8a86bc70v",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MGRhZ2htajQ3NGM3ZDRvcGQ4YTg2YmM3MHYgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-08-22T14:32:38.000Z",
+   "updated": "2022-08-22T14:32:38.519Z",
+   "summary": "Luzerner Rollenspieltage 2023",
+   "description": "\u003cu\u003e\u003c/u\u003e---\u003cbr\u003e \u003cbr\u003e[tags]Rollenspiele, Weekend[/tags] \u003cbr\u003e[location]St. Johannes, Luzern[/location]\u003cbr\u003e[theme]special[/theme]\u003cbr\u003e[links]Luzerner Rollenspieltage{ \u003ca href=\"https://www.google.com/url?q=https://rollenspieltage.ch&amp;sa=D&amp;source=calendar&amp;usd=2&amp;usg=AOvVaw05pcFSS47bQfsAtpYRoNwy\" target=\"_blank\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e\u003ca href=\"https://www.google.com/url?q=https://gamedive.ch/%257D%255B/links%255D&amp;sa=D&amp;source=calendar&amp;usd=2&amp;usg=AOvVaw09KGQWVNU7V5psXZmPpklY\" target=\"_blank\"\u003e}[/links]\u003c/a\u003e  \u003cbr\u003e[icon]fa-stars[/icon]\u003cu\u003e\u003c/u\u003e",
+   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "date": "2023-08-26"
+   },
+   "end": {
+    "date": "2023-08-28"
+   },
+   "transparency": "transparent",
+   "iCalUID": "0daghmj474c7d4opd8a86bc70v@google.com",
    "sequence": 0,
    "eventType": "default"
   }
