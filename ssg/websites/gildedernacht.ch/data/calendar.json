@@ -11,35 +11,6 @@
  "items": [
   {
    "kind": "calendar#event",
-   "etag": "\"3286302058484000\"",
-   "id": "0k44iakcha9s7abip0tvrthsve",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MGs0NGlha2NoYTlzN2FiaXAwdHZydGhzdmUgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2021-10-05T08:45:39.000Z",
-   "updated": "2022-01-25T22:50:29.242Z",
-   "summary": "Luzerner Rollenspieltage 2022",
-   "description": "\u003chtml-blob\u003e---\u003cbr\u003e \u003cbr\u003e[tags]Rollenspiele, Weekend[/tags] \u003cbr\u003e[location]St. Johannes, Luzern[/location]\u003cbr\u003e[theme]special[/theme]\u003cbr\u003e[links]Luzerner Rollenspieltage{ \u003ca href=\"https://rollenspieltage.ch\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\"\u003e}[/links]\u003c/a\u003e  \u003cbr\u003e[icon]fa-stars[/icon]\u003c/html-blob\u003e",
-   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-08-27"
-   },
-   "end": {
-    "date": "2022-08-29"
-   },
-   "transparency": "transparent",
-   "iCalUID": "0k44iakcha9s7abip0tvrthsve@google.com",
-   "sequence": 2,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3292863795426000\"",
    "id": "6qcn9c0u2cc0jps3ils2dgd912",
    "status": "confirmed",
