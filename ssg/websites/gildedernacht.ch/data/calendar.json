@@ -11,35 +11,6 @@
  "items": [
   {
    "kind": "calendar#event",
-   "etag": "\"3292863795426000\"",
-   "id": "6qcn9c0u2cc0jps3ils2dgd912",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NnFjbjljMHUyY2MwanBzM2lsczJkZ2Q5MTIgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-03-04T22:11:37.000Z",
-   "updated": "2022-03-04T22:11:37.713Z",
-   "summary": "Zuger Spielnacht",
-   "description": "\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eFamiliennachmittag und Spielnacht für Erwachsene\u003c/span\u003e\u003c/span\u003e \u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e---\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e[tags]Brettspiele[/tags] [location]Burgbachsaal, Zug[/location][theme]gray[/theme][links]Zuger Spielnacht{https://www.zugerspielnacht.ch/\u003ca href=\"https://www.mfk.ch/%7D%5B/links%5D\" id=\"ow502\" __is_owner=\"true\"\u003e}[/links]\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e",
-   "location": "Burgbach-Saal, Dorfstrasse 12, 6300 Zug, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-09-24"
-   },
-   "end": {
-    "date": "2022-09-25"
-   },
-   "transparency": "transparent",
-   "iCalUID": "6qcn9c0u2cc0jps3ils2dgd912@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3293048696040000\"",
    "id": "1o6ui04hsetjm0dc1gd7gepa4u",
    "status": "confirmed",
