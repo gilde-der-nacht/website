@@ -1,5 +1,10 @@
 # Website
 
+[![Fetch Events](https://github.com/gilde-der-nacht/website/actions/workflows/fetch-events.yml/badge.svg)](https://github.com/gilde-der-nacht/website/actions/workflows/fetch-events.yml)
+[![Test Pages](https://github.com/gilde-der-nacht/website/actions/workflows/eleventy-test-pages.yml/badge.svg)](https://github.com/gilde-der-nacht/website/actions/workflows/eleventy-test-pages.yml)
+[![Live Pages](https://github.com/gilde-der-nacht/website/actions/workflows/eleventy-live-pages.yml/badge.svg)](https://github.com/gilde-der-nacht/website/actions/workflows/eleventy-live-pages.yml)
+[![Deploy Olymp](https://github.com/gilde-der-nacht/website/actions/workflows/deploy-olymp.yml/badge.svg)](https://github.com/gilde-der-nacht/website/actions/workflows/deploy-olymp.yml)
+
 This repository contains all **web pages** which are maintained by the _Gilde der Nacht_.
 
 - [gildedernacht.ch](https://gildedernacht.ch)
