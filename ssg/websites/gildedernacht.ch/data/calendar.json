@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32cd7kesp6ofk0g\"",
+ "etag": "\"p328fpadhu3jfk0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2022-09-25T18:30:38.703Z",
+ "updated": "2022-10-17T08:47:22.730Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CJjT0dzJsPoCEAAYASDFzvrkAQ==",
+ "nextSyncToken": "CJD8qbHw5voCEAAYASDFzvrkAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -242,6 +242,36 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "2mss6mrpbhstq7hqks826m3q0d@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3331992885460000\"",
+   "id": "70qc0lrga3j085s81j0bk4kilr",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NzBxYzBscmdhM2owODVzODFqMGJrNGtpbHIgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-10-17T08:47:22.000Z",
+   "updated": "2022-10-17T08:47:22.730Z",
+   "summary": "GameDive - Die SpieleNacht",
+   "description": "\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eEine Spielnacht im Neubad Pool mit Brettspielen, KLASK-Turnier, Flipperkasten, Rollenspielen, \u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eMario Kart Turnier\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e und VR. Gemeinsam mit Mannsgöggeli und anderen Partnern.\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e--- \u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[tags]Brettspiele, Rollenspiele[/tags] \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e[location]Neubad, Luzern[/location]\u003cbr\u003e[theme]gray[/theme]\u003cbr\u003e[links]GameDive{\u003ca href=\"https://www.mfk.ch/%7D%5B/links%5D\" id=\"ow551\" __is_owner=\"true\"\u003ehttps://gamedive.ch/}[/links]\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e",
+   "location": "Neubad, Bireggstrasse 36, 6003 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-02-03T19:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-02-04T07:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "70qc0lrga3j085s81j0bk4kilr@google.com",
    "sequence": 0,
    "eventType": "default"
   }
