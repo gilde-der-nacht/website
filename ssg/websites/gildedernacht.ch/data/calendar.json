@@ -11,34 +11,6 @@
  "items": [
   {
    "kind": "calendar#event",
-   "etag": "\"3293048696040000\"",
-   "id": "1o6ui04hsetjm0dc1gd7gepa4u",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MW82dWkwNGhzZXRqbTBkYzFnZDdnZXBhNHUgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-01-03T13:40:45.000Z",
-   "updated": "2022-03-05T23:52:28.020Z",
-   "summary": "Spielwochenende im Museum",
-   "description": "\u003chtml-blob\u003eVerteilt im ganzen Museum erwartet dich eine breite Auswahl an Gesellschaftsspielen. Nimm zusammen mit Familie und Freunden Platz, lass dir ein Spiel erklären und los geht's!\u003cbr\u003e&nbsp;\u003cbr\u003e&nbsp;---\u003cbr\u003e&nbsp;\u003cbr\u003e[tags]Brettspiele[/tags] \u003cbr\u003e[location]Museum für Kommunikation, Bern[/location]\u003cbr\u003e[theme]gray[/theme]\u003cbr\u003e[links]Museum für Kommunikation{\u003ca href=\"https://www.mfk.ch/%7D%5B/links%5D\"\u003ehttps://www.mfk.ch/}[/links]\u003c/a\u003e\u003c/html-blob\u003e",
-   "location": "Museum für Kommunikation, Helvetiastrasse 16, 3000 Bern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "date": "2022-10-22"
-   },
-   "end": {
-    "date": "2022-10-24"
-   },
-   "iCalUID": "1o6ui04hsetjm0dc1gd7gepa4u@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3293830145394000\"",
    "id": "3j1utqr8t79k3noluf8bbsf431",
    "status": "confirmed",
