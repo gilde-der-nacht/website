@@ -5,7 +5,7 @@ title: Arkham Night 2022
 
 # Arkham Night 2022
 
-> Der Fokus der Arkham Nights 2022 liegt auf **Arkham Horror: Das Kartenspiel**. Probiert Mehrspieler-Szenarien wie **Der Blob, der alles frass** aus oder erlebt zusammen die ersten Abenteuer aus der bald erscheinenden Kampagne **Die scharlachroten Schlüssel**.
+Der Fokus der Arkham Nights 2022 liegt auf **Arkham Horror: Das Kartenspiel**. Probiert ein Szenario für Einsteiger und eines für Fortgeschrittene.
 
 {% ButtonLink link="https://www.asmodee.de/news/arkham-nights-2022", label="Arkham Nights 2022 (Asmodee)" %}
 
