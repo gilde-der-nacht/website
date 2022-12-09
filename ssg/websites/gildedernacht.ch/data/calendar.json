@@ -69,36 +69,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3323686576482000\"",
-   "id": "2mss6mrpbhstq7hqks826m3q0d",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=Mm1zczZtcnBiaHN0cTdocWtzODI2bTNxMGQgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-08-30T07:01:11.000Z",
-   "updated": "2022-08-30T07:08:08.241Z",
-   "summary": "Rollenspiel-Stammtisch",
-   "description": "\u003chtml-blob\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e---\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon]&nbsp;\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Rollenspieltage{\u003ca href=\"https://rollenspieltage.ch\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\"\u003e},\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eStammtisch{\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e}[/links]&nbsp; \u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/html-blob\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2022-12-08T19:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2022-12-08T22:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "2mss6mrpbhstq7hqks826m3q0d@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3331992885460000\"",
    "id": "70qc0lrga3j085s81j0bk4kilr",
    "status": "confirmed",
