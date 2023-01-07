@@ -14,18 +14,18 @@ Die nächsten Luzerner Spieltage stehen vor der Tür.
 
 **Und dazu brauchen wir dich!**
 
-Wir suchen Helfer in der Küche, an der Kasse (Kiosk/Flohmarkt) und als Erklärbären.
+Am 11. + 12. März 2023 werden die Pforten zum Pfarreisaal St. Johannes im Würzenbach-Quartier wieder geöffnet.
 
-Melde dich doch noch heute und gib deinen Traumjob an. Wir versuchen natürlich auf deine Wünsche einzugehen, sind aber froh wenn du flexibel bist.
+Es würde uns sehr freuen wenn du uns bei einer der verschiedenen Tätigkeiten helfen kannst: **Kasse oder Küche.**
 
-Unser Ziel ist es, die Helfereinsätze so kurz wie möglich zu halten. Aber dafür sind wir auf viele Helfer angewiesen. Die Spieltage dauern wie folgt:
-
-**Samstag, 12. März 2022, 9.00 bis 0.30 Uhr**
+Unser Ziel ist es, die Helfereinsätze so kurz wie möglich zu halten. Aber dafür sind wir auf viele Helfer angewiesen. 
 
 Als Gegenleistung gebührt dir nicht nur unser aller Dank, sondern du wirst auch zum Helferessen eingeladen. Da werden wir mit Speis und Trank bis in die Abendstunden das eine oder andere Brettspiel-Abenteuer bestehen.
 
 ## Anmeldung Helfer
 
 Wir freuen uns auf deine Antwort und bedanken uns bereits jetzt für deine Unterstützung!
+
+Schreibe uns doch kurz in der Mitteilung, bei welchen **Aufgaben** du uns unterstützen kannst (Kasse, Küche) und welches **Zeitfenster** dir am besten pass.
 
 {% ContactForm uid="65adbe232fcbb16d738d57defcf2a9010d65e895f77a46e1542ff65df8aada34" %}
