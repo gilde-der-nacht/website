@@ -13,14 +13,13 @@ Looking for a short and sweet overview in English?
 
 # Herzlich willkommen
 
-Am **27. und 28. August 2022** werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
-
-{% Box type="danger", link="https://anmeldung.rollenspieltage.ch/", linkLabel="Zur Anmeldung" %}
-**JETZT ANMELDEN!**
-{% endBox %}
+Am **26. und 27. August 2023** werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
 
 {% Slider %}
 
+![2022, Luzerner Rollenspieltage](./images/2022-rollenspieltage-01.jpg)
+![2022, Luzerner Rollenspieltage](./images/2022-rollenspieltage-02.jpg)
+![2022, Luzerner Rollenspieltage](./images/2022-rollenspieltage-03.jpg)
 ![2021, Luzerner Rollenspieltage](./images/2021-rollenspieltage-01.jpg)
 ![2021, Luzerner Rollenspieltage](./images/2021-rollenspieltage-02.jpg)
 ![2019, Luzerner Rollenspieltage](./images/2019-rollenspieltage-04.jpg)
@@ -56,17 +55,11 @@ Du hast schon so einiges erlebt, möchtest gerne was Neues ausprobieren und dein
 
 ### Öffnungszeiten
 
-Samstag, 27. August 2022, 10 bis 22 Uhr.\
-Sonntag, 28. August 2022, 10 bis 18 Uhr.
+_Werden im Frühling 2023 bekannt gegeben._
 
 ## Eintritt & Anmeldung
 
-{% Box type="danger", link="https://anmeldung.rollenspieltage.ch/", linkLabel="Zur Anmeldung" %}
-**JETZT ANMELDEN!**\
-Folge dem Link und melde dich unter [anmeldung.rollenspieltage.ch](https://anmeldung.rollenspieltage.ch/) an.
-{% endBox %}
-
-Der Eintritt ist kostenfrei.
+Der Eintritt ist kostenfrei. Anmeldung ist ca. ein Monat vor dem Anlass möglich.
 
 Das Programm wird aufgrund der Anmeldungen zusammengestellt.
 

@@ -26,10 +26,6 @@ Die Luzerner Rollenspieltage werden vom Verein Gilde der Nacht organisiert. Der 
 
 Meine Genre-Liebe beginnt ca. 1995, ich hänge mit einer kleinen Clique ab, mit der wichtigsten Gemeinsamkeit, dass wir bald vom Gymnasium entfernt werden, wenn wir nicht bla bla bla. Unter diesen für mich wichtigen und lieb gewonnenen Personen, hat mir einer das «Cyberpunk 2020» Regelwerk in die Hände gedrückt, ein anderer hat mir «Das Schwarze Auge» nähergebracht und miteinander sind wir oft von dieser Welt geflüchtet um zurück in 10+ Stunden Abenteuer zu reisen.
 
-### Andy
-
-Als grosser Fan von vielen fantastischen, fiktiven Welten und digitalen Rollenspielen zugleich, war es nur eine Frage der Zeit, bis ich eines Tages mit dem Medium Tabletop-Rollenspiel in Berührung kam. Über die ersten Rollenspieltage von der Gilde der Nacht bin ich dann Stück für Stück in das Hobby gerutscht und spiele jetzt nach 5 Jahren immer noch bei einer meiner ersten Kampagnen mit.
-
 ### Adrian
 
 Science-Fiction, Magie und Cyberpunk. Alles Genres, welche ich sehr liebe. Als dann Oli Shadowrun entdeckt hatte, welches genau all dies Kombiniert, bin ich sofort in die Rollenspiele reingezogen worden.
@@ -41,7 +37,3 @@ Solange ich mich erinnern kann, war ich immer schon fasziniert von rätselhaften
 ### Oliver
 
 Um das Jahr 2015 druckte ich die Schnellstartregeln der 5. Edition von Shadowrun aus und die erste Spielrunde packte mich sofort. Viele Abenteuer später habe ich meine Leidenschaft für Regel-leichte und narrative Spielsysteme entdeckt.
-
-### Andrea
-
-Ich wurde von einem Freund zu einer Rollenspielrunde eingeladen. Niemand in unserer Gruppe war sehr erfahren mit Rollenspielen, jedoch hatten wir grosse Lust, es auszuprobieren und es packte uns. Seither spiele ich regelmässig. 
