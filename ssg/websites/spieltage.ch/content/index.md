@@ -26,6 +26,8 @@ Falls du Fragen hast oder an den Spieltagen [**mithelfen**](/helfen) möchtest, 
 
 ![2022, Luzerner Spieltage](./images/2022-spieltage-01.jpg)
 ![2022, Luzerner Spieltage](./images/2022-spieltage-04.jpg)
+![2022, Luzerner Spieltage](./images/2022-spieltage-03.jpg)
+![2022, Luzerner Spieltage](./images/2022-spieltage-02.jpg)
 ![2019, Luzerner Spieltage](./images/2019-spieltage-07.jpg)
 ![2019, Luzerner Spieltage](./images/2019-spieltage-03.jpg)
 ![2018, Luzerner Spieltage](./images/2018-spieltage-01.jpg)
