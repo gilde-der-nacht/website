@@ -9,11 +9,7 @@ Looking for the German version?
 
 # Welcome
 
-On **27 and 28 August 2022,** there will be a variety of role-playing rounds - for all those who would like to get a taste of the world of role-playing games, but also for experienced players who would like to try out something new.
-
-{% Box type="danger", link="https://anmeldung.rollenspieltage.ch/", linkLabel="To the registration" %}
-**REGISTER NOW!**
-{% endBox %}
+On **26 and 27 August 2023,** there will be a variety of role-playing rounds - for all those who would like to get a taste of the world of role-playing games, but also for experienced players who would like to try out something new.
 
 ## Program
 
@@ -25,15 +21,11 @@ In addition to the role-playing rounds, there will also be the opportunity to pl
 
 ### Opening hours
 
-Saturday, 27 August 2022, 10 am to 10 pm.\
-Sunday, 28 August 2022, 10 am to 6 pm.
+_The final opening hours will be communicated in spring 2023._
 
 ### Admission & Registration
 
-{% Box type="danger", link="https://anmeldung.rollenspieltage.ch/", linkLabel="To the registration" %}
-**REGISTER NOW!**\
-If you are looking for game rounds in English, please contact us via the contact form at the bottom of this page.
-{% endBox %}
+_Registration opens around a month before the event._
 
 Admission is free of charge.
 
