@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p338erp6mu6uvo0g\"",
+ "etag": "\"p320c33csm32fo0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2023-01-10T20:55:33.474Z",
+ "updated": "2023-01-13T10:51:20.272Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CNDt5NbxvfwCEAAYASC2ioDvAQ==",
+ "nextSyncToken": "CIDBjZywxPwCEAAYASCmsfbuAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -424,6 +424,35 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "61j3520tuvcochglkfhdpnrpjn@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3347214160544000\"",
+   "id": "60r66phg71h3gb9m60q30b9k65gjcb9p71j68bb6c4r66c9gcks3gpb1cg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NjByNjZwaGc3MWgzZ2I5bTYwcTMwYjlrNjVnamNiOXA3MWo2OGJiNmM0cjY2YzlnY2tzM2dwYjFjZyBnaWxkZWRlcm5hY2h0QG0",
+   "created": "2023-01-13T10:51:20.000Z",
+   "updated": "2023-01-13T10:51:20.272Z",
+   "summary": "Waschen",
+   "creator": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-01-15T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-01-15T23:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "60r66phg71h3gb9m60q30b9k65gjcb9p71j68bb6c4r66c9gcks3gpb1cg@google.com",
    "sequence": 0,
    "eventType": "default"
   }
