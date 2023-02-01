@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p330931tlmngfo0g\"",
+ "etag": "\"p33ccr2l5hrqfo0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2023-01-24T14:29:07.448Z",
+ "updated": "2023-02-01T10:27:19.735Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CMCRh7W14PwCEAAYASCF-trwAQ==",
+ "nextSyncToken": "CNjNiqWO9PwCEAAYASCF-trwAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -64,36 +64,6 @@
    },
    "transparency": "transparent",
    "iCalUID": "0daghmj474c7d4opd8a86bc70v@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3342196893112000\"",
-   "id": "3gjfttvveoqc3li94ktd87pnbo",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=M2dqZnR0dnZlb3FjM2xpOTRrdGQ4N3BuYm8gZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-12-15T10:00:46.000Z",
-   "updated": "2022-12-15T10:00:46.556Z",
-   "summary": "Spieltreffen",
-   "description": "\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eSpiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e \u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen,Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]St. Johannes, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
-   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2023-02-18T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2023-02-18T23:30:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "3gjfttvveoqc3li94ktd87pnbo@google.com",
    "sequence": 0,
    "eventType": "default"
   },
@@ -339,36 +309,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3345385284066000\"",
-   "id": "2en2u58aifi59en3tblg3dsfna",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=MmVuMnU1OGFpZmk1OWVuM3RibGczZHNmbmEgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2022-12-15T10:00:33.000Z",
-   "updated": "2023-01-02T20:50:42.033Z",
-   "summary": "Spieltreffen",
-   "description": "\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eArkham Nights 2022. Teilnahme beschränkt.\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e&nbsp;\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003eSpiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e&nbsp;\u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen,Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]St. Johannes, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
-   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2023-02-04T14:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2023-02-04T23:30:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "2en2u58aifi59en3tblg3dsfna@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3349141094896000\"",
    "id": "70qc0lrga3j085s81j0bk4kilr",
    "status": "confirmed",
@@ -394,6 +334,126 @@
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "70qc0lrga3j085s81j0bk4kilr@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3350486618416000\"",
+   "id": "2en2u58aifi59en3tblg3dsfna",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MmVuMnU1OGFpZmk1OWVuM3RibGczZHNmbmEgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-12-15T10:00:33.000Z",
+   "updated": "2023-02-01T09:21:49.208Z",
+   "summary": "Spieltreffen",
+   "description": "\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eArkham Nights 2022. Teilnahme beschränkt.\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003eSpiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e \u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen,Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]\u003cspan\u003eUnterkirche, \u003c/span\u003eSt. Johannes, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
+   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-02-04T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-02-04T23:30:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "2en2u58aifi59en3tblg3dsfna@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3350486638944000\"",
+   "id": "3gjfttvveoqc3li94ktd87pnbo",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=M2dqZnR0dnZlb3FjM2xpOTRrdGQ4N3BuYm8gZ2lsZGVkZXJuYWNodEBt",
+   "created": "2022-12-15T10:00:46.000Z",
+   "updated": "2023-02-01T09:21:59.472Z",
+   "summary": "Spieltreffen",
+   "description": "\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eSpiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e \u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen,Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Würzenbachsaal, St. Johannes, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
+   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-02-18T14:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-02-18T23:30:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "3gjfttvveoqc3li94ktd87pnbo@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3350494412484000\"",
+   "id": "3bpnmi4dna3enuiuf04rnbm4fu",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=M2Jwbm1pNGRuYTNlbnVpdWYwNHJuYm00ZnUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2023-02-01T10:26:46.000Z",
+   "updated": "2023-02-01T10:26:46.242Z",
+   "summary": "Rollenspiel-Stammtisch",
+   "description": "\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003eNimm an unserem Rollenspiel Stammtisch teil und diskutiere, philosophiere und entdecke mit uns alles rund um das Thema Rollenspiele. Egal ob du Spieler*in oder Spielleiter*in bist. \u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e \u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e---\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e \u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon] \u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Rollenspieltage{\u003ca href=\"https://rollenspieltage.ch\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\"\u003e},\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eStammtisch{\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e}[/links]  \u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-02-09T18:30:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-02-09T20:30:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "3bpnmi4dna3enuiuf04rnbm4fu@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3350494479470000\"",
+   "id": "3rn6u8c71g0etfc1aogrha8375",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=M3JuNnU4YzcxZzBldGZjMWFvZ3JoYTgzNzUgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2023-02-01T10:27:19.000Z",
+   "updated": "2023-02-01T10:27:19.735Z",
+   "summary": "Rollenspiel-Stammtisch",
+   "description": "\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003eNimm an unserem Rollenspiel Stammtisch teil und diskutiere, philosophiere und entdecke mit uns alles rund um das Thema Rollenspiele. Egal ob du Spieler*in oder Spielleiter*in bist. \u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e \u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e---\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e \u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon] \u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Rollenspieltage{\u003ca href=\"https://www.google.com/url?q=https://rollenspieltage.ch&amp;sa=D&amp;source=calendar&amp;usd=2&amp;usg=AOvVaw05pcFSS47bQfsAtpYRoNwy\" target=\"_blank\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e\u003ca href=\"https://www.google.com/url?q=https://gamedive.ch/%257D%255B/links%255D&amp;sa=D&amp;source=calendar&amp;usd=2&amp;usg=AOvVaw09KGQWVNU7V5psXZmPpklY\" target=\"_blank\"\u003e},\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eStammtisch{\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://www.google.com/url?q=https://gildedernacht.ch/event/rollenspiel-stammtisch/%257D%255B/links%255D&amp;sa=D&amp;source=calendar&amp;usd=2&amp;usg=AOvVaw0pMHfau5icsL9TVLltEovk\" target=\"_blank\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e}[/links]  \u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-04-13T18:30:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-04-13T20:30:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "3rn6u8c71g0etfc1aogrha8375@google.com",
    "sequence": 0,
    "eventType": "default"
   }
