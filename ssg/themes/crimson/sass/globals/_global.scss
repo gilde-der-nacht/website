@@ -64,21 +64,32 @@ li {
 // Colors
 
 body {
-  background-color: c.get("background-subtle");
-  background-position: 50% 0;
+  background-color: c.get("background-solid");
   color: c.get("text-high-contrast");
 }
 
-body.gdn {
+.main-wrapper {
+  background-color: c.get("background-subtle");
+  background-position: 50% 0;
+}
+
+body.gdn .main-wrapper {
   background-image: url("/images/background-gdn.svg");
 }
 
-body.lst {
+body.lst .main-wrapper {
   background-image: url("/images/background-lst.svg");
 }
 
-body.rst {
+body.rst .main-wrapper {
   background-image: url("/images/background-rst.svg");
+}
+
+.main-wrapper {
+  padding-block-end: 2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 ::selection {

@@ -19,10 +19,11 @@
     <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/krona-one-normal-400.woff2" type="font/woff2">
     <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/dm-sans-normal-400.woff2" type="font/woff2">
     {% include "./partials/favicon.njk" %}
-    </head>
+</head>
 
 <body {{ ('class=' + global.siteCode) if global.siteCode }}>
-        {% include "./partials/header.njk" %}
+    {% include "./partials/header.njk" %}
+    <div class="main-wrapper">
         <main class="main-content content">
             {% if isDraft %}
                 <div class="card info">
@@ -37,7 +38,8 @@
 
             {{ content | safe }}
         </main>
-        {% include "./partials/footer.njk" %}
-    </body>
+    </div>
+    {% include "./partials/footer.njk" %}
+</body>
 
 </html>
