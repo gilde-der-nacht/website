@@ -4,10 +4,9 @@
   min-block-size: 1rem;
   background-color: c.get("background-solid");
   color: white;
-  border-top: 0.25rem solid c.get("border-subtle");
   position: sticky;
   bottom: 0;
-  z-index: -1;
+  padding-block: 3rem 1rem;
 }
 
 .small-print {
