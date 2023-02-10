@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33o8h1m3he1fq0g\"",
+ "etag": "\"p338dlavjhi4vq0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2023-02-06T23:52:13.606Z",
+ "updated": "2023-02-09T18:47:01.490Z",
  "timeZone": "Europe/Zurich",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CPCIhsOLgv0CEAAYASCF-trwAQ==",
+ "nextSyncToken": "CNDaq_OMif0CEAAYASCH38nxAQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -339,36 +339,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3350494412484000\"",
-   "id": "3bpnmi4dna3enuiuf04rnbm4fu",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=M2Jwbm1pNGRuYTNlbnVpdWYwNHJuYm00ZnUgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2023-02-01T10:26:46.000Z",
-   "updated": "2023-02-01T10:26:46.242Z",
-   "summary": "Rollenspiel-Stammtisch",
-   "description": "\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003eNimm an unserem Rollenspiel Stammtisch teil und diskutiere, philosophiere und entdecke mit uns alles rund um das Thema Rollenspiele. Egal ob du Spieler*in oder Spielleiter*in bist. \u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e \u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e---\u003c/span\u003e\u003c/span\u003e\u003cbr\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e \u003cbr\u003e\u003cspan\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[theme]success[/theme]\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e[icon]fa-comment-dots[/icon] \u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[links]Rollenspieltage{\u003ca href=\"https://rollenspieltage.ch\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D\"\u003e},\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eStammtisch{\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e}[/links]  \u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2023-02-09T18:30:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2023-02-09T20:30:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "3bpnmi4dna3enuiuf04rnbm4fu@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3350494479470000\"",
    "id": "3rn6u8c71g0etfc1aogrha8375",
    "status": "confirmed",
@@ -395,6 +365,68 @@
    },
    "iCalUID": "3rn6u8c71g0etfc1aogrha8375@google.com",
    "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3351936810360000\"",
+   "id": "6lh3ior1c4sjeb9n6kojab9kcdj62bb1c8p6ab9j6co3ecpo6di36c32ck",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NmxoM2lvcjFjNHNqZWI5bjZrb2phYjlrY2RqNjJiYjFjOHA2YWI5ajZjbzNlY3BvNmRpMzZjMzJjayBnaWxkZWRlcm5hY2h0QG0",
+   "created": "2023-02-09T18:44:45.000Z",
+   "updated": "2023-02-09T18:46:45.180Z",
+   "summary": "Rollenspiel-Stammtisch (ungeleitet)",
+   "description": "Nimm an unserem Rollenspiel Stammtisch teil und diskutiere, philosophiere und entdecke mit uns alles rund um das Thema Rollenspiele. Egal ob du Spieler*in oder Spielleiter*in bist. \n\nDieser Stammtisch ist möglicherweise ungeleitet. Das bedeutet, dass niemand vom OK präsent ist oder nichts im Voraus geplant wurde.\n \n---\n\n \n[tags]Rollenspiele, Stammtisch[/tags] \n[location]Bourbaki Bar/Bistro, Luzern[/location]\n[theme]success[/theme]\n[icon]fa-comment-dots[/icon] \n[links]Rollenspieltage{https://rollenspieltage.ch},Stammtisch{ (https://gamedive.ch/%7D%5B/links%5D)https://gildedernacht.ch/event/rollenspiel-stammtisch (https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D)}[/links] ",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-03-09T19:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-03-09T21:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "6lh3ior1c4sjeb9n6kojab9kcdj62bb1c8p6ab9j6co3ecpo6di36c32ck@google.com",
+   "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3351936842980000\"",
+   "id": "c5ij6d9m61j32b9g64rm4b9k68rm2bb168rm2b9n70s64o9gcgq62o9m74",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YzVpajZkOW02MWozMmI5ZzY0cm00YjlrNjhybTJiYjE2OHJtMmI5bjcwczY0bzlnY2dxNjJvOW03NCBnaWxkZWRlcm5hY2h0QG0",
+   "created": "2023-02-09T18:46:12.000Z",
+   "updated": "2023-02-09T18:47:01.490Z",
+   "summary": "Rollenspiel-Stammtisch (ungeleitet)",
+   "description": "Nimm an unserem Rollenspiel Stammtisch teil und diskutiere, philosophiere und entdecke mit uns alles rund um das Thema Rollenspiele. Egal ob du Spieler*in oder Spielleiter*in bist. \n\nDieser Stammtisch ist möglicherweise ungeleitet. Das bedeutet, dass niemand vom OK präsent ist oder nichts im Voraus geplant wurde.\n \n---\n\n \n[tags]Rollenspiele, Stammtisch[/tags] \n[location]Bourbaki Bar/Bistro, Luzern[/location]\n[theme]success[/theme]\n[icon]fa-comment-dots[/icon] \n[links]Rollenspieltage{https://rollenspieltage.ch},Stammtisch{ (https://gamedive.ch/%7D%5B/links%5D)https://gildedernacht.ch/event/rollenspiel-stammtisch (https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D)}[/links] ",
+   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
+   "creator": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-05-11T19:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-05-11T21:00:00+02:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "c5ij6d9m61j32b9g64rm4b9k68rm2bb168rm2b9n70s64o9gcgq62o9m74@google.com",
+   "sequence": 1,
    "eventType": "default"
   }
  ]
