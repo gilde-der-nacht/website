@@ -6,5 +6,6 @@ const { Box } = require("./_box.js");
 const { BoxGrid } = require("./_box-grid.js");
 const { ButtonLink } = require("./_button-link");
 const { Slider } = require("./_slider");
+const { ImageText, ImageTextLeft, ImageTextRight } = require("./_image-text");
 
-module.exports = { Form, FormShortcode, Input, HiddenInput, Textarea, EventList, EventFilters, NewsletterForm, ContactForm, Box, ButtonLink, CheckboxList, Checkbox, RadioList, Radio, Slider, BoxGrid };
+module.exports = { Form, FormShortcode, Input, HiddenInput, Textarea, EventList, EventFilters, NewsletterForm, ContactForm, Box, ButtonLink, CheckboxList, Checkbox, RadioList, Radio, Slider, BoxGrid, ImageText, ImageTextLeft, ImageTextRight };

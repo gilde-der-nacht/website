@@ -1,0 +1,16 @@
+.image-text {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(23ch, 100%), 1fr));
+  gap: 1.75rem;
+  grid-auto-flow: dense;
+
+  figure {
+    height: min-content;
+  }
+
+  // hacky solution to remove empty <p> tags ;-(
+  > :first-child:not(figure):not(.content),
+  figure + * {
+    display: none;
+  }
+}

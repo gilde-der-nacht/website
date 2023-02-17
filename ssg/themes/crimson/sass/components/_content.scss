@@ -103,7 +103,7 @@
   > blockquote,
   > dl,
   > ol,
-  > p,
+  > p:not(:empty),
   > pre,
   > table,
   > ul,

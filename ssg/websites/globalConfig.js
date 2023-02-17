@@ -17,7 +17,8 @@ const {
   Box,
   BoxGrid,
   ButtonLink,
-  Slider
+  Slider,
+  ImageText, ImageTextLeft, ImageTextRight
 } = require("../themes/crimson/shortcodes/shortcodes");
 
 const passThroughCopyFormats = ["glb", "blend", "mp4"];
@@ -47,6 +48,9 @@ async function setupConfig(config, siteName, themeDir) {
 
   config.addPairedShortcode("Form", FormShortcode);
   config.addPairedShortcode("Box", Box);
+  config.addPairedShortcode("ImageText", ImageText);
+  config.addPairedShortcode("ImageTextLeft", ImageTextLeft);
+  config.addPairedShortcode("ImageTextRight", ImageTextRight);
   config.addPairedShortcode("BoxGrid", BoxGrid);
   config.addPairedShortcode("CheckboxList", CheckboxList);
   config.addPairedShortcode("RadioList", RadioList);
