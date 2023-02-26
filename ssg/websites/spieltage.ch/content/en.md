@@ -25,7 +25,8 @@ You can find more details on our [program page](/programm).
 
 #### Opening hours
 
-_Will be communicated in the next few days._
+Saturday, 11 March 2023, 10 am to midnight.\
+Sunday, 12 March 2023, 10 am to 6 pm.
 
 #### Admission & Registration
 

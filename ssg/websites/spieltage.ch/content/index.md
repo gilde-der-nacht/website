@@ -50,7 +50,8 @@ Genaueres findest du auf unserer [Programm-Seite](/programm).
 
 #### Öffnungszeiten
 
-_Wird demnächst bekannt gegeben._
+Samstag, 11. März 2023, 10 bis 24 Uhr.\
+Sonntag, 12. März 2023, 10 bis 18 Uhr.
 
 #### Eintritt & Anmeldung
 
