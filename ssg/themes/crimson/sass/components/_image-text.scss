@@ -9,8 +9,8 @@
   }
 
   // hacky solution to remove empty <p> tags ;-(
-  > :first-child:not(figure):not(.content),
-  figure + * {
+  .image-text-left p:first-child,
+  figure + p {
     display: none;
   }
 }

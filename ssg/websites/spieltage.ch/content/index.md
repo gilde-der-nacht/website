@@ -13,11 +13,6 @@ Looking for a short and sweet overview in English?
 
 # Herzlich willkommen
 
-{% Box type="special", link="https://spieltage.ch/helfen/", linkLabel="Ja, ich helfe gerne mit" %}
-**Helfer gesucht**\
-Die Spieltage sind nur möglich dank der tollen Unterstützung von vielen Helfern. Falls du ebenfalls bereit wärst uns an _zwei Stunden_ unter die Arme zu greifen, dann melde dich doch noch heute bei uns. Vielen Dank.
-{% endBox %}
-
 Am **Samstag, 11. und Sonntag, 12. März 2023** verwandeln wir den [Pfarreisaal St. Johannes im Würzenbach-Quartier](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403) in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
 
 Falls du Fragen hast oder an den Spieltagen [**mithelfen**](/helfen) möchtest, zögere nicht, uns über das [Kontaktformular](/kontakt) anzuschreiben. Wir freuen uns auf deine Nachricht.
@@ -38,13 +33,25 @@ Falls du Fragen hast oder an den Spieltagen [**mithelfen**](/helfen) möchtest, 
 
 ### Programm
 
-Komm vorbei und lass dir eines der **unzähligen Brettspiele** von unseren Erklärbären erklären.
+{% BoxGrid %}
 
-Hast du noch nie ein **Rollenspiel** oder ein **Tabletop/Miniaturspiel** ausprobiert? Bei uns erhältst du die Gelegenheit reinzuschnuppern.
+{% Box type="success", link="/programm/neue-besucher", linkLabel="für neue Besucher" %}
+Hier kriegst du eine gute Übersicht, was dich an den Luzerner Spieltagen erwarten kann.
+{% endBox %}
 
-Auf unserem **Flohmarkt** findest du sicher ein tolles Spiel für deine Sammlung. Oder bringe deine Spiele mit, die ein neues Zuhause suchen.
+{% Box type="special", link="/programm/familien", linkLabel="für Familien" %}
+Am Sonntag bieten wir vieles für die kleinsten Spieler:innen an. Klicke hier, um mehr zu erfahren.
+{% endBox %}
 
-Genaueres findest du auf unserer [Programm-Seite](/programm).
+{% Box type="danger", link="/programm/neuerungen", linkLabel="für Veteranen" %}
+Für wiederkehrende Besucher haben wir hier eine Liste mit allen Neuerungen zusammengestellt.  
+{% endBox %}
+
+{% Box type="gray", link="/programm", linkLabel="zur Gesamtübersicht" %}
+Möchtest du jedes Detail wissen? Hier findest du alle Programmpunkte auf einer Seite zusammengefasst.
+{% endBox %}
+
+{% endBoxGrid %}
 
 ### Die wichtigsten Informationen auf einen Blick
 
@@ -67,4 +74,12 @@ Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört 
 
 #### Verpflegung
 
-Ein Kiosk steht während den Öffnungszeiten zur Verfügung und **am Mittag und am Abend kochen** wir etwas Leckeres für euch.
+Ein Kiosk mit Getränken und Snacks steht während den Öffnungszeiten zur Verfügung und am Mittag und am Abend kochen wir etwas Leckeres für euch, inkl. Optionen für Veganer.
+
+**Warme Küche**
+
+- Samstag, 12 - 13 Uhr
+- Samstag, 18 - 19 Uhr
+- Sonntag, 12 - 13 Uhr
+
+_Speisen und Getränke können Bar oder per Twint bezahlt werden._
