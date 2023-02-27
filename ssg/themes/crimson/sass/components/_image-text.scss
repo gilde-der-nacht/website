@@ -13,4 +13,13 @@
   figure + p {
     display: none;
   }
+
+  &.tables {
+    > * {
+      min-width: max-content;
+    }
+    table {
+      width: 100%;
+    }
+  }
 }

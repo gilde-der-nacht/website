@@ -1,8 +1,8 @@
 const { md } = require("../plugins/markdown");
 const html = require("./helper/html");
 
-function ImageText(content) {
-  return html`<div class="image-text">${md.render(content, this)}</div>`;
+function ImageText(content, opts) {
+  return html`<div class="image-text ${opts?.kind ?? ''}">${md.render(content, this)}</div>`;
 }
 
 
