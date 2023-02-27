@@ -34,7 +34,7 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 | **14&nbsp;Uhr** | Beginn Rollenspiele |
 | **15&nbsp;Uhr** | Groupmatching       |
 |              |                  |
-| **17&nbsp;Uhr** | Nachtessen          |
+| **18&nbsp;Uhr** | Nachtessen          |
 |              |                  |
 
 {% endImageTextLeft %}
