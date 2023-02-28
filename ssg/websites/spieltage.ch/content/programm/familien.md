@@ -46,6 +46,8 @@ _Sonntag, 12. März 2023, ab 13 Uhr_
 
 ![2018, Bild von The Daily Worker Placement](../images/dailyworkerplacement.jpg)
 
+_Beispiele der Rollenspiele: My Little Pony, Es war einmal, Untold und Fiasco_
+
 {% endImageTextLeft %}
 
 {% ImageTextRight %}

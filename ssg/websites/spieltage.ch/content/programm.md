@@ -30,8 +30,8 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 | **10&nbsp;Uhr** | Lange Spiele        |
 | **11&nbsp;Uhr** | Groupmatching       |
 | **12&nbsp;Uhr** | Mittagessen         |
+| **13&nbsp;Uhr** | Beginn Rollenspiele |
 |              |                  |
-| **14&nbsp;Uhr** | Beginn Rollenspiele |
 | **15&nbsp;Uhr** | Groupmatching       |
 |              |                  |
 | **18&nbsp;Uhr** | Nachtessen          |
@@ -53,6 +53,23 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 {% endImageTextRight %}
 
 {% endImageText %}
+
+
+{% BoxGrid %}
+
+{% Box type="success", link="/programm/neue-besucher", linkLabel="für neue Besucher" %}
+Hier kriegst du eine gute Übersicht, was dich an den Luzerner Spieltagen erwarten kann.
+{% endBox %}
+
+{% Box type="special", link="/programm/familien", linkLabel="für Familien" %}
+Am Sonntag bieten wir vieles für die kleinsten Spieler:innen an. Klicke hier, um mehr zu erfahren.
+{% endBox %}
+
+{% Box type="danger", link="/programm/neuerungen", linkLabel="für Veteranen" %}
+Für wiederkehrende Besucher haben wir hier eine Liste mit allen Neuerungen zusammengestellt.  
+{% endBox %}
+
+{% endBoxGrid %}
 
 ## Spiele-Bibliothek
 
@@ -121,13 +138,15 @@ Unsere Kolleginnen und Kollegen von Zug bringen Spiele für die ganze Familie mi
 
 ## Rollenspiele
 
-_Samstag, 11. März 2023, ab 14 Uhr_
+_Samstag, 11. März 2023, ab 13 Uhr_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
 ![2019, Luzerner Spieltage](./images/2019-spieltage-09.jpg)
+
+_Beispiele der Rollenspiele: Fiasco, Untold, Alle sind John und Fabula Rasa_
 
 {% endImageTextLeft %}
 
@@ -149,6 +168,8 @@ _Sonntag, 12. März 2023, ab 13 Uhr_
 {% ImageTextLeft %}
 
 ![2018, Bild von The Daily Worker Placement](./images/dailyworkerplacement.jpg)
+
+_Beispiele der Rollenspiele: My Little Pony, Es war einmal, Untold und Fiasco_
 
 {% endImageTextLeft %}
 
@@ -330,3 +351,7 @@ Spiele eine Demorunde mit den Spiel-Designern von Rocket Rescue. Rocket Rescue i
 {% endImageTextRight %}
 
 {% endImageText %}
+
+{% Box type="success", link="https://gildedernacht.ch/", linkLabel="Zur Gilde der Nacht" %}
+Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **9. + 10. März 2024**.
+{% endBox %}

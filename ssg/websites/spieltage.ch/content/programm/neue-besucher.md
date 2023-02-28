@@ -62,7 +62,7 @@ Unsere Spielempfehlungen an diese Spieltagen sind: _Die Knuffies, Brass Birmingh
 
 ## Rollenspiele
 
-_Samstag, 11. März 2023, ab 14 Uhr_\
+_Samstag, 11. März 2023, ab 13 Uhr_\
 _Sonntag, 12. März 2023, ab 13 Uhr (für Familien)_
 
 {% ImageText %}
@@ -70,6 +70,8 @@ _Sonntag, 12. März 2023, ab 13 Uhr (für Familien)_
 {% ImageTextLeft %}
 
 ![2019, Luzerner Spieltage](../images/2019-spieltage-09.jpg)
+
+_Beispiele der Rollenspiele: Fiasco, Untold, Alle sind John, Fabula Rasa, My Little Pony und Es war einmal._
 
 {% endImageTextLeft %}
 

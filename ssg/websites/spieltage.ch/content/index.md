@@ -83,3 +83,7 @@ Ein Kiosk mit Getränken und Snacks steht während den Öffnungszeiten zur Verf�
 - Sonntag, 12 - 13 Uhr
 
 _Speisen und Getränke können Bar oder per Twint bezahlt werden._
+
+{% Box type="success", link="https://gildedernacht.ch/", linkLabel="Zur Gilde der Nacht" %}
+Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **9. + 10. März 2024**.
+{% endBox %}
