@@ -31,11 +31,11 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 | **11&nbsp;Uhr** | Groupmatching       |
 | **12&nbsp;Uhr** | Mittagessen         |
 | **13&nbsp;Uhr** | Beginn Rollenspiele |
-|              |                  |
+|                 |                     |
 | **15&nbsp;Uhr** | Groupmatching       |
-|              |                  |
+|                 |                     |
 | **18&nbsp;Uhr** | Nachtessen          |
-|              |                  |
+|                 |                     |
 
 {% endImageTextLeft %}
 
@@ -43,17 +43,16 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 
 |                 | Sonntag, 12. März                              |
 | --------------: | ---------------------------------------------- |
-|              |                                             |
+|                 |                                                |
 | **11&nbsp;Uhr** | Groupmatching<br/>Beginn Programm Kinderspiele |
 | **12&nbsp;Uhr** | Mittagessen                                    |
 | **13&nbsp;Uhr** | Beginn Rollenspiele für Familien               |
 | **14&nbsp;Uhr** | Klask-Turnier                                  |
-|              |                                             |
+|                 |                                                |
 
 {% endImageTextRight %}
 
 {% endImageText %}
-
 
 {% BoxGrid %}
 
