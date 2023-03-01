@@ -22,4 +22,12 @@
       width: 100%;
     }
   }
+
+  &.partner {
+    img {
+      max-width: 15rem;
+      padding: 1rem;
+      background: white;
+    }
+  }
 }
