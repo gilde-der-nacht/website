@@ -21,7 +21,7 @@ const {
   ImageText, ImageTextLeft, ImageTextRight
 } = require("../themes/crimson/shortcodes/shortcodes");
 
-const passThroughCopyFormats = ["glb", "blend", "mp4"];
+const passThroughCopyFormats = ["glb", "blend", "mp4", "pdf"];
 
 async function setupConfig(config, siteName, themeDir) {
   // compiling SASS files is not done by the SSG
