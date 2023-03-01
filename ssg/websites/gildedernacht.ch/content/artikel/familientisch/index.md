@@ -24,11 +24,11 @@ https://www.f-shop.de/my-little-pony-tails-of-equestria/
 
 https://www.lord-selis.de/downloads/my-little-pony-tails-of-equestria/
 
-![My Little Pony - Karte](My%20Little%20Pony%20-%20Karte.jpg)
+![My Little Pony - Karte](My-Little-Pony-Karte.jpg)
 
 https://mlp.fandom.com/de/wiki/Equestria
 
-[My Little Pony - Unerwarteter Besuch](My%20Little%20Pony%20-%20Unterwarteter%20Besuch.pdf)
+[My Little Pony - Unerwarteter Besuch](My-Little-Pony-Unterwarteter-Besuch.pdf)
 
 https://ulisses-spiele.de/assets/document/F6/ToE_Vorbesteller-Szenario_Unerwarteter-Besuch_8165.pdf?x54976
 
