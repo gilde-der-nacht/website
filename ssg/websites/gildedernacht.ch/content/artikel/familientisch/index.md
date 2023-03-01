@@ -3,9 +3,11 @@ title: "Familientisch"
 date: 2023-03-01
 ---
 
+**TODO download links funktionieren online nicht**
+
 # Familientisch
 
-Der Familientisch ist ein Tisch am dem Rollenspiele die für Kinder, Jugendliche und Familien geeignet sind, vorgestellt und ausprobiert werden können. Die Bedingung die wir uns dazu selber auferlegt haben sind:
+Der Familientisch ist ein Tisch am dem Rollenspiele die für Kinder, Jugendliche und Familien geeignet sind, vorgestellt und ausprobiert werden können. Die Bedingungen die wir uns dazu selber auferlegt haben sind:
 
 - Kosten: weniger als 100 CHF
 - Spielzeit: Idealerweise weniger als 60 Minuten, maximal 2 Stunden am Stück
@@ -46,9 +48,9 @@ Weiterführende Links:
 
 ![Es War Einmal - Logo](Es-War-Einmal-Logo.jpg)
 
-Jede Person bekommt ein paar Karten. Auf den Karten sind Gegenstände, Gebäude, Märchenfiguren, aber auch Adjektive abgebildet oder aufgeschrieben. Mithilfe dieser Karten muss man eine Geschichte miteinander erzählen. Es gibt ein paar wenige Regeln, die erklären wann welche Person an der Reihe ist.
+Jede Person bekommt ein zufällig einige Karten. Auf den Karten sind Gegenstände, Gebäude, Märchenfiguren, aber auch Adjektive abgebildet oder aufgeschrieben. Mithilfe dieser Karten muss man eine Geschichte miteinander erzählen. Es gibt ein paar wenige Regeln, die erklären wann welche Person an der Reihe ist.
 
-Eignet sich gut um herauszufinden ob es einem überhaupt Spass macht kreativ beim erzählen zu sein. Da man miteinander eine Geschichte erfindet, müssen sich die Anwesenden gegenseitig Aufmerksamkeit schenken.
+Eignet sich gut um herauszufinden ob es einem überhaupt Spass macht kreativ beim Erzählen zu sein. Da man Miteinander eine Geschichte erfindet, müssen sich die Anwesenden gegenseitig Aufmerksamkeit schenken.
 
 - Kosten: 17 CHF
 - Altergruppe: 8+
@@ -93,7 +95,7 @@ Es ist Kreativität erforderlich um ein amüsante Episode zu erfinden. Was Untol
 - Altergruppe: 12+
 - Spielzeit: 2 Stunden
 - Sprache: Deutsch
-- Anzahl Spieler:innen: 2 - 4
+- Anzahl Spieler:innen: 2-4
 - Spielleitung Notwendig: Nein
 
 Weiterführende Links:
@@ -112,7 +114,7 @@ Der Vorteil an diesem Spiel ist dass es kostenlos ist, die Regeln auf einer halb
 - Altergruppe: 14+
 - Spielzeit: 30 Minuten
 - Sprache: Deutsch
-- Anzahl Spieler:innen: ???
+- Anzahl Spieler:innen: 3-6
 - Spielleitung Notwendig: Ja
 
 Weiterführende Links:
