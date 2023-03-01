@@ -65,7 +65,7 @@ Am Sonntag bieten wir vieles für die kleinsten Spieler:innen an. Klicke hier, u
 {% endBox %}
 
 {% Box type="danger", link="/programm/neuerungen", linkLabel="für Veteranen" %}
-Für wiederkehrende Besucher haben wir hier eine Liste mit allen Neuerungen zusammengestellt.  
+Für wiederkehrende Besucher haben wir hier eine Liste mit allen Neuerungen zusammengestellt.
 {% endBox %}
 
 {% endBoxGrid %}
@@ -145,7 +145,7 @@ _Samstag, 11. März 2023, ab 13 Uhr_
 
 ![2019, Luzerner Spieltage](./images/2019-spieltage-09.jpg)
 
-_Beispiele der Rollenspiele: Fiasco, Untold, Alle sind John und Fabula Rasa_
+_Beispiele der Rollenspiele: Fiasco, Untold, Alle sind John und Fabula Rasa._
 
 {% endImageTextLeft %}
 
@@ -168,7 +168,9 @@ _Sonntag, 12. März 2023, ab 13 Uhr_
 
 ![2018, Bild von The Daily Worker Placement](./images/dailyworkerplacement.jpg)
 
-_Beispiele der Rollenspiele: My Little Pony, Es war einmal, Untold und Fiasco_
+_Beispiele der Rollenspiele: My Little Pony, Es war einmal, Untold und Fiasco._
+
+Mehr Informationen haben wir [in diesem Artikel](https://gildedernacht.ch/artikel/familientisch/) für euch zusammengestellt.
 
 {% endImageTextLeft %}
 

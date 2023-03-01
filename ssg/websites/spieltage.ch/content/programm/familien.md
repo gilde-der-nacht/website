@@ -46,7 +46,9 @@ _Sonntag, 12. März 2023, ab 13 Uhr_
 
 ![2018, Bild von The Daily Worker Placement](../images/dailyworkerplacement.jpg)
 
-_Beispiele der Rollenspiele: My Little Pony, Es war einmal, Untold und Fiasco_
+_Beispiele der Rollenspiele: My Little Pony, Es war einmal, Untold und Fiasco._
+
+Mehr Informationen haben wir [in diesem Artikel](https://gildedernacht.ch/artikel/familientisch/) für euch zusammengestellt.
 
 {% endImageTextLeft %}
 
