@@ -35,7 +35,7 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 | **15&nbsp;Uhr** | Groupmatching       |
 |                 |                     |
 | **18&nbsp;Uhr** | Nachtessen          |
-| **18&nbsp;Uhr** | Blood of the Clocktower          |
+| **19&nbsp;Uhr** | Blood of the Clocktower          |
 |                 |                     |
 
 {% endImageTextLeft %}
@@ -359,7 +359,7 @@ Spiele eine Demorunde mit den Spiel-Designern von Rocket Rescue. Rocket Rescue i
 Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **9. + 10. März 2024**.
 {% endBox %}
 
-## Blood of the Clocktower
+## Blood on the Clocktower
 
 _Samstag, 11. März 2023, 19 bis 22 Uhr_
 
@@ -367,13 +367,13 @@ _Samstag, 11. März 2023, 19 bis 22 Uhr_
 
 {% ImageTextLeft %}
 
-![Blood of the Clocktower](./images/blood-on-the-clocktower.png)
+![Blood on the Clocktower](./images/blood-on-the-clocktower.png)
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Blood of the Clocktower ist ein Social Deduction Spiel im Stile von Werwolf / Mafia, Secret Hitler, oder The Resistance / Avalon. Neben gutem Bluffen ist auch detektivistischer Spürsinn gefragt. Denn alle Charaktere haben besondere Fähigkeiten - und das Spiel endet nicht mit dem Tod! Wer ist der Dämon, der alle Einwohner von Ravenswood Bluff nach und nach ermordet? Wer ist in Wahrheit ein böswilliger Lakai? Wem kannst Du wirklich trauen? Vielleicht noch nichtmal Dir selbst.
+Blood on the Clocktower ist ein Social Deduction Spiel im Stile von Werwolf / Mafia, Secret Hitler, oder The Resistance / Avalon. Neben gutem Bluffen ist auch detektivistischer Spürsinn gefragt. Denn alle Charaktere haben besondere Fähigkeiten - und das Spiel endet nicht mit dem Tod! Wer ist der Dämon, der alle Einwohner von Ravenswood Bluff nach und nach ermordet? Wer ist in Wahrheit ein böswilliger Lakai? Wem kannst Du wirklich trauen? Vielleicht noch nichtmal Dir selbst.
 
 {% endImageTextRight %}
 

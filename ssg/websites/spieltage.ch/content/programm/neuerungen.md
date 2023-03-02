@@ -107,7 +107,7 @@ Unsere Kolleginnen und Kollegen von Zug bringen Spiele für die ganze Familie mi
 Vermisst du etwas? Schau doch in unsere Gesamtübersicht rein.
 {% endBox %}
 
-## Blood of the Clocktower
+## Blood on the Clocktower
 
 _Samstag, 11. März 2023, 19 bis 22 Uhr_
 
@@ -115,13 +115,13 @@ _Samstag, 11. März 2023, 19 bis 22 Uhr_
 
 {% ImageTextLeft %}
 
-![Blood of the Clocktower](../images/blood-on-the-clocktower.png)
+![Blood on the Clocktower](../images/blood-on-the-clocktower.png)
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Blood of the Clocktower ist ein Social Deduction Spiel im Stile von Werwolf / Mafia, Secret Hitler, oder The Resistance / Avalon. Neben gutem Bluffen ist auch detektivistischer Spürsinn gefragt. Denn alle Charaktere haben besondere Fähigkeiten - und das Spiel endet nicht mit dem Tod! Wer ist der Dämon, der alle Einwohner von Ravenswood Bluff nach und nach ermordet? Wer ist in Wahrheit ein böswilliger Lakai? Wem kannst Du wirklich trauen? Vielleicht noch nichtmal Dir selbst.
+Blood on the Clocktower ist ein Social Deduction Spiel im Stile von Werwolf / Mafia, Secret Hitler, oder The Resistance / Avalon. Neben gutem Bluffen ist auch detektivistischer Spürsinn gefragt. Denn alle Charaktere haben besondere Fähigkeiten - und das Spiel endet nicht mit dem Tod! Wer ist der Dämon, der alle Einwohner von Ravenswood Bluff nach und nach ermordet? Wer ist in Wahrheit ein böswilliger Lakai? Wem kannst Du wirklich trauen? Vielleicht noch nichtmal Dir selbst.
 
 {% endImageTextRight %}
 
