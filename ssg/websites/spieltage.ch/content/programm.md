@@ -35,7 +35,7 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 | **15&nbsp;Uhr** | Groupmatching       |
 |                 |                     |
 | **18&nbsp;Uhr** | Nachtessen          |
-| **19&nbsp;Uhr** | Blood of the Clocktower          |
+| **19&nbsp;Uhr** | Blood on the Clocktower          |
 |                 |                     |
 
 {% endImageTextLeft %}
