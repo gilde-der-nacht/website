@@ -31,7 +31,7 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 | **11&nbsp;Uhr** | Groupmatching       |
 | **12&nbsp;Uhr** | Mittagessen         |
 | **13&nbsp;Uhr** | Beginn Rollenspiele |
-|                 |                     |
+| **14&nbsp;Uhr** | Spieldesigner «Rocket Rescue» |
 | **15&nbsp;Uhr** | Groupmatching       |
 |                 |                     |
 | **18&nbsp;Uhr** | Nachtessen          |
@@ -44,7 +44,7 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 |                 | Sonntag, 12. März                              |
 | --------------: | ---------------------------------------------- |
 |                 |                                                |
-| **11&nbsp;Uhr** | Groupmatching<br/>Beginn Programm Kinderspiele |
+| **11&nbsp;Uhr** | Groupmatching<br/>Beginn Programm Kinderspiele<br/>Spieldesigner «Rocket Rescue» |
 | **12&nbsp;Uhr** | Mittagessen                                    |
 | **13&nbsp;Uhr** | Beginn Rollenspiele für Familien               |
 | **14&nbsp;Uhr** | Klask-Turnier                                  |
@@ -333,7 +333,8 @@ Du kommst alleine oder ihr kommt in einer kleinen Gruppe und seid euch nicht sic
 
 ## Spieldesigner «Rocket Rescue»
 
-_Samstag + Sonntag_
+_Samstag, 11. März 2023, ab 14 Uhr_\
+_Sonntag, 12. März 2023, ab 11 Uhr_
 
 {% ImageText %}
 

@@ -59,7 +59,8 @@ Du kommst alleine oder ihr kommt in einer kleinen Gruppe und seid euch nicht sic
 
 ## Spieldesigner «Rocket Rescue»
 
-_Samstag + Sonntag_
+_Samstag, 11. März 2023, ab 14 Uhr_\
+_Sonntag, 12. März 2023, ab 11 Uhr_
 
 {% ImageText %}
 
