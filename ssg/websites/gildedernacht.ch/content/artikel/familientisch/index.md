@@ -3,13 +3,13 @@ title: "Familientisch"
 date: 2023-03-01
 ---
 
-**TODO download links funktionieren online nicht**
+**TODO download links für JPG/PNG funktionieren online noch nicht (grund auch bekannt)**
 
 # Familientisch
 
 Der Familientisch ist ein Tisch am dem Rollenspiele die für Kinder, Jugendliche und Familien geeignet sind, vorgestellt und ausprobiert werden können. Die Bedingungen die wir uns dazu selber auferlegt haben sind:
 
-- Kosten: weniger als 100 CHF
+- Kosten: Weniger als 60 CHF
 - Spielzeit: Idealerweise weniger als 60 Minuten, maximal 2 Stunden am Stück
 - Inhalt: Waffen oder Gewalt sind unwichtig oder kommen gar nicht vor, kein Fachwissen notwendig
 - Altersgruppe: Nichts wo man älter als 16 Jahre sein sollte
@@ -21,7 +21,7 @@ Der Familientisch ist ein Tisch am dem Rollenspiele die für Kinder, Jugendliche
 
 My Little Pony ist ein typisches Rollenspiel mit dem vielleicht grössten Unterschied dass die Mitspielenden jeweils ein Pony spielen. Als typisches Rollenspiele hat es eine Charakter- bzw. Pony-Erschaffung, und auch diverse Regeln, die aber zum Glück eher einfach gehalten sind.
 
-Was an dem Spiel positiv auffällt, im Gegensatz zu anderen Rollenspiele die eigentlich auch für Kinder gedacht wären, das Waffen und Gewalt in diesem Spiel nicht im Fokus sind. Alle Abenteuer die wir gefunden haben, erfordern ein ständiges Miteinander und gehen vor allem darum dass man einander und anderen hilft.
+Was an dem Spiel positiv auffällt, im Gegensatz zu anderen Rollenspiele die eigentlich auch für Kinder gedacht wären, das Waffen und Gewalt in diesem Spiel nicht im Fokus sind. Alle Abenteuer die wir gefunden haben, erfordern ein ständiges Miteinander und gehen vor allem darum dass man Einander und Anderen hilft.
 
 - Kosten: 25€
 - Altergruppe: 6+
@@ -106,9 +106,9 @@ Weiterführende Links:
 
 ![Alle sind John - Logo](Alle-sind-John-Logo.jpg)
 
-Die Hauptperson um welche sich die Geschichte dreht ist Jane oder John. Jane/John hat eine psychische Erkrankung. Unterschiedliche Stimmen übernehmen jeweils die Kontrolle über Jane/John und jeder dieser Stimmen, hat unterschiedliche Fähigkeiten und Ziele. Jede mitspielende Person spielt eine Stimme im Kopf von Jane/John.
+Die Hauptperson um welche sich die Geschichte dreht ist Jane oder John. Jane/John hat eine psychische Erkrankung. Unterschiedliche Stimmen übernehmen jeweils die Kontrolle über Jane/John und jeder dieser Stimmen hat unterschiedliche Fähigkeiten und Ziele. Jede mitspielende Person spielt eine Stimme im Kopf von Jane/John.
 
-Der Vorteil an diesem Spiel ist dass es kostenlos ist, die Regeln auf einer halben A4 Seite Platz haben, keine Vorbereitung notwendig ist und mit etwas Fantasie zu lustigen, aber auch tragischen Situationen kommen kann. 
+Die guten Seiten an diesem Spiel sind dass es kostenlos ist, die Regeln auf einer halben A4 Seite Platz haben, keine Vorbereitung notwendig ist und es mit etwas Fantasie zu lustigen aber auch tragischen Situationen kommen kann. 
 
 - Kosten: Kostenlos
 - Altergruppe: 14+
