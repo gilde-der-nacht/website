@@ -115,7 +115,7 @@ _Samstag, 11. März 2023, 19 bis 22 Uhr_
 
 {% ImageTextLeft %}
 
-![Blood of the Clocktower](./images/blood-on-the-clocktower.png)
+![Blood of the Clocktower](../images/blood-on-the-clocktower.png)
 
 {% endImageTextLeft %}
 
