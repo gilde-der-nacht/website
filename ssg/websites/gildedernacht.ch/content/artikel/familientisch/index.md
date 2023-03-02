@@ -3,8 +3,6 @@ title: "Familientisch"
 date: 2023-03-01
 ---
 
-**TODO download links für JPG/PNG funktionieren online noch nicht (grund auch bekannt)**
-
 # Familientisch
 
 Der Familientisch ist ein Tisch am dem Rollenspiele die für Kinder, Jugendliche und Familien geeignet sind, vorgestellt und ausprobiert werden können. Die Bedingungen die wir uns dazu selber auferlegt haben sind:
@@ -34,8 +32,10 @@ Spielmaterial
 
 - [My Little Pony - Karte](My-Little-Pony-Weltkarte.jpg)
 - [My Little Pony - Abenteuer - Unerwarteter Besuch](My-Little-Pony-Unterwarteter-Besuch.pdf)
-- **TODO Charakter Bögen**
-- **TODO Karte Abenteuer**
+- [My Little Pony - Abenteuer - See](My-Little-Pony-See.png)
+- [My Little Pony - Einhorn](Einhorn_A6.pdf)
+- [My Little Pony - Erdpony](Erdpony_A6.pdf)
+- [My Little Pony - Pagasus](Pegasus_A6.pdf)
 
 Weiterführende Links:
 
@@ -43,6 +43,7 @@ Weiterführende Links:
 - https://www.lord-selis.de/downloads/my-little-pony-tails-of-equestria/
 - https://ulisses-spiele.de/assets/document/F6/ToE_Vorbesteller-Szenario_Unerwarteter-Besuch_8165.pdf?x54976
 - https://mlp.fandom.com/de/wiki/Equestria
+- https://www.patreon.com/GoAdventureMaps
 
 ## Es war einmal ...
 
