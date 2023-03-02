@@ -103,10 +103,6 @@ Unsere Kolleginnen und Kollegen von Zug bringen Spiele für die ganze Familie mi
 
 {% endImageText %}
 
-{% Box type="success", link="/programm", linkLabel="Alle Programmpunkte" %}
-Vermisst du etwas? Schau doch in unsere Gesamtübersicht rein.
-{% endBox %}
-
 ## Blood on the Clocktower
 
 _Samstag, 11. März 2023, 19 bis 22 Uhr_
@@ -126,3 +122,7 @@ Blood on the Clocktower ist ein Social Deduction Spiel im Stile von Werwolf / Ma
 {% endImageTextRight %}
 
 {% endImageText %}
+
+{% Box type="success", link="/programm", linkLabel="Alle Programmpunkte" %}
+Vermisst du etwas? Schau doch in unsere Gesamtübersicht rein.
+{% endBox %}

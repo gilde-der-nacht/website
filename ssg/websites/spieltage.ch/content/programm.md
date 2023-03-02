@@ -355,10 +355,6 @@ Spiele eine Demorunde mit den Spiel-Designern von Rocket Rescue. Rocket Rescue i
 
 {% endImageText %}
 
-{% Box type="success", link="https://gildedernacht.ch/", linkLabel="Zur Gilde der Nacht" %}
-Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **9. + 10. März 2024**.
-{% endBox %}
-
 ## Blood on the Clocktower
 
 _Samstag, 11. März 2023, 19 bis 22 Uhr_
@@ -378,3 +374,7 @@ Blood on the Clocktower ist ein Social Deduction Spiel im Stile von Werwolf / Ma
 {% endImageTextRight %}
 
 {% endImageText %}
+
+{% Box type="success", link="https://gildedernacht.ch/", linkLabel="Zur Gilde der Nacht" %}
+Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **9. + 10. März 2024**.
+{% endBox %}
