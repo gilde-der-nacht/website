@@ -3,12 +3,11 @@ title: "3D Web"
 date: 2021-10-24
 ---
 
-<h1>3D Web</h1>
+# 3D Web
 
 <script src="https://cdn.babylonjs.com/babylon.js"></script>
 <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
 <script type="module">
-
 async function createSceneAsync(engine) {
 	const scene = new BABYLON.Scene(engine);
 
@@ -98,7 +97,6 @@ async function main() {
 }
 
 window.addEventListener('load', main);
-
 </script>
 
 <style>
@@ -110,10 +108,8 @@ window.addEventListener('load', main);
 }
 </style>
 
-<ul>
-<li>Bibliothek: <a href="https://www.babylonjs.com/">BabylonJS</a></li>
-<li>Komplexität: ~5200 Faces, ~11'100 Triangles</li>
-<li>Schatten: 2048 Pixel, <a href="https://developer.nvidia.com/gpugems/gpugems/part-ii-lighting-and-shadows/chapter-11-shadow-map-antialiasing">PCF</a></li>
-</ul>
-
 <canvas id="canvas" touch-action="none"></canvas>
+
+- Bibliothek: [BabylonJS](https://www.babylonjs.com/)
+- Komplexität: ~5200 Faces, ~11'100 Triangles</li>
+- Schatten: 2048 Pixel, [PCF](https://developer.nvidia.com/gpugems/gpugems/part-ii-lighting-and-shadows/chapter-11-shadow-map-antialiasing)
