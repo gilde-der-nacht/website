@@ -21,8 +21,6 @@ const {
   ImageText, ImageTextLeft, ImageTextRight
 } = require("../themes/crimson/shortcodes/shortcodes");
 
-const passThroughCopyFormats = ["glb", "blend", "mp4", "pdf"];
-
 async function setupConfig(config, siteName, themeDir) {
   // compiling SASS files is not done by the SSG
   // but reload the browser, when CSS output changes
@@ -36,9 +34,7 @@ async function setupConfig(config, siteName, themeDir) {
   config.addPassthroughCopy({ [themeDir + "scripts"]: "scripts" });
   config.addPassthroughCopy({ [themeDir + "images"]: "images" });
   config.addPassthroughCopy({ ["websites/" + siteName + "/public/"]: "/" });
-  passThroughCopyFormats.forEach((format) => {
-    config.addPassthroughCopy("websites/**/*." + format);
-  });
+  config.addPassthroughCopy("websites/" + siteName + "/content/artikel/**/");
 
   config.addPlugin(eleventyNavigationPlugin);
 
