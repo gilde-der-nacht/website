@@ -38,7 +38,7 @@ Die grosse Bibliothek mit Spielen für Jung und Alt, für Strategen und Geniesse
 
 {% endImageText %}
 
-## Erkärbären / Spielempfehlungen
+## Erklärbären / Spielempfehlungen
 
 _Samstag + Sonntag_
 
