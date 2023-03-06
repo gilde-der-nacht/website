@@ -43,7 +43,7 @@ Hier kriegst du eine gute Übersicht, was dich an den Luzerner Spieltagen erwart
 Am Sonntag bieten wir vieles für die kleinsten Spieler:innen an. Klicke hier, um mehr zu erfahren.
 {% endBox %}
 
-{% Box type="danger", link="/programm/neuerungen", linkLabel="für Veteranen" %}
+{% Box type="danger", link="/programm/neuerungen", linkLabel="für Wiederkehrende" %}
 Für wiederkehrende Besucher haben wir hier eine Liste mit allen Neuerungen zusammengestellt.  
 {% endBox %}
 

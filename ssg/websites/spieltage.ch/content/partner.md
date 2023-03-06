@@ -50,6 +50,8 @@ Das Gameorama in Luzern ist ein schweizweit einmaliger Museum, in dem sich alles
 
 Das Gameorama organisiert am Sonntag, um 14 Uhr das Qualifikationsturnier für die KLASK-Schweizermeisterschaft.
 
+Ausserdem sponsort das Gameorama zwei Frei-Eintritte für den Wettbewerb an den Luzerner Spieltagen.
+
 {% ButtonLink link="https://www.gameorama.ch/", label="Gameorama" %}
 
 {% endImageTextRight %}
