@@ -5,7 +5,7 @@ date: 2023-03-01
 
 # Familientisch
 
-Der Familientisch ist ein Tisch an dem Rollenspiele, die für Kinder, Jugendliche und Familien geeignet sind, vorgestellt und ausprobiert werden können. Die Bedingungen, die wir uns dazu selber auferlegt haben sind:
+Der Familientisch ist ein Tisch, an dem Rollenspiele, die für Kinder, Jugendliche und Familien geeignet sind, vorgestellt werden und ausprobiert werden können. Die Bedingungen, die wir uns dazu selber auferlegt haben, sind:
 
 - Kosten: Weniger als 60 CHF
 - Spielzeit: Idealerweise weniger als 60 Minuten, maximal 2 Stunden am Stück
@@ -17,9 +17,9 @@ Der Familientisch ist ein Tisch an dem Rollenspiele, die für Kinder, Jugendlich
 
 ![My Little Pony - Logo](My-Little-Pony-Logo.jpg)
 
-My Little Pony ist ein typisches Rollenspiel, mit dem vielleicht grössten Unterschied dass die Mitspielenden jeweils ein Pony spielen. Als typisches Rollenspiel hat es eine Charakter- bzw. Pony-Erschaffung, und auch diverse Regeln, die aber zum Glück eher einfach gehalten sind.
+My Little Pony ist ein typisches Rollenspiel. Alle Mitspielenden spielen jeweils ein Pony. Das Spiel verfügt über eine klassische Charakter- bzw. Pony-Erschaffung und diverse Regeln, die eher einfach gehalten sind.
 
-Positiv fällt auf, dass Waffen und Gewalt in diesem Spiel nicht im Fokus sind. Alle Abenteuer die wir gefunden haben, erfordern ein ständiges Miteinander und gehen vor allem darum dass man Einander und Anderen hilft.
+Was an dem Spiel positiv auffällt: Im Gegensatz zu anderen Rollenspielen, die für Kinder gedacht sind, stehen hier weder Waffen noch Gewalt im Fokus. Alle Abenteuer erfordern ein ständiges Miteinander und leben von gegenseitiger Hilfe und Unterstützung.
 
 - Kosten: 25€
 - Altergruppe: 6+
@@ -49,9 +49,9 @@ Weiterführende Links:
 
 ![Es War Einmal - Logo](Es-War-Einmal-Logo.jpg)
 
-Jede Person bekommt zufällig einige Karten. Auf den Karten sind Gegenstände, Gebäude, Märchenfiguren, aber auch Adjektive abgebildet oder aufgeschrieben. Mithilfe dieser Karten muss man gemeinsam eine Geschichte erzählen. Es gibt ein paar wenige Regeln, die erklären wann welche Person an der Reihe ist.
+Jede Person bekommt zufällig einige Karten. Auf den Karten sind Gegenstände, Gebäude, Märchenfiguren, aber auch Adjektive abgebildet oder aufgeschrieben. Mithilfe dieser Karten erzählt die Gruppe gemeinsam eine Geschichte.
 
-Eignet sich gut, um herauszufinden ob es einem überhaupt Spass macht, kreativ beim Erzählen zu sein. Da man gemeinsam eine Geschichte erfindet, müssen sich die Anwesenden gegenseitig viel Aufmerksamkeit schenken.
+Das Spiel eignet sich gut, um herauszufinden, ob es einem Spass macht, kreativ beim Erzählen zu sein. Da man Miteinander eine Geschichte erfindet, müssen sich die Anwesenden gegenseitig Aufmerksamkeit schenken.
 
 - Kosten: 17 CHF
 - Altergruppe: 8+
@@ -71,7 +71,7 @@ Weiterführende Links:
 
 Dieses Spiel beinhaltet nichts anderes, als eine Reihe von Karten mit Symbolen. Mithilfe dieser Symbole erfindet man einen möglichen Tathergang.
 
-Da sich alle Mitspielenden diesen Tathergang zu einem gewissen Grad im Kopf behalten müssen, erfordert das Spiel Aufmerksamkeit, aber auch Fantasie weil man den Tathergang ständig ein wenig anpasst.
+Da sich alle Mitspielenden diesen Tathergang zu einem gewissen Grad im Kopf behalten müssen, erfordert das Spiel Aufmerksamkeit, aber auch Fantasie, weil man den Tathergang ständig ein wenig anpasst.
 
 - Kosten: 18 CHF
 - Altergruppe: 8+
@@ -90,7 +90,7 @@ Weiterführende Links:
 
 Man erfindet gemeinsam eine eigene Fernsehserie und spielt darin eine Episode. Würfel (Story-Cubes) und einige Karten geben einem ein paar Vorgaben, aber insgesamt ist man sehr frei.
 
-Es ist Kreativität erforderlich um ein amüsante Episode zu erfinden. Was Untold gut umsetzt indem es viele Elemente, die in klassischen Rollenspielen auch vorkommen, beinhaltet und auf das wichtigste reduziert. Das Spiel eignet sich gut als Einstieg in Rollenspiele.
+Es ist Kreativität erforderlich, um eine amüsante Episode zu erfinden. Untold beinhaltet viele Elemente, die in klassischen Rollenspielen auch vorkommen, jedoch auf das Minimum reduziert. Untold eignet sich daher gut als Einstieg in das Rollenspiel.
 
 - Kosten: 45 CHF
 - Altergruppe: 12+
@@ -107,9 +107,9 @@ Weiterführende Links:
 
 ![Alle sind John - Logo](Alle-sind-John-Logo.jpg)
 
-Die Hauptperson, um welche sich die Geschichte dreht ist Jane oder John. Jane/John hat eine psychische Erkrankung, Schizophrenie. Unterschiedliche Stimmen übernehmen jeweils die Kontrolle über Jane/John. Jede dieser Stimmen hat unterschiedliche Fähigkeiten und Ziele. Jede mitspielende Person spielt eine Stimme im Kopf von Jane/John.
+Die Hauptperson, um die sich die Geschichte dreht, ist Jane oder John. Jane/John hat eine psychische Erkrankung. Unterschiedliche Stimmen übernehmen jeweils die Kontrolle über Jane/John und jede dieser Stimmen hat unterschiedliche Fähigkeiten und Ziele. Jede mitspielende Person spielt eine Stimme im Kopf von Jane/John.
 
-Die guten Seiten an diesem Spiel sind, dass es kostenlos ist, die Regeln auf einer halben A4 Seite Platz haben, keine Vorbereitung notwendig ist und es mit etwas Fantasie zu lustigen aber auch tragischen Situationen kommen kann. 
+Das Spiel ist kostenlos und die Regeln finden auf einer halben A4 Seite Platz. Es ist keine Vorbereitung nötig und mit etwas Fantasie kommt es zu lustigen, aber auch tragischen Situationen.
 
 - Kosten: Kostenlos
 - Altergruppe: 14+
