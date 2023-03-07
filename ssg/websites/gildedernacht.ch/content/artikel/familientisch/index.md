@@ -31,7 +31,7 @@ Was an dem Spiel positiv auffällt: Im Gegensatz zu anderen Rollenspielen, die f
 Spielmaterial
 
 - [My Little Pony - Karte](My-Little-Pony-Weltkarte.jpg)
-- [My Little Pony - Abenteuer - Unerwarteter Besuch](My-Little-Pony-Unterwarteter-Besuch.pdf)
+- [My Little Pony - Abenteuer - Unerwarteter Besuch](My-Little-Pony-Unerwarteter-Besuch.pdf)
 - [My Little Pony - Abenteuer - See](My-Little-Pony-See.png)
 - [My Little Pony - Einhorn](Einhorn_A6.pdf)
 - [My Little Pony - Erdpony](Erdpony_A6.pdf)
