@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32kcb2kdkmtvs0g\"",
+ "etag": "\"p33c9ha4dlfivs0g\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2023-04-21T15:29:11.353Z",
- "timeZone": "Europe/Zurich",
+ "updated": "2023-05-08T08:47:51.463Z",
+ "timeZone": "Europe/Lisbon",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CKjFio2lu_4CEAAYASCi88X7AQ==",
+ "nextSyncToken": "CNiYqI2r5f4CEAAYASCi88X7AQ==",
  "items": [
   {
    "kind": "calendar#event",
@@ -57,11 +57,11 @@
     "self": true
    },
    "start": {
-    "dateTime": "2023-05-20T14:00:00+02:00",
+    "dateTime": "2023-05-20T13:00:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2023-05-20T23:30:00+02:00",
+    "dateTime": "2023-05-20T22:30:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "0r9nkm3kb53gv4mtjjd6fqdl16@google.com",
@@ -87,11 +87,11 @@
     "self": true
    },
    "start": {
-    "dateTime": "2023-06-03T14:00:00+02:00",
+    "dateTime": "2023-06-03T13:00:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2023-06-03T23:30:00+02:00",
+    "dateTime": "2023-06-03T22:30:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "2dln1lhei7lludi2psgse0j066@google.com",
@@ -117,11 +117,11 @@
     "self": true
    },
    "start": {
-    "dateTime": "2023-06-17T14:00:00+02:00",
+    "dateTime": "2023-06-17T13:00:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2023-06-17T23:30:00+02:00",
+    "dateTime": "2023-06-17T22:30:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "0ciosptuihq0s3pnec7i92eo2s@google.com",
@@ -177,11 +177,11 @@
     "self": true
    },
    "start": {
-    "dateTime": "2023-05-11T19:00:00+02:00",
+    "dateTime": "2023-05-11T18:00:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "end": {
-    "dateTime": "2023-05-11T21:00:00+02:00",
+    "dateTime": "2023-05-11T20:00:00+01:00",
     "timeZone": "Europe/Zurich"
    },
    "iCalUID": "c5ij6d9m61j32b9g64rm4b9k68rm2bb168rm2b9n70s64o9gcgq62o9m74@google.com",
