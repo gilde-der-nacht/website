@@ -159,37 +159,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3355392500488000\"",
-   "id": "c5ij6d9m61j32b9g64rm4b9k68rm2bb168rm2b9n70s64o9gcgq62o9m74",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=YzVpajZkOW02MWozMmI5ZzY0cm00YjlrNjhybTJiYjE2OHJtMmI5bjcwczY0bzlnY2dxNjJvOW03NCBnaWxkZWRlcm5hY2h0QG0",
-   "created": "2023-02-09T18:46:12.000Z",
-   "updated": "2023-03-01T18:44:10.244Z",
-   "summary": "Rollenspiel-Stammtisch (ungeleitet)",
-   "description": "Nimm an unserem Rollenspiel Stammtisch teil und diskutiere, philosophiere und entdecke mit uns alles rund um das Thema Rollenspiele. Egal ob du Spieler*in oder Spielleiter*in bist. \u003cbr\u003e\u003cbr\u003eDieser Stammtisch ist möglicherweise ungeleitet. Das bedeutet, dass niemand vom OK präsent ist oder nichts im Voraus geplant wurde.\u003cbr\u003e \u003cbr\u003e---\u003cbr\u003e\u003cbr\u003e \u003cbr\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003cbr\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003cbr\u003e[theme]success[/theme]\u003cbr\u003e[icon]fa-comment-dots[/icon] \u003cbr\u003e[links]Rollenspieltage{\u003ca href=\"https://rollenspieltage.ch\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e},Stammtisch{\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D)https://gildedernacht.ch/event/rollenspiel-stammtisch\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch\u003c/a\u003e\u003ca href=\"https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D)%7D%5B/links%5D\"\u003e}[/links]\u003c/a\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2023-05-11T18:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2023-05-11T20:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "c5ij6d9m61j32b9g64rm4b9k68rm2bb168rm2b9n70s64o9gcgq62o9m74@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3361260748626000\"",
    "id": "7viv5ncuc0jl3s2iu6afjts5tl",
    "status": "confirmed",
