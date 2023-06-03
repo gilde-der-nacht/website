@@ -69,37 +69,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3369842300804000\"",
-   "id": "lfgp7jj2dldupd1o1espu5csvc",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=bGZncDdqajJkbGR1cGQxbzFlc3B1NWNzdmMgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2023-05-24T09:39:10.000Z",
-   "updated": "2023-05-24T09:39:10.402Z",
-   "summary": "Rollenspiel-Stammtisch",
-   "description": "Nimm an unserem Rollenspiel Stammtisch teil und diskutiere, philosophiere und entdecke mit uns alles rund um das Thema Rollenspiele. Egal ob du Spieler*in oder Spielleiter*in bist. \u003cbr\u003e\u003cbr\u003eDieser Stammtisch ist möglicherweise ungeleitet. Das bedeutet, dass niemand vom OK präsent ist oder nichts im Voraus geplant wurde.\u003cbr\u003e \u003cbr\u003e---\u003cbr\u003e\u003cbr\u003e \u003cbr\u003e[tags]Rollenspiele, Stammtisch[/tags] \u003cbr\u003e[location]Bourbaki Bar/Bistro, Luzern[/location]\u003cbr\u003e[theme]success[/theme]\u003cbr\u003e[icon]fa-comment-dots[/icon] \u003cbr\u003e[links]Rollenspieltage{\u003ca href=\"https://rollenspieltage.ch\"\u003ehttps://rollenspieltage.ch\u003c/a\u003e},Stammtisch{\u003ca href=\"https://gamedive.ch/%7D%5B/links%5D)https://gildedernacht.ch/event/rollenspiel-stammtisch\"\u003ehttps://gildedernacht.ch/event/rollenspiel-stammtisch\u003c/a\u003e\u003ca href=\"https://gildedernacht.ch/event/rollenspiel-stammtisch/%7D%5B/links%5D)%7D%5B/links%5D\"\u003e}[/links]\u003c/a\u003e",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2023-06-02T18:00:00+01:00",
-    "timeZone": "Europe/Lisbon"
-   },
-   "end": {
-    "dateTime": "2023-06-02T20:00:00+01:00",
-    "timeZone": "Europe/Lisbon"
-   },
-   "iCalUID": "lfgp7jj2dldupd1o1espu5csvc@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3369842332292000\"",
    "id": "m2g3mtqn65mvua20ptpjg50rrg",
    "status": "confirmed",
