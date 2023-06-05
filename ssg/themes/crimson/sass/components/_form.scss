@@ -202,3 +202,14 @@ button {
     }
   }
 }
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  @include f.font-weight(700);
+  margin-bottom: 0.5rem;
+}
