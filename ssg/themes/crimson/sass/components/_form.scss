@@ -40,6 +40,11 @@ textarea {
   &::placeholder {
     font-style: italic;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: transparent;
+  }
 }
 
 textarea {
@@ -192,9 +197,6 @@ button {
       }
     }
     &:disabled {
-      cursor: not-allowed;
-      background-color: transparent;
-
       &::before {
         cursor: not-allowed;
         box-shadow: inset 0 0 0 2px hsl(0 0% 100% / 50%);
