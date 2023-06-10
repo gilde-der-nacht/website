@@ -7,7 +7,7 @@ form {
     margin-bottom: 1em;
   }
 
-  > p {
+  >p {
     max-inline-size: 100%;
   }
 }
@@ -26,8 +26,8 @@ textarea {
 label {
   @include f.font-weight(700);
 
-  > input:not([type="checkbox"]):not([type="radio"]),
-  > textarea {
+  >input:not([type="checkbox"]):not([type="radio"]),
+  >textarea {
     @include f.font-weight();
     margin-top: 0.5rem;
   }
@@ -43,7 +43,7 @@ textarea {
 
   &:disabled {
     cursor: not-allowed;
-    background-color: transparent;
+    background-color: transparent !important;
   }
 }
 
@@ -192,10 +192,12 @@ button {
 
     &:checked {
       background: c.getSuccess("background-solid");
+
       &::before {
         transform: translateX(calc((2rem - 100%)));
       }
     }
+
     &:disabled {
       &::before {
         cursor: not-allowed;
