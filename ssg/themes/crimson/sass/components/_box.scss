@@ -28,6 +28,12 @@
     color: c.getDanger("text-low-contrast");
   }
 
+  &-warning {
+    @extend .box;
+    border-color: c.getWarning("background-solid");
+    color: c.getWarning("text-low-contrast");
+  }
+
   &-gray {
     @extend .box;
     border-color: c.getGray("background-solid");

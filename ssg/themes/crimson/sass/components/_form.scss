@@ -112,6 +112,18 @@ button {
   }
 }
 
+.button-warning {
+  border-color: c.getWarning("background-solid");
+  color: c.getWarning("text-low-contrast");
+
+  &:hover,
+  &:active {
+    background-color: c.getWarning("background-subtle");
+    border-color: c.getWarning("text-low-contrast");
+    color: c.getWarning("text-high-contrast");
+  }
+}
+
 .button-gray {
   border-color: c.getGray("background-solid");
   color: c.getGray("text-low-contrast");

@@ -48,6 +48,14 @@
     --event-border-color-hover: #{c.getSuccess("border-element-hover")};
   }
 
+  &.warning {
+    --event-color: #{c.getWarning("text-low-contrast")};
+    --event-background-color: #{c.getWarning("background-element")};
+    --event-border-color: #{c.getWarning("border-element")};
+    --event-border-color-hover: #{c.getWarning("border-element-hover")};
+  }
+
+
   &.special {
     --event-color: #{c.getSpecial("text-low-contrast")};
     --event-background-color: #{c.getSpecial("background-element")};
