@@ -112,6 +112,32 @@ $colorSuccessDark10: hsl(131 39% 52.1%) !default;
 $colorSuccessDark11: hsl(131 43% 57.2%) !default;
 $colorSuccessDark12: hsl(137 72% 94%) !default;
 
+$colorWarning1: hsl(24 70.0% 99.0%) !default;
+$colorWarning2: hsl(24 83.3% 97.6%) !default;
+$colorWarning3: hsl(24 100% 95.3%) !default;
+$colorWarning4: hsl(25 100% 92.2%) !default;
+$colorWarning5: hsl(25 100% 88.2%) !default;
+$colorWarning6: hsl(25 100% 82.8%) !default;
+$colorWarning7: hsl(24 100% 75.3%) !default;
+$colorWarning8: hsl(24 94.5% 64.3%) !default;
+$colorWarning9: hsl(24 94.0% 50.0%) !default;
+$colorWarning10: hsl(24 100% 46.5%) !default;
+$colorWarning11: hsl(24 100% 37.0%) !default;
+$colorWarning12: hsl(15 60.0% 17.0%) !default;
+
+$colorWarningDark1: hsl(30 70.0% 7.2%) !default;
+$colorWarningDark2: hsl(28 100% 8.4%) !default;
+$colorWarningDark3: hsl(26 91.1% 11.6%) !default;
+$colorWarningDark4: hsl(25 88.3% 14.1%) !default;
+$colorWarningDark5: hsl(24 87.6% 16.6%) !default;
+$colorWarningDark6: hsl(24 88.6% 19.8%) !default;
+$colorWarningDark7: hsl(24 92.4% 24.0%) !default;
+$colorWarningDark8: hsl(25 100% 29.0%) !default;
+$colorWarningDark9: hsl(24 94.0% 50.0%) !default;
+$colorWarningDark10: hsl(24 100% 58.5%) !default;
+$colorWarningDark11: hsl(24 100% 62.2%) !default;
+$colorWarningDark12: hsl(24 97.0% 93.2%) !default;
+
 $colorSpecial1: hsl(280 65% 99.4%) !default;
 $colorSpecial2: hsl(276 100% 99%) !default;
 $colorSpecial3: hsl(276 83.1% 97%) !default;
@@ -195,6 +221,19 @@ $colorSpecialDark12: hsl(279 75% 95.7%) !default;
   --clr-success-11: #{$colorSuccess11};
   --clr-success-12: #{$colorSuccess12};
 
+  --clr-warning-1: #{$colorWarning1};
+  --clr-warning-2: #{$colorWarning2};
+  --clr-warning-3: #{$colorWarning3};
+  --clr-warning-4: #{$colorWarning4};
+  --clr-warning-5: #{$colorWarning5};
+  --clr-warning-6: #{$colorWarning6};
+  --clr-warning-7: #{$colorWarning7};
+  --clr-warning-8: #{$colorWarning8};
+  --clr-warning-9: #{$colorWarning9};
+  --clr-warning-10: #{$colorWarning10};
+  --clr-warning-11: #{$colorWarning11};
+  --clr-warning-12: #{$colorWarning12};
+
   --clr-special-1: #{$colorSpecial1};
   --clr-special-2: #{$colorSpecial2};
   --clr-special-3: #{$colorSpecial3};
@@ -266,6 +305,19 @@ $colorSpecialDark12: hsl(279 75% 95.7%) !default;
   --clr-success-11: #{$colorSuccessDark11};
   --clr-success-12: #{$colorSuccessDark12};
 
+  --clr-warning-1: #{$colorWarningDark1};
+  --clr-warning-2: #{$colorWarningDark2};
+  --clr-warning-3: #{$colorWarningDark3};
+  --clr-warning-4: #{$colorWarningDark4};
+  --clr-warning-5: #{$colorWarningDark5};
+  --clr-warning-6: #{$colorWarningDark6};
+  --clr-warning-7: #{$colorWarningDark7};
+  --clr-warning-8: #{$colorWarningDark8};
+  --clr-warning-9: #{$colorWarningDark9};
+  --clr-warning-10: #{$colorWarningDark10};
+  --clr-warning-11: #{$colorWarningDark11};
+  --clr-warning-12: #{$colorWarningDark12};
+
   --clr-special-1: #{$colorSpecialDark1};
   --clr-special-2: #{$colorSpecialDark2};
   --clr-special-3: #{$colorSpecialDark3};
@@ -318,6 +370,7 @@ $_base-colors: (
   @if not map.has-key($_base-colors, $name) {
     @error "Color '#{$name}' is not defined";
   }
+
   @return map.get($_base-colors, $name);
 }
 
@@ -340,6 +393,7 @@ $_gray-colors: (
   @if not map.has-key($_gray-colors, $name) {
     @error "Color '#{$name}' is not defined";
   }
+
   @return map.get($_gray-colors, $name);
 }
 
@@ -362,6 +416,7 @@ $_danger-colors: (
   @if not map.has-key($_danger-colors, $name) {
     @error "Color '#{$name}' is not defined";
   }
+
   @return map.get($_danger-colors, $name);
 }
 
@@ -384,7 +439,31 @@ $_success-colors: (
   @if not map.has-key($_success-colors, $name) {
     @error "Color '#{$name}' is not defined";
   }
+
   @return map.get($_success-colors, $name);
+}
+
+$_warning-colors: (
+  "background": var(--clr-warning-1),
+  "background-subtle": var(--clr-warning-2),
+  "background-element": var(--clr-warning-3),
+  "background-element-hover": var(--clr-warning-4),
+  "background-element-active": var(--clr-warning-5),
+  "border-subtle": var(--clr-warning-6),
+  "border-element": var(--clr-warning-7),
+  "border-element-hover": var(--clr-warning-8),
+  "background-solid": var(--clr-warning-9),
+  "background-solid-hover": var(--clr-warning-10),
+  "text-low-contrast": var(--clr-warning-11),
+  "text-high-contrast": var(--clr-warning-12),
+);
+
+@function getWarning($name) {
+  @if not map.has-key($_warning-colors, $name) {
+    @error "Color '#{$name}' is not defined";
+  }
+
+  @return map.get($_warning-colors, $name);
 }
 
 $_special-colors: (
@@ -406,5 +485,6 @@ $_special-colors: (
   @if not map.has-key($_special-colors, $name) {
     @error "Color '#{$name}' is not defined";
   }
+
   @return map.get($_special-colors, $name);
 }
