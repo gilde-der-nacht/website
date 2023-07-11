@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p33cf7dc9gfkfu0g\"",
+ "etag": "\"p33octs57ha2800o\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2023-06-29T08:07:31.607Z",
+ "updated": "2023-07-10T11:54:27.206Z",
  "timeZone": "Europe/Lisbon",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CNjztYmD6P8CEAAYASDi_qmEAg==",
+ "nextSyncToken": "CPDO8KeKhIADEAAYASDi_qmEAg==",
  "items": [
   {
    "kind": "calendar#event",
