@@ -21,17 +21,16 @@ In addition to the role-playing rounds, there will also be the opportunity to pl
 
 ### Opening hours
 
-_The final opening hours will be communicated in spring 2023._
+Saturday, 10 a.m. to midnight \
+Sunday, 10 a.m. to 7 p.m.
 
 ### Admission & Registration
 
-_Registration opens around a month before the event._
-
 Admission is free of charge.
 
-The program will be put together on the basis of registrations.
+Pre-registrations closed on 10 August.
 
-We will have some free places for spontaneous players. However, if you know in advance that you will be attending, we can better tailor the program to your wishes if you register.
+We will have some free places available for spontaneous players.
 
 ### Arrival
 
