@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@directus/sdk": "^11.0.2"
+  },
+  "devDependencies": {
+    "bun-types": "^0.7.3"
+  }
+}
