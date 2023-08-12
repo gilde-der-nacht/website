@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2023-08-19T12:00:00.000Z",
+    "end": "2023-08-19T22:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 1,
+      "label": "Würzenbachsaal",
+      "label_long": "Würzenbachsaal, St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 2,
+    "title": "Luzerner Rollenspieltage 2023",
+    "description": null,
+    "start": "2023-08-26T08:00:00.000Z",
+    "end": "2023-08-27T16:00:00.000Z",
+    "type_of_time": "multiple_partial_days",
+    "location": {
+      "id": 1,
+      "label": "Würzenbachsaal",
+      "label_long": "Würzenbachsaal, St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 2,
+      "label": "Luzerner Rollenspieltage",
+      "description": null
+    },
+    "tags": [
+      {
+        "id": 3,
+        "label": "Rollenspiele"
+      },
+      {
+        "id": 4,
+        "label": "Weekend"
+      }
+    ],
+    "links": [
+      {
+        "id": 1,
+        "label": "Luzerner Rollenspieltage",
+        "url": "https://rollenspieltage.ch"
+      }
+    ]
+  }
+]
