@@ -13,7 +13,7 @@ Looking for a short and sweet overview in English?
 
 # Herzlich willkommen
 
-Am **Samstag, 11. und Sonntag, 12. März 2023** verwandeln wir den [Pfarreisaal St. Johannes im Würzenbach-Quartier](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403) in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
+Am **Samstag, 9. und Sonntag, 10. März 2024** verwandeln wir den [Pfarreisaal St. Johannes im Würzenbach-Quartier](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403) in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
 
 Falls du Fragen hast oder an den Spieltagen [**mithelfen**](/helfen) möchtest, zögere nicht, uns über das [Kontaktformular](/kontakt) anzuschreiben. Wir freuen uns auf deine Nachricht.
 
@@ -57,8 +57,8 @@ Möchtest du jedes Detail wissen? Hier findest du alle Programmpunkte auf einer 
 
 #### Öffnungszeiten
 
-Samstag, 11. März 2023, 10 bis 24 Uhr.\
-Sonntag, 12. März 2023, 10 bis 18 Uhr.
+Samstag, 9. März 2024, 10 bis 24 Uhr.\
+Sonntag, 10. März 2024, 10 bis 18 Uhr.
 
 #### Eintritt & Anmeldung
 
@@ -85,5 +85,5 @@ Ein Kiosk mit Getränken und Snacks steht während den Öffnungszeiten zur Verf�
 _Speisen und Getränke können Bar oder per Twint bezahlt werden._
 
 {% Box type="success", link="https://gildedernacht.ch/", linkLabel="Zur Gilde der Nacht" %}
-Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **9. + 10. März 2024**.
+Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage.
 {% endBox %}

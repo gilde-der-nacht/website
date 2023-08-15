@@ -5,6 +5,10 @@ title: Neuerungen
 
 # Neuerungen
 
+{% Box type="special" %}
+**Achtung,** dieses Programm ist noch vom letzten Jahr und wird erst Anfangs 2024 aktualisiert.
+{% endBox %}
+
 Du kennst die Spieltage schon in und Auswendig? Dieses Jahr ist das Konzept wieder ziemlich ähnlich.
 
 Neu ist dieses Jahr, dass wir am Sonntag zusätzlich Programm für Familien anbieten.

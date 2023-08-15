@@ -1,10 +1,10 @@
 {
-    "siteName": "Luzerner Spieltage",
-    "siteTagline": "11. + 12. März 2023",
-    "siteSmallprint": "ein Event des Spielvereins «Gilde der Nacht»",
-    "siteCode": "lst",
-    "url": {
-        "live": "https://spieltage.ch",
-        "test": "https://test.spieltage.ch"
-    }
+  "siteName": "Luzerner Spieltage",
+  "siteTagline": "9. + 10. März 2024",
+  "siteSmallprint": "ein Event des Spielvereins «Gilde der Nacht»",
+  "siteCode": "lst",
+  "url": {
+    "live": "https://spieltage.ch",
+    "test": "https://test.spieltage.ch"
+  }
 }

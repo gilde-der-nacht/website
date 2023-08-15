@@ -14,7 +14,7 @@ Die nächsten Luzerner Spieltage stehen vor der Tür.
 
 **Und dazu brauchen wir dich!**
 
-Am 11. + 12. März 2023 werden die Pforten zum Pfarreisaal St. Johannes im Würzenbach-Quartier wieder geöffnet.
+Am 9. + 10. März 2024 werden die Pforten zum Pfarreisaal St. Johannes im Würzenbach-Quartier wieder geöffnet.
 
 Es würde uns sehr freuen wenn du uns bei einer der verschiedenen Tätigkeiten helfen kannst: **Kasse oder Küche.**
 

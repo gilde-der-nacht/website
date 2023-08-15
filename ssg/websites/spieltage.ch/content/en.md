@@ -9,7 +9,7 @@ Looking for the German version?
 
 # Welcome
 
-On **Saturday and Sunday, March 12 and 13, 2023** we will transform the [Pfarreisaal St. Johannes](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403) into an oasis for players. Whether young or old, whether strategist or team player, whether hobbyist or enthusiasts, we have something for everyone on the menu. Apropos menu: a tasty meal will be provided.
+On **Saturday and Sunday, March 9 and 10, 2024** we will transform the [Pfarreisaal St. Johannes](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403) into an oasis for players. Whether young or old, whether strategist or team player, whether hobbyist or enthusiasts, we have something for everyone on the menu. Apropos menu: a tasty meal will be provided.
 
 ### Program
 
@@ -25,8 +25,8 @@ You can find more details on our [program page](/programm).
 
 #### Opening hours
 
-Saturday, 11 March 2023, 10 am to midnight.\
-Sunday, 12 March 2023, 10 am to 6 pm.
+Saturday, 9 March 2024, 10 am to midnight.\
+Sunday, 10 March 2024, 10 am to 6 pm.
 
 #### Admission & Registration
 

@@ -5,6 +5,10 @@ title: Neue Besucher
 
 # Neue Besucher
 
+{% Box type="special" %}
+**Achtung,** dieses Programm ist noch vom letzten Jahr und wird erst Anfangs 2024 aktualisiert.
+{% endBox %}
+
 Das Konzept der Spieltage ist relativ simpel: Du magst Brettspiele? Dann fühlst du dich bei uns wohl.
 
 Wir haben eine riesige Spielebibliothek zum selber rumstöbern und eine Auswahl an Spielen, die wir empfehlen. Damit du dich nicht selber in die Regeln einlesen musst, sind unsere **Erklärbären und Erklärbärinnen** zwischen den Tischen unterwegs um die Spielempfehlungen zu erklären.

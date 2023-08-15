@@ -5,6 +5,10 @@ title: Familien-Sonntag
 
 # Familien-Sonntag
 
+{% Box type="special" %}
+**Achtung,** dieses Programm ist noch vom letzten Jahr und wird erst Anfangs 2024 aktualisiert.
+{% endBox %}
+
 Neu ist dieses Jahr, dass wir am Sonntag von **10 bis 18 Uhr** abwechslungsreiches Programm für Familien geplant haben:
 
 Wir haben Spiele vor Ort, die für Kinder ab 3 Jahren geeignet sind und euch bequem erklãrt werden. Oder ihr taucht gemeinsam in eine fantastische Rollenspiel-Welt ab, in der ihr die Akteure und Geschichtenerzähler seid.

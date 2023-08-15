@@ -10,6 +10,10 @@ eleventyNavigation:
 
 # Programm
 
+{% Box type="special" %}
+**Achtung,** dieses Programm ist noch vom letzten Jahr und wird erst Anfangs 2024 aktualisiert.
+{% endBox %}
+
 **Öffnungszeiten**
 
 Samstag, 11. März 2023, 10 bis 24 Uhr.\
