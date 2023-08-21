@@ -22,7 +22,7 @@ In addition to the role-playing rounds, there will also be the opportunity to pl
 ### Opening hours
 
 Saturday, 10 a.m. to midnight \
-Sunday, 10 a.m. to 7 p.m.
+Sunday, 10 a.m. to 5 p.m.
 
 ### Admission & Registration
 

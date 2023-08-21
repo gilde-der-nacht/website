@@ -56,7 +56,7 @@ Du hast schon so einiges erlebt, möchtest gerne was Neues ausprobieren und dein
 ### Öffnungszeiten
 
 Samstag, 10 bis 24 Uhr \
-Sonntag, 10 bis 19 Uhr
+Sonntag, 10 bis 17 Uhr
 
 ## Eintritt & Anmeldung
 

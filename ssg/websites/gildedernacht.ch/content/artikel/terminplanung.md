@@ -39,6 +39,7 @@ date: 2021-09-22
 - SwissRPG https://swissrpg.ch/
 - SwitzerLAN https://switzerlan.ch/
 - SoloCon https://www.solocon.ch/
+- Römerfest https://www.augustaraurica.ch/roemerfest
 
 ## International
 
