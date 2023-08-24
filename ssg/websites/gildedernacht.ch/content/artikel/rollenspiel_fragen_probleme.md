@@ -1,7 +1,6 @@
 ---
 title: "Rollenspiele Fragen & Probleme"
 date: 2021-08-29
-draft: true
 ---
 
 # Rollenspiele Fragen & Probleme
@@ -18,7 +17,9 @@ In einer Welt mit Konsequenzen flieht der eine oder andere Gegner und kommt mit 
 
 Beispiel Shadow of the Demon Lord: Spieler die schreckliche Taten verüben, können "Corruption" bekommen. Jedes mal wenn man Corruption bekommt, würfelt man auf eine Tabelle mit einem W20. In der Tabelle hat es harmlosere Dinge wie: "Du sieht nie dein Spiegelbild in einem Spiegel" bis zu "Innerhalb einer Woche, kränkelt/stirbt ein Kind."
 
+<!--
 ??? alignment anpassen, thema gesinnung
+-->
 
 ## Spieler-Charakter stirbt?
 
@@ -48,13 +49,25 @@ Beispiel technoir: Das ganze Spielsystem baut drauf auf dass sich Mitspieler und
 
 *Thomas*
 
-??? wirklich komplett tot, meistens einfach mal bewusstlos, meistens hat niemand das Interesse einfach alle nur zu töten
+Idealerweise lässt man es gar nie so weit kommen. Einige Spielsystem bei denen der Tot überhaupt möglich ist, haben Regeln die zuerst zu einer Bewusstlosigkeit führen und erst später zum Tod. Solange nur alle bewusstlos sind, sind quasi immer noch viele Möglichkeiten offen: ausnahmsweise fremde Hilfe, Täter wird zum Opfer von etwas anderem, ...
+
+Selten hat der Gegenspieler Interesse die ganze Abenteuergruppe zu töten. Man schlägt sie lieber bewusstlos und versucht sich daraus einen Vorteil zu verschaffen (alles Schlimme was einem so in den Sinn kommt: versklaven, verkaufen, einsperren, ...) aber genau das gibt den Spieler:innen wieder Momente um sich zu befreien und zu entkommen.
+
+Anderseits gibt es aber auch Spiele (West Marches) die das bewusst in Kauf nehmen. Es wird nun Legenden geben über die verstorbene Heldengruppen geben und eine neue Abenteuergruppe kann auf eine andere Art versuchen an die Drachenschätze zu kommen. Die Welt gewinnt so an Leben und der Tod war nicht nur sinnlos. Es lohnt sich aber sicher auch über diesen möglichen Fall miteinander einmal zu reden.
 
 ## Bösewicht zu früh im Himmel?
 
 *Thomas*
 
-??? das ist ok, spielabend beenden / lebendige welt die auch weitergeht wenn der bösewicht tot ist / wenn die geschichte so auslegt dass man eine reihe von ideen hat, die reihenfolge aber egal ist, dann ist das auch weniger schlimm
+Das ist für die Spielleitung eigentlich nur insofern tragisch als das man vielleicht nicht weiteres vorbereitet hat und das Abenteuer nun zu früh zu Ende ist. Das kann man der Gruppe aber auch mitteilen und bis jetzt habe ich noch nie erlebt dass die Spieler:innen dafür kein Verständnis haben.
+
+Anderseits ist das primär ein Problem wenn man viel vorbereitet und der Bösewicht das klassische Ende einer vorbereiteten Geschichte ist. Wenn man aber eine Geschichte so vorbereitet dass es eine Reihe von Ideen gibt, aber die Reihenfolge beliebig ist, dann ist der Bösewicht auch nicht mehr die zentrale Hauptfigur, sondern ein Teil davon. Der Bösewicht hat vielleicht auch eine Bande hinter sich und nach dessen Tod, wird diese ihr eigenes Leben entwickeln, was positiv oder negativ sein kann.
+
+technoir: Das ganze Spielsystem ist darauf ausgelegt, dass man eine Reihe von Ideen hat und erst zusammen mit den Spieler:innen und ihren Aktionen, ergibt sich eine Geschichte. Verwendet man die exakt selben Ideen mit einer anderen Gruppe, wird sich auch eine andere Geschichte ergeben. 
+
+Forbidden Lands: Ist ein auf den Mutant Year Zero basierendes, klassisches Fantasy Rollenspiel. Der grösste Unterschied zu anderen Rollenspiele ist, dass die Gruppe sich auf einer Karte bewegt, fast wie einem Brettspiel. Für jedes Feld gibt Standardaktionen wie Nahrungsbeschaffung, Bauen (kann auch eine Burg sein, wenn sie Gruppe denn Zeit nimmt) und vieles mehr, aber auch immer wieder so Häppchen an kleinen Abenteuern. Es ist daher eigentlich unmöglich dass einem der Stoff ausgeht.
+
+Ironsworn: Hat vielleicht eine der eleganteste Lösungen für diese Problem: Die Spieler:innen müssen sich ihre Aufgabe selber erschaffen/erfinden und diesbezüglich auch einen Schwur ablegen. Die Spielleitung (was in diesem Spiel auch alle übernehmen können) ist nur dafür da für eine Aufgabe eine Reihe von Herausforderungen zu erfinden oder zu erwürfeln.
 
 ## Gruppe teilt sich auf?
 
@@ -64,23 +77,21 @@ Grundsätzlich ist das erst ein Problem wenn das aufteilen dazu führt dass einz
 
 Ich teile meiner Gruppe jeweils mit, dass es etwas ist das ich als Spielleiter versuche auf ein Minimum zu begrenzen und mir die Spieler dabei helfen sollen. Ich habe an Spieler die Erwartung dass sie untereinander in irgend einer Form eine Beziehung haben (Vertrauen, Freundschaft, ...) und sich gegenseitig auch helfen.
 
-???
-
 Leider gibt es Spielsystem die haben Subsysteme da wird die Gruppe zwangsläufig aufgetrennt. Beispiele: Hacker in Cyberpunk 2020 der in die Matrix geht (das haben die Autoren zumindest irgendwann auch verstanden). Shadowrun wenn ein magiebegabter Charakter in die Zwischenwelt geht, eine Welt die anderen Regeln folgt (wäre eine Charakter genau so schnell wie vorher, wäre es wesentlich einfacher den Spielfluss beizubehalten). Auch das Hacken in Shadowrun kann komplex genug sein, dass es fast ein Spiel im Spiel ist. Magiesysteme in diversen System sind in Teilen so umfangreich, dass man sich darin verlieren kann und den Rest der Gruppe zeitweise abhängt.
 
-Alles das ist für mich erst mal mässiges Spieldesign und alle diese antworten im Sinne von "Dann mach es halt anders" sind eine Ausrede. Natürlich kann man das. Ich muss auch gar kein Buch kaufen, ich kann alles selber machen. Gruppen die neu in einem Spielsystem sind, werden fast mit Sicherheit in diese Fettnäpfchen treten. Gute Brettspiele sind bekannt dafür weil sie ein sehr gutes Balancing haben und auch versuchen den Spielern gleiche Anteile an Zeit zu geben (oder anders gesagt, Brettspiele die so unfertig verkauft werden wie die meisten Rollenspiele würde heute wahrscheinlich niemand mehr kaufen). Genau das erwarte ich von einem Rollenspiel für das ich Geld gezahlt habe auch. In den unzähligen Playtesting Stunden muss das aufgefallen sein und es ist entweder mehrere Seiten im Regelbuch eine Diskussion Wert, oder wenn das Spieldesign klever wäre, würde das Design so gestaltet dass die Probleme gar nicht erst entstehen würden.
+Alles das ist für mich erst mal mässiges Spieldesign und alle diese antworten im Sinne von "Dann mach es halt anders" sind eine Ausrede. Natürlich kann man das. Ich muss auch gar kein Buch kaufen, ich kann alles selber machen. Gruppen die neu in einem Spielsystem sind, werden fast mit Sicherheit in diese Fettnäpfchen treten. Gute Brettspiele sind bekannt dafür weil sie ein sehr gutes Balancing haben und auch versuchen den Spielern gleiche Anteile an Zeit zu geben (oder anders gesagt, Brettspiele die so unfertig verkauft werden wie die meisten Rollenspiele würde heute wahrscheinlich niemand mehr kaufen). Genau das erwarte ich von einem Rollenspiel für das ich Geld gezahlt habe auch. In den unzähligen Playtesting Stunden muss das aufgefallen sein und es ist entweder mehrere Seiten im Regelbuch eine Diskussion Wert, oder wenn das Spieldesign clever wäre, würde das Design so gestaltet dass die Probleme gar nicht erst entstehen würden.
 
 Konkret sollte man unbedingt schauen dass alle Spieler Teil der Erfahrung sein können wenn es länger dauert (für kurze Intermezzos ist das, wie eingang schon erwähnt, auch kein Problem), oder man reduziert ganz bewusst die Zeit die ein Charakter eigenständig in seiner "Miniwelt" verbringt. In Cyberpunk können das z.B. VR/AR Brillen sein, welche es allen Mitspielern erlauben sinnvoll mitzuhelfen. Andernfalls stellt man eine 5 Minuten Sanduhr auf. In dieser Zeit muss alles erledigt sein.
 
-Beispiel The Sprawl: In diesem Rollenspiel ist es vorgesehen dass nicht nur ein Hacker in der Matrix ist, sondern auch andere Klassen. Entweder in der Klasse fest vorgesehen, oder optional wenn der Spieler ein entsprechende Cyberware einpflanzt. Auch normale Spieler eine reelle Chance in der Matrix effektiv zu sein (das liegt daran dass die Grundregeln auf PbtA aufbauen). Da es wesentlich weniger Regeln gibt als in Shadowrun, ist das auch tatsächlich ein gangbarer weg. Das Buch hat ein Kapitel dass über die Problematik schreibt dass ein Hacker theorethisch die Spielrunde stoppen könnte und alle warten müssen und gibt dafür 2 Lösungsansätze. 1. Man soll ständig zwischen Matrix und Real-Welt hin und herwechseln (damit wirft man den Gedanken weg dass man in der Matrix schneller ist, was aber meiner Meinung nach eine gute Entscheidung ist) 2. Was oben schon erwähnt wurde, dass man einen Run wirklich ganz kurz gestalten sollte. Wenn der Hacker alleine in der Matrix ist, dann soll man in sofort zum wichtigsten Server durchlassen.
+Beispiel The Sprawl: In diesem Rollenspiel ist es vorgesehen dass nicht nur ein Hacker in der Matrix ist, sondern auch andere Klassen. Entweder in der Klasse fest vorgesehen, oder optional wenn der Spieler ein entsprechende Cyberware einpflanzt. Auch normale Spieler eine reelle Chance in der Matrix effektiv zu sein (das liegt daran dass die Grundregeln auf PbtA aufbauen). Da es wesentlich weniger Regeln gibt als in Shadowrun, ist das auch tatsächlich ein gangbarer weg. Das Buch hat ein Kapitel dass über die Problematik schreibt dass ein Hacker theoretisch die Spielrunde stoppen könnte und alle warten müssen und gibt dafür 2 Lösungsansätze. 1. Man soll ständig zwischen Matrix und Real-Welt hin und her wechseln (damit wirft man den Gedanken weg dass man in der Matrix schneller ist, was aber meiner Meinung nach eine gute Entscheidung ist) 2. Was oben schon erwähnt wurde, dass man einen Run wirklich ganz kurz gestalten sollte. Wenn der Hacker alleine in der Matrix ist, dann soll man in sofort zum wichtigsten Server durchlassen.
 
-Beispiel Computerspiel Watch Dogs: Hat für Hacker in interessantes Konzept dass meiner Meinung auch für Rollenspiele gut geeignet wäre. Jede Aktion in der virtuellen Welt, ist immer mit einer Aktion der reelen Welt verknüpft. Wenn man in einen Server eindringen will, hangelt man sich meistens zuerst von Überwachungskamera zu Überwachungskamera, oder verwendet eine Drohne um einer Person aufzulauern um dann auf ihr Telefon zuzugreifen. Es passiert alles in Echtzeit.
+Beispiel Computerspiel Watch Dogs: Hat für Hacker in interessantes Konzept dass meiner Meinung auch für Rollenspiele gut geeignet wäre. Jede Aktion in der virtuellen Welt, ist immer mit einer Aktion der reellen Welt verknüpft. Wenn man in einen Server eindringen will, hangelt man sich meistens zuerst von Überwachungskamera zu Überwachungskamera, oder verwendet eine Drohne um einer Person auf zu lauern um dann auf ihr Telefon zuzugreifen. Es passiert alles in Echtzeit.
 
 ## Magier/Hacker verliert sich in Listen und Tabellen?
 
 *Thomas*
 
-Leider ist gibt es diverse Rollenspiele bei denen sind einzelne Klassen wesentlich komplexer als andere. Das wäre vielleicht noch erträglicher wenn die Komplexität erst mit der Zeit ansteigt, aber auch das ist dann oft nicht der Fall. Z.B. hat ein Hacker in Shadowrun von Anfang nahezu alle Möglichkeiten die es im ganzen Spiel gibt. Da einzige was sich mit der Zeit ändert ist, dass die Werte des Hacker steigen. Als Spielleiter sollte man sich dem bewusst sein und von einem Spieler der eine solche Rolle übernehmen möchte entsprechend folgendes verlangen: Dass er sich selbstständig mit dem Thema beschäftigt und sich vorbereitet, dass er sich eine Liste vorbereitet mit seinen wichtigsten Aktionen/Sprüchen damit man während dem spielen nicht ständig nachgucken muss und dass ihm bewusst sein sollte dass er, wie all anderen auch nur ein begrenzte Zeit für seinen Spielzug hat, als Fairness gegenüber der Gruppe. Wenn gutes zureden nicht hilft, kann auch hier eine Sanduhr helfen.
+Leider ist gibt es diverse Rollenspiele bei denen sind einzelne Klassen wesentlich komplexer als andere. Das wäre vielleicht noch erträglicher wenn die Komplexität erst mit der Zeit ansteigt, aber auch das ist dann oft nicht der Fall. Z.B. hat ein Hacker in Shadowrun von Anfang nahezu alle Möglichkeiten die es im ganzen Spiel gibt. Da einzige was sich mit der Zeit ändert ist, dass die Werte des Hacker steigen. Als Spielleiter sollte man sich dem bewusst sein und von einem Spieler der eine solche Rolle übernehmen möchte entsprechend folgendes verlangen: Dass er sich selbstständig mit dem Thema beschäftigt und sich vorbereitet, dass er sich eine Liste vorbereitet mit seinen wichtigsten Aktionen/Sprüchen damit man während dem spielen nicht ständig nach gucken muss und dass ihm bewusst sein sollte dass er, wie all anderen auch nur ein begrenzte Zeit für seinen Spielzug hat, als Fairness gegenüber der Gruppe. Wenn gutes zureden nicht hilft, kann auch hier eine Sanduhr helfen.
 
 Beispiel Apocalypse World 2: Für alle Klassen die es gibt, gibt es 2-3 Seiten zum lesen. Auf diesen Seiten sind nebst allen Werten, auch alle Aktionen aufgeschrieben welche diese Klasse durchführen kann. Jeder Spieler muss daher maximal diese wenigen Seiten lesen. Da alle Klassen eine ähnliche Komplexität haben, entsteht das Problem nicht.
 
@@ -98,7 +109,7 @@ Beispiel Blades in the Dark: Kehrt das Prinzip vom Inventar ganz um. Jeder Chara
 
 *Thomas*
 
-Man sollte Spieler nur dann würfeln lassen, wenn es wirklich um etwas geht. Wahrscheinlich kennt jeder die sinnlosen Orientungsproben. Der Spielleiter lässt auch alle würfeln, damit die Chance besteht dass vielleicht ein Spieler ein Erfolg hat. Wenn man aber das Spiel so dreht, dass wenn jemand würfelt und den Wurf vergeigt, irgend etwas passieren wird, dann wird plötzlich jeder Wurf interessant. Wenn Spieler eine Tür öffnen wollen und das nicht gelingt, dann hört vielleicht der Hausherr die Geräusche und wird mal nachsehen kommen. Falls du Tür zentral für das vorwärtskommen im Spiel ist gibt es zumindest folgende zwei Ideen. 1. Egal was die Spieler würfeln, die Tür ist nachher offen, das Würfelergebnis gibt aber Auskunft darüber, wie gut das gelungen ist, ein Fehlschlag bedeutet daher, dass die Spieler die Tür vielleicht aus der Angel gerissen haben, nur ist jetzt der Sicherheitsalarm vielleicht losgegangen und in wenigen Minuten wird das Haus umstellt sein. 2. Man lässt die Spieler solange würfeln, bis sie ein vorbestimmte Summe erreichen. Je mehr würfe dafür notwendig waren, desto mehr Zeit ist verstrichen. Zeit die Antagonisten auch ihre Art nutzen können.
+Man sollte Spieler nur dann würfeln lassen, wenn es wirklich um etwas geht. Wahrscheinlich kennt jeder die sinnlosen Orientungsproben. Der Spielleiter lässt auch alle würfeln, damit die Chance besteht dass vielleicht ein Spieler ein Erfolg hat. Wenn man aber das Spiel so dreht, dass wenn jemand würfelt und den Wurf vergeigt, irgend etwas passieren wird, dann wird plötzlich jeder Wurf interessant. Wenn Spieler eine Tür öffnen wollen und das nicht gelingt, dann hört vielleicht der Hausherr die Geräusche und wird mal nachsehen kommen. Falls du Tür zentral für das vorwärtskommen im Spiel ist gibt es zumindest folgende zwei Ideen. 1. Egal was die Spieler würfeln, die Tür ist nachher offen, das Würfelergebnis gibt aber Auskunft darüber, wie gut das gelungen ist, ein Fehlschlag bedeutet daher, dass die Spieler die Tür vielleicht aus der Angel gerissen haben, nur ist jetzt der Sicherheitsalarm vielleicht losgegangen und in wenigen Minuten wird das Haus umstellt sein. 2. Man lässt die Spieler solange würfeln, bis sie ein vorbestimmte Summe erreichen. Je mehr Würfe dafür notwendig waren, desto mehr Zeit ist verstrichen. Zeit die Antagonisten auch ihre Art nutzen können.
 
 Powered by the Apocalypse: Alle Spiele die ich kenne, die ihre Regelwerk auf PbtA basieren würfen mit 2W6. Das Resultat wird immer wie folgt ausgewertet: 10+: gut gelungen, 7-9: gelungen, aber irgend etwas passiert, 2-6: misslungen, irgend etwas passiert. D.h. es passiert immer etwas. Der Spielleiter wird ständig darauf hingewiesen, das es wichtig ist, dass bei einem Würfelwurf immer etwas passieren sollte.
 
@@ -112,11 +123,13 @@ Wenn ein Hinweis wichtig für die Story ist dann sollte man ihn den Spielern auc
 
 Es kann auch die umgekehrte Problematik geben, dass Spieler einen Hinweis oder ein Werkzeug finden, damit aber nicht wissen wie damit umgehen. Der Spielleiter kann dann kurz die Perspektive des Charakters eine Spielers übernehmen, der natürlich genau versteht für was dieser Hinweis ist. Charaktere können durchaus mehr Wissen als der eigentliche Spieler. Ich finde es generell nicht toll wenn ein Spielleiter erwartet dass ein Rätsel zwingend von einem Spieler gespielt wird, oder dass ein Spieler beim "Überzeugen" selber überzeugend sein muss, oder Wissen muss wie ein Handwerk funktioniert. Genau dafür hat sein Charakter Werte oder eine Hintergrundgeschichte.
 
-Computerspiele wie Metroid und Zelda gehen auch interessant mit dem Problem um dass Spieler Werkzeuge finden, deren Nutzen nicht kennen. Meistens wird der Spieler zuerst vor ein Problem gestellt an dem er unmöglich weiter kommt. Kurz darauf findet er neues Werkzeug dass genau dieses Problem löst. Mein Gefühl ist aber dass das in Rollenspiele nicht gut ankommt. Es ist einerseits generell schwierig den Spielern mitzuteilen dass ein bestimmtes Problem im Moment unlösbar ist. Den Spielern dann kurz darauf, die Erlösung zu geben, sieht wiederum auch sehr fest nach vorgefertigtem Abenteuer aus, indem die Spieler eigentlich nur Marionetten sind, welche ein geführtes Theater durchspielen (aka Railroading).
+Computerspiele wie Metroid und Zelda gehen auch interessant mit dem Problem um dass Spieler Werkzeuge finden, deren Nutzen nicht kennen. Meistens wird der Spieler zuerst vor ein Problem gestellt an dem er unmöglich weiter kommt. Kurz darauf findet er neues Werkzeug dass genau dieses Problem löst. Mein Gefühl ist aber dass das in Rollenspiele nicht gut ankommt. Es ist einerseits generell schwierig den Spielern mitzuteilen dass ein bestimmtes Problem im Moment unlösbar ist. Den Spielern dann kurz darauf, die Erlösung zu geben, sieht wiederum auch sehr fest nach vorgefertigtem Abenteuer aus, indem die Spieler eigentlich nur Marionetten sind, welche ein geführtes Theater durchspielen (aka Railroading, was Computerspiele in den meisten Fällen genau machen).
 
 Es gibt Rollenspiele die haben eine Alternative Würfelmethode wenn eine Aktion länger dauert (z.B. etwas herstellen). Eine einzelne Person, oder sogar alle, addieren ihre Würfelergebnisse so lange bis sie einen vorgegebenen Wert erreichen. Wie oft gewürfelt wird, gibt einen Hinweis darauf wie lange etwas gedauert hat.
 
+<!--
 ??? Shadowrun hatte doch so etwas?
+-->
 
 Beispiel Gumshoe: Wurde entwickelt um genau dieses Problem zu umgehen. Das zeigt offensichtlich dass es die Problematik eine echte ist oder zumindest war. Der Grundgedanke vom Regelsystem ist aber relativ einfach. Wenn ein Ort mehrere Hinweise enthält, dann finden ihn die Spieler zu 100% den wichtigsten Hinweis. Das einzige was sie mit den Würfelergebnis erreichen können, ist bessere oder mehre Informationen zu bekommen.
 
@@ -124,18 +137,17 @@ Beispiel Gumshoe: Wurde entwickelt um genau dieses Problem zu umgehen. Das zeigt
 
 *Thomas*
 
+<!--
 ???
+-->
 
-- stopuhr
-- erlaub dass aktionen in der vergangenheit gemacht werden dürfen
-
-Blades in the Dark: ???
+Blades in the Dark: Nahezu das ganze Regelsystem ist darauf ausgelegt, dass man nicht plant. Das beginnt auch bei der Spielleitung die idealerweise gar nicht vorbereitet. Zwei Regeln haben aber etwas Augenmerk verdient: Es ist während dem ganzen Spiel erlaubt Fakten in der Vergangenheit zu erschaffen. Das erlaubt es Spielern bei einer kreativen Idee, die dann einfach in der Vergangenheit passieren zu lassen. Die zweite Regeln sind Uhren. Man erfindet für kritische Momente Uhren, z.B. eine Uhr die aus 6 Segmenten besteht und bei deren Ablauf z.B. die Polizei alarmiert wird. Bei jeder Aktion der Spieler:innen rückt die Uhr um ein Segment vor. Die Gruppe ist damit gezwungen zu handeln und nicht zu viel Zeit verstreichen zu lassen.
 
 ## Gruppenbegleitende übermächtige NPCs?
 
 *Thomas*
 
-Sollte meiner Meinung nach der Spielleiter so schnell wie möglich aus dem Spiel nehmen. Es fühlt sich einfach wie ein kleiner Scherz an wenn man ständig Gandalf um sich hat. Dan kann man gleich Zuhause bleiben. Ich würde mich auch schämen meinen Spielern ständig dann wenn es kritisch wird, schnell Hilfe zuzukommen zu lassen (habe ich sicher auch schon gemacht und es nicht mal bemerkt). Meine Spieler sind die Helden in diesem Universum. Falls Spieler Hilfe holen, sollte dieser NPC nur aussergewöhnliche Inselbegabungen haben und auch diese nur unter gewissen Bedingungen oder Einschränkungen einsetzen können.
+Sollte meiner Meinung nach der Spielleiter so schnell wie möglich aus dem Spiel nehmen. Es fühlt sich einfach wie ein kleiner Scherz an wenn man ständig Gandalf um sich hat. Dan kann man gleich Zuhause bleiben. Ich würde mich auch schämen meinen Spielern ständig dann wenn es kritisch wird, schnell Hilfe zukommen zu lassen (habe ich sicher auch schon gemacht und es nicht mal bemerkt). Meine Spieler sind die Helden in diesem Universum. Falls Spieler Hilfe holen, sollte dieser NPC nur aussergewöhnliche Inselbegabungen haben und auch diese nur unter gewissen Bedingungen oder Einschränkungen einsetzen können.
 
 Grundsätzlich ist mein Eindruck dieser Welt, dass alles einen Story Arc hat. Das menschliche Leben, unsere Erde, eine individuelle Spezie, jeder Stern, unser Universum, auch jede Idee: sie wird geboren, ist in ihrer Blüte, verändert ihre Umwelt, strahlt auf ihrem Höhepunkt, verändert sich, vergeht, macht Platz für anderes.
 
@@ -145,19 +157,19 @@ Mag sein dass der NPC gerade auf seinem Höhepunkt ist, zusammen mit den Helden.
 
 *Thomas*
 
-Grundsätzlich bin ich persönlich so mässig ein Fan davon Spielern etwas wegzunehmen. Sie haben ihre Schätze meistens nicht leicht verdient. Und wenn sie clever waren, soll sich auch das lohnen. Dass z.B. den Spielern Geld gestohlen wird ohne dass sie es etwas dagegen tun können würde ich ablehnen. ???
+Grundsätzlich bin ich persönlich so mässig ein Fan davon Spielern etwas wegzunehmen. Sie haben ihre Schätze meistens nicht leicht verdient. Und wenn sie clever waren, soll sich auch das lohnen. Dass z.B. den Spielern Geld gestohlen wird ohne dass sie es etwas dagegen tun können würde ich ablehnen.
 
-Wenn sie zuviel Geld mit sich herum tragen, sollte man sich, zumindest in einem Fantasy Setting, die Frage irgend wann stellen, ob sie soviel Geld mit sich herumtragen können.
+Wenn sie zu viel Geld mit sich herum tragen, sollte man sich, zumindest in einem Fantasy Setting, die Frage irgend wann stellen, ob sie soviel Geld mit sich herumtragen können.
 
-Beispiel Shadowrun: Das Spiel besteht eigentlich ja nur darin, dass man mehr Geld bekommt. Zum Glück ist es aber auch so dass dieses Spiel eine Menge an Gegenständen die unglaublich teuer sind, die man sich erst leisten kann wenn man wirklich auch viel Geld hat.
+Zumindest könnte aber Geld einerseits dazu führen dass andere Figuren in der Spielwelt darauf aufmerksam werden und die Spieler um irgendwelche Hilfen bitten. Anderseits könnte das Spiel aber in eine Richtung gelenkt werden, wo das Ausgeben von Geld zu einem wichtigen Punkt werden können. Bau einer Basis, eines Schloss, inklusive angestellten, oder Hilfe für Benachteiligte Lebewesen auf dem Planeten in irgendwelche Form. Geld eröffnet in Welten in denen Geld (oder generell ein Tauschgut) eine wichtige Rolle einnimmt immer auch Unmenge an neuen Möglichkeiten.
+
+Beispiel Shadowrun: Das Spiel besteht eigentlich ja nur darin, dass man mehr Geld bekommt. Zum Glück ist es aber auch so dass dieses Spiel eine Menge an Gegenständen die unglaublich teuer sind, die man sich erst leisten kann wenn man wirklich auch viel Geld hat. Die Preise fühlen sich in Shadowrun aber auch sehr künstlich an.
 
 Beispiel Eclipse Phase: Geld spielt an einigen Orten im Eclipse Phase Universum keine Rolle mehr, da es sich teilweise um eine Post Scarity Gesellschaft handelt (wie ich das Gefühl habe, haben in der Schweiz für viele schon). Reputation ist an diesen Orten zur Währung geworden und die kann man auf vielerlei Weise viel schneller verlieren als Geld, da sie vom Handeln der Spieler abhängt. Nur schon das "nicht reagieren" auf ein Hilfeaufruf mag Folgen haben.
 
-??? bauen, basebuilding
-
 Beispiel Blades in the Dark: Als Währung gibt es nur die "Münze". Jeder Spieler kann nur eine kleine Anzahl Münzen besitzen (4). Die Crew kann ebenfalls eine kleine Anzahl Münzen besitzen (4), gegebenenfalls noch einen Tresor besorgen um den möglichen Vorrat ein wenig zu erhöhen. Spieler haben zusätzlich die Möglichkeit Münzen für ihren Lebensabend anzulegen. Diese Altersvorsorge kann in der Downtime 1:2 wieder zu Münzen umgewandelt werden d.h. das ist immer ein 50% Verlust.
 
-Mutant Jahr Null: ???
+Mutant Jahr Null: Bei Mutant Jahr Null, spielt ein relevanter Teil des Spiels in der Basis wo die Charaktere auch Projekte starten und verbessern, was eine potentielle Tauschmittel-Senke sein könnte. Weiterhin ist die Welt insofern interessant als das Geld keine Rolle spielt und das einzig Tauschmittel das eine Art wie Geld funktioniert ist Munition. D.h. man muss sich auch jeweils überlegen ob die Munition nicht aufgespart werden soll für einen nächsten Angriff.
 
 ## Zusammenfassung
 
