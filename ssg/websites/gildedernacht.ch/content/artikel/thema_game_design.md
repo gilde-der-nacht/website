@@ -1,6 +1,6 @@
 ---
 title: "Game Design"
-draft: true
+date: 2023-01-01
 ---
 
 # Game Design

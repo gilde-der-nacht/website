@@ -1,7 +1,6 @@
 ---
 title: "So Nicht Schurke"
 date: 2021-09-30
-draft: true
 ---
 
 # So Nicht Schurke
