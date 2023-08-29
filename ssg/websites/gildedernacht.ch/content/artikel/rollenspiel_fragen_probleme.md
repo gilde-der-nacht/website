@@ -49,11 +49,11 @@ Beispiel technoir: Das ganze Spielsystem baut drauf auf dass sich Mitspieler und
 
 *Thomas*
 
-Idealerweise lässt man es gar nie so weit kommen. Einige Spielsystem bei denen der Tot überhaupt möglich ist, haben Regeln die zuerst zu einer Bewusstlosigkeit führen und erst später zum Tod. Solange nur alle bewusstlos sind, sind quasi immer noch viele Möglichkeiten offen: ausnahmsweise fremde Hilfe, Täter wird zum Opfer von etwas anderem, ...
+Idealerweise lässt man es gar nie so weit kommen. Einige Spielsystem bei denen der Tot überhaupt möglich ist, haben Regeln die zuerst zu einer Bewusstlosigkeit führen und erst später zum Tod. Solange nur alle bewusstlos sind, sind quasi immer noch viele Möglichkeiten offen: Ausnahmsweise fremde Hilfe, Täter wird zum Opfer von etwas anderem, ...
 
 Selten hat der Gegenspieler Interesse die ganze Abenteuergruppe zu töten. Man schlägt sie lieber bewusstlos und versucht sich daraus einen Vorteil zu verschaffen (alles Schlimme was einem so in den Sinn kommt: versklaven, verkaufen, einsperren, ...) aber genau das gibt den Spieler:innen wieder Momente um sich zu befreien und zu entkommen.
 
-Anderseits gibt es aber auch Spiele (West Marches) die das bewusst in Kauf nehmen. Es wird nun Legenden geben über die verstorbene Heldengruppen geben und eine neue Abenteuergruppe kann auf eine andere Art versuchen an die Drachenschätze zu kommen. Die Welt gewinnt so an Leben und der Tod war nicht nur sinnlos. Es lohnt sich aber sicher auch über diesen möglichen Fall miteinander einmal zu reden.
+Anderseits gibt es aber auch Spiele (West Marches) die das bewusst in Kauf nehmen. Es wird nun Legenden über die verstorbene Heldengruppen geben und eine neue Abenteuergruppe kann auf eine andere Art versuchen an die Drachenschätze zu kommen. Die Welt gewinnt so an Leben und der Tod war nicht nur sinnlos. Es lohnt sich aber sicher auch über diesen möglichen Fall miteinander einmal zu reden.
 
 ## Bösewicht zu früh im Himmel?
 

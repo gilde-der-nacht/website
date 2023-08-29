@@ -11,7 +11,7 @@ date: 2023-08-28
 
 Ziel: Diverse Abenteuer Vorlagen zu haben, welche die Spielleitung für ein spontanes Abenteuer verwenden kann. Oder aber auch eine Vorlage für ein Rollenspiel, wo alle die Spielleitung übernehmen.
 Im Folgenden werden Bücher, Filme, Geschichten generell als Medien bezeichnet. Die Medien sind nur ein Hilfsmittel, eine Krücke, und je schneller man sich davon befreit, desto besser. Medien dürfen daher auch unterschiedlich interpretiert werden. Unterschiedliche Personen finden unterschiedliche Dinge wichtig. Um es vielleicht unnötigerweise noch mal mit anderen Worten zu um schreiben: Es geht im folgenden primär darum, Vorlagen für Abenteuer zu haben und nicht darum eine Beschreibung von einem Buch oder einem Film zu haben.
-Jede Person füllt sein Blatt selbständig aus, Ideen und Alternativen dürfen aber gerne ausgetauscht werden.
+Jede Person füllt ihr Blatt selbständig aus, Ideen und Alternativen dürfen aber gerne ausgetauscht werden.
 
 Vorgehen
 
@@ -20,6 +20,7 @@ Jede Person macht eine Liste von max. 10 Medien, welche man besonders mag. (10 m
 - Herr der Ringe
 - Ocean 11
 - Jurassic Park
+
 Jede Person fasst 3 dieser Medien mit maximal 10 Worten zusammen, in dem Satz soll um den Kern der Geschichte gehen, möglichst allgemein gehalten. (10 min)
 
 - Herr der Ringe: Eine Abenteuergruppe besiegt das eine Böse.
