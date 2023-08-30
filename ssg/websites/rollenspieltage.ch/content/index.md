@@ -13,6 +13,10 @@ Looking for a short and sweet overview in English?
 
 # Herzlich willkommen
 
+{% Box type="special" %}
+Die Luzerner Rollenspieltage kehren 2024 zurück: 24. bis 25. August 2024
+{% endBox %}
+
 Am **26. und 27. August 2023** werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
 
 {% Slider %}
