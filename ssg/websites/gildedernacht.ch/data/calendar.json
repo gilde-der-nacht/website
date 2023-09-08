@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p32cd94s0ia5820o\"",
+ "etag": "\"p324f7vvqvqbo20o\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2023-09-01T19:25:36.319Z",
+ "updated": "2023-09-07T07:37:41.573Z",
  "timeZone": "Europe/Lisbon",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CJjUk4CSioEDEAAYASD0p8WLAg==",
+ "nextSyncToken": "CIjz__r-l4EDEAAYASD0p8WLAg==",
  "items": [
   {
    "kind": "calendar#event",
@@ -64,36 +64,6 @@
    },
    "transparency": "transparent",
    "iCalUID": "7viv5ncuc0jl3s2iu6afjts5tl@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3369869064552000\"",
-   "id": "6u2o4iihqd458iniok2go595a0",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NnUybzRpaWhxZDQ1OGluaW9rMmdvNTk1YTAgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2023-05-24T13:22:12.000Z",
-   "updated": "2023-05-24T13:22:12.276Z",
-   "summary": "Spieltreffen",
-   "description": "\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eSpiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e \u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen,Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003cspan\u003e[location]St. Johannes, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
-   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
-   "creator": {
-    "email": "nimboline@gmail.com"
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2023-09-09T13:00:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "end": {
-    "dateTime": "2023-09-09T22:30:00+01:00",
-    "timeZone": "Europe/Zurich"
-   },
-   "iCalUID": "6u2o4iihqd458iniok2go595a0@google.com",
    "sequence": 0,
    "eventType": "default"
   },
@@ -365,6 +335,36 @@
    },
    "iCalUID": "72qtpl9u4nmu8ubeuil6881mhs@google.com",
    "sequence": 1,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3388144523146000\"",
+   "id": "6u2o4iihqd458iniok2go595a0",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NnUybzRpaWhxZDQ1OGluaW9rMmdvNTk1YTAgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2023-05-24T13:22:12.000Z",
+   "updated": "2023-09-07T07:37:41.573Z",
+   "summary": "Spieltreffen",
+   "description": "\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003eSpiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e---\u003cbr\u003e\u003c/span\u003e \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003cspan\u003e[tags]Spieltreffen,Brettspiele[/tags] \u003c/span\u003e\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e[location]Würzenbachsaal, St. Johannes, Luzern[/location]\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003c/span\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cbr\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cbr\u003e\u003cu\u003e\u003c/u\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003cspan\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e\u003cu\u003e\u003c/u\u003e",
+   "location": "Schädrütistrasse 26, 6006 Luzern, Switzerland",
+   "creator": {
+    "email": "nimboline@gmail.com"
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2023-09-09T13:00:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "end": {
+    "dateTime": "2023-09-09T22:30:00+01:00",
+    "timeZone": "Europe/Zurich"
+   },
+   "iCalUID": "6u2o4iihqd458iniok2go595a0@google.com",
+   "sequence": 0,
    "eventType": "default"
   }
  ]
