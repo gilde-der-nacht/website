@@ -308,37 +308,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3387192672638000\"",
-   "id": "72qtpl9u4nmu8ubeuil6881mhs",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NzJxdHBsOXU0bm11OHViZXVpbDY4ODFtaHMgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2023-05-24T09:40:13.000Z",
-   "updated": "2023-09-01T19:25:36.319Z",
-   "summary": "Rollenspiel-Stammtisch",
-   "description": "Nimm an unserem Rollenspiel Stammtisch teil und diskutiere, philosophiere und entdecke mit uns alles rund um das Thema Rollenspiele. Egal ob du Spieler*in oder Spielleiter*in bist. \n\n---\n\n \n[tags]Rollenspiele, Stammtisch[/tags] \n[location]Bourbaki Bar/Bistro, Luzern[/location]\n[theme]success[/theme]\n[icon]fa-comment-dots[/icon] \n[links]Rollenspieltage{https://rollenspieltage.ch},Stammtisch{https://gildedernacht.ch/event/rollenspiel-stammtisch}[/links]",
-   "location": "Bourbaki Kino/Bar/Bistro, Löwenpl. 11, 6004 Luzern, Switzerland",
-   "creator": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2023-09-08T18:00:00+01:00",
-    "timeZone": "Europe/Lisbon"
-   },
-   "end": {
-    "dateTime": "2023-09-08T20:00:00+01:00",
-    "timeZone": "Europe/Lisbon"
-   },
-   "iCalUID": "72qtpl9u4nmu8ubeuil6881mhs@google.com",
-   "sequence": 1,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3388144523146000\"",
    "id": "6u2o4iihqd458iniok2go595a0",
    "status": "confirmed",
