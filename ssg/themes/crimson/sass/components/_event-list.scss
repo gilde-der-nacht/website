@@ -118,6 +118,7 @@
   border-bottom-width: 0;
   border-top-width: 0.25rem;
   color: c.get("accent");
+  background-color: var(--event-background-color);
 
   &:hover,
   &:active {
@@ -150,4 +151,8 @@
   right: -1.5rem;
   opacity: 0.5;
   pointer-events: none;
+}
+
+.event-entry > :not(.event-background-icon) {
+	isolation: isolate;
 }
