@@ -112,5 +112,561 @@
       }
     ],
     "links": []
+  },
+  {
+    "id": 4,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2023-12-16T14:00:00.000Z",
+    "end": "2023-12-16T23:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 5,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-01-06T14:00:00.000Z",
+    "end": "2024-01-06T23:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      },
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 6,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-01-20T14:00:00.000Z",
+    "end": "2024-01-20T23:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 7,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-02-04T14:00:00.000Z",
+    "end": "2024-02-04T23:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 8,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-02-17T14:00:00.000Z",
+    "end": "2024-02-17T23:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 9,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-03-02T14:00:00.000Z",
+    "end": "2024-03-02T23:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 10,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-03-17T14:00:00.000Z",
+    "end": "2024-03-17T23:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 11,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-04-06T13:00:00.000Z",
+    "end": "2024-04-06T22:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 12,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-04-20T13:00:00.000Z",
+    "end": "2024-04-20T22:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 13,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-05-04T13:00:00.000Z",
+    "end": "2024-05-04T22:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 14,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-05-18T13:00:00.000Z",
+    "end": "2024-05-18T22:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 15,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-06-02T13:00:00.000Z",
+    "end": "2024-06-02T22:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 16,
+    "title": "Spieltreffen",
+    "description": null,
+    "start": "2024-06-15T13:00:00.000Z",
+    "end": "2024-06-15T22:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 2,
+      "label": "St. Johannes, Luzern",
+      "label_long": "St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 1,
+      "label": "Spieltreffen",
+      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 2,
+        "label": "Spieltreffen"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": 17,
+    "title": "Luzerner Spieltage 2024",
+    "description": "Am Samstag, 9. und Sonntag, 10. März 2024 verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler.",
+    "start": "2024-03-09T10:00:00.000Z",
+    "end": "2024-03-10T16:00:00.000Z",
+    "type_of_time": "multiple_full_days",
+    "location": {
+      "id": 1,
+      "label": "Würzenbachsaal",
+      "label_long": "Würzenbachsaal, St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 3,
+      "label": "Luzerner Spieltage",
+      "description": null
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 3,
+        "label": "Rollenspiele"
+      },
+      {
+        "id": 4,
+        "label": "Weekend"
+      }
+    ],
+    "links": [
+      {
+        "id": 2,
+        "label": "Luzerner Spieltage",
+        "url": "https://spieltage.ch/"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Luzerner Rollenspieltage 2024",
+    "description": "Am 26. und 27. August 2023 werden ganz unterschiedliche Rollenspielrunden angeboten.",
+    "start": "2024-08-24T09:00:00.000Z",
+    "end": "2024-08-25T16:00:00.000Z",
+    "type_of_time": "multiple_full_days",
+    "location": {
+      "id": 1,
+      "label": "Würzenbachsaal",
+      "label_long": "Würzenbachsaal, St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 2,
+      "label": "Luzerner Rollenspieltage",
+      "description": null
+    },
+    "tags": [
+      {
+        "id": 3,
+        "label": "Rollenspiele"
+      },
+      {
+        "id": 4,
+        "label": "Weekend"
+      }
+    ],
+    "links": [
+      {
+        "id": 1,
+        "label": "Luzerner Rollenspieltage",
+        "url": "https://rollenspieltage.ch"
+      }
+    ]
   }
 ]
