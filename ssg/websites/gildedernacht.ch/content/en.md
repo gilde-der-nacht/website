@@ -15,9 +15,9 @@ The **Gilde der Nacht** organizes game meetups where **board game lovers, rolepl
 
 In the following section you find our upcoming events. The events are not translated to English. If you wish to know more about those, feel free to [contact us](#contact).
 
-{% EventFilters events=(calendar.items), language="en" %}
+{% EventFilters events=(olymp), language="en" %}
 
-{% EventList events=(calendar.items) %}
+{% EventList events=(olymp) %}
 
 ## Contact
 

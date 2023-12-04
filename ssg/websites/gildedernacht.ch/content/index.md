@@ -28,6 +28,6 @@ Die **Gilde der Nacht** organisiert Spieltreffen, an denen alle **Brett-, Rollen
 
 {% ButtonLink link="https://calendar.google.com/calendar/ical/gildedernacht%40gmail.com/public/basic.ics", label="Kalender abonnieren (ICS)" %}
 
-{% EventFilters events=(calendar.items) %}
+{% EventFilters events=(olymp) %}
 
-{% EventList events=(calendar.items) %}
+{% EventList events=(olymp) %}
