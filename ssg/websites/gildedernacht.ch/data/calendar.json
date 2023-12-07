@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"p330f3olevvro40o\"",
+ "etag": "\"p32gbv4v9lft840o\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2023-12-05T09:35:51.544Z",
+ "updated": "2023-12-06T08:00:04.612Z",
  "timeZone": "Europe/Lisbon",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CMDx4q7_94IDEAAYASC0stSXAii0stSXAg==",
+ "nextSyncToken": "CKC_k-mr-oIDEAAYASCQl5SYAiiQl5SYAg==",
  "items": [
   {
    "kind": "calendar#event",
@@ -414,36 +414,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"3403537895528000\"",
-   "id": "5eo6nh8lt5fjkdt5ntpvcrpcsk",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NWVvNm5oOGx0NWZqa2R0NW50cHZjcnBjc2sgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2023-12-05T09:35:47.000Z",
-   "updated": "2023-12-05T09:35:47.764Z",
-   "summary": "Luzerner Rollenspieltage 2024",
-   "location": "Würzenbachsaal, St. Johannes, Luzern",
-   "creator": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2024-08-24T09:00:00+01:00",
-    "timeZone": "America/New_York"
-   },
-   "end": {
-    "dateTime": "2024-08-25T17:00:00+01:00",
-    "timeZone": "America/New_York"
-   },
-   "iCalUID": "5eo6nh8lt5fjkdt5ntpvcrpcsk@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"3403537903088000\"",
    "id": "mp3644k79t31q6bun0r3qfl1ic",
    "status": "confirmed",
@@ -470,6 +440,37 @@
     "timeZone": "America/New_York"
    },
    "iCalUID": "mp3644k79t31q6bun0r3qfl1ic@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3403699209224000\"",
+   "id": "5eo6nh8lt5fjkdt5ntpvcrpcsk",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NWVvNm5oOGx0NWZqa2R0NW50cHZjcnBjc2sgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2023-12-05T09:35:47.000Z",
+   "updated": "2023-12-06T08:00:04.612Z",
+   "summary": "Luzerner Rollenspieltage 2024",
+   "description": "Am 26. und 27. August 2023 werden ganz unterschiedliche Rollenspielrunden angeboten. ",
+   "location": "Würzenbachsaal, St. Johannes, Luzern",
+   "creator": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2024-08-24T09:00:00+01:00",
+    "timeZone": "America/New_York"
+   },
+   "end": {
+    "dateTime": "2024-08-25T17:00:00+01:00",
+    "timeZone": "America/New_York"
+   },
+   "iCalUID": "5eo6nh8lt5fjkdt5ntpvcrpcsk@google.com",
    "sequence": 0,
    "eventType": "default"
   }
