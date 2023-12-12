@@ -121,9 +121,9 @@
     "end": "2023-12-16T23:00:00.000Z",
     "type_of_time": "one_partial_day",
     "location": {
-      "id": 2,
-      "label": "St. Johannes, Luzern",
-      "label_long": "St. Johannes, Luzern",
+      "id": 1,
+      "label": "Würzenbachsaal",
+      "label_long": "Würzenbachsaal, St. Johannes, Luzern",
       "virtuel": false,
       "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
     },
