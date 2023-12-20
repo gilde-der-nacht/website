@@ -1,76 +1,14 @@
 {
  "kind": "calendar#events",
- "etag": "\"p320fjlnvmq4o60o\"",
+ "etag": "\"p33gdluc6gido60o\"",
  "summary": "Gilde der Nacht",
  "description": "Spielanlässe",
- "updated": "2023-12-12T08:00:00.720Z",
+ "updated": "2023-12-19T08:00:01.052Z",
  "timeZone": "Europe/Lisbon",
  "accessRole": "reader",
  "defaultReminders": [],
- "nextSyncToken": "CID51v-2iYMDEAAYASD2wNWZAij2wNWZAg==",
+ "nextSyncToken": "CODa-YaEm4MDEAAYASCq7eiZAiiq7eiZAg==",
  "items": [
-  {
-   "kind": "calendar#event",
-   "etag": "\"3404575215048000\"",
-   "id": "s0sldg0vvjt2u3e96abunmsouc",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=czBzbGRnMHZ2anQydTNlOTZhYnVubXNvdWMgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2023-12-05T09:05:21.000Z",
-   "updated": "2023-12-11T09:40:07.524Z",
-   "summary": "Spieltreffen",
-   "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.",
-   "location": "St. Johannes, Luzern",
-   "creator": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2024-01-06T13:00:00Z",
-    "timeZone": "America/New_York"
-   },
-   "end": {
-    "dateTime": "2024-01-06T23:00:00Z",
-    "timeZone": "America/New_York"
-   },
-   "iCalUID": "s0sldg0vvjt2u3e96abunmsouc@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"3404575216274000\"",
-   "id": "4hevoha0qcgf34mpt17b397mf4",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=NGhldm9oYTBxY2dmMzRtcHQxN2IzOTdtZjQgZ2lsZGVkZXJuYWNodEBt",
-   "created": "2023-12-05T09:05:21.000Z",
-   "updated": "2023-12-11T09:40:08.137Z",
-   "summary": "Spieltreffen",
-   "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.",
-   "location": "St. Johannes, Luzern",
-   "creator": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "organizer": {
-    "email": "gildedernacht@gmail.com",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2024-01-20T13:00:00Z",
-    "timeZone": "America/New_York"
-   },
-   "end": {
-    "dateTime": "2024-01-20T23:00:00Z",
-    "timeZone": "America/New_York"
-   },
-   "iCalUID": "4hevoha0qcgf34mpt17b397mf4@google.com",
-   "sequence": 0,
-   "eventType": "default"
-  },
   {
    "kind": "calendar#event",
    "etag": "\"3404575217138000\"",
@@ -440,6 +378,68 @@
     "timeZone": "America/New_York"
    },
    "iCalUID": "5eo6nh8lt5fjkdt5ntpvcrpcsk@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3405945601244000\"",
+   "id": "s0sldg0vvjt2u3e96abunmsouc",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=czBzbGRnMHZ2anQydTNlOTZhYnVubXNvdWMgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2023-12-05T09:05:21.000Z",
+   "updated": "2023-12-19T08:00:00.622Z",
+   "summary": "Spieltreffen",
+   "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.",
+   "location": "Würzenbachsaal, St. Johannes, Luzern",
+   "creator": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2024-01-06T13:00:00Z",
+    "timeZone": "America/New_York"
+   },
+   "end": {
+    "dateTime": "2024-01-06T23:00:00Z",
+    "timeZone": "America/New_York"
+   },
+   "iCalUID": "s0sldg0vvjt2u3e96abunmsouc@google.com",
+   "sequence": 0,
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3405945602104000\"",
+   "id": "4hevoha0qcgf34mpt17b397mf4",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NGhldm9oYTBxY2dmMzRtcHQxN2IzOTdtZjQgZ2lsZGVkZXJuYWNodEBt",
+   "created": "2023-12-05T09:05:21.000Z",
+   "updated": "2023-12-19T08:00:01.052Z",
+   "summary": "Spieltreffen",
+   "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder.",
+   "location": "Unterkirche, St. Johannes, Luzern",
+   "creator": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "gildedernacht@gmail.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2024-01-20T13:00:00Z",
+    "timeZone": "America/New_York"
+   },
+   "end": {
+    "dateTime": "2024-01-20T23:00:00Z",
+    "timeZone": "America/New_York"
+   },
+   "iCalUID": "4hevoha0qcgf34mpt17b397mf4@google.com",
    "sequence": 0,
    "eventType": "default"
   }
