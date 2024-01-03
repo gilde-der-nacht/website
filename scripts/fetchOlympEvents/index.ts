@@ -77,6 +77,11 @@ const res = await client.request<OlympEvent[]>(
       { tags: [{ tags_id: ["id", "label"] }] },
       { links: [{ links_id: ["id", "label", "url"] }] },
     ],
+    filter: {
+      "status": {
+        "_eq": "published",
+      },
+    },
   })
 );
 
