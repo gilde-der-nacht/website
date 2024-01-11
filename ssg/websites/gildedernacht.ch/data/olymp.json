@@ -486,5 +486,55 @@
         "url": "https://rollenspieltage.ch"
       }
     ]
+  },
+  {
+    "id": 19,
+    "title": "Luzerner Spieltage 2025",
+    "description": "Am Samstag, 22. und Sonntag, 23. März 2025 verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler.",
+    "start": "2025-03-22T09:00:00.000Z",
+    "end": "2025-03-23T16:00:00.000Z",
+    "type_of_time": "multiple_full_days",
+    "location": {
+      "id": 1,
+      "label": "Würzenbachsaal",
+      "label_long": "Würzenbachsaal, St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 3,
+      "label": "Luzerner Spieltage",
+      "description": null
+    },
+    "tags": [
+      {
+        "id": 1,
+        "label": "Brettspiele"
+      },
+      {
+        "id": 4,
+        "label": "Weekend"
+      },
+      {
+        "id": 3,
+        "label": "Rollenspiele"
+      },
+      {
+        "id": 5,
+        "label": "Tabletop"
+      }
+    ],
+    "links": [
+      {
+        "id": 2,
+        "label": "Luzerner Spieltage",
+        "url": "https://spieltage.ch/"
+      }
+    ]
   }
 ]
