@@ -4,7 +4,7 @@
     "python.analysis.typeCheckingMode": "basic",
     "python.formatting.provider": "black",
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+        "source.organizeImports": "explicit"
     },
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
