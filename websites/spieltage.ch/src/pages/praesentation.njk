@@ -1,0 +1,236 @@
+---
+layout: default
+title: Präsentation
+---
+<style>
+    .pr-grid {
+        position: absolute;
+        top: 6.5rem;
+        left: 2.5rem;
+        right: 2.5rem;
+        bottom: 2.5rem;
+        display: grid;
+        place-content: center;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .pr-centered {
+        display: grid;
+        grid-template-rows: max-content 1fr max-content;
+        gap: 1rem;
+    }
+
+    .pr-body {
+        font-size: 1.5em;
+    }
+
+    .pr-footer {
+        font-style: italic;
+        color: var(--clr-10);
+        border-top: 2px solid var(--clr-10);
+        margin: 5rem 15rem 0;
+        padding-top: 1rem;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .pr-deco-top,
+    .pr-deco-bottom {
+        background: transparent;
+        border: none;
+        position: absolute;
+    }
+
+    .pr-deco-top {
+        top: -53rem;
+        right: -45rem;
+        transform: scale(0.3);
+    }
+
+    .pr-deco-bottom {
+        left: -51rem;
+        bottom: -23rem;
+        transform: scale(0.5);
+    }
+</style>
+<img class="pr-deco-top" src="/branding/deco-elements-top.svg" />
+<img class="pr-deco-bottom" src="/branding/deco-elements-bottom.svg" />
+<div class="pr-grid">
+    <div class="pr-centered">
+        <h1 class="pr-header">Titel</h1>
+        <p class="pr-body">Body</p>
+        <footer class="pr-footer">Footer</footer>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+    const slides = [
+        {
+            content: { header: "Chat", body: "Diskutiere direkt mit den Organisatoren und anderen Spielinteressierten auf Discord.", footer: "mehr Infos auf www.spieltage.ch/chat" },
+            time: { from: null, to: null }
+        },
+        {
+            content: { header: "Herzlich willkommen" },
+            time: { from: null, to: new Date(2022, 2, 12, 23) }
+        },
+        {
+            content: { header: "Schön, warst du dabei" },
+            time: { from: new Date(2022, 2, 12, 23), to: null }
+        },
+        {
+            content: { header: "How to be a Hero", body: "13 bis 16 Uhr", footer: "Rollenspiel-Runde | Spielleiter:in Michelle | 4 Plätze" },
+            time: { from: null, to: new Date(2022, 2, 12, 13) }
+        },
+        {
+            content: { header: "Cyberpunk", body: "14 bis 17 Uhr", footer: "Rollenspiel-Runde | Spielleiter:in Manuela | 4 Plätze" },
+            time: { from: null, to: new Date(2022, 2, 12, 14) }
+        },
+        {
+            content: { header: "Dungeons & Dragons", body: "15 bis 17 Uhr", footer: "Rollenspiel-Runde | Spielleiter:in Ariana | 3 Plätze" },
+            time: { from: null, to: new Date(2022, 2, 12, 15) }
+        },
+        {
+            content: { header: "Everyone is John", body: "16.00 bis 16.30 Uhr", footer: "Rollenspiel-Runde | Spielleiter:in Alex | 4 Plätze" },
+            time: { from: null, to: new Date(2022, 2, 12, 16) }
+        },
+        {
+            content: { header: "Vaesen", body: "17 bis 19 Uhr", footer: "Rollenspiel-Runde | Spielleiter:in Ursula | 4 Plätze" },
+            time: { from: null, to: new Date(2022, 2, 12, 17) }
+        },
+        {
+            content: { header: "Dungeons & Dragons", body: "18 bis 22 Uhr", footer: "Rollenspiel-Runde | Spielleiter:in Lucian | 5 Plätze" },
+            time: { from: null, to: new Date(2022, 2, 12, 18) }
+        },
+        {
+            content: { header: "Klask Turnier", body: "14 bis 16 Uhr<br/><br/>Das Gameorama organisiert an den Spieltagen ein Klask-Turnier, an dem spannende Preise gewonnen werden können.", footer: "www.gameorama.ch" },
+            time: { from: null, to: new Date(2022, 2, 12, 14) }
+        },
+        {
+            content: { header: "Spiel-Demo: HEROPOLIS", body: "In der Welt von Heropolis schlüpft ihr in die Haut eines witzigen Comic-Helden, entdeckt längst verlassene Quartiere und stampft eine komplett neue Metropole aus dem Boden!", footer: "www.spielpraxis.ch" },
+            time: { from: null, to: new Date(2022, 2, 12, 17) }
+        },
+        {
+            content: { header: "Spielbude Zug", body: "Wir haben uns zum Ziel gesetzt, die Zentralschweiz mit unserer Spiel-Euphorie anzustecken!", footer: "www.spielbude.ch/zug" },
+            time: { from: null, to: new Date(2022, 2, 12, 17) }
+        },
+        {
+            content: { header: "Mannsgöggeli", body: "Wir lieben Spiel, Spannung und Spass und das am liebsten in bester Gesellschaft. Seit über 6 Jahren verwandeln wir deshalb Luzerner Locations in Spielparadiese.", footer: "www.mannsgoeggeli.ch" },
+            time: { from: null, to: new Date(2022, 2, 12, 14) }
+        },
+        {
+            content: { header: "Freakatorium", body: "Von Freaks für Freaks ist unser Motto, bei uns findest du alles was dein Nerd-, Geek-, Otaku- und Spieler-Herz begehrt!", footer: "www.freakatorium.ch" },
+            time: { from: null, to: null }
+        },
+        {
+            content: { header: "Wettbewerb", body: "Gib uns deine Rückmeldung und nimm am Wettbewerb mit.<br/>Verlosung um 19 Uhr.", footer: "Preise gesponsort vom GamePlace." },
+            time: { from: null, to: new Date(2022, 2, 12, 19) }
+        },
+        {
+            content: { header: "11. + 12. MÄRZ 2023", body: "Wir sehen uns nächstes Jahr" },
+            time: { from: null, to: null }
+        },
+        {
+            content: { header: "Nächste Spieltreffen der <br/>Gilde der Nacht", body: "Samstag, 16. April<br />Samstag, 21. Mai<br />Samstag, 4. Juni", footer: "Kalender auf www.gildedernacht.ch" },
+            time: { from: null, to: null }
+        },
+        {
+            content: { header: "Morgen noch nichts vor?", body: "Wir spielen am Sonntag genau hier von 10 bis 18 Uhr.", footer: "weitere Spielevents auf www.gildedernacht.ch" },
+            time: { from: null, to: null }
+        },
+        {
+            content: { header: "Gilde der Nacht <br/>Luzerner Spielverein", body: "Besuche unseren Spielevent-Kalender<br/>auf www.gildedernacht.ch" },
+            time: { from: null, to: null }
+        },
+        {
+            content: { header: "Spiele-Event im Freakatorium<br/>19. März, 13 bis 17 Uhr", body: "Spiele ausprobieren, neue Spiele testen, <br/>Spiele in der Entwicklung erleben", footer: "www.freakatorium.ch" },
+            time: { from: new Date(2022, 2, 12, 15), to: null }
+        },
+    ];
+
+    const buildSlides = (timestamp) => {
+        return slides.filter(slide => {
+            const { from, to } = slide.time;
+            if (from === null && to === null) {
+                return true;
+            }
+            if (from === null) {
+                return to.getHours() > timestamp.getHours();
+            }
+            if (to === null) {
+                return from.getHours() <= timestamp.getHours();
+            }
+            return (from.getHours() <= timestamp.getHours()) && (to.getHours() > timestamp.getHours());
+        });
+    };
+
+    const getCurrentAndRandomSlides = () => {
+        return buildSlides(new Date()).sort(() => 0.5 - Math.random());
+    };
+
+    const tl = new TimelineMax({
+        onComplete: runShow
+    });
+
+    let currentQueue = [];
+    let counter = -1;
+
+    function slideTransition() {
+        const gridHtml = document.querySelector(".pr-grid");
+        tl.to(gridHtml, 2, {
+            opacity: 1
+        });
+
+        tl.to(gridHtml, 2, {
+            opacity: 0
+        }, "+=200");
+    }
+
+    const showNextSlide = () => {
+        const currentSlide = currentQueue[counter];
+        const headerHtml = document.querySelector(".pr-header");
+        const bodyHtml = document.querySelector(".pr-body");
+        const footerHtml = document.querySelector(".pr-footer");
+
+        const { header, body, footer } = currentSlide.content;
+        if (typeof header === "undefined") {
+            headerHtml.style.display = "none";
+        } else {
+            headerHtml.style.display = "block";
+            headerHtml.innerHTML = header;
+        }
+        if (typeof body === "undefined") {
+            bodyHtml.style.display = "none";
+        } else {
+            bodyHtml.style.display = "block";
+            bodyHtml.innerHTML = body;
+        }
+        if (typeof footer === "undefined") {
+            footerHtml.style.display = "none";
+        } else {
+            footerHtml.style.display = "block";
+            footerHtml.innerHTML = footer;
+        }
+
+        slideTransition();
+        counter--;
+    };
+
+    function runShow() {
+        if (counter < 0) {
+            currentQueue = getCurrentAndRandomSlides();
+            counter = currentQueue.length - 1;
+        }
+        showNextSlide();
+    }
+
+    runShow();
+
+</script>
