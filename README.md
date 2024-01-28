@@ -28,4 +28,4 @@ Our web pages are mainly static and are being hosted on Github Pages.
 
 ### Static Site Generation
 
-See https://github.com/gilde-der-nacht/website/tree/theme-crimson/ssg for further informations.
+TODO
