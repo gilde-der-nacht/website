@@ -10,14 +10,10 @@ eleventyNavigation:
 
 # Programm
 
-{% Box type="special" %}
-**Achtung,** dieses Programm ist noch vom letzten Jahr und wird erst Anfangs 2024 aktualisiert.
-{% endBox %}
-
 **Öffnungszeiten**
 
-Samstag, 11. März 2023, 10 bis 24 Uhr.\
-Sonntag, 12. März 2023, 10 bis 18 Uhr.
+Samstag, 9. März 2024, 10 bis 24 Uhr.\
+Sonntag, 10. März 2024, 10 bis 18 Uhr.
 
 Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 
@@ -75,15 +71,13 @@ _Samstag + Sonntag_
 
 Wir haben dieses Jahr wieder eine Auswahl an Spielen, welche Erklärbären und Erklärbärinnen aus dem Effeff beherschen. Sieh dich nach den roten T-Shirts um, melde dich am Infopoint oder stöbere selber in unserer Bibliothek.
 
-Unsere Spielempfehlungen an diese Spieltagen sind: _Die Knuffies, Brass Birmingham, Mindbug, Aufbruch zum roten Planeten, Keep the Heroes out!, Sea Salt & Paper, Century: Golem Edition und Top Ten._
-
 {% endImageTextRight %}
 
 {% endImageText %}
 
 ## Kinderspiele ab 3 Jahren
 
-_Sonntag, 12. März 2023, ab 11 Uhr_
+_Sonntag, 10. März 2024_
 
 {% ImageText %}
 
@@ -91,61 +85,13 @@ _Sonntag, 12. März 2023, ab 11 Uhr_
 
 ![2019, Luzerner Spieltage](./images/2022-spieltage-06.jpg)
 
-Organisiert von der Spielbude Zug.
-
-{% ButtonLink link="https://www.spielbude.ch/zug", label="Spielbude Zug" %}
-{% endImageTextLeft %}
-
-{% ImageTextRight %}
-
-Unsere Kolleginnen und Kollegen von Zug bringen Spiele für die ganze Familie mit und werden diese ab 11 Uhr gerne unseren Jüngsten Spieler:innen erklären. Eine super Gelegenheit, um neue Spiele kennen zu lernen.
-
-{% endImageTextRight %}
-
-{% endImageText %}
-
-## Rollenspiele
-
-_Samstag, 11. März 2023, ab 13 Uhr_
-
-{% ImageText %}
-
-{% ImageTextLeft %}
-
-![2019, Luzerner Spieltage](./images/2019-spieltage-09.jpg)
-
-_Beispiele der Rollenspiele: Fiasco, Untold, Alle sind John und Fabula Rasa._
+Unterstützt durch die Spielbude Zug und Ludothek Luzern.
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzigartige Geschichten erleben werden. Wundervolle Geschichten, die wir zusammen spinnen und ab und zu Entscheidungen dem Glück überlassen, damit wir uns immer wieder von neuem überraschen und unterhalten lassen können.
-
-Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei uns Spielleiter finden, die dich in deinen ersten Schritten in diesem kreativen Hobby mit grossem Engagement unterstützen werden.
-{% endImageTextRight %}
-
-{% endImageText %}
-
-## Rollenspiele für Familien
-
-_Sonntag, 12. März 2023, ab 13 Uhr_
-
-{% ImageText %}
-
-{% ImageTextLeft %}
-
-![2018, Bild von The Daily Worker Placement](./images/dailyworkerplacement.jpg)
-
-_Beispiele der Rollenspiele: My Little Pony, Es war einmal, Untold und Fiasco._
-
-Mehr Informationen haben wir [in diesem Artikel](https://gildedernacht.ch/artikel/familientisch/) für euch zusammengestellt.
-
-{% endImageTextLeft %}
-
-{% ImageTextRight %}
-
-Tauche als Familie mit Kindern jeden Alters ein in die Welt der Phantasie und des Geschichtenerzählens. Wir haben einfache Einstiege vorbereitet, um in minutenschnelle zu starten.
+Unsere Kolleginnen und Kollegen von der Spielbude Zug und Ludothek Luzern bringen Spiele für die ganze Familie mit und werden diese gerne unseren jüngsten Spieler:innen erklären. Eine super Gelegenheit, um neue Spiele kennen zu lernen.
 
 {% endImageTextRight %}
 
@@ -229,7 +175,7 @@ _Speisen und Getränke können Bar oder per Twint bezahlt werden._
 
 ## Klask-Turnier
 
-_Sonntag, 12. März 2023, 14 Uhr_
+_Sonntag, 10. März 2024, 14 Uhr_
 
 {% ImageText %}
 
@@ -245,7 +191,7 @@ Organisiert vom Gameorama, dem Interaktiven Spielmuseum in Luzern.
 
 {% ImageTextRight %}
 
-Bereits zum zweiten Mal findet eines der Qualifikationsturniere für die KLASK-Schweizermeisterschaft an
+Bereits zum dritten Mal findet eines der Qualifikationsturniere für die KLASK-Schweizermeisterschaft an
 den Luzerner Spieltagen statt.
 
 Das Turnier ist für neue Spieler und Veteranen geeignet. Die Regeln sind einfach und die Runden kurz. Mitmachen ist gratis und die besten können sich sogar für die KLASK-Schweizermeisterschaft qualifizieren.
@@ -256,93 +202,123 @@ _Eine Anmeldung ist nicht erforderlich._
 
 {% endImageText %}
 
-## Lange Spiele
+## Spieldesigner «ScyDes»
 
-_Samstag, 11. März 2023, 10 Uhr_
+_Samstag, 9. März 2024, ab 10 Uhr_\
+_Sonntag, 10. März 2024, ab 14 Uhr_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
-![2019, Luzerner Spieltage](./images/2019-spieltage-12.jpg)
+![Lamalandstudios](./images/ScyDes_KOR_Foto.jpg)
+
+{% ButtonLink link="https://www.scydes.com/games", label="ScyDes" %}
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Du hast Lust auf ein extrem langes Brettspiel, aber in deinem privaten Umfeld findest du einfach keine Mitspielende die sich darauf einlassen? Komm am Samstag direkt zur **Türöffnung um 10 Uhr**, um in ein episches Abenteuer mit Gleichgesinnten zu starten.
+Die kleine Spieleschmiede ScyDes bringt nach langem Warten endlich wieder Katapult-Action an die Spieltage!
 
-Wir haben einige lange Spiele dabei, du darfst aber auch gerne deinen eigenen Favorit mitnehmen. Sei bitte einfach erklärfest.
+Neben Walls of Scydonia kann auch der Prototyp des strategischen Geschicklichkeitsspiels KOR gespielt werden.
 
 {% endImageTextRight %}
 
 {% endImageText %}
 
-## Groupmatching
+## Spieldesigner «Lamalandstudios»
 
-_Samstag, 11. März 2023, 11 Uhr_\
-_Samstag, 11. März 2023, 15 Uhr_\
-_Sonntag, 12. März 2023, 11 Uhr_
+_Samstag, 9. März 2024, ab 14 Uhr_\
+_Sonntag, 10. März 2024, ab 10 Uhr_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
-![2019, Luzerner Spieltage](./images/2019-spieltage-13.jpg)
+![Lamalandstudios](./images/Lamalandstudios_Foto_TEMP.png)
+
+{% ButtonLink link="https://www.lamalandstudios.com/", label="Lamalandstudios" %}
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Du kommst alleine oder ihr kommt in einer kleinen Gruppe und seid euch nicht sicher, wie alles funktioniert? Dann melde dich doch zu unseren speziellen Groupmatching Zeitpunkten (Samstag, 11 und 15 Uhr und Sonntag, 11 Uhr) am Infopoint um Gruppen zu bilden, interessante Spiele erklärt bekommen und neue Spieler:innen kennenzulernen.
+«Badger» ist das erste Brettspiel, welches Lamalandstudios auf den Markt bringen möchte. Das strategische und kompetitive Kennerspiel für zwei Spieler kommt mit wenigen Spielkomponenten aus. Durch das zufällige Verteilen der Wegfelder bietet jede Spielrunde ein neue Herausforderung.
 
 {% endImageTextRight %}
 
 {% endImageText %}
 
-## Spieldesigner «Rocket Rescue»
+## Partner «Spielbude Zug»
 
-_Samstag, 11. März 2023, ab 14 Uhr_\
-_Sonntag, 12. März 2023, ab 11 Uhr_
+_Sonntag, 10. März 2024_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
-![Rocket Rescue](./images/RocketRescue_Box.png)
+![Spielbude Zug](./images/Spielbude_Foto.jpg)
 
-{% ButtonLink link="https://www.rocket-rescue.com/", label="Rocket Rescue" %}
+{% ButtonLink link="https://www.zugerspielnacht.ch/spielbudezug", label="Spielbude Zug" %}
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Spiele eine Demorunde mit den Spiel-Designern von Rocket Rescue. Rocket Rescue ist ein Strategie-Kennerspiel für 3-5 Spieler. Eine Partie dieses anspruchsvollen aber leicht zu erlernendes Spiel dauert ca. 90-120 min.
+Spielbude Zug (Denise und Yves Hess): Motiviert durch unsere Passion für die Welt der Spiele konnten wir 2015 die ersten Spieleschulungen für sechs Zuger Ludotheken durchführen. Es folgten Spielanlässe mit verschiedenen Gastropartner und Firmenevents, u.a. die Zuger Spielnacht und das Spielschiff auf dem Zugersee. In der Zwischenzeit bieten wir zusätzlich Weiterbildungen für Lehrpersonen an und entwickeln unser Konzept "Spielend lernen" stetig weiter.
 
 {% endImageTextRight %}
 
 {% endImageText %}
 
-## Blood on the Clocktower
+## Partner «Gameorama»
 
-_Samstag, 11. März 2023, 19 bis 22 Uhr_
+_Sonntag, 10. März 2024_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
-![Blood on the Clocktower](./images/blood-on-the-clocktower.png)
+![Gameorama](./images/Gameorama_Foto.jpg)
+
+{% ButtonLink link="https://www.gameorama.ch/", label="Gameorama" %}
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Blood on the Clocktower ist ein Social Deduction Spiel im Stile von Werwolf / Mafia, Secret Hitler, oder The Resistance / Avalon. Neben gutem Bluffen ist auch detektivistischer Spürsinn gefragt. Denn alle Charaktere haben besondere Fähigkeiten - und das Spiel endet nicht mit dem Tod! Wer ist der Dämon, der alle Einwohner von Ravenswood Bluff nach und nach ermordet? Wer ist in Wahrheit ein böswilliger Lakai? Wem kannst Du wirklich trauen? Vielleicht noch nichtmal Dir selbst.
+Das Gameorama in Luzern ist das einzige interaktive Spielmuseum der Schweiz. Das Gameorama bewahrt, präsentiert und vermittelt Exponate aus den Bereichen Gesellschaftsspiele, Spielautomaten und Videospiele.
+
+{% endImageTextRight %}
+
+{% endImageText %}
+
+## Partner «Ludothek Luzern»
+
+_Sonntag, 10. März 2024_
+
+{% ImageText %}
+
+{% ImageTextLeft %}
+
+![Ludothek Luzern](./images/Ludothek_Foto.jpg)
+
+{% ButtonLink link="https://www.ludothek-luzern.ch/", label="Ludothek Luzern" %}
+
+{% endImageTextLeft %}
+
+{% ImageTextRight %}
+
+Kinder und Erwachsene haben die Möglichkeit in unserer Ludothek neue Spiele und Spielgeräte zu kleinem Preis auszuleihen. 
+Das Angebot richtet sich an alle, die sich nicht immer neue Spiele anschaffen wollen oder können. 
+
+unsere Adresse ist Ludothek Luzern, Bruchstrasse 78, 6003 Luzern
 
 {% endImageTextRight %}
 
 {% endImageText %}
 
 {% Box type="success", link="https://gildedernacht.ch/", linkLabel="Zur Gilde der Nacht" %}
-Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **9. + 10. März 2024**.
+Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **22. + 23. März 2025**.
 {% endBox %}
