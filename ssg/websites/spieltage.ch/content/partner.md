@@ -12,6 +12,33 @@ eleventyNavigation:
 
 [[toc]]
 
+## Ludothek Luzern
+
+{% ImageText kind="partner" %}
+
+{% ImageTextLeft %}
+
+![Ludothek Luzern](./images/partner/Logo_Ludothek-Luzern.png)
+
+![Ludothek Luzern](./images/Ludothek_Foto.jpg)
+
+{% endImageTextLeft %}
+
+{% ImageTextRight %}
+
+Kinder und Erwachsene haben die Möglichkeit in unserer Ludothek neue Spiele und Spielgeräte zu kleinem Preis auszuleihen. 
+Das Angebot richtet sich an alle, die sich nicht immer neue Spiele anschaffen wollen oder können. 
+
+unsere Adresse ist Ludothek Luzern, Bruchstrasse 78, 6003 Luzern
+
+_Unsere Kolleginnen und Kollegen von der Ludothek bringen Spiele für die ganze Familie mit und werden diese am Sonntag, ab 10 Uhr gerne unseren jüngsten Spieler:innen erklären._
+
+{% ButtonLink link="https://www.ludothek-luzern.ch", label="Ludothek Luzern" %}
+
+{% endImageTextRight %}
+
+{% endImageText %}
+
 ## Spielbude Zug
 
 {% ImageText kind="partner" %}
@@ -20,15 +47,17 @@ eleventyNavigation:
 
 ![Spielbude Zug](./images/partner/Logo_Spielbude.jpg)
 
+![Spielbude Zug](./images/Spielbude_Foto.jpg)
+
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Wir haben uns zum Ziel gesetzt, die Zentralschweiz mit unserer Spiel-Euphorie anzustecken!
+«Spielbude Zug (Denise und Yves Hess): Motiviert durch unsere Passion für die Welt der Spiele konnten wir 2015 die ersten Spieleschulungen für sechs Zuger Ludotheken durchführen. Es folgten Spielanlässe mit verschiedenen Gastropartner und Firmenevents, u. a. die Zuger Spielnacht und das Spielschiff auf dem Zugersee. In der Zwischenzeit bieten wir zusätzlich Weiterbildungen für Lehrpersonen an und entwickeln unser Konzept "Spielend lernen" stetig weiter.»
 
-Unsere Kolleginnen und Kollegen von Zug bringen Spiele für die ganze Familie mit und werden diese am Sonntag, ab 11 Uhr gerne unseren Jüngsten Spieler:innen erklären.
+Unsere Kolleginnen und Kollegen von Zug bringen Spiele für die ganze Familie mit und werden diese am Sonntag, ab 10 Uhr gerne unseren jüngsten Spieler:innen erklären.
 
-{% ButtonLink link="https://www.spielbude.ch/zug", label="Spielbude Zug" %}
+{% ButtonLink link="https://www.zugerspielnacht.ch/spielbudezug", label="Spielbude Zug" %}
 
 {% endImageTextRight %}
 
@@ -42,81 +71,17 @@ Unsere Kolleginnen und Kollegen von Zug bringen Spiele für die ganze Familie mi
 
 ![Gameorama](./images/partner/Logo_Gameorama.svg)
 
+![Gameorama](./images/Gameorama_Foto.jpg)
+
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Das Gameorama in Luzern ist ein schweizweit einmaliger Museum, in dem sich alles rund ums Thema Spielen dreht. Alles darf ausprobiert werden – von den über 600 Brettspielen im Brettspielcafé über Flipperkästen, Arcade-Automaten bis hin zu Spielkonsolen.
+Das Gameorama in Luzern ist das einzige interaktive Spielmuseum der Schweiz. Das Gameorama bewahrt, präsentiert und vermittelt Exponate aus den Bereichen Gesellschaftsspiele, Spielautomaten und Videospiele.
 
 Das Gameorama organisiert am Sonntag, um 14 Uhr das Qualifikationsturnier für die KLASK-Schweizermeisterschaft.
 
-Ausserdem sponsort das Gameorama zwei Frei-Eintritte für den Wettbewerb an den Luzerner Spieltagen.
-
 {% ButtonLink link="https://www.gameorama.ch/", label="Gameorama" %}
-
-{% endImageTextRight %}
-
-{% endImageText %}
-
-## Mannsgöggeli
-
-{% ImageText kind="partner" %}
-
-{% ImageTextLeft %}
-
-![Mannsgöggeli](./images/partner/Logo_Mannsgoeggeli.svg)
-
-{% endImageTextLeft %}
-
-{% ImageTextRight %}
-
-Wir lieben Spiel, Spannung und Spass und das am liebsten in bester Gesellschaft. Seit über 6 Jahren verwandeln wir deshalb Luzerner Locations in Spielparadiese.
-
-{% ButtonLink link="https://www.mannsgoeggeli.ch", label="Mannsgöggeli" %}
-
-{% endImageTextRight %}
-
-{% endImageText %}
-
-## Freakatorium
-
-{% ImageText kind="partner" %}
-
-{% ImageTextLeft %}
-
-![Freakatorium](./images/partner/Logo_Freakatorium.png)
-
-{% endImageTextLeft %}
-
-{% ImageTextRight %}
-
-Von Freaks für Freaks ist unser Motto, bei uns findest du alles was dein Nerd-, Geek-, Otaku- und Spieler-Herz begehrt!
-
-Das Freakatorium sponsort einen Gutschein für den Wettbewerb an den Luzerner Spieltagen.
-
-{% ButtonLink link="https://www.freakatorium.ch", label="Freakatorium" %}
-
-{% endImageTextRight %}
-
-{% endImageText %}
-
-## Carab
-
-{% ImageText kind="partner" %}
-
-{% ImageTextLeft %}
-
-![Carab](./images/partner/Logo-Carab.jpg)
-
-{% endImageTextLeft %}
-
-{% ImageTextRight %}
-
-Der Spielwarenladen für Magic the Gathering, YuGiOh, Dragon Ball Super, Pokémon und Digimon in Luzern.
-
-Carab sponsort einen Gutschein für den Wettbewerb an den Luzerner Spieltagen.
-
-{% ButtonLink link="https://www.carab.ch", label="Carab" %}
 
 {% endImageTextRight %}
 
