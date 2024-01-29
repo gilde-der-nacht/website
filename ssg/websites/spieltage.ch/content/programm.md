@@ -23,42 +23,6 @@ Für ein abwechslungsreiches Programm ist an den Luzerner Spieltagen gesorgt:
 
 [[toc]]
 
-## Übersicht
-
-{% ImageText kind="tables" %}
-
-{% ImageTextLeft %}
-
-|                 | Samstag, 11. März   |
-| --------------: | ------------------- |
-| **10&nbsp;Uhr** | Lange Spiele        |
-| **11&nbsp;Uhr** | Groupmatching       |
-| **12&nbsp;Uhr** | Mittagessen         |
-| **13&nbsp;Uhr** | Beginn Rollenspiele |
-| **14&nbsp;Uhr** | Spieldesigner «Rocket Rescue» |
-| **15&nbsp;Uhr** | Groupmatching       |
-|                 |                     |
-| **18&nbsp;Uhr** | Nachtessen          |
-| **19&nbsp;Uhr** | Blood on the Clocktower          |
-|                 |                     |
-
-{% endImageTextLeft %}
-
-{% ImageTextRight %}
-
-|                 | Sonntag, 12. März                              |
-| --------------: | ---------------------------------------------- |
-|                 |                                                |
-| **11&nbsp;Uhr** | Groupmatching<br/>Beginn Programm Kinderspiele<br/>Spieldesigner «Rocket Rescue» |
-| **12&nbsp;Uhr** | Mittagessen                                    |
-| **13&nbsp;Uhr** | Beginn Rollenspiele für Familien               |
-| **14&nbsp;Uhr** | Klask-Turnier                                  |
-|                 |                                                |
-
-{% endImageTextRight %}
-
-{% endImageText %}
-
 {% BoxGrid %}
 
 {% Box type="success", link="/programm/neue-besucher", linkLabel="für neue Besucher" %}
