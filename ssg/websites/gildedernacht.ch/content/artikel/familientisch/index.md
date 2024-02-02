@@ -1,49 +1,17 @@
 ---
 title: "Familientisch"
-date: 2023-03-01
+date: 2024-02-02
 ---
 
 # Familientisch
 
 Der Familientisch ist ein Tisch, an dem Rollenspiele, die für Kinder, Jugendliche und Familien geeignet sind, vorgestellt werden und ausprobiert werden können. Die Bedingungen, die wir uns dazu selber auferlegt haben, sind:
 
-- Kosten: Weniger als 60 CHF
-- Spielzeit: Idealerweise weniger als 60 Minuten, maximal 2 Stunden am Stück
+- Kosten: Weniger als 50 CHF
+- Spielzeit: Idealerweise weniger als 60 Minuten
 - Inhalt: Waffen oder Gewalt sind unwichtig oder kommen gar nicht vor, kein Fachwissen notwendig
 - Altersgruppe: Nichts wo man älter als 16 Jahre sein sollte
 - Sprache: Muss in Deutsch erhätlich sein
-
-## My Little Pony - Tails of Equestria
-
-![My Little Pony - Logo](My-Little-Pony-Logo.jpg)
-
-My Little Pony ist ein typisches Rollenspiel. Alle Mitspielenden spielen jeweils ein Pony. Das Spiel verfügt über eine klassische Charakter- bzw. Pony-Erschaffung und diverse Regeln, die eher einfach gehalten sind.
-
-Was an dem Spiel positiv auffällt: Im Gegensatz zu anderen Rollenspielen, die für Kinder gedacht sind, stehen hier weder Waffen noch Gewalt im Fokus. Alle Abenteuer erfordern ein ständiges Miteinander und leben von gegenseitiger Hilfe und Unterstützung.
-
-- Kosten: 25€
-- Altergruppe: 6+
-- Spielzeit: ca. 1 Stunde
-- Sprache: Deutsch
-- Anzahl Spielerende: ???
-- Spielleitung Notwendig: Ja
-
-Spielmaterial
-
-- [My Little Pony - Karte](My-Little-Pony-Weltkarte.jpg)
-- [My Little Pony - Abenteuer - Unerwarteter Besuch](My-Little-Pony-Unerwarteter-Besuch.pdf)
-- [My Little Pony - Abenteuer - See](My-Little-Pony-See.png)
-- [My Little Pony - Einhorn](Einhorn_A6.pdf)
-- [My Little Pony - Erdpony](Erdpony_A6.pdf)
-- [My Little Pony - Pagasus](Pegasus_A6.pdf)
-
-Weiterführende Links:
-
-- https://www.f-shop.de/my-little-pony-tails-of-equestria/
-- https://www.lord-selis.de/downloads/my-little-pony-tails-of-equestria/
-- https://ulisses-spiele.de/assets/document/F6/ToE_Vorbesteller-Szenario_Unerwarteter-Besuch_8165.pdf?x54976
-- https://mlp.fandom.com/de/wiki/Equestria
-- https://www.patreon.com/GoAdventureMaps
 
 ## Es war einmal ...
 
@@ -53,7 +21,7 @@ Jede Person bekommt zufällig einige Karten. Auf den Karten sind Gegenstände, G
 
 Das Spiel eignet sich gut, um herauszufinden, ob es einem Spass macht, kreativ beim Erzählen zu sein. Da man Miteinander eine Geschichte erfindet, müssen sich die Anwesenden gegenseitig Aufmerksamkeit schenken.
 
-- Kosten: 17 CHF
+- Kosten: 20 CHF
 - Altergruppe: 8+
 - Spielzeit: < 15 Minuten
 - Sprache: Deutsch
@@ -73,7 +41,7 @@ Dieses Spiel beinhaltet nichts anderes, als eine Reihe von Karten mit Symbolen. 
 
 Da sich alle Mitspielenden diesen Tathergang zu einem gewissen Grad im Kopf behalten müssen, erfordert das Spiel Aufmerksamkeit, aber auch Fantasie, weil man den Tathergang ständig ein wenig anpasst.
 
-- Kosten: 18 CHF
+- Kosten: 20 CHF
 - Altergruppe: 8+
 - Spielzeit: 20 Minuten
 - Sprache: Deutsch
@@ -83,6 +51,7 @@ Da sich alle Mitspielenden diesen Tathergang zu einem gewissen Grad im Kopf beha
 Weiterführende Links:
 
 - https://www.exlibris.ch/de/hobby-spiele-brettspiele/fabula-rasa-crime/id/4260071881335/
+- https://www.exlibris.ch/de/hobby-spiele-brettspiele/fabula-rasa-seemannsgarn/id/4260071882080/
 
 ## Untold
 
@@ -92,7 +61,7 @@ Man erfindet gemeinsam eine eigene Fernsehserie und spielt darin eine Episode. W
 
 Es ist Kreativität erforderlich, um eine amüsante Episode zu erfinden. Untold beinhaltet viele Elemente, die in klassischen Rollenspielen auch vorkommen, jedoch auf das Minimum reduziert. Untold eignet sich daher gut als Einstieg in das Rollenspiel.
 
-- Kosten: 45 CHF
+- Kosten: 50 CHF
 - Altergruppe: 12+
 - Spielzeit: 2 Stunden
 - Sprache: Deutsch
@@ -101,7 +70,7 @@ Es ist Kreativität erforderlich, um eine amüsante Episode zu erfinden. Untold 
 
 Weiterführende Links:
 
-- https://www.wog.ch/index.cfm/details/product/65597%2DUntold%2DDas%2DAbenteuer%2Dwartet
+- https://spielbude.ch/untold-das-abenteuer-wartet
 
 ## Alle sind Jane/John
 
@@ -122,6 +91,23 @@ Weiterführende Links:
 
 - https://www.stefan-graf.com/wp-content/files/everyone_is_john.jpg
 - https://rpggeek.com/rpgitem/123829/everyone-john
+
+## Naeandis
+
+![Naeandis - Logo](Naeandis-Logo.jpg)
+
+- Kosten: Kostenlos
+- Altergruppe: 7+
+- Spielzeit: 30 - 60 Minuten
+- Sprache: Deutsch
+- Anzahl Spielende: 2-6
+- Spielleitung notwendig: Optional
+
+Ein typisches Rollenspiel in welchem alle Mitspielenden ein Tier spielen. Die Tiere haben alle spezielle Eigenschaften, wobei der Kreativität, Tier mit ganz eigenen Fertigkeiten zu erschaffen, kaum Grenzen gesetzt sind. Es gibt eine Reihe von vorgefertigen Abenteuern, aber auch eine Vorlage wie man auch ohne Spielleitung Abenteuer miteinander erleben kann. Die Regeln sind kurz gehalten.
+
+Weiterführende Links:
+
+- https://naeandis.org
 
 ## Link zu dieser Seite
 
