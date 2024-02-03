@@ -161,7 +161,7 @@ _Samstag + Sonntag_
 
 {% ImageTextRight %}
 
-In unserem Tabletop-Bereich kannst du Warhammer 40K testen und mit Gleichgesinnten über Bastel- und Maltechniken plaudern.
+In unserem Tabletop-Bereich kannst du Warhammer 40K-Luft schnuppern und mit Gleichgesinnten über Bastel- und Maltechniken plaudern.
 
 {% endImageTextRight %}
 
@@ -247,6 +247,50 @@ den Luzerner Spieltagen statt.
 Das Turnier ist für neue Spieler und Veteranen geeignet. Die Regeln sind einfach und die Runden kurz. Mitmachen ist gratis und die besten können sich sogar für die KLASK-Schweizermeisterschaft qualifizieren.
 
 _Eine Anmeldung ist nicht erforderlich._
+
+{% endImageTextRight %}
+
+{% endImageText %}
+
+## Lange Spiele
+
+_Samstag, 9. März 2024, 10 Uhr_
+
+{% ImageText %}
+
+{% ImageTextLeft %}
+
+![2019, Luzerner Spieltage](./images/2019-spieltage-12.jpg)
+
+{% endImageTextLeft %}
+
+{% ImageTextRight %}
+
+Du hast Lust auf ein extrem langes Brettspiel? Komm am Samstag direkt zur Türöffnung um 10 Uhr, um in ein episches Abenteuer mit Gleichgesinnten zu starten.
+
+Dieses Jahr haben "Twilight Imperium: Vierte Edition" dabei. Besitzt du selbst ein längeres Spiel, von dem du die Regeln erklären kannst, welches du gerne auf den Tisch bringen würdest? Nimm Kontakt mit uns auf und wir reservieren dir einen Platz.
+
+{% endImageTextRight %}
+
+{% endImageText %}
+
+## Organisierte Spiele
+
+_Samstag, 9. März 2024_
+
+{% ImageText %}
+
+{% ImageTextLeft %}
+
+![2016, Luzerner Spieltage](./images/2016-spieltage-05.jpg)
+
+{% endImageTextLeft %}
+
+{% ImageTextRight %}
+
+Am ganzen Samstag werden in einem separaten Raum Spiele veranstaltet, die für Action und Spannung stehen. Laute, tumultreiche oder aktive Spiele oder Spiele mit hoher Spieleranzahl finden dort ihren Platz.
+
+Jede Spielrunde wird jeweils 5 Minuten früher über Mikrofon ausgerufen und wer Lust hat, kommt spontan dazu, ganz ohne Anmeldung. Das ist auch eine gute Gelegenheit, andere Mitspieler:innen zu finden, wenn du alleine gekommen bist.
 
 {% endImageTextRight %}
 
