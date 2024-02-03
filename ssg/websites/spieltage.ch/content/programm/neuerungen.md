@@ -5,21 +5,40 @@ title: Neuerungen
 
 # Neuerungen
 
-{% Box type="special" %}
-**Achtung,** dieses Programm ist noch vom letzten Jahr und wird erst Anfangs 2024 aktualisiert.
-{% endBox %}
-
 Du kennst die Spieltage schon in und Auswendig? Dieses Jahr ist das Konzept wieder ziemlich ähnlich.
 
-Neu ist dieses Jahr, dass wir am Sonntag zusätzlich Programm für Familien anbieten.
-
-Am Samstag bei Türöffnung machen wir ein Matching für lange Spiele. Hier folgt eine Übersicht über die neuen Programmpunkte:
+Hier folgt eine Übersicht über die neuen Programmpunkte:
 
 [[toc]]
 
+## Kinderspiele ab 3 Jahren
+
+_Sonntag, 10. März 2024_
+
+{% ImageText %}
+
+{% ImageTextLeft %}
+
+![2019, Luzerner Spieltage](../images/2022-spieltage-06.jpg)
+
+Unterstützt durch die Spielbude Zug und Ludothek Luzern.
+
+{% ButtonLink link="https://www.ludothek-luzern.ch", label="Ludothek Luzern" %}
+{% ButtonLink link="https://www.zugerspielnacht.ch/spielbudezug", label="Spielbude Zug" %}
+
+{% endImageTextLeft %}
+
+{% ImageTextRight %}
+
+Unsere Kolleginnen und Kollegen von der Spielbude Zug und Ludothek Luzern bringen Spiele für die ganze Familie mit und werden diese gerne unseren jüngsten Spieler:innen erklären. Eine super Gelegenheit, um neue Spiele kennen zu lernen.
+
+{% endImageTextRight %}
+
+{% endImageText %}
+
 ## Lange Spiele
 
-_Samstag, 11. März 2023, 10 Uhr_
+_Samstag, 9. März 2024, 10 Uhr_
 
 {% ImageText %}
 
@@ -31,97 +50,81 @@ _Samstag, 11. März 2023, 10 Uhr_
 
 {% ImageTextRight %}
 
-Du hast Lust auf ein extrem langes Brettspiel, aber in deinem privaten Umfeld findest du einfach keine Mitspielende die sich darauf einlassen? Komm am Samstag direkt zur **Türöffnung um 10 Uhr**, um in ein episches Abenteuer mit Gleichgesinnten zu starten.
+Du hast Lust auf ein extrem langes Brettspiel? Komm am Samstag direkt zur Türöffnung um 10 Uhr, um in ein episches Abenteuer mit Gleichgesinnten zu starten.
 
-Wir haben einige lange Spiele dabei, du darfst aber auch gerne deinen eigenen Favorit mitnehmen. Sei bitte einfach erklärfest.
-
-{% endImageTextRight %}
-
-{% endImageText %}
-
-## Groupmatching
-
-_Samstag, 11. März 2023, 11 Uhr_\
-_Samstag, 11. März 2023, 15 Uhr_\
-_Sonntag, 12. März 2023, 11 Uhr_
-
-{% ImageText %}
-
-{% ImageTextLeft %}
-
-![2019, Luzerner Spieltage](../images/2019-spieltage-13.jpg)
-
-{% endImageTextLeft %}
-
-{% ImageTextRight %}
-
-Du kommst alleine oder ihr kommt in einer kleinen Gruppe und seid euch nicht sicher, wie alles funktioniert? Dann melde dich doch zu unseren speziellen Groupmatching Zeitpunkten (Samstag, 11 und 15 Uhr und Sonntag, 11 Uhr) am Infopoint um Gruppen zu bilden, interessante Spiele erklärt bekommen und neue Spieler:innen kennenzulernen.
+Dieses Jahr haben "Twilight Imperium: Vierte Edition" dabei. Besitzt du selbst ein längeres Spiel, von dem du die Regeln erklären kannst, welches du gerne auf den Tisch bringen würdest? Nimm Kontakt mit uns auf und wir reservieren dir einen Platz.
 
 {% endImageTextRight %}
 
 {% endImageText %}
 
-## Spieldesigner «Rocket Rescue»
+## Organisierte Spiele
 
-_Samstag, 11. März 2023, ab 14 Uhr_\
-_Sonntag, 12. März 2023, ab 11 Uhr_
+_Samstag, 9. März 2024_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
-![Rocket Rescue](../images/RocketRescue_Box.png)
-
-{% ButtonLink link="https://www.rocket-rescue.com/", label="Rocket Rescue" %}
+![2016, Luzerner Spieltage](../images/2016-spieltage-05.jpg)
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Spiele eine Demorunde mit den Spiel-Designern von Rocket Rescue. Rocket Rescue ist ein Strategie-Kennerspiel für 3-5 Spieler. Eine Partie dieses anspruchsvollen aber leicht zu erlernendes Spiel dauert ca. 90-120 min.
+Am ganzen Samstag werden in einem separaten Raum Spiele veranstaltet, die für Action und Spannung stehen. Laute, tumultreiche oder aktive Spiele oder Spiele mit hoher Spieleranzahl finden dort ihren Platz.
+
+Jede Spielrunde wird jeweils 5 Minuten früher über Mikrofon ausgerufen und wer Lust hat, kommt spontan dazu, ganz ohne Anmeldung. Das ist auch eine gute Gelegenheit, andere Mitspieler:innen zu finden, wenn du alleine gekommen bist.
 
 {% endImageTextRight %}
 
 {% endImageText %}
 
-## Kinderspiele ab 3 Jahren
+## Spieldesigner «ScyDes»
 
-_Sonntag, 12. März 2023, ab 11 Uhr_
+_Samstag, 9. März 2024, ab 10 Uhr_\
+_Sonntag, 10. März 2024, ab 14 Uhr_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
-![2019, Luzerner Spieltage](../images/2022-spieltage-06.jpg)
+![ScyDes](../images/ScyDes_KOR_Foto.jpg)
 
-Organisiert von der Spielbude Zug.
+{% ButtonLink link="https://www.scydes.com/games", label="ScyDes" %}
 
-{% ButtonLink link="https://www.spielbude.ch/zug", label="Spielbude Zug" %}
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Unsere Kolleginnen und Kollegen von Zug bringen Spiele für die ganze Familie mit und werden diese ab 11 Uhr gerne unseren Jüngsten Spieler:innen erklären. Eine super Gelegenheit, um neue Spiele kennen zu lernen.
+Die kleine Spieleschmiede ScyDes bringt nach langem Warten endlich wieder Katapult-Action an die Spieltage!
+
+Neben Walls of Scydonia kann auch der Prototyp des strategischen Geschicklichkeitsspiels KOR gespielt werden.
 
 {% endImageTextRight %}
 
 {% endImageText %}
 
-## Blood on the Clocktower
+## Spieldesigner «Lamalandstudios»
 
-_Samstag, 11. März 2023, 19 bis 22 Uhr_
+_Samstag, 9. März 2024, ab 14 Uhr_\
+_Sonntag, 10. März 2024, ab 10 Uhr_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
-![Blood on the Clocktower](../images/blood-on-the-clocktower.png)
+![Lamalandstudios](../images/Lamalandstudios_Foto.jpg)
+
+{% ButtonLink link="https://www.lamalandstudios.com/", label="Lamalandstudios" %}
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Blood on the Clocktower ist ein Social Deduction Spiel im Stile von Werwolf / Mafia, Secret Hitler, oder The Resistance / Avalon. Neben gutem Bluffen ist auch detektivistischer Spürsinn gefragt. Denn alle Charaktere haben besondere Fähigkeiten - und das Spiel endet nicht mit dem Tod! Wer ist der Dämon, der alle Einwohner von Ravenswood Bluff nach und nach ermordet? Wer ist in Wahrheit ein böswilliger Lakai? Wem kannst Du wirklich trauen? Vielleicht noch nichtmal Dir selbst.
+«Lamaland Studios», so nennen wir uns, Dodo & Mely, zwei Game Design Alumni mit Sitz in Winterthur und im Sommer auch mal am See.
+
+Noch sind wir mit «Badger», unserem ersten Brettspiel, in der Entwicklungsphase. Doch kurz bevor wir unaufhaltsam mit unserer handgemachten Produktion durchstarten, wollen wir euch an den Luzerner Spieletagen 2024 nochmal die Chance bieten, uns euer Feedback zu geben. Keine Sorge, wir spucken auch nicht, wir sind handzahme Lamas.
 
 {% endImageTextRight %}
 

@@ -5,10 +5,6 @@ title: Neue Besucher
 
 # Neue Besucher
 
-{% Box type="special" %}
-**Achtung,** dieses Programm ist noch vom letzten Jahr und wird erst Anfangs 2024 aktualisiert.
-{% endBox %}
-
 Das Konzept der Spieltage ist relativ simpel: Du magst Brettspiele? Dann fühlst du dich bei uns wohl.
 
 Wir haben eine riesige Spielebibliothek zum selber rumstöbern und eine Auswahl an Spielen, die wir empfehlen. Damit du dich nicht selber in die Regeln einlesen musst, sind unsere **Erklärbären und Erklärbärinnen** zwischen den Tischen unterwegs um die Spielempfehlungen zu erklären.
@@ -17,8 +13,8 @@ Es gibt einen offenen Flohmarkt. Am Samstag kochen wir Mittag- und Nachtessen un
 
 **Öffnungszeiten**
 
-Samstag, 11. März 2023, 10 bis 24 Uhr.\
-Sonntag, 12. März 2023, 10 bis 18 Uhr.
+Samstag, 9. März 2024, 10 bis 24 Uhr.\
+Sonntag, 10. März 2024, 10 bis 18 Uhr.
 
 [[toc]]
 
@@ -58,16 +54,13 @@ _Samstag + Sonntag_
 
 Wir haben dieses Jahr wieder eine Auswahl an Spielen, welche Erklärbären und Erklärbärinnen aus dem Effeff beherschen. Sieh dich nach den roten T-Shirts um, melde dich am Infopoint oder stöbere selber in unserer Bibliothek.
 
-Unsere Spielempfehlungen an diese Spieltagen sind: _Die Knuffies, Brass Birmingham, Mindbug, Aufbruch zum roten Planeten, Keep the Heroes out!, Sea Salt & Paper, Century: Golem Edition und Top Ten._
-
 {% endImageTextRight %}
 
 {% endImageText %}
 
 ## Rollenspiele
 
-_Samstag, 11. März 2023, ab 13 Uhr_\
-_Sonntag, 12. März 2023, ab 13 Uhr (für Familien)_
+_Samstag, 9. März 2024, ab 13 Uhr_
 
 {% ImageText %}
 
@@ -75,7 +68,7 @@ _Sonntag, 12. März 2023, ab 13 Uhr (für Familien)_
 
 ![2019, Luzerner Spieltage](../images/2019-spieltage-09.jpg)
 
-_Beispiele der Rollenspiele: Fiasco, Untold, Alle sind John, Fabula Rasa, My Little Pony und Es war einmal._
+_Beispiele der Rollenspiele: How to be a Hero, Tales from the Loop, Fiasco und Untold._
 
 {% endImageTextLeft %}
 
@@ -102,7 +95,7 @@ _Samstag + Sonntag_
 
 {% ImageTextRight %}
 
-In unserem Tabletop-Bereich kannst du Warhammer 40K testen und mit Gleichgesinnten über Bastel- und Maltechniken plaudern.
+In unserem Tabletop-Bereich kannst du Warhammer 40K-Luft schnuppern und mit Gleichgesinnten über Bastel- und Maltechniken plaudern.
 
 {% endImageTextRight %}
 
@@ -164,23 +157,24 @@ _Speisen und Getränke können Bar oder per Twint bezahlt werden._
 
 {% endImageText %}
 
-## Groupmatching
 
-_Samstag, 11. März 2023, 11 Uhr_\
-_Samstag, 11. März 2023, 15 Uhr_\
-_Sonntag, 12. März 2023, 11 Uhr_
+## Organisierte Spiele
+
+_Samstag, 9. März 2024_
 
 {% ImageText %}
 
 {% ImageTextLeft %}
 
-![2019, Luzerner Spieltage](../images/2019-spieltage-13.jpg)
+![2016, Luzerner Spieltage](../images/2016-spieltage-05.jpg)
 
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
 
-Du kommst alleine oder ihr kommt in einer kleinen Gruppe und seid euch nicht sicher, wie alles funktioniert? Dann melde dich doch zu unseren speziellen Groupmatching Zeitpunkten (Samstag, 11 und 15 Uhr und Sonntag, 11 Uhr) am Infopoint um Gruppen zu bilden, interessante Spiele erklärt bekommen und neue Spieler:innen kennenzulernen.
+Am ganzen Samstag werden in einem separaten Raum Spiele veranstaltet, die für Action und Spannung stehen. Laute, tumultreiche oder aktive Spiele oder Spiele mit hoher Spieleranzahl finden dort ihren Platz.
+
+Jede Spielrunde wird jeweils 5 Minuten früher über Mikrofon ausgerufen und wer Lust hat, kommt spontan dazu, ganz ohne Anmeldung. Das ist auch eine gute Gelegenheit, andere Mitspieler:innen zu finden, wenn du alleine gekommen bist.
 
 {% endImageTextRight %}
 
