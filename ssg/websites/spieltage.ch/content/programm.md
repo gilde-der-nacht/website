@@ -211,7 +211,7 @@ _Sonntag, 10. März 2024, ab 14 Uhr_
 
 {% ImageTextLeft %}
 
-![Lamalandstudios](./images/ScyDes_KOR_Foto.jpg)
+![ScyDes](./images/ScyDes_KOR_Foto.jpg)
 
 {% ButtonLink link="https://www.scydes.com/games", label="ScyDes" %}
 
@@ -236,7 +236,7 @@ _Sonntag, 10. März 2024, ab 10 Uhr_
 
 {% ImageTextLeft %}
 
-![Lamalandstudios](./images/Lamalandstudios_Foto_TEMP.png)
+![Lamalandstudios](./images/Lamalandstudios_Foto.jpg)
 
 {% ButtonLink link="https://www.lamalandstudios.com/", label="Lamalandstudios" %}
 
@@ -244,7 +244,9 @@ _Sonntag, 10. März 2024, ab 10 Uhr_
 
 {% ImageTextRight %}
 
-«Badger» ist das erste Brettspiel, welches Lamalandstudios auf den Markt bringen möchte. Das strategische und kompetitive Kennerspiel für zwei Spieler kommt mit wenigen Spielkomponenten aus. Durch das zufällige Verteilen der Wegfelder bietet jede Spielrunde ein neue Herausforderung.
+«Lamaland Studios», so nennen wir uns, Dodo & Mely, zwei Game Design Alumni mit Sitz in Winterthur und im Sommer auch mal am See.
+
+Noch sind wir mit «Badger», unserem ersten Brettspiel, in der Entwicklungsphase. Doch kurz bevor wir unaufhaltsam mit unserer handgemachten Produktion durchstarten, wollen wir euch an den Luzerner Spieletagen 2024 nochmal die Chance bieten, uns euer Feedback zu geben. Keine Sorge, wir spucken auch nicht, wir sind handzahme Lamas.
 
 {% endImageTextRight %}
 
