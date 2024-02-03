@@ -87,6 +87,9 @@ _Sonntag, 10. März 2024_
 
 Unterstützt durch die Spielbude Zug und Ludothek Luzern.
 
+{% ButtonLink link="https://www.ludothek-luzern.ch", label="Ludothek Luzern" %}
+{% ButtonLink link="https://www.zugerspielnacht.ch/spielbudezug", label="Spielbude Zug" %}
+
 {% endImageTextLeft %}
 
 {% ImageTextRight %}
