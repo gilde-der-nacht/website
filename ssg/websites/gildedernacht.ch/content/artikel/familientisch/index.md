@@ -53,7 +53,7 @@ Weiterführende Links:
 - https://www.exlibris.ch/de/hobby-spiele-brettspiele/fabula-rasa-crime/id/4260071881335/
 - https://www.exlibris.ch/de/hobby-spiele-brettspiele/fabula-rasa-seemannsgarn/id/4260071882080/
 
-## Untold
+## Untold - Das Abenteuer Wartet
 
 ![Untold - Logo](Untold-Logo.jpg)
 
@@ -103,7 +103,7 @@ Weiterführende Links:
 - Anzahl Spielende: 2-6
 - Spielleitung notwendig: Optional
 
-Ein typisches Rollenspiel in welchem alle Mitspielenden ein Tier spielen. Die Tiere haben alle spezielle Eigenschaften, wobei der Kreativität, Tier mit ganz eigenen Fertigkeiten zu erschaffen, kaum Grenzen gesetzt sind. Es gibt eine Reihe von vorgefertigen Abenteuern, aber auch eine Vorlage wie man auch ohne Spielleitung Abenteuer miteinander erleben kann. Die Regeln sind kurz gehalten.
+Ein typisches Rollenspiel in welchem alle Mitspielenden ein Tier spielen. Die Tiere haben alle spezielle Eigenschaften, wobei der Kreativität, Tiere mit ganz eigenen Fertigkeiten zu erschaffen, kaum Grenzen gesetzt sind. Es gibt eine Reihe von vorgefertigen Abenteuern, aber auch eine Vorlage wie man ohne Spielleitung Abenteuer miteinander erleben kann. Die Regeln sind kurz gehalten und auf der Webseite gibt es diverse Kreativitäts-Hilfsmittel (Namens-Generator, Inspirations-Karten, ...).
 
 Weiterführende Links:
 
