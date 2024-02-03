@@ -97,6 +97,53 @@ Unsere Kolleginnen und Kollegen von der Spielbude Zug und Ludothek Luzern bringe
 
 {% endImageText %}
 
+## Rollenspiele
+
+_Samstag, 9. März 2024, ab 13 Uhr_
+
+{% ImageText %}
+
+{% ImageTextLeft %}
+
+![2019, Luzerner Spieltage](./images/2019-spieltage-09.jpg)
+
+_Beispiele der Rollenspiele: How to be a Hero, Tales from the Loop, Fiasco und Untold._
+
+{% endImageTextLeft %}
+
+{% ImageTextRight %}
+
+Tauche mit uns ein in die unendliche Welt der Phantasie, wo wir gemeinsam einzigartige Geschichten erleben werden. Wundervolle Geschichten, die wir zusammen spinnen und ab und zu Entscheidungen dem Glück überlassen, damit wir uns immer wieder von neuem überraschen und unterhalten lassen können.
+
+Wenn du noch nie sogenannte Pen-&-Paper-Rollenspiele gespielt hast, wirst du bei uns Spielleiter finden, die dich in deinen ersten Schritten in diesem kreativen Hobby mit grossem Engagement unterstützen werden.
+{% endImageTextRight %}
+
+{% endImageText %}
+
+## Rollenspiele für Familien
+
+_Sonntag, 10. März 2024, ab 13 Uhr_
+
+{% ImageText %}
+
+{% ImageTextLeft %}
+
+![2018, Bild von The Daily Worker Placement](./images/dailyworkerplacement.jpg)
+
+_Beispiele der Rollenspiele: Fabelwelten, Es war einmal, Fabula Rasa Seemansgarn und Naeandis ._
+
+Mehr Informationen haben wir [in diesem Artikel](https://gildedernacht.ch/artikel/familientisch/) für euch zusammengestellt.
+
+{% endImageTextLeft %}
+
+{% ImageTextRight %}
+
+Tauche als Familie mit Kindern jeden Alters ein in die Welt der Phantasie und des Geschichtenerzählens. Wir haben einfache Einstiege vorbereitet, um in minutenschnelle zu starten.
+
+{% endImageTextRight %}
+
+{% endImageText %}
+
 ## Tabletop / Miniaturspiele
 
 _Samstag + Sonntag_
