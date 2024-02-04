@@ -179,7 +179,7 @@ _Samstag + Sonntag_
 
 Hast du vor mehr als fünf Spiele zu bringen, dann trag dich doch bitte in diese Liste ein:
 
-{% ButtonLink link="https://my.forms.app/form/63fb521c58bdbc258580ba30", label="Flohmarkt Voranmeldung" %}
+{% ButtonLink link="https://respondto.forms.app/pascisch/luzerner-spieltage-2024-flohmarkt-spiele-vorbereiten", label="Flohmarkt Voranmeldung" %}
 
 {% endImageTextLeft %}
 
