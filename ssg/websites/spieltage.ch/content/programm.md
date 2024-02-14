@@ -346,6 +346,28 @@ Noch sind wir mit «Badger», unserem ersten Brettspiel, in der Entwicklungsphas
 
 {% endImageText %}
 
+## Spieldesigner «Rocket Rescue»
+
+_Samstag, 9. März 2024, ab 10 Uhr_
+
+{% ImageText %}
+
+{% ImageTextLeft %}
+
+![Rocket Rescue](./images/RocketRescue_Foto.jpg)
+
+{% ButtonLink link="https://www.rocket-rescue.com", label="Rocket Rescue" %}
+
+{% endImageTextLeft %}
+
+{% ImageTextRight %}
+
+Während der Planet Erde immer unbewohnbarer wird, kämpft jeder darum, das karge Ödland so schnell wie möglich zu verlassen. Erforsche mit deinem Unternehmen am schnellsten neue Technologien und versuche als erstes die schwindenden Ressourcen zu sammeln um daraus Module zu bauen und diese zu grossen Raketen zusammen zu fügen. In diesem Rennen, den Planeten zu verlassen, musst du dich entscheiden, ob du alleine oder zusammen arbeiten willst, um eine noch fortschrittlichere Rakete zu bauen, oder ob du gar einfach deine Crew in den Modulen der Konkurrenz unterbringst.
+
+{% endImageTextRight %}
+
+{% endImageText %}
+
 {% Box type="success", link="https://gildedernacht.ch/", linkLabel="Zur Gilde der Nacht" %}
 Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein, den Organisatoren der Luzerner Spieltage. <br/>Und merk dir unbedingt das Datum fürs nächste Jahr: **22. + 23. März 2025**.
 {% endBox %}
