@@ -11,12 +11,12 @@ Versetze dich in die beiden Rollen und schreib auf, was du in dieser Rolle erleb
 
 {% Form uid="02522b6176808d38d02d70bd158b212e6772e3f542ab7ab19523cb5ab235d21a" %}
 
-Frage 1: als Besucherin
- 
+Frage 1: als Besucher:in
+
 {% Textarea label="Was erwartest du von den Rollenspieltagen? Was möchtest du da erleben? Weswegen gehst du hin?", name="private-visitor", required=false %}
- 
-Frage 2: als Macherin
- 
+
+Frage 2: als Macher:in
+
 {% Textarea label="Was könntest/möchtest du anbieten? Was würdest du organisieren, wenn alles möglich wäre?", name="private-gamemaster", required=false %}
 
 Kontaktdaten
