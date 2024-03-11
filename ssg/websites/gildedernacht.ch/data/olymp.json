@@ -252,56 +252,6 @@
     "links": []
   },
   {
-    "id": 17,
-    "title": "Luzerner Spieltage 2024",
-    "description": "Am Samstag, 9. und Sonntag, 10. März 2024 verwandeln wir den Pfarreisaal St. Johannes im Würzenbach-Quartier in eine Oase für Spielerinnen und Spieler.",
-    "start": "2024-03-09T09:00:00.000Z",
-    "end": "2024-03-10T16:00:00.000Z",
-    "type_of_time": "multiple_full_days",
-    "location": {
-      "id": 1,
-      "label": "Würzenbachsaal",
-      "label_long": "Würzenbachsaal, St. Johannes, Luzern",
-      "virtuel": false,
-      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
-    },
-    "organizer": {
-      "id": 1,
-      "name": "Gilde der Nacht",
-      "url": "https://gildedernacht.ch/"
-    },
-    "type": {
-      "id": 3,
-      "label": "Luzerner Spieltage",
-      "description": null
-    },
-    "tags": [
-      {
-        "id": 1,
-        "label": "Brettspiele"
-      },
-      {
-        "id": 3,
-        "label": "Rollenspiele"
-      },
-      {
-        "id": 4,
-        "label": "Weekend"
-      },
-      {
-        "id": 5,
-        "label": "Tabletop"
-      }
-    ],
-    "links": [
-      {
-        "id": 2,
-        "label": "Luzerner Spieltage",
-        "url": "https://spieltage.ch/"
-      }
-    ]
-  },
-  {
     "id": 18,
     "title": "Luzerner Rollenspieltage 2024",
     "description": "Am 26. und 27. August 2023 werden ganz unterschiedliche Rollenspielrunden angeboten.",
@@ -403,7 +353,7 @@
     "location": {
       "id": 4,
       "label": "Gameorama",
-      "label_long": null,
+      "label_long": "Gameorama, Luzern",
       "virtuel": false,
       "url": "https://www.gameorama.ch/"
     },
