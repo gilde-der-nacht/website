@@ -9,15 +9,18 @@ const ICONS_AND_COLORS = {
   // Rollenspieltage
   2: {
     theme: "special",
-    icon: "stars"
+    icon: "stars",
   },
   // Spieltage
   3: {
     theme: "special",
-    icon: "stars"
+    icon: "stars",
   },
   // Rollenspiel-Stammtisch
-  4: {},
+  4: {
+    theme: "success",
+    icon: "comment-dots",
+  },
 };
 
 function EventEntry(event) {
