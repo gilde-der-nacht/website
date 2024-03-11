@@ -392,5 +392,75 @@
         "url": "https://spieltage.ch/"
       }
     ]
+  },
+  {
+    "id": 20,
+    "title": "Rollenspiel-Austausch mit RPG Luzern",
+    "description": "Egal ob völliger Neuling oder alteingesessene Veteranin: Komm vorbei zum RPG Social Luzern, dem neuen informellen Treffen, wo die Nerds und Bald-Nerds sich austauschen können.\n\nEine Anmeldung ist nicht erforderlich.  Dieser Event ist mehrsprachig: DE/CH/EN",
+    "start": "2024-03-22T17:00:00.000Z",
+    "end": "2024-03-22T20:00:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 4,
+      "label": "Gameorama",
+      "label_long": null,
+      "virtuel": false,
+      "url": "https://www.gameorama.ch/"
+    },
+    "organizer": {
+      "id": 2,
+      "name": "RPG Luzern",
+      "url": null
+    },
+    "type": {
+      "id": 4,
+      "label": "Rollenspiel-Stammtisch",
+      "description": null
+    },
+    "tags": [
+      {
+        "id": 3,
+        "label": "Rollenspiele"
+      }
+    ],
+    "links": [
+      {
+        "id": 3,
+        "label": "Gameorama RPG Community-Treffen ",
+        "url": "https://www.gameorama.ch/de/events/rollenspiele"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "One Shot Night ",
+    "description": "Die Zentralschweizer Rollenspiel-Community soll noch mehr Gelegenheit bekommen, sich auszutauschen. Darum veranstalten wir eine erste ONE SHOT NIGHT in Luzern. 5 Tische stehen für dich bereit. Wähle einen Tisch/ein Abtenteuer und melde dich an.\n\nAnmeldung: Schreibe eine E-Mail an murphy@penandpaper.blog mit deinem vollen Namen, deiner Handynummer und der Tisch-Nummer.\n\nIn Kollaboration mit Penandpaper.blog.",
+    "start": "2024-05-04T17:30:00.000Z",
+    "end": "2024-05-04T20:30:00.000Z",
+    "type_of_time": "one_partial_day",
+    "location": {
+      "id": 3,
+      "label": "Unterkirche",
+      "label_long": "Unterkirche, St. Johannes, Luzern",
+      "virtuel": false,
+      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
+    },
+    "organizer": {
+      "id": 1,
+      "name": "Gilde der Nacht",
+      "url": "https://gildedernacht.ch/"
+    },
+    "type": {
+      "id": 4,
+      "label": "Rollenspiel-Stammtisch",
+      "description": null
+    },
+    "tags": [
+      {
+        "id": 3,
+        "label": "Rollenspiele"
+      }
+    ],
+    "links": []
   }
 ]
