@@ -15,7 +15,9 @@ const ICONS_AND_COLORS = {
   3: {
     theme: "special",
     icon: "stars"
-  }
+  },
+  // Rollenspiel-Stammtisch
+  4: {},
 };
 
 function EventEntry(event) {
