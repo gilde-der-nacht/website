@@ -308,44 +308,6 @@
     ]
   },
   {
-    "id": 20,
-    "title": "Rollenspiel-Austausch mit RPG Luzern",
-    "description": "Egal ob völliger Neuling oder alteingesessene Veteranin: Komm vorbei zum RPG Social Luzern, dem neuen informellen Treffen, wo die Nerds und Bald-Nerds sich austauschen können.\n\nEine Anmeldung ist nicht erforderlich.  Dieser Event ist mehrsprachig: DE/CH/EN",
-    "start": "2024-03-22T17:00:00.000Z",
-    "end": "2024-03-22T20:00:00.000Z",
-    "type_of_time": "one_partial_day",
-    "location": {
-      "id": 4,
-      "label": "Gameorama",
-      "label_long": "Gameorama, Luzern",
-      "virtuel": false,
-      "url": "https://www.gameorama.ch/"
-    },
-    "organizer": {
-      "id": 2,
-      "name": "RPG Luzern",
-      "url": null
-    },
-    "type": {
-      "id": 4,
-      "label": "Rollenspiel-Stammtisch",
-      "description": null
-    },
-    "tags": [
-      {
-        "id": 3,
-        "label": "Rollenspiele"
-      }
-    ],
-    "links": [
-      {
-        "id": 3,
-        "label": "Gameorama RPG Community-Treffen ",
-        "url": "https://www.gameorama.ch/de/events/rollenspiele"
-      }
-    ]
-  },
-  {
     "id": 21,
     "title": "One Shot Night ",
     "description": "Die erste ONE SHOT NIGHT in Luzern. 5 Tische mit verschiedenen Abenteuern stehen für dich bereit. Melde dich jetzt an!\n\nIn Kollaboration mit Penandpaper.blog.",
