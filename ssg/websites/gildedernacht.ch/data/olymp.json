@@ -1,41 +1,5 @@
 [
   {
-    "id": 13,
-    "title": "Spieltreffen",
-    "description": null,
-    "start": "2024-05-04T12:00:00.000Z",
-    "end": "2024-05-04T22:00:00.000Z",
-    "type_of_time": "one_partial_day",
-    "location": {
-      "id": 3,
-      "label": "Unterkirche",
-      "label_long": "Unterkirche, St. Johannes, Luzern",
-      "virtuel": false,
-      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
-    },
-    "organizer": {
-      "id": 1,
-      "name": "Gilde der Nacht",
-      "url": "https://gildedernacht.ch/"
-    },
-    "type": {
-      "id": 1,
-      "label": "Spieltreffen",
-      "description": "Spiel mit uns Brettspiele – Anmeldung nicht notwendig. Eventbeitrag: CHF 5 für Nicht-Mitglieder."
-    },
-    "tags": [
-      {
-        "id": 1,
-        "label": "Brettspiele"
-      },
-      {
-        "id": 2,
-        "label": "Spieltreffen"
-      }
-    ],
-    "links": []
-  },
-  {
     "id": 14,
     "title": "Spieltreffen",
     "description": null,
@@ -232,44 +196,6 @@
         "id": 2,
         "label": "Luzerner Spieltage",
         "url": "https://spieltage.ch/"
-      }
-    ]
-  },
-  {
-    "id": 21,
-    "title": "One Shot Night ",
-    "description": "Die erste ONE SHOT NIGHT in Luzern. 5 Tische mit verschiedenen Abenteuern stehen für dich bereit. Melde dich jetzt an!\n\nIn Kollaboration mit Penandpaper.blog.",
-    "start": "2024-05-04T17:30:00.000Z",
-    "end": "2024-05-04T20:30:00.000Z",
-    "type_of_time": "one_partial_day",
-    "location": {
-      "id": 3,
-      "label": "Unterkirche",
-      "label_long": "Unterkirche, St. Johannes, Luzern",
-      "virtuel": false,
-      "url": "https://goo.gl/maps/gM8LmJsVc5XEuZKt8"
-    },
-    "organizer": {
-      "id": 1,
-      "name": "Gilde der Nacht",
-      "url": "https://gildedernacht.ch/"
-    },
-    "type": {
-      "id": 4,
-      "label": "Rollenspiel-Stammtisch",
-      "description": null
-    },
-    "tags": [
-      {
-        "id": 3,
-        "label": "Rollenspiele"
-      }
-    ],
-    "links": [
-      {
-        "id": 4,
-        "label": "One Shot Night Details & Anmeldung",
-        "url": "https://gildedernacht.ch/one-shot-night/"
       }
     ]
   }
