@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../../common/layouts/BaseLayout.astro"
+
+const { locale, title, description, keywords } = Astro.props.frontmatter;
+
+const siteName = "Luzerner Rollenspieltage";
+const siteCode = "rst";
+---
+<BaseLayout locale={locale} title={[title, siteName].filter(Boolean).join(" | ")} description={description} keywords={keywords} siteCode={siteCode}>
+  <slot/>
+</BaseLayout>

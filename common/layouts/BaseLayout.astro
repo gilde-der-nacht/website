@@ -1,0 +1,41 @@
+---
+interface Props {
+	locale?: "de" | "en";
+	title?: string;
+	description?: string;
+	keywords?: string;
+	siteCode: string;
+};
+
+const { locale, title, description, keywords, siteCode } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang={ locale ?? "de" } dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{ description && (
+			<meta name="description" content={ description }>
+		) }
+		{ keywords && (
+			<meta name="keywords" content={ keywords }>
+		) }
+    <title>{ title }</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="/icons/duotone.min.js" defer is:inline></script>
+    <script src="/icons/fontawesome.min.js" defer is:inline></script>
+    <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/krona-one-normal-400.woff2" type="font/woff2">
+    <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/dm-sans-normal-400.woff2" type="font/woff2">
+</head>
+
+<body class={ siteCode }>
+    <div class="main-wrapper">
+        <main class="primary-content content">
+            <slot/>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "rst-dev": "astro --config ./rollenspieltage.ch/config.ts dev",
-    "rst-build": "astro --config ./rollenspieltage.ch/config.ts build"
+    "rst-build": "astro --config ./rollenspieltage.ch/config.ts check && astro --config ./rollenspieltage.ch/config.ts build"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
