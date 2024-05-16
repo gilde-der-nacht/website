@@ -12,9 +12,10 @@
       };
     in {
       devShells.default = pkgs.mkShell {
-        buildInputs = [
-          pkgs.nodejs
-          pkgs.yarn
+        buildInputs = with pkgs; [
+          nodejs
+          just
+          emmet-ls
         ];
       };
   });

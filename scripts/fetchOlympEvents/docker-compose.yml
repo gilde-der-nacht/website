@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  script:
-    build: .
-    volumes:
-      - ./out:/home/bun/app/out
-    command: [ "bun", "run", "index.ts" ]
