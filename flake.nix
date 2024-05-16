@@ -14,6 +14,7 @@
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           nodejs
+          yarn
           just
           emmet-ls
         ];

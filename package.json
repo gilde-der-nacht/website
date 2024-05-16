@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "dandelion",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "rst-dev": "astro --config ./rollenspieltage.ch/config.ts dev",
+    "rst-build": "astro --config ./rollenspieltage.ch/config.ts build"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/ts-plugin": "^1.8.0",
+    "astro": "^4.8.5",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}
