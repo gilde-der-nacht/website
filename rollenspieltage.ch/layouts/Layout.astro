@@ -7,6 +7,7 @@ const { locale, title, description, keywords } = Astro.props.frontmatter;
 
 const siteName = "Luzerner Rollenspieltage";
 const siteCode = "rst";
+const siteTagline = "24. + 25. August 2024";
 
 const pages = await Astro.glob("../pages/**/*");
 const mainNavigation: NavigationEntry[] = pages
@@ -24,6 +25,7 @@ const secondaryNavigation: NavigationEntry[] = pages
   keywords={ keywords } 
   siteCode={ siteCode } 
   siteName={ siteName }
+  siteTagline={ siteTagline }
   mainNavigation={ mainNavigation } 
   secondaryNavigation={ secondaryNavigation }
   development={ false }

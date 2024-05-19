@@ -6,7 +6,7 @@ import type { NavigationEntry } from "@common/layouts/types.ts";
 type Props = {
     siteCode: string;
     siteName: string;
-    siteTagline?: string;
+    siteTagline: string;
     mainNavigation: NavigationEntry[];
     secondaryNavigation: NavigationEntry[];
 };
@@ -19,9 +19,7 @@ const { siteCode, siteName, siteTagline, mainNavigation, secondaryNavigation } =
     <div class="site-name">
         <a href="/">
             <h1>{ siteName }</h1>
-            { siteTagline !== undefined && (
-                <h2>{ siteTagline }</h2>
-            )}
+            <h2>{ siteTagline }</h2>
         </a>
     </div>
     <Logo siteCode={ siteCode } />

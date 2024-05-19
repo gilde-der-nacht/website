@@ -11,6 +11,7 @@ type Props = {
 	keywords?: string;
 	siteCode: string;
 	siteName: string;
+	siteTagline: string;
 	mainNavigation: NavigationEntry[];
 	secondaryNavigation: NavigationEntry[];
 	development: boolean;
@@ -23,6 +24,7 @@ const {
 	keywords, 
 	siteCode, 
 	siteName, 
+	siteTagline,
 	mainNavigation, 
 	secondaryNavigation, 
 	development,
@@ -50,7 +52,12 @@ const {
 </head>
 
 <body class={ siteCode }>
-  <Header siteCode={ siteCode } siteName={ siteName } mainNavigation={ mainNavigation } secondaryNavigation={ secondaryNavigation } />
+  <Header 
+		siteCode={ siteCode } 
+		siteName={ siteName } 
+		siteTagline={ siteTagline } 
+		mainNavigation={ mainNavigation } 
+		secondaryNavigation={ secondaryNavigation } />
     <div class="main-wrapper">
         <main class="primary-content content">
             <slot/>
