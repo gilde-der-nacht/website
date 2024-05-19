@@ -17,6 +17,8 @@
         "rollenspieltage.ch/*"
       ]
     },
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   }
 }

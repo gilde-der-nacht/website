@@ -1,4 +1,5 @@
 import { defineConfig, squooshImageService } from "astro/config";
+import solidJs from "@astrojs/solid-js";
 
 export default defineConfig({
   site: "https://rollenspieltage.ch",
@@ -13,4 +14,5 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
+  integrations: [solidJs({ devtools: true })]
 });
