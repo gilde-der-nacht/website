@@ -1,0 +1,25 @@
+---
+import GdnLogo from "./gdn.astro";
+import LstLogo from "./lst.astro";
+import RstLogo from "./rst.astro";
+
+type Props = {
+    siteCode: string;
+};
+
+const { siteCode } = Astro.props;
+---
+
+<div class="site-logo">
+    <a href="/">
+        {
+            siteCode === "lst" ? (
+                <LstLogo/>
+            ) : siteCode === "rst" ? (
+                <RstLogo/>
+            ) : (
+                <GdnLogo/>
+            )
+        }
+    </a>
+</div>

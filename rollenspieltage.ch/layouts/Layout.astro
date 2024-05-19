@@ -1,12 +1,34 @@
 ---
 import BaseLayout from "@common/layouts/BaseLayout.astro"
 import "/rollenspieltage.ch/styles/main.scss";
+import type { NavigationEntry } from "@common/layouts/types.ts";
 
 const { locale, title, description, keywords } = Astro.props.frontmatter;
 
 const siteName = "Luzerner Rollenspieltage";
 const siteCode = "rst";
+
+const pages = await Astro.glob("../pages/**/*");
+const mainNavigation: NavigationEntry[] = pages
+  .filter((page) => page.frontmatter?.navigation?.group === "main")
+  .map((page) => ({ label: page.frontmatter.navigation.label, order: page.frontmatter.navigation.order, url: page.url }));
+const secondaryNavigation: NavigationEntry[] = pages
+  .filter((page) => page.frontmatter?.navigation?.group === "secondary")
+  .map((page) => ({ label: page.frontmatter.navigation.label, order: page.frontmatter.navigation.order, url: page.url }));
 ---
-<BaseLayout locale={locale} title={[title, siteName].filter(Boolean).join(" | ")} description={description} keywords={keywords} siteCode={siteCode}>
+
+<BaseLayout 
+  locale={ locale } 
+  title={ [title, siteName].filter(Boolean).join(" | ") } 
+  description={ description } 
+  keywords={ keywords } 
+  siteCode={ siteCode } 
+  siteName={ siteName }
+  mainNavigation={ mainNavigation } 
+  secondaryNavigation={ secondaryNavigation }
+  development={ false }
+>
+
   <slot/>
+
 </BaseLayout>

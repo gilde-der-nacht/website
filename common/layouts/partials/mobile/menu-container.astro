@@ -1,0 +1,19 @@
+---
+import NavigationMain from "../navigation/navigation-main.astro";
+import NavigationSecondary from "../navigation/navigation-secondary.astro";
+import Footer from "./footer.astro";
+import type { NavigationEntry } from "@common/layouts/types.ts";
+
+type Props = {
+    mainNavigation: NavigationEntry[];
+    secondaryNavigation: NavigationEntry[];
+}
+
+const { mainNavigation, secondaryNavigation } = Astro.props;
+---
+
+<aside class="mobile-menu-container">
+    <NavigationMain entries={ mainNavigation }/>
+    <NavigationSecondary entries={ secondaryNavigation }/>
+    <Footer/>
+</aside>

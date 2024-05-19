@@ -1,13 +1,32 @@
 ---
-interface Props {
+import Favicon from "./partials/favicon.astro";
+import Header from "./partials/header.astro";
+import Footer from "./partials/footer.astro";
+import type { NavigationEntry } from "@common/layouts/types.ts";
+
+type Props = {
 	locale?: "de" | "en";
 	title?: string;
 	description?: string;
 	keywords?: string;
 	siteCode: string;
+	siteName: string;
+	mainNavigation: NavigationEntry[];
+	secondaryNavigation: NavigationEntry[];
+	development: boolean;
 };
 
-const { locale, title, description, keywords, siteCode } = Astro.props;
+const { 
+	locale, 
+	title, 
+	description, 
+	keywords, 
+	siteCode, 
+	siteName, 
+	mainNavigation, 
+	secondaryNavigation, 
+	development,
+} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang={ locale ?? "de" } dir="ltr">
@@ -27,14 +46,17 @@ const { locale, title, description, keywords, siteCode } = Astro.props;
     <script src="/icons/fontawesome.min.js" defer is:inline></script>
     <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/krona-one-normal-400.woff2" type="font/woff2">
     <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/dm-sans-normal-400.woff2" type="font/woff2">
+    <Favicon/>
 </head>
 
 <body class={ siteCode }>
+  <Header siteCode={ siteCode } siteName={ siteName } mainNavigation={ mainNavigation } secondaryNavigation={ secondaryNavigation } />
     <div class="main-wrapper">
         <main class="primary-content content">
             <slot/>
         </main>
     </div>
+    <Footer development={ development } />
 </body>
 
 </html>

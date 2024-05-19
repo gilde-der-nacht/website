@@ -1,0 +1,28 @@
+---
+import Navigation from "./mobile/navigation.astro";
+import Logo from "./logos/logo.astro";
+import type { NavigationEntry } from "@common/layouts/types.ts";
+
+type Props = {
+    siteCode: string;
+    siteName: string;
+    siteTagline?: string;
+    mainNavigation: NavigationEntry[];
+    secondaryNavigation: NavigationEntry[];
+};
+
+const { siteCode, siteName, siteTagline, mainNavigation, secondaryNavigation } = Astro.props;
+---
+
+<header class="header">
+    <Navigation mainNavigation={ mainNavigation } secondaryNavigation={ secondaryNavigation }/>
+    <div class="site-name">
+        <a href="/">
+            <h1>{ siteName }</h1>
+            { siteTagline !== undefined && (
+                <h2>{ siteTagline }</h2>
+            )}
+        </a>
+    </div>
+    <Logo siteCode={ siteCode } />
+</header>

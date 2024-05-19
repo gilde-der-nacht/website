@@ -1,0 +1,25 @@
+---
+import type { NavigationEntry } from "@common/layouts/types.ts";
+
+type Props = {
+  entries: NavigationEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+{
+    entries.length > 0 && (
+        <nav class="secondary-navigation" aria-label="secondary navigation">
+            <ul>
+            {
+              entries
+                .toSorted((a, b) => a.order - b.order)
+                .map((entry) => (
+              <li><a href={entry.url}>{entry.label}</a></li>
+              ))
+            }
+            </ul>
+        </nav>
+    )
+}
