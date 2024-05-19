@@ -6,6 +6,15 @@
     "paths": {
       "@common/*": [
         "common/*"
+      ],
+      "@gdn/*": [
+        "gildedernacht.ch/*"
+      ],
+      "@lst/*": [
+        "spieltage.ch/*"
+      ],
+      "@rst/*": [
+        "rollenspieltage.ch/*"
       ]
     },
     "verbatimModuleSyntax": true
