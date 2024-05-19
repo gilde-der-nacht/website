@@ -1,5 +1,6 @@
 import { defineConfig, squooshImageService } from "astro/config";
 import solidJs from "@astrojs/solid-js";
+import mdx from "@astrojs/mdx";
 
 export default defineConfig({
   site: "https://rollenspieltage.ch",
@@ -14,5 +15,8 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  integrations: [solidJs({ devtools: true })]
+  integrations: [
+    solidJs(),
+    mdx()
+  ]
 });

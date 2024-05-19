@@ -6,19 +6,23 @@ navigation:
   order: 1
 ---
 
-{% Box type="success", link="/en", linkLabel="take me to the English summary" %}
-Looking for a short and sweet overview in English?
-{% endBox %}
+import { Box } from "../../common/components/Box.tsx";
+import { BoxGrid } from "../../common/components/BoxGrid.tsx";
+import { Slider } from "../../common/components/Slider.tsx";
+
+<Box type="success" link="/en" linkLabel="take me to the English summary">
+  Looking for a short and sweet overview in English?
+</Box>
 
 # Herzlich willkommen
 
-{% Box type="special" %}
-Die Luzerner Rollenspieltage kehren 2024 zurück: 24. bis 25. August 2024
-{% endBox %}
+<Box type="special">
+  Die Luzerner Rollenspieltage kehren 2024 zurück: 24. bis 25. August 2024
+</Box>
 
 Am **26. und 27. August 2023** werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
 
-{% Slider %}
+<Slider>
 
 ![2022, Luzerner Rollenspieltage](../images/2022-rollenspieltage-01.jpg)
 ![2022, Luzerner Rollenspieltage](../images/2022-rollenspieltage-02.jpg)
@@ -30,29 +34,27 @@ Am **26. und 27. August 2023** werden ganz unterschiedliche Rollenspielrunden an
 ![2019, Luzerner Rollenspieltage](../images/2019-rollenspieltage-01.jpg)
 ![2018, Luzerner Rollenspieltage](../images/2018-rollenspieltage-04.jpg)
 
-{% endSlider %}
+</Slider>
 
-## Im Detail
+<BoxGrid>
 
-{% BoxGrid %}
+  <Box type="success" link="/neueinsteiger" linkLabel="für Neueinsteiger">
+    Hast du bisher **noch keine oder wenig Erfahrung** mit Rollenspielen sammeln dürfen, dann haben wir für dich eine Seite zusammengestellt.
+  </Box>
 
-{% Box type="success", link="/neueinsteiger", linkLabel="für Neueinsteiger" %}
-Hast du bisher **noch keine oder wenig Erfahrung** mit Rollenspielen sammeln dürfen, dann haben wir für dich eine Seite zusammengestellt.
-{% endBox %}
+  <Box type="special" link="/familien" linkLabel="für Familien">
+    Seid ihr eine **Familie mit Kindern**, dann lest bitte hier weiter.
+  </Box>
 
-{% Box type="special", link="/familien", linkLabel="für Familien" %}
-Seid ihr eine **Familie mit Kindern**, dann lest bitte hier weiter.
-{% endBox %}
+  <Box type="gray" link="/spielleiterinnen" linkLabel="für Spielleiter">
+    Du möchtest gerne eine oder mehrere Spielrunden **leiten**, dann bist du hier an der richtigen Stelle.
+  </Box>
 
-{% Box type="gray", link="/spielleiterinnen", linkLabel="für Spielleiter" %}
-Du möchtest gerne eine oder mehrere Spielrunden **leiten**, dann bist du hier an der richtigen Stelle.
-{% endBox %}
+  <Box type="danger" link="/veteranen" linkLabel="für Veteranen">
+    Du hast schon so einiges erlebt, möchtest gerne was Neues ausprobieren und deinen Horizont erweitern?
+  </Box>
 
-{% Box type="danger", link="/veteranen", linkLabel="für Veteranen" %}
-Du hast schon so einiges erlebt, möchtest gerne was Neues ausprobieren und deinen Horizont erweitern?
-{% endBox %}
-
-{% endBoxGrid %}
+</BoxGrid>
 
 ## Die wichtigsten Informationen auf einen Blick
 

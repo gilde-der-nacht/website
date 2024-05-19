@@ -31,21 +31,19 @@
 
   &::-webkit-scrollbar-thumb {
     background-color: c.get("border-subtle");
-    background-image: linear-gradient(
-      c.get("border-subtle") 0,
-      c.get("border-subtle") 0.25rem,
-      c.get("accent") 0.25rem,
-      c.get("accent") 0.75rem,
-      c.get("border-subtle") 0.75rem
-    );
+    background-image: linear-gradient(c.get("border-subtle") 0,
+        c.get("border-subtle") 0.25rem,
+        c.get("accent") 0.25rem,
+        c.get("accent") 0.75rem,
+        c.get("border-subtle") 0.75rem);
   }
 
-  > * {
+  >* {
     scroll-snap-align: center;
   }
 
-  > p {
-    display: none;
+  >p {
+    display: contents;
   }
 
   img {
