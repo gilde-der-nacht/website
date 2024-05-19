@@ -1,0 +1,231 @@
+@use "../globals/fonts" as f;
+@use "../globals/colors" as c;
+@use "../globals/patterns" as p;
+
+form {
+  > :not(:last-child):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    margin-bottom: 1em;
+  }
+
+  >p {
+    max-inline-size: 100%;
+  }
+}
+
+.honey {
+  display: none;
+}
+
+label,
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+  display: block;
+  inline-size: 100%;
+}
+
+label {
+  @include f.font-weight(700);
+
+  >input:not([type="checkbox"]):not([type="radio"]),
+  >textarea {
+    @include f.font-weight();
+    margin-top: 0.5rem;
+  }
+}
+
+input,
+textarea {
+  @include p.input;
+
+  &::placeholder {
+    font-style: italic;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: transparent !important;
+  }
+}
+
+textarea {
+  min-block-size: 10em;
+  max-block-size: 40em;
+  resize: vertical;
+}
+
+button {
+  padding: 0.25rem 0.5rem;
+  @include p.button;
+  @include f.font-weight(700);
+}
+
+.button {
+  @include p.button;
+  padding: 0.5rem 1rem;
+  @include f.font-weight(700);
+}
+
+.button-accent {
+  border-color: c.get("accent");
+  color: c.get("accent");
+
+  &:hover,
+  &:active {
+    color: c.get("accent-hover");
+    border-color: c.get("accent-hover");
+  }
+}
+
+.button-success {
+  border-color: c.getSuccess("background-solid");
+  color: c.getSuccess("text-low-contrast");
+
+  &:hover,
+  &:active {
+    background-color: c.getSuccess("background-subtle");
+    border-color: c.getSuccess("text-low-contrast");
+    color: c.getSuccess("text-high-contrast");
+  }
+}
+
+.button-danger {
+  border-color: c.getDanger("background-solid");
+  color: c.getDanger("text-low-contrast");
+
+  &:hover,
+  &:active {
+    background-color: c.getDanger("background-subtle");
+    border-color: c.getDanger("text-low-contrast");
+    color: c.getDanger("text-high-contrast");
+  }
+}
+
+.button-special {
+  border-color: c.getSpecial("background-solid");
+  color: c.getSpecial("text-low-contrast");
+
+  &:hover,
+  &:active {
+    background-color: c.getSpecial("background-subtle");
+    border-color: c.getSpecial("text-low-contrast");
+    color: c.getSpecial("text-high-contrast");
+  }
+}
+
+.button-warning {
+  border-color: c.getWarning("background-solid");
+  color: c.getWarning("text-low-contrast");
+
+  &:hover,
+  &:active {
+    background-color: c.getWarning("background-subtle");
+    border-color: c.getWarning("text-low-contrast");
+    color: c.getWarning("text-high-contrast");
+  }
+}
+
+.button-gray {
+  border-color: c.getGray("background-solid");
+  color: c.getGray("text-low-contrast");
+
+  &:hover,
+  &:active {
+    background-color: c.getGray("background-subtle");
+    border-color: c.getGray("text-low-contrast");
+    color: c.getGray("text-high-contrast");
+  }
+}
+
+.button-small {
+  font-size: 0.83rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.checkbox-list,
+.radio-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.input-checkbox,
+.input-radio {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  input {
+    padding: 0.25rem;
+    background: c.getGray("text-high-contrast");
+    inline-size: 2rem;
+    block-size: 1rem;
+    border: 0.125rem solid c.get("background-solid");
+    border-bottom-width: 0.25rem;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+
+    appearance: none;
+    pointer-events: none;
+    touch-action: pan-y;
+    outline-offset: 0.25rem;
+    box-sizing: content-box;
+
+    flex-shrink: 0;
+    display: grid;
+    align-items: center;
+    grid: [track] 1fr / [track] 1fr;
+
+    transition: background-color 0.25s ease, transform 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &::before {
+      --highlight-size: 0;
+
+      content: "";
+      cursor: pointer;
+      pointer-events: auto;
+      grid-area: track;
+      inline-size: 1rem;
+      block-size: 1rem;
+      background: c.get("background");
+      box-shadow: 0 0 0 var(--highlight-size) c.get("background");
+      border-radius: 0.25rem;
+      border-top-left-radius: 0.125rem;
+      border-top-right-radius: 0.125rem;
+      transform: translateX(0%);
+    }
+
+    &:not(:disabled):hover::before {
+      --highlight-size: 0.125rem;
+    }
+
+    &:checked {
+      background: c.getSuccess("background-solid");
+
+      &::before {
+        transform: translateX(calc((2rem - 100%)));
+      }
+    }
+
+    &:disabled {
+      &::before {
+        cursor: not-allowed;
+        box-shadow: inset 0 0 0 2px hsl(0 0% 100% / 50%);
+      }
+    }
+  }
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  @include f.font-weight(700);
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,22 @@
+@use "../globals/colors" as c;
+@use "../globals/patterns" as p;
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  @include p.tag;
+  padding: 0.125em 0.75em;
+  white-space: nowrap;
+  font-size: 0.5em;
+  color: white;
+
+  &.special-case {
+    background-color: c.get("background");
+    border-color: c.get("accent");
+    color: c.get("text-high-contrast");
+  }
+}

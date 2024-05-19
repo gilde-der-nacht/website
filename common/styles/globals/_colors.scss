@@ -1,0 +1,490 @@
+@use "sass:map";
+@use "../utils/hsl" as *;
+
+$color1: hsl(225 60% 99.4%) !default;
+$color2: hsl(223 100% 98.6%) !default;
+$color3: hsl(223 98.4% 97.1%) !default;
+$color4: hsl(223 92.9% 95%) !default;
+$color5: hsl(224 87.1% 92%) !default;
+$color6: hsl(224 81.9% 87.8%) !default;
+$color7: hsl(225 77.4% 82.1%) !default;
+$color8: hsl(226 75.4% 74.5%) !default;
+$color9: hsl(226 70% 55.5%) !default;
+$color10: hsl(226 58.6% 51.3%) !default;
+$color11: hsl(226 55% 45%) !default;
+$color12: hsl(226 62% 17%) !default;
+
+$colorDark1: hsl(229 24% 10%) !default;
+$colorDark2: hsl(230 36.4% 12.9%) !default;
+$colorDark3: hsl(228 43.3% 17.5%) !default;
+$colorDark4: hsl(227 47.2% 21%) !default;
+$colorDark5: hsl(227 50% 24.1%) !default;
+$colorDark6: hsl(226 52.9% 28.2%) !default;
+$colorDark7: hsl(226 56% 34.5%) !default;
+$colorDark8: hsl(226 58.2% 44.1%) !default;
+$colorDark9: hsl(226 70% 55.5%) !default;
+$colorDark10: hsl(227 75.2% 61.6%) !default;
+$colorDark11: hsl(228 100% 75.9%) !default;
+$colorDark12: hsl(226 83% 96.3%) !default;
+
+$colorAccent1: hsl(24 100% 46.5%) !default;
+$colorAccent2: hsl(24 100% 62.2%) !default;
+$colorAccentDark1: hsl(24 100% 62.2%) !default;
+$colorAccentDark2: hsl(25 100% 82.8%) !default;
+
+// Semantic colors
+
+$colorGray1: hsl(206 30% 98.8%) !default;
+$colorGray2: hsl(210 16.7% 97.6%) !default;
+$colorGray3: hsl(209 13.3% 95.3%) !default;
+$colorGray4: hsl(209 12.2% 93.2%) !default;
+$colorGray5: hsl(208 11.7% 91.1%) !default;
+$colorGray6: hsl(208 11.3% 88.9%) !default;
+$colorGray7: hsl(207 11.1% 85.9%) !default;
+$colorGray8: hsl(205 10.7% 78%) !default;
+$colorGray9: hsl(206 6% 56.1%) !default;
+$colorGray10: hsl(206 5.8% 52.3%) !default;
+$colorGray11: hsl(206 6% 43.5%) !default;
+$colorGray12: hsl(206 24% 9%) !default;
+
+$colorGrayDark1: hsl(200 7% 8.8%) !default;
+$colorGrayDark2: hsl(195 7.1% 11%) !default;
+$colorGrayDark3: hsl(197 6.8% 13.6%) !default;
+$colorGrayDark4: hsl(198 6.6% 15.8%) !default;
+$colorGrayDark5: hsl(199 6.4% 17.9%) !default;
+$colorGrayDark6: hsl(201 6.2% 20.5%) !default;
+$colorGrayDark7: hsl(203 6% 24.3%) !default;
+$colorGrayDark8: hsl(207 5.6% 31.6%) !default;
+$colorGrayDark9: hsl(206 6% 43.9%) !default;
+$colorGrayDark10: hsl(206 5.2% 49.5%) !default;
+$colorGrayDark11: hsl(206 6% 63%) !default;
+$colorGrayDark12: hsl(210 6% 93%) !default;
+
+$colorDanger1: hsl(332 100% 99.4%) !default;
+$colorDanger2: hsl(330 100% 98.4%) !default;
+$colorDanger3: hsl(331 85.6% 96.6%) !default;
+$colorDanger4: hsl(331 78.1% 94.2%) !default;
+$colorDanger5: hsl(332 72.1% 91.1%) !default;
+$colorDanger6: hsl(333 67% 86.7%) !default;
+$colorDanger7: hsl(335 63.5% 80.4%) !default;
+$colorDanger8: hsl(336 62.3% 72.9%) !default;
+$colorDanger9: hsl(336 80% 57.8%) !default;
+$colorDanger10: hsl(336 73.7% 53.5%) !default;
+$colorDanger11: hsl(336 75% 47.2%) !default;
+$colorDanger12: hsl(340 65% 14.5%) !default;
+
+$colorDangerDark1: hsl(335 20% 9.6%) !default;
+$colorDangerDark2: hsl(335 32.2% 11.6%) !default;
+$colorDangerDark3: hsl(335 42.5% 16.5%) !default;
+$colorDangerDark4: hsl(335 47.2% 19.3%) !default;
+$colorDangerDark5: hsl(335 50.9% 21.8%) !default;
+$colorDangerDark6: hsl(335 55.7% 25.3%) !default;
+$colorDangerDark7: hsl(336 62.9% 30.8%) !default;
+$colorDangerDark8: hsl(336 74.9% 39%) !default;
+$colorDangerDark9: hsl(336 80% 57.8%) !default;
+$colorDangerDark10: hsl(339 84.1% 62.6%) !default;
+$colorDangerDark11: hsl(341 90% 67.3%) !default;
+$colorDangerDark12: hsl(332 87% 96%) !default;
+
+$colorSuccess1: hsl(116 50% 98.9%) !default;
+$colorSuccess2: hsl(120 60% 97.1%) !default;
+$colorSuccess3: hsl(120 53.6% 94.8%) !default;
+$colorSuccess4: hsl(121 47.5% 91.4%) !default;
+$colorSuccess5: hsl(122 42.6% 86.5%) !default;
+$colorSuccess6: hsl(124 39% 79.7%) !default;
+$colorSuccess7: hsl(126 37.1% 70.2%) !default;
+$colorSuccess8: hsl(131 38.1% 56.3%) !default;
+$colorSuccess9: hsl(131 41% 46.5%) !default;
+$colorSuccess10: hsl(132 43.1% 42.2%) !default;
+$colorSuccess11: hsl(133 50% 32.5%) !default;
+$colorSuccess12: hsl(130 30% 14.9%) !default;
+
+$colorSuccessDark1: hsl(146 30% 7.4%) !default;
+$colorSuccessDark2: hsl(136 33.3% 8.8%) !default;
+$colorSuccessDark3: hsl(137 36% 11.4%) !default;
+$colorSuccessDark4: hsl(137 37.6% 13.7%) !default;
+$colorSuccessDark5: hsl(136 38.7% 16%) !default;
+$colorSuccessDark6: hsl(135 39.6% 19.1%) !default;
+$colorSuccessDark7: hsl(134 40.3% 23.8%) !default;
+$colorSuccessDark8: hsl(131 40.1% 30.8%) !default;
+$colorSuccessDark9: hsl(131 41% 46.5%) !default;
+$colorSuccessDark10: hsl(131 39% 52.1%) !default;
+$colorSuccessDark11: hsl(131 43% 57.2%) !default;
+$colorSuccessDark12: hsl(137 72% 94%) !default;
+
+$colorWarning1: hsl(24 70.0% 99.0%) !default;
+$colorWarning2: hsl(24 83.3% 97.6%) !default;
+$colorWarning3: hsl(24 100% 95.3%) !default;
+$colorWarning4: hsl(25 100% 92.2%) !default;
+$colorWarning5: hsl(25 100% 88.2%) !default;
+$colorWarning6: hsl(25 100% 82.8%) !default;
+$colorWarning7: hsl(24 100% 75.3%) !default;
+$colorWarning8: hsl(24 94.5% 64.3%) !default;
+$colorWarning9: hsl(24 94.0% 50.0%) !default;
+$colorWarning10: hsl(24 100% 46.5%) !default;
+$colorWarning11: hsl(24 100% 37.0%) !default;
+$colorWarning12: hsl(15 60.0% 17.0%) !default;
+
+$colorWarningDark1: hsl(30 70.0% 7.2%) !default;
+$colorWarningDark2: hsl(28 100% 8.4%) !default;
+$colorWarningDark3: hsl(26 91.1% 11.6%) !default;
+$colorWarningDark4: hsl(25 88.3% 14.1%) !default;
+$colorWarningDark5: hsl(24 87.6% 16.6%) !default;
+$colorWarningDark6: hsl(24 88.6% 19.8%) !default;
+$colorWarningDark7: hsl(24 92.4% 24.0%) !default;
+$colorWarningDark8: hsl(25 100% 29.0%) !default;
+$colorWarningDark9: hsl(24 94.0% 50.0%) !default;
+$colorWarningDark10: hsl(24 100% 58.5%) !default;
+$colorWarningDark11: hsl(24 100% 62.2%) !default;
+$colorWarningDark12: hsl(24 97.0% 93.2%) !default;
+
+$colorSpecial1: hsl(280 65% 99.4%) !default;
+$colorSpecial2: hsl(276 100% 99%) !default;
+$colorSpecial3: hsl(276 83.1% 97%) !default;
+$colorSpecial4: hsl(275 76.4% 94.7%) !default;
+$colorSpecial5: hsl(275 70.8% 91.8%) !default;
+$colorSpecial6: hsl(274 65.4% 87.8%) !default;
+$colorSpecial7: hsl(273 61% 81.7%) !default;
+$colorSpecial8: hsl(272 60% 73.5%) !default;
+$colorSpecial9: hsl(272 51% 54%) !default;
+$colorSpecial10: hsl(272 46.8% 50.3%) !default;
+$colorSpecial11: hsl(272 50% 45.8%) !default;
+$colorSpecial12: hsl(272 66% 16%) !default;
+
+$colorSpecialDark1: hsl(284 20% 9.6%) !default;
+$colorSpecialDark2: hsl(283 30% 11.8%) !default;
+$colorSpecialDark3: hsl(281 37.5% 16.5%) !default;
+$colorSpecialDark4: hsl(280 41.2% 20%) !default;
+$colorSpecialDark5: hsl(279 43.8% 23.3%) !default;
+$colorSpecialDark6: hsl(277 46.4% 27.5%) !default;
+$colorSpecialDark7: hsl(275 49.3% 34.6%) !default;
+$colorSpecialDark8: hsl(272 52.1% 45.9%) !default;
+$colorSpecialDark9: hsl(272 51% 54%) !default;
+$colorSpecialDark10: hsl(273 57.3% 59.1%) !default;
+$colorSpecialDark11: hsl(275 80% 71%) !default;
+$colorSpecialDark12: hsl(279 75% 95.7%) !default;
+
+@mixin _light {
+  color-scheme: light;
+
+  --clr-1: #{$color1};
+  --clr-2: #{$color2};
+  --clr-3: #{$color3};
+  --clr-4: #{$color4};
+  --clr-5: #{$color5};
+  --clr-6: #{$color6};
+  --clr-7: #{$color7};
+  --clr-8: #{$color8};
+  --clr-9: #{$color9};
+  --clr-10: #{$color10};
+  --clr-11: #{$color11};
+  --clr-12: #{$color12};
+  --clr-accent-1: #{$colorAccent1};
+  --clr-accent-2: #{$colorAccent2};
+
+  --clr-gray-1: #{$colorGray1};
+  --clr-gray-2: #{$colorGray2};
+  --clr-gray-3: #{$colorGray3};
+  --clr-gray-4: #{$colorGray4};
+  --clr-gray-5: #{$colorGray5};
+  --clr-gray-6: #{$colorGray6};
+  --clr-gray-7: #{$colorGray7};
+  --clr-gray-8: #{$colorGray8};
+  --clr-gray-9: #{$colorGray9};
+  --clr-gray-10: #{$colorGray10};
+  --clr-gray-11: #{$colorGray11};
+  --clr-gray-12: #{$colorGray12};
+
+  --clr-danger-1: #{$colorDanger1};
+  --clr-danger-2: #{$colorDanger2};
+  --clr-danger-3: #{$colorDanger3};
+  --clr-danger-4: #{$colorDanger4};
+  --clr-danger-5: #{$colorDanger5};
+  --clr-danger-6: #{$colorDanger6};
+  --clr-danger-7: #{$colorDanger7};
+  --clr-danger-8: #{$colorDanger8};
+  --clr-danger-9: #{$colorDanger9};
+  --clr-danger-10: #{$colorDanger10};
+  --clr-danger-11: #{$colorDanger11};
+  --clr-danger-12: #{$colorDanger12};
+
+  --clr-success-1: #{$colorSuccess1};
+  --clr-success-2: #{$colorSuccess2};
+  --clr-success-3: #{$colorSuccess3};
+  --clr-success-4: #{$colorSuccess4};
+  --clr-success-5: #{$colorSuccess5};
+  --clr-success-6: #{$colorSuccess6};
+  --clr-success-7: #{$colorSuccess7};
+  --clr-success-8: #{$colorSuccess8};
+  --clr-success-9: #{$colorSuccess9};
+  --clr-success-10: #{$colorSuccess10};
+  --clr-success-11: #{$colorSuccess11};
+  --clr-success-12: #{$colorSuccess12};
+
+  --clr-warning-1: #{$colorWarning1};
+  --clr-warning-2: #{$colorWarning2};
+  --clr-warning-3: #{$colorWarning3};
+  --clr-warning-4: #{$colorWarning4};
+  --clr-warning-5: #{$colorWarning5};
+  --clr-warning-6: #{$colorWarning6};
+  --clr-warning-7: #{$colorWarning7};
+  --clr-warning-8: #{$colorWarning8};
+  --clr-warning-9: #{$colorWarning9};
+  --clr-warning-10: #{$colorWarning10};
+  --clr-warning-11: #{$colorWarning11};
+  --clr-warning-12: #{$colorWarning12};
+
+  --clr-special-1: #{$colorSpecial1};
+  --clr-special-2: #{$colorSpecial2};
+  --clr-special-3: #{$colorSpecial3};
+  --clr-special-4: #{$colorSpecial4};
+  --clr-special-5: #{$colorSpecial5};
+  --clr-special-6: #{$colorSpecial6};
+  --clr-special-7: #{$colorSpecial7};
+  --clr-special-8: #{$colorSpecial8};
+  --clr-special-9: #{$colorSpecial9};
+  --clr-special-10: #{$colorSpecial10};
+  --clr-special-11: #{$colorSpecial11};
+  --clr-special-12: #{$colorSpecial12};
+}
+
+@mixin _dark {
+  color-scheme: dark;
+
+  --clr-1: #{$colorDark1};
+  --clr-2: #{$colorDark2};
+  --clr-3: #{$colorDark3};
+  --clr-4: #{$colorDark4};
+  --clr-5: #{$colorDark5};
+  --clr-6: #{$colorDark6};
+  --clr-7: #{$colorDark7};
+  --clr-8: #{$colorDark8};
+  --clr-9: #{$colorDark9};
+  --clr-10: #{$colorDark10};
+  --clr-11: #{$colorDark11};
+  --clr-12: #{$colorDark12};
+  --clr-accent-1: #{$colorAccentDark1};
+  --clr-accent-2: #{$colorAccentDark2};
+
+  --clr-gray-1: #{$colorGrayDark1};
+  --clr-gray-2: #{$colorGrayDark2};
+  --clr-gray-3: #{$colorGrayDark3};
+  --clr-gray-4: #{$colorGrayDark4};
+  --clr-gray-5: #{$colorGrayDark5};
+  --clr-gray-6: #{$colorGrayDark6};
+  --clr-gray-7: #{$colorGrayDark7};
+  --clr-gray-8: #{$colorGrayDark8};
+  --clr-gray-9: #{$colorGrayDark9};
+  --clr-gray-10: #{$colorGrayDark10};
+  --clr-gray-11: #{$colorGrayDark11};
+  --clr-gray-12: #{$colorGrayDark12};
+
+  --clr-danger-1: #{$colorDangerDark1};
+  --clr-danger-2: #{$colorDangerDark2};
+  --clr-danger-3: #{$colorDangerDark3};
+  --clr-danger-4: #{$colorDangerDark4};
+  --clr-danger-5: #{$colorDangerDark5};
+  --clr-danger-6: #{$colorDangerDark6};
+  --clr-danger-7: #{$colorDangerDark7};
+  --clr-danger-8: #{$colorDangerDark8};
+  --clr-danger-9: #{$colorDangerDark9};
+  --clr-danger-10: #{$colorDangerDark10};
+  --clr-danger-11: #{$colorDangerDark11};
+  --clr-danger-12: #{$colorDangerDark12};
+
+  --clr-success-1: #{$colorSuccessDark1};
+  --clr-success-2: #{$colorSuccessDark2};
+  --clr-success-3: #{$colorSuccessDark3};
+  --clr-success-4: #{$colorSuccessDark4};
+  --clr-success-5: #{$colorSuccessDark5};
+  --clr-success-6: #{$colorSuccessDark6};
+  --clr-success-7: #{$colorSuccessDark7};
+  --clr-success-8: #{$colorSuccessDark8};
+  --clr-success-9: #{$colorSuccessDark9};
+  --clr-success-10: #{$colorSuccessDark10};
+  --clr-success-11: #{$colorSuccessDark11};
+  --clr-success-12: #{$colorSuccessDark12};
+
+  --clr-warning-1: #{$colorWarningDark1};
+  --clr-warning-2: #{$colorWarningDark2};
+  --clr-warning-3: #{$colorWarningDark3};
+  --clr-warning-4: #{$colorWarningDark4};
+  --clr-warning-5: #{$colorWarningDark5};
+  --clr-warning-6: #{$colorWarningDark6};
+  --clr-warning-7: #{$colorWarningDark7};
+  --clr-warning-8: #{$colorWarningDark8};
+  --clr-warning-9: #{$colorWarningDark9};
+  --clr-warning-10: #{$colorWarningDark10};
+  --clr-warning-11: #{$colorWarningDark11};
+  --clr-warning-12: #{$colorWarningDark12};
+
+  --clr-special-1: #{$colorSpecialDark1};
+  --clr-special-2: #{$colorSpecialDark2};
+  --clr-special-3: #{$colorSpecialDark3};
+  --clr-special-4: #{$colorSpecialDark4};
+  --clr-special-5: #{$colorSpecialDark5};
+  --clr-special-6: #{$colorSpecialDark6};
+  --clr-special-7: #{$colorSpecialDark7};
+  --clr-special-8: #{$colorSpecialDark8};
+  --clr-special-9: #{$colorSpecialDark9};
+  --clr-special-10: #{$colorSpecialDark10};
+  --clr-special-11: #{$colorSpecialDark11};
+  --clr-special-12: #{$colorSpecialDark12};
+}
+
+:root,
+[color-scheme="light"] {
+  @include _light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include _dark;
+  }
+}
+
+[color-scheme="dark"] {
+  @include _dark;
+}
+
+// For a better understanding:
+// https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale
+$_base-colors: (
+  "background": var(--clr-1),
+  "background-subtle": var(--clr-2),
+  "background-element": var(--clr-3),
+  "background-element-hover": var(--clr-4),
+  "background-element-active": var(--clr-5),
+  "border-subtle": var(--clr-6),
+  "border-element": var(--clr-7),
+  "border-element-hover": var(--clr-8),
+  "background-solid": var(--clr-9),
+  "background-solid-hover": var(--clr-10),
+  "text-low-contrast": var(--clr-11),
+  "text-high-contrast": var(--clr-12),
+  "accent": var(--clr-accent-1),
+  "accent-hover": var(--clr-accent-2),
+);
+
+@function get($name) {
+  @if not map.has-key($_base-colors, $name) {
+    @error "Color '#{$name}' is not defined";
+  }
+
+  @return map.get($_base-colors, $name);
+}
+
+$_gray-colors: (
+  "background": var(--clr-gray-1),
+  "background-subtle": var(--clr-gray-2),
+  "background-element": var(--clr-gray-3),
+  "background-element-hover": var(--clr-gray-4),
+  "background-element-active": var(--clr-gray-5),
+  "border-subtle": var(--clr-gray-6),
+  "border-element": var(--clr-gray-7),
+  "border-element-hover": var(--clr-gray-8),
+  "background-solid": var(--clr-gray-9),
+  "background-solid-hover": var(--clr-gray-10),
+  "text-low-contrast": var(--clr-gray-11),
+  "text-high-contrast": var(--clr-gray-12),
+);
+
+@function getGray($name) {
+  @if not map.has-key($_gray-colors, $name) {
+    @error "Color '#{$name}' is not defined";
+  }
+
+  @return map.get($_gray-colors, $name);
+}
+
+$_danger-colors: (
+  "background": var(--clr-danger-1),
+  "background-subtle": var(--clr-danger-2),
+  "background-element": var(--clr-danger-3),
+  "background-element-hover": var(--clr-danger-4),
+  "background-element-active": var(--clr-danger-5),
+  "border-subtle": var(--clr-danger-6),
+  "border-element": var(--clr-danger-7),
+  "border-element-hover": var(--clr-danger-8),
+  "background-solid": var(--clr-danger-9),
+  "background-solid-hover": var(--clr-danger-10),
+  "text-low-contrast": var(--clr-danger-11),
+  "text-high-contrast": var(--clr-danger-12),
+);
+
+@function getDanger($name) {
+  @if not map.has-key($_danger-colors, $name) {
+    @error "Color '#{$name}' is not defined";
+  }
+
+  @return map.get($_danger-colors, $name);
+}
+
+$_success-colors: (
+  "background": var(--clr-success-1),
+  "background-subtle": var(--clr-success-2),
+  "background-element": var(--clr-success-3),
+  "background-element-hover": var(--clr-success-4),
+  "background-element-active": var(--clr-success-5),
+  "border-subtle": var(--clr-success-6),
+  "border-element": var(--clr-success-7),
+  "border-element-hover": var(--clr-success-8),
+  "background-solid": var(--clr-success-9),
+  "background-solid-hover": var(--clr-success-10),
+  "text-low-contrast": var(--clr-success-11),
+  "text-high-contrast": var(--clr-success-12),
+);
+
+@function getSuccess($name) {
+  @if not map.has-key($_success-colors, $name) {
+    @error "Color '#{$name}' is not defined";
+  }
+
+  @return map.get($_success-colors, $name);
+}
+
+$_warning-colors: (
+  "background": var(--clr-warning-1),
+  "background-subtle": var(--clr-warning-2),
+  "background-element": var(--clr-warning-3),
+  "background-element-hover": var(--clr-warning-4),
+  "background-element-active": var(--clr-warning-5),
+  "border-subtle": var(--clr-warning-6),
+  "border-element": var(--clr-warning-7),
+  "border-element-hover": var(--clr-warning-8),
+  "background-solid": var(--clr-warning-9),
+  "background-solid-hover": var(--clr-warning-10),
+  "text-low-contrast": var(--clr-warning-11),
+  "text-high-contrast": var(--clr-warning-12),
+);
+
+@function getWarning($name) {
+  @if not map.has-key($_warning-colors, $name) {
+    @error "Color '#{$name}' is not defined";
+  }
+
+  @return map.get($_warning-colors, $name);
+}
+
+$_special-colors: (
+  "background": var(--clr-special-1),
+  "background-subtle": var(--clr-special-2),
+  "background-element": var(--clr-special-3),
+  "background-element-hover": var(--clr-special-4),
+  "background-element-active": var(--clr-special-5),
+  "border-subtle": var(--clr-special-6),
+  "border-element": var(--clr-special-7),
+  "border-element-hover": var(--clr-special-8),
+  "background-solid": var(--clr-special-9),
+  "background-solid-hover": var(--clr-special-10),
+  "text-low-contrast": var(--clr-special-11),
+  "text-high-contrast": var(--clr-special-12),
+);
+
+@function getSpecial($name) {
+  @if not map.has-key($_special-colors, $name) {
+    @error "Color '#{$name}' is not defined";
+  }
+
+  @return map.get($_special-colors, $name);
+}

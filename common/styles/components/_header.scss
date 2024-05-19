@@ -1,0 +1,65 @@
+@use "../globals/colors" as c;
+@use "../globals/variables" as var;
+@use "../globals/fonts" as f;
+
+$_top-offset: calc(1rem + var.$header-block-size);
+:target::before {
+  content: "";
+  display: block;
+  block-size: $_top-offset;
+  margin-top: -1 * $_top-offset;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  align-items: stretch;
+  background-color: c.get("background-solid");
+  block-size: var.$header-block-size;
+  border-bottom: 0.25rem solid c.get("border-subtle");
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  overflow: hidden;
+}
+
+.site-name {
+  margin-bottom: 0.25rem;
+  text-align: right;
+  padding: 0.75rem;
+  display: grid;
+  align-content: center;
+  justify-self: end;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  h1 {
+    font-size: 0.9rem;
+    line-height: 1.1;
+  }
+  h2 {
+    @include f.font-family("body");
+    @include f.font-weight(normal);
+    text-transform: none;
+    font-size: 0.8rem;
+  }
+}
+
+.site-logo {
+  border-left: 0.25rem solid c.get("border-subtle");
+  border-bottom: 0.25rem solid c.get("border-subtle");
+  border-bottom-left-radius: 1rem;
+  background-color: c.get("background-subtle");
+  display: grid;
+  place-content: center;
+  inline-size: var.$header-block-size;
+  aspect-ratio: 1;
+
+  svg {
+    inline-size: calc(#{var.$header-block-size} - 1rem);
+    block-size: calc(#{var.$header-block-size} - 1rem);
+  }
+}

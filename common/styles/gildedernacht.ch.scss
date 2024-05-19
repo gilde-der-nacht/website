@@ -1,0 +1,32 @@
+@use "./utils/hsl" as *;
+
+@use "./main" with (
+  $color1: hsl(225 60% 99.4%),
+  $color2: hsl(223 100% 98.6%),
+  $color3: hsl(223 98.4% 97.1%),
+  $color4: hsl(223 92.9% 95%),
+  $color5: hsl(224 87.1% 92%),
+  $color6: hsl(224 81.9% 87.8%),
+  $color7: hsl(225 77.4% 82.1%),
+  $color8: hsl(226 75.4% 74.5%),
+  $color9: hsl(226 70% 55.5%),
+  $color10: hsl(226 58.6% 51.3%),
+  $color11: hsl(226 55% 45%),
+  $color12: hsl(226 62% 17%),
+  $colorDark1: hsl(229 24% 10%),
+  $colorDark2: hsl(230 36.4% 12.9%),
+  $colorDark3: hsl(228 43.3% 17.5%),
+  $colorDark4: hsl(227 47.2% 21%),
+  $colorDark5: hsl(227 50% 24.1%),
+  $colorDark6: hsl(226 52.9% 28.2%),
+  $colorDark7: hsl(226 56% 34.5%),
+  $colorDark8: hsl(226 58.2% 44.1%),
+  $colorDark9: hsl(226 70% 55.5%),
+  $colorDark10: hsl(227 75.2% 61.6%),
+  $colorDark11: hsl(228 100% 75.9%),
+  $colorDark12: hsl(226 83% 96.3%),
+  $colorAccent1: hsl(24 100% 46.5%),
+  $colorAccent2: hsl(24 100% 62.2%),
+  $colorAccentDark1: hsl(24 100% 62.2%),
+  $colorAccentDark2: hsl(25 100% 82.8%)
+);

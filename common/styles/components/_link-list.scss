@@ -1,0 +1,20 @@
+.link-list {
+  li {
+    font-size: 0.9em;
+  }
+
+  > li + li {
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    border: none;
+    border-radius: 0;
+    color: inherit;
+    padding: 0;
+  }
+}

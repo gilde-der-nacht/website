@@ -1,0 +1,72 @@
+@use "../globals/colors" as c;
+@use "../globals/variables" as var;
+
+#mobile-navigation {
+  ~ .toggle-mobile-navigation {
+    cursor: pointer;
+    padding: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: white;
+    display: grid;
+    place-content: center;
+
+    svg {
+      aspect-ratio: 1;
+      block-size: 1em;
+    }
+
+    .close-menu-container {
+      display: none;
+    }
+  }
+
+  ~ .mobile-menu-container {
+    position: fixed;
+    overflow: auto;
+    inset: var.$header-block-size 0 0;
+    background-color: c.get("background-subtle");
+    transform: translateX(-150vw);
+    transition: transform 0.5s ease-in-out;
+    border-right: 0.25rem solid c.get("border-subtle");
+  }
+
+  &:checked {
+    ~ .toggle-mobile-navigation {
+      &::after {
+        content: "";
+        position: fixed;
+        inset: var.$header-block-size 0 0;
+        background-color: rgba(10, 10, 10, 0.86);
+      }
+
+      .close-menu-container {
+        display: block;
+      }
+
+      .open-menu-container {
+        display: none;
+      }
+    }
+
+    ~ .mobile-menu-container {
+      transform: translateX(0);
+    }
+  }
+}
+
+.mobile-menu-container {
+  nav {
+    padding-left: 0.25rem;
+  }
+
+  padding-block: 0.5rem;
+  max-inline-size: 20rem;
+  display: grid;
+  grid-template-rows: 1fr max-content;
+}
+
+.mobile-footer {
+  margin-inline: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 0.125rem solid c.get("border-subtle");
+}

@@ -1,0 +1,107 @@
+@use "fonts" as f;
+@use "colors" as c;
+
+// Typography
+
+:root {
+  font-size: calc(1rem + 0.4vw);
+}
+
+body {
+  @include f.font-family;
+  @include f.font-weight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include f.font-family("display");
+  text-transform: uppercase;
+}
+
+strong {
+  @include f.font-weight(700);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ol:not([role="list"]),
+ul:not([role="list"]),
+blockquote {
+  max-inline-size: 60ch;
+}
+
+h1 {
+  font-size: max(1.8em, 1rem);
+}
+
+h2 {
+  font-size: max(1.5em, 1rem);
+}
+
+h3 {
+  font-size: max(1.17em, 1rem);
+}
+
+h4 {
+  font-size: max(1em, 1rem);
+}
+
+p,
+li {
+  font-size: max(1em, 1rem);
+}
+
+// Colors
+
+body {
+  background-color: c.get("background-solid");
+  color: c.get("text-high-contrast");
+}
+
+.main-wrapper {
+  background-color: c.get("background-subtle");
+  background-position: 50% 0;
+  z-index: 5;
+}
+
+body.gdn .main-wrapper {
+  background-image: url("/images/background-gdn.svg");
+}
+
+body.lst .main-wrapper {
+  background-image: url("/images/background-lst.svg");
+}
+
+body.rst .main-wrapper {
+  background-image: url("/images/background-rst.svg");
+}
+
+.main-wrapper {
+  min-block-size: 90vh;
+  padding-block-end: 2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+::selection {
+  background-color: c.get("accent");
+  color: white;
+}
+
+// Layout
+
+body {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+}
