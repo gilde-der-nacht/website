@@ -1,16 +1,47 @@
-import { mergeProps, type JSX } from "solid-js";
+import { mergeProps, onMount, type JSX } from "solid-js";
 
 type Props = {
   submitLabel?: string;
   language?: "de" | "en";
+  isValid: (formData: FormData) => boolean;
+  onError: (e: unknown) => void;
   children?: JSX.Element;
 }
+
+const actionUrl = "https://elysium.gildedernacht.ch/forms";
 
 export function Form(props: Props): JSX.Element {
   const propsWithDefaults = mergeProps({ language: "de", submitLabel: props.language === "en" ? "Submit" : "Absenden" }, props);
 
+  // If JS is available we validate and handle the form via JS.
+  // Without JS the form behaves like any normal form element.
+  let formElement!: HTMLFormElement;
+  onMount(() => {
+    formElement.setAttribute("novalidate", "");
+  })
+  async function onSubmit(e: SubmitEvent): Promise<void> {
+    const { target } = e;
+    if (target !== null && target instanceof HTMLFormElement) {
+      e.preventDefault();
+      const formData = new FormData(target);
+      if (!propsWithDefaults.isValid(formData)) {
+        return;
+      }
+      try {
+        const response = await fetch(actionUrl, {
+          method: "post",
+          body: formData
+        });
+        console.log({ response });
+      } catch (e: unknown) {
+        propsWithDefaults.onError(e);
+      }
+    }
+  }
+
+
   return (
-    <form action="https://elysium.gildedernacht.ch/forms" method="post">
+    <form action={actionUrl} method="post" onSubmit={onSubmit} ref={formElement}>
       {propsWithDefaults.children}
       <button type="submit" class="button-accent">{propsWithDefaults.submitLabel}</button>
     </form>
