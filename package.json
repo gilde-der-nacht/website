@@ -17,5 +17,8 @@
     "solid-js": "^1.8.17",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
+  },
+  "devDependencies": {
+    "@types/html-escaper": "^3.0.2"
   }
 }
