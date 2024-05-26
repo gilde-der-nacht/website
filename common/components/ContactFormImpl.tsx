@@ -42,6 +42,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
   const [isErrorGeneral, setErrorGeneral] = createSignal(false);
 
   function onSuccess(): void {
+    setFormData({ name: "", email: "", captcha: "", message: "" });
     setSuccess(true);
   }
 
