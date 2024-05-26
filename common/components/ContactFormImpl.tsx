@@ -9,7 +9,6 @@ import { Box } from "@common/components/Box";
  * This is a hot mess. Should work for now, but should be cleaned up.
  */
 
-
 type Props = {
   language: "de" | "en" | undefined;
   category: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage" | undefined;
@@ -170,10 +169,6 @@ export function ContactFormImpl(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        {/* TOOD: REMOVE*/}
-        <HiddenInput name="mail-config" value="disable" />
-        {/* TOOD: REMOVE*/}
-        <HiddenInput name="post-config" value="disable" />
         <Show when={props.language}>
           {language => (<HiddenInput name="language" value={language()} />)}
         </Show>
