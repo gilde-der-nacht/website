@@ -1,6 +1,7 @@
 import { mergeProps, onMount, type JSX } from "solid-js";
 
 type Props = {
+  actionUrl: URL;
   submitLabel?: string;
   language?: "de" | "en";
   isValid: (formData: FormData) => boolean;
@@ -9,7 +10,6 @@ type Props = {
   children?: JSX.Element;
 }
 
-const actionUrl = "https://elysium.gildedernacht.ch/forms";
 
 export function Form(props: Props): JSX.Element {
   const propsWithDefaults = mergeProps({ language: "de", submitLabel: props.language === "en" ? "Submit" : "Absenden" }, props);
@@ -31,7 +31,7 @@ export function Form(props: Props): JSX.Element {
         return;
       }
       try {
-        const response = await fetch(actionUrl, {
+        const response = await fetch(propsWithDefaults.actionUrl, {
           method: "post",
           body: formData
         });
@@ -48,7 +48,7 @@ export function Form(props: Props): JSX.Element {
 
 
   return (
-    <form action={actionUrl} method="post" onSubmit={onSubmit} ref={formElement}>
+    <form action={propsWithDefaults.actionUrl.href} method="post" onSubmit={onSubmit} ref={formElement}>
       {propsWithDefaults.children}
       <button type="submit" class="button-accent">{propsWithDefaults.submitLabel}</button>
     </form>

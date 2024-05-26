@@ -3,7 +3,12 @@ import { Form } from "@common/components/Form";
 import { Input } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
 import { HiddenInput } from "@common/components/HiddenInput";
-import { Box } from "./Box";
+import { Box } from "@common/components/Box";
+
+/*
+ * This is a hot mess. Should work for now, but should be cleaned up.
+ */
+
 
 type Props = {
   language: "de" | "en" | undefined;
@@ -13,27 +18,33 @@ type Props = {
   redirectOnFailure: URL | undefined;
 }
 
+type FormDataSchema = {
+  name: string;
+  email: string;
+  captcha: string;
+  message: string;
+}
+
+function resetFormData(): FormDataSchema {
+  return { name: "", email: "", captcha: "", message: "", }
+}
+
+type FieldErrors = Record<keyof FormDataSchema, string[]>;
+function resetFieldErrors(): FieldErrors {
+  return { name: [], email: [], captcha: [], message: [] }
+}
+
+const actionUrl = new URL("https://elysium.gildedernacht.ch/forms");
+
 export function ContactFormImpl(props: Props): JSX.Element {
   const nameLabel = "Name";
-  const emailLabel = props.language === "de" ? "E-Mail" : "Email";
-  const captchaLabel = props.language === "de" ? "Bitte leer lassen" : "leave this field empty";
-  const messageLabel = props.language === "de" ? "Nachricht" : "Message";
+  const emailLabel = props.language !== "en" ? "E-Mail" : "Email";
+  const captchaLabel = props.language !== "en" ? "Bitte leer lassen" : "leave this field empty";
+  const messageLabel = props.language !== "en" ? "Nachricht" : "Message";
 
-  type FormDataSchema = {
-    name: string;
-    email: string;
-    captcha: string;
-    message: string;
-  }
+  const [formData, setFormData] = createSignal<FormDataSchema>(resetFormData())
 
-  const [formData, setFormData] = createSignal<FormDataSchema>({
-    name: "",
-    email: "",
-    captcha: "",
-    message: "",
-  })
-
-
+  // Need to find better solution for this
   let nameInput!: HTMLInputElement;
   let emailInput!: HTMLInputElement;
   let captchaInput!: HTMLInputElement;
@@ -42,7 +53,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
   const [isErrorGeneral, setErrorGeneral] = createSignal(false);
 
   function onSuccess(): void {
-    setFormData({ name: "", email: "", captcha: "", message: "" });
+    setFormData(resetFormData());
     setSuccess(true);
   }
 
@@ -51,25 +62,18 @@ export function ContactFormImpl(props: Props): JSX.Element {
     console.error(err);
   }
 
-  type FieldErrors = Record<keyof FormDataSchema, string[]>;
-
-  const [fieldErrors, setFieldErrors] = createSignal<FieldErrors>({
-    name: [],
-    email: [],
-    captcha: [],
-    message: []
-  })
+  const [fieldErrors, setFieldErrors] = createSignal<FieldErrors>(resetFieldErrors())
 
   function updateField<K extends (keyof FormDataSchema)>(fieldName: K): (newValue: FormDataSchema[K]) => void {
     return (newValue) => {
       setErrorGeneral(false);
-      setFieldErrors({ name: [], email: [], captcha: [], message: [] });
+      setFieldErrors(resetFieldErrors());
       setFormData(prev => ({ ...prev, [fieldName]: newValue }));
     }
   }
 
   function isValid(_formData: FormData): boolean {
-    setFieldErrors({ name: [], email: [], captcha: [], message: [] });
+    setFieldErrors(resetFieldErrors());
     const isEnglish = props.language === "en";
     if (formData().name.trim().length === 0) {
       const msg = isEnglish ? "This is a mandatory field." : "Dies ist ein Pflichtfeld.";
@@ -100,8 +104,18 @@ export function ContactFormImpl(props: Props): JSX.Element {
 
   return (
     <>
-      <Form language={props.language ?? "de"} isValid={isValid} onSuccess={onSuccess} onError={onError}>
-        <Input label={nameLabel} name="private-name" value={formData().name} onValueUpdate={updateField("name")} ref={nameInput} />
+      <Form
+        actionUrl={actionUrl}
+        language={props.language ?? "de"}
+        isValid={isValid}
+        onSuccess={onSuccess}
+        onError={onError}>
+        <Input
+          label={nameLabel}
+          name="private-name"
+          value={formData().name}
+          onValueUpdate={updateField("name")}
+          ref={nameInput} />
         <Show when={fieldErrors().name.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().name}>{error => (
@@ -110,7 +124,13 @@ export function ContactFormImpl(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <Input label={emailLabel} name="private-email" type="email" value={formData().email} onValueUpdate={updateField("email")} ref={emailInput} />
+        <Input
+          label={emailLabel}
+          name="private-email"
+          type="email"
+          value={formData().email}
+          onValueUpdate={updateField("email")}
+          ref={emailInput} />
         <Show when={fieldErrors().email.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().email}>{error => (
@@ -119,7 +139,15 @@ export function ContactFormImpl(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <Input label={captchaLabel} name="private-captcha" type="email" required={false} isHoneypot={true} value={formData().captcha} onValueUpdate={updateField("captcha")} ref={captchaInput} />
+        <Input
+          label={captchaLabel}
+          name="private-captcha"
+          type="email"
+          required={false}
+          isHoneypot={true}
+          value={formData().captcha}
+          onValueUpdate={updateField("captcha")}
+          ref={captchaInput} />
         <Show when={fieldErrors().captcha.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().captcha}>{error => (
@@ -128,7 +156,12 @@ export function ContactFormImpl(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <Textarea label={messageLabel} name="private-message" value={formData().message} onValueUpdate={updateField("message")} ref={messageTextarea} />
+        <Textarea
+          label={messageLabel}
+          name="private-message"
+          value={formData().message}
+          onValueUpdate={updateField("message")}
+          ref={messageTextarea} />
         <Show when={fieldErrors().message.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().message}>{error => (
