@@ -52,11 +52,13 @@ export function ContactFormImpl(props: Props): JSX.Element {
   const [isErrorGeneral, setErrorGeneral] = createSignal(false);
 
   function onSuccess(): void {
+    setErrorGeneral(false);
     setFormData(resetFormData());
     setSuccess(true);
   }
 
   function onError(err: unknown): void {
+    setSuccess(false);
     setErrorGeneral(true);
     console.error(err);
   }
