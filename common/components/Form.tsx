@@ -4,6 +4,7 @@ type Props = {
   submitLabel?: string;
   language?: "de" | "en";
   isValid: (formData: FormData) => boolean;
+  onSuccess: () => void;
   onError: (e: unknown) => void;
   children?: JSX.Element;
 }
@@ -18,7 +19,9 @@ export function Form(props: Props): JSX.Element {
   let formElement!: HTMLFormElement;
   onMount(() => {
     formElement.setAttribute("novalidate", "");
-  })
+    const redirects = formElement.querySelectorAll('input[name^="redirect"][type="hidden"]');
+    [...redirects].forEach(redirect => redirect.remove());
+  });
   async function onSubmit(e: SubmitEvent): Promise<void> {
     const { target } = e;
     if (target !== null && target instanceof HTMLFormElement) {
@@ -32,9 +35,13 @@ export function Form(props: Props): JSX.Element {
           method: "post",
           body: formData
         });
-        console.log({ response });
-      } catch (e: unknown) {
-        propsWithDefaults.onError(e);
+        if (response.ok) {
+          propsWithDefaults.onSuccess();
+        } else {
+          propsWithDefaults.onError(await response.text());
+        }
+      } catch (err: unknown) {
+        propsWithDefaults.onError(err);
       }
     }
   }

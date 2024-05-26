@@ -32,21 +32,24 @@ export function ContactFormImpl(props: Props): JSX.Element {
     captcha: "",
     message: "",
   })
-  function updateField<K extends (keyof FormDataSchema)>(fieldName: K): (newValue: FormDataSchema[K]) => void {
-    return (newValue) => {
-      setFormData(prev => ({ ...prev, [fieldName]: newValue }));
-    }
-  }
+
 
   let nameInput!: HTMLInputElement;
   let emailInput!: HTMLInputElement;
   let captchaInput!: HTMLInputElement;
   let messageTextarea!: HTMLTextAreaElement;
+  const [isSuccess, setSuccess] = createSignal(false);
   const [isErrorGeneral, setErrorGeneral] = createSignal(false);
-  function onError(e: unknown): void {
-    setErrorGeneral(true);
-    console.error(e);
+
+  function onSuccess(): void {
+    setSuccess(true);
   }
+
+  function onError(err: unknown): void {
+    setErrorGeneral(true);
+    console.error(err);
+  }
+
   type FieldErrors = Record<keyof FormDataSchema, string[]>;
 
   const [fieldErrors, setFieldErrors] = createSignal<FieldErrors>({
@@ -55,6 +58,15 @@ export function ContactFormImpl(props: Props): JSX.Element {
     captcha: [],
     message: []
   })
+
+  function updateField<K extends (keyof FormDataSchema)>(fieldName: K): (newValue: FormDataSchema[K]) => void {
+    return (newValue) => {
+      setErrorGeneral(false);
+      setFieldErrors({ name: [], email: [], captcha: [], message: [] });
+      setFormData(prev => ({ ...prev, [fieldName]: newValue }));
+    }
+  }
+
   function isValid(_formData: FormData): boolean {
     setFieldErrors({ name: [], email: [], captcha: [], message: [] });
     const isEnglish = props.language === "en";
@@ -79,7 +91,6 @@ export function ContactFormImpl(props: Props): JSX.Element {
       const msg = isEnglish ? "This is a mandatory field." : "Dies ist ein Pflichtfeld.";
       setFieldErrors((prev) => ({ ...prev, message: [...prev.message, msg] }));
     }
-    console.log(fieldErrors());
     return fieldErrors().name.length === 0
       && fieldErrors().email.length === 0
       && fieldErrors().captcha.length === 0
@@ -88,7 +99,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
 
   return (
     <>
-      <Form language={props.language ?? "de"} isValid={isValid} onError={onError}>
+      <Form language={props.language ?? "de"} isValid={isValid} onSuccess={onSuccess} onError={onError}>
         <Input label={nameLabel} name="private-name" value={formData().name} onValueUpdate={updateField("name")} ref={nameInput} />
         <Show when={fieldErrors().name.length > 0}>
           <Box type="danger">
@@ -148,9 +159,19 @@ export function ContactFormImpl(props: Props): JSX.Element {
       <Show when={isErrorGeneral()}>
         <br />
         <Box type="danger">
-          <Switch fallback={"Unfortunately a technical error has occurred. Please try again."}>
-            <Match when={props.language === "de"}>
-              Leider ist ein technischer Fehler passiert. Versuche es bitte nochmals.
+          <Switch fallback={"Leider konnten wir die Nachricht nicht absenden. Bitte versuche es erneut."}>
+            <Match when={props.language === "en"}>
+              There was a problem sending your message. Please try again.
+            </Match>
+          </Switch>
+        </Box>
+      </Show>
+      <Show when={isSuccess()}>
+        <br />
+        <Box type="success">
+          <Switch fallback={"Nachricht wurde erfolgreich gesendet."}>
+            <Match when={props.language === "en"}>
+              Message successfully sent.
             </Match>
           </Switch>
         </Box>
