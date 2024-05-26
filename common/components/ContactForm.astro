@@ -1,5 +1,5 @@
 ---
-import { ContactForm } from "@common/components/ContactForm.tsx";
+import { ContactFormImpl } from "@common/components/ContactFormImpl.tsx";
 import { Box } from "@common/components/Box.tsx";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   category?: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage"
 }
 
-const { language, category, anchorOnSuccess, anchorOnFailure } = Astro.props;
+const { language, category } = Astro.props;
 
 const currentPage = Astro.url;
 const redirectOnSuccess = new URL(currentPage);
@@ -16,7 +16,7 @@ const redirectOnFailure= new URL(currentPage);
 redirectOnFailure.hash = "failure"
 ---
 
-<ContactForm 
+<ContactFormImpl 
   language={language} 
   category={category} 
   referer={currentPage}  

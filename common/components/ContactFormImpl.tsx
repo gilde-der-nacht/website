@@ -6,36 +6,36 @@ import { HiddenInput } from "@common/components/HiddenInput";
 import { Box } from "./Box";
 
 type Props = {
-  language?: "de" | "en";
-  category?: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage"
-  referer?: URL;
-  redirectOnSuccess?: URL
-  redirectOnFailure?: URL
+  language: "de" | "en" | undefined;
+  category: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage" | undefined;
+  referer: URL | undefined;
+  redirectOnSuccess: URL | undefined;
+  redirectOnFailure: URL | undefined;
 }
 
-export function ContactForm(props: Props): JSX.Element {
+export function ContactFormImpl(props: Props): JSX.Element {
   const nameLabel = "Name";
   const emailLabel = props.language === "de" ? "E-Mail" : "Email";
   const captchaLabel = props.language === "de" ? "Bitte leer lassen" : "leave this field empty";
   const messageLabel = props.language === "de" ? "Nachricht" : "Message";
 
-  const [formData, setFormData] = createSignal({
+  type FormDataSchema = {
+    name: string;
+    email: string;
+    captcha: string;
+    message: string;
+  }
+
+  const [formData, setFormData] = createSignal<FormDataSchema>({
     name: "",
     email: "",
     captcha: "",
     message: "",
   })
-  function updateName(next: string): void {
-    setFormData(prev => ({ ...prev, name: next }));
-  }
-  function updateEmail(next: string): void {
-    setFormData(prev => ({ ...prev, email: next }));
-  }
-  function updateCaptcha(next: string): void {
-    setFormData(prev => ({ ...prev, captcha: next }));
-  }
-  function updateMessage(next: string): void {
-    setFormData(prev => ({ ...prev, message: next }));
+  function updateField<K extends (keyof FormDataSchema)>(fieldName: K): (newValue: FormDataSchema[K]) => void {
+    return (newValue) => {
+      setFormData(prev => ({ ...prev, [fieldName]: newValue }));
+    }
   }
 
   let nameInput!: HTMLInputElement;
@@ -47,12 +47,8 @@ export function ContactForm(props: Props): JSX.Element {
     setErrorGeneral(true);
     console.error(e);
   }
-  type FieldErrors = {
-    name: string[];
-    email: string[];
-    captcha: string[];
-    message: string[];
-  }
+  type FieldErrors = Record<keyof FormDataSchema, string[]>;
+
   const [fieldErrors, setFieldErrors] = createSignal<FieldErrors>({
     name: [],
     email: [],
@@ -93,7 +89,7 @@ export function ContactForm(props: Props): JSX.Element {
   return (
     <>
       <Form language={props.language ?? "de"} isValid={isValid} onError={onError}>
-        <Input label={nameLabel} name="private-name" value={formData().name} onValueUpdate={updateName} ref={nameInput} />
+        <Input label={nameLabel} name="private-name" value={formData().name} onValueUpdate={updateField("name")} ref={nameInput} />
         <Show when={fieldErrors().name.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().name}>{error => (
@@ -102,7 +98,7 @@ export function ContactForm(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <Input label={emailLabel} name="private-email" type="email" value={formData().email} onValueUpdate={updateEmail} ref={emailInput} />
+        <Input label={emailLabel} name="private-email" type="email" value={formData().email} onValueUpdate={updateField("email")} ref={emailInput} />
         <Show when={fieldErrors().email.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().email}>{error => (
@@ -111,7 +107,7 @@ export function ContactForm(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <Input label={captchaLabel} name="private-captcha" type="email" required={false} isHoneypot={true} value={formData().captcha} onValueUpdate={updateCaptcha} ref={captchaInput} />
+        <Input label={captchaLabel} name="private-captcha" type="email" required={false} isHoneypot={true} value={formData().captcha} onValueUpdate={updateField("captcha")} ref={captchaInput} />
         <Show when={fieldErrors().captcha.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().captcha}>{error => (
@@ -120,7 +116,7 @@ export function ContactForm(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <Textarea label={messageLabel} name="private-message" value={formData().message} onValueUpdate={updateMessage} ref={messageTextarea} />
+        <Textarea label={messageLabel} name="private-message" value={formData().message} onValueUpdate={updateField("message")} ref={messageTextarea} />
         <Show when={fieldErrors().message.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().message}>{error => (
@@ -129,6 +125,10 @@ export function ContactForm(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
+        {/* TOOD: REMOVE*/}
+        <HiddenInput name="mail-config" value="disable" />
+        {/* TOOD: REMOVE*/}
+        <HiddenInput name="post-config" value="disable" />
         <Show when={props.language}>
           {language => (<HiddenInput name="language" value={language()} />)}
         </Show>
