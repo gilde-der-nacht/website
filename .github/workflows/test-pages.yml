@@ -1,0 +1,46 @@
+name: Test Pages
+
+on:
+  push:
+    branches: [dandelion-*]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * *"
+
+jobs:
+  deploy-test-pages:
+    name: test.${{ matrix.site }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        include:
+#          - site: gildedernacht
+#            siteCode: gdn
+#          - site: spieltage
+#            siteCode: lst
+          - site: rollenspieltage
+            siteCode: rst
+#          - site: tabletoptage
+#            siteCode: ttt
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - run: yarn install
+
+      - run: yarn ${{ matrix.siteCode }}-build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          external_repository: gilde-der-nacht/test.${{ matrix.site }}.ch
+          publish_branch: master
+          publish_dir: ./dist/${{ matrix.site }}.ch
+          cname: test.${{ matrix.site }}.ch

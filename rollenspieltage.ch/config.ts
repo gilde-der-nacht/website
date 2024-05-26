@@ -6,6 +6,7 @@ export default defineConfig({
   site: "https://rollenspieltage.ch",
   srcDir: "./rollenspieltage.ch",
   publicDir: "./rollenspieltage.ch/public",
+  outDir: "./dist/rollenspieltage.ch",
   server: {
     port: 1113
   },
