@@ -229,3 +229,11 @@ legend {
   @include f.font-weight(700);
   margin-bottom: 0.5rem;
 }
+
+.show-on-target {
+  display: none;
+
+  &:target {
+    display: block;
+  }
+}

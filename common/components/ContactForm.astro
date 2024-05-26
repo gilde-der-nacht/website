@@ -1,0 +1,41 @@
+---
+import { ContactForm } from "@common/components/ContactForm.tsx";
+import { Box } from "@common/components/Box.tsx";
+
+type Props = {
+  language?: "de" | "en";
+  category?: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage"
+}
+
+const { language, category, anchorOnSuccess, anchorOnFailure } = Astro.props;
+
+const currentPage = Astro.url;
+const redirectOnSuccess = new URL(currentPage);
+redirectOnSuccess.hash = "success";
+const redirectOnFailure= new URL(currentPage);
+redirectOnFailure.hash = "failure"
+---
+
+<ContactForm 
+  language={language} 
+  category={category} 
+  referer={currentPage}  
+  redirectOnSuccess={redirectOnSuccess}
+  redirectOnFailure={redirectOnFailure}
+  client:load />
+
+<div id="success" class="show-on-target" style="margin-block-start: 1rem;">
+  <Box type="success">
+    {
+      language === "en" ? ("Message successfully sent.") : ("Nachricht wurde erfolgreich gesendet.")
+    }
+  </Box>
+</div>
+
+<div id="failure" class="show-on-target" style="margin-block-start: 1rem;">
+  <Box type="danger">
+    {
+      language === "en" ? ("There was a problem sending your message. Please try again.") : ("Leider konnten wir die Nachricht nicht absenden. Bitte versuche es erneut.")
+    }
+  </Box>
+</div>

@@ -7,6 +7,10 @@ import { Box } from "./Box";
 
 type Props = {
   language?: "de" | "en";
+  category?: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage"
+  referer?: URL;
+  redirectOnSuccess?: URL
+  redirectOnFailure?: URL
 }
 
 export function ContactForm(props: Props): JSX.Element {
@@ -125,8 +129,21 @@ export function ContactForm(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <HiddenInput name="language" value={props.language ?? "de"} />
-        <HiddenInput name="identification" value="todo" />
+        <Show when={props.language}>
+          {language => (<HiddenInput name="language" value={language()} />)}
+        </Show>
+        <Show when={props.category}>
+          {category => (<HiddenInput name="category" value={category()} />)}
+        </Show>
+        <Show when={props.referer}>
+          {referer => (<HiddenInput name="referer" value={referer().href} />)}
+        </Show>
+        <Show when={props.redirectOnSuccess}>
+          {redirectOnSuccess => (<HiddenInput name="redirect-on-success" value={redirectOnSuccess().href} />)}
+        </Show>
+        <Show when={props.redirectOnFailure}>
+          {redirectOnFailure => (<HiddenInput name="redirect-on-failure" value={redirectOnFailure().href} />)}
+        </Show>
       </Form>
       <Show when={isErrorGeneral()}>
         <br />
