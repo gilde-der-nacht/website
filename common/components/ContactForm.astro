@@ -10,6 +10,9 @@ type Props = {
 const { language, category } = Astro.props;
 
 const currentPage = Astro.url;
+if (import.meta.env.ENV === "test") {
+  currentPage.hostname = "test." + currentPage.hostname;
+}
 const redirectOnSuccess = new URL(currentPage);
 redirectOnSuccess.hash = "success";
 const redirectOnFailure= new URL(currentPage);
