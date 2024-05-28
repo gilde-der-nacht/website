@@ -1,6 +1,6 @@
 import { For, Match, Show, Switch, createSignal, type JSX } from "solid-js";
 import { Form } from "@common/components/Form";
-import { Input } from "@common/components/Input";
+import { Input, InputWithRef } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
 import { HiddenInput } from "@common/components/HiddenInput";
 import { Box } from "@common/components/Box";
@@ -44,10 +44,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
   const [formData, setFormData] = createSignal<FormDataSchema>(resetFormData())
 
   // Need to find better solution for this
-  let nameInput!: HTMLInputElement;
   let emailInput!: HTMLInputElement;
-  let captchaInput!: HTMLInputElement;
-  let messageTextarea!: HTMLTextAreaElement;
   const [isSuccess, setSuccess] = createSignal(false);
   const [isErrorGeneral, setErrorGeneral] = createSignal(false);
 
@@ -115,8 +112,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
           label={nameLabel}
           name="private-name"
           value={formData().name}
-          onValueUpdate={updateField("name")}
-          ref={nameInput} />
+          onValueUpdate={updateField("name")} />
         <Show when={fieldErrors().name.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().name}>{error => (
@@ -125,7 +121,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <Input
+        <InputWithRef
           label={emailLabel}
           name="private-email"
           type="email"
@@ -147,8 +143,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
           required={false}
           isHoneypot={true}
           value={formData().captcha}
-          onValueUpdate={updateField("captcha")}
-          ref={captchaInput} />
+          onValueUpdate={updateField("captcha")} />
         <Show when={fieldErrors().captcha.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().captcha}>{error => (
@@ -161,8 +156,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
           label={messageLabel}
           name="private-message"
           value={formData().message}
-          onValueUpdate={updateField("message")}
-          ref={messageTextarea} />
+          onValueUpdate={updateField("message")} />
         <Show when={fieldErrors().message.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().message}>{error => (

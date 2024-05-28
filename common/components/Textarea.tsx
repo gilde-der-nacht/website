@@ -6,7 +6,6 @@ type Props = {
   label: string;
   name: string;
   required?: boolean;
-  ref: HTMLTextAreaElement;
 }
 
 export function Textarea(props: Props): JSX.Element {
@@ -19,8 +18,7 @@ export function Textarea(props: Props): JSX.Element {
         placeholder={propsWithDefaults.label}
         required={propsWithDefaults.required}
         value={propsWithDefaults.value}
-        onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
-        ref={propsWithDefaults.ref} />
+        onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)} />
     </label>
   )
 }

@@ -1,6 +1,6 @@
 import { For, Show, createSignal, type JSX } from "solid-js";
 import { Form } from "@common/components/Form";
-import { Input } from "@common/components/Input";
+import { Input, InputWithRef } from "@common/components/Input";
 import { CheckboxGroup, type CheckboxGroupProps } from "@common/components/Checkbox";
 import { RadioGroup, type RadioGroupProps } from "@common/components/Radio";
 import { HiddenInput } from "@common/components/HiddenInput";
@@ -125,8 +125,6 @@ export function NewsletterImpl(props: Props): JSX.Element {
   };
 
   // Need to find better solution for this
-  let firstNameInput!: HTMLInputElement;
-  let lastNameInput!: HTMLInputElement;
   let emailInput!: HTMLInputElement;
 
   const [fieldErrors, setFieldErrors] = createSignal<FieldErrors>(resetFieldErrors())
@@ -182,8 +180,7 @@ export function NewsletterImpl(props: Props): JSX.Element {
           label="Vorname"
           name="FNAME"
           value={formData().firstName}
-          onValueUpdate={updateField("firstName")}
-          ref={firstNameInput} />
+          onValueUpdate={updateField("firstName")} />
         <Show when={fieldErrors().firstName.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().firstName}>{error => (
@@ -196,8 +193,7 @@ export function NewsletterImpl(props: Props): JSX.Element {
           label="Nachname"
           name="LNAME"
           value={formData().lastName}
-          onValueUpdate={updateField("lastName")}
-          ref={lastNameInput} />
+          onValueUpdate={updateField("lastName")} />
         <Show when={fieldErrors().lastName.length > 0}>
           <Box type="danger">
             <For each={fieldErrors().lastName}>{error => (
@@ -206,7 +202,7 @@ export function NewsletterImpl(props: Props): JSX.Element {
             </For>
           </Box>
         </Show>
-        <Input
+        <InputWithRef
           label="E-Mail-Adressse"
           type="email"
           name="EMAIL"

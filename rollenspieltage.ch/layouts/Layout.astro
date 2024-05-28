@@ -3,7 +3,7 @@ import BaseLayout from "@common/layouts/BaseLayout.astro"
 import "/rollenspieltage.ch/styles/main.scss";
 import type { NavigationEntry } from "@common/layouts/types.ts";
 
-const { locale, title, description, keywords } = Astro.props.frontmatter;
+const { locale, title, description, keywords } = Astro.props.frontmatter ?? Astro.props;
 
 const siteName = "Luzerner Rollenspieltage";
 const siteCode = "rst";

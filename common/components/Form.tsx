@@ -1,4 +1,5 @@
 import { mergeProps, onMount, type JSX } from "solid-js";
+import { Button } from "./Button";
 
 type Props = {
   actionUrl: URL;
@@ -50,7 +51,7 @@ export function Form(props: Props): JSX.Element {
   return (
     <form action={propsWithDefaults.actionUrl.href} method="post" onSubmit={onSubmit} ref={formElement}>
       {propsWithDefaults.children}
-      <button type="submit" class="button-accent">{propsWithDefaults.submitLabel}</button>
+      <Button type="submit" label={propsWithDefaults.submitLabel} />
     </form>
   )
 }
