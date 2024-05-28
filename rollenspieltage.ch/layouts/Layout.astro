@@ -12,10 +12,10 @@ const siteTagline = "24. + 25. August 2024";
 const pages = await Astro.glob("../pages/**/*");
 const mainNavigation: NavigationEntry[] = pages
   .filter((page) => page.frontmatter?.navigation?.group === "main")
-  .map((page) => ({ label: page.frontmatter.navigation.label, order: page.frontmatter.navigation.order, url: page.url }));
+  .map((page) => ({ label: page.frontmatter.navigation.label, order: page.frontmatter.navigation.order, url: page.url === "" ? "/" : page.url }));
 const secondaryNavigation: NavigationEntry[] = pages
   .filter((page) => page.frontmatter?.navigation?.group === "secondary")
-  .map((page) => ({ label: page.frontmatter.navigation.label, order: page.frontmatter.navigation.order, url: page.url }));
+  .map((page) => ({ label: page.frontmatter.navigation.label, order: page.frontmatter.navigation.order, url: page.url === "" ? "/" : page.url }));
 ---
 
 <BaseLayout 
