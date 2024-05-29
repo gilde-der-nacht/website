@@ -4,16 +4,13 @@ import { NewsletterImpl } from "@common/components/NewsletterImpl.tsx";
 type Props = {
   theme?: "Brettspiele" | "Rollenspiele" | "Tabletop";
   frequenzy?: "oft" | "selten";
-}
+};
 
-const { theme, frequenzy} = Astro.props;
+const { theme, frequenzy } = Astro.props;
 const currentPage = Astro.url;
 if (import.meta.env.ENV === "test") {
   currentPage.hostname = "test." + currentPage.hostname;
 }
 ---
 
-<NewsletterImpl 
-  theme={theme}
-  frequenzy={frequenzy}
-  referer={currentPage} />
+<NewsletterImpl theme={theme} frequenzy={frequenzy} referer={currentPage} />

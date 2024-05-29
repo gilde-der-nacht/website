@@ -2,12 +2,12 @@
 import SiteSwitcher from "./site-switcher.astro";
 
 type Props = {
-    development: boolean;
-}
+  development: boolean;
+};
 
 const { development } = Astro.props;
 ---
 
 <footer class="footer">
-    <SiteSwitcher development={development}/>
+  <SiteSwitcher development={development} />
 </footer>

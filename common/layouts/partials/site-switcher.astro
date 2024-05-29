@@ -4,41 +4,41 @@ import LstLogo from "./logos/lst.astro";
 import RstLogo from "./logos/rst.astro";
 
 type Props = {
-    development: boolean;
+  development: boolean;
 };
 
 const { development } = Astro.props;
 ---
 
 <div class="site-switcher">
-    <h1>Unser Netzwerk</h1>
-    <div class="switcher">
-        <div class="logo">
-            <a href={`https://${ development ? "test." : "" }gildedernacht.ch/`}>
-                <div class="network-name">
-                    <h2>Gilde der Nacht</h2>
-                    <h3>Luzerner Spielverein</h3>
-                </div>
-                <GdnLogo/>
-            </a>
+  <h1>Unser Netzwerk</h1>
+  <div class="switcher">
+    <div class="logo">
+      <a href={`https://${development ? "test." : ""}gildedernacht.ch/`}>
+        <div class="network-name">
+          <h2>Gilde der Nacht</h2>
+          <h3>Luzerner Spielverein</h3>
         </div>
-        <div class="logo">
-            <a href={`https://${ development ? "test." : "" }spieltage.ch/`}>
-                <div class="network-name">
-                    <h2>Luzerner Spieltage</h2>
-                    <h3>9. + 10. März 2024</h3>
-                </div>
-                <LstLogo/>
-            </a>
-        </div>
-        <div class="logo">
-            <a href={`https://${ development ? "test." : "" }rollenspieltage.ch/`}>
-                <div class="network-name">
-                    <h2>Luzerner Rollenspieltage</h2>
-                    <h3>24. + 25. August 2024</h3>
-                </div>
-                <RstLogo/>
-            </a>
-        </div>
+        <GdnLogo />
+      </a>
     </div>
+    <div class="logo">
+      <a href={`https://${development ? "test." : ""}spieltage.ch/`}>
+        <div class="network-name">
+          <h2>Luzerner Spieltage</h2>
+          <h3>9. + 10. März 2024</h3>
+        </div>
+        <LstLogo />
+      </a>
+    </div>
+    <div class="logo">
+      <a href={`https://${development ? "test." : ""}rollenspieltage.ch/`}>
+        <div class="network-name">
+          <h2>Luzerner Rollenspieltage</h2>
+          <h3>24. + 25. August 2024</h3>
+        </div>
+        <RstLogo />
+      </a>
+    </div>
+  </div>
 </div>

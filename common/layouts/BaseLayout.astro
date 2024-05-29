@@ -5,64 +5,60 @@ import Footer from "./partials/footer.astro";
 import type { NavigationEntry } from "@common/layouts/types.ts";
 
 type Props = {
-	locale?: "de" | "en";
-	title?: string;
-	description?: string;
-	keywords?: string;
-	siteCode: string;
-	siteName: string;
-	siteTagline: string;
-	mainNavigation: NavigationEntry[];
-	secondaryNavigation: NavigationEntry[];
-	development: boolean;
+  locale?: "de" | "en";
+  title?: string;
+  description?: string;
+  keywords?: string;
+  siteCode: string;
+  siteName: string;
+  siteTagline: string;
+  mainNavigation: NavigationEntry[];
+  secondaryNavigation: NavigationEntry[];
+  development: boolean;
 };
 
-const { 
-	locale, 
-	title, 
-	description, 
-	keywords, 
-	siteCode, 
-	siteName, 
-	siteTagline,
-	mainNavigation, 
-	secondaryNavigation, 
-	development,
+const {
+  locale,
+  title,
+  description,
+  keywords,
+  siteCode,
+  siteName,
+  siteTagline,
+  mainNavigation,
+  secondaryNavigation,
+  development,
 } = Astro.props;
 ---
-<!DOCTYPE html>
-<html lang={ locale ?? "de" } dir="ltr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		{ description && (
-			<meta name="description" content={ description }>
-		) }
-		{ keywords && (
-			<meta name="keywords" content={ keywords }>
-		) }
-    <title>{ title }</title>
+<!doctype html>
+<html lang={locale ?? "de"} dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {description && <meta name="description" content={description} />}
+    {keywords && <meta name="keywords" content={keywords} />}
+    <title>{title}</title>
     <script src="../icons/duotone.min.js"></script>
     <script src="../icons/fontawesome.min.js"></script>
     <script src="../scripts/script.js"></script>
-    <Favicon/>
-</head>
+    <Favicon />
+  </head>
 
-<body class={ siteCode }>
-  <Header 
-		siteCode={ siteCode } 
-		siteName={ siteName } 
-		siteTagline={ siteTagline } 
-		mainNavigation={ mainNavigation } 
-		secondaryNavigation={ secondaryNavigation } />
+  <body class={siteCode}>
+    <Header
+      siteCode={siteCode}
+      siteName={siteName}
+      siteTagline={siteTagline}
+      mainNavigation={mainNavigation}
+      secondaryNavigation={secondaryNavigation}
+    />
     <div class="main-wrapper">
-        <main class="primary-content content">
-            <slot/>
-        </main>
+      <main class="primary-content content">
+        <slot />
+      </main>
     </div>
-    <Footer development={ development } />
-</body>
-
+    <Footer development={development} />
+  </body>
 </html>

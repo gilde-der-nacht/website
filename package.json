@@ -19,6 +19,7 @@
     "vite": "^5.2.11"
   },
   "devDependencies": {
-    "@types/html-escaper": "^3.0.2"
+    "@types/html-escaper": "^3.0.2",
+    "prettier-plugin-astro": "^0.14.0"
   }
 }

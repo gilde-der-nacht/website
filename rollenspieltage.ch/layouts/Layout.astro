@@ -1,36 +1,45 @@
 ---
-import BaseLayout from "@common/layouts/BaseLayout.astro"
+import BaseLayout from "@common/layouts/BaseLayout.astro";
 import "/rollenspieltage.ch/styles/main.scss";
 import type { NavigationEntry } from "@common/layouts/types.ts";
 
-const { locale, title, description, keywords } = Astro.props.frontmatter ?? Astro.props;
+const { locale, title, description, keywords } =
+  Astro.props.frontmatter ?? Astro.props;
 
 const siteName = "Luzerner Rollenspieltage";
 const siteCode = "rst";
 const siteTagline = "24. + 25. August 2024";
 
 const pages = await Astro.glob("../pages/**/*");
+
 const mainNavigation: NavigationEntry[] = pages
   .filter((page) => page.frontmatter?.navigation?.group === "main")
-  .map((page) => ({ label: page.frontmatter.navigation.label, order: page.frontmatter.navigation.order, url: page.url === "" ? "/" : page.url }));
+  .map((page) => ({
+    label: page.frontmatter.navigation.label,
+    order: page.frontmatter.navigation.order,
+    url: page.url === "" ? "/" : page.url,
+  }));
+
 const secondaryNavigation: NavigationEntry[] = pages
   .filter((page) => page.frontmatter?.navigation?.group === "secondary")
-  .map((page) => ({ label: page.frontmatter.navigation.label, order: page.frontmatter.navigation.order, url: page.url === "" ? "/" : page.url }));
+  .map((page) => ({
+    label: page.frontmatter.navigation.label,
+    order: page.frontmatter.navigation.order,
+    url: page.url === "" ? "/" : page.url,
+  }));
 ---
 
-<BaseLayout 
-  locale={ locale } 
-  title={ [title, siteName].filter(Boolean).join(" | ") } 
-  description={ description } 
-  keywords={ keywords } 
-  siteCode={ siteCode } 
-  siteName={ siteName }
-  siteTagline={ siteTagline }
-  mainNavigation={ mainNavigation } 
-  secondaryNavigation={ secondaryNavigation }
-  development={ false }
+<BaseLayout
+  locale={locale}
+  title={[title, siteName].filter(Boolean).join(" | ")}
+  description={description}
+  keywords={keywords}
+  siteCode={siteCode}
+  siteName={siteName}
+  siteTagline={siteTagline}
+  mainNavigation={mainNavigation}
+  secondaryNavigation={secondaryNavigation}
+  development={false}
 >
-
-  <slot/>
-
+  <slot />
 </BaseLayout>

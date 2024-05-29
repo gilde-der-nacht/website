@@ -21,7 +21,10 @@
             emmet-ls
             marksman
             markdown-oxide
+            nodePackages.typescript
+            nodePackages.typescript-language-server
             nodePackages."@astrojs/language-server"
+            nodePackages.prettier
           ];
         };
       }

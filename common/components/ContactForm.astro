@@ -4,8 +4,8 @@ import { Box } from "@common/components/Box.tsx";
 
 type Props = {
   language?: "de" | "en";
-  category?: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage"
-}
+  category?: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage";
+};
 
 const { language, category } = Astro.props;
 
@@ -15,22 +15,25 @@ if (import.meta.env.ENV === "test") {
 }
 const redirectOnSuccess = new URL(currentPage);
 redirectOnSuccess.hash = "success";
-const redirectOnFailure= new URL(currentPage);
-redirectOnFailure.hash = "failure"
+const redirectOnFailure = new URL(currentPage);
+redirectOnFailure.hash = "failure";
 ---
 
-<ContactFormImpl 
-  language={language} 
-  category={category} 
-  referer={currentPage}  
+<ContactFormImpl
+  language={language}
+  category={category}
+  referer={currentPage}
   redirectOnSuccess={redirectOnSuccess}
   redirectOnFailure={redirectOnFailure}
-  client:load />
+  client:load
+/>
 
 <div id="success" class="show-on-target" style="margin-block-start: 1rem;">
   <Box type="success">
     {
-      language === "en" ? ("Message successfully sent.") : ("Nachricht wurde erfolgreich gesendet.")
+      language === "en"
+        ? "Message successfully sent."
+        : "Nachricht wurde erfolgreich gesendet."
     }
   </Box>
 </div>
@@ -38,7 +41,9 @@ redirectOnFailure.hash = "failure"
 <div id="failure" class="show-on-target" style="margin-block-start: 1rem;">
   <Box type="danger">
     {
-      language === "en" ? ("There was a problem sending your message. Please try again.") : ("Leider konnten wir die Nachricht nicht absenden. Bitte versuche es erneut.")
+      language === "en"
+        ? "There was a problem sending your message. Please try again."
+        : "Leider konnten wir die Nachricht nicht absenden. Bitte versuche es erneut."
     }
   </Box>
 </div>
