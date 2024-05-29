@@ -1,7 +1,7 @@
 [language-server.astro-ls]
 command = "astro-ls"
 args = ["--stdio"]
-config = {typescript = {tsdk = "/Users/user/.bun/install/global/node_modules/typescript/lib"}, environment = "node"}
+config = {typescript = {tsdk = "./node_modules/typescript/lib"}, environment = "node"}
 
 [language-server.emmet-ls]
 command = "emmet-ls"
