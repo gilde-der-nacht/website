@@ -5,17 +5,21 @@ type Props = {
   link?: string;
   linkLabel?: string;
   children?: JSX.Element;
-}
+};
 
 export function Box(props: Props): JSX.Element {
   return (
     <div class={`box-${props.type ?? "gray"}`}>
       <span>{props.children}</span>
       <Show when={props.link !== undefined && props.linkLabel !== undefined}>
-        <a href={props.link ?? ""} class={`button button-small button-${props.type ?? "gray"}`}>
-          <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i> {props.linkLabel}
+        <a
+          href={props.link ?? ""}
+          class={`button button-small button-${props.type ?? "gray"}`}
+        >
+          <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>{" "}
+          {props.linkLabel}
         </a>
       </Show>
     </div>
-  )
+  );
 }

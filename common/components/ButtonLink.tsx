@@ -3,7 +3,7 @@ import { type JSX } from "solid-js";
 type Props = {
   link: string;
   label: string;
-}
+};
 
 export function ButtonLink(props: Props): JSX.Element {
   return (
@@ -11,5 +11,5 @@ export function ButtonLink(props: Props): JSX.Element {
       <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>
       {props.label}
     </a>
-  )
+  );
 }

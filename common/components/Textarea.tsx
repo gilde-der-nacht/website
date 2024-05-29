@@ -6,19 +6,21 @@ type Props = {
   label: string;
   name: string;
   required?: boolean;
-}
+};
 
 export function Textarea(props: Props): JSX.Element {
   const propsWithDefaults = mergeProps({ required: true }, props);
 
   return (
-    <label >{propsWithDefaults.label}
+    <label>
+      {propsWithDefaults.label}
       <textarea
         name={propsWithDefaults.name}
         placeholder={propsWithDefaults.label}
         required={propsWithDefaults.required}
         value={propsWithDefaults.value}
-        onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)} />
+        onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
+      />
     </label>
-  )
+  );
 }

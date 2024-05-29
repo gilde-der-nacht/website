@@ -9,19 +9,26 @@ type Props = {
   onSuccess: () => void;
   onError: (e: unknown) => void;
   children?: JSX.Element;
-}
-
+};
 
 export function Form(props: Props): JSX.Element {
-  const propsWithDefaults = mergeProps({ language: "de", submitLabel: props.language === "en" ? "Submit" : "Absenden" }, props);
+  const propsWithDefaults = mergeProps(
+    {
+      language: "de",
+      submitLabel: props.language === "en" ? "Submit" : "Absenden",
+    },
+    props,
+  );
 
   // If JS is available we validate and handle the form via JS.
   // Without JS the form behaves like any normal form element.
   let formElement!: HTMLFormElement;
   onMount(() => {
     formElement.setAttribute("novalidate", "");
-    const redirects = formElement.querySelectorAll('input[name^="redirect"][type="hidden"]');
-    [...redirects].forEach(redirect => redirect.remove());
+    const redirects = formElement.querySelectorAll(
+      'input[name^="redirect"][type="hidden"]',
+    );
+    [...redirects].forEach((redirect) => redirect.remove());
   });
   async function onSubmit(e: SubmitEvent): Promise<void> {
     const { target } = e;
@@ -34,7 +41,7 @@ export function Form(props: Props): JSX.Element {
       try {
         const response = await fetch(propsWithDefaults.actionUrl, {
           method: "post",
-          body: formData
+          body: formData,
         });
         if (response.ok) {
           propsWithDefaults.onSuccess();
@@ -47,11 +54,15 @@ export function Form(props: Props): JSX.Element {
     }
   }
 
-
   return (
-    <form action={propsWithDefaults.actionUrl.href} method="post" onSubmit={onSubmit} ref={formElement}>
+    <form
+      action={propsWithDefaults.actionUrl.href}
+      method="post"
+      onSubmit={onSubmit}
+      ref={formElement}
+    >
       {propsWithDefaults.children}
       <Button type="submit" label={propsWithDefaults.submitLabel} />
     </form>
-  )
+  );
 }

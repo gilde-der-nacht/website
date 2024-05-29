@@ -19,6 +19,7 @@ auto-format = true
 [[language]]
 name = "tsx"
 language-servers = ["typescript-language-server", "emmet-ls"]
+formatter = { command = "prettier", args = ["--parser", "typescript" ] }
 auto-format = true
 
 [[language]]

@@ -15,9 +15,9 @@ export function Anmeldung(): JSX.Element {
     showErrors: {
       nameMissing: false,
       emailMissing: false,
-      emailInvalid: false
-    }
-  })
+      emailInvalid: false,
+    },
+  });
 
   let emailField!: HTMLInputElement;
 
@@ -32,7 +32,11 @@ export function Anmeldung(): JSX.Element {
     const emailIsInvalid = emailField.validity.typeMismatch;
     setStore("showErrors", "emailInvalid", emailIsInvalid);
 
-    if (store.showErrors.nameMissing || store.showErrors.emailMissing || store.showErrors.emailInvalid) {
+    if (
+      store.showErrors.nameMissing ||
+      store.showErrors.emailMissing ||
+      store.showErrors.emailInvalid
+    ) {
       // Show errors, do not continue
       return;
     }
@@ -45,33 +49,48 @@ export function Anmeldung(): JSX.Element {
       <p>Melde dich jetzt für die Luzerner Rollenspieltage 2024 an.</p>
       <br />
       <form onSubmit={onSubmit} novalidate>
-        <Input label="Name" name="name" value={store.form.name} onValueUpdate={(newValue) => {
-          setStore("form", "name", newValue);
-          setStore("showErrors", "nameMissing", false);
-        }} />
+        <Input
+          label="Name"
+          name="name"
+          value={store.form.name}
+          onValueUpdate={(newValue) => {
+            setStore("form", "name", newValue);
+            setStore("showErrors", "nameMissing", false);
+          }}
+        />
         <Show when={store.showErrors.nameMissing}>
-          <Box type="danger">
-            Dies ist ein Pflichtfeld.
-          </Box>
+          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
         </Show>
-        <InputWithRef label="E-Mail" name="email" type="email" value={store.form.email} onValueUpdate={(newValue) => {
-          setStore("form", "email", newValue);
-          setStore("showErrors", "emailMissing", false);
-          setStore("showErrors", "emailInvalid", false);
-        }} ref={emailField} />
+        <InputWithRef
+          label="E-Mail"
+          name="email"
+          type="email"
+          value={store.form.email}
+          onValueUpdate={(newValue) => {
+            setStore("form", "email", newValue);
+            setStore("showErrors", "emailMissing", false);
+            setStore("showErrors", "emailInvalid", false);
+          }}
+          ref={emailField}
+        />
         <Show when={store.showErrors.emailMissing}>
-          <Box type="danger">
-            Dies ist ein Pflichtfeld.
-          </Box>
+          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
         </Show>
         <Show when={store.showErrors.emailInvalid}>
           <Box type="danger">
             Die Eingabe scheint keine gültige E-Mail-Adresse zu sein.
           </Box>
         </Show>
-        <Input label="Handynummer" name="tel" type="tel" value={store.form.tel} required={false} onValueUpdate={(newValue) => setStore("form", "tel", newValue)} />
+        <Input
+          label="Handynummer"
+          name="tel"
+          type="tel"
+          value={store.form.tel}
+          required={false}
+          onValueUpdate={(newValue) => setStore("form", "tel", newValue)}
+        />
         <Button type="submit" label="Anmeldung starten" />
       </form>
     </>
-  )
+  );
 }
