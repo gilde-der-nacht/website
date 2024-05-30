@@ -45,9 +45,6 @@ export function Anmeldung(): JSX.Element {
 
   return (
     <>
-      <h1>Anmeldung 2024</h1>
-      <p>Melde dich jetzt für die Luzerner Rollenspieltage 2024 an.</p>
-      <br />
       <form onSubmit={onSubmit} novalidate>
         <Input
           label="Name"

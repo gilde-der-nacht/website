@@ -1,8 +1,14 @@
 ---
 import Layout from "@rst/layouts/Layout.astro";
 import { Anmeldung as A } from "@rst/components/anmeldung/Anmeldung.tsx";
+import { Box } from "@common/components/Box";
 ---
 
 <Layout>
+  <h1>Anmeldung 2024</h1>
+  <p>Melde dich jetzt für die Luzerner Rollenspieltage 2024 an.</p>
+  <Box>
+    <p>Falls du bereits eine Anmeldung begonnen hast, dann solltest du eine E-Mail mit einem persönlichen Link erhalten haben. Dieser erlaubt es dir deine Anmeldung bis kurz vor dem Event noch anzupassen.</p>
+  </Box>
   <A client:load />
 </Layout>
