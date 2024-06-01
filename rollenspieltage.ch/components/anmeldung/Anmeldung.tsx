@@ -4,9 +4,27 @@ import { createStore } from "solid-js/store";
 import { Button } from "@common/components/Button";
 import { Show } from "solid-js";
 import { Box } from "@common/components/Box";
+import { z } from "astro:content";
+
+type Store = {
+  form: { name: string; email: string; tel: string };
+  showErrors: {
+    nameMissing: boolean;
+    emailMissing: boolean;
+    emailInvalid: boolean;
+    general: boolean;
+  };
+  state: "IDLE" | "LOADING";
+};
+
+type StartData = {
+  name: string;
+  email: string;
+  handynummer: string;
+};
 
 export function Anmeldung(): JSX.Element {
-  const [store, setStore] = createStore({
+  const [store, setStore] = createStore<Store>({
     form: {
       name: "",
       email: "",
@@ -16,12 +34,14 @@ export function Anmeldung(): JSX.Element {
       nameMissing: false,
       emailMissing: false,
       emailInvalid: false,
+      general: false,
     },
+    state: "IDLE",
   });
 
   let emailField!: HTMLInputElement;
 
-  function onSubmit(e: SubmitEvent): void {
+  async function onSubmit(e: SubmitEvent): Promise<void> {
     e.preventDefault();
     const nameIsMissing = store.form.name.trim().length === 0;
     setStore("showErrors", "nameMissing", nameIsMissing);
@@ -40,7 +60,46 @@ export function Anmeldung(): JSX.Element {
       // Show errors, do not continue
       return;
     }
-    console.log("Form valid");
+
+    setStore("state", "LOADING");
+
+    try {
+      const data: StartData = {
+        name: store.form.name,
+        email: store.form.email,
+        handynummer: store.form.tel,
+      };
+      const response = await fetch(
+        "https://elysium.gildedernacht.ch/rst24/start",
+        {
+          method: "post",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      if (!response.ok) {
+        setStore("showErrors", "general", true);
+      } else {
+        const json = await response.json();
+        const schema = z.object({
+          name: z.string(),
+          email: z.string(),
+          registrationId: z.number(),
+          secret: z.string(),
+        });
+        const data = schema.parse(json);
+        const redirect = new URL(location.origin + "/meine-anmeldung");
+        redirect.searchParams.append("secret", data.secret);
+        window.location.replace(redirect);
+      }
+    } catch (_: unknown) {
+      setStore("showErrors", "general", true);
+    } finally {
+      setStore("state", "IDLE");
+    }
   }
 
   return (
@@ -86,8 +145,24 @@ export function Anmeldung(): JSX.Element {
           required={false}
           onValueUpdate={(newValue) => setStore("form", "tel", newValue)}
         />
-        <Button type="submit" label="Anmeldung starten" />
+        <Button
+          type="submit"
+          kind={store.state === "IDLE" ? "success" : "gray"}
+          label={
+            store.state === "IDLE"
+              ? "Anmeldung starten"
+              : "Anmeldung wird gestartet"
+          }
+          disabled={store.state === "LOADING"}
+        />
       </form>
+      <br />
+      <Show when={store.showErrors.general}>
+        <Box type="danger">
+          Es gab ein Problem, das wir nicht erwartet haben. Bitte versuche es
+          erneut oder <a href="/kontakt">kontaktiere uns direkt</a>.
+        </Box>
+      </Show>
     </>
   );
 }
