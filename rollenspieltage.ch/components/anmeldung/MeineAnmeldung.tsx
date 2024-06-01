@@ -1,4 +1,5 @@
-import { Match, Switch, onMount } from "solid-js";
+import { Box } from "@common/components/Box";
+import { onMount } from "solid-js";
 import type { JSX } from "solid-js/jsx-runtime";
 import { createStore } from "solid-js/store";
 
@@ -12,7 +13,8 @@ type Store =
       state: "LOADING";
     }
   | {
-      state: "SECRET_MISSING";
+      state: "ERROR";
+      message: JSX.Element;
     };
 
 export function MeineAnmeldung(): JSX.Element {
@@ -32,20 +34,33 @@ export function MeineAnmeldung(): JSX.Element {
     if (secret !== null) {
       setStore({ state: "IDLE", secret, showCreateMessage } satisfies Store);
     } else {
-      setStore({ state: "SECRET_MISSING" } satisfies Store);
+      setStore({
+        state: "ERROR",
+        message: (
+          <p>
+            Wir konnten leider keine Anmeldung finden. Wenn du bereits eine
+            Anmeldung begonnen hast, solltest du den korrekten Link per E-Mail
+            erhalten haben. Falls du noch keine Anmeldung begonnen hast, kannst
+            du <a href="/anmeldung">hier</a> deine persönliche Anmeldung
+            beginnen. Für generelle Fragen oder Probleme, schreibe uns doch
+            bitte über unser <a href="/kontatk">Kontaktformular</a>.
+          </p>
+        ),
+      } satisfies Store);
     }
   });
 
   return (
     <>
-      <Switch>
-        <Match when={store.state === "IDLE"}>
-          <h1>IDLE</h1>
-        </Match>
-        <Match when={store.state === "LOADING"}>
-          <h1>LOADING</h1>
-        </Match>
-      </Switch>
+      {store.state === "IDLE" ? (
+        <h1>IDLE</h1>
+      ) : store.state === "LOADING" ? (
+        <Box>
+          <p>Deine Anmeldung wird geladen.</p>
+        </Box>
+      ) : (
+        <Box type="danger">{store.message}</Box>
+      )}
     </>
   );
 }
