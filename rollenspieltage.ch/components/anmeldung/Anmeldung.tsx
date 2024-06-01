@@ -93,6 +93,7 @@ export function Anmeldung(): JSX.Element {
         const data = schema.parse(json);
         const redirect = new URL(location.origin + "/meine-anmeldung");
         redirect.searchParams.append("secret", data.secret);
+        redirect.searchParams.append("showCreateMessage", "true");
         window.location.replace(redirect);
       }
     } catch (_: unknown) {

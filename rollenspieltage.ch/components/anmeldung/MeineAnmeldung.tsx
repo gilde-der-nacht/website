@@ -6,9 +6,13 @@ type Store =
   | {
       state: "IDLE";
       secret: string;
+      showCreateMessage: boolean;
     }
   | {
       state: "LOADING";
+    }
+  | {
+      state: "SECRET_MISSING";
     };
 
 export function MeineAnmeldung(): JSX.Element {
@@ -19,9 +23,16 @@ export function MeineAnmeldung(): JSX.Element {
   onMount(async () => {
     const currentUrl = new URL(location.href);
     const secret = currentUrl.searchParams.get("secret");
-    console.log({ secret });
+    const showCreateMessage =
+      currentUrl.searchParams.get("showCreateMessage") === "true";
+
+    currentUrl.searchParams.delete("showCreateMessage");
+    history.replaceState({}, document.title, currentUrl);
+
     if (secret !== null) {
-      setStore(() => ({ state: "IDLE", secret }));
+      setStore({ state: "IDLE", secret, showCreateMessage } satisfies Store);
+    } else {
+      setStore({ state: "SECRET_MISSING" } satisfies Store);
     }
   });
 
