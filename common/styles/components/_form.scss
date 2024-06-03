@@ -57,6 +57,10 @@ button {
   padding: 0.25rem 0.5rem;
   @include p.button;
   @include f.font-weight(700);
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .button {

@@ -23,3 +23,13 @@ export function Box(props: Props): JSX.Element {
     </div>
   );
 }
+
+export function SimpleBox(
+  props: Omit<Props, "link" | "linkLabel">,
+): JSX.Element {
+  return (
+    <div class={`box-${props.type ?? "gray"}`} style="display: block;">
+      {props.children}
+    </div>
+  );
+}
