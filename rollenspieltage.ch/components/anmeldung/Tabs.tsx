@@ -5,7 +5,7 @@ import { Samstag } from "./Samstag";
 import { Sonntag } from "./Sonntag";
 import { Zusammenfassung } from "./Zusammenfassung";
 import { SimpleBox } from "@common/components/Box";
-import type { Save, UpdateSave } from "./data";
+import type { Program, Save, UpdateSave } from "./data";
 
 export type Tab = "Contact" | "Saturday" | "Sunday" | "Summary";
 
@@ -140,28 +140,31 @@ export function Tabs(props: {
   lastSaved: string;
   saveCurrentState: () => Promise<void>;
   saveState: SaveState;
+  program: Program | null;
 }): JSX.Element {
   return (
     <>
       <TabsHeader activeTab={props.activeTab} changeTab={props.changeTab} />
-      <br />
-      <SimpleBox>
-        {props.activeTab === "Contact" ? (
-          <Kontaktdaten save={props.save} updateSave={props.updateSave} />
-        ) : props.activeTab === "Saturday" ? (
-          <Samstag />
-        ) : props.activeTab === "Sunday" ? (
-          <Sonntag />
-        ) : (
-          <Zusammenfassung />
-        )}
-        <SaveBar
-          lastSaved={props.lastSaved}
-          saveCurrentState={props.saveCurrentState}
-          state={props.saveState}
-        />
-      </SimpleBox>
-      <br />
+      <div style="padding-block: 1rem;">
+        <SimpleBox>
+          {props.activeTab === "Contact" ? (
+            <Kontaktdaten save={props.save} updateSave={props.updateSave} />
+          ) : props.activeTab === "Saturday" ? (
+            <Samstag program={props.program} />
+          ) : props.activeTab === "Sunday" ? (
+            <Sonntag program={props.program} />
+          ) : (
+            <Zusammenfassung />
+          )}
+          <div style="padding-block: 2rem 1rem;">
+            <SaveBar
+              lastSaved={props.lastSaved}
+              saveCurrentState={props.saveCurrentState}
+              state={props.saveState}
+            />
+          </div>
+        </SimpleBox>
+      </div>
       <TabsFooter activeTab={props.activeTab} changeTab={props.changeTab} />
     </>
   );

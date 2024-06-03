@@ -12,7 +12,6 @@ export function Kontaktdaten(props: {
   return (
     <>
       <h2>Kontaktdaten</h2>
-      <br />
       <Input
         label="Name"
         name="name"
@@ -56,7 +55,6 @@ export function Kontaktdaten(props: {
         required={false}
         onValueUpdate={(newValue) => props.updateSave("handynummer", newValue)}
       />
-      <br />
     </>
   );
 }

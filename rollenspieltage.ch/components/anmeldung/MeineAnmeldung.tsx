@@ -2,7 +2,13 @@ import { Box } from "@common/components/Box";
 import { onMount } from "solid-js";
 import type { JSX } from "solid-js/jsx-runtime";
 import { createStore } from "solid-js/store";
-import { loadSave, type Save } from "./data";
+import {
+  loadProgram,
+  loadSave,
+  type ProgramEntry,
+  type ReservedEntry,
+  type Save,
+} from "./data";
 import { Tabs, type Tab } from "./Tabs";
 
 type Store =
@@ -15,6 +21,10 @@ type Store =
       activeTab: Tab;
       lastSaved: string;
       hasChanged: boolean;
+      program: null | {
+        gameList: ProgramEntry[];
+        reservedList: ReservedEntry[];
+      };
     }
   | {
       state: "LOADING";
@@ -45,7 +55,7 @@ export function MeineAnmeldung(): JSX.Element {
 
   function changeTab(tab: Tab): void {
     setStore((prev) => {
-      if (prev.state !== "IDLE") {
+      if (prev.state !== "IDLE" && prev.state !== "SAVING") {
         return onAssertionFailed();
       }
       return { ...prev, activeTab: tab };
@@ -54,7 +64,7 @@ export function MeineAnmeldung(): JSX.Element {
 
   function updateSave<T extends keyof Save>(prop: T, value: Save[T]): void {
     setStore((prev) => {
-      if (prev.state !== "IDLE") {
+      if (prev.state !== "IDLE" && prev.state !== "SAVING") {
         return onAssertionFailed();
       }
       return {
@@ -130,6 +140,7 @@ export function MeineAnmeldung(): JSX.Element {
     }
 
     const result = await loadSave(secret);
+    const loadProgramPromise = loadProgram();
 
     if (result.kind === "FAILED") {
       onFailed();
@@ -145,7 +156,25 @@ export function MeineAnmeldung(): JSX.Element {
       activeTab: "Contact",
       lastSaved: result.save.lastSaved,
       hasChanged: false,
+      program: null,
     } satisfies Store);
+
+    loadProgramPromise.then((result) => {
+      if (result.kind === "FAILED") {
+        onFailed();
+        return;
+      }
+
+      setStore((prev) => {
+        if (prev.state !== "IDLE" && prev.state !== "SAVING") {
+          return onAssertionFailed();
+        }
+        return {
+          ...prev,
+          program: result.program,
+        };
+      });
+    });
 
     currentUrl.searchParams.delete("showCreateMessage");
     history.replaceState({}, document.title, currentUrl);
@@ -153,7 +182,6 @@ export function MeineAnmeldung(): JSX.Element {
 
   return (
     <>
-      {JSON.stringify(store, null, 2)}
       {store.state === "ERROR" ? (
         <Box type="danger">{store.message}</Box>
       ) : store.state === "LOADING" ? (
@@ -175,8 +203,12 @@ export function MeineAnmeldung(): JSX.Element {
                 ? "HAS_CHANGES"
                 : "NO_CHANGES"
           }
+          program={store.program}
         />
       )}
+      <code>
+        <pre>{JSON.stringify(store, null, 2)}</pre>
+      </code>
     </>
   );
 }
