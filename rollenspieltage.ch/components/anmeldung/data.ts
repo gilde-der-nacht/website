@@ -1,4 +1,3 @@
-import type { ExternalImageService } from "astro";
 import { z } from "astro:content";
 
 const serverSchemaDay = z.enum(["SATURDAY", "SUNDAY"]);
