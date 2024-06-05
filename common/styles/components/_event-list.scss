@@ -139,8 +139,14 @@
 }
 
 .event-description {
+  font-size: .83rem;
   padding-block: 1rem 1.25rem;
   color: var(--event-color);
+
+  p {
+    font-size: inherit;
+    max-inline-size: unset;
+  }
 }
 
 .event-background-icon {
@@ -153,6 +159,6 @@
   pointer-events: none;
 }
 
-.event-entry > :not(.event-background-icon) {
-	isolation: isolate;
+.event-entry> :not(.event-background-icon) {
+  isolation: isolate;
 }
