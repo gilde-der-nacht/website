@@ -4,7 +4,7 @@ import { createStore } from "solid-js/store";
 import { Button } from "@common/components/Button";
 import { Show } from "solid-js";
 import { Box } from "@common/components/Box";
-import { z } from "astro:content";
+import { z } from "astro/zod";
 
 type Store = {
   form: { name: string; email: string; tel: string };

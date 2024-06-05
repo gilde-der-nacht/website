@@ -1,4 +1,4 @@
-import { z } from "astro:content";
+import { z } from "astro/zod";
 
 const serverSchemaDay = z.enum(["SATURDAY", "SUNDAY"]);
 type ProgramDay = z.infer<typeof serverSchemaDay>

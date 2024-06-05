@@ -109,7 +109,6 @@ function SaveBar(props: {
     timeStyle: "short",
     dateStyle: "long",
   });
-  console.log(props.lastSaved);
   return (
     <SimpleBox>
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
@@ -156,7 +155,7 @@ export function Tabs(props: {
           ) : (
             <Zusammenfassung />
           )}
-          <div style="padding-block: 2rem 1rem;">
+          <div style="padding-block: 2rem 1rem; position: sticky; bottom: 0; background-image: linear-gradient(transparent, var(--clr-3) 25%);">
             <SaveBar
               lastSaved={props.lastSaved}
               saveCurrentState={props.saveCurrentState}

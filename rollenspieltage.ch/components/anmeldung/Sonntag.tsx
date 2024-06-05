@@ -1,7 +1,7 @@
 import type { JSX } from "solid-js/jsx-runtime";
 import { getByDayAndHour, type Program } from "./data";
 import { Box } from "@common/components/Box";
-import { ProgramOfDay } from "./Samstag";
+import { ProgramOfDay } from "./Program";
 
 export function Sonntag(props: { program: Program | null }): JSX.Element {
   if (props.program === null) {
