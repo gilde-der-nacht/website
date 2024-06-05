@@ -1,8 +1,10 @@
 import { createSignal, type JSX } from "solid-js";
 import type { ProgramByHour, ProgramEntryExtended } from "./data";
+import type { TentativeReservation } from "./store";
 
 function ProgrammEntryCard(props: {
   entry: ProgramEntryExtended;
+  addTentativeReservation: (reservation: TentativeReservation) => void;
 }): JSX.Element {
   return (
     <li class="event-entry gray">
@@ -30,7 +32,25 @@ function ProgrammEntryCard(props: {
             {props.entry.description}
           </p>
         </div>
-      ) : null}
+      ) : (
+        <div></div>
+      )}
+      <ul role="list" class="event-links">
+        <li>
+          <a
+            class="event-link"
+            href="javascript:;"
+            onClick={() =>
+              props.addTentativeReservation({
+                gameUuid: props.entry.uuid,
+                friendsName: null,
+              })
+            }
+          >
+            + Platz reservieren
+          </a>
+        </li>
+      </ul>
     </li>
   );
 }
@@ -39,6 +59,7 @@ const ALL_FILTER_LABEL = "ALL" as const;
 
 export function ProgramOfDay(props: {
   programByHour: ProgramByHour;
+  addTentativeReservation: (reservation: TentativeReservation) => void;
 }): JSX.Element {
   const [filter, setFilter] = createSignal<string>(ALL_FILTER_LABEL);
 
@@ -50,7 +71,7 @@ export function ProgramOfDay(props: {
         <ul role="list">
           <li>
             <a
-              href="#"
+              href="javascript:;"
               class={filter() === ALL_FILTER_LABEL ? "active" : ""}
               onClick={() => setFilter(ALL_FILTER_LABEL)}
             >
@@ -60,7 +81,7 @@ export function ProgramOfDay(props: {
           {props.programByHour.map(([hour, _]) => (
             <li>
               <a
-                href="#"
+                href="javascript:;"
                 class={filter() === hour ? "active" : ""}
                 onClick={() => setFilter(hour)}
               >
@@ -77,7 +98,10 @@ export function ProgramOfDay(props: {
             <h3 style="margin-block: 1rem;">Start {hour} Uhr</h3>
             <ul class="event-list" role="list">
               {entries.map((entry) => (
-                <ProgrammEntryCard entry={entry} />
+                <ProgrammEntryCard
+                  entry={entry}
+                  addTentativeReservation={props.addTentativeReservation}
+                />
               ))}
             </ul>
           </>

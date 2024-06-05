@@ -6,6 +6,7 @@ import { Sonntag } from "./Sonntag";
 import { Zusammenfassung } from "./Zusammenfassung";
 import { SimpleBox } from "@common/components/Box";
 import type { Program, Save, UpdateSave } from "./data";
+import type { TentativeReservation } from "./store";
 
 export type Tab = "Contact" | "Saturday" | "Sunday" | "Summary";
 
@@ -135,11 +136,13 @@ export function Tabs(props: {
   save: Save;
   updateSave: UpdateSave;
   activeTab: Tab;
-  changeTab: (tab: Tab) => void;
   lastSaved: string;
-  saveCurrentState: () => Promise<void>;
   saveState: SaveState;
   program: Program | null;
+  tentativeReservations: TentativeReservation[];
+  changeTab: (tab: Tab) => void;
+  saveCurrentState: () => Promise<void>;
+  addTentativeReservation: (reservation: TentativeReservation) => void;
 }): JSX.Element {
   return (
     <>
@@ -149,11 +152,21 @@ export function Tabs(props: {
           {props.activeTab === "Contact" ? (
             <Kontaktdaten save={props.save} updateSave={props.updateSave} />
           ) : props.activeTab === "Saturday" ? (
-            <Samstag program={props.program} />
+            <Samstag
+              program={props.program}
+              addTentativeReservation={props.addTentativeReservation}
+            />
           ) : props.activeTab === "Sunday" ? (
-            <Sonntag program={props.program} />
+            <Sonntag
+              program={props.program}
+              addTentativeReservation={props.addTentativeReservation}
+            />
           ) : (
-            <Zusammenfassung />
+            <Zusammenfassung
+              save={props.save}
+              tentativeReservations={props.tentativeReservations}
+              program={props.program}
+            />
           )}
           <div style="padding-block: 2rem 1rem; position: sticky; bottom: 0; background-image: linear-gradient(transparent, var(--clr-3) 25%);">
             <SaveBar
