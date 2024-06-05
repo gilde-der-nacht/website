@@ -1,5 +1,5 @@
 import { Box } from "@common/components/Box";
-import { onMount } from "solid-js";
+import { Show, onMount } from "solid-js";
 import type { JSX } from "solid-js/jsx-runtime";
 import { createStore } from "solid-js/store";
 import {
@@ -189,22 +189,35 @@ export function MeineAnmeldung(): JSX.Element {
           <p>Deine Anmeldung wird geladen.</p>
         </Box>
       ) : (
-        <Tabs
-          activeTab={store.activeTab}
-          changeTab={changeTab}
-          save={store.currentSave}
-          updateSave={updateSave}
-          lastSaved={store.lastSaved}
-          saveCurrentState={saveCurrentState}
-          saveState={
-            store.state === "SAVING"
-              ? "SAVING"
-              : store.hasChanged
-                ? "HAS_CHANGES"
-                : "NO_CHANGES"
-          }
-          program={store.program}
-        />
+        <>
+          <Show when={store.showCreateMessage}>
+            <Box type="success">
+              Deine Anmeldung wurde erfolgreich gestartet.
+              <br />
+              <br />
+              Wir haben eine E-Mail an deine Adresse gesendet. In dieser E-Mail
+              findest du einen persönlichen Link, um deine Anmeldung bis kurz
+              vor dem Anlass anzupassen.
+            </Box>
+            <br />
+          </Show>
+          <Tabs
+            activeTab={store.activeTab}
+            changeTab={changeTab}
+            save={store.currentSave}
+            updateSave={updateSave}
+            lastSaved={store.lastSaved}
+            saveCurrentState={saveCurrentState}
+            saveState={
+              store.state === "SAVING"
+                ? "SAVING"
+                : store.hasChanged
+                  ? "HAS_CHANGES"
+                  : "NO_CHANGES"
+            }
+            program={store.program}
+          />
+        </>
       )}
       <code>
         <pre>{JSON.stringify(store, null, 2)}</pre>
