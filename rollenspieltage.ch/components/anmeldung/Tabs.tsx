@@ -1,5 +1,5 @@
 import { Button } from "@common/components/Button";
-import type { JSX } from "solid-js/jsx-runtime";
+import type { JSX } from "solid-js";
 import { Kontaktdaten } from "./Kontaktdaten";
 import { Samstag } from "./Samstag";
 import { Sonntag } from "./Sonntag";

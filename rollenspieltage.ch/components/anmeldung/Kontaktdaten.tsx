@@ -1,7 +1,6 @@
-import type { JSX } from "solid-js/jsx-runtime";
 import type { Save, UpdateSave } from "./data";
 import { Input, InputWithRef } from "@common/components/Input";
-import { Show } from "solid-js";
+import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 
 export function Kontaktdaten(props: {

@@ -1,4 +1,4 @@
-import type { JSX } from "astro/jsx-runtime";
+import type { JSX } from "solid-js";
 
 type Props = {
   type?: "submit" | "button" | "reset";

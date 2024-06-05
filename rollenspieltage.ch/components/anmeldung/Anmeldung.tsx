@@ -1,8 +1,7 @@
-import type { JSX } from "solid-js/jsx-runtime";
 import { Input, InputWithRef } from "common/components/Input.tsx";
 import { createStore } from "solid-js/store";
 import { Button } from "@common/components/Button";
-import { Show } from "solid-js";
+import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { z } from "astro/zod";
 

@@ -1,6 +1,5 @@
 import { Box } from "@common/components/Box";
-import { Show, onMount } from "solid-js";
-import type { JSX } from "solid-js/jsx-runtime";
+import { Show, onMount, type JSX } from "solid-js";
 import { createStore } from "solid-js/store";
 import {
   loadProgram,
@@ -25,6 +24,7 @@ type Store =
         gameList: ProgramEntry[];
         reservedList: ReservedEntry[];
       };
+      tentativeReservations: { gameUuid: string; friendsName: string | null }[];
     }
   | {
       state: "LOADING";
@@ -157,6 +157,7 @@ export function MeineAnmeldung(): JSX.Element {
       lastSaved: result.save.lastSaved,
       hasChanged: false,
       program: null,
+      tentativeReservations: [],
     } satisfies Store);
 
     loadProgramPromise.then((result) => {
