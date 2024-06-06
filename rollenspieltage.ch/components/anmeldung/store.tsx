@@ -201,25 +201,12 @@ export function initState() {
         if (prev.state !== "SAVING") {
           return onAssertionFailed();
         }
-        const now = new Date().toISOString();
         return {
           ...prev,
-          state: "IDLE",
-          hasChanged: false,
           tentativeReservations: [],
-          lastSaved: now,
         };
       });
       await initMeineAnmeldung();
-      setStore((prev) => {
-        if (prev.state !== "IDLE") {
-          return onAssertionFailed();
-        }
-        return {
-          ...prev,
-          activeTab: "Summary",
-        };
-      });
     } else {
       setStore(onAssertionFailed());
     }
