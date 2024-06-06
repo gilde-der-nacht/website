@@ -1,10 +1,10 @@
-import type { Save, UpdateSave } from "./data";
+import type { SaveFromServer, UpdateSave } from "./data";
 import { Input, InputWithRef } from "@common/components/Input";
 import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 
 export function Kontaktdaten(props: {
-  save: Save;
+  save: SaveFromServer;
   updateSave: UpdateSave;
 }): JSX.Element {
   let emailField!: HTMLInputElement;

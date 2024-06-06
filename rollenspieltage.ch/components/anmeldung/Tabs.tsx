@@ -5,8 +5,8 @@ import { Samstag } from "./Samstag";
 import { Sonntag } from "./Sonntag";
 import { Zusammenfassung } from "./Zusammenfassung";
 import { SimpleBox } from "@common/components/Box";
-import type { Program, Save, UpdateSave } from "./data";
-import type { TentativeReservation } from "./store";
+import type { Program, SaveFromServer, UpdateSave } from "./data";
+import type { Reservation } from "./store";
 
 export type Tab = "Contact" | "Saturday" | "Sunday" | "Summary";
 
@@ -111,38 +111,52 @@ function SaveBar(props: {
     dateStyle: "long",
   });
   return (
-    <SimpleBox>
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <SimpleBox type={props.state === "HAS_CHANGES" ? "success" : "gray"}>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
         <div>
           Zuletzt gespeichert am {dateFormat.format(new Date(props.lastSaved))}
         </div>
-        <Button
-          disabled={props.state !== "HAS_CHANGES"}
-          label={
-            props.state === "NO_CHANGES"
-              ? "Gespeichert."
-              : props.state === "SAVING"
-                ? "Wird gespeichert..."
-                : "Speichern"
-          }
-          onClick={props.saveCurrentState}
-        />
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-left: auto;">
+          <p>
+            <em>
+              <small>
+                {props.state === "NO_CHANGES"
+                  ? "keine Änderungen entdeckt"
+                  : props.state === "HAS_CHANGES"
+                    ? "ungespeicherte Änderungen entdeckt"
+                    : ""}
+              </small>
+            </em>
+          </p>
+          <Button
+            disabled={props.state !== "HAS_CHANGES"}
+            label={
+              props.state === "NO_CHANGES"
+                ? "Gespeichert."
+                : props.state === "SAVING"
+                  ? "Wird gespeichert..."
+                  : "Speichern"
+            }
+            kind={props.state === "HAS_CHANGES" ? "success" : "gray"}
+            onClick={props.saveCurrentState}
+          />
+        </div>
       </div>
     </SimpleBox>
   );
 }
 
 export function Tabs(props: {
-  save: Save;
+  save: SaveFromServer;
   updateSave: UpdateSave;
   activeTab: Tab;
   lastSaved: string;
   saveState: SaveState;
   program: Program | null;
-  tentativeReservations: TentativeReservation[];
+  tentativeReservations: Reservation[];
   changeTab: (tab: Tab) => void;
   saveCurrentState: () => Promise<void>;
-  addTentativeReservation: (reservation: TentativeReservation) => void;
+  addTentativeReservation: (reservation: Reservation) => void;
 }): JSX.Element {
   return (
     <>

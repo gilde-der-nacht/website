@@ -47,7 +47,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
     props.language !== "en" ? "Bitte leer lassen" : "leave this field empty";
   const messageLabel = props.language !== "en" ? "Nachricht" : "Message";
 
-  const [formData, setFormData] = createSignal<FormDataSchema>(resetFormData());
+  const [formData, setFormData] = createSignal(resetFormData());
 
   // Need to find better solution for this
   let emailInput!: HTMLInputElement;
@@ -66,8 +66,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
     console.error(err);
   }
 
-  const [fieldErrors, setFieldErrors] =
-    createSignal<FieldErrors>(resetFieldErrors());
+  const [fieldErrors, setFieldErrors] = createSignal(resetFieldErrors());
 
   function updateField<K extends keyof FormDataSchema>(
     fieldName: K,

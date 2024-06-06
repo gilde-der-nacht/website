@@ -58,36 +58,61 @@ const progressSchema = z.enum([
   "RECONFIRMED",]
 );
 
-const reserveSchema = z.union([
-  z.object({
+const reservationSelfSchema = z.object({
+  game: z.string(),
+  self: z.literal(true),
+  spielerName: z.null(),
+})
+
+const reservationFriendSchema = z.object({
+  game: z.string(),
+  self: z.literal(false),
+  spielerName: z.string(),
+})
+
+const reservationFromServerSchema = z.union([
+  reservationSelfSchema.extend({
     id: z.number(),
-    game: z.string(),
-    self: z.literal(true),
-    spielerName: z.null(),
   }),
-  z.object({
+  reservationFriendSchema.extend({
     id: z.number(),
-    game: z.string(),
-    self: z.literal(false),
-    spielerName: z.string(),
-  }),
+  })
 ]);
 
-const serverSaveSchema = z.object({
+const reservationToServerSchema = z.union([
+  reservationSelfSchema,
+  reservationFriendSchema
+]);
+export type ReservationToServer = z.infer<typeof reservationToServerSchema>;
+
+const saveFromServerSchema = z.object({
   registrationId: z.number(),
   progress: progressSchema,
   name: z.string(),
   email: z.string(),
   handynummer: z.string(),
   wantsEmailUpdates: z.boolean(),
-  games: z.array(reserveSchema),
+  games: z.array(reservationFromServerSchema),
   lastSaved: z.string()
 });
-export type Save = z.infer<typeof serverSaveSchema>;
-export type UpdateSave = <T extends keyof Save>(prop: T, value: Save[T]) => void;
+
+const saveToServerSchema = z.object({
+  registrationId: z.number(),
+  progress: progressSchema,
+  name: z.string(),
+  email: z.string(),
+  handynummer: z.string(),
+  wantsEmailUpdates: z.boolean(),
+  games: z.array(reservationToServerSchema),
+  lastSaved: z.string()
+});
+
+export type SaveFromServer = z.infer<typeof saveFromServerSchema>;
+export type SaveToServer = z.infer<typeof saveToServerSchema>;
+export type UpdateSave = <T extends keyof SaveFromServer>(prop: T, value: SaveFromServer[T]) => void;
 
 
-export async function loadSave(secret: string): Promise<{ kind: "SUCCESS", save: Save } | { kind: "FAILED" }> {
+export async function loadSave(secret: string): Promise<{ kind: "SUCCESS", save: SaveFromServer } | { kind: "FAILED" }> {
   const loadUrl = new URL("https://elysium.gildedernacht.ch/rst24/load");
   loadUrl.searchParams.append("secret", secret);
   const response = await fetch(loadUrl);
@@ -95,7 +120,7 @@ export async function loadSave(secret: string): Promise<{ kind: "SUCCESS", save:
     return { kind: "FAILED" };
   }
   const json = (await response.json()) as unknown;
-  const parsed = serverSaveSchema.safeParse(json);
+  const parsed = saveFromServerSchema.safeParse(json);
   if (!parsed.success) {
     return { kind: "FAILED" };
   }

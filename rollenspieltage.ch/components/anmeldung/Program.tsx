@@ -1,10 +1,10 @@
 import { createSignal, type JSX } from "solid-js";
 import type { ProgramByHour, ProgramEntryExtended } from "./data";
-import type { TentativeReservation } from "./store";
+import type { Reservation } from "./store";
 
 function ProgrammEntryCard(props: {
   entry: ProgramEntryExtended;
-  addTentativeReservation: (reservation: TentativeReservation) => void;
+  addTentativeReservation: (reservation: Reservation) => void;
 }): JSX.Element {
   return (
     <li class="event-entry gray">
@@ -59,7 +59,7 @@ const ALL_FILTER_LABEL = "ALL" as const;
 
 export function ProgramOfDay(props: {
   programByHour: ProgramByHour;
-  addTentativeReservation: (reservation: TentativeReservation) => void;
+  addTentativeReservation: (reservation: Reservation) => void;
 }): JSX.Element {
   const [filter, setFilter] = createSignal<string>(ALL_FILTER_LABEL);
 

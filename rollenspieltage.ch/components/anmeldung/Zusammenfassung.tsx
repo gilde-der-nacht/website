@@ -1,12 +1,12 @@
 import type { JSX } from "solid-js";
-import type { Program, Save } from "./data";
-import type { TentativeReservation as Reservation } from "./store";
+import type { Program, SaveFromServer } from "./data";
+import type { Reservation as Reservation } from "./store";
 import { Box } from "@common/components/Box";
 
 function ReservationItem(props: {
   reservation: Reservation;
   program: Program | null;
-  protagonistName: string;
+  selfName: string;
   type?: "success" | "danger" | "special" | "gray";
 }): JSX.Element {
   const game = props.program?.gameList.find(
@@ -35,7 +35,7 @@ function ReservationItem(props: {
         Reservation für
         <strong>
           {props.reservation.friendsName === null
-            ? props.protagonistName
+            ? props.selfName
             : props.reservation.friendsName}
         </strong>
       </p>
@@ -66,7 +66,7 @@ function groupReservationByDay(
 }
 
 export function Zusammenfassung(props: {
-  save: Save;
+  save: SaveFromServer;
   tentativeReservations: Reservation[];
   program: Program | null;
 }): JSX.Element {
@@ -113,7 +113,7 @@ export function Zusammenfassung(props: {
                     <ReservationItem
                       reservation={reservation}
                       program={props.program}
-                      protagonistName={props.save.name}
+                      selfName={props.save.name}
                       type="special"
                     />
                   </li>
@@ -130,7 +130,7 @@ export function Zusammenfassung(props: {
                     <ReservationItem
                       reservation={reservation}
                       program={props.program}
-                      protagonistName={props.save.name}
+                      selfName={props.save.name}
                       type="special"
                     />
                   </li>
