@@ -40,7 +40,9 @@ function ProgrammEntryCard(props: {
     myReservations.length;
 
   return (
-    <li class={`event-entry ${openSeats > 0 ? "success" : "gray"}`}>
+    <li
+      class={`event-entry ${myReservations.length > 0 ? "success" : openSeats > 0 ? "special" : "gray"}`}
+    >
       <h1 class="event-title">
         {props.entry.title === null
           ? props.entry.system
@@ -69,6 +71,17 @@ function ProgrammEntryCard(props: {
             "Diese Spielrunde ist bereits voll besetzt."
           )}
         </div>
+        {myReservations.length > 0 ? (
+          <div class="event-tags">
+            <strong>Reserviert für:</strong>{" "}
+            {myReservations
+              .map(
+                (reservation) =>
+                  `${reservation.name}${reservation.confirmed ? "" : "*"}`,
+              )
+              .join(", ")}
+          </div>
+        ) : null}
       </div>
       {props.entry.description !== null &&
       props.entry.description.trim().length > 0 ? (
