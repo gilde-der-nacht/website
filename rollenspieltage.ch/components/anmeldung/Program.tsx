@@ -1,6 +1,7 @@
 import { createSignal, type JSX } from "solid-js";
-import type { ProgramByHour, ProgramEntryExtended } from "./data";
+import type { ProgramByHour, ProgramEntryExtended, UpdateSave } from "./data";
 import type { Reservation } from "./store";
+import { Checkbox } from "@common/components/Checkbox";
 
 function ProgrammEntryCard(props: {
   entry: ProgramEntryExtended;
@@ -59,12 +60,22 @@ const ALL_FILTER_LABEL = "ALL" as const;
 
 export function ProgramOfDay(props: {
   programByHour: ProgramByHour;
+  wantsEmailUpdates: boolean;
   addTentativeReservation: (reservation: Reservation) => void;
+  updateSave: UpdateSave;
 }): JSX.Element {
   const [filter, setFilter] = createSignal<string>(ALL_FILTER_LABEL);
 
   return (
     <>
+      <br />
+      <Checkbox
+        checked={props.wantsEmailUpdates}
+        onValueUpdate={(value) => props.updateSave("wantsEmailUpdates", value)}
+        label="Ja, ich möchte gerne Updates erhalten, wenn neue Spielrunden aufgeschalten werden."
+        name="wantsUpdates"
+        value="true"
+      />
       <br />
       <div class="event-filters">
         <h2>Filter</h2>

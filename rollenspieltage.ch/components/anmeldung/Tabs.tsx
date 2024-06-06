@@ -168,12 +168,16 @@ export function Tabs(props: {
           ) : props.activeTab === "Saturday" ? (
             <Samstag
               program={props.program}
+              wantsEmailUpdates={props.save.wantsEmailUpdates}
               addTentativeReservation={props.addTentativeReservation}
+              updateSave={props.updateSave}
             />
           ) : props.activeTab === "Sunday" ? (
             <Sonntag
               program={props.program}
+              wantsEmailUpdates={props.save.wantsEmailUpdates}
               addTentativeReservation={props.addTentativeReservation}
+              updateSave={props.updateSave}
             />
           ) : (
             <Zusammenfassung

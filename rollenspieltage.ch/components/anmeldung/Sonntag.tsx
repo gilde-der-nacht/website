@@ -1,12 +1,14 @@
 import type { JSX } from "solid-js";
-import { getByDayAndHour, type Program } from "./data";
+import { getByDayAndHour, type Program, type UpdateSave } from "./data";
 import { Box } from "@common/components/Box";
 import { ProgramOfDay } from "./Program";
 import type { Reservation } from "./store";
 
 export function Sonntag(props: {
   program: Program | null;
+  wantsEmailUpdates: boolean;
   addTentativeReservation: (reservation: Reservation) => void;
+  updateSave: UpdateSave;
 }): JSX.Element {
   if (props.program === null) {
     return (
@@ -22,7 +24,9 @@ export function Sonntag(props: {
       <h2>Programm Sonntag</h2>
       <ProgramOfDay
         programByHour={sundayByHour}
+        wantsEmailUpdates={props.wantsEmailUpdates}
         addTentativeReservation={props.addTentativeReservation}
+        updateSave={props.updateSave}
       />
     </>
   );
