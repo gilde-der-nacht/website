@@ -21,7 +21,6 @@ export type Store =
       state: "IDLE" | "SAVING";
       secret: string;
       showCreateMessage: boolean;
-      lastSave: SaveFromServer;
       currentSave: SaveFromServer;
       activeTab: Tab;
       lastSaved: string;
@@ -102,7 +101,6 @@ export function initState() {
       state: "IDLE",
       secret,
       showCreateMessage,
-      lastSave: { ...result.save },
       currentSave: result.save,
       activeTab: "Contact",
       lastSaved: result.save.lastSaved,

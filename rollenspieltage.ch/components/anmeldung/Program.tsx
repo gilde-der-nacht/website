@@ -17,103 +17,112 @@ function ProgrammEntryCard(props: {
   tentativeReservations: Reservation[];
   addTentativeReservation: (reservation: Reservation) => void;
 }): JSX.Element {
-  const myReservations: { confirmed: boolean; name: string }[] = [
-    ...props.confirmedReservations.map((reservation) => ({
-      name: reservation.spielerName ?? props.selfName,
-      confirmed: true,
-    })),
-    ...props.tentativeReservations.map((reservation) => ({
-      name: reservation.friendsName ?? props.selfName,
-      confirmed: false,
-    })),
-  ];
-  const myConfirmedReservationIds = props.confirmedReservations.map(
-    (reservation) => reservation.id,
-  );
-  const thirdPartyReservations = props.entry.reservedIds.filter(
-    (id) => !myConfirmedReservationIds.includes(id),
-  );
-  const openSeats =
-    props.entry.playerCount.max -
-    BUFFER_SEATS -
-    thirdPartyReservations.length -
-    myReservations.length;
+  function myReservations(): { confirmed: boolean; name: string }[] {
+    return [
+      ...props.confirmedReservations.map((reservation) => ({
+        name: reservation.spielerName ?? props.selfName,
+        confirmed: true,
+      })),
+      ...props.tentativeReservations.map((reservation) => ({
+        name: reservation.friendsName ?? props.selfName,
+        confirmed: false,
+      })),
+    ];
+  }
+
+  function openSeats(): number {
+    const myConfirmedReservationIds = props.confirmedReservations.map(
+      (reservation) => reservation.id,
+    );
+    const thirdPartyReservations = props.entry.reservedIds.filter(
+      (id) => !myConfirmedReservationIds.includes(id),
+    );
+
+    return (
+      props.entry.playerCount.max -
+      BUFFER_SEATS -
+      thirdPartyReservations.length -
+      myReservations().length
+    );
+  }
 
   return (
-    <li
-      class={`event-entry ${myReservations.length > 0 ? "success" : openSeats > 0 ? "special" : "gray"}`}
-    >
-      <h1 class="event-title">
-        {props.entry.title === null
-          ? props.entry.system
-          : `${props.entry.title} (${props.entry.system})`}
-      </h1>
-      <div class="event-details">
-        <div class="event-tags">
-          <strong>Zeit:</strong> {props.entry.slot.start} -{" "}
-          {props.entry.slot.end} Uhr
-        </div>
-        <div class="event-tags">
-          <strong>Spielleitung:</strong> {props.entry.master.first}{" "}
-          {props.entry.master.last}
-        </div>
-        <div class="event-tags">
-          <strong>Freie Plätze:</strong>{" "}
-          {openSeats > 1 ? (
-            <span>
-              Es hat noch <strong>{openSeats} Plätze</strong> frei.
-            </span>
-          ) : openSeats === 1 ? (
-            <span>
-              Es hat noch <strong>{openSeats} Platz</strong> frei.
-            </span>
-          ) : (
-            "Diese Spielrunde ist bereits voll besetzt."
-          )}
-        </div>
-        {myReservations.length > 0 ? (
+    <>
+      <li
+        class={`event-entry ${myReservations().length > 0 ? "success" : openSeats() > 0 ? "special" : "gray"}`}
+      >
+        <h1 class="event-title">
+          {props.entry.title === null
+            ? props.entry.system
+            : `${props.entry.title} (${props.entry.system})`}
+        </h1>
+        <div class="event-details">
           <div class="event-tags">
-            <strong>Reserviert für:</strong>{" "}
-            {myReservations
-              .map(
-                (reservation) =>
-                  `${reservation.name}${reservation.confirmed ? "" : "*"}`,
-              )
-              .join(", ")}
+            <strong>Zeit:</strong> {props.entry.slot.start} -{" "}
+            {props.entry.slot.end} Uhr
           </div>
-        ) : null}
-      </div>
-      {props.entry.description !== null &&
-      props.entry.description.trim().length > 0 ? (
-        <div class="event-description content">
-          <p>
-            <strong>Beschreibung:</strong>
-            <br />
-            {props.entry.description}
-          </p>
+          <div class="event-tags">
+            <strong>Spielleitung:</strong> {props.entry.master.first}{" "}
+            {props.entry.master.last}
+          </div>
+          <div class="event-tags">
+            <strong>Freie Plätze:</strong>{" "}
+            {openSeats() > 1 ? (
+              <span>
+                Es hat noch <strong>{openSeats()} Plätze</strong> frei.
+              </span>
+            ) : openSeats() === 1 ? (
+              <span>
+                Es hat noch <strong>{openSeats()} Platz</strong> frei.
+              </span>
+            ) : (
+              "Diese Spielrunde ist bereits voll besetzt."
+            )}
+          </div>
+          {myReservations().length > 0 ? (
+            <div class="event-tags">
+              <strong>Reserviert für:</strong>{" "}
+              {myReservations()
+                .map(
+                  (reservation) =>
+                    `${reservation.name}${reservation.confirmed ? "" : "*"}`,
+                )
+                .join(", ")}
+            </div>
+          ) : null}
         </div>
-      ) : (
-        <div></div>
-      )}
-      {openSeats > 0 ? (
-        <ul role="list" class="event-links">
-          <li>
-            <a
-              class="event-link"
-              href="javascript:;"
-              onClick={() =>
-                props.addTentativeReservation({
-                  gameUuid: props.entry.uuid,
-                  friendsName: null,
-                })
-              }
-            >
-              + Platz reservieren
-            </a>
-          </li>
-        </ul>
-      ) : null}
-    </li>
+        {props.entry.description !== null &&
+        props.entry.description.trim().length > 0 ? (
+          <div class="event-description content">
+            <p>
+              <strong>Beschreibung:</strong>
+              <br />
+              {props.entry.description}
+            </p>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {openSeats() > 0 ? (
+          <ul role="list" class="event-links">
+            <li>
+              <a
+                class="event-link"
+                href="javascript:;"
+                onClick={() =>
+                  props.addTentativeReservation({
+                    gameUuid: props.entry.uuid,
+                    friendsName: null,
+                  })
+                }
+              >
+                + Platz reservieren
+              </a>
+            </li>
+          </ul>
+        ) : null}
+      </li>
+    </>
   );
 }
 
