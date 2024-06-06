@@ -1,14 +1,46 @@
 import { createSignal, type JSX } from "solid-js";
-import type { ProgramByHour, ProgramEntryExtended, UpdateSave } from "./data";
+import type {
+  ProgramByHour,
+  ProgramEntryExtended,
+  ReservationFromServer,
+  UpdateSave,
+} from "./data";
 import type { Reservation } from "./store";
 import { Checkbox } from "@common/components/Checkbox";
 
+const BUFFER_SEATS = 1 as const;
+
 function ProgrammEntryCard(props: {
   entry: ProgramEntryExtended;
+  selfName: string;
+  confirmedReservations: ReservationFromServer[];
+  tentativeReservations: Reservation[];
   addTentativeReservation: (reservation: Reservation) => void;
 }): JSX.Element {
+  const myReservations: { confirmed: boolean; name: string }[] = [
+    ...props.confirmedReservations.map((reservation) => ({
+      name: reservation.spielerName ?? props.selfName,
+      confirmed: true,
+    })),
+    ...props.tentativeReservations.map((reservation) => ({
+      name: reservation.friendsName ?? props.selfName,
+      confirmed: false,
+    })),
+  ];
+  const myConfirmedReservationIds = props.confirmedReservations.map(
+    (reservation) => reservation.id,
+  );
+  const thirdPartyReservations = props.entry.reservedIds.filter(
+    (id) => !myConfirmedReservationIds.includes(id),
+  );
+  const openSeats =
+    props.entry.playerCount.max -
+    BUFFER_SEATS -
+    thirdPartyReservations.length -
+    myReservations.length;
+
   return (
-    <li class="event-entry gray">
+    <li class={`event-entry ${openSeats > 0 ? "success" : "gray"}`}>
       <h1 class="event-title">
         {props.entry.title === null
           ? props.entry.system
@@ -23,6 +55,20 @@ function ProgrammEntryCard(props: {
           <strong>Spielleitung:</strong> {props.entry.master.first}{" "}
           {props.entry.master.last}
         </div>
+        <div class="event-tags">
+          <strong>Freie Plätze:</strong>{" "}
+          {openSeats > 1 ? (
+            <span>
+              Es hat noch <strong>{openSeats} Plätze</strong> frei.
+            </span>
+          ) : openSeats === 1 ? (
+            <span>
+              Es hat noch <strong>{openSeats} Platz</strong> frei.
+            </span>
+          ) : (
+            "Diese Spielrunde ist bereits voll besetzt."
+          )}
+        </div>
       </div>
       {props.entry.description !== null &&
       props.entry.description.trim().length > 0 ? (
@@ -36,22 +82,24 @@ function ProgrammEntryCard(props: {
       ) : (
         <div></div>
       )}
-      <ul role="list" class="event-links">
-        <li>
-          <a
-            class="event-link"
-            href="javascript:;"
-            onClick={() =>
-              props.addTentativeReservation({
-                gameUuid: props.entry.uuid,
-                friendsName: null,
-              })
-            }
-          >
-            + Platz reservieren
-          </a>
-        </li>
-      </ul>
+      {openSeats > 0 ? (
+        <ul role="list" class="event-links">
+          <li>
+            <a
+              class="event-link"
+              href="javascript:;"
+              onClick={() =>
+                props.addTentativeReservation({
+                  gameUuid: props.entry.uuid,
+                  friendsName: null,
+                })
+              }
+            >
+              + Platz reservieren
+            </a>
+          </li>
+        </ul>
+      ) : null}
     </li>
   );
 }
@@ -59,8 +107,11 @@ function ProgrammEntryCard(props: {
 const ALL_FILTER_LABEL = "ALL" as const;
 
 export function ProgramOfDay(props: {
+  selfName: string;
   programByHour: ProgramByHour;
   wantsEmailUpdates: boolean;
+  confirmedReservations: ReservationFromServer[];
+  tentativeReservations: Reservation[];
   addTentativeReservation: (reservation: Reservation) => void;
   updateSave: UpdateSave;
 }): JSX.Element {
@@ -111,6 +162,13 @@ export function ProgramOfDay(props: {
               {entries.map((entry) => (
                 <ProgrammEntryCard
                   entry={entry}
+                  selfName={props.selfName}
+                  confirmedReservations={props.confirmedReservations.filter(
+                    (reservation) => reservation.game === entry.uuid,
+                  )}
+                  tentativeReservations={props.tentativeReservations.filter(
+                    (reservation) => reservation.gameUuid === entry.uuid,
+                  )}
                   addTentativeReservation={props.addTentativeReservation}
                 />
               ))}

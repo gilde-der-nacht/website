@@ -5,7 +5,12 @@ import { Samstag } from "./Samstag";
 import { Sonntag } from "./Sonntag";
 import { Zusammenfassung } from "./Zusammenfassung";
 import { SimpleBox } from "@common/components/Box";
-import type { Program, SaveFromServer, UpdateSave } from "./data";
+import type {
+  Program,
+  ReservationFromServer,
+  SaveFromServer,
+  UpdateSave,
+} from "./data";
 import type { Reservation } from "./store";
 
 export type Tab = "Contact" | "Saturday" | "Sunday" | "Summary";
@@ -153,6 +158,7 @@ export function Tabs(props: {
   lastSaved: string;
   saveState: SaveState;
   program: Program | null;
+  confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
   changeTab: (tab: Tab) => void;
   saveCurrentState: () => Promise<void>;
@@ -167,15 +173,21 @@ export function Tabs(props: {
             <Kontaktdaten save={props.save} updateSave={props.updateSave} />
           ) : props.activeTab === "Saturday" ? (
             <Samstag
+              selfName={props.save.name}
               program={props.program}
               wantsEmailUpdates={props.save.wantsEmailUpdates}
+              confirmedReservations={props.confirmedReservations}
+              tentativeReservations={props.tentativeReservations}
               addTentativeReservation={props.addTentativeReservation}
               updateSave={props.updateSave}
             />
           ) : props.activeTab === "Sunday" ? (
             <Sonntag
+              selfName={props.save.name}
               program={props.program}
               wantsEmailUpdates={props.save.wantsEmailUpdates}
+              confirmedReservations={props.confirmedReservations}
+              tentativeReservations={props.tentativeReservations}
               addTentativeReservation={props.addTentativeReservation}
               updateSave={props.updateSave}
             />

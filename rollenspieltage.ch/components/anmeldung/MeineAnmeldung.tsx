@@ -46,6 +46,7 @@ export function MeineAnmeldung(): JSX.Element {
                   : "NO_CHANGES"
             }
             program={store.program}
+            confirmedReservations={store.currentSave.games}
             tentativeReservations={store.tentativeReservations}
             addTentativeReservation={actions.addTentativeReservation}
           />

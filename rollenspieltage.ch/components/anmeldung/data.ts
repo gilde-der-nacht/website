@@ -78,6 +78,7 @@ const reservationFromServerSchema = z.union([
     id: z.number(),
   })
 ]);
+export type ReservationFromServer = z.infer<typeof reservationFromServerSchema>;
 
 const reservationToServerSchema = z.union([
   reservationSelfSchema,
@@ -139,21 +140,10 @@ const programEntrySchema = z.object({
 })
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
 
-const reservedSchema = z.union(
-  [
-    z.object({
+const reservedSchema = z.object({
       id: z.number(),
-      game: z.string(),
-      self: z.literal(true),
-      spielerName: z.null(),
-    }),
-    z.object({
-      id: z.number(),
-      game: z.string(),
-      self: z.literal(false),
-      spielerName: z.string(),
-    })]
-);
+      gameId: z.string(),
+});
 export type ReservedEntry = z.infer<typeof reservedSchema>;
 
 export async function loadProgram(): Promise<{ kind: "SUCCESS", program: { gameList: ProgramEntry[], reservedList: ReservedEntry[] } } | { kind: "FAILED" }> {
@@ -208,7 +198,7 @@ export function getByDayAndHour(day: ProgramDay, program: Program): ProgramByHou
   const gamesOfChosenDay = program.gameList.filter(game => game.slot.day === day);
   const gamesExtended = gamesOfChosenDay.map(game => {
     const gameId = game.uuid;
-    const reserved = program.reservedList.filter(reserved => reserved.game === gameId);
+    const reserved = program.reservedList.filter(reserved => reserved.gameId === gameId);
     return {
       ...game,
       reservedIds: reserved.map(entry => entry.id)
