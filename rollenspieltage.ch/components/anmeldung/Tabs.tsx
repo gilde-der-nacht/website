@@ -160,11 +160,11 @@ export function Tabs(props: {
   program: Program | null;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
+  markedForDeletionReservations: number[];
   changeTab: (tab: Tab) => void;
   saveCurrentState: () => Promise<void>;
   addTentativeReservation: (reservation: Reservation) => void;
   deleteReservation: (reservation: ReservationView) => void;
-  markedForDeletionReservations: number[];
 }): JSX.Element {
   return (
     <>
@@ -185,6 +185,9 @@ export function Tabs(props: {
                   wantsEmailUpdates={props.save.wantsEmailUpdates}
                   confirmedReservations={props.confirmedReservations}
                   tentativeReservations={props.tentativeReservations}
+                  markedForDeletionReservations={
+                    props.markedForDeletionReservations
+                  }
                   addTentativeReservation={props.addTentativeReservation}
                   updateSave={props.updateSave}
                   deleteReservation={props.deleteReservation}
@@ -203,6 +206,9 @@ export function Tabs(props: {
                   wantsEmailUpdates={props.save.wantsEmailUpdates}
                   confirmedReservations={props.confirmedReservations}
                   tentativeReservations={props.tentativeReservations}
+                  markedForDeletionReservations={
+                    props.markedForDeletionReservations
+                  }
                   addTentativeReservation={props.addTentativeReservation}
                   updateSave={props.updateSave}
                   deleteReservation={props.deleteReservation}

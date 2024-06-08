@@ -15,10 +15,13 @@ function ProgrammEntryCard(props: {
   selfName: string;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
+  markedForDeletionReservations: number[];
   addTentativeReservation: (reservation: Reservation) => void;
   deleteReservation: (reservation: ReservationView) => void;
 }): JSX.Element {
-  function myReservations(): ReservationView[] {
+  function myReservations(): (ReservationView & {
+    markedForDeletion: boolean;
+  })[] {
     return [
       ...props.confirmedReservations.map(
         (reservation) =>
@@ -27,7 +30,10 @@ function ProgrammEntryCard(props: {
             confirmed: true,
             gameUuid: props.entry.uuid,
             reservationId: reservation.id,
-          }) satisfies ReservationView,
+            markedForDeletion: props.markedForDeletionReservations.includes(
+              reservation.id,
+            ),
+          }) satisfies ReservationView & { markedForDeletion: boolean },
       ),
       ...props.tentativeReservations.map(
         (reservation) =>
@@ -35,7 +41,8 @@ function ProgrammEntryCard(props: {
             name: reservation.friendsName ?? props.selfName,
             confirmed: false,
             gameUuid: props.entry.uuid,
-          }) satisfies ReservationView,
+            markedForDeletion: false,
+          }) satisfies ReservationView & { markedForDeletion: false },
       ),
     ];
   }
@@ -52,14 +59,15 @@ function ProgrammEntryCard(props: {
       props.entry.playerCount.max -
       BUFFER_SEATS -
       thirdPartyReservations.length -
-      myReservations().length
+      myReservations().filter((reservation) => !reservation.markedForDeletion)
+        .length
     );
   }
 
   return (
     <>
       <li
-        class={`event-entry ${myReservations().length > 0 ? "success" : openSeats() > 0 ? "special" : "gray"}`}
+        class={`event-entry ${myReservations().filter((reservation) => !reservation.markedForDeletion).length > 0 ? "success" : openSeats() > 0 ? "special" : "gray"}`}
       >
         <h1 class="event-title">
           {props.entry.title === null
@@ -109,15 +117,27 @@ function ProgrammEntryCard(props: {
               <ul>
                 {myReservations().map((reservation) => (
                   <li style="font-size: 0.83rem;">
-                    {`${reservation.name}${reservation.confirmed ? "" : "*"}`}{" "}
-                    <a
-                      href="javascript:;"
-                      style="border: none;"
-                      title="Reservation löschen"
-                      onClick={() => props.deleteReservation(reservation)}
-                    >
-                      <i class="fa-duotone fa-circle-xmark"></i>
-                    </a>
+                    {reservation.markedForDeletion ? (
+                      <>
+                        <s>{reservation.name}</s>
+                        <span title="ungespeicherte Änderung"> *</span>
+                      </>
+                    ) : (
+                      <>
+                        {reservation.name}
+                        {reservation.confirmed ? null : (
+                          <span title="ungespeicherte Änderung"> *</span>
+                        )}
+                        <a
+                          href="javascript:;"
+                          style="border: none;"
+                          title="Reservation löschen"
+                          onClick={() => props.deleteReservation(reservation)}
+                        >
+                          <i class="fa-duotone fa-circle-xmark"></i>
+                        </a>
+                      </>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -155,6 +175,7 @@ export function ProgramOfDay(props: {
   wantsEmailUpdates: boolean;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
+  markedForDeletionReservations: number[];
   addTentativeReservation: (reservation: Reservation) => void;
   updateSave: UpdateSave;
   deleteReservation: (reservation: ReservationView) => void;
@@ -213,6 +234,9 @@ export function ProgramOfDay(props: {
                   tentativeReservations={props.tentativeReservations.filter(
                     (reservation) => reservation.gameUuid === entry.uuid,
                   )}
+                  markedForDeletionReservations={
+                    props.markedForDeletionReservations
+                  }
                   addTentativeReservation={props.addTentativeReservation}
                   deleteReservation={props.deleteReservation}
                 />
