@@ -4,7 +4,7 @@ import { Kontaktdaten } from "./Kontaktdaten";
 import { Samstag } from "./Samstag";
 import { Sonntag } from "./Sonntag";
 import { Zusammenfassung } from "./Zusammenfassung";
-import { SimpleBox } from "@common/components/Box";
+import { Box, SimpleBox } from "@common/components/Box";
 import type {
   Program,
   ReservationFromServer,
@@ -174,27 +174,41 @@ export function Tabs(props: {
           {props.activeTab === "Contact" ? (
             <Kontaktdaten save={props.save} updateSave={props.updateSave} />
           ) : props.activeTab === "Saturday" ? (
-            <Samstag
-              selfName={props.save.name}
-              program={props.program}
-              wantsEmailUpdates={props.save.wantsEmailUpdates}
-              confirmedReservations={props.confirmedReservations}
-              tentativeReservations={props.tentativeReservations}
-              addTentativeReservation={props.addTentativeReservation}
-              updateSave={props.updateSave}
-              deleteReservation={props.deleteReservation}
-            />
+            <>
+              <h2>Programm Samstag</h2>
+              {props.program === null ? (
+                <Box>Programm wird geladen ...</Box>
+              ) : (
+                <Samstag
+                  selfName={props.save.name}
+                  program={props.program}
+                  wantsEmailUpdates={props.save.wantsEmailUpdates}
+                  confirmedReservations={props.confirmedReservations}
+                  tentativeReservations={props.tentativeReservations}
+                  addTentativeReservation={props.addTentativeReservation}
+                  updateSave={props.updateSave}
+                  deleteReservation={props.deleteReservation}
+                />
+              )}
+            </>
           ) : props.activeTab === "Sunday" ? (
-            <Sonntag
-              selfName={props.save.name}
-              program={props.program}
-              wantsEmailUpdates={props.save.wantsEmailUpdates}
-              confirmedReservations={props.confirmedReservations}
-              tentativeReservations={props.tentativeReservations}
-              addTentativeReservation={props.addTentativeReservation}
-              updateSave={props.updateSave}
-              deleteReservation={props.deleteReservation}
-            />
+            <>
+              <h2>Programm Sonntag</h2>
+              {props.program === null ? (
+                <Box>Programm wird geladen ...</Box>
+              ) : (
+                <Sonntag
+                  selfName={props.save.name}
+                  program={props.program}
+                  wantsEmailUpdates={props.save.wantsEmailUpdates}
+                  confirmedReservations={props.confirmedReservations}
+                  tentativeReservations={props.tentativeReservations}
+                  addTentativeReservation={props.addTentativeReservation}
+                  updateSave={props.updateSave}
+                  deleteReservation={props.deleteReservation}
+                />
+              )}
+            </>
           ) : (
             <Zusammenfassung
               save={props.save}
