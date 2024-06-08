@@ -145,22 +145,46 @@ function ProgrammEntryCard(props: {
           ) : null}
         </div>
         {openSeats() > 0 ? (
-          <ul role="list" class="event-links">
-            <li>
-              <a
-                class="event-link"
-                href="javascript:;"
-                onClick={() =>
-                  props.addTentativeReservation({
-                    gameUuid: props.entry.uuid,
-                    friendsName: null,
-                  })
-                }
-              >
-                + Platz reservieren
-              </a>
-            </li>
-          </ul>
+          myReservations().length === 0 ? (
+            <ul role="list" class="event-links">
+              <li>
+                <a
+                  class="event-link"
+                  href="javascript:;"
+                  onClick={() =>
+                    props.addTentativeReservation({
+                      gameUuid: props.entry.uuid,
+                      friendsName: null,
+                    })
+                  }
+                >
+                  + Platz für mich reservieren
+                </a>
+              </li>
+            </ul>
+          ) : (
+            <ul role="list" class="event-links">
+              <li>
+                <a
+                  class="event-link"
+                  href="javascript:;"
+                  onClick={() => {
+                    const friendsName = prompt(
+                      "Bitte teile uns mit, wie deine Begleitung heisst:",
+                    );
+                    if (friendsName !== null && friendsName.trim().length > 0) {
+                      props.addTentativeReservation({
+                        gameUuid: props.entry.uuid,
+                        friendsName,
+                      });
+                    }
+                  }}
+                >
+                  + Platz für Begleitung reservieren
+                </a>
+              </li>
+            </ul>
+          )
         ) : null}
       </li>
     </>
