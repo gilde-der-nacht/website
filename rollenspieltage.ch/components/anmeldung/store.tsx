@@ -111,18 +111,35 @@ export function initState() {
       return;
     }
 
-    setStore({
-      state: "IDLE",
-      secret,
-      showCreateMessage,
-      currentSave: result.save,
-      activeTab: "Contact",
-      lastSaved: result.save.lastSaved,
-      hasChanged: false,
-      program: null,
-      tentativeReservations: [],
-      markedForDeletionReservations: [],
-    } satisfies Store);
+    setStore((prev) => {
+      if (prev.state === "SAVING") {
+        return {
+          state: "IDLE",
+          secret,
+          showCreateMessage,
+          currentSave: result.save,
+          activeTab: prev.activeTab,
+          lastSaved: result.save.lastSaved,
+          hasChanged: false,
+          program: prev.program,
+          tentativeReservations: [],
+          markedForDeletionReservations: [],
+        } satisfies Store;
+      }
+
+      return {
+        state: "IDLE",
+        secret,
+        showCreateMessage,
+        currentSave: result.save,
+        activeTab: "Contact",
+        lastSaved: result.save.lastSaved,
+        hasChanged: false,
+        program: null,
+        tentativeReservations: [],
+        markedForDeletionReservations: [],
+      } satisfies Store;
+    });
 
     loadProgramPromise.then((result) => {
       if (result.kind === "FAILED") {
@@ -212,15 +229,6 @@ export function initState() {
     });
 
     if (response.ok) {
-      setStore((prev) => {
-        if (prev.state !== "SAVING") {
-          return onAssertionFailed();
-        }
-        return {
-          ...prev,
-          tentativeReservations: [],
-        };
-      });
       await initMeineAnmeldung();
     } else {
       setStore(onAssertionFailed());
