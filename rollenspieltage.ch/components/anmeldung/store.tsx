@@ -16,6 +16,19 @@ export type Reservation = {
   friendsName: string | null;
 };
 
+export type ReservationView =
+  | {
+      confirmed: false;
+      gameUuid: string;
+      name: string;
+    }
+  | {
+      confirmed: true;
+      gameUuid: string;
+      name: string;
+      reservationId: number;
+    };
+
 export type Store =
   | {
       state: "IDLE" | "SAVING";
@@ -30,6 +43,7 @@ export type Store =
         reservedList: ReservedEntry[];
       };
       tentativeReservations: Reservation[];
+      markedForDeletionReservations: number[];
     }
   | {
       state: "LOADING";
@@ -107,6 +121,7 @@ export function initState() {
       hasChanged: false,
       program: null,
       tentativeReservations: [],
+      markedForDeletionReservations: [],
     } satisfies Store);
 
     loadProgramPromise.then((result) => {
@@ -169,7 +184,9 @@ export function initState() {
     const body = {
       ...store.currentSave,
       games: [
-        ...store.currentSave.games,
+        ...store.currentSave.games.filter((game) => {
+          return !store.markedForDeletionReservations.includes(game.id);
+        }),
         ...store.tentativeReservations.map((reservation) => {
           if (reservation.friendsName === null) {
             return {
@@ -226,6 +243,42 @@ export function initState() {
     });
   }
 
+  function deleteReservation(reservation: ReservationView): void {
+    if (!reservation.confirmed) {
+      setStore((prev) => {
+        if (prev.state !== "IDLE" && prev.state !== "SAVING") {
+          return onAssertionFailed();
+        }
+        return {
+          ...prev,
+          tentativeReservations: prev.tentativeReservations.filter((res) => {
+            if (res.gameUuid !== reservation.gameUuid) {
+              return true;
+            }
+            if (res.friendsName === reservation.name) {
+              return false;
+            }
+            return reservation.name !== prev.currentSave.name;
+          }),
+        };
+      });
+    } else {
+      setStore((prev) => {
+        if (prev.state !== "IDLE" && prev.state !== "SAVING") {
+          return onAssertionFailed();
+        }
+        return {
+          ...prev,
+          hasChanged: true,
+          markedForDeletionReservations: [
+            ...prev.markedForDeletionReservations,
+            reservation.reservationId,
+          ],
+        };
+      });
+    }
+  }
+
   return {
     store,
     actions: {
@@ -235,6 +288,7 @@ export function initState() {
       onFailed,
       initMeineAnmeldung,
       addTentativeReservation,
+      deleteReservation,
     },
   };
 }

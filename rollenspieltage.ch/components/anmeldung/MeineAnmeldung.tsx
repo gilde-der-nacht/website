@@ -49,6 +49,8 @@ export function MeineAnmeldung(): JSX.Element {
             confirmedReservations={store.currentSave.games}
             tentativeReservations={store.tentativeReservations}
             addTentativeReservation={actions.addTentativeReservation}
+            deleteReservation={actions.deleteReservation}
+            markedForDeletionReservations={store.markedForDeletionReservations}
           />
         </>
       )}

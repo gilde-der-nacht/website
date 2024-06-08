@@ -5,7 +5,7 @@ import type {
   ReservationFromServer,
   UpdateSave,
 } from "./data";
-import type { Reservation } from "./store";
+import type { Reservation, ReservationView } from "./store";
 import { Checkbox } from "@common/components/Checkbox";
 
 const BUFFER_SEATS = 1 as const;
@@ -16,17 +16,27 @@ function ProgrammEntryCard(props: {
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
   addTentativeReservation: (reservation: Reservation) => void;
+  deleteReservation: (reservation: ReservationView) => void;
 }): JSX.Element {
-  function myReservations(): { confirmed: boolean; name: string }[] {
+  function myReservations(): ReservationView[] {
     return [
-      ...props.confirmedReservations.map((reservation) => ({
-        name: reservation.spielerName ?? props.selfName,
-        confirmed: true,
-      })),
-      ...props.tentativeReservations.map((reservation) => ({
-        name: reservation.friendsName ?? props.selfName,
-        confirmed: false,
-      })),
+      ...props.confirmedReservations.map(
+        (reservation) =>
+          ({
+            name: reservation.spielerName ?? props.selfName,
+            confirmed: true,
+            gameUuid: props.entry.uuid,
+            reservationId: reservation.id,
+          }) satisfies ReservationView,
+      ),
+      ...props.tentativeReservations.map(
+        (reservation) =>
+          ({
+            name: reservation.friendsName ?? props.selfName,
+            confirmed: false,
+            gameUuid: props.entry.uuid,
+          }) satisfies ReservationView,
+      ),
     ];
   }
 
@@ -79,30 +89,41 @@ function ProgrammEntryCard(props: {
               "Diese Spielrunde ist bereits voll besetzt."
             )}
           </div>
+        </div>
+        <div class="event-description">
+          {props.entry.description !== null &&
+          props.entry.description.trim().length > 0 ? (
+            <div class="event-description content">
+              <p>
+                <strong>Beschreibung:</strong>
+                <br />
+                {props.entry.description}
+              </p>
+            </div>
+          ) : null}
           {myReservations().length > 0 ? (
-            <div class="event-tags">
-              <strong>Reserviert für:</strong>{" "}
-              {myReservations()
-                .map(
-                  (reservation) =>
-                    `${reservation.name}${reservation.confirmed ? "" : "*"}`,
-                )
-                .join(", ")}
+            <div>
+              <p>
+                <strong>Deine Reservationen</strong>
+              </p>
+              <ul>
+                {myReservations().map((reservation) => (
+                  <li style="font-size: 0.83rem;">
+                    {`${reservation.name}${reservation.confirmed ? "" : "*"}`}{" "}
+                    <a
+                      href="javascript:;"
+                      style="border: none;"
+                      title="Reservation löschen"
+                      onClick={() => props.deleteReservation(reservation)}
+                    >
+                      <i class="fa-duotone fa-circle-xmark"></i>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           ) : null}
         </div>
-        {props.entry.description !== null &&
-        props.entry.description.trim().length > 0 ? (
-          <div class="event-description content">
-            <p>
-              <strong>Beschreibung:</strong>
-              <br />
-              {props.entry.description}
-            </p>
-          </div>
-        ) : (
-          <div></div>
-        )}
         {openSeats() > 0 ? (
           <ul role="list" class="event-links">
             <li>
@@ -136,6 +157,7 @@ export function ProgramOfDay(props: {
   tentativeReservations: Reservation[];
   addTentativeReservation: (reservation: Reservation) => void;
   updateSave: UpdateSave;
+  deleteReservation: (reservation: ReservationView) => void;
 }): JSX.Element {
   const [filter, setFilter] = createSignal<string>(ALL_FILTER_LABEL);
 
@@ -192,6 +214,7 @@ export function ProgramOfDay(props: {
                     (reservation) => reservation.gameUuid === entry.uuid,
                   )}
                   addTentativeReservation={props.addTentativeReservation}
+                  deleteReservation={props.deleteReservation}
                 />
               ))}
             </ul>

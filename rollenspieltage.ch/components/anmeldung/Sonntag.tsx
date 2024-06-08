@@ -7,7 +7,7 @@ import {
 } from "./data";
 import { Box } from "@common/components/Box";
 import { ProgramOfDay } from "./Program";
-import type { Reservation } from "./store";
+import type { Reservation, ReservationView } from "./store";
 
 export function Sonntag(props: {
   selfName: string;
@@ -17,6 +17,7 @@ export function Sonntag(props: {
   tentativeReservations: Reservation[];
   addTentativeReservation: (reservation: Reservation) => void;
   updateSave: UpdateSave;
+  deleteReservation: (reservation: ReservationView) => void;
 }): JSX.Element {
   if (props.program === null) {
     return (
@@ -38,6 +39,7 @@ export function Sonntag(props: {
         wantsEmailUpdates={props.wantsEmailUpdates}
         addTentativeReservation={props.addTentativeReservation}
         updateSave={props.updateSave}
+        deleteReservation={props.deleteReservation}
       />
     </>
   );

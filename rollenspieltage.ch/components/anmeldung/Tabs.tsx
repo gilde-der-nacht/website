@@ -11,7 +11,7 @@ import type {
   SaveFromServer,
   UpdateSave,
 } from "./data";
-import type { Reservation } from "./store";
+import type { Reservation, ReservationView } from "./store";
 
 export type Tab = "Contact" | "Saturday" | "Sunday" | "Summary";
 
@@ -163,6 +163,8 @@ export function Tabs(props: {
   changeTab: (tab: Tab) => void;
   saveCurrentState: () => Promise<void>;
   addTentativeReservation: (reservation: Reservation) => void;
+  deleteReservation: (reservation: ReservationView) => void;
+  markedForDeletionReservations: number[];
 }): JSX.Element {
   return (
     <>
@@ -180,6 +182,7 @@ export function Tabs(props: {
               tentativeReservations={props.tentativeReservations}
               addTentativeReservation={props.addTentativeReservation}
               updateSave={props.updateSave}
+              deleteReservation={props.deleteReservation}
             />
           ) : props.activeTab === "Sunday" ? (
             <Sonntag
@@ -190,12 +193,16 @@ export function Tabs(props: {
               tentativeReservations={props.tentativeReservations}
               addTentativeReservation={props.addTentativeReservation}
               updateSave={props.updateSave}
+              deleteReservation={props.deleteReservation}
             />
           ) : (
             <Zusammenfassung
               save={props.save}
               tentativeReservations={props.tentativeReservations}
               program={props.program}
+              markedForDeletionReservations={
+                props.markedForDeletionReservations
+              }
             />
           )}
           <div style="padding-block: 2rem 1rem; position: sticky; bottom: 0; background-image: linear-gradient(transparent, var(--clr-3) 25%);">

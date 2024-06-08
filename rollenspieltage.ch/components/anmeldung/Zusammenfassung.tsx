@@ -1,5 +1,10 @@
 import type { JSX } from "solid-js";
-import type { Program, ProgramEntry, SaveFromServer } from "./data";
+import type {
+  Program,
+  ProgramEntry,
+  ReservationFromServer,
+  SaveFromServer,
+} from "./data";
 import type { Reservation as Reservation } from "./store";
 import { Box } from "@common/components/Box";
 
@@ -64,15 +69,41 @@ function groupReservationsByDayAndSortByHour(
 export function Zusammenfassung(props: {
   save: SaveFromServer;
   tentativeReservations: Reservation[];
+  markedForDeletionReservations: number[];
   program: Program | null;
 }): JSX.Element {
+  const { con, del } = props.save.games.reduce<{
+    con: ReservationFromServer[];
+    del: ReservationFromServer[];
+  }>(
+    (acc, cur) => {
+      if (props.markedForDeletionReservations.includes(cur.id)) {
+        return { ...acc, del: [...acc.del, cur] };
+      }
+      return { ...acc, con: [...acc.con, cur] };
+    },
+    {
+      con: [],
+      del: [],
+    },
+  );
+
   const confirmedReservationsGrouped = groupReservationsByDayAndSortByHour(
-    props.save.games.map((game) => ({
+    con.map((game) => ({
       gameUuid: game.game,
       friendsName: game.spielerName,
     })),
     props.program,
   );
+
+  const markedForDeletionReservationsGrouped =
+    groupReservationsByDayAndSortByHour(
+      del.map((game) => ({
+        gameUuid: game.game,
+        friendsName: game.spielerName,
+      })),
+      props.program,
+    );
 
   const tentativeReservationsGrouped = groupReservationsByDayAndSortByHour(
     props.tentativeReservations,
@@ -143,7 +174,52 @@ export function Zusammenfassung(props: {
           ) : null}
         </>
       ) : null}
-      {props.save.games.length > 0 ? (
+      {del.length > 0 ? (
+        <>
+          <h4>Reservationen, die du entfernen möchtest</h4>
+          <p>
+            Bitte speichere deinen aktuellen Stand der Anmeldung, damit wir die
+            folgenden Reservationen entfernen können.
+          </p>
+          {markedForDeletionReservationsGrouped.SATURDAY.length > 0 ? (
+            <>
+              <h5>Samstag, 24. August 2024</h5>
+              <ul role="list" style="display: grid; gap: .5rem;">
+                {markedForDeletionReservationsGrouped.SATURDAY.map(
+                  (reservation) => (
+                    <li>
+                      <ReservationItem
+                        reservation={reservation}
+                        selfName={props.save.name}
+                        type="danger"
+                      />
+                    </li>
+                  ),
+                )}
+              </ul>
+            </>
+          ) : null}
+          {markedForDeletionReservationsGrouped.SUNDAY.length > 0 ? (
+            <>
+              <h5>Sonntag, 25. August 2024</h5>
+              <ul role="list" style="display: grid; gap: .5rem;">
+                {markedForDeletionReservationsGrouped.SUNDAY.map(
+                  (reservation) => (
+                    <li>
+                      <ReservationItem
+                        reservation={reservation}
+                        selfName={props.save.name}
+                        type="danger"
+                      />
+                    </li>
+                  ),
+                )}
+              </ul>
+            </>
+          ) : null}
+        </>
+      ) : null}
+      {con.length > 0 ? (
         <>
           <h4>Bestätigt</h4>
           {confirmedReservationsGrouped.SATURDAY.length > 0 ? (
@@ -155,7 +231,7 @@ export function Zusammenfassung(props: {
                     <ReservationItem
                       reservation={reservation}
                       selfName={props.save.name}
-                      type="special"
+                      type="success"
                     />
                   </li>
                 ))}
@@ -171,7 +247,7 @@ export function Zusammenfassung(props: {
                     <ReservationItem
                       reservation={reservation}
                       selfName={props.save.name}
-                      type="special"
+                      type="success"
                     />
                   </li>
                 ))}
