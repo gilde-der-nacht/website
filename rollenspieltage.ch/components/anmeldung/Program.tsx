@@ -208,6 +208,12 @@ export function ProgramOfDay(props: {
 
   return (
     <>
+      <div class="content">
+        <small>
+          Auf dieser Seite kannst du dich und deine Freunde für Spielrunden
+          einschreiben, solange es freie Plätze hat.
+        </small>
+      </div>
       <br />
       <Checkbox
         checked={props.wantsEmailUpdates}

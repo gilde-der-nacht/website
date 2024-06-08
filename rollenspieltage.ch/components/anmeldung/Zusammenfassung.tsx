@@ -113,6 +113,11 @@ export function Zusammenfassung(props: {
   return (
     <div class="content">
       <h2>Zusammenfassung</h2>
+      <small>
+        Hier hast du die komplette Übersicht über alle deine Eingaben. Du kannst
+        bis zum XX (TODO) zurückkommen und deine Kontaktdaten und Reservationen
+        anpassen.
+      </small>
       <h3>Kontaktdaten</h3>
       <ul>
         <li>

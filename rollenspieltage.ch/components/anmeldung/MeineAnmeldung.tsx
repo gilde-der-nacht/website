@@ -54,9 +54,6 @@ export function MeineAnmeldung(): JSX.Element {
           />
         </>
       )}
-      <code>
-        <pre>{JSON.stringify(store, null, 2)}</pre>
-      </code>
     </>
   );
 }

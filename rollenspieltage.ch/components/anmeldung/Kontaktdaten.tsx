@@ -11,6 +11,14 @@ export function Kontaktdaten(props: {
   return (
     <>
       <h2>Kontaktdaten</h2>
+      <div class="content">
+        <small>
+          Deine persönlichen Daten werden ausschliesslich verwendet, um dich
+          über das Programm der Luzerner Rollenspieltage 2024 zu informieren.
+          Nach dem Event werden diese gelöscht.
+        </small>
+      </div>
+      <br />
       <Input
         label="Name"
         name="name"
