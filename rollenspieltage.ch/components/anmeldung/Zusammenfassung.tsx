@@ -127,7 +127,7 @@ export function Zusammenfassung(props: {
           <strong>E-Mail:</strong> {props.save.email}
         </li>
         <li>
-          <strong>Handynummer:</strong> {props.save.email}
+          <strong>Handynummer:</strong> {props.save.handynummer}
         </li>
       </ul>
       <br />
