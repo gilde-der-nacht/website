@@ -6,7 +6,7 @@ import {
   type UpdateSave,
 } from "./data";
 import { ProgramOfDay } from "./Program";
-import type { Reservation, ReservationView } from "./store";
+import type { Reservation, ReservationView } from "./types";
 
 export function Sonntag(props: {
   selfName: string;

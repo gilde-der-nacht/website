@@ -6,7 +6,7 @@ import {
 } from "./data";
 import type { JSX } from "solid-js";
 import { ProgramOfDay } from "./Program";
-import type { Reservation, ReservationView } from "./store";
+import type { Reservation, ReservationView } from "./types";
 
 export function Samstag(props: {
   selfName: string;

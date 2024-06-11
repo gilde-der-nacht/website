@@ -5,8 +5,8 @@ import type {
   ReservationFromServer,
   SaveFromServer,
 } from "./data";
-import type { Reservation as Reservation } from "./store";
 import { Box } from "@common/components/Box";
+import type { Reservation } from "./types";
 
 type ReservationAndGame = { reservation: Reservation; game: ProgramEntry };
 
@@ -39,13 +39,13 @@ function ReservationItem(props: {
 
 function groupReservationsByDayAndSortByHour(
   reservations: Reservation[],
-  program: Program | null,
+  program: Program,
 ): { SATURDAY: ReservationAndGame[]; SUNDAY: ReservationAndGame[] } {
   const saturday: ReservationAndGame[] = [];
   const sunday: ReservationAndGame[] = [];
 
   for (const reservation of reservations) {
-    const game = program?.gameList.find(
+    const game = program.gameList.find(
       (game) => game.uuid === reservation.gameUuid,
     );
     if (game?.slot.day === "SATURDAY") {
@@ -70,7 +70,7 @@ export function Zusammenfassung(props: {
   save: SaveFromServer;
   tentativeReservations: Reservation[];
   markedForDeletionReservations: number[];
-  program: Program | null;
+  program: Program;
 }): JSX.Element {
   const { con, del } = props.save.games.reduce<{
     con: ReservationFromServer[];
@@ -111,13 +111,7 @@ export function Zusammenfassung(props: {
   );
 
   return (
-    <div class="content">
-      <h2>Zusammenfassung</h2>
-      <small>
-        Hier hast du die komplette Übersicht über alle deine Eingaben. Du kannst
-        bis zum XX (TODO) zurückkommen und deine Kontaktdaten und Reservationen
-        anpassen.
-      </small>
+    <>
       <h3>Kontaktdaten</h3>
       <ul>
         <li>
@@ -277,6 +271,6 @@ export function Zusammenfassung(props: {
           )}
         </em>
       </p>
-    </div>
+    </>
   );
 }

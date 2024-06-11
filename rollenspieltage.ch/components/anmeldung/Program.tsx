@@ -5,8 +5,8 @@ import type {
   ReservationFromServer,
   UpdateSave,
 } from "./data";
-import type { Reservation, ReservationView } from "./store";
 import { Checkbox } from "@common/components/Checkbox";
+import type { Reservation, ReservationView } from "./types";
 
 const BUFFER_SEATS = 1 as const;
 

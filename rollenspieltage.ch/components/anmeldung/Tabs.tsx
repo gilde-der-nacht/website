@@ -1,5 +1,5 @@
 import { Button } from "@common/components/Button";
-import type { JSX } from "solid-js";
+import { Match, Suspense, Switch, type JSX, type Resource } from "solid-js";
 import { Kontaktdaten } from "./Kontaktdaten";
 import { Samstag } from "./Samstag";
 import { Sonntag } from "./Sonntag";
@@ -11,7 +11,7 @@ import type {
   SaveFromServer,
   UpdateSave,
 } from "./data";
-import type { Reservation, ReservationView } from "./store";
+import type { Reservation, ReservationView } from "./types";
 
 export type Tab = "Contact" | "Saturday" | "Sunday" | "Summary";
 
@@ -157,7 +157,7 @@ export function Tabs(props: {
   activeTab: Tab;
   lastSaved: string;
   saveState: SaveState;
-  program: Program | null;
+  programResource: Resource<Program>;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
   markedForDeletionReservations: number[];
@@ -176,54 +176,78 @@ export function Tabs(props: {
           ) : props.activeTab === "Saturday" ? (
             <>
               <h2>Programm Samstag</h2>
-              {props.program === null ? (
-                <Box>Programm wird geladen ...</Box>
-              ) : (
-                <Samstag
-                  selfName={props.save.name}
-                  program={props.program}
-                  wantsEmailUpdates={props.save.wantsEmailUpdates}
-                  confirmedReservations={props.confirmedReservations}
-                  tentativeReservations={props.tentativeReservations}
-                  markedForDeletionReservations={
-                    props.markedForDeletionReservations
-                  }
-                  addTentativeReservation={props.addTentativeReservation}
-                  updateSave={props.updateSave}
-                  deleteReservation={props.deleteReservation}
-                />
-              )}
+              <Suspense fallback={<Box>Programm wird geladen ...</Box>}>
+                <Switch>
+                  <Match when={props.programResource()}>
+                    {(program) => (
+                      <Samstag
+                        selfName={props.save.name}
+                        program={program()}
+                        wantsEmailUpdates={props.save.wantsEmailUpdates}
+                        confirmedReservations={props.confirmedReservations}
+                        tentativeReservations={props.tentativeReservations}
+                        markedForDeletionReservations={
+                          props.markedForDeletionReservations
+                        }
+                        addTentativeReservation={props.addTentativeReservation}
+                        updateSave={props.updateSave}
+                        deleteReservation={props.deleteReservation}
+                      />
+                    )}
+                  </Match>
+                </Switch>
+              </Suspense>
             </>
           ) : props.activeTab === "Sunday" ? (
             <>
               <h2>Programm Sonntag</h2>
-              {props.program === null ? (
-                <Box>Programm wird geladen ...</Box>
-              ) : (
-                <Sonntag
-                  selfName={props.save.name}
-                  program={props.program}
-                  wantsEmailUpdates={props.save.wantsEmailUpdates}
-                  confirmedReservations={props.confirmedReservations}
-                  tentativeReservations={props.tentativeReservations}
-                  markedForDeletionReservations={
-                    props.markedForDeletionReservations
-                  }
-                  addTentativeReservation={props.addTentativeReservation}
-                  updateSave={props.updateSave}
-                  deleteReservation={props.deleteReservation}
-                />
-              )}
+              <Suspense fallback={<Box>Programm wird geladen ...</Box>}>
+                <Switch>
+                  <Match when={props.programResource()}>
+                    {(program) => (
+                      <Sonntag
+                        selfName={props.save.name}
+                        program={program()}
+                        wantsEmailUpdates={props.save.wantsEmailUpdates}
+                        confirmedReservations={props.confirmedReservations}
+                        tentativeReservations={props.tentativeReservations}
+                        markedForDeletionReservations={
+                          props.markedForDeletionReservations
+                        }
+                        addTentativeReservation={props.addTentativeReservation}
+                        updateSave={props.updateSave}
+                        deleteReservation={props.deleteReservation}
+                      />
+                    )}
+                  </Match>
+                </Switch>
+              </Suspense>
             </>
           ) : (
-            <Zusammenfassung
-              save={props.save}
-              tentativeReservations={props.tentativeReservations}
-              program={props.program}
-              markedForDeletionReservations={
-                props.markedForDeletionReservations
-              }
-            />
+            <div class="content">
+              <h2>Zusammenfassung</h2>
+              <small>
+                Hier hast du die komplette Übersicht über alle deine Eingaben.
+                Du kannst bis am <strong>Freitag, 23. August 2024</strong>{" "}
+                zurückkommen und deine Kontaktdaten und Reservationen anpassen.
+              </small>
+              <Suspense fallback={<Box>Zusammenfassung wird geladen ...</Box>}>
+                <Switch>
+                  <Match when={props.programResource()}>
+                    {(program) => (
+                      <Zusammenfassung
+                        save={props.save}
+                        tentativeReservations={props.tentativeReservations}
+                        program={program()}
+                        markedForDeletionReservations={
+                          props.markedForDeletionReservations
+                        }
+                      />
+                    )}
+                  </Match>
+                </Switch>
+              </Suspense>
+            </div>
           )}
           <div style="padding-block: 2rem 1rem; position: sticky; bottom: 0; background-image: linear-gradient(transparent, var(--clr-3) 25%);">
             <SaveBar
