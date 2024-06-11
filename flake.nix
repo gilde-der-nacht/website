@@ -15,8 +15,7 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            nodejs
-            yarn
+            yarn-berry
             just
             emmet-ls
             marksman
