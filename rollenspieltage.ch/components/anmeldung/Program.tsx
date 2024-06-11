@@ -191,8 +191,6 @@ function ProgrammEntryCard(props: {
   );
 }
 
-const ALL_FILTER_LABEL = "ALL" as const;
-
 export function ProgramOfDay(props: {
   selfName: string;
   programByHour: ProgramByHour;
@@ -204,10 +202,25 @@ export function ProgramOfDay(props: {
   updateSave: UpdateSave;
   deleteReservation: (reservation: ReservationView) => void;
 }): JSX.Element {
-  const [filter, setFilter] = createSignal<string>(ALL_FILTER_LABEL);
+  const [filter, setFilter] = createSignal<string[]>([]);
+  function toggleFilter(hour: string): void {
+    setFilter((prev) => {
+      if (prev.includes(hour)) {
+        return prev.filter((f) => f !== hour);
+      }
+      return [...prev, hour];
+    });
+  }
 
   return (
     <>
+      <style>
+        {`
+          .event-filters .active {
+            color: var(--clr-success-10) !important;
+          }
+        `}
+      </style>
       <div class="content">
         <small>
           Auf dieser Seite kannst du dich und deine Freunde für Spielrunden
@@ -229,8 +242,8 @@ export function ProgramOfDay(props: {
           <li>
             <a
               href="javascript:;"
-              class={filter() === ALL_FILTER_LABEL ? "active" : ""}
-              onClick={() => setFilter(ALL_FILTER_LABEL)}
+              class={filter().length === 0 ? "active" : ""}
+              onClick={() => setFilter([])}
             >
               Alle
             </a>
@@ -239,8 +252,8 @@ export function ProgramOfDay(props: {
             <li>
               <a
                 href="javascript:;"
-                class={filter() === hour ? "active" : ""}
-                onClick={() => setFilter(hour)}
+                class={filter().includes(hour) ? "active" : ""}
+                onClick={() => toggleFilter(hour)}
               >
                 {hour} Uhr
               </a>
@@ -249,7 +262,7 @@ export function ProgramOfDay(props: {
         </ul>
       </div>
       {props.programByHour
-        .filter(([hour]) => hour === filter() || ALL_FILTER_LABEL === filter())
+        .filter(([hour]) => filter().includes(hour) || filter().length === 0)
         .map(([hour, entries]) => (
           <>
             <h3 style="margin-block: 1rem;">Start {hour} Uhr</h3>
