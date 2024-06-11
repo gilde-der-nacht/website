@@ -7,3 +7,8 @@ rst-dev:
 
 rst-build:
     yarn rst-build
+
+# Update environment and dependencies
+update:
+    nix flake update
+    yarn dlx npm-check-updates -u
