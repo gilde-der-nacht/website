@@ -1,0 +1,8 @@
+---
+import { EventListImpl } from "@common/components/EventListImpl.tsx";
+import { loadEvents } from "@common/components/events.ts";
+
+const events = await loadEvents();
+---
+
+<EventListImpl events={events} />
