@@ -1,4 +1,4 @@
-name: Live Pages
+name: spieltage.ch Live Page
 
 on:
   push:
@@ -16,14 +16,8 @@ jobs:
     strategy:
       matrix:
         include:
-#          - site: gildedernacht
-#            siteCode: gdn
-#          - site: spieltage
-#            siteCode: lst
-          - site: rollenspieltage
-            siteCode: rst
-#          - site: tabletoptage
-#            siteCode: ttt
+         - site: spieltage
+           siteCode: lst
 
     steps:
       - uses: actions/checkout@v4
