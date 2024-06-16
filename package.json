@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "gdn-dev": "astro --config ./gildedernacht.ch/config.ts dev",
+    "gdn-build": "astro --config ./gildedernacht.ch/config.ts check && astro --config ./gildedernacht.ch/config.ts build",
+    "lst-dev": "astro --config ./spieltage.ch/config.ts dev",
+    "lst-build": "astro --config ./spieltage.ch/config.ts check && astro --config ./spieltage.ch/config.ts build",
     "rst-dev": "astro --config ./rollenspieltage.ch/config.ts dev",
     "rst-build": "astro --config ./rollenspieltage.ch/config.ts check && astro --config ./rollenspieltage.ch/config.ts build"
   },

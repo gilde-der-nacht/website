@@ -2,6 +2,18 @@
 default:
     @echo 'Run `just --list` to see all available recipes'
 
+gdn-dev:
+    yarn gdn-dev
+
+gdn-build:
+    yarn gdn-build
+
+lst-dev:
+    yarn lst-dev
+
+lst-build:
+    yarn lst-build
+
 rst-dev:
     yarn rst-dev
 
