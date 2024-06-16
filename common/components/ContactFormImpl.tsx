@@ -20,6 +20,7 @@ type Props = {
   referer: URL | undefined;
   redirectOnSuccess: URL | undefined;
   redirectOnFailure: URL | undefined;
+  redirectOnSpam: URL | undefined;
 };
 
 type FormDataSchema = {
@@ -102,7 +103,7 @@ export function ContactFormImpl(props: Props): JSX.Element {
     if (formData().captcha.trim().length > 0) {
       const msg = isEnglish
         ? "This is field must be empty."
-        : "Dies Feld muss leer bleiben.";
+        : "Dieses Feld muss leer bleiben.";
       setFieldErrors((prev) => ({ ...prev, captcha: [...prev.captcha, msg] }));
     }
     if (formData().message.trim().length === 0) {
@@ -199,6 +200,14 @@ export function ContactFormImpl(props: Props): JSX.Element {
             <HiddenInput
               name="redirect-on-failure"
               value={redirectOnFailure().href}
+            />
+          )}
+        </Show>
+        <Show when={props.redirectOnSpam}>
+          {(redirectOnSpam) => (
+            <HiddenInput
+              name="redirect-on-spam"
+              value={redirectOnSpam().href}
             />
           )}
         </Show>
