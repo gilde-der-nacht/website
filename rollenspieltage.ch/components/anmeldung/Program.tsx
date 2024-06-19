@@ -183,7 +183,8 @@ function ProgrammEntryCard(props: {
           ) : null}
         </div>
         {openSeats() > 0 && userIsAvailable() ? (
-          myReservations().length === 0 ? (
+          myReservations().filter((res) => !res.markedForDeletion).length ===
+          0 ? (
             <ul role="list" class="event-links">
               <li>
                 <a
