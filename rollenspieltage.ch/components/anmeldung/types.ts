@@ -31,3 +31,12 @@ export type Store = {
   markedForDeletionReservations: number[];
 }
 
+export type Range = {
+  from : number;
+  to: number;
+}
+
+export type ReservedTimeRange = {
+  range: Range;
+  gameUuid: string;
+};

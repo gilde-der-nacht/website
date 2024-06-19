@@ -97,6 +97,7 @@ export function initState(init: Store): {
   }
 
   function deleteReservation(reservation: ReservationView): void {
+    setStore("hasChanged", true);
     if (!reservation.confirmed) {
       const name = store.currentSave.name;
       setStore("tentativeReservations", (prev) =>
@@ -111,7 +112,6 @@ export function initState(init: Store): {
         }),
       );
     } else {
-      setStore("hasChanged", true);
       setStore("markedForDeletionReservations", (prev) => [
         ...prev,
         reservation.reservationId,

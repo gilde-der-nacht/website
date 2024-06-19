@@ -6,9 +6,30 @@ import type {
   UpdateSave,
 } from "./data";
 import { Checkbox } from "@common/components/Checkbox";
-import type { Reservation, ReservationView } from "./types";
+import type {
+  Reservation,
+  ReservationView,
+  ReservedTimeRange,
+  Range,
+} from "./types";
 
 const BUFFER_SEATS = 1 as const;
+
+function isWithin(num: number, range: Range): boolean {
+  const { from, to } = range;
+  return from <= num && num <= to;
+}
+
+function isOverlapping(rangeA: Range, rangeB: Range): boolean {
+  const { from: fromA, to: toA } = rangeA;
+  const { from: fromB, to: toB } = rangeB;
+  return (
+    isWithin(fromA, rangeB) ||
+    isWithin(toA, rangeB) ||
+    isWithin(fromB, rangeA) ||
+    isWithin(toB, rangeA)
+  );
+}
 
 function ProgrammEntryCard(props: {
   entry: ProgramEntryExtended;
@@ -16,6 +37,7 @@ function ProgrammEntryCard(props: {
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
   markedForDeletionReservations: number[];
+  reservedTimeRanges: ReservedTimeRange[];
   addTentativeReservation: (reservation: Reservation) => void;
   deleteReservation: (reservation: ReservationView) => void;
 }): JSX.Element {
@@ -64,10 +86,18 @@ function ProgrammEntryCard(props: {
     );
   }
 
+  function userIsAvailable(): boolean {
+    const { start, end } = props.entry.slot;
+    const otherGamesOverlapping = props.reservedTimeRanges
+      .filter((res) => isOverlapping({ from: start, to: end }, res.range))
+      .filter((res) => res.gameUuid !== props.entry.uuid);
+    return otherGamesOverlapping.length === 0;
+  }
+
   return (
     <>
       <li
-        class={`event-entry ${myReservations().filter((reservation) => !reservation.markedForDeletion).length > 0 ? "success" : openSeats() > 0 ? "special" : "gray"}`}
+        class={`event-entry ${myReservations().filter((reservation) => !reservation.markedForDeletion).length > 0 ? "success" : openSeats() > 0 && userIsAvailable() ? "special" : "gray"}`}
       >
         <h1 class="event-title">
           {props.entry.title === null
@@ -97,6 +127,14 @@ function ProgrammEntryCard(props: {
               "Diese Spielrunde ist bereits voll besetzt."
             )}
           </div>
+          {openSeats() > 0 && !userIsAvailable() ? (
+            <div class="event-tags" style="display: block;">
+              <em>
+                (Du hast dich bereits für eine Spielrunde eingetragen, die diese
+                Spielrunde zeitlich überschneidet.)
+              </em>
+            </div>
+          ) : null}
         </div>
         <div class="event-description">
           {props.entry.description !== null &&
@@ -144,7 +182,7 @@ function ProgrammEntryCard(props: {
             </div>
           ) : null}
         </div>
-        {openSeats() > 0 ? (
+        {openSeats() > 0 && userIsAvailable() ? (
           myReservations().length === 0 ? (
             <ul role="list" class="event-links">
               <li>
@@ -191,6 +229,34 @@ function ProgrammEntryCard(props: {
   );
 }
 
+function aggregateReservedTimeRanges(props: {
+  programByHour: ProgramByHour;
+  confirmedReservations: ReservationFromServer[];
+  tentativeReservations: Reservation[];
+  markedForDeletionReservations: number[];
+}): ReservedTimeRange[] {
+  const reservationGameUuids = props.confirmedReservations
+    .filter((res) => !props.markedForDeletionReservations.includes(res.id))
+    .map((res) => res.game);
+  reservationGameUuids.push(
+    ...props.tentativeReservations.map((res) => res.gameUuid),
+  );
+  const setOfGameUuids = new Set(reservationGameUuids);
+  const allEntries = props.programByHour.flatMap(([_, entries]) => entries);
+  const filteredEntries = allEntries.filter((entry) =>
+    setOfGameUuids.has(entry.uuid),
+  );
+  return filteredEntries.map((entry) => {
+    return {
+      range: {
+        from: entry.slot.start,
+        to: entry.slot.end,
+      },
+      gameUuid: entry.uuid,
+    };
+  });
+}
+
 export function ProgramOfDay(props: {
   selfName: string;
   programByHour: ProgramByHour;
@@ -211,6 +277,14 @@ export function ProgramOfDay(props: {
       return [...prev, hour];
     });
   }
+
+  const reservedTimeRanges = () =>
+    aggregateReservedTimeRanges({
+      programByHour: props.programByHour,
+      confirmedReservations: props.confirmedReservations,
+      tentativeReservations: props.tentativeReservations,
+      markedForDeletionReservations: props.markedForDeletionReservations,
+    });
 
   return (
     <>
@@ -280,6 +354,7 @@ export function ProgramOfDay(props: {
                   markedForDeletionReservations={
                     props.markedForDeletionReservations
                   }
+                  reservedTimeRanges={reservedTimeRanges()}
                   addTentativeReservation={props.addTentativeReservation}
                   deleteReservation={props.deleteReservation}
                 />
