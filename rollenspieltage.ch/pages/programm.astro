@@ -42,7 +42,12 @@ const colorsOfHour: Record<string, string> = {
               <div class="event-details"> 
                 <div class="event-tags"><strong>Zeit:</strong> {entry.slot.start} - {entry.slot.end} Uhr</div> 
                 <div class="event-tags"><strong>Spielleitung:</strong> {entry.master.first} {entry.master.last}</div> 
-                <div class="event-tags"><strong>Spielende:</strong> {entry.playerCount.min} - {entry.playerCount.max}</div> 
+                <div class="event-tags"><strong>Spielende:</strong> {entry.playerCount.max > 50 ? (
+                <em>unbegrenzt</em>
+                ) : (
+                `${entry.playerCount.min} - ${entry.playerCount.max}`
+                )}
+                </div> 
               </div>
               {
                 entry.description !== null && entry.description.trim().length > 0 ? (
@@ -68,6 +73,7 @@ const colorsOfHour: Record<string, string> = {
   }
 
   <a href="#top" style="border: none;"><Button label="nach oben" /></a>
+  <a href="/anmeldung" style="border: none;"><Button label="jetzt Anmelden" kind="success" /></a>
 
   <h2 id="Sonntag">Sonntag, 25. August 2024</h2>
 
@@ -109,6 +115,7 @@ const colorsOfHour: Record<string, string> = {
   }
 
   <a href="#top" style="border: none;"><Button label="nach oben" /></a>
+  <a href="/anmeldung" style="border: none;"><Button label="jetzt Anmelden" kind="success" /></a>
 
 </Layout>
 
