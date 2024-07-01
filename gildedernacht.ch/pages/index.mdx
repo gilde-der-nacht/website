@@ -10,6 +10,16 @@ import { Box } from "@common/components/Box.tsx";
 import { Slider } from "@common/components/Slider.tsx";
 import { ButtonLink } from "@common/components/ButtonLink.tsx";
 import EventList from "@common/components/EventList.astro";
+import { Picture } from "astro:assets";
+
+import rst2023 from "../images/2023-rollenspieltage.jpg";
+import lst2022 from "../images/2022-spieltage.jpg";
+import rst2022 from "../images/2022-rollenspieltage.jpg";
+import lst2019 from "../images/2019-spieltage.jpg";
+import rst2018 from "../images/2018-rollenspieltag.jpg";
+import spieltreffen2017 from "../images/2017-spieltreffen.jpg";
+import lst2016 from "../images/2016-spieltage.jpg";
+import spieltreffen2014 from "../images/2014-spieltreffen.jpg";
 
 <Box type="success" link="/en" linkLabel="take me to the English summary">
   Do you prefer to read up on us in English?
@@ -21,10 +31,45 @@ Die **Gilde der Nacht** organisiert Spieltreffen, an denen alle **Brett-, Rollen
 
 <Slider size="small">
 
-  ![2018, Luzerner Rollenspieltag](../images/2018-rollenspieltag.jpg)
-  ![2017, Spieltreffen](../images/2017-spieltreffen.jpg)
-  ![2016, Luzerner Spieltage](../images/2016-spieltage.jpg)
-  ![2014, Spieltreffen](../images/2014-spieltreffen.jpg)
+  <figure aria-labelledby="caption-2023">
+    <Picture src={rst2023} formats={['avif', 'webp', 'jpg']} alt="2023, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2023">2023, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-lst-2022">
+    <Picture src={lst2022} formats={['avif', 'webp', 'jpg']} alt="2022, Luzerner Spieltage" />
+    <figcaption id="caption-lst-2022">2022, Luzerner Spieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2022">
+    <Picture src={rst2022} formats={['avif', 'webp', 'jpg']} alt="2022, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2022">2022, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2019">
+    <Picture src={lst2019} formats={['avif', 'webp', 'jpg']} alt="2019, Luzerner Spieltage" />
+    <figcaption id="caption-2019">2019, Luzerner Spieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2018">
+    <Picture src={rst2018} formats={['avif', 'webp', 'jpg']} alt="2018, Luzerner Rollenspieltag" />
+    <figcaption id="caption-2018">2018, Luzerner Rollenspieltag</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2017">
+    <Picture src={spieltreffen2017} formats={['avif', 'webp', 'jpg']} alt="2017, Spieltreffen" />
+    <figcaption id="caption-2017">2017, Spieltreffen</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2016">
+    <Picture src={lst2016} formats={['avif', 'webp', 'jpg']} alt="2016, Luzerner Spieltage" />
+    <figcaption id="caption-2016">2016, Luzerner Spieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2014">
+    <Picture src={spieltreffen2014} formats={['avif', 'webp', 'jpg']} alt="2014, Spieltreffen" />
+    <figcaption id="caption-2014">2014, Spieltreffen</figcaption>
+  </figure>
 
 </Slider>
 
