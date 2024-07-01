@@ -12,6 +12,7 @@ import { ButtonLink } from "@common/components/ButtonLink.tsx";
 import EventList from "@common/components/EventList.astro";
 import { Picture } from "astro:assets";
 
+import lst2024 from "../images/2024-spieltage.jpg";
 import rst2023 from "../images/2023-rollenspieltage.jpg";
 import lst2022 from "../images/2022-spieltage.jpg";
 import rst2022 from "../images/2022-rollenspieltage.jpg";
@@ -30,6 +31,11 @@ import spieltreffen2014 from "../images/2014-spieltreffen.jpg";
 Die **Gilde der Nacht** organisiert Spieltreffen, an denen alle **Brett-, Rollen- und Tabletop-Spieler:innen** herzlich willkommen sind. Um nichts zu verpassen, empfehlen wir dir, dich in unseren [Erinnerungs-Newsletter](/newsletter) einzutragen.
 
 <Slider size="small">
+
+  <figure aria-labelledby="caption-lst-2024">
+    <Picture src={lst2024} formats={['avif', 'webp', 'jpg']} alt="2024, Luzerner Spieltage" />
+    <figcaption id="caption-lst-2024">2024, Luzerner Spieltage</figcaption>
+  </figure>
 
   <figure aria-labelledby="caption-2023">
     <Picture src={rst2023} formats={['avif', 'webp', 'jpg']} alt="2023, Luzerner Rollenspieltage" />
