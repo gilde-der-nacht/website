@@ -13,7 +13,7 @@ type Frequency = "oft" | "selten";
 
 type Props = {
   theme: "Brettspiele" | "Rollenspiele" | "Tabletop" | undefined;
-  frequenzy: Frequency | undefined;
+  frequency: Frequency | undefined;
   referer: URL | undefined;
 };
 
@@ -39,7 +39,7 @@ function resetFormData(props: Props): FormDataSchema {
     themeBrettspiele: props.theme === "Brettspiele",
     themeRollenspiele: props.theme === "Rollenspiele",
     themeTabletop: props.theme === "Tabletop",
-    frequency: props.frequenzy ?? "selten",
+    frequency: props.frequency ?? "selten",
   };
 }
 type FieldErrors = Record<keyof FormDataSchema, string[]>;
@@ -246,7 +246,7 @@ export function NewsletterImpl(props: Props): JSX.Element {
           </Box>
         </Show>
         <InputWithRef
-          label="E-Mail-Adressse"
+          label="E-Mail-Adresse"
           type="email"
           name="EMAIL"
           value={formData().email}

@@ -1,0 +1,92 @@
+---
+layout: "@gdn/layouts/Layout.astro"
+title: Verein
+navigation:
+  group: main
+  label: Verein
+  order: 5
+---
+
+import { Slider } from "@common/components/Slider.tsx";
+import { ButtonLink } from "@common/components/ButtonLink.tsx";
+import { Picture } from "astro:assets";
+
+import rst2021 from "../images/2021-rollenspieltage.jpg"
+import lst2019 from "../images/2019-spieltage.jpg"
+import rst2018 from "../images/2018-rollenspieltag.jpg"
+import lst2018 from "../images/2018-spieltage.jpg"
+import spieltreffen2017 from "../images/2017-spieltreffen.jpg"
+import rst2017 from "../images/2017-gratis-rollenspieltag.jpg"
+import ttd2015 from "../images/2015-tabletop-day.jpg"
+import spieltreffen2014 from "../images/2014-spieltreffen.jpg"
+import mtg2014 from "../images/2014-mtg-turnier.jpg"
+import web2011 from "../images/2011-website.png"
+
+# Verein
+
+Die **Gilde der Nacht** fördert das Spielhobby in und um Luzern. Wir organisieren das ganze Jahr jede Menge Events, an denen du neue Freundschaften schliesst und viele tolle Spiele kennenlernst. Komm doch vorbei und sag Hallo!
+
+<ButtonLink link="/statuten" label="Vereinsstatuten" />
+
+## Geschichte
+
+Der erste Gilde der Nacht Verein wurde im **Spätherbst 2011** von 4 passionierten _Magic the Gathering_-Spielern gegründet und unsere Events entwickelten sich rasch zu einem beliebten Treffpunkt für Spieler aus der Region.
+
+3 Jahre später wurde uns klar, das Magic nicht alles ist (versteht uns nicht falsch, Magic ist ein fantastisches Spiel — aber manchmal haben wir das Bedürfnis uns gegenseitig mit Plastikminiaturen das Leben zur Hölle zu machen oder dank einem genialen Partyspiel, vor Lachen in die Hosen zu machen). So entstand der Spielverein Element 15.
+
+Als auch dieser rasch an Popularität zunahm, beschlossen wir an der Fusions-Generalversammlung vom 9. Mai 2015 diese beiden Vereine zusammenzulegen und setzten uns zum Ziel, alle glücklich zu machen; Ob Magic-, Strategie-, Party-, Rollen- oder Tabletop-Spieler:innen.
+
+<Slider>
+
+  <figure aria-labelledby="caption-rst-2021">
+    <Picture src={rst2021} formats={['avif', 'webp', 'jpg']} alt="2021, Luzerner Rollenspieltage" />
+    <figcaption id="caption-rst-2021">2021, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-lst-2019">
+    <Picture src={lst2019} formats={['avif', 'webp', 'jpg']} alt="2019, Luzerner Spieltage" />
+    <figcaption id="caption-lst-2019">2019, Luzerner Spieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-rst-2018">
+    <Picture src={rst2018} formats={['avif', 'webp', 'jpg']} alt="2018, Luzerner Rollenspieltage" />
+    <figcaption id="caption-rst-2018">2018, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-lst-2018">
+    <Picture src={lst2018} formats={['avif', 'webp', 'jpg']} alt="2018, Luzerner Spieltage" />
+    <figcaption id="caption-lst-2018">2018, Luzerner Spieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-spieltreffen-2017">
+    <Picture src={spieltreffen2017} formats={['avif', 'webp', 'jpg']} alt="2017, Spieltreffen" />
+    <figcaption id="caption-spieltreffen-2017">2017, Spieltreffen</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-rst-2017">
+    <Picture src={rst2017} formats={['avif', 'webp', 'jpg']} alt="2017, Gratis-Rollenspieltag" />
+    <figcaption id="caption-rst-2017">2017, Gratis-Rollenspieltag</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-ttd-2015">
+    <Picture src={ttd2015} formats={['avif', 'webp', 'jpg']} alt="2015, Tabletop Day" />
+    <figcaption id="caption-ttd-2015">2015, Tabletop Day</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-spieltreffen-2014">
+    <Picture src={spieltreffen2014} formats={['avif', 'webp', 'jpg']} alt="2014, Spieltreffen" />
+    <figcaption id="caption-spieltreffen-2014">2014, Spieltreffen</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-mtg-2014">
+    <Picture src={mtg2014} formats={['avif', 'webp', 'jpg']} alt="2014, Magic the Gathering Turnier" />
+    <figcaption id="caption-mtg-2014">2014, Magic the Gathering Turnier</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-web-2011">
+    <Picture src={web2011} formats={['avif', 'webp', 'jpg']} alt="2011, Erste Version der Vereinswebseite" />
+    <figcaption id="caption-web-2011">2011, Erste Version der Vereinswebseite</figcaption>
+  </figure>
+
+</Slider>
+

@@ -1,0 +1,28 @@
+---
+layout: "@gdn/layouts/Layout.astro"
+locale: en
+---
+
+import { Box } from "@common/components/Box.tsx";
+import ContactForm from "@common/components/ContactForm.astro";
+import EventList from "@common/components/EventList.astro";
+
+<Box type="special" link="/" linkLabel="go back to the German website">
+  Looking for the German version?
+</Box>
+
+# Welcome
+
+The **Gilde der Nacht** organizes game meetups where **board game lovers, roleplayer and tabletop enthusiasts** are welcome. To make sure you don't miss anything, we recommend that you subscribe to our [newsletter](/newsletter) (German).
+
+## Calendar
+
+In the following section you find our upcoming events. The events are not translated to English. If you wish to know more about those, feel free to [contact us](#contact).
+
+<EventList />
+
+## Contact
+
+As only some parts of our website have been translated, there is a good chance you'll have some questions. Don't hesitate to contact us:
+
+<ContactForm category="gilde" language="en" />
