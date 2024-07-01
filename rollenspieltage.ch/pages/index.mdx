@@ -10,6 +10,20 @@ import { Box } from "@common/components/Box.tsx";
 import { BoxGrid } from "@common/components/BoxGrid.tsx";
 import { ButtonLink } from "@common/components/ButtonLink.tsx";
 import { Slider } from "@common/components/Slider.tsx";
+import { Picture } from "astro:assets";
+
+import rst202303 from "../images/2023-rollenspieltage-03.jpg";
+import rst202301 from "../images/2023-rollenspieltage-01.jpg";
+import rst202302 from "../images/2023-rollenspieltage-02.jpg";
+import rst202201 from "../images/2022-rollenspieltage-01.jpg";
+import rst202202 from "../images/2022-rollenspieltage-02.jpg";
+import rst202203 from "../images/2022-rollenspieltage-03.jpg";
+import rst202101 from "../images/2021-rollenspieltage-01.jpg";
+import rst202102 from "../images/2021-rollenspieltage-02.jpg";
+import rst201904 from "../images/2019-rollenspieltage-04.jpg";
+import rst201903 from "../images/2019-rollenspieltage-03.jpg";
+import rst201901 from "../images/2019-rollenspieltage-01.jpg";
+import rst201804 from "../images/2018-rollenspieltage-04.jpg";
 
 <Box type="success" link="/en" linkLabel="take me to the English summary">
   Looking for a short and sweet overview in English?
@@ -29,18 +43,65 @@ Am **24. und 25. August 2024** werden ganz unterschiedliche Rollenspielrunden an
 
 <Slider>
 
-  ![2023, Luzerner Rollenspieltage](../images/2023-rollenspieltage-03.jpg)
-  ![2023, Luzerner Rollenspieltage](../images/2023-rollenspieltage-01.jpg)
-  ![2023, Luzerner Rollenspieltage](../images/2023-rollenspieltage-02.jpg)
-  ![2022, Luzerner Rollenspieltage](../images/2022-rollenspieltage-01.jpg)
-  ![2022, Luzerner Rollenspieltage](../images/2022-rollenspieltage-02.jpg)
-  ![2022, Luzerner Rollenspieltage](../images/2022-rollenspieltage-03.jpg)
-  ![2021, Luzerner Rollenspieltage](../images/2021-rollenspieltage-01.jpg)
-  ![2021, Luzerner Rollenspieltage](../images/2021-rollenspieltage-02.jpg)
-  ![2019, Luzerner Rollenspieltage](../images/2019-rollenspieltage-04.jpg)
-  ![2019, Luzerner Rollenspieltage](../images/2019-rollenspieltage-03.jpg)
-  ![2019, Luzerner Rollenspieltage](../images/2019-rollenspieltage-01.jpg)
-  ![2018, Luzerner Rollenspieltage](../images/2018-rollenspieltage-04.jpg)
+  <figure aria-labelledby="caption-2023-03">
+    <Picture src={rst202303} formats={['avif', 'webp', 'jpg']} alt="2023, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2023-03">2023, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2023-01">
+    <Picture src={rst202301} formats={['avif', 'webp', 'jpg']} alt="2023, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2023-01">2023, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2023-02">
+    <Picture src={rst202302} formats={['avif', 'webp', 'jpg']} alt="2023, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2023-02">2023, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2022-01">
+    <Picture src={rst202201} formats={['avif', 'webp', 'jpg']} alt="2022, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2022-01">2022, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2022-02">
+    <Picture src={rst202202} formats={['avif', 'webp', 'jpg']} alt="2022, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2022-02">2022, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2022-03">
+    <Picture src={rst202203} formats={['avif', 'webp', 'jpg']} alt="2022, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2022-03">2022, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2021-01">
+    <Picture src={rst202101} formats={['avif', 'webp', 'jpg']} alt="2021, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2021-01">2021, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2021-02">
+    <Picture src={rst202102} formats={['avif', 'webp', 'jpg']} alt="2021, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2021-02">2021, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2019-04">
+    <Picture src={rst201904} formats={['avif', 'webp', 'jpg']} alt="2019, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2019-04">2019, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2019-03">
+    <Picture src={rst201903} formats={['avif', 'webp', 'jpg']} alt="2019, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2019-03">2019, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2019-01">
+    <Picture src={rst201901} formats={['avif', 'webp', 'jpg']} alt="2019, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2019-01">2019, Luzerner Rollenspieltage</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-2018-04">
+    <Picture src={rst201804} formats={['avif', 'webp', 'jpg']} alt="2018, Luzerner Rollenspieltage" />
+    <figcaption id="caption-2018-04">2018, Luzerner Rollenspieltage</figcaption>
+  </figure>
 
 </Slider>
 
