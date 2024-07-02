@@ -17,6 +17,11 @@ formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-astro",
 auto-format = true
 
 [[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+
+[[language]]
 name = "tsx"
 language-servers = ["typescript-language-server", "emmet-ls"]
 formatter = { command = "prettier", args = ["--parser", "typescript" ] }
