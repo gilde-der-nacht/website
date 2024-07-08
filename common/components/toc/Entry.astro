@@ -1,0 +1,26 @@
+---
+import type { TocView } from "@common/components/toc/utils";
+
+export type Props = {
+  entry: TocView;
+  ordered: boolean;
+};
+
+const { entry, ordered } = Astro.props;
+const List = ordered ? "ol" : "ul";
+---
+
+<li>
+  <a href={"#" + entry.slug}>
+    {entry.text}
+  </a>
+  {
+    entry.sub.length > 0 && (
+      <List>
+        {entry.sub.map((subEntry) => (
+          <Astro.self entry={subEntry} ordered={ordered} />
+        ))}
+      </List>
+    )
+  }
+</li>

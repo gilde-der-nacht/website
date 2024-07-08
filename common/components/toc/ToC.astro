@@ -1,0 +1,46 @@
+---
+import {
+  generateTocView,
+  type AstroHeading,
+  type TocConfig,
+  type TocConfigView,
+} from "@common/components/toc/utils";
+import Entry from "@common/components/toc/Entry.astro";
+
+export interface Props {
+  headings: AstroHeading[];
+  toc: TocConfig | null;
+}
+
+const { headings, toc } = Astro.props;
+
+const config = ((): TocConfigView => {
+  if (toc === null) {
+    return { render: false };
+  }
+
+  if (toc !== true && toc.startLevel > toc.endLevel) {
+    return { render: false };
+  }
+
+  const startLevel = toc === true ? 2 : toc.startLevel;
+  const endLevel = toc === true ? 2 : toc.endLevel;
+  const ordered = toc === true ? true : toc.ordered ?? true;
+
+  const tocView = generateTocView(headings, startLevel, endLevel);
+
+  return { render: true, startLevel, endLevel, ordered, toc: tocView };
+})();
+
+const List = config.render && config.ordered ? "ol" : "ul";
+---
+
+{
+  config.render && (
+    <List>
+      {config.toc.map((entry) => (
+        <Entry entry={entry} ordered={config.ordered} />
+      ))}
+    </List>
+  )
+}

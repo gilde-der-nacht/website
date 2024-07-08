@@ -2,11 +2,14 @@
 import Favicon from "./partials/favicon.astro";
 import Header from "./partials/header.astro";
 import Footer from "./partials/footer.astro";
+import ToC from "@common/components/toc/ToC.astro";
 import type { NavigationEntry } from "@common/layouts/types.ts";
+import type { TocConfig, AstroHeading } from "@common/components/toc/utils";
 
 type Props = {
   locale?: "de" | "en";
   title?: string;
+  metaTitle?: string;
   description?: string;
   keywords?: string;
   siteCode: string;
@@ -15,11 +18,14 @@ type Props = {
   mainNavigation: NavigationEntry[];
   secondaryNavigation: NavigationEntry[];
   development: boolean;
+  toc: TocConfig | null;
+  headings: AstroHeading[];
 };
 
 const {
   locale,
   title,
+  metaTitle,
   description,
   keywords,
   siteCode,
@@ -28,6 +34,8 @@ const {
   mainNavigation,
   secondaryNavigation,
   development,
+  toc,
+  headings,
 } = Astro.props;
 ---
 
@@ -39,7 +47,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {description && <meta name="description" content={description} />}
     {keywords && <meta name="keywords" content={keywords} />}
-    <title>{title}</title>
+    <title>{metaTitle ?? title}</title>
     <script src="../icons/duotone.min.js"></script>
     <script src="../icons/fontawesome.min.js"></script>
     <script src="../scripts/script.js"></script>
@@ -56,6 +64,8 @@ const {
     />
     <div class="main-wrapper">
       <main class="primary-content content">
+        {title !== undefined && title.length > 0 && <h1>{title}</h1>}
+        <ToC headings={headings} toc={toc} />
         <slot />
       </main>
     </div>
