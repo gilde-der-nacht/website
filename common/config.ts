@@ -2,6 +2,8 @@ import { squooshImageService } from "astro/config";
 import solidJs from "@astrojs/solid-js";
 import mdx from "@astrojs/mdx";
 import type { AstroUserConfig } from "astro";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 
 type ConfigProps = {
   host: string;
@@ -22,6 +24,15 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
     },
     devToolbar: {
       enabled: false,
+    },
+    markdown: {
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          { behavior: "wrap", properties: { class: "header-anchor" } },
+        ],
+      ],
     },
     integrations: [solidJs(), mdx()],
   } satisfies AstroUserConfig;
