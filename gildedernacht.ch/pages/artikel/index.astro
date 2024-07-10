@@ -1,0 +1,51 @@
+---
+import Layout from "@gdn/layouts/Layout.astro";
+import {
+  formatDate,
+  sortByDate as sortUtil,
+  isFutureDate,
+  isNotProduction,
+} from "@common/components/utils.ts";
+
+const articles = await Astro.glob("./**/*.{md,mdx,astro}");
+
+function sortByDate(a: Record<string, any>, b: Record<string, any>): number {
+  return sortUtil(a.frontmatter, b.frontmatter);
+}
+
+function filterBasedOnEnv(entry: Record<string, any>): boolean {
+  return (
+    isNotProduction() ||
+    (entry.frontmatter.draft !== true && !isFutureDate(entry.frontmatter.date))
+  );
+}
+---
+
+<Layout title="Artikel" metaTitle="Artikel">
+  <ul class="link-list" role="list">
+    {
+      articles
+        .toSorted(sortByDate)
+        .filter(filterBasedOnEnv)
+        .map((article) => (
+          <li>
+            <h2>
+              <a href={article.url}>
+                {article.frontmatter.title ?? article.frontmatter.metaTitle}
+              </a>
+            </h2>
+            <ul class="tags" role="list">
+              <li
+                class={`tag ${isFutureDate(article.frontmatter.date) ? "special-case" : ""}`}
+              >
+                {formatDate(new Date(article.frontmatter.date))}
+              </li>
+              {article.frontmatter.draft === true && (
+                <li class="tag special-case">Entwurf</li>
+              )}
+            </ul>
+          </li>
+        ))
+    }
+  </ul>
+</Layout>

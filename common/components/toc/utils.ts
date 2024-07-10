@@ -38,7 +38,7 @@ function buildToc(headings: AstroHeading[]): TocView[] {
     if (heading.depth === startHeading) {
       toc.push(heading);
     } else {
-      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+      parentHeadings.get(heading.depth - 1).sub.push(heading);
     }
   });
   return toc;

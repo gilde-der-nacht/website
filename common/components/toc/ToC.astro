@@ -24,7 +24,7 @@ const config = ((): TocConfigView => {
   }
 
   const startLevel = toc === true ? 2 : toc.startLevel;
-  const endLevel = toc === true ? 2 : toc.endLevel;
+  const endLevel = toc === true ? 6 : toc.endLevel;
   const ordered = toc === true ? true : toc.ordered ?? true;
 
   const tocView = generateTocView(headings, startLevel, endLevel);

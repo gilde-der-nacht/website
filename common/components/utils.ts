@@ -29,22 +29,34 @@ export function formatDateRange(from: Date, to: Date): string {
     const startFormatter = new Intl.DateTimeFormat("de-CH", {
       day: "numeric",
     });
-    return `${startFormatter.format(from)}. bis ${endFormatter.format(to)
-      }`;
+    return `${startFormatter.format(from)}. bis ${endFormatter.format(to)}`;
   }
   if (sameYear) {
     const startFormatter = new Intl.DateTimeFormat("de-CH", {
       day: "numeric",
       month: "long",
     });
-    return `${startFormatter.format(from)} bis ${endFormatter.format(to)
-      }`;
+    return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
   }
   const startFormatter = new Intl.DateTimeFormat("de-CH", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
-  return `${startFormatter.format(from)} bis ${endFormatter.format(to)
-    }`;
+  return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
+}
+
+type WithDate = { date: string | Date };
+export function sortByDate(a: WithDate, b: WithDate): number {
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+}
+
+export function isFutureDate(date: Date | string): boolean {
+  const now = new Date();
+  const entryDate = new Date(date);
+  return now < entryDate;
+}
+
+export function isNotProduction(): boolean {
+  return import.meta.env.DEV || import.meta.env.ENV === "test";
 }
