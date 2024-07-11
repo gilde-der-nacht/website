@@ -13,7 +13,7 @@ export function ButtonLink(props: Props): JSX.Element {
       class={`button button-small button-${props.kind ?? "special"}`}
     >
       <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>
-      {props.label}
+      <span> {props.label}</span>
     </a>
   );
 }

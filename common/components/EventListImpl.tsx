@@ -132,7 +132,7 @@ function renderLinks(event: OlympEvent): JSX.Element {
       <li>
         <a href={`${link.url}`} class="event-link">
           <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>
-          {link.label}
+          <span> {link.label}</span>
         </a>
       </li>
     );

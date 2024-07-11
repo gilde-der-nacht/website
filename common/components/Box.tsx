@@ -16,8 +16,8 @@ export function Box(props: Props): JSX.Element {
           href={props.link ?? ""}
           class={`button button-small button-${props.type ?? "gray"}`}
         >
-          <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>{" "}
-          {props.linkLabel}
+          <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>
+          <span> {props.linkLabel}</span>
         </a>
       </Show>
     </div>
