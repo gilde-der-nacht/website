@@ -37,9 +37,9 @@ function renderBackgroundIcon(event: OlympEvent): JSX.Element {
 
 function renderDate(event: OlympEvent): JSX.Element {
   const icon = (
-    <a href="TODO" class="event-icon">
+    <div class="event-icon">
       <i class="fa-duotone fa-calendar-range"></i>
-    </a>
+    </div>
   );
   if (event.type_of_time === "multiple_full_days") {
     return (
