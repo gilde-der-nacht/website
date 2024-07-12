@@ -1,3 +1,9 @@
+import type { JSX } from "solid-js";
+
+export type WithChildren = {
+  children?: JSX.Element;
+};
+
 const dateFormat = new Intl.DateTimeFormat("de-CH", {
   dateStyle: "long",
 });

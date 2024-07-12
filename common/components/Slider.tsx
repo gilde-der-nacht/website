@@ -1,8 +1,8 @@
-import { type JSX } from "solid-js";
+import type { JSX } from "solid-js";
+import type { WithChildren } from "./utils";
 
-type Props = {
+type Props = WithChildren & {
   size?: "small";
-  children?: JSX.Element;
 };
 
 export function Slider(props: Props): JSX.Element {

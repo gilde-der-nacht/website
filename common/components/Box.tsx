@@ -1,10 +1,10 @@
 import { Show, type JSX } from "solid-js";
+import type { WithChildren } from "./utils";
 
-type Props = {
+type Props = WithChildren & {
   type?: "success" | "danger" | "special" | "gray";
   link?: string;
   linkLabel?: string;
-  children?: JSX.Element;
 };
 
 export function Box(props: Props): JSX.Element {

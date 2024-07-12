@@ -9,15 +9,16 @@
   }
 
   // hacky solution to remove empty <p> tags ;-(
-  .image-text-left p:first-child,
-  figure + p {
+  .image-text-left p:emtpy,
+  figure+p:empty {
     display: none;
   }
 
   &.tables {
-    > * {
+    >* {
       min-width: max-content;
     }
+
     table {
       width: 100%;
     }
