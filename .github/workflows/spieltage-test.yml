@@ -2,7 +2,7 @@ name: spieltage.ch Test Page
 
 on:
   push:
-    branches: [dandelion-*]
+    branches: [dandelion]
   workflow_dispatch:
   schedule:
     - cron: "0 1 * * *"
