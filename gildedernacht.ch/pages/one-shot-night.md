@@ -1,10 +1,9 @@
 ---
 layout: "@gdn/layouts/Layout.astro"
 title: One Shot Night
+metaTitle: One Shot Night
 toc: true
 ---
-
-# One Shot Night
 
 **Die erste ONE SHOT NIGHT Luzern ist am 04.05.24.**
 
