@@ -3,6 +3,7 @@
 @use "../globals/fonts" as f;
 
 $_top-offset: calc(1rem + var.$header-block-size);
+
 :target::before {
   content: "";
   display: block;
@@ -40,11 +41,12 @@ $_top-offset: calc(1rem + var.$header-block-size);
     font-size: 0.9rem;
     line-height: 1.1;
   }
+
   h2 {
-    @include f.font-family("body");
-    @include f.font-weight(normal);
     text-transform: none;
     font-size: 0.8rem;
+    @include f.font-family("body");
+    @include f.font-weight(normal);
   }
 }
 

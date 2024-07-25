@@ -75,8 +75,8 @@
   }
 
   a {
-    @include p.link;
     text-decoration: none;
+    @include p.link;
   }
 
   p,
@@ -132,8 +132,8 @@ details {
   max-inline-size: 60ch;
 
   summary {
-    @include f.font-weight(700);
     margin-bottom: 0.5em;
     cursor: pointer;
+    @include f.font-weight(700);
   }
 }

@@ -2,7 +2,7 @@
 @use "../globals/variables" as var;
 
 #mobile-navigation {
-  ~ .toggle-mobile-navigation {
+  ~.toggle-mobile-navigation {
     cursor: pointer;
     padding: 1.5rem;
     margin-bottom: 0.25rem;
@@ -20,7 +20,7 @@
     }
   }
 
-  ~ .mobile-menu-container {
+  ~.mobile-menu-container {
     position: fixed;
     overflow: auto;
     inset: var.$header-block-size 0 0;
@@ -31,7 +31,7 @@
   }
 
   &:checked {
-    ~ .toggle-mobile-navigation {
+    ~.toggle-mobile-navigation {
       &::after {
         content: "";
         position: fixed;
@@ -48,7 +48,7 @@
       }
     }
 
-    ~ .mobile-menu-container {
+    ~.mobile-menu-container {
       transform: translateX(0);
     }
   }
@@ -59,10 +59,12 @@
     padding-left: 0.25rem;
   }
 
-  padding-block: 0.5rem;
-  max-inline-size: 20rem;
-  display: grid;
-  grid-template-rows: 1fr max-content;
+  & {
+    padding-block: 0.5rem;
+    max-inline-size: 20rem;
+    display: grid;
+    grid-template-rows: 1fr max-content;
+  }
 }
 
 .mobile-footer {

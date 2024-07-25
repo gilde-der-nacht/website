@@ -91,10 +91,14 @@ $_native-font-stack: // Cross-platform generic font family (default user interfa
 
 @mixin font-weight($weight: normal) {
   @if $weight ==700 {
-    font-weight: $weight;
+    & {
+      font-weight: $weight;
+    }
   }
 
   @else {
-    font-weight: 400;
+    & {
+      font-weight: 400;
+    }
   }
 }

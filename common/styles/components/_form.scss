@@ -28,8 +28,8 @@ label {
 
   >input:not([type="checkbox"]):not([type="radio"]),
   >textarea {
-    @include f.font-weight();
     margin-top: 0.5rem;
+    @include f.font-weight();
   }
 }
 
@@ -64,8 +64,8 @@ button {
 }
 
 .button {
-  @include p.button;
   padding: 0.5rem 1rem;
+  @include p.button;
   @include f.font-weight(700);
 }
 
@@ -230,8 +230,8 @@ fieldset {
 }
 
 legend {
-  @include f.font-weight(700);
   margin-bottom: 0.5rem;
+  @include f.font-weight(700);
 }
 
 .show-on-target {
