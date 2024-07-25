@@ -134,5 +134,6 @@ details {
   summary {
     @include f.font-weight(700);
     margin-bottom: 0.5em;
+    cursor: pointer;
   }
 }
