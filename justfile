@@ -24,3 +24,7 @@ rst-build:
 update:
     nix flake update
     yarn dlx npm-check-updates -u
+
+# Install dependencies
+install:
+    yarn install
