@@ -1,10 +1,20 @@
 import { squooshImageService } from "astro/config";
 import solidJs from "@astrojs/solid-js";
 import mdx from "@astrojs/mdx";
-import type { AstroUserConfig } from "astro";
+import type { AstroUserConfig, RemarkPlugins } from "astro";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import remarkSmartypants from "remark-smartypants";
+
+const remarkSmartyPants = [
+  [
+    remarkSmartypants,
+    {
+      openingQuotes: { double: "«", single: "‹" },
+      closingQuotes: { double: "»", single: "›" },
+    },
+  ],
+] as RemarkPlugins;
 
 type ConfigProps = {
   host: string;
@@ -27,15 +37,7 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
       enabled: false,
     },
     markdown: {
-      remarkPlugins: [
-        [
-          "remark-smartypants",
-          {
-            openingQuotes: { double: "«", single: "‹" },
-            closingQuotes: { double: "»", single: "›" },
-          },
-        ],
-      ],
+      remarkPlugins: [...remarkSmartyPants],
       rehypePlugins: [
         rehypeSlug,
         [
@@ -44,19 +46,6 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
         ],
       ],
     },
-    integrations: [
-      solidJs(),
-      mdx({
-        remarkPlugins: [
-          [
-            remarkSmartypants,
-            {
-              openingQuotes: { double: "«", single: "‹" },
-              closingQuotes: { double: "»", single: "›" },
-            },
-          ],
-        ],
-      }),
-    ],
+    integrations: [solidJs(), mdx()],
   } satisfies AstroUserConfig;
 }
