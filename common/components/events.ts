@@ -1,19 +1,19 @@
 import { z } from "astro/zod";
 
-const statusSchema = z.enum(["published", "draft", "archived"])
+const statusSchema = z.enum(["published", "draft", "archived"]);
 
 const tagSchema = z.object({
   id: z.number(),
   status: statusSchema,
-  label: z.string()
-})
+  label: z.string(),
+});
 
 const linkSchema = z.object({
   id: z.number(),
   status: statusSchema,
   label: z.string(),
-  url: z.string()
-})
+  url: z.string(),
+});
 
 const locationSchema = z.object({
   id: z.number(),
@@ -22,24 +22,29 @@ const locationSchema = z.object({
   url: z.nullable(z.string()),
   virtuel: z.boolean(),
   label_long: z.nullable(z.string()),
-  comment: z.nullable(z.string())
-})
+  comment: z.nullable(z.string()),
+});
 
 const typeSchema = z.object({
   id: z.number(),
   status: statusSchema,
   label: z.string(),
-  description: z.nullable(z.string())
-})
+  description: z.nullable(z.string()),
+});
 
 const organizerSchema = z.object({
   id: z.number(),
   status: statusSchema,
   name: z.string(),
-  url: z.nullable(z.string())
+  url: z.nullable(z.string()),
 });
 
-const typeOfTimeSchema = z.enum(["one_partial_day", "multiple_partial_days", "one_full_day", "multiple_full_days"])
+const typeOfTimeSchema = z.enum([
+  "one_partial_day",
+  "multiple_partial_days",
+  "one_full_day",
+  "multiple_full_days",
+]);
 
 const eventSchema = z.object({
   id: z.number(),
@@ -49,7 +54,7 @@ const eventSchema = z.object({
   start: z.coerce.date(),
   end: z.coerce.date(),
   description: z.nullable(z.string()),
-  googleCalendarId: z.string(),
+  googleCalendarId: z.nullable(z.string()),
   tags: z.array(z.object({ tags_id: tagSchema })),
   links: z.array(z.object({ links_id: linkSchema })),
   location: locationSchema,
@@ -70,9 +75,9 @@ export async function loadEvents(): Promise<OlympEvent[]> {
   eventsUrl.searchParams.append("fields[]", "tags.tags_id.*");
 
   const response = await fetch(eventsUrl);
-  const json = await response.json() as unknown;
+  const json = (await response.json()) as unknown;
 
-  const parsed = z.object({data: z.array(eventSchema)}).parse(json);
+  const parsed = z.object({ data: z.array(eventSchema) }).parse(json);
 
   return parsed.data;
 }
