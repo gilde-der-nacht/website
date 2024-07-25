@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import type { AstroUserConfig } from "astro";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
+import remarkSmartypants from "remark-smartypants";
 
 type ConfigProps = {
   host: string;
@@ -26,6 +27,15 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
       enabled: false,
     },
     markdown: {
+      remarkPlugins: [
+        [
+          "remark-smartypants",
+          {
+            openingQuotes: { double: "«", single: "‹" },
+            closingQuotes: { double: "»", single: "›" },
+          },
+        ],
+      ],
       rehypePlugins: [
         rehypeSlug,
         [
@@ -34,6 +44,19 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
         ],
       ],
     },
-    integrations: [solidJs(), mdx()],
+    integrations: [
+      solidJs(),
+      mdx({
+        remarkPlugins: [
+          [
+            remarkSmartypants,
+            {
+              openingQuotes: { double: "«", single: "‹" },
+              closingQuotes: { double: "»", single: "›" },
+            },
+          ],
+        ],
+      }),
+    ],
   } satisfies AstroUserConfig;
 }

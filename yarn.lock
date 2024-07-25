@@ -2345,6 +2345,7 @@ __metadata:
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
     rehype-slug: "npm:^6.0.0"
+    remark-smartypants: "npm:^3.0.2"
     sass: "npm:^1.77.8"
     solid-js: "npm:^1.8.19"
     typescript: "npm:^5.5.4"
