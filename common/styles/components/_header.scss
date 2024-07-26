@@ -2,15 +2,6 @@
 @use "../globals/variables" as var;
 @use "../globals/fonts" as f;
 
-$_top-offset: calc(1rem + var.$header-block-size);
-
-:target::before {
-  content: "";
-  display: block;
-  block-size: $_top-offset;
-  margin-top: -1 * $_top-offset;
-}
-
 .header {
   display: grid;
   grid-template-columns: max-content 1fr max-content;
@@ -18,9 +9,7 @@ $_top-offset: calc(1rem + var.$header-block-size);
   background-color: c.get("background-solid");
   block-size: var.$header-block-size;
   border-bottom: 0.25rem solid c.get("border-subtle");
-  position: sticky;
   z-index: 10;
-  top: 0;
   overflow: hidden;
 }
 
