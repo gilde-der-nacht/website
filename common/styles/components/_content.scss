@@ -110,6 +110,7 @@
   >ul,
   >form,
   >nav,
+  >details,
   >.event-filters {
     position: relative;
 
@@ -136,4 +137,8 @@ details {
     cursor: pointer;
     @include f.font-weight(700);
   }
+}
+
+details+details {
+  margin-top: 1.5em;
 }

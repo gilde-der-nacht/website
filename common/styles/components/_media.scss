@@ -2,12 +2,13 @@
 @use "../globals/colors" as c;
 
 :where(.content) {
+
   img,
   video,
   canvas,
   svg:not([data-icon]) {
-    @include p.element;
     background-color: c.get("border-element");
+    @include p.element;
   }
 
   figure {
@@ -16,7 +17,7 @@
     border-bottom-right-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
 
-    > * {
+    >* {
       grid-column: 1;
       grid-row: 1;
     }
@@ -38,7 +39,7 @@
     &:hover {
       figcaption {
         transform: translateY(0%);
-      background-color: c.get("background-solid");
+        background-color: c.get("background-solid");
       }
 
       img {

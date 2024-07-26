@@ -24,8 +24,6 @@ navigation:
   
 </details>
 
-<br/>
-
 <details open="">
   <summary>Gibt es Mitgliedschaftsmöglichkeiten für die "Gilde der Nacht" und welche Vorteile bietet die Mitgliedschaft?</summary>
 
@@ -34,8 +32,6 @@ navigation:
   Da es sehr wichtig ist für uns, wiederholen wir es erneut: Alle unsere Events im Kalender sind öffentlich und sowohl Mitglieder als auch Nicht-Mitglieder sind gleichermassen willkommen.
 
 </details>
-
-<br/>
 
 <details open="">
   <summary>Wie hoch ist der jährliche Mitgliederbeitrag?</summary>
@@ -46,16 +42,12 @@ navigation:
 
 </details>
 
-<br/>
-
 <details open="">
   <summary>Gibt es eine Altersbeschränkung für die Mitgliedschaft im Verein?</summary>
 
   Nein, es gibt keine Altersbeschränkung. Jedoch sind nicht alle unsere Anlässe für alle Altersgruppen geeignet (siehe weiter unten).
 
 </details>
-
-<br/>
 
 <details open="">
   <summary>Wie muss ich vorgehen, wenn ich Mitglied werden möchte?</summary>
@@ -64,8 +56,6 @@ navigation:
 
 </details>
 
-<br/>
-
 <details open="">
   <summary>Gibt es einen Newsletter oder einen Social-Media-Kanal, über den ich über Neuigkeiten informiert werden kann?</summary>
 
@@ -73,16 +63,12 @@ navigation:
 
 </details>
 
-<br hidden/>
-
 <details open="" hidden>
   <summary>Gibt es bestimmte Regeln oder Richtlinien, die Vereinsmitglieder beachten müssen?</summary>
 
   Bitte beachte unseren Verhaltenskodex ([link], TODO). Dieser gilt auch für Nichtmitglieder an unseren Veranstaltungen oder in unserem Discord-Chat.
 
 </details>
-
-<br/>
 
 <details open="">
   <summary>Gibt es Möglichkeiten, sich aktiv am Verein zu beteiligen, wie z.B. bei der Organisation von Events oder der Auswahl von Spielen?</summary>
