@@ -1,6 +1,7 @@
 ---
 import Layout from "@rst/layouts/Layout.astro";
 import { Button } from "@common/components/Button.tsx";
+import { Box } from "@common/components/Box.tsx";
 import { getProgramGroupedByStarthour } from "@rst/components/anmeldung/data.ts";
 import EventList from "@rst/components/EventList.astro";
 
@@ -29,18 +30,69 @@ const sunday = Object.entries(program.SUNDAY);
     <a href="#Samstag" class="header-anchor">Samstag, 24. August 2024</a>
   </h2>
   {
-    saturday.map(([hour, entries]) => (
-      <>
-        <h3 id={`Samstag-${hour}`}>
-          <a href={`#Samstag-${hour}`} class="header-anchor">
-            Start {hour} Uhr
-          </a>
-        </h3>
-        <EventList hour={hour} entries={entries} />
-      </>
-    ))
+    saturday
+      .filter(([hour]) => {
+        return Number(hour) < 13;
+      })
+      .map(([hour, entries]) => (
+        <>
+          <h3 id={`Samstag-${hour}`}>
+            <a href={`#Samstag-${hour}`} class="header-anchor">
+              Start {hour} Uhr
+            </a>
+          </h3>
+          <EventList hour={hour} entries={entries} />
+        </>
+      ))
   }
 
+  <Box>
+    <div style="display: flex; gap: 1rem;">
+      <span> 13 - 14 Uhr: </span>
+      <h4>Mittagessen</h4>
+    </div>
+  </Box>
+
+  {
+    saturday
+      .filter(([hour]) => {
+        return Number(hour) > 13 && Number(hour) < 18;
+      })
+      .map(([hour, entries]) => (
+        <>
+          <h3 id={`Samstag-${hour}`}>
+            <a href={`#Samstag-${hour}`} class="header-anchor">
+              Start {hour} Uhr
+            </a>
+          </h3>
+          <EventList hour={hour} entries={entries} />
+        </>
+      ))
+  }
+
+  <Box>
+    <div style="display: flex; gap: 1rem;">
+      <span>18 - 19 Uhr: </span>
+      <h4>Nachtessen</h4>
+    </div>
+  </Box>
+
+  {
+    saturday
+      .filter(([hour]) => {
+        return Number(hour) > 18;
+      })
+      .map(([hour, entries]) => (
+        <>
+          <h3 id={`Samstag-${hour}`}>
+            <a href={`#Samstag-${hour}`} class="header-anchor">
+              Start {hour} Uhr
+            </a>
+          </h3>
+          <EventList hour={hour} entries={entries} />
+        </>
+      ))
+  }
   <a href="#top" style="border: none;"><Button label="nach oben" /></a>
   <a href="/anmeldung" style="border: none;"
     ><Button label="jetzt Anmelden" kind="success" /></a
@@ -51,16 +103,44 @@ const sunday = Object.entries(program.SUNDAY);
   </h2>
 
   {
-    sunday.map(([hour, entries]) => (
-      <>
-        <h3 id={`Sonntag-${hour}`}>
-          <a href={`#Sonntag-${hour}`} class="header-anchor">
-            Start {hour} Uhr
-          </a>
-        </h3>
-        <EventList hour={hour} entries={entries} />
-      </>
-    ))
+    sunday
+      .filter(([hour]) => {
+        return Number(hour) < 13;
+      })
+      .map(([hour, entries]) => (
+        <>
+          <h3 id={`Sonntag-${hour}`}>
+            <a href={`#Sonntag-${hour}`} class="header-anchor">
+              Start {hour} Uhr
+            </a>
+          </h3>
+          <EventList hour={hour} entries={entries} />
+        </>
+      ))
+  }
+
+  <Box>
+    <div style="display: flex; gap: 1rem;">
+      <span> 13 - 14 Uhr: </span>
+      <h4>Mittagessen</h4>
+    </div>
+  </Box>
+
+  {
+    sunday
+      .filter(([hour]) => {
+        return Number(hour) > 13;
+      })
+      .map(([hour, entries]) => (
+        <>
+          <h3 id={`Sonntag-${hour}`}>
+            <a href={`#Sonntag-${hour}`} class="header-anchor">
+              Start {hour} Uhr
+            </a>
+          </h3>
+          <EventList hour={hour} entries={entries} />
+        </>
+      ))
   }
 
   <a href="#top" style="border: none;"><Button label="nach oben" /></a>
