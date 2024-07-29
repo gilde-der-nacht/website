@@ -1,15 +1,16 @@
 ---
-import Layout from "@rst/layouts/Layout.astro"
-import { Button } from "@common/components/Button.tsx"
-import { getProgramGroupedByStarthour } from "@rst/components/anmeldung/data.ts"
+import Layout from "@rst/layouts/Layout.astro";
+import { Button } from "@common/components/Button.tsx";
+import { getProgramGroupedByStarthour } from "@rst/components/anmeldung/data.ts";
+import EventList from "@rst/components/EventList.astro";
 
 export const frontmatter = {
   navigation: {
     group: "main",
     label: "Programm 2024",
-    order: 2
-  }
-}
+    order: 2,
+  },
+};
 
 const program = await getProgramGroupedByStarthour();
 const saturday = Object.entries(program.SATURDAY);
@@ -19,8 +20,8 @@ const colorsOfHour: Record<string, string> = {
   "11": "success",
   "14": "danger",
   "15": "special",
-  "19": "success"
-}
+  "19": "success",
+};
 ---
 
 <Layout metaTitle="Programm 2024">
@@ -34,46 +35,15 @@ const colorsOfHour: Record<string, string> = {
     saturday.map(([hour, entries]) => (
       <>
         <h3>Start {hour} Uhr</h3>
-        <ul class="event-list" role="list"> 
-        {
-          entries.map((entry) => (
-            <li class=`event-entry ${colorsOfHour[hour]}`>
-              <h1 class="event-title">{entry.title === null ? entry.system : `${entry.title} (${entry.system})`}</h1>
-              <div class="event-details"> 
-                <div class="event-tags"><strong>Zeit:</strong> {entry.slot.start} - {entry.slot.end} Uhr</div> 
-                <div class="event-tags"><strong>Spielleitung:</strong> {entry.master.first} {entry.master.last}</div> 
-                <div class="event-tags"><strong>Spielende:</strong> {entry.playerCount.max > 50 ? (
-                <em>unbegrenzt</em>
-                ) : (
-                `${entry.playerCount.min} - ${entry.playerCount.max}`
-                )}
-                </div> 
-              </div>
-              {
-                entry.description !== null && entry.description.trim().length > 0 ? (
-                  <div class="event-description content"><p><strong>Beschreibung:</strong><br/>{entry.description}</p> </div>
-                ) : null
-              }
-            </li>
-          ))
-        }
-        {
-          entries.length < 3 ? (
-            <li class=`event-entry gray`>
-              <h3 class="event-title">Möchtest du auch eine Spielrunde leiten?</h3>
-              <div></div>
-              <div class="event-description content"><p>Melde dich ungeniert bei uns.</p><p>Sollest du noch wenig bis gar keine Erfahrung mit dem Leiten von Rollenspielrunden haben, dann unterstützen wir dich gerne vor und während dem Anlass.</p> </div>                           
-              <ul role="list" class="event-links"> <li><a href="https://rollenspieltage.ch/kontakt" class="event-link"> Zum Kontaktformular</a></li>  </ul>
-            </li>
-          ) : null
-        }
-        </ul>
+        <EventList hour={hour} entries={entries} />
       </>
     ))
   }
 
   <a href="#top" style="border: none;"><Button label="nach oben" /></a>
-  <a href="/anmeldung" style="border: none;"><Button label="jetzt Anmelden" kind="success" /></a>
+  <a href="/anmeldung" style="border: none;"
+    ><Button label="jetzt Anmelden" kind="success" /></a
+  >
 
   <h2 id="Sonntag">Sonntag, 25. August 2024</h2>
 
@@ -81,43 +51,13 @@ const colorsOfHour: Record<string, string> = {
     sunday.map(([hour, entries]) => (
       <>
         <h3>Start {hour} Uhr</h3>
-        <ul class="event-list" role="list"> 
-        {
-          entries.map((entry) => (
-            <li class=`event-entry ${colorsOfHour[hour]}`>
-              <h1 class="event-title">{entry.title === null ? entry.system : `${entry.title} (${entry.system})`}</h1>
-              <div class="event-details"> 
-                <div class="event-tags"><strong>Zeit:</strong> {entry.slot.start} - {entry.slot.end} Uhr</div> 
-                <div class="event-tags"><strong>Spielleitung:</strong> {entry.master.first} {entry.master.last}</div> 
-                <div class="event-tags"><strong>Spielende:</strong> {entry.playerCount.min} - {entry.playerCount.max}</div> 
-              </div>
-              {
-                entry.description !== null && entry.description.trim().length > 0 ? (
-                  <div class="event-description content"><p><strong>Beschreibung:</strong><br/>{entry.description}</p> </div>
-                ) : null
-              }
-            </li>
-          ))
-        }
-        {
-          entries.length < 3 ? (
-            <li class=`event-entry gray`>
-              <h3 class="event-title">Möchtest du auch eine Spielrunde leiten?</h3>
-              <div></div>
-              <div class="event-description content"><p>Melde dich ungeniert bei uns.</p><p>Sollest du noch wenig bis gar keine Erfahrung mit dem Leiten von Rollenspielrunden haben, dann unterstützen wir dich gerne vor und während dem Anlass.</p> </div>                           
-              <ul role="list" class="event-links"> <li><a href="https://rollenspieltage.ch/kontakt" class="event-link"> Zum Kontaktformular</a></li>  </ul>
-            </li>
-          ) : null
-        }
-        </ul>
+        <EventList hour={hour} entries={entries} />
       </>
     ))
   }
 
   <a href="#top" style="border: none;"><Button label="nach oben" /></a>
-  <a href="/anmeldung" style="border: none;"><Button label="jetzt Anmelden" kind="success" /></a>
-
+  <a href="/anmeldung" style="border: none;"
+    ><Button label="jetzt Anmelden" kind="success" /></a
+  >
 </Layout>
-
-
-
