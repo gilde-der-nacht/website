@@ -4,9 +4,10 @@ import type {
   ProgramEntry,
   ReservationFromServer,
   SaveFromServer,
-} from "./data";
+} from "@rst/components/anmeldung/data";
 import { Box } from "@common/components/Box";
-import type { Reservation } from "./types";
+import type { DayPeriod, Reservation } from "@rst/components/anmeldung/types";
+import { MealBreak } from "./MealBreak";
 
 type ReservationAndGame = { reservation: Reservation; game: ProgramEntry };
 
@@ -85,24 +86,68 @@ function groupByGame(
     .filter((e) => e !== null);
 }
 
+type GroupedByDayPeriod = Record<DayPeriod, GroupedByGame>;
+function groupByDayPeriod(groupByGame: GroupedByGame): GroupedByDayPeriod {
+  const grouped: GroupedByDayPeriod = {
+    MORNING: [],
+    AFTERNOON: [],
+    EVENING: [],
+  };
+  groupByGame.forEach((entry) => {
+    const startTime = entry.game.slot.start;
+    if (startTime < 13) {
+      grouped.MORNING.push(entry);
+    } else if (startTime < 18) {
+      grouped.AFTERNOON.push(entry);
+    } else {
+      grouped.EVENING.push(entry);
+    }
+  });
+
+  return grouped;
+}
+
 function ReservationList(props: {
   entries: ReservationAndGame[];
   selfName: string;
   type: "success" | "danger" | "special" | "gray";
 }): JSX.Element {
-  const grouped = groupByGame(props.entries, props.selfName);
+  const groupedByGame = groupByGame(props.entries, props.selfName);
+  const { MORNING, AFTERNOON, EVENING } = groupByDayPeriod(groupedByGame);
+  const isSaturday = props.entries[0]?.game.slot.day === "SATURDAY";
+
+  function ReservationSubList(p: { entries: GroupedByGame }): JSX.Element {
+    return (
+      <ul role="list" style="display: grid; gap: .5rem;">
+        {p.entries.map((entry) => (
+          <li>
+            <ReservationItem
+              game={entry.game}
+              players={entry.players}
+              type={props.type}
+            />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   return (
-    <ul role="list" style="display: grid; gap: .5rem;">
-      {grouped.map((group) => (
-        <li>
-          <ReservationItem
-            game={group.game}
-            players={group.players}
-            type={props.type}
-          />
-        </li>
-      ))}
-    </ul>
+    <>
+      {MORNING.length > 0 ? <ReservationSubList entries={MORNING} /> : null}
+      {MORNING.length > 0 || AFTERNOON.length > 0 ? (
+        <div style="max-inline-size: 60ch;">
+          <MealBreak type="LUNCH" small={true} />
+        </div>
+      ) : null}
+      {AFTERNOON.length > 0 ? <ReservationSubList entries={AFTERNOON} /> : null}
+      {isSaturday && (AFTERNOON.length > 0 || EVENING.length > 0) ? (
+        <div style="max-inline-size: 60ch;">
+          <MealBreak type="DINNER" small={true} />
+        </div>
+      ) : null}
+      {EVENING.length > 0 ? <ReservationSubList entries={EVENING} /> : null}
+    </>
   );
 }
 

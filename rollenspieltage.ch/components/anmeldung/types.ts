@@ -1,6 +1,8 @@
 import type { Tab } from "./Tabs";
 import type { SaveFromServer } from "./data";
 
+export type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
+
 export type Reservation = {
   gameUuid: string;
   friendsName: string | null;
@@ -8,16 +10,16 @@ export type Reservation = {
 
 export type ReservationView =
   | {
-    confirmed: false;
-    gameUuid: string;
-    name: string;
-  }
+      confirmed: false;
+      gameUuid: string;
+      name: string;
+    }
   | {
-    confirmed: true;
-    gameUuid: string;
-    name: string;
-    reservationId: number;
-  };
+      confirmed: true;
+      gameUuid: string;
+      name: string;
+      reservationId: number;
+    };
 
 export type Store = {
   state: "IDLE" | "SAVING";
@@ -29,12 +31,12 @@ export type Store = {
   hasChanged: boolean;
   tentativeReservations: Reservation[];
   markedForDeletionReservations: number[];
-}
+};
 
 export type Range = {
-  from : number;
+  from: number;
   to: number;
-}
+};
 
 export type ReservedTimeRange = {
   range: Range;

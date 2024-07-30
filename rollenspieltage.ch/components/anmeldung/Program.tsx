@@ -4,15 +4,16 @@ import type {
   ProgramEntryExtended,
   ReservationFromServer,
   UpdateSave,
-} from "./data";
+} from "@rst/components/anmeldung/data";
 import { Checkbox } from "@common/components/Checkbox";
 import type {
   Reservation,
   ReservationView,
   ReservedTimeRange,
   Range,
-} from "./types";
-import { MealBreak } from "./MealBreak";
+  DayPeriod,
+} from "@rst/components/anmeldung/types";
+import { MealBreak } from "@rst/components/anmeldung/MealBreak";
 
 const BUFFER_SEATS = 1 as const;
 
@@ -259,7 +260,6 @@ function aggregateReservedTimeRanges(props: {
   });
 }
 
-type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
 type GroupedByDayPeriod = Record<DayPeriod, ProgramByHour>;
 
 function groupByDayPeriod(programByHour: ProgramByHour): GroupedByDayPeriod {
@@ -400,13 +400,13 @@ export function ProgramOfDay(props: {
       </div>
       <EventList program={MORNING} />
       <div style="margin-block: 2rem;">
-        <MealBreak time={{ from: 13, to: 14 }} type="LUNCH" />
+        <MealBreak type="LUNCH" />
       </div>
       <EventList program={AFTERNOON} />
       {EVENING.length > 0 ? (
         <>
           <div style="margin-block: 2rem;">
-            <MealBreak time={{ from: 18, to: 19 }} type="DINNER" />
+            <MealBreak type="DINNER" />
           </div>
           <EventList program={EVENING} />{" "}
         </>

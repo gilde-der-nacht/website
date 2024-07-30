@@ -1,7 +1,6 @@
 ---
 import Layout from "@rst/layouts/Layout.astro";
 import { Button } from "@common/components/Button.tsx";
-import { Box } from "@common/components/Box.tsx";
 import { getProgramGroupedByStarthour } from "@rst/components/anmeldung/data.ts";
 import EventList from "@rst/components/anmeldung/EventList.astro";
 import { MealBreak } from "@rst/components/anmeldung/MealBreak.tsx";
@@ -48,7 +47,7 @@ const sunday = Object.entries(program.SUNDAY);
   }
 
   <div style="margin-block: 2.5rem;">
-    <MealBreak time={{ from: 13, to: 14 }} type="LUNCH" />
+    <MealBreak type="LUNCH" />
   </div>
 
   {
@@ -69,7 +68,7 @@ const sunday = Object.entries(program.SUNDAY);
   }
 
   <div style="margin-block: 2.5rem;">
-    <MealBreak time={{ from: 18, to: 19 }} type="DINNER" />
+    <MealBreak type="DINNER" />
   </div>
 
   {
@@ -115,7 +114,7 @@ const sunday = Object.entries(program.SUNDAY);
   }
 
   <div style="margin-block: 2.5rem;">
-    <MealBreak time={{ from: 13, to: 14 }} type="LUNCH" />
+    <MealBreak type="LUNCH" />
   </div>
 
   {
