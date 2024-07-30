@@ -3,7 +3,8 @@ import Layout from "@rst/layouts/Layout.astro";
 import { Button } from "@common/components/Button.tsx";
 import { Box } from "@common/components/Box.tsx";
 import { getProgramGroupedByStarthour } from "@rst/components/anmeldung/data.ts";
-import EventList from "@rst/components/EventList.astro";
+import EventList from "@rst/components/anmeldung/EventList.astro";
+import { MealBreak } from "@rst/components/anmeldung/MealBreak.tsx";
 
 export const frontmatter = {
   navigation: {
@@ -46,12 +47,9 @@ const sunday = Object.entries(program.SUNDAY);
       ))
   }
 
-  <Box>
-    <div style="display: flex; gap: 1rem;">
-      <span> 13 - 14 Uhr: </span>
-      <h4>Mittagessen</h4>
-    </div>
-  </Box>
+  <div style="margin-block: 2.5rem;">
+    <MealBreak time={{ from: 13, to: 14 }} type="LUNCH" />
+  </div>
 
   {
     saturday
@@ -70,12 +68,9 @@ const sunday = Object.entries(program.SUNDAY);
       ))
   }
 
-  <Box>
-    <div style="display: flex; gap: 1rem;">
-      <span>18 - 19 Uhr: </span>
-      <h4>Nachtessen</h4>
-    </div>
-  </Box>
+  <div style="margin-block: 2.5rem;">
+    <MealBreak time={{ from: 18, to: 19 }} type="DINNER" />
+  </div>
 
   {
     saturday
@@ -119,12 +114,9 @@ const sunday = Object.entries(program.SUNDAY);
       ))
   }
 
-  <Box>
-    <div style="display: flex; gap: 1rem;">
-      <span> 13 - 14 Uhr: </span>
-      <h4>Mittagessen</h4>
-    </div>
-  </Box>
+  <div style="margin-block: 2.5rem;">
+    <MealBreak time={{ from: 13, to: 14 }} type="LUNCH" />
+  </div>
 
   {
     sunday

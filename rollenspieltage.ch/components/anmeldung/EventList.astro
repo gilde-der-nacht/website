@@ -1,5 +1,5 @@
 ---
-import type { ProgramList } from './anmeldung/data.ts';
+import type { ProgramList } from '@rst/components/anmeldung/data.ts';
 
 export type Props = {
   hour: string;
@@ -15,6 +15,7 @@ const colorsOfHour: Record<string, string> = {
   "19": "success"
 }
 ---
+
 <ul class="event-list" role="list"> 
 {
   entries.map((entry) => (
