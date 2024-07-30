@@ -12,6 +12,7 @@ import type {
   ReservedTimeRange,
   Range,
 } from "./types";
+import { MealBreak } from "./MealBreak";
 
 const BUFFER_SEATS = 1 as const;
 
@@ -258,6 +259,31 @@ function aggregateReservedTimeRanges(props: {
   });
 }
 
+type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
+type GroupedByDayPeriod = Record<DayPeriod, ProgramByHour>;
+
+function groupByDayPeriod(programByHour: ProgramByHour): GroupedByDayPeriod {
+  const grouped: GroupedByDayPeriod = {
+    MORNING: [],
+    AFTERNOON: [],
+    EVENING: [],
+  };
+
+  programByHour.forEach((byHour) => {
+    const hour = Number(byHour[0]);
+
+    if (hour < 13) {
+      grouped.MORNING.push(byHour);
+    } else if (hour < 18) {
+      grouped.AFTERNOON.push(byHour);
+    } else {
+      grouped.EVENING.push(byHour);
+    }
+  });
+
+  return grouped;
+}
+
 export function ProgramOfDay(props: {
   selfName: string;
   programByHour: ProgramByHour;
@@ -286,6 +312,42 @@ export function ProgramOfDay(props: {
       tentativeReservations: props.tentativeReservations,
       markedForDeletionReservations: props.markedForDeletionReservations,
     });
+
+  const { MORNING, AFTERNOON, EVENING } = groupByDayPeriod(props.programByHour);
+
+  function EventList(p: { program: ProgramByHour }): JSX.Element {
+    return (
+      <>
+        {p.program
+          .filter(([hour]) => filter().includes(hour) || filter().length === 0)
+          .map(([hour, entries]) => (
+            <>
+              <h3 style="margin-block: 1rem;">Start {hour} Uhr</h3>
+              <ul class="event-list" role="list">
+                {entries.map((entry) => (
+                  <ProgrammEntryCard
+                    entry={entry}
+                    selfName={props.selfName}
+                    confirmedReservations={props.confirmedReservations.filter(
+                      (reservation) => reservation.game === entry.uuid,
+                    )}
+                    tentativeReservations={props.tentativeReservations.filter(
+                      (reservation) => reservation.gameUuid === entry.uuid,
+                    )}
+                    markedForDeletionReservations={
+                      props.markedForDeletionReservations
+                    }
+                    reservedTimeRanges={reservedTimeRanges()}
+                    addTentativeReservation={props.addTentativeReservation}
+                    deleteReservation={props.deleteReservation}
+                  />
+                ))}
+              </ul>
+            </>
+          ))}
+      </>
+    );
+  }
 
   return (
     <>
@@ -336,33 +398,19 @@ export function ProgramOfDay(props: {
           ))}
         </ul>
       </div>
-      {props.programByHour
-        .filter(([hour]) => filter().includes(hour) || filter().length === 0)
-        .map(([hour, entries]) => (
-          <>
-            <h3 style="margin-block: 1rem;">Start {hour} Uhr</h3>
-            <ul class="event-list" role="list">
-              {entries.map((entry) => (
-                <ProgrammEntryCard
-                  entry={entry}
-                  selfName={props.selfName}
-                  confirmedReservations={props.confirmedReservations.filter(
-                    (reservation) => reservation.game === entry.uuid,
-                  )}
-                  tentativeReservations={props.tentativeReservations.filter(
-                    (reservation) => reservation.gameUuid === entry.uuid,
-                  )}
-                  markedForDeletionReservations={
-                    props.markedForDeletionReservations
-                  }
-                  reservedTimeRanges={reservedTimeRanges()}
-                  addTentativeReservation={props.addTentativeReservation}
-                  deleteReservation={props.deleteReservation}
-                />
-              ))}
-            </ul>
-          </>
-        ))}
+      <EventList program={MORNING} />
+      <div style="margin-block: 2rem;">
+        <MealBreak time={{ from: 13, to: 14 }} type="LUNCH" />
+      </div>
+      <EventList program={AFTERNOON} />
+      {EVENING.length > 0 ? (
+        <>
+          <div style="margin-block: 2rem;">
+            <MealBreak time={{ from: 18, to: 19 }} type="DINNER" />
+          </div>
+          <EventList program={EVENING} />{" "}
+        </>
+      ) : null}
     </>
   );
 }
