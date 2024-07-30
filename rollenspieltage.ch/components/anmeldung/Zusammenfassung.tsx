@@ -11,11 +11,11 @@ import type { Reservation } from "./types";
 type ReservationAndGame = { reservation: Reservation; game: ProgramEntry };
 
 function ReservationItem(props: {
-  reservation: ReservationAndGame;
-  selfName: string;
+  game: ProgramEntry;
+  players: string[];
   type?: "success" | "danger" | "special" | "gray";
 }): JSX.Element {
-  const { game, reservation } = props.reservation;
+  const { game } = props;
   return (
     <Box type={props.type ?? "gray"}>
       <p>
@@ -26,12 +26,7 @@ function ReservationItem(props: {
         {game.slot.start} bis {game.slot.end} Uhr
       </p>
       <p>
-        Reservation für{" "}
-        <strong>
-          {reservation.friendsName === null
-            ? props.selfName
-            : reservation.friendsName}
-        </strong>
+        Reservation für <strong>{props.players.join(", ")}</strong>
       </p>
     </Box>
   );
@@ -66,18 +61,43 @@ function groupReservationsByDayAndSortByHour(
   };
 }
 
+type GroupedByGame = {
+  game: ProgramEntry;
+  players: string[];
+}[];
+
+function groupByGame(
+  entries: ReservationAndGame[],
+  selfName: string,
+): GroupedByGame {
+  const grouped = Object.groupBy(entries, (entry) => entry.game.uuid);
+  return Object.values(grouped)
+    .map((entries) => {
+      const first = entries?.[0];
+      if (entries === undefined || first === undefined) {
+        return null;
+      }
+      return {
+        game: first.game,
+        players: entries.map((e) => e.reservation.friendsName ?? selfName),
+      };
+    })
+    .filter((e) => e !== null);
+}
+
 function ReservationList(props: {
   entries: ReservationAndGame[];
   selfName: string;
   type: "success" | "danger" | "special" | "gray";
 }): JSX.Element {
+  const grouped = groupByGame(props.entries, props.selfName);
   return (
     <ul role="list" style="display: grid; gap: .5rem;">
-      {props.entries.map((reservation) => (
+      {grouped.map((group) => (
         <li>
           <ReservationItem
-            reservation={reservation}
-            selfName={props.selfName}
+            game={group.game}
+            players={group.players}
             type={props.type}
           />
         </li>
