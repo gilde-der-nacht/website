@@ -9,7 +9,7 @@ navigation:
   order: 8
 ---
 
-<button type="button" class="button-accent" data-toggle-details="">
+<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
   alle Antworten   
   <span data-toggle-label="open">zuklappen</span>
   <span data-toggle-label="close" hidden>aufklappen</span>
@@ -77,31 +77,212 @@ navigation:
 
 </details>
 
+<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+  alle Antworten   
+  <span data-toggle-label="open">zuklappen</span>
+  <span data-toggle-label="close" hidden>aufklappen</span>
+</button>
+
+## Anlässe
+
+<details open="">
+  <summary>Welche Arten von Veranstaltungen werden angeboten?</summary>
+
+  Wir organisieren unterschiedliche Anlässe und probieren immer mal wieder etwas neues. Die drei Anlässe, die sich in den letzten Jahren bewährt und mehrfach wiederholt wurden, sind: Spieltreffen (siehe weiter unten), [Luzerner Spieltage](https://spieltage.ch/) und [Luzerner Rollenspieltage](https://rollenspieltage.ch/)
+
+</details>
+
+<details open="">
+  <summary>Wo finden die Veranstaltungen statt?</summary>
+
+  Der Veranstaltungsort wird jeweils beim Event im [Kalender](/#kalender) genannt. Grundsätzlich finden viele Events in den Räumlichkeiten der Pfarrei St. Johannes Luzern statt.
+
+</details>
+
+<details open="">
+  <summary>Wann finden die Veranstaltungen statt?</summary>
+
+  Diese Information solltest du in unserem [Kalender](/#kalender) finden.
+
+</details>
+
+<details open="">
+  <summary>Wie kann ich mich für eine Veranstaltung anmelden?</summary>
+
+  Wenn in unserem [Kalender](/#kalender) nichts erwähnt wird, dann wird der Anlass ohne Anmeldungen durchgeführt.
+
+</details>
+
+<details open="">
+  <summary>Bietet der Verein auch andere Aktivitäten oder Veranstaltungen neben den Brettspiel-Events an?</summary>
+
+  Wir organisieren auch ab und zu Events zu Rollenspielen an. Falls du Interesse an anderen Arten von Spielanlässen hast, lass es uns doch wissen. Wir sind immer offen für neue Ideen - können aber natürlich nichts versprechen.
+
+</details>
+
+<details open="">
+  <summary>Ich habe ein eigenes Spiel entwickelt und würde das gerne testen lassen oder präsentieren. Kann man das bei euch?</summary>
+
+  In der Vergangenheit haben wir schon oft Spieldesigner bei uns zu Besuch gehabt und wir spielen gerne neue Spiele. Schreib uns doch per [Kontaktformular](/kontakt), um auch deinen Besuch gemeinsam zu planen.
+
+</details>
+
+<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+  alle Antworten   
+  <span data-toggle-label="open">zuklappen</span>
+  <span data-toggle-label="close" hidden>aufklappen</span>
+</button>
+
+### Spieltreffen
+
+<details open="">
+  <summary>Was ist ein Spieltreffen?</summary>
+
+  Wir führen ca. zwei Male pro Monat ein Event durch, an dem wir gemeinsam Spiele (vor allem Brettspiele) spielen. Diese Events besitzen keine fixe Struktur und man muss nicht von Anfang bis Schluss vor Ort sein.
+
+</details>
+
+<details open="">
+  <summary>Wie hoch ist die Teilnahmegebühr?</summary>
+
+  Diese beträgt 5 Franken pro Person. Mitglieder der Gilde der Nacht zahlen keinen Eintritt an die Spieltreffen. Kinder und Jugendliche unter 16 Jahre nehmen ebenfalls kostenfrei teil. Mit diesen Gebühren finanzieren wir die Raummiete und Snacks für alle.
+
+</details>
+
+<details open="">
+  <summary>Gibt es eine Altersbegrenzung an den Spieltreffen?</summary>
+
+  Nein, es gibt keine Altersbegrenzung. Das durchschnittliche Alter der Teilnehmenden ist oft zwischen 20 und 50 Jahren.
+  
+</details>
+
+<details open="">
+  <summary>Können Kinder zur Betreuung abgegeben werden?</summary>
+
+  Nein.
+
+</details>
+
+<details open="">
+  <summary>Was muss ich mitbringen, um an einer Veranstaltung teilzunehmen?</summary>
+
+  Du musst nichts mitbringen, darfst jedoch gerne eigene Spiele mitnehmen. Oft hat es mehr Spiele zur Auswahl, als wir Zeit haben zu Spielen. 
+
+  Wir organisieren einige Snacks und meistens geben wir zusammen eine grosse Pizzabestellung auf. Du kannst dich anschliessen oder auch deine eigene Verpflegung mitbringen.
+
+</details>
+
+<details open="">
+  <summary>Darf ich meine eigenen Spiele mitbringen?</summary>
+
+  Ja, du darfst eigene Spiele mitbringen. Wir erwarten jedoch, dass mitgebrachte Spiele auch den anderen erklärt werden können.
+
+</details>
+
+<details open="">
+  <summary>Was kann ich während einer Veranstaltung erwarten?</summary>
+
+  Meist hat es einen Tisch mit Spielen zur Auswahl und wir teilen uns in kleinere Gruppen à la ca. 4 Personen auf und spielen in dieser Gruppe einen der mitgebrachten Spiele. Diese Gruppen sind nicht fix und können sich während des Events mehrfach neu formieren.
+
+</details>
+
+<details open="" hidden>
+  <summary>Gibt es einen Verhaltenskodex für die Veranstaltungen?</summary>
+
+  Ja, beachte bitte unseren Verhaltenskodex ([link], TODO).
+
+</details>
+
+<details open="">
+  <summary>Wie kann ich Kontakt mit den Organisatoren aufnehmen?</summary>
+
+  Du kannst uns über das [Kontaktformular](/kontakt) eine Nachricht senden. Wenn du am Tag des Spieltreffens jemand dringend erreichen (z.B. wenn du die Lokalität nicht findest), dann empfehlen wir dir uns über den [Discord-Chat](/chat) zu schreiben.
+
+</details>
+
+<details open="">
+  <summary>Kann ich meine eigene Verpflegung mitbringen?</summary>
+
+  Ja, du kannst deine eigene Verpflegung mitbringen. Oft wird auch eine Gruppenbestellung von z.B. Pizza gemacht.
+
+</details>
+
+<details open="">
+  <summary>Welche Arten von Brettspielen werden während der Events normalerweise gespielt?</summary>
+
+  Wir spielen alles von Partyspielen, kooperative Rätsel, abstrakte Denkspiele und auch gerne mal eine grosse Würfelschlacht. Am besten einfach vorbeikommen und allenfalls dein eigenes Lieblingsspiel mitbringen.
+
+</details>
+
+<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+  alle Antworten   
+  <span data-toggle-label="open">zuklappen</span>
+  <span data-toggle-label="close" hidden>aufklappen</span>
+</button>
+
+### Lokalität
+
+<details open="" hidden>
+  <summary>Gibt es einen festen Treffpunkt für die Events, oder wechseln die Veranstaltungsorte?</summary>
+
+  Die Spieltreffen finden in den Räumlichkeiten der Pfarrei St. Johannes Luzern statt ([link]). Jedoch nicht immer im selben Raum. Meist sind wir im Würzenbachsaal (oben) oder in der Unterkirche (unten).
+
+</details>
+
+<details open="" hidden>
+  <summary>Gibt es Parkmöglichkeiten in der Nähe der Veranstaltungsorte?</summary>
+
+   Es hat wenige, gebührenpflichtige Parkplätze in der Nähe. Wir können nicht garantieren, dass diese immer frei sind. Deshalb empfehlen wir grundsätzlich mit dem öffentlichen Verkehr anzureisen ([link]).
+
+</details>
+
+<details open="">
+  <summary>Sind die Veranstaltungen barrierefrei zugänglich?</summary>
+
+  Ja, jedoch muss man ab und zu Umwege in Kauf nehmen, wenn man gewisse Treppen vermeiden möchte.
+
+</details>
+
+<details open="">
+  <summary>Eine Frage habe ich jetzt doch noch...</summary>
+
+  Das haben wir uns schon fast gedacht 😉 Schreib uns doch eine Nachricht über das [Kontaktformular](/kontakt), damit wir weitere Fragen beantworten können. Und wer weiss, vielleicht landet ja eine deiner Frage auf dieser Seite ...
+
+</details>
+
+<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+  alle Antworten   
+  <span data-toggle-label="open">zuklappen</span>
+  <span data-toggle-label="close" hidden>aufklappen</span>
+</button>
 
 <script>
 {
-  const toggle = document.querySelector("[data-toggle-details]");
+  const toggles = document.querySelectorAll("[data-toggle-details]");
   const details = document.querySelectorAll("details");
-  const labelOpen = toggle.querySelector("[data-toggle-label='open']");
-  const labelClose = toggle.querySelector("[data-toggle-label='close']");
 
   let open = true;
 
-  toggle.addEventListener("click", () => {
+  toggles.forEach((toggle) => {
+    const labelOpen = toggle.querySelector("[data-toggle-label='open']");
+    const labelClose = toggle.querySelector("[data-toggle-label='close']");
 
-    if (open) {
-      labelOpen.hidden = true;
-      labelClose.hidden = false;
-    } else {
-      labelOpen.hidden = false;
-      labelClose.hidden = true;
-    }
+    toggle.addEventListener("click", () => {
 
-    open = !open;
-    details.forEach((detail) => {
-      detail.open = open;
-    });
+      if (open) {
+        labelOpen.hidden = true;
+        labelClose.hidden = false;
+      } else {
+        labelOpen.hidden = false;
+        labelClose.hidden = true;
+      }
+
+      open = !open;
+      details.forEach((detail) => {
+        detail.open = open;
+      });
     
+    });
   });
 }
 </script>
