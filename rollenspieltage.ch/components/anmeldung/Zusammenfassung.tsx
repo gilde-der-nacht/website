@@ -66,6 +66,26 @@ function groupReservationsByDayAndSortByHour(
   };
 }
 
+function ReservationList(props: {
+  entries: ReservationAndGame[];
+  selfName: string;
+  type: "success" | "danger" | "special" | "gray";
+}): JSX.Element {
+  return (
+    <ul role="list" style="display: grid; gap: .5rem;">
+      {props.entries.map((reservation) => (
+        <li>
+          <ReservationItem
+            reservation={reservation}
+            selfName={props.selfName}
+            type={props.type}
+          />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function Zusammenfassung(props: {
   save: SaveFromServer;
   tentativeReservations: Reservation[];
@@ -142,33 +162,21 @@ export function Zusammenfassung(props: {
           {tentativeReservationsGrouped.SATURDAY.length > 0 ? (
             <>
               <h5>Samstag, 24. August 2024</h5>
-              <ul role="list" style="display: grid; gap: .5rem;">
-                {tentativeReservationsGrouped.SATURDAY.map((reservation) => (
-                  <li>
-                    <ReservationItem
-                      reservation={reservation}
-                      selfName={props.save.name}
-                      type="special"
-                    />
-                  </li>
-                ))}
-              </ul>
+              <ReservationList
+                entries={tentativeReservationsGrouped.SATURDAY}
+                selfName={props.save.name}
+                type="special"
+              />
             </>
           ) : null}
           {tentativeReservationsGrouped.SUNDAY.length > 0 ? (
             <>
               <h5>Sonntag, 25. August 2024</h5>
-              <ul role="list" style="display: grid; gap: .5rem;">
-                {tentativeReservationsGrouped.SUNDAY.map((reservation) => (
-                  <li>
-                    <ReservationItem
-                      reservation={reservation}
-                      selfName={props.save.name}
-                      type="special"
-                    />
-                  </li>
-                ))}
-              </ul>
+              <ReservationList
+                entries={tentativeReservationsGrouped.SUNDAY}
+                selfName={props.save.name}
+                type="special"
+              />
             </>
           ) : null}
         </>
@@ -183,37 +191,21 @@ export function Zusammenfassung(props: {
           {markedForDeletionReservationsGrouped.SATURDAY.length > 0 ? (
             <>
               <h5>Samstag, 24. August 2024</h5>
-              <ul role="list" style="display: grid; gap: .5rem;">
-                {markedForDeletionReservationsGrouped.SATURDAY.map(
-                  (reservation) => (
-                    <li>
-                      <ReservationItem
-                        reservation={reservation}
-                        selfName={props.save.name}
-                        type="danger"
-                      />
-                    </li>
-                  ),
-                )}
-              </ul>
+              <ReservationList
+                entries={markedForDeletionReservationsGrouped.SATURDAY}
+                selfName={props.save.name}
+                type="danger"
+              />
             </>
           ) : null}
           {markedForDeletionReservationsGrouped.SUNDAY.length > 0 ? (
             <>
               <h5>Sonntag, 25. August 2024</h5>
-              <ul role="list" style="display: grid; gap: .5rem;">
-                {markedForDeletionReservationsGrouped.SUNDAY.map(
-                  (reservation) => (
-                    <li>
-                      <ReservationItem
-                        reservation={reservation}
-                        selfName={props.save.name}
-                        type="danger"
-                      />
-                    </li>
-                  ),
-                )}
-              </ul>
+              <ReservationList
+                entries={markedForDeletionReservationsGrouped.SUNDAY}
+                selfName={props.save.name}
+                type="danger"
+              />
             </>
           ) : null}
         </>
@@ -224,33 +216,21 @@ export function Zusammenfassung(props: {
           {confirmedReservationsGrouped.SATURDAY.length > 0 ? (
             <>
               <h5>Samstag, 24. August 2024</h5>
-              <ul role="list" style="display: grid; gap: .5rem;">
-                {confirmedReservationsGrouped.SATURDAY.map((reservation) => (
-                  <li>
-                    <ReservationItem
-                      reservation={reservation}
-                      selfName={props.save.name}
-                      type="success"
-                    />
-                  </li>
-                ))}
-              </ul>
+              <ReservationList
+                entries={confirmedReservationsGrouped.SATURDAY}
+                selfName={props.save.name}
+                type="success"
+              />
             </>
           ) : null}
           {confirmedReservationsGrouped.SUNDAY.length > 0 ? (
             <>
               <h5>Sonntag, 25. August 2024</h5>
-              <ul role="list" style="display: grid; gap: .5rem;">
-                {confirmedReservationsGrouped.SUNDAY.map((reservation) => (
-                  <li>
-                    <ReservationItem
-                      reservation={reservation}
-                      selfName={props.save.name}
-                      type="success"
-                    />
-                  </li>
-                ))}
-              </ul>
+              <ReservationList
+                entries={confirmedReservationsGrouped.SUNDAY}
+                selfName={props.save.name}
+                type="success"
+              />
             </>
           ) : null}
         </>
