@@ -12,11 +12,11 @@
     "rst-build": "astro --config ./rollenspieltage.ch/config.ts check && astro --config ./rollenspieltage.ch/config.ts build"
   },
   "dependencies": {
-    "@astrojs/check": "^0.8.2",
+    "@astrojs/check": "^0.8.3",
     "@astrojs/mdx": "3.1.3",
     "@astrojs/solid-js": "4.4.0",
     "@astrojs/ts-plugin": "^1.9.0",
-    "astro": "4.12.2",
+    "astro": "4.12.3",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
