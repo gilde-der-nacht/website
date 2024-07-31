@@ -243,18 +243,18 @@ navigation:
 
 </details>
 
-<details open="">
-  <summary>Eine Frage habe ich jetzt doch noch...</summary>
-
-  Das haben wir uns schon fast gedacht 😉 Schreib uns doch eine Nachricht über das [Kontaktformular](/kontakt), damit wir weitere Fragen beantworten können. Und wer weiss, vielleicht landet ja eine deiner Fragen auf dieser Seite ...
-
-</details>
-
 <button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
   alle Antworten   
   <span data-toggle-label="open">zuklappen</span>
   <span data-toggle-label="close" hidden>aufklappen</span>
 </button>
+
+<details open="" style="margin-block-start: 5rem;">
+  <summary>Eine Frage habe ich jetzt doch noch...</summary>
+
+  Das haben wir uns schon fast gedacht 😉 Schreib uns doch eine Nachricht über das [Kontaktformular](/kontakt), damit wir weitere Fragen beantworten können. Und wer weiss, vielleicht landet ja eine deiner Fragen auf dieser Seite ...
+
+</details>
 
 <script>
 {
