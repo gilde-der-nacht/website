@@ -10,15 +10,16 @@ export function MealBreak(props: Props): JSX.Element {
   const from = props.type === "LUNCH" ? 13 : 18;
   const to = props.type === "LUNCH" ? 14 : 19;
   const small = props.small === true;
+  const title = props.type === "LUNCH" ? "Mittagessen" : "Nachtessen";
+  const menu =
+    "Pilzrisotto (vegi&nbsp;/&nbsp;vegan), Penne All'Arrabbiata und Penne Pesto (vegi&nbsp;/&nbsp;vegan).";
 
   if (small) {
     return (
       <Box>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
           <p>
-            <strong>
-              {props.type === "LUNCH" ? "Mittagessen" : "Nachtessen"}
-            </strong>
+            <strong>{title}</strong>
           </p>
           |
           <small>
@@ -26,10 +27,7 @@ export function MealBreak(props: Props): JSX.Element {
           </small>
         </div>
         <p>
-          <small>
-            Pilzrisotto (vegan&nbsp;/&nbsp;vegi), Penne All'Arrabbiata und Penne
-            Pesto (vegan&nbsp;/&nbsp;vegi).
-          </small>
+          <small innerHTML={menu}></small>
         </p>
       </Box>
     );
@@ -40,12 +38,9 @@ export function MealBreak(props: Props): JSX.Element {
       <small>
         {from} - {to} Uhr
       </small>
-      <h4 style="margin-block-end: 0.5rem;">
-        {props.type === "LUNCH" ? "Mittagessen" : "Nachtessen"}
-      </h4>
+      <h4 style="margin-block-end: 0.5rem;">{title}</h4>
       <p>
-        Wir kochen: Pilzrisotto (vegan&nbsp;/&nbsp;vegi), Penne All'Arrabbiata
-        und Penne Pesto (vegan&nbsp;/&nbsp;vegi).
+        Wir kochen: <span innerHTML={menu}></span>
       </p>
     </Box>
   );
