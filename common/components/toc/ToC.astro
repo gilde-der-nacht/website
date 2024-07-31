@@ -14,7 +14,7 @@ export interface Props {
 
 const { headings, toc } = Astro.props;
 
-const config = ((): TocConfigView => {
+function createConfig(): TocConfigView {
   if (toc === null) {
     return { render: false };
   }
@@ -30,7 +30,9 @@ const config = ((): TocConfigView => {
   const tocView = generateTocView(headings, startLevel, endLevel);
 
   return { render: true, startLevel, endLevel, ordered, toc: tocView };
-})();
+}
+
+const config = createConfig();
 
 const List = config.render && config.ordered ? "ol" : "ul";
 ---
