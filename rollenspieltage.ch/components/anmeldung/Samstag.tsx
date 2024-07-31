@@ -3,10 +3,13 @@ import {
   type Program,
   type ReservationFromServer,
   type UpdateSave,
-} from "./data";
+} from "@rst/components/anmeldung/data";
 import type { JSX } from "solid-js";
-import { ProgramOfDay } from "./Program";
-import type { Reservation, ReservationView } from "./types";
+import { ProgramOfDay } from "@rst/components/anmeldung/Program";
+import type {
+  Reservation,
+  ReservationView,
+} from "@rst/components/anmeldung/types";
 
 export function Samstag(props: {
   selfName: string;

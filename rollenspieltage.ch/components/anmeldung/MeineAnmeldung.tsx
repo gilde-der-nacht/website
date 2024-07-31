@@ -9,15 +9,15 @@ import {
   type JSX,
   type Resource,
 } from "solid-js";
-import { Tabs } from "./Tabs";
-import { initState } from "./store";
+import { Tabs } from "@rst/components/anmeldung/Tabs";
+import { initState } from "@rst/components/anmeldung/store";
 import {
   loadParams as loadParams,
   loadServerProgram,
   loadServerState,
 } from "./load";
-import type { Store } from "./types";
-import type { Program } from "./data";
+import type { Store } from "@rst/components/anmeldung/types";
+import type { Program } from "@rst/components/anmeldung/data";
 
 function MeineAnmeldungLoaded(props: {
   state: Store;

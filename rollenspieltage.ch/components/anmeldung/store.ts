@@ -1,13 +1,17 @@
-import type { Tab } from "./Tabs";
+import type { Tab } from "@rst/components/anmeldung/Tabs";
 import {
   type ReservationToServer,
   type SaveFromServer,
   type SaveToServer,
   type UpdateSave,
-} from "./data";
+} from "@rst/components/anmeldung/data";
 import { createStore } from "solid-js/store";
-import type { Reservation, ReservationView, Store } from "./types";
-import { loadServerState } from "./load";
+import type {
+  Reservation,
+  ReservationView,
+  Store,
+} from "@rst/components/anmeldung/types";
+import { loadServerState } from "@rst/components/anmeldung/load";
 
 type Actions = {
   changeTab: (tab: Tab) => void;

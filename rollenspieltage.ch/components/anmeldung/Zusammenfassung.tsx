@@ -7,7 +7,7 @@ import type {
 } from "@rst/components/anmeldung/data";
 import { Box } from "@common/components/Box";
 import type { DayPeriod, Reservation } from "@rst/components/anmeldung/types";
-import { MealBreak } from "./MealBreak";
+import { MealBreak } from "@rst/components/anmeldung/MealBreak";
 
 type ReservationAndGame = { reservation: Reservation; game: ProgramEntry };
 

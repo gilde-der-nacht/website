@@ -1,4 +1,7 @@
-import type { SaveFromServer, UpdateSave } from "./data";
+import type {
+  SaveFromServer,
+  UpdateSave,
+} from "@rst/components/anmeldung/data";
 import { Input, InputWithRef } from "@common/components/Input";
 import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";

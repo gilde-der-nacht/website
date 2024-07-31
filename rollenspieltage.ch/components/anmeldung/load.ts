@@ -1,16 +1,21 @@
-import { loadProgram, loadSave, type Program } from "./data";
-import type { Store } from "./types";
+import {
+  loadProgram,
+  loadSave,
+  type Program,
+} from "@rst/components/anmeldung/data";
+import type { Store } from "@rst/components/anmeldung/types";
 
 type Params = {
-  secret: string | null, showCreateMessage: boolean
-}
+  secret: string | null;
+  showCreateMessage: boolean;
+};
 
 export function loadParams(): Params {
   const currentUrl = new URL(location.href);
   const secret = currentUrl.searchParams.get("secret");
   const showCreateMessage =
     currentUrl.searchParams.get("showCreateMessage") === "true";
-  return { secret, showCreateMessage }
+  return { secret, showCreateMessage };
 }
 
 export async function loadServerState(params: Params): Promise<Store> {
@@ -35,7 +40,6 @@ export async function loadServerState(params: Params): Promise<Store> {
     tentativeReservations: [],
     markedForDeletionReservations: [],
   } satisfies Store;
-
 
   return serverState;
 }

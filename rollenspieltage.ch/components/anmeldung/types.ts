@@ -1,5 +1,5 @@
-import type { Tab } from "./Tabs";
-import type { SaveFromServer } from "./data";
+import type { Tab } from "@rst/components/anmeldung/Tabs";
+import type { SaveFromServer } from "@rst/components/anmeldung/data";
 
 export type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
 
