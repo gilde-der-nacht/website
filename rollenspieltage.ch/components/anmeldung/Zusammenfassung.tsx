@@ -307,7 +307,7 @@ export function Zusammenfassung(props: {
           {props.save.wantsEmailUpdates ? (
             <span style="color: var(--clr-success-10);">
               Ja, ich möchte gerne Updates erhalten, wenn neue Spielrunden
-              aufgeschalten werden.
+              aufgeschaltet werden.
             </span>
           ) : (
             <span style="color: var(--clr-danger-10);">

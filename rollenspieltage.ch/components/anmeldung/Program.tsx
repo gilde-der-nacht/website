@@ -368,7 +368,7 @@ export function ProgramOfDay(props: {
       <Checkbox
         checked={props.wantsEmailUpdates}
         onValueUpdate={(value) => props.updateSave("wantsEmailUpdates", value)}
-        label="Ja, ich möchte gerne Updates erhalten, wenn neue Spielrunden aufgeschalten werden."
+        label="Ja, ich möchte gerne Updates erhalten, wenn neue Spielrunden aufgeschaltet werden."
         name="wantsUpdates"
         value="true"
       />
