@@ -1,34 +1,17 @@
 ---
 import Layout from "@rst/layouts/Layout.astro";
-import { Anmeldung as A } from "@rst/components/anmeldung/Anmeldung.tsx";
 import { Box } from "@common/components/Box";
-
-export const frontmatter = {
-  navigation: {
-    group: "main",
-    label: "Anmeldung 2024",
-    order: 3,
-  },
-};
 ---
 
 <Layout>
   <h1>Anmeldung 2024</h1>
-  <p>Melde dich jetzt für die Luzerner Rollenspieltage 2024 an.</p>
   <Box>
     <p>
-      Falls du bereits eine Anmeldung begonnen hast, dann solltest du eine
-      E-Mail mit einem persönlichen Link erhalten haben. Dieser erlaubt es dir
-      deine Anmeldung bis kurz vor dem Event noch anzupassen.
+      Die Anmeldung für 2024 ist nicht mehr möglich. Komme doch spontan vorbei -
+      wir halten immer ein paar Plätze frei.
     </p>
   </Box>
-  <A client:load />
   <Box type="special">
-    <p>
-      Deine persönlichen Daten werden ausschliesslich verwendet, um dich über
-      das Programm der Luzerner Rollenspieltage 2024 zu informieren. Nach dem
-      Event werden diese gelöscht.
-    </p>
     <p>
       Möchtest du auch nach dem Event über Anlässe von uns informiert werden,
       dann empfehlen wir dir, unseren <a href="/newsletter"
