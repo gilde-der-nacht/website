@@ -4,6 +4,7 @@ import { Button } from "@common/components/Button.tsx";
 import { getProgramGroupedByStarthour } from "@rst/components/anmeldung/data.ts";
 import EventList from "@rst/components/anmeldung/EventList.astro";
 import { MealBreak } from "@rst/components/anmeldung/MealBreak.tsx";
+import { Box } from "@common/components/Box.tsx";
 
 export const frontmatter = {
   navigation: {
@@ -22,6 +23,10 @@ const sunday = Object.entries(program.SUNDAY);
   <h1 id="programm-2024">
     <a href="#programm-2024" class="header-anchor">Programm 2024</a>
   </h1>
+
+  <Box type="special">
+    **Achtung,** das Programm ist noch vom letzten Jahr und wird erst im Frühling 2025 aktualisiert.
+  </Box>
 
   <a href="#Samstag" style="border: none;"><Button label="Samstag" /></a>
   <a href="#Sonntag" style="border: none;"><Button label="Sonntag" /></a>
