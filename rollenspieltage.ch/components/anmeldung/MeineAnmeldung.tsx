@@ -15,7 +15,7 @@ import {
   loadParams as loadParams,
   loadServerProgram,
   loadServerState,
-} from "./load";
+} from "@rst/components/anmeldung/load";
 import type { Store } from "@rst/components/anmeldung/types";
 import type { Program } from "@rst/components/anmeldung/data";
 

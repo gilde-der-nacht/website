@@ -1,5 +1,5 @@
 import { Show, type JSX } from "solid-js";
-import type { WithChildren } from "./utils";
+import type { WithChildren } from "@common/components/utils";
 
 type Props = WithChildren & {
   type?: "success" | "danger" | "special" | "gray";
