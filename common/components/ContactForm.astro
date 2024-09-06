@@ -1,11 +1,11 @@
 ---
 import { ContactFormImpl } from "@common/components/ContactFormImpl.tsx";
 import { Box } from "@common/components/Box.tsx";
-import type { Language } from "@common/components/utils";
+import type { Language, Category } from "@common/components/utils";
 
 type Props = {
   language?: Language;
-  category?: "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage";
+  category?: Category;
 };
 
 const { language, category } = Astro.props;
