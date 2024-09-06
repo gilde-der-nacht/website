@@ -1,9 +1,10 @@
 import type { JSX } from "solid-js";
-import type { OlympEvent } from "./events";
+import type { OlympEvent } from "@common/components/events";
+import type { Language } from "@common/components/utils";
 
 type Props = {
   events: OlympEvent[];
-  language?: "en" | "de";
+  language?: Language;
 };
 export function EventListFilters(props: Props): JSX.Element {
   const language = props.language ?? "de";

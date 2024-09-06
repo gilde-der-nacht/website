@@ -4,13 +4,14 @@ import { Input, InputWithRef } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
 import { HiddenInput } from "@common/components/HiddenInput";
 import { Box } from "@common/components/Box";
+import type { Language } from "@common/components/utils";
 
 /*
  * This is a hot mess. Should work for now, but should be cleaned up.
  */
 
 type Props = {
-  language: "de" | "en" | undefined;
+  language: Language | undefined;
   category:
     | "gilde"
     | "spieltage"

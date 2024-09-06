@@ -1,10 +1,11 @@
 import { mergeProps, onMount, type JSX } from "solid-js";
-import { Button } from "./Button";
+import { Button } from "@common/components/Button";
+import type { Language } from "@common/components/utils";
 
 type Props = {
   actionUrl: URL;
   submitLabel?: string;
-  language?: "de" | "en";
+  language?: Language;
   isValid: (formData: FormData) => boolean;
   onSuccess: () => void;
   onError: (e: unknown) => void;

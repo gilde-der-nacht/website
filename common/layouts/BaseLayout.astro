@@ -1,13 +1,14 @@
 ---
-import Favicon from "./partials/favicon.astro";
-import Header from "./partials/header.astro";
-import Footer from "./partials/footer.astro";
+import Favicon from "@common/layouts/partials/favicon.astro";
+import Header from "@common/layouts/partials/header.astro";
+import Footer from "@common/layouts/partials/footer.astro";
 import ToC from "@common/components/toc/ToC.astro";
 import type { NavigationEntry } from "@common/layouts/types.ts";
 import type { TocConfig, AstroHeading } from "@common/components/toc/utils";
+import type { Language } from "@common/components/utils";
 
 type Props = {
-  locale?: "de" | "en";
+  locale?: Language;
   title?: string;
   metaTitle?: string;
   description?: string;

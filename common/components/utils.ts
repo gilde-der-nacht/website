@@ -1,5 +1,7 @@
 import type { JSX } from "solid-js";
 
+export type Language = "de" | "en";
+
 export type WithChildren = {
   children?: JSX.Element;
 };
