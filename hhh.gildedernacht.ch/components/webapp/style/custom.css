@@ -1,0 +1,87 @@
+:root {
+  font-size: calc(0.8rem + 0.5vw);
+}
+
+#root {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+.hhh-body {
+  display: grid;
+  grid-template-rows: max-content max-content 1fr max-content;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+.hhh-spacer {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.hhh-grid {
+  max-inline-size: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  gap: 1.75rem;
+}
+
+.hhh-card {
+  display: grid;
+  grid-template-rows: 1fr max-content;
+}
+
+.hhh-card:hover {
+  border-color: #158cba !important;
+}
+
+.hhh-card:hover .title,
+.hhh-card:hover a:not([class*="has-text"]) {
+  color: #158cba !important;
+}
+
+.hhh-card a:hover:not([class*="has-text"]) {
+  color: #5bb7db !important;
+}
+
+.hhh-card-disabled {
+  background-color: white !important;
+  border-color: #fafafa !important;
+}
+
+.hhh-card-disabled > * > * {
+  color: #dbdbdb;
+}
+
+.hhh-toast {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.hhh-toast.hide {
+  transform: translateY(120%);
+  opacity: 0;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.fa-spinner-third {
+  animation: rotation 2s infinite linear;
+}
+
+.hhh-card-footer :first-child {
+  flex-basis: max-content;
+}

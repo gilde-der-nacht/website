@@ -15,6 +15,9 @@
       ],
       "@rst/*": [
         "rollenspieltage.ch/*"
+      ],
+      "@hhh/*": [
+        "hhh.gildedernacht.ch/*"
       ]
     },
     "verbatimModuleSyntax": true,

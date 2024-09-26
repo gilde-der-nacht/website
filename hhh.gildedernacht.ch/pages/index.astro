@@ -1,0 +1,16 @@
+---
+import Layout from "@hhh/layouts/Layout.astro";
+import { App } from "@hhh/components/webapp/App.tsx";
+
+export const frontmatter = {
+  navigation: {
+    group: "main",
+    label: "Startseite",
+    order: 1,
+  },
+};
+---
+
+<Layout>
+  <App client:only="solid-js" />
+</Layout>

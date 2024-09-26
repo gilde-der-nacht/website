@@ -20,6 +20,12 @@ rst-dev:
 rst-build:
     yarn rst-build
 
+hhh-dev:
+    yarn hhh-dev
+
+hhh-build:
+    yarn hhh-build
+
 # Update environment and dependencies
 update:
     nix flake update

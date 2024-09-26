@@ -9,7 +9,9 @@
     "lst-dev": "astro --config ./spieltage.ch/config.ts dev",
     "lst-build": "astro --config ./spieltage.ch/config.ts check && astro --config ./spieltage.ch/config.ts build",
     "rst-dev": "astro --config ./rollenspieltage.ch/config.ts dev",
-    "rst-build": "astro --config ./rollenspieltage.ch/config.ts check && astro --config ./rollenspieltage.ch/config.ts build"
+    "rst-build": "astro --config ./rollenspieltage.ch/config.ts check && astro --config ./rollenspieltage.ch/config.ts build",
+    "hhh-dev": "astro --config ./hhh.gildedernacht.ch/config.ts dev",
+    "hhh-build": "astro --config ./hhh.gildedernacht.ch/config.ts check && astro --config ./hhh.gildedernacht.ch/config.ts build"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
@@ -27,6 +29,8 @@
   },
   "devDependencies": {
     "@types/html-escaper": "^3.0.2",
+    "@types/luxon": "^3.4.2",
+    "luxon": "^3.5.0",
     "prettier-plugin-astro": "^0.14.1"
   }
 }
