@@ -43,5 +43,14 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
       ],
     },
     integrations: [solidJs(), mdx()],
+    vite: {
+      css: {
+        preprocessorOptions: {
+          scss: {
+            api: "modern-compiler",
+          },
+        },
+      },
+    },
   } satisfies AstroUserConfig;
 }
