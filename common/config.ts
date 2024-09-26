@@ -1,4 +1,3 @@
-import { squooshImageService } from "astro/config";
 import solidJs from "@astrojs/solid-js";
 import mdx from "@astrojs/mdx";
 import type { AstroUserConfig, RemarkPlugins } from "astro";
@@ -29,9 +28,6 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
     outDir: `./dist/${props.host}`,
     server: {
       port: props.port,
-    },
-    image: {
-      service: squooshImageService(),
     },
     devToolbar: {
       enabled: false,
