@@ -49,7 +49,7 @@
   border-color: #fafafa !important;
 }
 
-.hhh-card-disabled > * > * {
+.hhh-card-disabled>*>* {
   color: #dbdbdb;
 }
 
@@ -73,6 +73,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(359deg);
   }
