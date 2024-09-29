@@ -28,10 +28,3 @@ export type OrderGet = OrderBase & {
 export type EntryGet = EntryBase & {
   status: EntryStatus;
 };
-
-export type OlympResponse = RestaurantGet | OrderGet | EntryGet;
-
-export type RawServerData = {
-  publicBody: string;
-  timestamp: string;
-};

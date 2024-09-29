@@ -21,7 +21,7 @@ export const RestaurantListItem = (props: Props): JSX.Element => {
 
   return (
     <Card isDisabled={props.isDisabled} tags={tags}>
-      <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
+      <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-start">
         <div>
           <h5 class="m-0">{props.restaurant.label}</h5>
           <p class="is-italic">

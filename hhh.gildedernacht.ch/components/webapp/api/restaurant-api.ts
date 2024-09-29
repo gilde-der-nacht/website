@@ -1,19 +1,27 @@
 import type { ApiProps } from "@hhh/components/webapp/api/api";
-import OLYMP from "@hhh/components/webapp/api/olymp";
+import { ENDPOINTS } from "@hhh/components/webapp/api/olymp";
 import type { RestaurantBase } from "@hhh/components/webapp/util/BasicTypes";
+import type { RestaurantCreate, RestaurantUpdate } from "../util/StateTypes";
 
 const create =
   (props: ApiProps) =>
   async (
     restaurant: Omit<RestaurantBase, "kind" | "id" | "created" | "updated">,
   ): Promise<Response> => {
-    const id = crypto.randomUUID();
-    const promise = OLYMP.CREATE(props.refetch)({
-      ...restaurant,
-      id,
-      status: "active",
-      kind: "restaurant",
+    const body = {
+      status: "published",
+      name: restaurant.label,
+      link: restaurant.menuLink,
+      comment: restaurant.comment,
+    } satisfies RestaurantCreate;
+    const promise = fetch(ENDPOINTS.RESTAURANTS, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
+
     props.setToast({
       isVisible: true,
       text: "Restaurant speichern ...",
@@ -25,17 +33,35 @@ const create =
           "Restaurant konnte nicht gespeichert werden, bitte versuche es erneut",
       },
     });
-    return promise;
+
+    return promise.then((response) => {
+      if (response.ok) {
+        props.refetch();
+        return response;
+      }
+      throw new Error(response.statusText);
+    });
   };
 
 const deactivate =
   (props: ApiProps) =>
   async (restaurant: RestaurantBase): Promise<Response> => {
-    const promise = OLYMP.UPDATE(props.refetch)({
-      ...restaurant,
-      status: "inactive",
-      kind: "restaurant",
+    const body = {
+      uuid: restaurant.id,
+      status: "archived",
+      name: restaurant.label,
+      link: restaurant.menuLink,
+      comment: restaurant.comment,
+    } satisfies RestaurantUpdate;
+    const url = new URL([ENDPOINTS.RESTAURANTS.href, restaurant.id].join("/"));
+    const promise = fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
+
     props.setToast({
       isVisible: true,
       text: "Restaurant deaktivieren ...",
@@ -47,17 +73,35 @@ const deactivate =
           "Restaurant konnte nicht deaktiviert werden, bitte versuche es erneut",
       },
     });
-    return promise;
+
+    return promise.then((response) => {
+      if (response.ok) {
+        props.refetch();
+        return response;
+      }
+      throw new Error(response.statusText);
+    });
   };
 
 const reactivate =
   (props: ApiProps) =>
   async (restaurant: RestaurantBase): Promise<Response> => {
-    const promise = OLYMP.UPDATE(props.refetch)({
-      ...restaurant,
-      status: "active",
-      kind: "restaurant",
+    const body = {
+      uuid: restaurant.id,
+      status: "published",
+      name: restaurant.label,
+      link: restaurant.menuLink,
+      comment: restaurant.comment,
+    } satisfies RestaurantUpdate;
+    const url = new URL([ENDPOINTS.RESTAURANTS.href, restaurant.id].join("/"));
+    const promise = fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
+
     props.setToast({
       isVisible: true,
       text: "Restaurant reaktivieren ...",
@@ -69,17 +113,27 @@ const reactivate =
           "Restaurant konnte nicht reaktiviert werden, bitte versuche es erneut",
       },
     });
-    return promise;
+
+    return promise.then((response) => {
+      if (response.ok) {
+        props.refetch();
+        return response;
+      }
+      throw new Error(response.statusText);
+    });
   };
 
 const remove =
   (props: ApiProps) =>
   async (restaurant: RestaurantBase): Promise<Response> => {
-    const promise = OLYMP.UPDATE(props.refetch)({
-      ...restaurant,
-      status: "deleted",
-      kind: "restaurant",
+    const url = new URL([ENDPOINTS.RESTAURANTS.href, restaurant.id].join("/"));
+    const promise = fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+
     props.setToast({
       isVisible: true,
       text: "Restaurant löschen ...",
@@ -91,7 +145,14 @@ const remove =
           "Restaurant konnte nicht gelöscht werden, bitte versuche es erneut",
       },
     });
-    return promise;
+
+    return promise.then((response) => {
+      if (response.ok) {
+        props.refetch();
+        return response;
+      }
+      throw new Error(response.statusText);
+    });
   };
 
 export const RestaurantAPI = (props: ApiProps) => ({

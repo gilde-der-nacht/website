@@ -1,19 +1,28 @@
 import type { ApiProps } from "@hhh/components/webapp/api/api";
-import OLYMP from "@hhh/components/webapp/api/olymp";
+import { ENDPOINTS } from "@hhh/components/webapp/api/olymp";
 import type { EntryBase } from "@hhh/components/webapp/util/BasicTypes";
+import type { EntryCreate, EntryUpdate } from "../util/StateTypes";
 
 const create =
   (props: ApiProps) =>
   async (
     entry: Omit<EntryBase, "kind" | "id" | "created" | "updated">,
   ): Promise<Response> => {
-    const id = crypto.randomUUID();
-    const promise = OLYMP.CREATE(props.refetch)({
-      ...entry,
-      id,
-      status: "active",
-      kind: "entry",
+    const body = {
+      status: "published",
+      order: entry.orderId,
+      eater: entry.eater,
+      menu_item: entry.menuItem,
+      comment: entry.comment,
+    } satisfies EntryCreate;
+    const promise = fetch(ENDPOINTS.ENTRIES, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
+
     props.setToast({
       isVisible: true,
       text: "Eintrag speichern ...",
@@ -25,17 +34,36 @@ const create =
           "Eintrag konnte nicht gespeichert werden, bitte versuche es erneut",
       },
     });
-    return promise;
+
+    return promise.then((response) => {
+      if (response.ok) {
+        props.refetch();
+        return response;
+      }
+      throw new Error(response.statusText);
+    });
   };
 
 const deactivate =
   (props: ApiProps) =>
   async (entry: EntryBase): Promise<Response> => {
-    const promise = OLYMP.UPDATE(props.refetch)({
-      ...entry,
-      status: "inactive",
-      kind: "entry",
+    const body = {
+      uuid: entry.id,
+      status: "archived",
+      order: entry.orderId,
+      eater: entry.eater,
+      menu_item: entry.menuItem,
+      comment: entry.comment,
+    } satisfies EntryUpdate;
+    const url = new URL([ENDPOINTS.ENTRIES.href, entry.id].join("/"));
+    const promise = fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
+
     props.setToast({
       isVisible: true,
       text: "Eintrag deaktivieren ...",
@@ -47,17 +75,36 @@ const deactivate =
           "Eintrag konnte nicht deaktiviert werden, bitte versuche es erneut",
       },
     });
-    return promise;
+
+    return promise.then((response) => {
+      if (response.ok) {
+        props.refetch();
+        return response;
+      }
+      throw new Error(response.statusText);
+    });
   };
 
 const reactivate =
   (props: ApiProps) =>
   async (entry: EntryBase): Promise<Response> => {
-    const promise = OLYMP.UPDATE(props.refetch)({
-      ...entry,
-      status: "active",
-      kind: "entry",
+    const body = {
+      uuid: entry.id,
+      status: "published",
+      order: entry.orderId,
+      eater: entry.eater,
+      menu_item: entry.menuItem,
+      comment: entry.comment,
+    } satisfies EntryUpdate;
+    const url = new URL([ENDPOINTS.ENTRIES.href, entry.id].join("/"));
+    const promise = fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
+
     props.setToast({
       isVisible: true,
       text: "Eintrag reaktivieren ...",
@@ -69,17 +116,27 @@ const reactivate =
           "Eintrag konnte nicht reaktiviert werden, bitte versuche es erneut",
       },
     });
-    return promise;
+
+    return promise.then((response) => {
+      if (response.ok) {
+        props.refetch();
+        return response;
+      }
+      throw new Error(response.statusText);
+    });
   };
 
 const remove =
   (props: ApiProps) =>
   async (entry: EntryBase): Promise<Response> => {
-    const promise = OLYMP.UPDATE(props.refetch)({
-      ...entry,
-      status: "deleted",
-      kind: "entry",
+    const url = new URL([ENDPOINTS.ENTRIES.href, entry.id].join("/"));
+    const promise = fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+
     props.setToast({
       isVisible: true,
       text: "Eintrag löschen ...",
@@ -91,7 +148,14 @@ const remove =
           "Eintrag konnte nicht gelöscht werden, bitte versuche es erneut",
       },
     });
-    return promise;
+
+    return promise.then((response) => {
+      if (response.ok) {
+        props.refetch();
+        return response;
+      }
+      throw new Error(response.statusText);
+    });
   };
 
 export const EntryAPI = (props: ApiProps) => ({

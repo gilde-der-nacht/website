@@ -3,7 +3,7 @@ import { For, type JSX, mergeProps, Show } from "solid-js";
 
 type GridProps<T> = {
   each: readonly T[];
-  barter?: (item: T) => GridElementFooter[];
+  footer?: (item: T) => GridElementFooter[];
   tags?: (item: T) => Tag[];
   children: (item: T) => JSX.Element;
   isDisabled: boolean;
@@ -11,14 +11,14 @@ type GridProps<T> = {
 };
 
 export const Grid = <T,>(props: GridProps<T>): JSX.Element => {
-  const merged = mergeProps({ barter: () => [], tags: () => [] }, props);
+  const merged = mergeProps({ footer: () => [], tags: () => [] }, props);
 
   return (
     <div class="hhh-grid">
       <For each={merged.each}>
         {(item) => (
           <GridElement
-            footer={merged.barter(item)}
+            footer={merged.footer(item)}
             tags={merged.tags(item)}
             isDisabled={merged.isDisabled}
             showStatusTag={merged.showStatusTag}

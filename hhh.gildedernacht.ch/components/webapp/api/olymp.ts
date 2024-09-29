@@ -1,100 +1,58 @@
-import type { Refetcher } from "@hhh/components/webapp/api/api";
-import type {
-  EntryCreatePost,
-  EntryUpdatePost,
-  OlympResponse,
-  OrderCreatePost,
-  OrderUpdatePost,
-  RawServerData,
-  RestaurantCreatePost,
-  RestaurantUpdatePost,
-} from "@hhh/components/webapp/api/ApiTypes";
-import { safeParse } from "@hhh/components/webapp/api/parsing";
+import {
+  entryParser,
+  getOlympParser,
+  orderParser,
+  restaurantParser,
+  type Entry,
+  type Order,
+  type Restaurant,
+} from "../util/StateTypes";
 
-const RESOURCE_UID =
-  "ed28796bac34122c0d508c578915f9fc1ce53ef46789cdcf41a3dc8da76730f3";
-
-const ENDPOINT = `https://api.gildedernacht.ch/resources/${RESOURCE_UID}/entries`;
-
-export const HHH_VERSION = 5;
-
-type OlympCreatePayload =
-  | RestaurantCreatePost
-  | OrderCreatePost
-  | EntryCreatePost;
-type OlympUpdatePayload =
-  | RestaurantUpdatePost
-  | OrderUpdatePost
-  | EntryUpdatePost;
-
-type OlympPostPayload = {
-  identification: string;
-  publicBody: string;
-  privateBody: string;
+export const BASE_ENDPOINT = new URL("https://olymp.gildedernacht.ch");
+export const ENDPOINTS = {
+  RESTAURANTS: new URL("items/hhh_restaurants", BASE_ENDPOINT),
+  ORDERS: new URL("items/hhh_orders", BASE_ENDPOINT),
+  ENTRIES: new URL("items/hhh_entries", BASE_ENDPOINT),
 };
 
-const CREATE =
-  (refetch: Refetcher) =>
-  async (payload: OlympCreatePayload): Promise<Response> => {
-    const body: OlympPostPayload = {
-      identification: payload.id,
-      publicBody: JSON.stringify({ ...payload, version: HHH_VERSION }),
-      privateBody: JSON.stringify({}),
-    };
-
-    const response = await fetch(ENDPOINT, {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(body),
-    });
-
-    if (response.ok) {
-      refetch();
-      return response;
-    }
-    throw new Error(response.statusText);
-  };
-
-const UPDATE =
-  (refetch: Refetcher) =>
-  async (payload: OlympUpdatePayload): Promise<Response> => {
-    const body: OlympPostPayload = {
-      identification: payload.id,
-      publicBody: JSON.stringify({ ...payload, version: HHH_VERSION }),
-      privateBody: JSON.stringify({}),
-    };
-
-    const response = await fetch(ENDPOINT, {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(body),
-    });
-
-    if (response.ok) {
-      refetch();
-      return response;
-    }
-    throw new Error(response.statusText);
-  };
-
-const filterNewest = (data: OlympResponse[]): OlympResponse[] => {
-  const map: { [_: string]: OlympResponse } = {};
-  data.forEach((d) => {
-    map[d.id] = d;
-  });
-  return Object.values(map);
-};
-
-const GET = async (): Promise<OlympResponse[]> => {
-  const response = await fetch(ENDPOINT, { method: "GET", mode: "cors" });
-  if (!response.ok) {
-    throw new Error(response.statusText);
+export async function loadRestaurants(): Promise<Restaurant[]> {
+  const res = await fetch(ENDPOINTS.RESTAURANTS);
+  const restaurants = (await res.json()) as unknown;
+  const parser = getOlympParser(restaurantParser);
+  const parsed = parser.safeParse(restaurants);
+  if (parsed.success) {
+    return parsed.data;
   }
-  const data: RawServerData[] = await response.json();
-  const parsed = data
-    .map(safeParse)
-    .filter((d): d is OlympResponse => d !== null);
-  return filterNewest(parsed);
-};
+  console.error(parsed.error);
+  return [];
+}
 
-export default { CREATE, UPDATE, GET };
+export async function loadRecentOrders(): Promise<Order[]> {
+  const url = new URL(ENDPOINTS.ORDERS);
+  url.searchParams.append("filter[date_created][_lt]", "$NOW(+1 day)");
+  const res = await fetch(url.href);
+  const orders = (await res.json()) as unknown;
+
+  const parser = getOlympParser(orderParser);
+  const parsed = parser.safeParse(orders);
+
+  if (parsed.success) {
+    return parsed.data;
+  }
+  console.error(parsed.error);
+  return [];
+}
+export async function loadRecentEntries(): Promise<Entry[]> {
+  const url = new URL(ENDPOINTS.ENTRIES);
+  url.searchParams.append("filter[date_created][_lt]", "$NOW(+1 day)");
+  const res = await fetch(url.href);
+  const entries = (await res.json()) as unknown;
+  const parser = getOlympParser(entryParser);
+  const parsed = parser.safeParse(entries);
+
+  if (parsed.success) {
+    return parsed.data;
+  }
+  console.error(parsed.error);
+  return [];
+}

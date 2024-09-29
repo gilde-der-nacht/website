@@ -1,6 +1,10 @@
-import { aggragateData } from "@hhh/components/webapp/api/aggregate";
+import { aggregateServerData } from "@hhh/components/webapp/api/aggregate";
 import { EntryAPI } from "@hhh/components/webapp/api/entry-api";
-import OLYMP from "@hhh/components/webapp/api/olymp";
+import {
+  loadRecentEntries,
+  loadRecentOrders,
+  loadRestaurants,
+} from "@hhh/components/webapp/api/olymp";
 import { OrderAPI } from "@hhh/components/webapp/api/order-api";
 import { RestaurantAPI } from "@hhh/components/webapp/api/restaurant-api";
 import type { ToastOptions } from "@hhh/components/webapp/components/static/Toast";
@@ -17,8 +21,14 @@ export type Refetcher = (
 ) => AppData | Promise<AppData | undefined> | null | undefined;
 
 export const loadServerResource = async (now: DateTime): Promise<AppData> => {
-  const data = await OLYMP.GET();
-  return aggragateData(data, now);
+  const [restaurants, orders, entries] = await Promise.all([
+    loadRestaurants(),
+    loadRecentOrders(),
+    loadRecentEntries(),
+  ]);
+
+  const aggregatedData = aggregateServerData({ restaurants, orders, entries });
+  return { ...aggregatedData, now };
 };
 
 export default (props: ApiProps) => ({

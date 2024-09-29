@@ -29,25 +29,23 @@ export const App = (): JSX.Element => {
 
   return (
     <Layout stateSignal={[state, setState]}>
-      <div>
-        <div class="container p-5">
-          <Switch fallback={<Progress />}>
-            <Match when={typeof data.error !== "undefined"}>
-              <NetworkError />
-            </Match>
-            <Match when={data()}>
-              {(data) => (
-                <Dynamic
-                  component={Router[state().page]({
-                    data: data(),
-                    stateSignal: [state, setState],
-                    API: API({ refetch, setToast: setToast(setState) }),
-                  })}
-                />
-              )}
-            </Match>
-          </Switch>
-        </div>
+      <div class="container p-5">
+        <Switch fallback={<Progress />}>
+          <Match when={typeof data.error !== "undefined"}>
+            <NetworkError />
+          </Match>
+          <Match when={data()}>
+            {(data) => (
+              <Dynamic
+                component={Router[state().page]({
+                  data: data(),
+                  stateSignal: [state, setState],
+                  API: API({ refetch, setToast: setToast(setState) }),
+                })}
+              />
+            )}
+          </Match>
+        </Switch>
       </div>
     </Layout>
   );

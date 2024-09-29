@@ -22,13 +22,6 @@ export const isPromise = (p: any): p is Promise<any> => {
   return typeof p === "object" && typeof p.then === "function";
 };
 
-export const hasProp = <K extends PropertyKey>(
-  data: object,
-  prop: K,
-): data is Record<K, unknown> => {
-  return prop in data;
-};
-
 export const formatDate = (date: DateTime): string =>
   date.toLocal().toLocaleString(DateTime.DATETIME_MED) + " Uhr";
 

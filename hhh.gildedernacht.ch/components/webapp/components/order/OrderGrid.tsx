@@ -31,8 +31,8 @@ type Props = {
 export const OrderGrid = (props: Props): JSX.Element => {
   const merged = mergeProps({ isDisabled: false, showStatusTag: true }, props);
 
-  const barter = (item: OrderState): GridElementFooter[] => {
-    const barterElements: GridElementFooter[] = [
+  const footer = (item: OrderState): GridElementFooter[] => {
+    const footerElements: GridElementFooter[] = [
       {
         label: <>Bestellung anzeigen</>,
         onClick: () => merged.openOrder(item),
@@ -40,27 +40,27 @@ export const OrderGrid = (props: Props): JSX.Element => {
     ];
 
     if (item.status === "active") {
-      barterElements.push({
+      footerElements.push({
         title: "Bestellung stoppen",
         label: <Icon icon="circle-stop"></Icon>,
         onClick: () => merged.deactivateOrder(item),
         kind: "danger",
       });
     } else {
-      barterElements.push({
+      footerElements.push({
         title: "Bestellung fortsetzen",
         label: <Icon icon="circle-play"></Icon>,
         onClick: () => merged.reactivateOrder(item),
         kind: "success",
       });
-      barterElements.push({
+      footerElements.push({
         title: "Bestellung löschen",
         label: <Icon icon="trash"></Icon>,
         onClick: () => merged.removeOrder(item),
         kind: "danger",
       });
     }
-    return barterElements;
+    return footerElements;
   };
 
   const tags = (item: OrderState) => {
@@ -79,7 +79,7 @@ export const OrderGrid = (props: Props): JSX.Element => {
   return (
     <Grid
       each={merged.orders}
-      barter={barter}
+      footer={footer}
       isDisabled={merged.isDisabled}
       showStatusTag={merged.showStatusTag}
       tags={tags}

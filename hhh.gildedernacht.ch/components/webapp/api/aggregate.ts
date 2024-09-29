@@ -1,68 +1,78 @@
 import type {
-  EntryGet,
-  OrderGet,
-  RestaurantGet,
-} from "@hhh/components/webapp/api/ApiTypes";
-import type {
   AppData,
-  DerivedOrderStatus,
+  Entry,
   EntryState,
+  Order,
   OrderState,
+  Restaurant,
   RestaurantState,
 } from "@hhh/components/webapp/util/StateTypes";
-import { getDelta } from "@hhh/components/webapp/util/utils";
+
 import { DateTime } from "luxon";
 
 export const CUT_OFF_TIME_HOURS = 24;
 
-export const aggragateData = (
-  data: (RestaurantGet | OrderGet | EntryGet)[],
-  now: DateTime,
-): AppData => {
-  const allRestaurants = data
-    .filter((d): d is RestaurantGet => d.kind === "restaurant")
-    .filter((r): r is RestaurantState => r.status !== "deleted");
+export function aggregateServerData(serverData: {
+  restaurants: Restaurant[];
+  orders: Order[];
+  entries: Entry[];
+}): Omit<AppData, "now"> {
+  const restaurantViews = serverData.restaurants.map((r) => {
+    return {
+      kind: "restaurant",
+      id: r.uuid,
+      status: r.status === "published" ? "active" : "inactive",
+      label: r.name,
+      menuLink: r.link,
+      comment: r.comment ?? "",
+      created: DateTime.fromISO(r.date_created),
+      updated: DateTime.fromISO(r.date_updated ?? r.date_created),
+    } satisfies RestaurantState;
+  });
   const restaurants = {
-    active: allRestaurants.filter((r) => r.status === "active"),
-    inactive: allRestaurants.filter((r) => r.status === "inactive"),
+    active: restaurantViews.filter((r) => r.status === "active"),
+    inactive: restaurantViews.filter((r) => r.status === "inactive"),
   };
 
-  const allOrders = data
-    .filter((d): d is OrderGet => d.kind === "order")
-    .filter((o) => o.status !== "deleted")
-    .filter((o) => {
-      const delta = getDelta(now, o.created.plus({ minutes: o.timeWindow }));
-      return delta.days === 0 && delta.hours <= CUT_OFF_TIME_HOURS;
-    })
-    .filter((o) => restaurants.active.map((r) => r.id).includes(o.restaurantId))
-    .map((o): OrderState => {
-      if (o.status === "auto") {
-        const delta = getDelta(o.created.plus({ minutes: o.timeWindow }), now);
-        const status = delta.minutes > 0 ? "active" : "inactive";
-        return { ...o, status };
-      }
-      return { ...o, status: o.status as DerivedOrderStatus };
-    });
-
+  const orderViews = serverData.orders.map((o) => {
+    return {
+      kind: "order",
+      id: o.uuid,
+      status: o.status === "published" ? "active" : "inactive",
+      restaurantId: o.restaurant,
+      orderer: o.orderer,
+      timeWindow: o.time_window,
+      comment: o.comment ?? "",
+      created: DateTime.fromISO(o.date_created),
+      updated: DateTime.fromISO(o.date_updated ?? o.date_created),
+    } satisfies OrderState;
+  });
   const orders = {
-    active: allOrders.filter((o) => o.status === "active"),
-    inactive: allOrders.filter((o) => o.status === "inactive"),
+    active: orderViews.filter((r) => r.status === "active"),
+    inactive: orderViews.filter((r) => r.status === "inactive"),
   };
 
-  const allEntries = data
-    .filter((d): d is EntryGet => d.kind === "entry")
-    .filter((e): e is EntryState => e.status !== "deleted")
-    .filter((e) => allOrders.map((o) => o.id).includes(e.orderId));
-
+  const entryViews = serverData.entries.map((e) => {
+    return {
+      kind: "entry",
+      id: e.uuid,
+      status: e.status === "published" ? "active" : "inactive",
+      orderId: e.order,
+      eater: e.eater,
+      menuItem: e.menu_item,
+      comment: e.comment ?? "",
+      created: DateTime.fromISO(e.date_created),
+      updated: DateTime.fromISO(e.date_updated ?? e.date_created),
+    } satisfies EntryState;
+  });
   const entries = {
-    active: allEntries.filter((e) => e.status === "active"),
-    inactive: allEntries.filter((e) => e.status === "inactive"),
+    active: entryViews.filter((r) => r.status === "active"),
+    inactive: entryViews.filter((r) => r.status === "inactive"),
   };
 
   return {
     restaurants,
     orders,
     entries,
-    now,
   };
-};
+}
