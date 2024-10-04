@@ -14,11 +14,11 @@
     "hhh-build": "astro --config ./hhh.gildedernacht.ch/config.ts check && astro --config ./hhh.gildedernacht.ch/config.ts build"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
+    "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "3.1.7",
     "@astrojs/solid-js": "4.4.2",
     "@astrojs/ts-plugin": "^1.10.2",
-    "astro": "4.15.9",
+    "astro": "4.15.11",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
