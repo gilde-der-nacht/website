@@ -4,6 +4,6 @@ import { defineConfig } from "astro/config";
 export default defineConfig(
   defineAstroConfig({
     host: "rollenspieltage.ch",
-    port: 1113,
+    port: 3333,
   }),
 );

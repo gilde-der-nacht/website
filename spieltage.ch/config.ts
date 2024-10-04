@@ -4,6 +4,6 @@ import { defineConfig } from "astro/config";
 export default defineConfig(
   defineAstroConfig({
     host: "spieltage.ch",
-    port: 1112,
+    port: 2222,
   }),
 );
