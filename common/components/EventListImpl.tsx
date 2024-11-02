@@ -6,29 +6,35 @@ import {
   formatDateTime,
 } from "@common/components/utils";
 
-const ICONS_AND_COLORS: Record<number, { theme?: string; icon?: string }> = {
-  // Spieltreffen
-  1: {},
-  // Rollenspieltage
-  2: {
-    theme: "special",
-    icon: "stars",
-  },
-  // Spieltage
-  3: {
-    theme: "special",
-    icon: "stars",
-  },
-  // Rollenspiel-Stammtisch
-  4: {
-    theme: "success",
-    icon: "comment-dots",
-  },
-};
+function getTheme(eventType: string): { theme: string; icon: string } | null {
+  switch (eventType) {
+    case "Luzerner Spieltage": {
+      return {
+        theme: "special",
+        icon: "stars",
+      };
+    }
+    case "Luzerner Rollenspieltage": {
+      return {
+        theme: "special",
+        icon: "stars",
+      };
+    }
+    case "Rollenspiel-Stammtisch": {
+      return {
+        theme: "success",
+        icon: "comment-dots",
+      };
+    }
+    default: {
+      return null;
+    }
+  }
+}
 
 function renderBackgroundIcon(event: OlympEvent): JSX.Element {
-  const entry = ICONS_AND_COLORS[event.type.id];
-  if (entry === undefined || !entry.icon) {
+  const entry = getTheme(event.type.label);
+  if (entry === null || !entry.icon) {
     return "";
   }
 
@@ -45,32 +51,32 @@ function renderDate(event: OlympEvent): JSX.Element {
       <i class="fa-duotone fa-calendar-range"></i>
     </div>
   );
-  if (event.type_of_time === "multiple_full_days") {
+  if (event.date.fullDay && event.date.multipleDays) {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateRange(event.start, event.end)}</span>
+        <span>{formatDateRange(event.date.start, event.date.end)}</span>
       </div>
     );
-  } else if (event.type_of_time === "one_full_day") {
+  } else if (event.date.fullDay) {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDate(event.start)}</span>
+        <span>{formatDate(event.date.start)}</span>
       </div>
     );
-  } else if (event.type_of_time === "multiple_partial_days") {
+  } else if (event.date.multipleDays) {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateRange(event.start, event.end)}</span>
+        <span>{formatDateRange(event.date.start, event.date.end)}</span>
       </div>
     );
   } else {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateTime(event.start)} Uhr</span>
+        <span>{formatDateTime(event.date.start)} Uhr</span>
       </div>
     );
   }
@@ -86,16 +92,16 @@ function renderLocation(event: OlympEvent): JSX.Element {
       <a href={`${event.location.url}`} class="event-icon">
         <i class="fa-duotone fa-location-dot"></i>
       </a>
-      <span>{event.location.label_long}</span>
+      <span>{event.location.labelLong}</span>
     </div>
   );
 }
 function renderTags(event: OlympEvent): JSX.Element {
-  function renderTag(tag: { label: string }) {
+  function renderTag(tag: string) {
     return (
       <li>
-        <a href={`?tags=${tag.label}`} class="event-tag">
-          {tag.label}
+        <a href={`?tags=${tag}`} class="event-tag">
+          {tag}
         </a>
       </li>
     );
@@ -109,7 +115,7 @@ function renderTags(event: OlympEvent): JSX.Element {
       <div class="event-icon">
         <i class="fa-duotone fa-tags"></i>
       </div>
-      <ul role="list">{event.tags.map(({ tags_id }) => renderTag(tags_id))}</ul>
+      <ul role="list">{event.tags.map(renderTag)}</ul>
     </div>
   );
 }
@@ -148,7 +154,7 @@ function renderLinks(event: OlympEvent): JSX.Element {
 
   return (
     <ul role="list" class="event-links">
-      {event.links.map(({ links_id }) => renderLink(links_id))}
+      {event.links.map(renderLink)}
     </ul>
   );
 }
@@ -160,8 +166,8 @@ type EventEntryProps = {
 function EventEntry(props: EventEntryProps): JSX.Element {
   return (
     <li
-      class={`event-entry ${ICONS_AND_COLORS[props.event.type.id]?.theme || ""}`}
-      data-event-tags={`${props.event.tags?.map(({ tags_id: t }) => t.label.trim()).join(",") || ""}`}
+      class={`event-entry ${getTheme(props.event.type.label)?.theme || ""}`}
+      data-event-tags={`${props.event.tags?.map((tag) => tag.trim()).join(",") || ""}`}
     >
       {renderBackgroundIcon(props.event)}
       <h1 class="event-title">{props.event.title}</h1>
@@ -181,7 +187,7 @@ function EventEntry(props: EventEntryProps): JSX.Element {
 type EventListProps = { events: OlympEvent[] };
 
 function sortByStartDate(a: OlympEvent, b: OlympEvent) {
-  return a.start.getTime() - b.start.getTime();
+  return a.date.start.getTime() - b.date.start.getTime();
 }
 
 export function EventListImpl(props: EventListProps): JSX.Element {

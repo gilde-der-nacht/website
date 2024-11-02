@@ -1,6 +1,6 @@
 # Displays info when running `just` without subcommand
 default:
-    @echo 'Run `just --list` to see all available recipes'
+    @just --list
 
 gdn-dev:
     yarn gdn-dev

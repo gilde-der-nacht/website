@@ -24,9 +24,7 @@ export function EventListFilters(props: Props): JSX.Element {
 
   const listOfTags = [
     ...new Set(
-      props.events.flatMap(({ tags }) =>
-        tags.map(({ tags_id: t }) => t.label.trim()),
-      ),
+      props.events.flatMap(({ tags }) => tags.map((tag) => tag.trim())),
     ),
   ].sort();
 
