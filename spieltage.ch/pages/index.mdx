@@ -12,6 +12,7 @@ import { ButtonLink } from "@common/components/ButtonLink.tsx";
 import { Slider } from "@common/components/Slider.tsx";
 import { Picture } from "astro:assets";
 
+import lst202401 from "../images/2024-spieltage-01.jpg";
 import lst202201 from "../images/2022-spieltage-01.jpg";
 import lst202204 from "../images/2022-spieltage-04.jpg";
 import lst202203 from "../images/2022-spieltage-03.jpg";
@@ -31,12 +32,16 @@ import lst201605 from "../images/2016-spieltage-05.jpg";
 <Box type="special">
   **Achtung,** das Programm ist noch vom letzten Jahr und wird erst Anfangs 2025 aktualisiert.
 </Box>
-
 Am **Samstag, 22. und Sonntag, 23. März 2025** verwandeln wir den [Pfarreisaal St. Johannes im Würzenbach-Quartier](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403) in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan. Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
 
 Falls du Fragen hast oder an den Spieltagen [**mithelfen**](/helfen) möchtest, zögere nicht, uns über das [Kontaktformular](/kontakt) anzuschreiben. Wir freuen uns auf deine Nachricht.
 
 <Slider size="small">
+
+  <figure aria-labelledby="caption-2024-01">
+    <Picture src={lst202401} formats={['avif', 'webp', 'jpg']} alt="2024, Luzerner Spieltage" />
+    <figcaption id="caption-2024-01">2024, Luzerner Spieltage</figcaption>
+  </figure>
 
   <figure aria-labelledby="caption-2022-01">
     <Picture src={lst202201} formats={['avif', 'webp', 'jpg']} alt="2022, Luzerner Spieltage" />
