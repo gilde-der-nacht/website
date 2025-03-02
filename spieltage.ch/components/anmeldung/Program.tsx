@@ -115,6 +115,18 @@ function ProgrammEntryCard(props: {
             //   <strong>Spielleitung:</strong> {props.entry.master_name}
             // </div>
           }
+          {props.entry.external_link === null ? null : (
+            <div class="event-tags">
+              <strong>Link: </strong>
+              <a
+                href={props.entry.external_link?.link}
+                style="border: none;"
+                target="_blank"
+              >
+                {props.entry.external_link?.label}
+              </a>
+            </div>
+          )}
           <div class="event-tags">
             <strong>Freie Plätze:</strong>{" "}
             {openSeats() > 1 ? (

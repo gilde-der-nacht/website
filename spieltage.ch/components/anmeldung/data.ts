@@ -133,6 +133,12 @@ const programEntrySchema = z.object({
   playercount: z.object({ min: z.number(), max: z.number() }),
   master_name: z.string(),
   slot: z.object({ day: serverSchemaDay, start: z.number(), end: z.number() }),
+  external_link: z.nullable(
+    z.object({
+      label: z.string(),
+      link: z.string(),
+    }),
+  ),
 });
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
 
@@ -197,6 +203,7 @@ export type ProgramEntryExtended = {
   master_name: string;
   slot: { day: ProgramDay; start: number; end: number };
   reserved_uuids: string[];
+  external_link: null | { label: string; link: string };
 };
 
 export type ProgramByHour = [hour: string, entries: ProgramEntryExtended[]][];
