@@ -2,8 +2,8 @@ import {
   loadProgram,
   loadSave,
   type Program,
-} from "@rst/components/anmeldung/data";
-import type { Store } from "@rst/components/anmeldung/types";
+} from "@lst/components/anmeldung/data";
+import type { Store } from "@lst/components/anmeldung/types";
 
 type Params = {
   secret: string | null;

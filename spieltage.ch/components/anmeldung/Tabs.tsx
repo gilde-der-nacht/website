@@ -1,20 +1,20 @@
 import { Button } from "@common/components/Button";
 import { Match, Suspense, Switch, type JSX, type Resource } from "solid-js";
-import { Kontaktdaten } from "@rst/components/anmeldung/Kontaktdaten";
-import { Samstag } from "@rst/components/anmeldung/Samstag";
-import { Sonntag } from "@rst/components/anmeldung/Sonntag";
-import { Zusammenfassung } from "@rst/components/anmeldung/Zusammenfassung";
+import { Kontaktdaten } from "@lst/components/anmeldung/Kontaktdaten";
+import { Samstag } from "@lst/components/anmeldung/Samstag";
+import { Sonntag } from "@lst/components/anmeldung/Sonntag";
+import { Zusammenfassung } from "@lst/components/anmeldung/Zusammenfassung";
 import { Box, SimpleBox } from "@common/components/Box";
 import type {
   Program,
   ReservationFromServer,
   SaveFromServer,
   UpdateSave,
-} from "@rst/components/anmeldung/data";
+} from "@lst/components/anmeldung/data";
 import type {
   Reservation,
   ReservationView,
-} from "@rst/components/anmeldung/types";
+} from "@lst/components/anmeldung/types";
 
 export type Tab = "Contact" | "Saturday" | "Sunday" | "Summary";
 

@@ -4,10 +4,9 @@ import type {
   ProgramEntry,
   ReservationFromServer,
   SaveFromServer,
-} from "@rst/components/anmeldung/data";
+} from "@lst/components/anmeldung/data";
 import { Box } from "@common/components/Box";
-import type { DayPeriod, Reservation } from "@rst/components/anmeldung/types";
-import { MealBreak } from "@rst/components/anmeldung/MealBreak";
+import type { DayPeriod, Reservation } from "@lst/components/anmeldung/types";
 
 type ReservationAndGame = { reservation: Reservation; game: ProgramEntry };
 
@@ -21,7 +20,9 @@ function ReservationItem(props: {
     <Box type={props.type ?? "gray"}>
       <p>
         <strong>
-          {game.title === null ? game.system : `${game.title} (${game.system})`}{" "}
+          {game.title === null
+            ? game.system
+            : `${game.title} (${game.system})`}{" "}
         </strong>
         | {game.slot.day === "SATURDAY" ? "Samstag" : "Sonntag"},{" "}
         {game.slot.start} bis {game.slot.end} Uhr
@@ -74,12 +75,12 @@ function groupByGame(
   const grouped = Object.groupBy(entries, (entry) => entry.game.uuid);
   return Object.values(grouped)
     .map((entries) => {
-      const first = entries?.[0];
-      if (entries === undefined || first === undefined) {
+      const filst = entries?.[0];
+      if (entries === undefined || filst === undefined) {
         return null;
       }
       return {
-        game: first.game,
+        game: filst.game,
         players: entries.map((e) => e.reservation.friendsName ?? selfName),
       };
     })
@@ -136,15 +137,23 @@ function ReservationList(props: {
     <>
       {MORNING.length > 0 ? <ReservationSubList entries={MORNING} /> : null}
       {MORNING.length > 0 || AFTERNOON.length > 0 ? (
-        <div style="max-inline-size: 60ch;">
-          <MealBreak type="LUNCH" small={true} />
-        </div>
+        <>
+          {
+            // <div style="max-inline-size: 60ch;">
+            //   <MealBreak type="LUNCH" small={true} />
+            // </div>
+          }
+        </>
       ) : null}
       {AFTERNOON.length > 0 ? <ReservationSubList entries={AFTERNOON} /> : null}
       {isSaturday && (AFTERNOON.length > 0 || EVENING.length > 0) ? (
-        <div style="max-inline-size: 60ch;">
-          <MealBreak type="DINNER" small={true} />
-        </div>
+        <>
+          {
+            // <div style="max-inline-size: 60ch;">
+            //    <MealBreak type="DINNER" small={true} />
+            // </div>
+          }
+        </>
       ) : null}
       {EVENING.length > 0 ? <ReservationSubList entries={EVENING} /> : null}
     </>

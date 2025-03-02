@@ -1,17 +1,17 @@
-import type { Tab } from "@rst/components/anmeldung/Tabs";
+import type { Tab } from "@lst/components/anmeldung/Tabs";
 import {
   type ReservationToServer,
   type SaveFromServer,
   type SaveToServer,
   type UpdateSave,
-} from "@rst/components/anmeldung/data";
+} from "@lst/components/anmeldung/data";
 import { createStore } from "solid-js/store";
 import type {
   Reservation,
   ReservationView,
   Store,
-} from "@rst/components/anmeldung/types";
-import { loadServerState } from "@rst/components/anmeldung/load";
+} from "@lst/components/anmeldung/types";
+import { loadServerState } from "@lst/components/anmeldung/load";
 import { elysium } from "@common/components/utils";
 
 type Actions = {
@@ -48,7 +48,7 @@ export function initState(init: Store): {
 
     setStore("state", "SAVING");
 
-    const saveUrl = elysium("/rst24/save");
+    const saveUrl = elysium("/lst25/save");
     const body = {
       ...store.currentSave,
       games: [
@@ -80,12 +80,12 @@ export function initState(init: Store): {
     });
 
     if (response.ok) {
-      const serverState = await loadServerState({
+      const servelstate = await loadServerState({
         secret: store.secret,
         showCreateMessage: false,
       });
       setStore({
-        ...serverState,
+        ...servelstate,
         activeTab: store.activeTab,
       });
     } else {

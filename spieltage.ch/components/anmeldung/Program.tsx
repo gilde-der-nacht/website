@@ -4,7 +4,7 @@ import type {
   ProgramEntryExtended,
   ReservationFromServer,
   UpdateSave,
-} from "@rst/components/anmeldung/data";
+} from "@lst/components/anmeldung/data";
 import { Checkbox } from "@common/components/Checkbox";
 import type {
   Reservation,
@@ -12,8 +12,7 @@ import type {
   ReservedTimeRange,
   Range,
   DayPeriod,
-} from "@rst/components/anmeldung/types";
-import { MealBreak } from "@rst/components/anmeldung/MealBreak";
+} from "@lst/components/anmeldung/types";
 
 const BUFFER_SEATS = 1 as const;
 
@@ -399,15 +398,21 @@ export function ProgramOfDay(props: {
         </ul>
       </div>
       <EventList program={MORNING} />
-      <div style="margin-block: 2rem;">
-        <MealBreak type="LUNCH" />
-      </div>
+      <>
+        {
+          // <div style="margin-block: 2rem;">
+          //    <MealBreak type="LUNCH" />
+          // </div>
+        }
+      </>
       <EventList program={AFTERNOON} />
       {EVENING.length > 0 ? (
         <>
-          <div style="margin-block: 2rem;">
-            <MealBreak type="DINNER" />
-          </div>
+          {
+            // <div style="margin-block: 2rem;">
+            //    <MealBreak type="DINNER" />
+            // </div>
+          }
           <EventList program={EVENING} />{" "}
         </>
       ) : null}

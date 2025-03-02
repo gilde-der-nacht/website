@@ -9,15 +9,15 @@ import {
   type JSX,
   type Resource,
 } from "solid-js";
-import { Tabs } from "@rst/components/anmeldung/Tabs";
-import { initState } from "@rst/components/anmeldung/store";
+import { Tabs } from "@lst/components/anmeldung/Tabs";
+import { initState } from "@lst/components/anmeldung/store";
 import {
   loadParams as loadParams,
   loadServerProgram,
   loadServerState,
-} from "@rst/components/anmeldung/load";
-import type { Store } from "@rst/components/anmeldung/types";
-import type { Program } from "@rst/components/anmeldung/data";
+} from "@lst/components/anmeldung/load";
+import type { Store } from "@lst/components/anmeldung/types";
+import type { Program } from "@lst/components/anmeldung/data";
 
 function MeineAnmeldungLoaded(props: {
   state: Store;
@@ -32,8 +32,7 @@ function MeineAnmeldungLoaded(props: {
           <br />
           <br />
           Wir haben eine E-Mail an deine Adresse gesendet. In dieser E-Mail
-          findest du einen persönlichen Link, um deine Anmeldung bis am{" "}
-          <strong>Freitag, 23. August 2024</strong> anzupassen.
+          findest du einen persönlichen Link, um deine Anmeldung anzupassen.
         </Box>
         <br />
       </Show>

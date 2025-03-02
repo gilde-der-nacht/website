@@ -4,12 +4,12 @@ import {
   type Program,
   type ReservationFromServer,
   type UpdateSave,
-} from "@rst/components/anmeldung/data";
-import { ProgramOfDay } from "@rst/components/anmeldung/Program";
+} from "@lst/components/anmeldung/data";
+import { ProgramOfDay } from "@lst/components/anmeldung/Program";
 import type {
   Reservation,
   ReservationView,
-} from "@rst/components/anmeldung/types";
+} from "@lst/components/anmeldung/types";
 
 export function Sonntag(props: {
   selfName: string;

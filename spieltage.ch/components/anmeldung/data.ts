@@ -27,7 +27,7 @@ const serverSchemaProgram = z.array(
 export type ProgramList = z.infer<typeof serverSchemaProgram>;
 
 export async function getProgram(): Promise<ProgramList> {
-  const response = await fetch(elysium("/rst24/program"));
+  const response = await fetch(elysium("/lst25/program"));
   const json = (await response.json()) as unknown;
   return serverSchemaProgram.parse(json);
 }
@@ -51,15 +51,6 @@ export async function getProgramGroupedByStarthour(): Promise<GroupedByStarthour
 
   return grouped;
 }
-
-const progressSchema = z.enum([
-  "INITIALIZED",
-  "IN_PROGRESS",
-  "CONFIRMED",
-  "CONFIRMED_W_INVALID_CHANGES",
-  "CONFIRMED_W_VALID_CHANGES",
-  "RECONFIRMED",
-]);
 
 const reservationSelfSchema = z.object({
   game: z.string(),
@@ -90,8 +81,7 @@ const reservationToServerSchema = z.union([
 export type ReservationToServer = z.infer<typeof reservationToServerSchema>;
 
 const saveFromServerSchema = z.object({
-  registrationId: z.number(),
-  progress: progressSchema,
+  registrationUuid: z.string().uuid(),
   name: z.string(),
   email: z.string(),
   handynummer: z.string(),
@@ -102,7 +92,6 @@ const saveFromServerSchema = z.object({
 
 const saveToServerSchema = z.object({
   registrationId: z.number(),
-  progress: progressSchema,
   name: z.string(),
   email: z.string(),
   handynummer: z.string(),
@@ -121,7 +110,7 @@ export type UpdateSave = <T extends keyof SaveFromServer>(
 export async function loadSave(
   secret: string,
 ): Promise<{ kind: "SUCCESS"; save: SaveFromServer } | { kind: "FAILED" }> {
-  const loadUrl = elysium("/rst24/load");
+  const loadUrl = elysium("/lst25/load");
   loadUrl.searchParams.append("secret", secret);
   const response = await fetch(loadUrl);
   if (!response.ok) {
@@ -130,6 +119,7 @@ export async function loadSave(
   const json = (await response.json()) as unknown;
   const parsed = saveFromServerSchema.safeParse(json);
   if (!parsed.success) {
+    console.error(parsed.error);
     return { kind: "FAILED" };
   }
 
@@ -160,8 +150,8 @@ export async function loadProgram(): Promise<
     }
   | { kind: "FAILED" }
 > {
-  const programUrl = elysium("/rst24/program");
-  const reservedUrl = elysium("/rst24/reserved");
+  const programUrl = elysium("/lst25/program");
+  const reservedUrl = elysium("/lst25/reserved");
   const [programResponse, reservedResponse] = await Promise.all([
     fetch(programUrl),
     fetch(reservedUrl),
