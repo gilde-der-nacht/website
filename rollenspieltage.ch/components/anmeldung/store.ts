@@ -12,6 +12,7 @@ import type {
   Store,
 } from "@rst/components/anmeldung/types";
 import { loadServerState } from "@rst/components/anmeldung/load";
+import { elysium } from "@common/components/utils";
 
 type Actions = {
   changeTab: (tab: Tab) => void;
@@ -47,7 +48,7 @@ export function initState(init: Store): {
 
     setStore("state", "SAVING");
 
-    const saveUrl = new URL("https://elysium.gildedernacht.ch/rst24/save");
+    const saveUrl = elysium("/rst24/save");
     const body = {
       ...store.currentSave,
       games: [

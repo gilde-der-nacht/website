@@ -1,4 +1,5 @@
 import { z } from "astro/zod";
+import { elysium } from "./utils";
 
 const statusSchema = z.enum(["published", "draft", "archived"]);
 
@@ -47,9 +48,7 @@ const eventSchema = z.object({
 export type OlympEvent = z.infer<typeof eventSchema>;
 
 export async function loadPublishedEvents(): Promise<OlympEvent[]> {
-  const elysium = new URL("https://elysium.gildedernacht.ch/calendar");
-
-  const response = await fetch(elysium);
+  const response = await fetch(elysium("/calendar"));
   const json = (await response.json()) as unknown;
 
   const parsed = z.array(eventSchema).parse(json);

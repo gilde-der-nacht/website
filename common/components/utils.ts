@@ -74,3 +74,12 @@ export function isFutureDate(date: Date | string): boolean {
 export function isNotProduction(): boolean {
   return import.meta.env.DEV || import.meta.env.ENV === "test";
 }
+
+export function elysium(path: string): URL {
+  return new URL(
+    path,
+    import.meta.env.PUBLIC_USE_LOCAL_ELYSIUM === "true"
+      ? "http://localhost:1414"
+      : "https://elysium.gildedernacht.ch",
+  );
+}

@@ -1,3 +1,4 @@
+import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 
 const serverSchemaDay = z.enum(["SATURDAY", "SUNDAY"]);
@@ -26,9 +27,7 @@ const serverSchemaProgram = z.array(
 export type ProgramList = z.infer<typeof serverSchemaProgram>;
 
 export async function getProgram(): Promise<ProgramList> {
-  const response = await fetch(
-    "https://elysium.gildedernacht.ch/rst24/program",
-  );
+  const response = await fetch(elysium("/rst24/program"));
   const json = (await response.json()) as unknown;
   return serverSchemaProgram.parse(json);
 }
@@ -122,7 +121,7 @@ export type UpdateSave = <T extends keyof SaveFromServer>(
 export async function loadSave(
   secret: string,
 ): Promise<{ kind: "SUCCESS"; save: SaveFromServer } | { kind: "FAILED" }> {
-  const loadUrl = new URL("https://elysium.gildedernacht.ch/rst24/load");
+  const loadUrl = elysium("/rst24/load");
   loadUrl.searchParams.append("secret", secret);
   const response = await fetch(loadUrl);
   if (!response.ok) {
@@ -161,10 +160,8 @@ export async function loadProgram(): Promise<
     }
   | { kind: "FAILED" }
 > {
-  const programUrl = new URL("https://elysium.gildedernacht.ch/rst24/program");
-  const reservedUrl = new URL(
-    "https://elysium.gildedernacht.ch/rst24/reserved",
-  );
+  const programUrl = elysium("/rst24/program");
+  const reservedUrl = elysium("/rst24/reserved");
   const [programResponse, reservedResponse] = await Promise.all([
     fetch(programUrl),
     fetch(reservedUrl),

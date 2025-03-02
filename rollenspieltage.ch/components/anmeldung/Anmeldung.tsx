@@ -4,6 +4,7 @@ import { Button } from "@common/components/Button";
 import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { z } from "astro/zod";
+import { elysium } from "@common/components/utils";
 
 type Store = {
   form: { name: string; email: string; tel: string };
@@ -68,16 +69,13 @@ export function Anmeldung(): JSX.Element {
         email: store.form.email,
         handynummer: store.form.tel,
       };
-      const response = await fetch(
-        "https://elysium.gildedernacht.ch/rst24/start",
-        {
-          method: "post",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-          },
+      const response = await fetch(elysium("/rst24/start"), {
+        method: "post",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+      });
 
       if (!response.ok) {
         setStore("showErrors", "general", true);

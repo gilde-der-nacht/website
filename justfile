@@ -2,20 +2,20 @@
 default:
     @just --list
 
-gdn-dev:
-    yarn gdn-dev
+gdn-dev USE_LOCAL_ELYSIUM="false":
+    PUBLIC_USE_LOCAL_ELYSIUM={{USE_LOCAL_ELYSIUM}} yarn gdn-dev
 
 gdn-build:
     yarn gdn-build
 
-lst-dev:
-    yarn lst-dev
+lst-dev USE_LOCAL_ELYSIUM="false":
+    PUBLIC_USE_LOCAL_ELYSIUM={{USE_LOCAL_ELYSIUM}} yarn lst-dev
 
 lst-build:
     yarn lst-build
 
-rst-dev:
-    yarn rst-dev
+rst-dev USE_LOCAL_ELYSIUM="false":
+    PUBLIC_USE_LOCAL_ELYSIUM={{USE_LOCAL_ELYSIUM}} yarn rst-dev
 
 rst-build:
     yarn rst-build

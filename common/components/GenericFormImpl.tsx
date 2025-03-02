@@ -1,4 +1,8 @@
-import type { Category, Language } from "@common/components/utils";
+import {
+  elysium,
+  type Category,
+  type Language,
+} from "@common/components/utils";
 import { Input } from "@common/components/Input";
 import { Form } from "@common/components/Form";
 import { Textarea } from "@common/components/Textarea";
@@ -22,7 +26,7 @@ type Props<Fields extends string> = {
   redirectOnSpam: URL | undefined;
 };
 
-const actionUrl = new URL("https://elysium.gildedernacht.ch/forms");
+const actionUrl = elysium("/forms");
 
 type FormDataSchema<Fields extends string> = Record<Fields, string>;
 

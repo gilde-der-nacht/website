@@ -4,7 +4,11 @@ import { Input, InputWithRef } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
 import { HiddenInput } from "@common/components/HiddenInput";
 import { Box } from "@common/components/Box";
-import type { Category, Language } from "@common/components/utils";
+import {
+  elysium,
+  type Category,
+  type Language,
+} from "@common/components/utils";
 
 /*
  * This is a hot mess. Should work for now, but should be cleaned up.
@@ -35,7 +39,7 @@ function resetFieldErrors(): FieldErrors {
   return { name: [], email: [], captcha: [], message: [] };
 }
 
-const actionUrl = new URL("https://elysium.gildedernacht.ch/forms");
+const actionUrl = elysium("/forms");
 
 export function ContactFormImpl(props: Props): JSX.Element {
   const nameLabel = "Name";
