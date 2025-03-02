@@ -5,6 +5,7 @@ import {
   Show,
   Suspense,
   Switch,
+  createEffect,
   createResource,
   type JSX,
   type Resource,
@@ -24,6 +25,15 @@ function MeineAnmeldungLoaded(props: {
   programResource: Resource<Program>;
 }): JSX.Element {
   const { state, actions } = initState(props.state);
+
+  createEffect(() => {
+    const url = new URL(location.href);
+    if (url.searchParams.has("showCreateMessage")) {
+      url.searchParams.delete("showCreateMessage");
+      history.replaceState({}, "", url);
+    }
+  });
+
   return (
     <>
       <Show when={state.showCreateMessage}>
