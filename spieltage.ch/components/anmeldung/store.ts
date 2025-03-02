@@ -53,20 +53,20 @@ export function initState(init: Store): {
       ...store.currentSave,
       games: [
         ...store.currentSave.games.filter((game) => {
-          return !store.markedForDeletionReservations.includes(game.id);
+          return !store.markedForDeletionReservations.includes(game.uuid);
         }),
         ...store.tentativeReservations.map((reservation) => {
-          if (reservation.friendsName === null) {
+          if (reservation.friends_name === null) {
             return {
-              game: reservation.gameUuid,
+              game: reservation.game_uuid,
               self: true,
-              spielerName: null,
+              player_name: null,
             } satisfies ReservationToServer;
           }
           return {
-            game: reservation.gameUuid,
+            game: reservation.game_uuid,
             self: false,
-            spielerName: reservation.friendsName,
+            player_name: reservation.friends_name,
           } satisfies ReservationToServer;
         }),
       ],
@@ -107,10 +107,10 @@ export function initState(init: Store): {
       const name = store.currentSave.name;
       setStore("tentativeReservations", (prev) =>
         prev.filter((res) => {
-          if (res.gameUuid !== reservation.gameUuid) {
+          if (res.game_uuid !== reservation.game_uuid) {
             return true;
           }
-          if (res.friendsName === reservation.name) {
+          if (res.friends_name === reservation.name) {
             return false;
           }
           return reservation.name !== name;
@@ -119,7 +119,7 @@ export function initState(init: Store): {
     } else {
       setStore("markedForDeletionReservations", (prev) => [
         ...prev,
-        reservation.reservationId,
+        reservation.reservation_uuid,
       ]);
     }
   }

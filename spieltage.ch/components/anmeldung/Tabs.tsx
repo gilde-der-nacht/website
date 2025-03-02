@@ -163,7 +163,7 @@ export function Tabs(props: {
   programResource: Resource<Program>;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
-  markedForDeletionReservations: number[];
+  markedForDeletionReservations: string[];
   changeTab: (tab: Tab) => void;
   saveCurrentState: () => Promise<void>;
   addTentativeReservation: (reservation: Reservation) => void;
@@ -186,7 +186,7 @@ export function Tabs(props: {
                       <Samstag
                         selfName={props.save.name}
                         program={program()}
-                        wantsEmailUpdates={props.save.wantsEmailUpdates}
+                        wantsEmailUpdates={props.save.wishes_updates}
                         confirmedReservations={props.confirmedReservations}
                         tentativeReservations={props.tentativeReservations}
                         markedForDeletionReservations={
@@ -211,7 +211,7 @@ export function Tabs(props: {
                       <Sonntag
                         selfName={props.save.name}
                         program={program()}
-                        wantsEmailUpdates={props.save.wantsEmailUpdates}
+                        wantsEmailUpdates={props.save.wishes_updates}
                         confirmedReservations={props.confirmedReservations}
                         tentativeReservations={props.tentativeReservations}
                         markedForDeletionReservations={
@@ -231,8 +231,8 @@ export function Tabs(props: {
               <h2>Zusammenfassung</h2>
               <small>
                 Hier hast du die komplette Übersicht über alle deine Eingaben.
-                Du kannst bis am <strong>Freitag, 23. August 2024</strong>{" "}
-                zurückkommen und deine Kontaktdaten und Reservationen anpassen.
+                Du kannst jederzeit zurückkommen und deine Kontaktdaten und
+                Reservationen anpassen.
               </small>
               <Suspense fallback={<Box>Zusammenfassung wird geladen ...</Box>}>
                 <Switch>

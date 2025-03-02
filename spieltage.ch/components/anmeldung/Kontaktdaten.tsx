@@ -16,9 +16,8 @@ export function Kontaktdaten(props: {
       <h2>Kontaktdaten</h2>
       <div class="content">
         <small>
-          Deine persönlichen Daten werden ausschliesslich verwendet, um dich
-          über das Programm der Luzerner Rollenspieltage 2024 zu informieren.
-          Nach dem Event werden diese gelöscht.
+          Deine persönlichen Daten werden ausschliesslich für die Luzerner
+          Spieltage 2025 verwendet. Nach dem Event werden diese gelöscht.
         </small>
       </div>
       <br />
@@ -61,9 +60,9 @@ export function Kontaktdaten(props: {
         label="Handynummer"
         name="tel"
         type="tel"
-        value={props.save.handynummer}
+        value={props.save.telephone}
         required={false}
-        onValueUpdate={(newValue) => props.updateSave("handynummer", newValue)}
+        onValueUpdate={(newValue) => props.updateSave("telephone", newValue)}
       />
     </>
   );

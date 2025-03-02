@@ -17,7 +17,7 @@ export function Samstag(props: {
   wantsEmailUpdates: boolean;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
-  markedForDeletionReservations: number[];
+  markedForDeletionReservations: string[];
   addTentativeReservation: (reservation: Reservation) => void;
   updateSave: UpdateSave;
   deleteReservation: (reservation: ReservationView) => void;
@@ -30,7 +30,7 @@ export function Samstag(props: {
       confirmedReservations={props.confirmedReservations}
       tentativeReservations={props.tentativeReservations}
       markedForDeletionReservations={props.markedForDeletionReservations}
-      wantsEmailUpdates={props.wantsEmailUpdates}
+      wishes_updates={props.wantsEmailUpdates}
       addTentativeReservation={props.addTentativeReservation}
       updateSave={props.updateSave}
       deleteReservation={props.deleteReservation}

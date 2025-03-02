@@ -4,21 +4,21 @@ import type { SaveFromServer } from "@lst/components/anmeldung/data";
 export type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
 
 export type Reservation = {
-  gameUuid: string;
-  friendsName: string | null;
+  game_uuid: string;
+  friends_name: string | null;
 };
 
 export type ReservationView =
   | {
       confirmed: false;
-      gameUuid: string;
+      game_uuid: string;
       name: string;
     }
   | {
       confirmed: true;
-      gameUuid: string;
+      game_uuid: string;
       name: string;
-      reservationId: number;
+      reservation_uuid: string;
     };
 
 export type Store = {
@@ -30,7 +30,7 @@ export type Store = {
   lastSaved: string;
   hasChanged: boolean;
   tentativeReservations: Reservation[];
-  markedForDeletionReservations: number[];
+  markedForDeletionReservations: string[];
 };
 
 export type Range = {
@@ -40,5 +40,5 @@ export type Range = {
 
 export type ReservedTimeRange = {
   range: Range;
-  gameUuid: string;
+  game_uuid: string;
 };

@@ -55,21 +55,21 @@ export async function getProgramGroupedByStarthour(): Promise<GroupedByStarthour
 const reservationSelfSchema = z.object({
   game: z.string(),
   self: z.literal(true),
-  spielerName: z.null(),
+  player_name: z.null(),
 });
 
 const reservationFriendSchema = z.object({
   game: z.string(),
   self: z.literal(false),
-  spielerName: z.string(),
+  player_name: z.string(),
 });
 
 const reservationFromServerSchema = z.union([
   reservationSelfSchema.extend({
-    id: z.number(),
+    uuid: z.string().uuid(),
   }),
   reservationFriendSchema.extend({
-    id: z.number(),
+    uuid: z.string().uuid(),
   }),
 ]);
 export type ReservationFromServer = z.infer<typeof reservationFromServerSchema>;
@@ -81,23 +81,23 @@ const reservationToServerSchema = z.union([
 export type ReservationToServer = z.infer<typeof reservationToServerSchema>;
 
 const saveFromServerSchema = z.object({
-  registrationUuid: z.string().uuid(),
+  registration_uuid: z.string().uuid(),
   name: z.string(),
   email: z.string(),
-  handynummer: z.string(),
-  wantsEmailUpdates: z.boolean(),
+  telephone: z.string(),
+  wishes_updates: z.boolean(),
   games: z.array(reservationFromServerSchema),
-  lastSaved: z.string(),
+  last_saved: z.string(),
 });
 
 const saveToServerSchema = z.object({
-  registrationId: z.number(),
+  registration_uuid: z.string().uuid(),
   name: z.string(),
   email: z.string(),
-  handynummer: z.string(),
-  wantsEmailUpdates: z.boolean(),
+  telephone: z.string(),
+  wishes_updates: z.boolean(),
   games: z.array(reservationToServerSchema),
-  lastSaved: z.string(),
+  last_saved: z.string(),
 });
 
 export type SaveFromServer = z.infer<typeof saveFromServerSchema>;
@@ -128,18 +128,17 @@ export async function loadSave(
 
 const programEntrySchema = z.object({
   uuid: z.string(),
-  title: z.nullable(z.string()),
-  system: z.string(),
+  title: z.string(),
   description: z.nullable(z.string()),
-  playerCount: z.object({ min: z.number(), max: z.number() }),
-  master: z.object({ first: z.string(), last: z.nullable(z.string()) }),
+  playercount: z.object({ min: z.number(), max: z.number() }),
+  master_name: z.string(),
   slot: z.object({ day: serverSchemaDay, start: z.number(), end: z.number() }),
 });
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
 
 const reservedSchema = z.object({
-  id: z.number(),
-  gameId: z.string(),
+  uuid: z.string().uuid(),
+  game_uuid: z.string().uuid(),
 });
 export type ReservedEntry = z.infer<typeof reservedSchema>;
 
@@ -192,13 +191,12 @@ export type Program = {
 };
 export type ProgramEntryExtended = {
   uuid: string;
-  title: string | null;
-  system: string;
+  title: string;
   description: null | string;
-  playerCount: { min: number; max: number };
-  master: { first: string; last: string | null };
+  playercount: { min: number; max: number };
+  master_name: string;
   slot: { day: ProgramDay; start: number; end: number };
-  reservedIds: number[];
+  reserved_uuids: string[];
 };
 
 export type ProgramByHour = [hour: string, entries: ProgramEntryExtended[]][];
@@ -212,11 +210,11 @@ export function getByDayAndHour(
   const gamesExtended = gamesOfChosenDay.map((game) => {
     const gameId = game.uuid;
     const reserved = program.reservedList.filter(
-      (reserved) => reserved.gameId === gameId,
+      (reserved) => reserved.game_uuid === gameId,
     );
     return {
       ...game,
-      reservedIds: reserved.map((entry) => entry.id),
+      reserved_uuids: reserved.map((entry) => entry.uuid),
     } satisfies ProgramEntryExtended;
   });
   let grouped: Record<number, ProgramEntryExtended[]> = {};

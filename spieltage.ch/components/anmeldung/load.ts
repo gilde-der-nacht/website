@@ -35,7 +35,7 @@ export async function loadServerState(params: Params): Promise<Store> {
     showCreateMessage: params.showCreateMessage,
     currentSave: result.save,
     activeTab: "Contact",
-    lastSaved: result.save.lastSaved,
+    lastSaved: result.save.last_saved,
     hasChanged: false,
     tentativeReservations: [],
     markedForDeletionReservations: [],

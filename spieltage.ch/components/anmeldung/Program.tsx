@@ -14,7 +14,7 @@ import type {
   DayPeriod,
 } from "@lst/components/anmeldung/types";
 
-const BUFFER_SEATS = 1 as const;
+const BUFFER_SEATS = 0 as const;
 
 function isWithin(num: number, range: Range): boolean {
   const { from, to } = range;
@@ -37,7 +37,7 @@ function ProgrammEntryCard(props: {
   selfName: string;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
-  markedForDeletionReservations: number[];
+  markedForDeletionReservations: string[];
   reservedTimeRanges: ReservedTimeRange[];
   addTentativeReservation: (reservation: Reservation) => void;
   deleteReservation: (reservation: ReservationView) => void;
@@ -49,21 +49,21 @@ function ProgrammEntryCard(props: {
       ...props.confirmedReservations.map(
         (reservation) =>
           ({
-            name: reservation.spielerName ?? props.selfName,
+            name: reservation.player_name ?? props.selfName,
             confirmed: true,
-            gameUuid: props.entry.uuid,
-            reservationId: reservation.id,
+            game_uuid: props.entry.uuid,
+            reservation_uuid: reservation.uuid,
             markedForDeletion: props.markedForDeletionReservations.includes(
-              reservation.id,
+              reservation.uuid,
             ),
           }) satisfies ReservationView & { markedForDeletion: boolean },
       ),
       ...props.tentativeReservations.map(
         (reservation) =>
           ({
-            name: reservation.friendsName ?? props.selfName,
+            name: reservation.friends_name ?? props.selfName,
             confirmed: false,
-            gameUuid: props.entry.uuid,
+            game_uuid: props.entry.uuid,
             markedForDeletion: false,
           }) satisfies ReservationView & { markedForDeletion: false },
       ),
@@ -72,14 +72,14 @@ function ProgrammEntryCard(props: {
 
   function openSeats(): number {
     const myConfirmedReservationIds = props.confirmedReservations.map(
-      (reservation) => reservation.id,
+      (reservation) => reservation.uuid,
     );
-    const thirdPartyReservations = props.entry.reservedIds.filter(
+    const thirdPartyReservations = props.entry.reserved_uuids.filter(
       (id) => !myConfirmedReservationIds.includes(id),
     );
 
     return (
-      props.entry.playerCount.max -
+      props.entry.playercount.max -
       BUFFER_SEATS -
       thirdPartyReservations.length -
       myReservations().filter((reservation) => !reservation.markedForDeletion)
@@ -91,7 +91,7 @@ function ProgrammEntryCard(props: {
     const { start, end } = props.entry.slot;
     const otherGamesOverlapping = props.reservedTimeRanges
       .filter((res) => isOverlapping({ from: start, to: end }, res.range))
-      .filter((res) => res.gameUuid !== props.entry.uuid);
+      .filter((res) => res.game_uuid !== props.entry.uuid);
     return otherGamesOverlapping.length === 0;
   }
 
@@ -102,18 +102,19 @@ function ProgrammEntryCard(props: {
       >
         <h1 class="event-title">
           {props.entry.title === null
-            ? props.entry.system
-            : `${props.entry.title} (${props.entry.system})`}
+            ? props.entry.title
+            : `${props.entry.title}`}
         </h1>
         <div class="event-details">
           <div class="event-tags">
             <strong>Zeit:</strong> {props.entry.slot.start} -{" "}
             {props.entry.slot.end} Uhr
           </div>
-          <div class="event-tags">
-            <strong>Spielleitung:</strong> {props.entry.master.first}{" "}
-            {props.entry.master.last}
-          </div>
+          {
+            // <div class="event-tags">
+            //   <strong>Spielleitung:</strong> {props.entry.master_name}
+            // </div>
+          }
           <div class="event-tags">
             <strong>Freie Plätze:</strong>{" "}
             {openSeats() > 1 ? (
@@ -193,8 +194,8 @@ function ProgrammEntryCard(props: {
                   href="javascript:;"
                   onClick={() =>
                     props.addTentativeReservation({
-                      gameUuid: props.entry.uuid,
-                      friendsName: null,
+                      game_uuid: props.entry.uuid,
+                      friends_name: null,
                     })
                   }
                 >
@@ -214,8 +215,8 @@ function ProgrammEntryCard(props: {
                     );
                     if (friendsName !== null && friendsName.trim().length > 0) {
                       props.addTentativeReservation({
-                        gameUuid: props.entry.uuid,
-                        friendsName,
+                        game_uuid: props.entry.uuid,
+                        friends_name: friendsName,
                       });
                     }
                   }}
@@ -235,13 +236,13 @@ function aggregateReservedTimeRanges(props: {
   programByHour: ProgramByHour;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
-  markedForDeletionReservations: number[];
+  markedForDeletionReservations: string[];
 }): ReservedTimeRange[] {
   const reservationGameUuids = props.confirmedReservations
-    .filter((res) => !props.markedForDeletionReservations.includes(res.id))
+    .filter((res) => !props.markedForDeletionReservations.includes(res.uuid))
     .map((res) => res.game);
   reservationGameUuids.push(
-    ...props.tentativeReservations.map((res) => res.gameUuid),
+    ...props.tentativeReservations.map((res) => res.game_uuid),
   );
   const setOfGameUuids = new Set(reservationGameUuids);
   const allEntries = props.programByHour.flatMap(([_, entries]) => entries);
@@ -254,7 +255,7 @@ function aggregateReservedTimeRanges(props: {
         from: entry.slot.start,
         to: entry.slot.end,
       },
-      gameUuid: entry.uuid,
+      game_uuid: entry.uuid,
     };
   });
 }
@@ -286,10 +287,10 @@ function groupByDayPeriod(programByHour: ProgramByHour): GroupedByDayPeriod {
 export function ProgramOfDay(props: {
   selfName: string;
   programByHour: ProgramByHour;
-  wantsEmailUpdates: boolean;
+  wishes_updates: boolean;
   confirmedReservations: ReservationFromServer[];
   tentativeReservations: Reservation[];
-  markedForDeletionReservations: number[];
+  markedForDeletionReservations: string[];
   addTentativeReservation: (reservation: Reservation) => void;
   updateSave: UpdateSave;
   deleteReservation: (reservation: ReservationView) => void;
@@ -331,7 +332,7 @@ export function ProgramOfDay(props: {
                       (reservation) => reservation.game === entry.uuid,
                     )}
                     tentativeReservations={props.tentativeReservations.filter(
-                      (reservation) => reservation.gameUuid === entry.uuid,
+                      (reservation) => reservation.game_uuid === entry.uuid,
                     )}
                     markedForDeletionReservations={
                       props.markedForDeletionReservations
@@ -365,8 +366,8 @@ export function ProgramOfDay(props: {
       </div>
       <br />
       <Checkbox
-        checked={props.wantsEmailUpdates}
-        onValueUpdate={(value) => props.updateSave("wantsEmailUpdates", value)}
+        checked={props.wishes_updates}
+        onValueUpdate={(value) => props.updateSave("wishes_updates", value)}
         label="Ja, ich möchte gerne Updates erhalten, wenn neue Spielrunden aufgeschaltet werden."
         name="wantsUpdates"
         value="true"
@@ -397,6 +398,11 @@ export function ProgramOfDay(props: {
           ))}
         </ul>
       </div>
+      {MORNING.length === 0 &&
+      AFTERNOON.length === 0 &&
+      EVENING.length === 0 ? (
+        <em>Keine Spielrunden gefunden.</em>
+      ) : null}
       <EventList program={MORNING} />
       <>
         {

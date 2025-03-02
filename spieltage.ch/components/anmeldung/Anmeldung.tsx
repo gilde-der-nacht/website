@@ -20,7 +20,7 @@ type Store = {
 type StartData = {
   name: string;
   email: string;
-  handynummer: string;
+  telephone: string;
 };
 
 export function Anmeldung(): JSX.Element {
@@ -67,7 +67,7 @@ export function Anmeldung(): JSX.Element {
       const data: StartData = {
         name: store.form.name,
         email: store.form.email,
-        handynummer: store.form.tel,
+        telephone: store.form.tel,
       };
       const response = await fetch(elysium("/lst25/start"), {
         method: "post",

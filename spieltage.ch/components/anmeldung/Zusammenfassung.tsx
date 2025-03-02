@@ -19,12 +19,8 @@ function ReservationItem(props: {
   return (
     <Box type={props.type ?? "gray"}>
       <p>
-        <strong>
-          {game.title === null
-            ? game.system
-            : `${game.title} (${game.system})`}{" "}
-        </strong>
-        | {game.slot.day === "SATURDAY" ? "Samstag" : "Sonntag"},{" "}
+        <strong>{game.title} </strong>|{" "}
+        {game.slot.day === "SATURDAY" ? "Samstag" : "Sonntag"},{" "}
         {game.slot.start} bis {game.slot.end} Uhr
       </p>
       <p>
@@ -43,7 +39,7 @@ function groupReservationsByDayAndSortByHour(
 
   for (const reservation of reservations) {
     const game = program.gameList.find(
-      (game) => game.uuid === reservation.gameUuid,
+      (game) => game.uuid === reservation.game_uuid,
     );
     if (game?.slot.day === "SATURDAY") {
       saturday.push({ reservation, game });
@@ -81,7 +77,7 @@ function groupByGame(
       }
       return {
         game: filst.game,
-        players: entries.map((e) => e.reservation.friendsName ?? selfName),
+        players: entries.map((e) => e.reservation.friends_name ?? selfName),
       };
     })
     .filter((e) => e !== null);
@@ -163,7 +159,7 @@ function ReservationList(props: {
 export function Zusammenfassung(props: {
   save: SaveFromServer;
   tentativeReservations: Reservation[];
-  markedForDeletionReservations: number[];
+  markedForDeletionReservations: string[];
   program: Program;
 }): JSX.Element {
   const { con, del } = props.save.games.reduce<{
@@ -171,7 +167,7 @@ export function Zusammenfassung(props: {
     del: ReservationFromServer[];
   }>(
     (acc, cur) => {
-      if (props.markedForDeletionReservations.includes(cur.id)) {
+      if (props.markedForDeletionReservations.includes(cur.uuid)) {
         return { ...acc, del: [...acc.del, cur] };
       }
       return { ...acc, con: [...acc.con, cur] };
@@ -184,8 +180,8 @@ export function Zusammenfassung(props: {
 
   const confirmedReservationsGrouped = groupReservationsByDayAndSortByHour(
     con.map((game) => ({
-      gameUuid: game.game,
-      friendsName: game.spielerName,
+      game_uuid: game.game,
+      friends_name: game.player_name,
     })),
     props.program,
   );
@@ -193,8 +189,8 @@ export function Zusammenfassung(props: {
   const markedForDeletionReservationsGrouped =
     groupReservationsByDayAndSortByHour(
       del.map((game) => ({
-        gameUuid: game.game,
-        friendsName: game.spielerName,
+        game_uuid: game.game,
+        friends_name: game.player_name,
       })),
       props.program,
     );
@@ -215,7 +211,7 @@ export function Zusammenfassung(props: {
           <strong>E-Mail:</strong> {props.save.email}
         </li>
         <li>
-          <strong>Handynummer:</strong> {props.save.handynummer}
+          <strong>Handynummer:</strong> {props.save.telephone}
         </li>
       </ul>
       <br />
@@ -235,7 +231,7 @@ export function Zusammenfassung(props: {
           </p>
           {tentativeReservationsGrouped.SATURDAY.length > 0 ? (
             <>
-              <h5>Samstag, 24. August 2024</h5>
+              <h5>Samstag, 22. März 2025</h5>
               <ReservationList
                 entries={tentativeReservationsGrouped.SATURDAY}
                 selfName={props.save.name}
@@ -245,7 +241,7 @@ export function Zusammenfassung(props: {
           ) : null}
           {tentativeReservationsGrouped.SUNDAY.length > 0 ? (
             <>
-              <h5>Sonntag, 25. August 2024</h5>
+              <h5>Sonntag, 23. März 2025</h5>
               <ReservationList
                 entries={tentativeReservationsGrouped.SUNDAY}
                 selfName={props.save.name}
@@ -264,7 +260,7 @@ export function Zusammenfassung(props: {
           </p>
           {markedForDeletionReservationsGrouped.SATURDAY.length > 0 ? (
             <>
-              <h5>Samstag, 24. August 2024</h5>
+              <h5>Samstag, 22. März 2025</h5>
               <ReservationList
                 entries={markedForDeletionReservationsGrouped.SATURDAY}
                 selfName={props.save.name}
@@ -274,7 +270,7 @@ export function Zusammenfassung(props: {
           ) : null}
           {markedForDeletionReservationsGrouped.SUNDAY.length > 0 ? (
             <>
-              <h5>Sonntag, 25. August 2024</h5>
+              <h5>Sonntag, 23. März 2025</h5>
               <ReservationList
                 entries={markedForDeletionReservationsGrouped.SUNDAY}
                 selfName={props.save.name}
@@ -289,7 +285,7 @@ export function Zusammenfassung(props: {
           <h4>Bestätigt</h4>
           {confirmedReservationsGrouped.SATURDAY.length > 0 ? (
             <>
-              <h5>Samstag, 24. August 2024</h5>
+              <h5>Samstag, 22. März 2025</h5>
               <ReservationList
                 entries={confirmedReservationsGrouped.SATURDAY}
                 selfName={props.save.name}
@@ -299,7 +295,7 @@ export function Zusammenfassung(props: {
           ) : null}
           {confirmedReservationsGrouped.SUNDAY.length > 0 ? (
             <>
-              <h5>Sonntag, 25. August 2024</h5>
+              <h5>Sonntag, 23. März 2025</h5>
               <ReservationList
                 entries={confirmedReservationsGrouped.SUNDAY}
                 selfName={props.save.name}
@@ -313,7 +309,7 @@ export function Zusammenfassung(props: {
       <h3>Updates</h3>
       <p>
         <em>
-          {props.save.wantsEmailUpdates ? (
+          {props.save.wishes_updates ? (
             <span style="color: var(--clr-success-10);">
               Ja, ich möchte gerne Updates erhalten, wenn neue Spielrunden
               aufgeschaltet werden.
