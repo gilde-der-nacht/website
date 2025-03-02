@@ -84,7 +84,7 @@ export function Anmeldung(): JSX.Element {
         const schema = z.object({
           name: z.string(),
           email: z.string(),
-          registrationId: z.number(),
+          registrationUuid: z.string(),
           secret: z.string(),
         });
         const data = schema.parse(json);
@@ -93,7 +93,8 @@ export function Anmeldung(): JSX.Element {
         redirect.searchParams.append("showCreateMessage", "true");
         window.location.replace(redirect);
       }
-    } catch (_: unknown) {
+    } catch (e: unknown) {
+      console.error(e);
       setStore("showErrors", "general", true);
     } finally {
       setStore("state", "IDLE");
