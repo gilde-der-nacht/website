@@ -45,14 +45,14 @@ const sunday = Object.entries(program.SUNDAY);
       .filter(([hour]) => {
         return Number(hour) < 13;
       })
-      .map(([hour, entries]) => (
+      .map(([hour, entries], i) => (
         <>
           <h3 id={`Samstag-${hour}`}>
             <a href={`#Samstag-${hour}`} class="header-anchor">
               Start {hour} Uhr
             </a>
           </h3>
-          <EventList hour={hour} entries={entries} />
+          <EventList hour={hour} entries={entries} showQuestion={i === 0} />
         </>
       ))
   }
@@ -75,7 +75,7 @@ const sunday = Object.entries(program.SUNDAY);
               Start {hour} Uhr
             </a>
           </h3>
-          <EventList hour={hour} entries={entries} />
+          <EventList hour={hour} entries={entries} showQuestion={false} />
         </>
       ))
   }
@@ -98,7 +98,7 @@ const sunday = Object.entries(program.SUNDAY);
               Start {hour} Uhr
             </a>
           </h3>
-          <EventList hour={hour} entries={entries} />
+          <EventList hour={hour} entries={entries} showQuestion={false} />
         </>
       ))
   }
@@ -113,14 +113,14 @@ const sunday = Object.entries(program.SUNDAY);
       .filter(([hour]) => {
         return Number(hour) < 13;
       })
-      .map(([hour, entries]) => (
+      .map(([hour, entries], i) => (
         <>
           <h3 id={`Sonntag-${hour}`}>
             <a href={`#Sonntag-${hour}`} class="header-anchor">
               Start {hour} Uhr
             </a>
           </h3>
-          <EventList hour={hour} entries={entries} />
+          <EventList hour={hour} entries={entries} showQuestion={i === 0} />
         </>
       ))
   }
@@ -143,7 +143,7 @@ const sunday = Object.entries(program.SUNDAY);
               Start {hour} Uhr
             </a>
           </h3>
-          <EventList hour={hour} entries={entries} />
+          <EventList hour={hour} entries={entries} showQuestion={false} />
         </>
       ))
   }

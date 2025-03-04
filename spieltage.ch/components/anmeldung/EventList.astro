@@ -4,9 +4,10 @@ import type { ProgramList } from '@lst/components/anmeldung/data.ts';
 export type Props = {
   hour: string;
   entries: ProgramList;
+  showQuestion: boolean;
 }
 
-const { hour, entries } = Astro.props;
+const { hour, entries, showQuestion} = Astro.props;
 const colorsOfHour: Record<string, string> = {
   "10": "special",
   "11": "success",
@@ -45,7 +46,7 @@ const colorsOfHour: Record<string, string> = {
   ))
 }
 {
-  entries.length < 3 ? (
+  showQuestion ? (
     <li class=`event-entry gray`>
       <h3 class="event-title">Möchtest du auch eine Spielrunde leiten?</h3>
       <div></div>
