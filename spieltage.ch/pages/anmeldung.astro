@@ -2,6 +2,7 @@
 import Layout from "@lst/layouts/Layout.astro";
 import { Anmeldung as A } from "@lst/components/anmeldung/Anmeldung.tsx";
 import { Box } from "@common/components/Box";
+import { Button } from "@common/components/Button";
 
 export const frontmatter = {
   navigation: {
@@ -15,12 +16,25 @@ export const frontmatter = {
 <Layout>
   <h1>Anmeldung organisierte Spielrunden</h1>
   <p>
-    Wir veranstalten diverse Spielrunden, die für Action und Spannung stehen. Komplexe oder tumultreiche Spiele, so wie Spiele mit hoher Spieleranzahl finden so ihren Platz. Das ist auch eine gute Gelegenheit, andere Mitspieler:innen zu finden, wenn du alleine anreist.
+    Wir veranstalten diverse Spielrunden, die für Action und Spannung stehen.
+    Komplexe oder tumultreiche Spiele, so wie Spiele mit hoher Spieleranzahl
+    finden so ihren Platz. Das ist auch eine gute Gelegenheit, andere
+    Mitspieler:innen zu finden, wenn du alleine anreist.
   </p>
   <p>Du kannst dir hier bereits im Vorfeld einen Platz sichern!</p>
-  <p><i>
-    Hast du selbst ein Spiel, welches du für eine Gruppe anbiten möchtest? Dann kontaktiere uns via Kontaktformular.
-  </i></p>
+  <p>
+    <i>
+      Hast du selbst ein Spiel, welches du für eine Gruppe anbiten möchtest?
+      Dann kontaktiere uns via Kontaktformular.
+    </i>
+  </p>
+
+  <div style="margin-block: 2.5rem;">
+    <a href="/programm/organisiert" style="border: none;">
+      <Button label="Zur Spielrunden-Übersicht" />
+    </a>
+  </div>
+
   <Box>
     <p>
       Falls du bereits eine Anmeldung begonnen hast, dann solltest du eine
@@ -31,7 +45,8 @@ export const frontmatter = {
   <A client:load />
   <Box type="special">
     <p>
-      Deine persönlichen Daten werden ausschliesslich für die Luzerner Spieltage 2025 verwendet.
+      Deine persönlichen Daten werden ausschliesslich für die Luzerner Spieltage
+      2025 verwendet.
     </p>
     <p>
       Möchtest du auch nach dem Event über Anlässe von uns informiert werden,

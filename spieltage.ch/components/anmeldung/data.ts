@@ -8,12 +8,8 @@ const serverSchemaProgram = z.array(
     uuid: z.string(),
     description: z.nullable(z.string()),
     title: z.nullable(z.string()),
-    system: z.string(),
-    master: z.object({
-      first: z.string(),
-      last: z.nullable(z.string()),
-    }),
-    playerCount: z.object({
+    master_name: z.string(),
+    playercount: z.object({
       min: z.number(),
       max: z.number(),
     }),
@@ -22,6 +18,12 @@ const serverSchemaProgram = z.array(
       start: z.number(),
       end: z.number(),
     }),
+    external_link: z.nullable(
+      z.object({
+        label: z.string(),
+        link: z.string(),
+      }),
+    ),
   }),
 );
 export type ProgramList = z.infer<typeof serverSchemaProgram>;

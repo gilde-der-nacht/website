@@ -100,21 +100,15 @@ function ProgrammEntryCard(props: {
       <li
         class={`event-entry ${myReservations().filter((reservation) => !reservation.markedForDeletion).length > 0 ? "success" : openSeats() > 0 && userIsAvailable() ? "special" : "gray"}`}
       >
-        <h1 class="event-title">
-          {props.entry.title === null
-            ? props.entry.title
-            : `${props.entry.title}`}
-        </h1>
+        <h1 class="event-title">{props.entry.title}</h1>
         <div class="event-details">
           <div class="event-tags">
             <strong>Zeit:</strong> {props.entry.slot.start} -{" "}
             {props.entry.slot.end} Uhr
           </div>
-          {
-            // <div class="event-tags">
-            //   <strong>Spielleitung:</strong> {props.entry.master_name}
-            // </div>
-          }
+          <div class="event-tags">
+            <strong>Spielleitung:</strong> {props.entry.master_name}
+          </div>
           {props.entry.external_link === null ? null : (
             <div class="event-tags">
               <strong>Link: </strong>
