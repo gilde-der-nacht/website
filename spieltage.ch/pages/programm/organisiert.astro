@@ -4,14 +4,6 @@ import { Button } from "@common/components/Button.tsx";
 import { getProgramGroupedByStarthour } from "@lst/components/anmeldung/data.ts";
 import EventList from "@lst/components/anmeldung/EventList.astro";
 
-export const frontmatter = {
-  navigation: {
-    group: "main",
-    label: "Programm 2025",
-    order: 2,
-  },
-};
-
 const program = await getProgramGroupedByStarthour();
 const saturday = Object.entries(program.SATURDAY);
 const sunday = Object.entries(program.SUNDAY);
