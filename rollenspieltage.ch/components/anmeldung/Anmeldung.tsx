@@ -69,7 +69,7 @@ export function Anmeldung(): JSX.Element {
         email: store.form.email,
         handynummer: store.form.tel,
       };
-      const response = await fetch(elysium("/rst24/start"), {
+      const response = await fetch(elysium("/rst25/start"), {
         method: "post",
         body: JSON.stringify(data),
         headers: {
@@ -160,6 +160,7 @@ export function Anmeldung(): JSX.Element {
           Es gab ein Problem, das wir nicht erwartet haben. Bitte versuche es
           erneut oder <a href="/kontakt">kontaktiere uns direkt</a>.
         </Box>
+        <br />
       </Show>
     </>
   );
