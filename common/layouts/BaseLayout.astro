@@ -6,6 +6,7 @@ import ToC from "@common/components/toc/ToC.astro";
 import type { NavigationEntry } from "@common/layouts/types.ts";
 import type { TocConfig, AstroHeading } from "@common/components/toc/utils";
 import type { Language } from "@common/components/utils";
+import { z } from "astro:content";
 
 type Props = {
   locale?: Language;
@@ -16,8 +17,7 @@ type Props = {
   siteCode: string;
   siteName: string;
   siteTagline: string;
-  mainNavigation: NavigationEntry[];
-  secondaryNavigation: NavigationEntry[];
+  pages: unknown[];
   development: boolean;
   toc: TocConfig | null;
   headings: AstroHeading[];
@@ -32,12 +32,57 @@ const {
   siteCode,
   siteName,
   siteTagline,
-  mainNavigation,
-  secondaryNavigation,
+  pages,
   development,
   toc,
   headings,
 } = Astro.props;
+
+const pageType = z.object({
+  frontmatter: z.optional(
+    z.object({
+      navigation: z.optional(
+        z.object({
+          group: z.enum(["main", "secondary"]),
+          label: z.string(),
+          order: z.number(),
+        }),
+      ),
+    }),
+  ),
+  url: z.string(),
+});
+
+const pageWithNavigationType = z.object({
+  frontmatter: z.object({
+    navigation: z.object({
+      group: z.enum(["main", "secondary"]),
+      label: z.string(),
+      order: z.number(),
+    }),
+  }),
+  url: z.string(),
+});
+
+const mainNavigation: NavigationEntry[] = pages
+  .map((page) => pageType.parse(page))
+  .filter((page) => page.frontmatter?.navigation?.group === "main")
+  .map((page) => pageWithNavigationType.parse(page))
+  .map((page) => ({
+    label: page.frontmatter.navigation.label,
+    order: page.frontmatter.navigation.order,
+    url: page.url === "" ? "/" : page.url,
+  }));
+
+const secondaryNavigation: NavigationEntry[] = pages
+  .map((page) => pageType.parse(page))
+  .filter((page) => page.frontmatter?.navigation?.group === "secondary")
+  .map((page) => pageWithNavigationType.parse(page))
+  .map((page) => ({
+    label: page.frontmatter.navigation.label,
+    order: page.frontmatter.navigation.order,
+    url: page.url === "" ? "/" : page.url,
+  }));
 ---
 
 <!doctype html>
