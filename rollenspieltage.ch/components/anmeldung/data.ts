@@ -1,5 +1,6 @@
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
+import { getDemoProgram, getDemoSave } from "./demo";
 
 const serverSchemaDay = z.enum(["SATURDAY", "SUNDAY"]);
 type ProgramDay = z.infer<typeof serverSchemaDay>;
@@ -52,15 +53,6 @@ export async function getProgramGroupedByStarthour(): Promise<GroupedByStarthour
   return grouped;
 }
 
-const progressSchema = z.enum([
-  "INITIALIZED",
-  "IN_PROGRESS",
-  "CONFIRMED",
-  "CONFIRMED_W_INVALID_CHANGES",
-  "CONFIRMED_W_VALID_CHANGES",
-  "RECONFIRMED",
-]);
-
 const reservationSelfSchema = z.object({
   game: z.string(),
   self: z.literal(true),
@@ -91,7 +83,6 @@ export type ReservationToServer = z.infer<typeof reservationToServerSchema>;
 
 const saveFromServerSchema = z.object({
   registrationId: z.number(),
-  progress: progressSchema,
   name: z.string(),
   email: z.string(),
   handynummer: z.string(),
@@ -102,7 +93,6 @@ const saveFromServerSchema = z.object({
 
 const saveToServerSchema = z.object({
   registrationId: z.number(),
-  progress: progressSchema,
   name: z.string(),
   email: z.string(),
   handynummer: z.string(),
@@ -121,6 +111,12 @@ export type UpdateSave = <T extends keyof SaveFromServer>(
 export async function loadSave(
   secret: string,
 ): Promise<{ kind: "SUCCESS"; save: SaveFromServer } | { kind: "FAILED" }> {
+  if (secret === "demo") {
+    return {
+      kind: "SUCCESS",
+      save: getDemoSave(),
+    };
+  }
   const loadUrl = elysium("/rst24/load");
   loadUrl.searchParams.append("secret", secret);
   const response = await fetch(loadUrl);
@@ -153,13 +149,20 @@ const reservedSchema = z.object({
 });
 export type ReservedEntry = z.infer<typeof reservedSchema>;
 
-export async function loadProgram(): Promise<
+export async function loadProgram(demo: boolean): Promise<
   | {
       kind: "SUCCESS";
       program: { gameList: ProgramEntry[]; reservedList: ReservedEntry[] };
     }
   | { kind: "FAILED" }
 > {
+  if (demo) {
+    return {
+      kind: "SUCCESS",
+      program: getDemoProgram(),
+    };
+  }
+
   const programUrl = elysium("/rst24/program");
   const reservedUrl = elysium("/rst24/reserved");
   const [programResponse, reservedResponse] = await Promise.all([

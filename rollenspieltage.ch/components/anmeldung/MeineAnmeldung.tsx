@@ -6,6 +6,8 @@ import {
   Suspense,
   Switch,
   createResource,
+  createSignal,
+  onMount,
   type JSX,
   type Resource,
 } from "solid-js";
@@ -72,13 +74,26 @@ function Loading(): JSX.Element {
 }
 
 export function MeineAnmeldungWrapper(): JSX.Element {
-  const params = tryLoadingParams();
-  return params === null ? <Loading /> : <MeineAnmeldung params={params} />;
+  const [params, setParams] = createSignal<Params | null>(null);
+
+  onMount(() => {
+    setParams(tryLoadingParams());
+  });
+
+  return (
+    <Switch fallback={<Loading />}>
+      <Match when={params()}>
+        {(state) => <MeineAnmeldung params={state()} />}
+      </Match>
+    </Switch>
+  );
 }
 
 function MeineAnmeldung(props: { params: Params }): JSX.Element {
   const [serverState] = createResource(() => loadServerState(props.params));
-  const [program] = createResource(() => loadServerProgram());
+  const [program] = createResource(() =>
+    loadServerProgram(props.params.secret === "demo"),
+  );
 
   return (
     <ErrorBoundary

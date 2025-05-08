@@ -51,8 +51,10 @@ export async function loadServerState(params: Params): Promise<Store> {
   return serverState;
 }
 
-export async function loadServerProgram(): Promise<Program> {
-  const result = await loadProgram();
+export async function loadServerProgram(
+  demo: boolean = false,
+): Promise<Program> {
+  const result = await loadProgram(demo);
   if (result.kind === "FAILED") {
     throw Error("PROGRAM_ERROR");
   }
