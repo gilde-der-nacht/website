@@ -12,9 +12,10 @@ import {
 import { Tabs } from "@rst/components/anmeldung/Tabs";
 import { initState } from "@rst/components/anmeldung/store";
 import {
-  loadParams as loadParams,
+  tryLoadingParams,
   loadServerProgram,
   loadServerState,
+  type Params,
 } from "@rst/components/anmeldung/load";
 import type { Store } from "@rst/components/anmeldung/types";
 import type { Program } from "@rst/components/anmeldung/data";
@@ -62,9 +63,21 @@ function MeineAnmeldungLoaded(props: {
   );
 }
 
-export function MeineAnmeldung(): JSX.Element {
-  const params = loadParams();
-  const [serverState] = createResource(() => loadServerState(params));
+function Loading(): JSX.Element {
+  return (
+    <Box>
+      <p>Deine Anmeldung wird geladen...</p>
+    </Box>
+  );
+}
+
+export function MeineAnmeldungWrapper(): JSX.Element {
+  const params = tryLoadingParams();
+  return params === null ? <Loading /> : <MeineAnmeldung params={params} />;
+}
+
+function MeineAnmeldung(props: { params: Params }): JSX.Element {
+  const [serverState] = createResource(() => loadServerState(props.params));
   const [program] = createResource(() => loadServerProgram());
 
   return (
@@ -100,13 +113,7 @@ export function MeineAnmeldung(): JSX.Element {
         </Box>
       )}
     >
-      <Suspense
-        fallback={
-          <Box>
-            <p>Deine Anmeldung wird geladen...</p>
-          </Box>
-        }
-      >
+      <Suspense fallback={<Loading />}>
         <Switch>
           <Match when={serverState()}>
             {(state) => (

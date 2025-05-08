@@ -5,17 +5,24 @@ import {
 } from "@rst/components/anmeldung/data";
 import type { Store } from "@rst/components/anmeldung/types";
 
-type Params = {
+export type Params = {
   secret: string | null;
   showCreateMessage: boolean;
 };
 
-export function loadParams(): Params {
-  const currentUrl = new URL(location.href);
-  const secret = currentUrl.searchParams.get("secret");
-  const showCreateMessage =
-    currentUrl.searchParams.get("showCreateMessage") === "true";
-  return { secret, showCreateMessage };
+function isBrowser(): boolean {
+  return typeof window !== "undefined";
+}
+
+export function tryLoadingParams(): Params | null {
+  if (isBrowser()) {
+    const currentUrl = new URL(location.href);
+    const secret = currentUrl.searchParams.get("secret");
+    const showCreateMessage =
+      currentUrl.searchParams.get("showCreateMessage") === "true";
+    return { secret, showCreateMessage };
+  }
+  return null;
 }
 
 export async function loadServerState(params: Params): Promise<Store> {
