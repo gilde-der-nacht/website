@@ -15,17 +15,17 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "4.2.5",
-    "@astrojs/solid-js": "5.0.9",
+    "@astrojs/mdx": "4.2.6",
+    "@astrojs/solid-js": "5.0.10",
     "@astrojs/ts-plugin": "^1.10.4",
-    "astro": "5.7.7",
+    "astro": "5.7.12",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
     "sass": "^1.87.0",
-    "solid-js": "^1.9.5",
+    "solid-js": "^1.9.6",
     "typescript": "^5.8.3",
-    "vite": "^6.3.4"
+    "vite": "^6.3.5"
   },
   "devDependencies": {
     "@types/html-escaper": "^3.0.4",
