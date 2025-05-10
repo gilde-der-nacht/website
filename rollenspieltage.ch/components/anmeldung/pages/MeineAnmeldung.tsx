@@ -11,55 +11,48 @@ import {
   type JSX,
   type Resource,
 } from "solid-js";
-import { Tabs } from "@rst/components/anmeldung/Tabs";
+
 import { initState } from "@rst/components/anmeldung/store";
 import {
-  tryLoadingParams,
+  getPage,
+  loadParams,
   loadServerProgram,
   loadServerState,
   type Params,
 } from "@rst/components/anmeldung/load";
 import type { Store } from "@rst/components/anmeldung/types";
 import type { Program } from "@rst/components/anmeldung/data";
+import { TXT } from "@rst/components/anmeldung/text";
+import { Button } from "@common/components/Button";
 
 function MeineAnmeldungLoaded(props: {
   state: Store;
   programResource: Resource<Program>;
 }): JSX.Element {
   const { state, actions } = initState(props.state);
+
+  window.addEventListener("popstate", (e: unknown) => {
+    if (typeof e === "object" && e !== null && "state" in e) {
+      const currentUrl = new URL(location.href);
+      const page = getPage(currentUrl);
+      actions.changePage(page, true);
+    }
+  });
+
   return (
     <>
       <Show when={state.showCreateMessage}>
-        <Box type="success">
-          Deine Anmeldung wurde erfolgreich gestartet.
-          <br />
-          <br />
-          Wir haben eine E-Mail an deine Adresse gesendet. In dieser E-Mail
-          findest du einen persönlichen Link, um deine Anmeldung bis am{" "}
-          <strong>Freitag, 23. August 2024</strong> anzupassen.
-        </Box>
+        <Box type="success">{TXT.registrationStarted}</Box>
         <br />
       </Show>
-      <Tabs
-        activeTab={state.activeTab}
-        changeTab={actions.changeTab}
-        save={state.currentSave}
-        updateSave={actions.updateSave}
-        lastSaved={state.lastSaved}
-        saveCurrentState={actions.saveCurrentState}
-        saveState={
-          state.state === "SAVING"
-            ? "SAVING"
-            : state.hasChanged
-              ? "HAS_CHANGES"
-              : "NO_CHANGES"
-        }
-        programResource={props.programResource}
-        confirmedReservations={state.currentSave.games}
-        tentativeReservations={state.tentativeReservations}
-        addTentativeReservation={actions.addTentativeReservation}
-        deleteReservation={actions.deleteReservation}
-        markedForDeletionReservations={state.markedForDeletionReservations}
+      <h1>Current Page: {state.page}</h1>
+      <Button
+        label="Go To Overview"
+        onClick={() => actions.changePage("OVERVIEW")}
+      />
+      <Button
+        label="Go To Choose"
+        onClick={() => actions.changePage("CHOOSE")}
       />
     </>
   );
@@ -77,7 +70,7 @@ export function MeineAnmeldungWrapper(): JSX.Element {
   const [params, setParams] = createSignal<Params | null>(null);
 
   onMount(() => {
-    setParams(tryLoadingParams());
+    setParams(loadParams());
   });
 
   return (

@@ -11,11 +11,16 @@ import type {
   ReservationView,
   Store,
 } from "@rst/components/anmeldung/types";
-import { loadServerState } from "@rst/components/anmeldung/load";
+import {
+  loadServerState,
+  MetaTitle,
+  type Page,
+} from "@rst/components/anmeldung/load";
 import { elysium } from "@common/components/utils";
 
 type Actions = {
   changeTab: (tab: Tab) => void;
+  changePage: (page: Page, backButton?: boolean) => void;
   updateSave: UpdateSave;
   saveCurrentState: () => Promise<void>;
   addTentativeReservation: (tentativeReservation: Reservation) => void;
@@ -30,6 +35,27 @@ export function initState(init: Store): {
 
   function changeTab(tab: Tab): void {
     setStore("activeTab", tab);
+    window.scrollTo({ top: 0 });
+  }
+
+  function initPage(page: Page): void {
+    const url = new URL(location.href);
+    url.searchParams.set("page", page.toLowerCase());
+    history.replaceState({ page }, "", url);
+    const newMetaTitle = MetaTitle[page];
+    document.title = `Meine Anmeldung: ${newMetaTitle} | Luzerner Rollenspieltage `;
+  }
+  initPage(init.page);
+
+  function changePage(page: Page, backButton: boolean = false): void {
+    if (!backButton) {
+      const url = new URL(location.href);
+      url.searchParams.set("page", page.toLowerCase());
+      history.pushState({ page }, "", url);
+    }
+    const newMetaTitle = MetaTitle[page];
+    document.title = `Meine Anmeldung: ${newMetaTitle} | Luzerner Rollenspieltage `;
+    setStore("page", page);
     window.scrollTo({ top: 0 });
   }
 
@@ -82,6 +108,7 @@ export function initState(init: Store): {
     if (response.ok) {
       const serverState = await loadServerState({
         secret: store.secret,
+        page: store.page,
         showCreateMessage: false,
       });
       setStore({
@@ -128,6 +155,7 @@ export function initState(init: Store): {
     state: store,
     actions: {
       changeTab,
+      changePage,
       updateSave,
       saveCurrentState,
       addTentativeReservation,

@@ -5,24 +5,32 @@ import {
 } from "@rst/components/anmeldung/data";
 import type { Store } from "@rst/components/anmeldung/types";
 
+const PAGES = ["CHOOSE", "OVERVIEW"] as const;
+export type Page = (typeof PAGES)[number];
+export const MetaTitle: Record<Page, string> = {
+  OVERVIEW: "Übersicht",
+  CHOOSE: "Auswahl",
+};
+
+export function getPage(url: URL): Page {
+  const page = url.searchParams.get("page");
+  return (
+    PAGES.find((p) => page?.toUpperCase() === p.toUpperCase()) ?? "OVERVIEW"
+  );
+}
 export type Params = {
   secret: string | null;
+  page: Page;
   showCreateMessage: boolean;
 };
 
-function isBrowser(): boolean {
-  return typeof window !== "undefined";
-}
-
-export function tryLoadingParams(): Params | null {
-  if (isBrowser()) {
-    const currentUrl = new URL(location.href);
-    const secret = currentUrl.searchParams.get("secret");
-    const showCreateMessage =
-      currentUrl.searchParams.get("showCreateMessage") === "true";
-    return { secret, showCreateMessage };
-  }
-  return null;
+export function loadParams(): Params {
+  const currentUrl = new URL(location.href);
+  const secret = currentUrl.searchParams.get("secret");
+  const page = getPage(currentUrl);
+  const showCreateMessage =
+    currentUrl.searchParams.get("showCreateMessage") === "true";
+  return { secret, page, showCreateMessage };
 }
 
 export async function loadServerState(params: Params): Promise<Store> {
@@ -39,6 +47,7 @@ export async function loadServerState(params: Params): Promise<Store> {
   const serverState = {
     state: "IDLE",
     secret: params.secret,
+    page: params.page,
     showCreateMessage: params.showCreateMessage,
     currentSave: result.save,
     activeTab: "Contact",

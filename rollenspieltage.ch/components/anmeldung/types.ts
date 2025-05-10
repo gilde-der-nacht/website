@@ -1,5 +1,6 @@
 import type { Tab } from "@rst/components/anmeldung/Tabs";
 import type { SaveFromServer } from "@rst/components/anmeldung/data";
+import type { Page } from "./load";
 
 export type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
 
@@ -24,6 +25,7 @@ export type ReservationView =
 export type Store = {
   state: "IDLE" | "SAVING";
   secret: string;
+  page: Page;
   showCreateMessage: boolean;
   currentSave: SaveFromServer;
   activeTab: Tab;
