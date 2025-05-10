@@ -1,10 +1,13 @@
 ---
 import Layout from "@rst/layouts/Layout.astro";
 import { MeineAnmeldungWrapper } from "@rst/components/anmeldung/MeineAnmeldung.tsx";
+import { Box } from "@common/components/Box";
 ---
 
 <Layout>
   <h1>Meine Anmeldung 2025</h1>
+  <Box type="danger">
+    <p>ACHTUNG: Anmeldung befindet sich noch in der Testphase!</p>
+  </Box>
   <MeineAnmeldungWrapper client:load />
-  <!-- <MeineAnmeldungWrapper client:only="solid-js" /> -->
 </Layout>

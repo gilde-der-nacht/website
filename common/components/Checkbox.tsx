@@ -1,7 +1,7 @@
 import { For, type JSX } from "solid-js";
 
 type CheckboxItem<T extends string> = {
-  label: string;
+  label: string | JSX.Element;
   name: string;
   value: T;
   checked: boolean;

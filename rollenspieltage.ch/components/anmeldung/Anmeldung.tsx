@@ -5,13 +5,20 @@ import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";
+import { Checkbox } from "@common/components/Checkbox";
 
 type Store = {
-  form: { name: string; email: string; tel: string };
+  form: {
+    name: string;
+    email: string;
+    tel: string;
+    coc: boolean;
+  };
   showErrors: {
     nameMissing: boolean;
     emailMissing: boolean;
     emailInvalid: boolean;
+    cocMissing: boolean;
     general: boolean;
   };
   state: "IDLE" | "LOADING";
@@ -23,17 +30,19 @@ type StartData = {
   handynummer: string;
 };
 
-export function Anmeldung(): JSX.Element {
+export function AnmeldungWrapper(): JSX.Element {
   const [store, setStore] = createStore<Store>({
     form: {
       name: "",
       email: "",
       tel: "",
+      coc: false,
     },
     showErrors: {
       nameMissing: false,
       emailMissing: false,
       emailInvalid: false,
+      cocMissing: false,
       general: false,
     },
     state: "IDLE",
@@ -51,6 +60,8 @@ export function Anmeldung(): JSX.Element {
 
     const emailIsInvalid = emailField.validity.typeMismatch;
     setStore("showErrors", "emailInvalid", emailIsInvalid);
+
+    setStore("showErrors", "cocMissing", !store.form.coc);
 
     if (
       store.showErrors.nameMissing ||
@@ -143,6 +154,26 @@ export function Anmeldung(): JSX.Element {
           required={false}
           onValueUpdate={(newValue) => setStore("form", "tel", newValue)}
         />
+        <Checkbox
+          label={
+            <span>
+              Ich bestätige, dass ich den{" "}
+              <a href="/verhaltenskodex" target="_blank">
+                Verhaltenskodex
+              </a>{" "}
+              gelesen habe und mich an die Regeln halten werde.
+            </span>
+          }
+          name="coc"
+          value="coc"
+          checked={store.form.coc}
+          onValueUpdate={(newValue) => setStore("form", "coc", newValue)}
+        />
+        <Show when={store.showErrors.cocMissing}>
+          <Box type="danger">
+            Der Verhaltenskodex muss gelesen und akzeptiert werden.
+          </Box>
+        </Show>
         <Button
           type="submit"
           kind={store.state === "IDLE" ? "success" : "gray"}
