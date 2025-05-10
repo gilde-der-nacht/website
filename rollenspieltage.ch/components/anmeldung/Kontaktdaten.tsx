@@ -65,6 +65,20 @@ export function Kontaktdaten(props: {
         required={false}
         onValueUpdate={(newValue) => props.updateSave("handynummer", newValue)}
       />
+      <br />
+      <p style="display: flex; flex-wrap; gap: 0.75rem; color:var(--clr-success-10);">
+        <i
+          class="fa-duotone fa-square-check"
+          style="position: relative; top: 0.25rem;"
+        ></i>
+        <span>
+          Ich bestätige, dass ich den{" "}
+          <a href="/verhaltenskodex" target="_blank">
+            Verhaltenskodex
+          </a>{" "}
+          gelesen habe und mich an die Regeln halten werde.
+        </span>
+      </p>
     </>
   );
 }
