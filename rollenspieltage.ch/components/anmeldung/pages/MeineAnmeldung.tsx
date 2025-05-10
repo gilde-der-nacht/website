@@ -23,40 +23,7 @@ import {
 import type { Store } from "@rst/components/anmeldung/types";
 import type { Program } from "@rst/components/anmeldung/data";
 import { TXT } from "@rst/components/anmeldung/text";
-import { Button } from "@common/components/Button";
-
-function MeineAnmeldungLoaded(props: {
-  state: Store;
-  programResource: Resource<Program>;
-}): JSX.Element {
-  const { state, actions } = initState(props.state);
-
-  window.addEventListener("popstate", (e: unknown) => {
-    if (typeof e === "object" && e !== null && "state" in e) {
-      const currentUrl = new URL(location.href);
-      const page = getPage(currentUrl);
-      actions.changePage(page, true);
-    }
-  });
-
-  return (
-    <>
-      <Show when={state.showCreateMessage}>
-        <Box type="success">{TXT.registrationStarted}</Box>
-        <br />
-      </Show>
-      <h1>Current Page: {state.page}</h1>
-      <Button
-        label="Go To Overview"
-        onClick={() => actions.changePage("OVERVIEW")}
-      />
-      <Button
-        label="Go To Choose"
-        onClick={() => actions.changePage("CHOOSE")}
-      />
-    </>
-  );
-}
+import "../anmeldung.scss";
 
 function Loading(): JSX.Element {
   return (
@@ -131,5 +98,76 @@ function MeineAnmeldung(props: { params: Params }): JSX.Element {
         </Switch>
       </Suspense>
     </ErrorBoundary>
+  );
+}
+
+function MeineAnmeldungLoaded(props: {
+  state: Store;
+  programResource: Resource<Program>;
+}): JSX.Element {
+  const { state, actions } = initState(props.state);
+
+  window.addEventListener("popstate", (e: unknown) => {
+    if (typeof e === "object" && e !== null && "state" in e) {
+      const currentUrl = new URL(location.href);
+      const page = getPage(currentUrl);
+      actions.changePage(page, true);
+    }
+  });
+
+  return (
+    <>
+      <Show when={state.showCreateMessage}>
+        <Box type="success">{TXT.registrationStarted}</Box>
+        <br />
+      </Show>
+      <Switch>
+        <Match when={state.page === "CHOOSE"}>
+          <div class="choose">
+            <Box>
+              <div class="grid">
+                <i class="fa-duotone fa-dice-d20"></i>
+                <div>
+                  <h3>Spielrunden ansehen</h3>
+                  <p>
+                    Melde dich (und deine Freunde) für diverse Spielrunden an.
+                  </p>
+                </div>
+              </div>
+            </Box>
+            <br />
+            <Box>
+              <div class="grid">
+                <i class="fa-duotone fa-grid-2-plus"></i>
+                <div>
+                  <h3>Spielrunden erstellen</h3>
+                  <p>
+                    Falls du wenig oder gar keine Erfahrung als Spielleiter:in
+                    hast, werden wir dich vor und während dem Anlass
+                    unterstützen.
+                  </p>
+                </div>
+              </div>
+            </Box>
+            <br />
+            <Box>
+              <div class="grid">
+                <i class="fa-duotone fa-hand-heart"></i>
+                <div>
+                  <h3>Helfen</h3>
+                  <p>
+                    Beim Kiosk und der Essensausgabe können wir immer ein paar
+                    helfende Hände gebrauchen.
+                  </p>
+                </div>
+              </div>
+            </Box>
+          </div>
+        </Match>
+        <Match when={state.page === "OVERVIEW"}>
+          <h1>Overview</h1>
+        </Match>
+      </Switch>
+    </>
   );
 }

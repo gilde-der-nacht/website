@@ -1,5 +1,5 @@
 export const TXT = (function init() {
-  const registrationDeadline = "Freitag, 23. August 2024";
+  const registrationDeadline = "Donnerstag, 21. August 2025";
   const registrationStarted = (
     <>
       Deine Anmeldung wurde erfolgreich gestartet.

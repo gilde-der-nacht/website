@@ -41,6 +41,7 @@ export function initState(init: Store): {
   function initPage(page: Page): void {
     const url = new URL(location.href);
     url.searchParams.set("page", page.toLowerCase());
+    url.searchParams.delete("showCreateMessage");
     history.replaceState({ page }, "", url);
     const newMetaTitle = MetaTitle[page];
     document.title = `Meine Anmeldung: ${newMetaTitle} | Luzerner Rollenspieltage `;

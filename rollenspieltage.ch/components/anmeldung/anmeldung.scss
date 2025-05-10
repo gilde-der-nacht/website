@@ -1,0 +1,30 @@
+@use "../../../common/styles/globals/colors" as c;
+
+.choose {
+  [class^=box] {
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      background-color: c.get("background-subtle");
+      color: c.get("accent-hover");
+      border-color: c.get("text-high-contrast");
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  p {
+    max-inline-size: unset;
+  }
+
+  svg {
+    font-size: 2.25em;
+  }
+}
