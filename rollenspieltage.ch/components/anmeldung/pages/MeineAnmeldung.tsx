@@ -24,6 +24,7 @@ import type { Store } from "@rst/components/anmeldung/types";
 import type { Program } from "@rst/components/anmeldung/data";
 import { TXT } from "@rst/components/anmeldung/text";
 import "../anmeldung.scss";
+import { ChoosePage } from "./Choose";
 
 function Loading(): JSX.Element {
   return (
@@ -123,49 +124,31 @@ function MeineAnmeldungLoaded(props: {
       </Show>
       <Switch>
         <Match when={state.page === "CHOOSE"}>
-          <div class="choose">
-            <Box>
-              <div class="grid">
-                <i class="fa-duotone fa-dice-d20"></i>
-                <div>
-                  <h3>Spielrunden ansehen</h3>
-                  <p>
-                    Melde dich (und deine Freunde) für diverse Spielrunden an.
-                  </p>
-                </div>
-              </div>
-            </Box>
-            <br />
-            <Box>
-              <div class="grid">
-                <i class="fa-duotone fa-grid-2-plus"></i>
-                <div>
-                  <h3>Spielrunden erstellen</h3>
-                  <p>
-                    Falls du wenig oder gar keine Erfahrung als Spielleiter:in
-                    hast, werden wir dich vor und während dem Anlass
-                    unterstützen.
-                  </p>
-                </div>
-              </div>
-            </Box>
-            <br />
-            <Box>
-              <div class="grid">
-                <i class="fa-duotone fa-hand-heart"></i>
-                <div>
-                  <h3>Helfen</h3>
-                  <p>
-                    Beim Kiosk und der Essensausgabe können wir immer ein paar
-                    helfende Hände gebrauchen.
-                  </p>
-                </div>
-              </div>
-            </Box>
-          </div>
+          <ChoosePage changePage={actions.changePage} />
         </Match>
         <Match when={state.page === "OVERVIEW"}>
           <h1>Overview</h1>
+          <pre>
+            <code>Noch nicht implementiert</code>
+          </pre>
+        </Match>
+        <Match when={state.page === "PLAYER"}>
+          <h1>Spielrundenübersicht</h1>
+          <pre>
+            <code>Noch nicht implementiert</code>
+          </pre>
+        </Match>
+        <Match when={state.page === "GAMEMASTER"}>
+          <h1>Spielleitung</h1>
+          <pre>
+            <code>Noch nicht implementiert</code>
+          </pre>
+        </Match>
+        <Match when={state.page === "HELPING"}>
+          <h1>Helfen</h1>
+          <pre>
+            <code>Noch nicht implementiert</code>
+          </pre>
         </Match>
       </Switch>
     </>

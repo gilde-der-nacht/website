@@ -5,11 +5,12 @@ type Props = WithChildren & {
   type?: "success" | "danger" | "special" | "gray";
   link?: string;
   linkLabel?: string;
+  onClick?: () => void;
 };
 
 export function Box(props: Props): JSX.Element {
   return (
-    <div class={`box-${props.type ?? "gray"}`}>
+    <div class={`box-${props.type ?? "gray"}`} onClick={props.onClick}>
       <span>{props.children}</span>
       <Show when={props.link !== undefined && props.linkLabel !== undefined}>
         <a

@@ -5,11 +5,20 @@ import {
 } from "@rst/components/anmeldung/data";
 import type { Store } from "@rst/components/anmeldung/types";
 
-const PAGES = ["CHOOSE", "OVERVIEW"] as const;
+const PAGES = [
+  "CHOOSE",
+  "OVERVIEW",
+  "PLAYER",
+  "GAMEMASTER",
+  "HELPING",
+] as const;
 export type Page = (typeof PAGES)[number];
 export const MetaTitle: Record<Page, string> = {
   OVERVIEW: "Übersicht",
   CHOOSE: "Auswahl",
+  PLAYER: "Spielanmeldung",
+  GAMEMASTER: "Spielerfassung",
+  HELPING: "Helfen",
 };
 
 export function getPage(url: URL): Page {
