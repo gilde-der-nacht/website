@@ -5,6 +5,7 @@ import type {
 import { Input, InputWithRef } from "@common/components/Input";
 import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
+import { Icon } from "@common/components/Icon";
 
 export function Kontaktdaten(props: {
   save: SaveFromServer;
@@ -67,10 +68,7 @@ export function Kontaktdaten(props: {
       />
       <br />
       <p style="display: flex; flex-wrap; gap: 0.75rem; color:var(--clr-success-10);">
-        <i
-          class="fa-duotone fa-square-check"
-          style="position: relative; top: 0.25rem;"
-        ></i>
+        <Icon icon="square-check" style="position: relative; top: 0.25rem;" />
         <span>
           Ich bestätige, dass ich den{" "}
           <a href="/verhaltenskodex" target="_blank">

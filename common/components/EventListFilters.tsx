@@ -1,6 +1,7 @@
 import type { JSX } from "solid-js";
 import type { OlympEvent } from "@common/components/events";
 import type { Language } from "@common/components/utils";
+import { Icon } from "./Icon";
 
 type Props = {
   events: OlympEvent[];
@@ -34,7 +35,7 @@ export function EventListFilters(props: Props): JSX.Element {
       <div class="event-filters-reset">
         <a href="?" data-event-filter-remove>
           {language === "de" ? "Filter entfernen" : "remove filter"}{" "}
-          <i class="fa-duotone fa-circle-xmark"></i>
+          <Icon icon="circle-xmark" />
         </a>
       </div>
       <ul role="list">{listOfTags.map(renderFilterList)}</ul>

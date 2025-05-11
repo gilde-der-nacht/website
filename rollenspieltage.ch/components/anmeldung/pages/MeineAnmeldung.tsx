@@ -25,6 +25,7 @@ import type { Program } from "@rst/components/anmeldung/data";
 import { TXT } from "@rst/components/anmeldung/text";
 import "../anmeldung.scss";
 import { ChoosePage } from "./Choose";
+import { GamemasterPage, NewGamePage } from "./Gamemaster";
 
 function Loading(): JSX.Element {
   return (
@@ -122,7 +123,16 @@ function MeineAnmeldungLoaded(props: {
         <Box type="success">{TXT.registrationStarted}</Box>
         <br />
       </Show>
-      <Switch>
+      <Switch
+        fallback={
+          <>
+            <h1>Overview</h1>
+            <pre>
+              <code>Noch nicht implementiert</code>
+            </pre>
+          </>
+        }
+      >
         <Match when={state.page === "CHOOSE"}>
           <ChoosePage changePage={actions.changePage} />
         </Match>
@@ -139,10 +149,10 @@ function MeineAnmeldungLoaded(props: {
           </pre>
         </Match>
         <Match when={state.page === "GAMEMASTER"}>
-          <h1>Spielleitung</h1>
-          <pre>
-            <code>Noch nicht implementiert</code>
-          </pre>
+          <GamemasterPage />
+        </Match>
+        <Match when={state.page === "GAMEMASTER_NEW"}>
+          <NewGamePage />
         </Match>
         <Match when={state.page === "HELPING"}>
           <h1>Helfen</h1>

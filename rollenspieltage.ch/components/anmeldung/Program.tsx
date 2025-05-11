@@ -14,6 +14,7 @@ import type {
   DayPeriod,
 } from "@rst/components/anmeldung/types";
 import { MealBreak } from "@rst/components/anmeldung/MealBreak";
+import { Icon } from "@common/components/Icon";
 
 const BUFFER_SEATS = 1 as const;
 
@@ -174,7 +175,7 @@ function ProgrammEntryCard(props: {
                           title="Reservation löschen"
                           onClick={() => props.deleteReservation(reservation)}
                         >
-                          <i class="fa-duotone fa-circle-xmark"></i>
+                          <Icon icon="circle-max" />
                         </a>
                       </>
                     )}

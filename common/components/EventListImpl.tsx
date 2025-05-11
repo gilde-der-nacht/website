@@ -5,6 +5,7 @@ import {
   formatDateRange,
   formatDateTime,
 } from "@common/components/utils";
+import { Icon } from "./Icon";
 
 function getTheme(eventType: string): { theme: string; icon: string } | null {
   switch (eventType) {
@@ -40,7 +41,7 @@ function renderBackgroundIcon(event: OlympEvent): JSX.Element {
 
   return (
     <div class="event-background-icon">
-      <i class={`fa-duotone fa-${entry.icon}`}></i>
+      <Icon icon={entry.icon as any} />
     </div>
   );
 }
@@ -48,7 +49,7 @@ function renderBackgroundIcon(event: OlympEvent): JSX.Element {
 function renderDate(event: OlympEvent): JSX.Element {
   const icon = (
     <div class="event-icon">
-      <i class="fa-duotone fa-calendar-range"></i>
+      <Icon icon="calendar-range" />
     </div>
   );
   if (event.date.fullDay && event.date.multipleDays) {
@@ -90,7 +91,7 @@ function renderLocation(event: OlympEvent): JSX.Element {
   return (
     <div class="event-location">
       <a href={`${event.location.url}`} class="event-icon">
-        <i class="fa-duotone fa-location-dot"></i>
+        <Icon icon="location-dot" />
       </a>
       <span>{event.location.labelLong}</span>
     </div>
@@ -113,7 +114,7 @@ function renderTags(event: OlympEvent): JSX.Element {
   return (
     <div class="event-tags">
       <div class="event-icon">
-        <i class="fa-duotone fa-tags"></i>
+        <Icon icon="tags" />
       </div>
       <ul role="list">{event.tags.map(renderTag)}</ul>
     </div>
@@ -141,7 +142,7 @@ function renderLinks(event: OlympEvent): JSX.Element {
     return (
       <li>
         <a href={`${link.url}`} class="event-link">
-          <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>
+          <Icon icon="arrow-turn-down-right" classes={["event-icon"]} />
           <span> {link.label}</span>
         </a>
       </li>

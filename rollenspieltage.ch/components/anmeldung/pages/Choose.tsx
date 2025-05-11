@@ -1,6 +1,7 @@
 import { Box } from "@common/components/Box";
 import type { JSX } from "solid-js";
 import type { Page } from "../load";
+import { Icon } from "@common/components/Icon";
 
 export function ChoosePage(props: {
   changePage: (page: Page) => void;
@@ -9,7 +10,7 @@ export function ChoosePage(props: {
     <div class="choose">
       <Box type="special" onClick={() => props.changePage("PLAYER")}>
         <div class="grid">
-          <i class="fa-duotone fa-dice-d20"></i>
+          <Icon icon="dice-d20" />
           <div>
             <h3>Spielrunden ansehen</h3>
             <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
@@ -19,7 +20,7 @@ export function ChoosePage(props: {
       <br />
       <Box type="special" onClick={() => props.changePage("GAMEMASTER")}>
         <div class="grid">
-          <i class="fa-duotone fa-grid-2-plus"></i>
+          <Icon icon="grid-2-plus" />
           <div>
             <h3>Spielrunden erstellen</h3>
             <p>
@@ -32,7 +33,7 @@ export function ChoosePage(props: {
       <br />
       <Box type="special" onClick={() => props.changePage("HELPING")}>
         <div class="grid">
-          <i class="fa-duotone fa-hand-heart"></i>
+          <Icon icon="hand-heart" />
           <div>
             <h3>Helfen</h3>
             <p>

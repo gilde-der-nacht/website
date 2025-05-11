@@ -1,5 +1,6 @@
 import { Show, type JSX } from "solid-js";
 import type { WithChildren } from "@common/components/utils";
+import { Icon } from "./Icon";
 
 type Props = WithChildren & {
   type?: "success" | "danger" | "special" | "gray";
@@ -17,7 +18,7 @@ export function Box(props: Props): JSX.Element {
           href={props.link ?? ""}
           class={`button button-small button-${props.type ?? "gray"}`}
         >
-          <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>
+          <Icon icon="arrow-turn-down-right" classes={["event-icon"]} />
           <span> {props.linkLabel}</span>
         </a>
       </Show>

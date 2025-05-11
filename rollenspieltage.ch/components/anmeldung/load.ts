@@ -10,6 +10,7 @@ const PAGES = [
   "OVERVIEW",
   "PLAYER",
   "GAMEMASTER",
+  "GAMEMASTER_NEW",
   "HELPING",
 ] as const;
 export type Page = (typeof PAGES)[number];
@@ -18,6 +19,7 @@ export const MetaTitle: Record<Page, string> = {
   CHOOSE: "Auswahl",
   PLAYER: "Spielanmeldung",
   GAMEMASTER: "Spielerfassung",
+  GAMEMASTER_NEW: "Neue Spielrunde",
   HELPING: "Helfen",
 };
 

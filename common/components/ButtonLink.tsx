@@ -1,4 +1,5 @@
 import type { JSX } from "solid-js";
+import { Icon } from "./Icon";
 
 type Props = {
   link: string;
@@ -12,7 +13,7 @@ export function ButtonLink(props: Props): JSX.Element {
       href={props.link}
       class={`button button-small button-${props.kind ?? "special"}`}
     >
-      <i class="fa-duotone fa-arrow-turn-down-right event-icon"></i>
+      <Icon icon="arrow-turn-down-right" classes={["event-icon"]} />
       <span> {props.label}</span>
     </a>
   );
