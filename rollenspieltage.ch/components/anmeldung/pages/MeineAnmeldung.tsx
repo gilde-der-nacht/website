@@ -149,7 +149,7 @@ function MeineAnmeldungLoaded(props: {
           </pre>
         </Match>
         <Match when={state.page === "GAMEMASTER"}>
-          <GamemasterPage />
+          <GamemasterPage changePage={actions.changePage} />
         </Match>
         <Match when={state.page === "GAMEMASTER_NEW"}>
           <NewGamePage />

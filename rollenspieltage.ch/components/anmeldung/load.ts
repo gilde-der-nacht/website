@@ -18,7 +18,7 @@ export const MetaTitle: Record<Page, string> = {
   OVERVIEW: "Übersicht",
   CHOOSE: "Auswahl",
   PLAYER: "Spielanmeldung",
-  GAMEMASTER: "Spielerfassung",
+  GAMEMASTER: "Spielleitung",
   GAMEMASTER_NEW: "Neue Spielrunde",
   HELPING: "Helfen",
 };

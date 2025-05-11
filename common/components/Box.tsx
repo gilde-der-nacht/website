@@ -2,8 +2,10 @@ import { Show, type JSX } from "solid-js";
 import type { WithChildren } from "@common/components/utils";
 import { Icon } from "./Icon";
 
+export type BoxType = "success" | "danger" | "special" | "gray";
+
 type Props = WithChildren & {
-  type?: "success" | "danger" | "special" | "gray";
+  type?: BoxType;
   link?: string;
   linkLabel?: string;
   onClick?: () => void;
