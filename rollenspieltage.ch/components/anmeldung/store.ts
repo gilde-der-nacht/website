@@ -49,6 +49,10 @@ export function initState(init: Store): {
   initPage(init.page);
 
   function changePage(page: Page, backButton: boolean = false): void {
+    if (page === store.page) {
+      return;
+    }
+
     if (!backButton) {
       const url = new URL(location.href);
       url.searchParams.set("page", page.toLowerCase());

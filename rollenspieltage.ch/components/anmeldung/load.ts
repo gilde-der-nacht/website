@@ -7,27 +7,25 @@ import type { Store } from "@rst/components/anmeldung/types";
 
 const PAGES = [
   "CHOOSE",
-  "OVERVIEW",
   "PLAYER",
   "GAMEMASTER",
   "GAMEMASTER_NEW",
   "HELPING",
+  "SUMMARY",
 ] as const;
 export type Page = (typeof PAGES)[number];
 export const MetaTitle: Record<Page, string> = {
-  OVERVIEW: "Übersicht",
-  CHOOSE: "Auswahl",
+  CHOOSE: "Übersicht",
   PLAYER: "Spielanmeldung",
   GAMEMASTER: "Spielleitung",
   GAMEMASTER_NEW: "Neue Spielrunde",
   HELPING: "Helfen",
+  SUMMARY: "Zusammenfassung",
 };
 
 export function getPage(url: URL): Page {
   const page = url.searchParams.get("page");
-  return (
-    PAGES.find((p) => page?.toUpperCase() === p.toUpperCase()) ?? "OVERVIEW"
-  );
+  return PAGES.find((p) => page?.toUpperCase() === p.toUpperCase()) ?? "CHOOSE";
 }
 export type Params = {
   secret: string | null;

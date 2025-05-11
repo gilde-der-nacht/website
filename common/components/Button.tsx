@@ -2,7 +2,7 @@ import type { JSX } from "solid-js";
 
 type Props = {
   type?: "submit" | "button" | "reset";
-  label: string;
+  label: string | JSX.Element;
   kind?: "accent" | "special" | "gray" | "success" | "danger";
   disabled?: boolean;
   onClick?: () => void;

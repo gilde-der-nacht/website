@@ -1,0 +1,26 @@
+@use "../globals/colors" as c;
+
+.tooltip-wrapper {
+  position: relative;
+
+  .tooltip {
+    display: none;
+    position: absolute;
+    top: 2lh;
+    margin-top: 0.25rem;
+    background: c.get("background");
+    border: 1px solid c.get("text-high-contrast");
+    padding: 0.25rem;
+    font-size: 0.8em;
+    font-style: italic;
+    width: max-content;
+  }
+
+
+  &:hover,
+  &:focus {
+    .tooltip {
+      display: block;
+    }
+  }
+}

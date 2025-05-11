@@ -28,3 +28,42 @@
     font-size: 2.25em;
   }
 }
+
+.quickmenu {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-block-end: 1.5lh;
+
+  &.extended {
+    margin-block-start: 1.5lh;
+    grid-column: 1 / -1;
+  }
+
+  .grid {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .page:has(.quickmenu) {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 1rem;
+
+    .quickmenu:not(.extended) {
+      flex-direction: column;
+      position: sticky;
+      top: 1rem;
+
+      .tooltip {
+        top: 0;
+        left: 2lh;
+      }
+    }
+  }
+}

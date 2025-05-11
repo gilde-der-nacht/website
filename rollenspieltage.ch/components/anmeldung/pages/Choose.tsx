@@ -7,7 +7,11 @@ export function ChoosePage(props: {
   changePage: (page: Page) => void;
 }): JSX.Element {
   return (
-    <PageTemplate title="Wie möchtest du starten?">
+    <PageTemplate
+      title="Wie möchtest du starten?"
+      showQuickmenu={false}
+      changePage={props.changePage}
+    >
       <BoxLink icon="dice-d20" onClick={() => props.changePage("PLAYER")}>
         <h3>Spielrunden ansehen</h3>
         <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>

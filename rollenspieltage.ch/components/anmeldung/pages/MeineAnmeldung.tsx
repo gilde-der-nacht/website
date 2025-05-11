@@ -26,6 +26,9 @@ import { TXT } from "@rst/components/anmeldung/text";
 import "../anmeldung.scss";
 import { ChoosePage } from "./Choose";
 import { GamemasterPage, NewGamePage } from "./Gamemaster";
+import { HelpingPage } from "./HelpingPage";
+import { PlayerPage } from "./PlayerPage";
+import { SummaryPage } from "./SummaryPage";
 
 function Loading(): JSX.Element {
   return (
@@ -123,42 +126,21 @@ function MeineAnmeldungLoaded(props: {
         <Box type="success">{TXT.registrationStarted}</Box>
         <br />
       </Show>
-      <Switch
-        fallback={
-          <>
-            <h1>Overview</h1>
-            <pre>
-              <code>Noch nicht implementiert</code>
-            </pre>
-          </>
-        }
-      >
-        <Match when={state.page === "CHOOSE"}>
-          <ChoosePage changePage={actions.changePage} />
-        </Match>
-        <Match when={state.page === "OVERVIEW"}>
-          <h1>Overview</h1>
-          <pre>
-            <code>Noch nicht implementiert</code>
-          </pre>
-        </Match>
+      <Switch fallback={<ChoosePage changePage={actions.changePage} />}>
         <Match when={state.page === "PLAYER"}>
-          <h1>Spielrundenübersicht</h1>
-          <pre>
-            <code>Noch nicht implementiert</code>
-          </pre>
+          <PlayerPage changePage={actions.changePage} />
         </Match>
         <Match when={state.page === "GAMEMASTER"}>
           <GamemasterPage changePage={actions.changePage} />
         </Match>
         <Match when={state.page === "GAMEMASTER_NEW"}>
-          <NewGamePage />
+          <NewGamePage changePage={actions.changePage} />
         </Match>
         <Match when={state.page === "HELPING"}>
-          <h1>Helfen</h1>
-          <pre>
-            <code>Noch nicht implementiert</code>
-          </pre>
+          <HelpingPage changePage={actions.changePage} />
+        </Match>
+        <Match when={state.page === "SUMMARY"}>
+          <SummaryPage changePage={actions.changePage} />
         </Match>
       </Switch>
     </>

@@ -7,7 +7,7 @@ export function GamemasterPage(props: {
   changePage: (page: Page) => void;
 }): JSX.Element {
   return (
-    <PageTemplate title="Meine Spielrunden">
+    <PageTemplate title="Meine Spielrunden" changePage={props.changePage}>
       <BoxLink
         icon="grid-2-plus"
         type="success"
@@ -19,6 +19,13 @@ export function GamemasterPage(props: {
   );
 }
 
-export function NewGamePage(): JSX.Element {
-  return <PageTemplate title="Neue Spielrunde erfassen"></PageTemplate>;
+export function NewGamePage(props: {
+  changePage: (page: Page) => void;
+}): JSX.Element {
+  return (
+    <PageTemplate
+      title="Neue Spielrunde erfassen"
+      changePage={props.changePage}
+    ></PageTemplate>
+  );
 }

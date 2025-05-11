@@ -2,12 +2,14 @@ import type { JSX } from "solid-js";
 
 const ICONS = [
   "arrow-turn-down-right",
+  "backward",
   "calendar-range",
   "circle-max",
   "circle-xmark",
   "dice-d20",
   "grid-2-plus",
   "hand-heart",
+  "list",
   "location-dot",
   "moon-stars",
   "sun-bright",
