@@ -8,7 +8,7 @@ export function ChoosePage(props: {
 }): JSX.Element {
   return (
     <PageTemplate
-      title="Wie möchtest du starten?"
+      title="Wo möchtest du starten?"
       showQuickmenu={false}
       changePage={props.changePage}
     >
@@ -34,6 +34,11 @@ export function ChoosePage(props: {
           Beim Kiosk und der Essensausgabe können wir immer ein paar helfende
           Hände gebrauchen.
         </p>
+      </BoxLink>
+      <br />
+      <BoxLink icon="list" onClick={() => props.changePage("SUMMARY")}>
+        <h3>Zusammenfassung</h3>
+        <p>Erhalte einen Überblick über dein gesamtes Programm.</p>
       </BoxLink>
     </PageTemplate>
   );
