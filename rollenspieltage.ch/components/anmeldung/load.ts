@@ -3,7 +3,7 @@ import {
   loadSave,
   type Program,
 } from "@rst/components/anmeldung/data";
-import type { Store } from "@rst/components/anmeldung/types";
+import type { AppState } from "@rst/components/anmeldung/types";
 
 const PAGES = [
   "CHOOSE",
@@ -42,7 +42,7 @@ export function loadParams(): Params {
   return { secret, page, showCreateMessage };
 }
 
-export async function loadServerState(params: Params): Promise<Store> {
+export async function loadServerState(params: Params): Promise<AppState> {
   if (params.secret === null) {
     throw Error("SECRET_ERROR");
   }
@@ -74,7 +74,7 @@ export async function loadServerState(params: Params): Promise<Store> {
     hasChanged: false,
     tentativeReservations: [],
     markedForDeletionReservations: [],
-  } satisfies Store;
+  } satisfies AppState;
 
   return serverState;
 }

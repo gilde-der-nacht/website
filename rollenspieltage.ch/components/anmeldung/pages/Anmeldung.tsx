@@ -7,7 +7,7 @@ import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";
 import { Checkbox } from "@common/components/Checkbox";
 
-type Store = {
+export type PageState = {
   form: {
     name: string;
     email: string;
@@ -31,7 +31,7 @@ type StartData = {
 };
 
 export function AnmeldungWrapper(): JSX.Element {
-  const [store, setStore] = createStore<Store>({
+  const [store, setStore] = createStore<PageState>({
     form: {
       name: "",
       email: "",

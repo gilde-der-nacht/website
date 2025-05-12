@@ -1,6 +1,7 @@
 import type { Tab } from "@rst/components/anmeldung/Tabs";
 import type { SaveFromServer } from "@rst/components/anmeldung/data";
 import type { Page } from "./load";
+import type { GameRoundEdit } from "./pages/Gamemaster";
 
 export type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
 
@@ -22,18 +23,7 @@ export type ReservationView =
       reservationId: number;
     };
 
-export type GameRoundEdit = {
-  titel: string;
-  system: string;
-  descriptionShort: string;
-  descriptionLong: string;
-  slot: number;
-  playerCountMin: number;
-  playerCountMax: number;
-  tags: number[];
-};
-
-export type Store = {
+export type AppState = {
   state: "IDLE" | "SAVING";
   secret: string;
   page: Page;

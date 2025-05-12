@@ -20,7 +20,7 @@ import {
   loadServerState,
   type Params,
 } from "@rst/components/anmeldung/load";
-import type { Store } from "@rst/components/anmeldung/types";
+import type { AppState } from "@rst/components/anmeldung/types";
 import type { Program } from "@rst/components/anmeldung/data";
 import { TXT } from "@rst/components/anmeldung/text";
 import "../anmeldung.scss";
@@ -29,6 +29,7 @@ import { GamemasterPage, NewGamePage } from "./Gamemaster";
 import { HelpingPage } from "./HelpingPage";
 import { PlayerPage } from "./PlayerPage";
 import { SummaryPage } from "./SummaryPage";
+import type { Store } from "solid-js/store";
 
 function Loading(): JSX.Element {
   return (
@@ -107,7 +108,7 @@ function MeineAnmeldung(props: { params: Params }): JSX.Element {
 }
 
 function MeineAnmeldungLoaded(props: {
-  state: Store;
+  state: Store<AppState>;
   programResource: Resource<Program>;
 }): JSX.Element {
   const { state, actions } = initState(props.state);
@@ -134,7 +135,10 @@ function MeineAnmeldungLoaded(props: {
           <GamemasterPage changePage={actions.changePage} />
         </Match>
         <Match when={state.page === "GAMEMASTER_NEW"}>
-          <NewGamePage changePage={actions.changePage} />
+          <NewGamePage
+            store={state.gameRoundEdit}
+            changePage={actions.changePage}
+          />
         </Match>
         <Match when={state.page === "HELPING"}>
           <HelpingPage changePage={actions.changePage} />
@@ -143,6 +147,7 @@ function MeineAnmeldungLoaded(props: {
           <SummaryPage changePage={actions.changePage} />
         </Match>
       </Switch>
+      <pre>{JSON.stringify(state, null, 2)}</pre>
     </>
   );
 }

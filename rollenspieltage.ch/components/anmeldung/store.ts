@@ -9,7 +9,7 @@ import { createStore } from "solid-js/store";
 import type {
   Reservation,
   ReservationView,
-  Store,
+  AppState,
 } from "@rst/components/anmeldung/types";
 import {
   loadServerState,
@@ -27,8 +27,8 @@ type Actions = {
   deleteReservation: (reservation: ReservationView) => void;
 };
 
-export function initState(init: Store): {
-  state: Store;
+export function initState(init: AppState): {
+  state: AppState;
   actions: Actions;
 } {
   const [store, setStore] = createStore(init);
