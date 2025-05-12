@@ -22,11 +22,23 @@ export type ReservationView =
       reservationId: number;
     };
 
+export type GameRoundEdit = {
+  titel: string;
+  system: string;
+  descriptionShort: string;
+  descriptionLong: string;
+  slot: number;
+  playerCountMin: number;
+  playerCountMax: number;
+  tags: number[];
+};
+
 export type Store = {
   state: "IDLE" | "SAVING";
   secret: string;
   page: Page;
   showCreateMessage: boolean;
+  gameRoundEdit: GameRoundEdit;
   currentSave: SaveFromServer;
   activeTab: Tab;
   lastSaved: string;

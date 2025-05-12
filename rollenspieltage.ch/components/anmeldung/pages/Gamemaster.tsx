@@ -20,12 +20,18 @@ export function GamemasterPage(props: {
 }
 
 export function NewGamePage(props: {
+  editForm: boolean;
   changePage: (page: Page) => void;
 }): JSX.Element {
+  function onSubmit(): void {
+    console.log("submit");
+  }
   return (
     <PageTemplate
       title="Neue Spielrunde erfassen"
       changePage={props.changePage}
-    ></PageTemplate>
+    >
+      <form onSubmit={onSubmit} novalidate></form>
+    </PageTemplate>
   );
 }
