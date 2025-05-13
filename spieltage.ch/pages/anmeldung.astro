@@ -1,6 +1,5 @@
 ---
 import Layout from "@lst/layouts/Layout.astro";
-import { Anmeldung as A } from "@lst/components/anmeldung/Anmeldung.tsx";
 import { Box } from "@common/components/Box";
 import { Button } from "@common/components/Button";
 
@@ -36,18 +35,9 @@ export const frontmatter = {
   </div>
 
   <Box>
-    <p>
-      Falls du bereits eine Anmeldung begonnen hast, dann solltest du eine
-      E-Mail mit einem persönlichen Link erhalten haben. Dieser erlaubt es dir
-      deine Anmeldung anzupassen.
-    </p>
+    <p>Anmeldung geschlossen.</p>
   </Box>
-  <A client:load />
   <Box type="special">
-    <p>
-      Deine persönlichen Daten werden ausschliesslich für die Luzerner Spieltage
-      2025 verwendet.
-    </p>
     <p>
       Möchtest du auch nach dem Event über Anlässe von uns informiert werden,
       dann empfehlen wir dir, unseren <a href="/newsletter"
