@@ -33,6 +33,11 @@ export const gameTags = [
 export type GameTag = (typeof gameTags)[number]["name"];
 
 export type GameRoundEdit = {
+  form: GameRoundEditForm;
+  errors: GameRoundEditErrors;
+};
+
+export type GameRoundEditForm = {
   titel: string;
   system: string;
   descriptionShort: string;
@@ -41,6 +46,14 @@ export type GameRoundEdit = {
   playerCountMin: number;
   playerCountMax: number;
   tags: GameTag[];
+};
+
+export type GameRoundEditErrors = {
+  titleMissing: boolean;
+  descriptionShortTooLong: boolean;
+  descriptionLongTooLong: boolean;
+  slotMissing: boolean;
+  playerCountInvalid: boolean;
 };
 
 export function NewGamePage(props: {
@@ -62,26 +75,30 @@ export function NewGamePage(props: {
         <Input
           label="Titel"
           name="title"
-          value={store.titel}
-          onValueUpdate={(newValue) => setStore("titel", newValue)}
+          value={store.form.titel}
+          onValueUpdate={(newValue) => setStore("form", "titel", newValue)}
         />
         <Input
           label="System"
           name="System"
-          value={store.system}
-          onValueUpdate={(newValue) => setStore("system", newValue)}
+          value={store.form.system}
+          onValueUpdate={(newValue) => setStore("form", "system", newValue)}
         />
         <Textarea
           label="Beschreibung (kurz)"
           name="descriptionShort"
-          value={store.descriptionShort}
-          onValueUpdate={(newValue) => setStore("descriptionShort", newValue)}
+          value={store.form.descriptionShort}
+          onValueUpdate={(newValue) =>
+            setStore("form", "descriptionShort", newValue)
+          }
         />
         <Textarea
           label="Beschreibung (lang, optional)"
           name="descriptionLong"
-          value={store.descriptionLong}
-          onValueUpdate={(newValue) => setStore("descriptionLong", newValue)}
+          value={store.form.descriptionLong}
+          onValueUpdate={(newValue) =>
+            setStore("form", "descriptionLong", newValue)
+          }
         />
         <Button type="submit" kind="success" label="Spielrunde erstellen" />
       </form>
