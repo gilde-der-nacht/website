@@ -23,6 +23,15 @@ export function GamemasterPage(props: {
   );
 }
 
+export const gameTags = [
+  {
+    name: "children",
+    label: "Kinderfreundlich",
+    description: "...",
+  },
+] as const;
+export type GameTag = (typeof gameTags)[number]["name"];
+
 export type GameRoundEdit = {
   titel: string;
   system: string;
@@ -31,7 +40,7 @@ export type GameRoundEdit = {
   slot: number;
   playerCountMin: number;
   playerCountMax: number;
-  tags: number[];
+  tags: GameTag[];
 };
 
 export function NewGamePage(props: {
