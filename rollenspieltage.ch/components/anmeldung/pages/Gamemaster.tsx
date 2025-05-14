@@ -100,7 +100,11 @@ export function NewGamePage(props: {
             setStore("form", "descriptionLong", newValue)
           }
         />
-        <Button type="submit" kind="success" label="Spielrunde erstellen" />
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <Button kind="gray" label="Spielrunde als Entwurf speichern" />
+          <Button kind="danger" label="Abbrechen" />
+          <Button type="submit" kind="success" label="Spielrunde erstellen" />
+        </div>
       </form>
     </PageTemplate>
   );
