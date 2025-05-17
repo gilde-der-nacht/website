@@ -1,7 +1,8 @@
-import { For, type JSX } from "solid-js";
+import { For, Show, type JSX } from "solid-js";
 
 type CheckboxItem<T extends string> = {
   label: string | JSX.Element;
+  description?: string | JSX.Element;
   name: string;
   value: T;
   checked: boolean;
@@ -52,7 +53,14 @@ export function Checkbox<T extends string>(
         checked={props.checked}
         onChange={(e) => props.onValueUpdate(e.target.checked)}
       />
-      {props.label}
+      <div>
+        {props.label}
+        <Show when={props.description}>
+          {(description) => (
+            <div class="checkbox-description">{description()}</div>
+          )}
+        </Show>
+      </div>
     </label>
   );
 }

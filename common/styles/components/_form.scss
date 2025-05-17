@@ -221,7 +221,16 @@ button {
       }
     }
   }
+
+  &:has(.checkbox-description) {
+    align-items: flex-start;
+  }
+
+  .checkbox-description {
+    font-weight: normal;
+  }
 }
+
 
 fieldset {
   border: 0;

@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js";
+import { For, type JSX } from "solid-js";
 import type { Page } from "../load";
 import { BoxLink } from "../components/BoxLink";
 import { PageTemplate } from "./PageTemplate";
@@ -6,6 +6,8 @@ import { createStore, type Store } from "solid-js/store";
 import { Input } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
 import { Button } from "@common/components/Button";
+import { Checkbox } from "@common/components/Checkbox";
+import { gameTags, type GameTag } from "@lst/components/anmeldung/data";
 
 export function GamemasterPage(props: {
   changePage: (page: Page) => void;
@@ -22,15 +24,6 @@ export function GamemasterPage(props: {
     </PageTemplate>
   );
 }
-
-export const gameTags = [
-  {
-    name: "children",
-    label: "Kinderfreundlich",
-    description: "...",
-  },
-] as const;
-export type GameTag = (typeof gameTags)[number]["name"];
 
 export type GameRoundEdit = {
   form: GameRoundEditForm;
@@ -100,6 +93,37 @@ export function NewGamePage(props: {
             setStore("form", "descriptionLong", newValue)
           }
         />
+        <fieldset>
+          <legend>Kategorien</legend>
+          <div style="display: grid; gap: 0.5rem;">
+            <For each={gameTags}>
+              {(gameTag) => (
+                <Checkbox
+                  label={gameTag.label}
+                  description={gameTag.description}
+                  checked={store.form.tags.includes(gameTag.name)}
+                  name={gameTag.name}
+                  value={gameTag.name}
+                  onValueUpdate={(checked) => {
+                    if (checked) {
+                      setStore(
+                        "form",
+                        "tags",
+                        store.form.tags.concat([gameTag.name]),
+                      );
+                    } else {
+                      setStore(
+                        "form",
+                        "tags",
+                        store.form.tags.filter((t) => t !== gameTag.name),
+                      );
+                    }
+                  }}
+                />
+              )}
+            </For>
+          </div>
+        </fieldset>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
           <Button kind="gray" label="Spielrunde als Entwurf speichern" />
           <Button kind="danger" label="Abbrechen" />
