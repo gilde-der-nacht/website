@@ -28,3 +28,23 @@ export function isOverlapping(rangeA: TimeRange, rangeB: TimeRange): boolean {
     isWithin(toB, rangeA)
   );
 }
+
+/**
+ * @params `inclusive` can be set to `true` to make the `range.to` inclusive.
+ * @returns list of hours starting with `range.from` (inclusive) until `range.to` (exclusive).
+ */
+export function getHours(
+  range: TimeRange,
+  inclusiveeEnd: boolean = false,
+): number[] {
+  const { from: from, to: to } = range;
+
+  if (from > to) {
+    return [];
+  }
+
+  const length = to - from;
+  return [...Array(inclusiveeEnd ? length + 1 : length)].map(
+    (_, i) => i + from,
+  );
+}

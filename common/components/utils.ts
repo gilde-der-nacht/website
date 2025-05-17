@@ -83,3 +83,23 @@ export function elysium(path: string): URL {
       : "https://elysium.gildedernacht.ch",
   );
 }
+
+export function collectPairs<A, B>(pairs: [A, B][]): Map<A, B> {
+  return new Map(pairs);
+}
+
+export function mapToObject<A, B>(map: Map<A, B>): { [k: string | number]: B } {
+  return Object.fromEntries(map);
+}
+
+export function collectPairsToObject<A extends string | number, B>(
+  pairs: [A, B][],
+): { [P in A]: B } {
+  return mapToObject(collectPairs(pairs)) as { [P in A]: B };
+}
+
+export function getNumberedKeys<A extends number>(obj: {
+  [P in A]: unknown;
+}): number[] {
+  return Object.keys(obj).map((n) => Number.parseInt(n));
+}

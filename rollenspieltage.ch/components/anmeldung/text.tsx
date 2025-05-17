@@ -1,3 +1,5 @@
+import type { PerDay } from "./utils/time";
+
 export const TXT = (function init() {
   const registrationDeadline = "Donnerstag, 21. August 2025";
   const registrationStarted = (
@@ -10,5 +12,9 @@ export const TXT = (function init() {
       <strong>{registrationDeadline}</strong> anzupassen.
     </>
   );
-  return { registrationDeadline, registrationStarted };
+  const days = {
+    SATURDAY: "Samstag",
+    SUNDAY: "Sonntag",
+  } satisfies PerDay<string>;
+  return { registrationDeadline, registrationStarted, days };
 })();

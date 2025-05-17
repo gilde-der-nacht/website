@@ -10,25 +10,14 @@ import {
   onMount,
   type JSX,
 } from "solid-js";
-
-import { initState } from "@rst/components/anmeldung/store";
+import "../anmeldung.scss";
 import {
-  getPage,
   loadParams,
   loadServerProgram,
   loadServerState,
   type Params,
-} from "@rst/components/anmeldung/load";
-import type { AppState } from "@rst/components/anmeldung/types";
-import type { Program } from "@rst/components/anmeldung/data";
-import { TXT } from "@rst/components/anmeldung/text";
-import "../anmeldung.scss";
-import { ChoosePage } from "./Choose";
-import { GamemasterPage, NewGamePage } from "./Gamemaster";
-import { HelpingPage } from "./HelpingPage";
-import { PlayerPage } from "./PlayerPage";
-import { SummaryPage } from "./SummaryPage";
-import type { Store } from "solid-js/store";
+} from "../load";
+import { Router } from "../Router";
 
 function Loading(): JSX.Element {
   return (
@@ -101,10 +90,7 @@ function MeineAnmeldung(props: { params: Params }): JSX.Element {
             {(state) => (
               <Show when={programResource()}>
                 {(program) => (
-                  <MeineAnmeldungLoaded
-                    state={state()}
-                    programResource={program()}
-                  />
+                  <Router state={state()} programResource={program()} />
                 )}
               </Show>
             )}
@@ -112,51 +98,5 @@ function MeineAnmeldung(props: { params: Params }): JSX.Element {
         </Switch>
       </Suspense>
     </ErrorBoundary>
-  );
-}
-
-function MeineAnmeldungLoaded(props: {
-  state: Store<AppState>;
-  programResource: Program;
-}): JSX.Element {
-  const { state, actions } = initState(props.state);
-
-  window.addEventListener("popstate", (e: unknown) => {
-    if (typeof e === "object" && e !== null && "state" in e) {
-      const currentUrl = new URL(location.href);
-      const page = getPage(currentUrl);
-      actions.changePage(page, true);
-    }
-  });
-
-  return (
-    <>
-      <Show when={state.showCreateMessage}>
-        <Box type="success">{TXT.registrationStarted}</Box>
-        <br />
-      </Show>
-      <Switch fallback={<ChoosePage changePage={actions.changePage} />}>
-        <Match when={state.page === "PLAYER"}>
-          <PlayerPage changePage={actions.changePage} />
-        </Match>
-        <Match when={state.page === "GAMEMASTER"}>
-          <GamemasterPage changePage={actions.changePage} />
-        </Match>
-        <Match when={state.page === "GAMEMASTER_NEW"}>
-          <NewGamePage
-            store={state.gameRoundEdit}
-            changePage={actions.changePage}
-            openingHours={props.programResource.openingHours}
-          />
-        </Match>
-        <Match when={state.page === "HELPING"}>
-          <HelpingPage changePage={actions.changePage} />
-        </Match>
-        <Match when={state.page === "SUMMARY"}>
-          <SummaryPage changePage={actions.changePage} />
-        </Match>
-      </Switch>
-      <pre>{JSON.stringify(state, null, 2)}</pre>
-    </>
   );
 }
