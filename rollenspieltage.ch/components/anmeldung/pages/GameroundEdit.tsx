@@ -2,7 +2,7 @@ import { For, Match, Show, Switch, type JSX } from "solid-js";
 import type { Page } from "../load";
 import { PageTemplate } from "./PageTemplate";
 import { createStore, type Store } from "solid-js/store";
-import { Input } from "@common/components/Input";
+import { Input, InputInteger } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
 import { Button } from "@common/components/Button";
 import { Checkbox } from "@common/components/Checkbox";
@@ -75,6 +75,27 @@ export function NewGamePage(props: {
           value={store.form.system}
           onValueUpdate={(newValue) => setStore("form", "system", newValue)}
         />
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+          <InputInteger
+            label="Anzahl Mitspielende (Minimum)"
+            name="playerCountMin"
+            value={store.form.playerCountMin}
+            onValueUpdate={(newValue) =>
+              setStore("form", "playerCountMin", newValue)
+            }
+            min={1}
+            max={store.form.playerCountMax}
+          />
+          <InputInteger
+            label="Anzahl Mitspielende (Maximum)"
+            name="playerCountMax"
+            value={store.form.playerCountMax}
+            onValueUpdate={(newValue) =>
+              setStore("form", "playerCountMax", newValue)
+            }
+            min={store.form.playerCountMin}
+          />
+        </div>
         <Textarea
           label="kurze Beschreibung"
           name="descriptionShort"
@@ -92,6 +113,34 @@ export function NewGamePage(props: {
             setStore("form", "descriptionLong", newValue)
           }
         />
+        <fieldset>
+          <legend>Zeitslots</legend>
+          <TimeSlots
+            slots={props.store.form.slots}
+            openingHours={props.openingHours}
+            addTimeSlot={(dateTime: DateTimeWindow) =>
+              setStore(
+                "form",
+                "slots",
+                dateTime.day,
+                store.form.slots[dateTime.day].concat({
+                  from: dateTime.from,
+                  to: dateTime.to,
+                }),
+              )
+            }
+            removeTimeSlot={(dateTime: DateTimeWindow) =>
+              setStore(
+                "form",
+                "slots",
+                dateTime.day,
+                store.form.slots[dateTime.day].filter(
+                  (s) => s.from !== dateTime.from || s.to !== dateTime.to,
+                ),
+              )
+            }
+          />
+        </fieldset>
         <fieldset>
           <legend>Kategorien (optional)</legend>
           <div style="display: grid; gap: 0.5rem;">
@@ -122,34 +171,6 @@ export function NewGamePage(props: {
               )}
             </For>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend>Zeitslots</legend>
-          <TimeSlots
-            slots={props.store.form.slots}
-            openingHours={props.openingHours}
-            addTimeSlot={(dateTime: DateTimeWindow) =>
-              setStore(
-                "form",
-                "slots",
-                dateTime.day,
-                store.form.slots[dateTime.day].concat({
-                  from: dateTime.from,
-                  to: dateTime.to,
-                }),
-              )
-            }
-            removeTimeSlot={(dateTime: DateTimeWindow) =>
-              setStore(
-                "form",
-                "slots",
-                dateTime.day,
-                store.form.slots[dateTime.day].filter(
-                  (s) => s.from !== dateTime.from || s.to !== dateTime.to,
-                ),
-              )
-            }
-          />
         </fieldset>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
           <Button kind="gray" label="Spielrunde als Entwurf speichern" />

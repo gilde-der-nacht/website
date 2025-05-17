@@ -63,3 +63,40 @@ export function InputWithRef(props: InputWithRefProps): JSX.Element {
     </label>
   );
 }
+
+type InputIntegerProps = {
+  value: number;
+  onValueUpdate: (value: number) => void;
+  label: string;
+  name: string;
+  required?: boolean;
+  isHoneypot?: boolean;
+  min?: number;
+  max?: number;
+};
+
+export function InputInteger(props: InputIntegerProps): JSX.Element {
+  const propsWithDefaults = mergeProps(
+    { required: true, isHoneypot: false },
+    props,
+  );
+
+  return (
+    <label class={propsWithDefaults.isHoneypot ? "honey" : ""}>
+      {propsWithDefaults.label}
+      <input
+        type="number"
+        name={propsWithDefaults.name}
+        placeholder={propsWithDefaults.label}
+        required={propsWithDefaults.required}
+        value={propsWithDefaults.value}
+        onInput={(e) =>
+          propsWithDefaults.onValueUpdate(Number.parseInt(e.target.value))
+        }
+        step={1}
+        min={propsWithDefaults.min}
+        max={propsWithDefaults.max}
+      />
+    </label>
+  );
+}
