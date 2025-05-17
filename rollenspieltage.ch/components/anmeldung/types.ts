@@ -2,6 +2,7 @@ import type { Tab } from "@rst/components/anmeldung/Tabs";
 import type { SaveFromServer } from "@rst/components/anmeldung/data";
 import type { Page } from "./load";
 import type { GameRoundEdit } from "./pages/Gamemaster";
+import type { TimeRange } from "./utils/time";
 
 export type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
 
@@ -35,11 +36,6 @@ export type AppState = {
   hasChanged: boolean;
   tentativeReservations: Reservation[];
   markedForDeletionReservations: number[];
-};
-
-export type TimeRange = {
-  from: number;
-  to: number;
 };
 
 export type ReservedTimeRange = {

@@ -9,7 +9,6 @@ import {
   createSignal,
   onMount,
   type JSX,
-  type Resource,
 } from "solid-js";
 
 import { initState } from "@rst/components/anmeldung/store";
@@ -56,8 +55,10 @@ export function MeineAnmeldungWrapper(): JSX.Element {
 }
 
 function MeineAnmeldung(props: { params: Params }): JSX.Element {
-  const [serverState] = createResource(() => loadServerState(props.params));
-  const [program] = createResource(() =>
+  const [serverStateResource] = createResource(() =>
+    loadServerState(props.params),
+  );
+  const [programResource] = createResource(() =>
     loadServerProgram(props.params.secret === "demo"),
   );
 
@@ -96,9 +97,16 @@ function MeineAnmeldung(props: { params: Params }): JSX.Element {
     >
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Match when={serverState()}>
+          <Match when={serverStateResource()}>
             {(state) => (
-              <MeineAnmeldungLoaded state={state()} programResource={program} />
+              <Show when={programResource()}>
+                {(program) => (
+                  <MeineAnmeldungLoaded
+                    state={state()}
+                    programResource={program()}
+                  />
+                )}
+              </Show>
             )}
           </Match>
         </Switch>
@@ -109,7 +117,7 @@ function MeineAnmeldung(props: { params: Params }): JSX.Element {
 
 function MeineAnmeldungLoaded(props: {
   state: Store<AppState>;
-  programResource: Resource<Program>;
+  programResource: Program;
 }): JSX.Element {
   const { state, actions } = initState(props.state);
 
@@ -138,6 +146,7 @@ function MeineAnmeldungLoaded(props: {
           <NewGamePage
             store={state.gameRoundEdit}
             changePage={actions.changePage}
+            openingHours={props.programResource.openingHours}
           />
         </Match>
         <Match when={state.page === "HELPING"}>

@@ -1,11 +1,4 @@
-import type {
-  PerDay,
-  ProgramDay,
-  ProgramEntry,
-  ReservedEntry,
-  SaveFromServer,
-} from "./data";
-import type { TimeRange } from "./types";
+import type { Program, SaveFromServer } from "./data";
 
 const VERSION = 1;
 const SAVE_KEY = "SAVE";
@@ -50,15 +43,6 @@ export function getDemoSave(): SaveFromServer {
   localStorage.setItem(SAVE_KEY, JSON.stringify(currentSave));
   return currentSave.data;
 }
-
-export type DateTimeWindow = { day: ProgramDay } & TimeRange;
-export type OpeningHours = PerDay<{ open: TimeRange; breaks: TimeRange[] }>;
-
-export type Program = {
-  gameList: ProgramEntry[];
-  reservedList: ReservedEntry[];
-  openingHours: OpeningHours;
-};
 
 const DEMO_PROGRAM: Program = {
   gameList: [],

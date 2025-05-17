@@ -10,29 +10,13 @@ import type {
   Reservation,
   ReservationView,
   ReservedTimeRange,
-  Range,
   DayPeriod,
 } from "@rst/components/anmeldung/types";
 import { MealBreak } from "@rst/components/anmeldung/MealBreak";
 import { Icon } from "@common/components/Icon";
+import { isOverlapping } from "./utils/time";
 
 const BUFFER_SEATS = 1 as const;
-
-function isWithin(num: number, range: Range): boolean {
-  const { from, to } = range;
-  return from <= num && num <= to;
-}
-
-function isOverlapping(rangeA: Range, rangeB: Range): boolean {
-  const { from: fromA, to: toA } = rangeA;
-  const { from: fromB, to: toB } = rangeB;
-  return (
-    isWithin(fromA, rangeB) ||
-    isWithin(toA, rangeB) ||
-    isWithin(fromB, rangeA) ||
-    isWithin(toB, rangeA)
-  );
-}
 
 function ProgrammEntryCard(props: {
   entry: ProgramEntryExtended;

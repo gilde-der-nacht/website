@@ -213,6 +213,7 @@ export type Program = {
   gameList: ProgramEntry[];
   reservedList: ReservedEntry[];
 };
+
 export type ProgramEntryExtended = {
   uuid: string;
   title: string;

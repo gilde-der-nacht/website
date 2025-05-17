@@ -1,12 +1,13 @@
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { getDemoProgram, getDemoSave } from "./demo";
+import {
+  serverSchemaDay,
+  type PerDay,
+  type ProgramDay,
+  type TimeRange,
+} from "./utils/time";
 
-const serverSchemaDay = z.enum(["SATURDAY", "SUNDAY"]);
-export type ProgramDay = z.infer<typeof serverSchemaDay>;
-export type PerDay<T> = {
-  [Day in ProgramDay]: T;
-};
 const serverSchemaProgram = z.array(
   z.object({
     uuid: z.string(),
@@ -152,10 +153,55 @@ const reservedSchema = z.object({
 });
 export type ReservedEntry = z.infer<typeof reservedSchema>;
 
+export type OpeningHours = PerDay<{ open: TimeRange; breaks: TimeRange[] }>;
+export type Program = {
+  gameList: ProgramEntry[];
+  reservedList: ReservedEntry[];
+  openingHours: OpeningHours;
+};
+
+export type ProgramEntryExtended = {
+  uuid: string;
+  title: string | null;
+  system: string;
+  description: null | string;
+  playerCount: { min: number; max: number };
+  master: { first: string; last: string | null };
+  slot: { day: ProgramDay; start: number; end: number };
+  reservedIds: number[];
+};
+
+export type ProgramByHour = [hour: string, entries: ProgramEntryExtended[]][];
+export function getByDayAndHour(
+  day: ProgramDay,
+  program: Program,
+): ProgramByHour {
+  const gamesOfChosenDay = program.gameList.filter(
+    (game) => game.slot.day === day,
+  );
+  const gamesExtended = gamesOfChosenDay.map((game) => {
+    const gameId = game.uuid;
+    const reserved = program.reservedList.filter(
+      (reserved) => reserved.gameId === gameId,
+    );
+    return {
+      ...game,
+      reservedIds: reserved.map((entry) => entry.id),
+    } satisfies ProgramEntryExtended;
+  });
+  let grouped: Record<number, ProgramEntryExtended[]> = {};
+  for (const entry of gamesExtended) {
+    const { start } = entry.slot;
+    const list: ProgramEntryExtended[] = grouped[start] ?? [];
+    list.push(entry);
+    grouped[start] = list;
+  }
+  return Object.entries(grouped);
+}
 export async function loadProgram(demo: boolean): Promise<
   | {
       kind: "SUCCESS";
-      program: { gameList: ProgramEntry[]; reservedList: ReservedEntry[] };
+      program: Program;
     }
   | { kind: "FAILED" }
 > {
@@ -198,49 +244,30 @@ export async function loadProgram(demo: boolean): Promise<
     program: {
       gameList: parsedProgram.data,
       reservedList: parsedReserved.data,
+      openingHours: {
+        SATURDAY: {
+          open: { from: 10, to: 24 },
+          breaks: [
+            {
+              from: 13,
+              to: 14,
+            },
+            {
+              from: 18,
+              to: 19,
+            },
+          ],
+        },
+        SUNDAY: {
+          open: { from: 10, to: 18 },
+          breaks: [
+            {
+              from: 13,
+              to: 14,
+            },
+          ],
+        },
+      },
     },
   };
-}
-
-export type Program = {
-  gameList: ProgramEntry[];
-  reservedList: ReservedEntry[];
-};
-export type ProgramEntryExtended = {
-  uuid: string;
-  title: string | null;
-  system: string;
-  description: null | string;
-  playerCount: { min: number; max: number };
-  master: { first: string; last: string | null };
-  slot: { day: ProgramDay; start: number; end: number };
-  reservedIds: number[];
-};
-
-export type ProgramByHour = [hour: string, entries: ProgramEntryExtended[]][];
-export function getByDayAndHour(
-  day: ProgramDay,
-  program: Program,
-): ProgramByHour {
-  const gamesOfChosenDay = program.gameList.filter(
-    (game) => game.slot.day === day,
-  );
-  const gamesExtended = gamesOfChosenDay.map((game) => {
-    const gameId = game.uuid;
-    const reserved = program.reservedList.filter(
-      (reserved) => reserved.gameId === gameId,
-    );
-    return {
-      ...game,
-      reservedIds: reserved.map((entry) => entry.id),
-    } satisfies ProgramEntryExtended;
-  });
-  let grouped: Record<number, ProgramEntryExtended[]> = {};
-  for (const entry of gamesExtended) {
-    const { start } = entry.slot;
-    const list: ProgramEntryExtended[] = grouped[start] ?? [];
-    list.push(entry);
-    grouped[start] = list;
-  }
-  return Object.entries(grouped);
 }

@@ -8,11 +8,15 @@ import { Textarea } from "@common/components/Textarea";
 import { Button } from "@common/components/Button";
 import { Checkbox } from "@common/components/Checkbox";
 import { gameTags, type GameTag } from "@lst/components/anmeldung/data";
-import type { DateTimeWindow, OpeningHours } from "../demo";
 import { Icon } from "@common/components/Icon";
-import type { PerDay, ProgramDay } from "../data";
 import { Box } from "@common/components/Box";
-import type { TimeRange } from "../types";
+import type {
+  DateTimeWindow,
+  PerDay,
+  ProgramDay,
+  TimeRange,
+} from "../utils/time";
+import type { OpeningHours } from "../data";
 
 export function GamemasterPage(props: {
   changePage: (page: Page) => void;
@@ -172,9 +176,13 @@ export function NewGamePage(props: {
 // const MIN_SLOT_TIME_HOUR = 1;
 
 type StartTimes = PerDay<number[]>;
-function calculateStartTimes(_openingHours: OpeningHours): StartTimes {
+function calculateStartTimes(openingHours: OpeningHours): StartTimes {
+  function calculatePerDay(_oh: OpeningHours[ProgramDay]): number[] {
+    return [12, 44];
+  }
+  const sa = calculatePerDay(openingHours["SATURDAY"]);
   return {
-    SATURDAY: [12, 22],
+    SATURDAY: sa,
     SUNDAY: [11],
   };
 }
