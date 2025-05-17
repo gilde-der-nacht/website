@@ -3,7 +3,10 @@ import { z } from "astro/zod";
 import { getDemoProgram, getDemoSave } from "./demo";
 
 const serverSchemaDay = z.enum(["SATURDAY", "SUNDAY"]);
-type ProgramDay = z.infer<typeof serverSchemaDay>;
+export type ProgramDay = z.infer<typeof serverSchemaDay>;
+export type PerDay<T> = {
+  [Day in ProgramDay]: T;
+};
 const serverSchemaProgram = z.array(
   z.object({
     uuid: z.string(),

@@ -5,6 +5,7 @@ const ICONS = [
   "backward",
   "calendar-range",
   "circle-max",
+  "circle-plus",
   "circle-xmark",
   "dice-d20",
   "grid-2-plus",
@@ -15,6 +16,7 @@ const ICONS = [
   "sun-bright",
   "square-check",
   "tags",
+  "trash",
 ] as const;
 export type IconType = (typeof ICONS)[number];
 

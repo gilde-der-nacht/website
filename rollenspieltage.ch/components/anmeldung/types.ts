@@ -37,12 +37,12 @@ export type AppState = {
   markedForDeletionReservations: number[];
 };
 
-export type Range = {
+export type TimeRange = {
   from: number;
   to: number;
 };
 
 export type ReservedTimeRange = {
-  range: Range;
+  range: TimeRange;
   gameUuid: string;
 };

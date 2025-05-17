@@ -64,7 +64,10 @@ export async function loadServerState(params: Params): Promise<AppState> {
         system: "",
         descriptionShort: "",
         descriptionLong: "",
-        slot: 1,
+        slots: {
+          SATURDAY: [],
+          SUNDAY: [],
+        },
         playerCountMin: 3,
         playerCountMax: 6,
         tags: [],
