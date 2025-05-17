@@ -51,6 +51,10 @@ textarea {
   min-block-size: 10em;
   max-block-size: 40em;
   resize: vertical;
+
+  &.small {
+    min-block-size: 5em;
+  }
 }
 
 button {

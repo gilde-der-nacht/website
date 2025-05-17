@@ -72,21 +72,22 @@ export function NewGamePage(props: {
           onValueUpdate={(newValue) => setStore("form", "titel", newValue)}
         />
         <Input
-          label="System"
+          label="System (optional)"
           name="System"
           value={store.form.system}
           onValueUpdate={(newValue) => setStore("form", "system", newValue)}
         />
         <Textarea
-          label="Beschreibung (kurz)"
+          label="kurze Beschreibung"
           name="descriptionShort"
           value={store.form.descriptionShort}
           onValueUpdate={(newValue) =>
             setStore("form", "descriptionShort", newValue)
           }
+          size="sm"
         />
         <Textarea
-          label="Beschreibung (lang, optional)"
+          label="lange Beschreibung (optional)"
           name="descriptionLong"
           value={store.form.descriptionLong}
           onValueUpdate={(newValue) =>
@@ -94,7 +95,7 @@ export function NewGamePage(props: {
           }
         />
         <fieldset>
-          <legend>Kategorien</legend>
+          <legend>Kategorien (optional)</legend>
           <div style="display: grid; gap: 0.5rem;">
             <For each={gameTags}>
               {(gameTag) => (
@@ -123,6 +124,9 @@ export function NewGamePage(props: {
               )}
             </For>
           </div>
+        </fieldset>
+        <fieldset>
+          <legend>Zeitslots</legend>
         </fieldset>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
           <Button kind="gray" label="Spielrunde als Entwurf speichern" />
