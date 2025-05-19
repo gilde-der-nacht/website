@@ -45,6 +45,7 @@ export function Router(props: {
             store={state.gameRoundEdit}
             changePage={actions.changePage}
             openingHours={props.programResource.openingHours}
+            createNewGame={actions.createNewGame}
           />
         </Match>
         <Match when={state.page === "HELPING"}>

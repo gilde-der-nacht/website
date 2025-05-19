@@ -4,6 +4,10 @@ import {
   type Program,
 } from "@rst/components/anmeldung/data";
 import type { AppState } from "@rst/components/anmeldung/types";
+import {
+  gameRoundDefault,
+  gameRoundEditErrorsDefault,
+} from "./utils/gameRound";
 
 const PAGES = [
   "CHOOSE",
@@ -59,27 +63,14 @@ export async function loadServerState(params: Params): Promise<AppState> {
     page: params.page,
     showCreateMessage: params.showCreateMessage,
     gameRoundEdit: {
-      form: {
-        titel: "",
-        system: "",
-        descriptionShort: "",
-        descriptionLong: "",
-        slots: {
-          SATURDAY: [],
-          SUNDAY: [],
-        },
-        playerCountMin: 3,
-        playerCountMax: 6,
-        tags: [],
-      },
-      errors: {
-        titleMissing: false,
-        descriptionShortMissing: false,
-        descriptionShortTooLong: false,
-        descriptionLongTooLong: false,
-        slotMissing: false,
-      },
+      form: gameRoundDefault(),
+      errors: gameRoundEditErrorsDefault(),
     },
+    gameMaster: {
+      games: [],
+    },
+
+    // old state
     currentSave: result.save,
     activeTab: "Contact",
     lastSaved: result.save.lastSaved,

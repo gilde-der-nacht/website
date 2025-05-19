@@ -17,10 +17,16 @@ import {
   type Page,
 } from "@rst/components/anmeldung/load";
 import { elysium } from "@common/components/utils";
+import {
+  gameRoundDefault,
+  gameRoundEditErrorsDefault,
+} from "./utils/gameRound";
 
 type Actions = {
-  changeTab: (tab: Tab) => void;
   changePage: (page: Page, backButton?: boolean) => void;
+  createNewGame: () => void;
+  // old actions
+  changeTab: (tab: Tab) => void;
   updateSave: UpdateSave;
   saveCurrentState: () => Promise<void>;
   addTentativeReservation: (tentativeReservation: Reservation) => void;
@@ -63,6 +69,20 @@ export function initState(init: AppState): {
     setStore("page", page);
     window.scrollTo({ top: 0 });
   }
+
+  function createNewGame(): void {
+    if (store.state !== "IDLE") {
+      throw Error("ASSERTION_ERROR");
+    }
+
+    setStore("gameMaster", "games", store.gameMaster.games.length, {
+      ...store.gameRoundEdit.form,
+    });
+    setStore("gameRoundEdit", "form", gameRoundDefault());
+    setStore("gameRoundEdit", "errors", gameRoundEditErrorsDefault());
+  }
+
+  // old actions
 
   function updateSave<T extends keyof SaveFromServer>(
     prop: T,
@@ -159,8 +179,11 @@ export function initState(init: AppState): {
   return {
     state: store,
     actions: {
-      changeTab,
       changePage,
+      createNewGame,
+
+      // old actions
+      changeTab,
       updateSave,
       saveCurrentState,
       addTentativeReservation,

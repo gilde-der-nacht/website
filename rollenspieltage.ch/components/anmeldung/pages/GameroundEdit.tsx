@@ -6,7 +6,6 @@ import { Input, InputInteger } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
 import { Button } from "@common/components/Button";
 import { Checkbox } from "@common/components/Checkbox";
-import { gameTags, type GameTag } from "@lst/components/anmeldung/data";
 import { Icon } from "@common/components/Icon";
 import { Box } from "@common/components/Box";
 import {
@@ -22,33 +21,12 @@ import {
   getNumberedKeys,
 } from "@common/components/utils";
 import { TXT } from "../text";
-
-export type GameRoundEdit = {
-  form: GameRoundEditForm;
-  errors: GameRoundEditErrors;
-};
-
-export type GameRoundEditForm = {
-  titel: string;
-  system: string;
-  descriptionShort: string;
-  descriptionLong: string;
-  slots: PerDay<TimeRange[]>;
-  playerCountMin: number;
-  playerCountMax: number;
-  tags: GameTag[];
-};
-
-export type GameRoundEditErrors = {
-  titleMissing: boolean;
-  descriptionShortMissing: boolean;
-  descriptionShortTooLong: boolean;
-  descriptionLongTooLong: boolean;
-  slotMissing: boolean;
-};
-
-const DESCR_SHORT_MAX_CHAR = 200;
-const DESCR_LONG_MAX_CHAR = 500;
+import {
+  DESCR_LONG_MAX_CHAR,
+  DESCR_SHORT_MAX_CHAR,
+  gameTags,
+  type GameRoundEdit,
+} from "../utils/gameRound";
 
 export function NewGamePage(props: {
   store: Store<GameRoundEdit>;
@@ -268,7 +246,14 @@ export function NewGamePage(props: {
             speichern und später vervollständigen. Die Spielrunde wird erst
             veröffentlicht, wenn alle Informationen komplett sind.
             <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
-              <Button kind="gray" label="Spielrunde als Entwurf speichern" />
+              <Button
+                kind="gray"
+                label="Spielrunde als Entwurf speichern"
+                onClick={() => {
+                  props.createNewGame();
+                  props.changePage("GAMEMASTER");
+                }}
+              />
             </div>
           </Box>
         </Show>
