@@ -14,7 +14,7 @@ export type PageState = {
     tel: string;
     coc: boolean;
   };
-  showErrors: {
+  errors: {
     nameMissing: boolean;
     emailMissing: boolean;
     emailInvalid: boolean;
@@ -38,7 +38,7 @@ export function AnmeldungWrapper(): JSX.Element {
       tel: "",
       coc: false,
     },
-    showErrors: {
+    errors: {
       nameMissing: false,
       emailMissing: false,
       emailInvalid: false,
@@ -53,20 +53,21 @@ export function AnmeldungWrapper(): JSX.Element {
   async function onSubmit(e: SubmitEvent): Promise<void> {
     e.preventDefault();
     const nameIsMissing = store.form.name.trim().length === 0;
-    setStore("showErrors", "nameMissing", nameIsMissing);
+    setStore("errors", "nameMissing", nameIsMissing);
 
     const emailIsMissing = store.form.email.trim().length === 0;
-    setStore("showErrors", "emailMissing", emailIsMissing);
+    setStore("errors", "emailMissing", emailIsMissing);
 
     const emailIsInvalid = emailField.validity.typeMismatch;
-    setStore("showErrors", "emailInvalid", emailIsInvalid);
+    setStore("errors", "emailInvalid", emailIsInvalid);
 
-    setStore("showErrors", "cocMissing", !store.form.coc);
+    setStore("errors", "cocMissing", !store.form.coc);
 
     if (
-      store.showErrors.nameMissing ||
-      store.showErrors.emailMissing ||
-      store.showErrors.emailInvalid
+      store.errors.nameMissing ||
+      store.errors.emailMissing ||
+      store.errors.emailInvalid ||
+      store.errors.cocMissing
     ) {
       // Show errors, do not continue
       return;
@@ -89,7 +90,7 @@ export function AnmeldungWrapper(): JSX.Element {
       });
 
       if (!response.ok) {
-        setStore("showErrors", "general", true);
+        setStore("errors", "general", true);
       } else {
         const json = await response.json();
         const schema = z.object({
@@ -105,7 +106,7 @@ export function AnmeldungWrapper(): JSX.Element {
         window.location.replace(redirect);
       }
     } catch (_: unknown) {
-      setStore("showErrors", "general", true);
+      setStore("errors", "general", true);
     } finally {
       setStore("state", "IDLE");
     }
@@ -120,10 +121,10 @@ export function AnmeldungWrapper(): JSX.Element {
           value={store.form.name}
           onValueUpdate={(newValue) => {
             setStore("form", "name", newValue);
-            setStore("showErrors", "nameMissing", false);
+            setStore("errors", "nameMissing", false);
           }}
         />
-        <Show when={store.showErrors.nameMissing}>
+        <Show when={store.errors.nameMissing}>
           <Box type="danger">Dies ist ein Pflichtfeld.</Box>
         </Show>
         <InputWithRef
@@ -133,15 +134,15 @@ export function AnmeldungWrapper(): JSX.Element {
           value={store.form.email}
           onValueUpdate={(newValue) => {
             setStore("form", "email", newValue);
-            setStore("showErrors", "emailMissing", false);
-            setStore("showErrors", "emailInvalid", false);
+            setStore("errors", "emailMissing", false);
+            setStore("errors", "emailInvalid", false);
           }}
           ref={emailField}
         />
-        <Show when={store.showErrors.emailMissing}>
+        <Show when={store.errors.emailMissing}>
           <Box type="danger">Dies ist ein Pflichtfeld.</Box>
         </Show>
-        <Show when={store.showErrors.emailInvalid}>
+        <Show when={store.errors.emailInvalid}>
           <Box type="danger">
             Die Eingabe scheint keine gültige E-Mail-Adresse zu sein.
           </Box>
@@ -169,7 +170,7 @@ export function AnmeldungWrapper(): JSX.Element {
           checked={store.form.coc}
           onValueUpdate={(newValue) => setStore("form", "coc", newValue)}
         />
-        <Show when={store.showErrors.cocMissing}>
+        <Show when={store.errors.cocMissing}>
           <Box type="danger">
             Der Verhaltenskodex muss gelesen und akzeptiert werden.
           </Box>
@@ -186,7 +187,7 @@ export function AnmeldungWrapper(): JSX.Element {
         />
       </form>
       <br />
-      <Show when={store.showErrors.general}>
+      <Show when={store.errors.general}>
         <Box type="danger">
           Es gab ein Problem, das wir nicht erwartet haben. Bitte versuche es
           erneut oder <a href="/kontakt">kontaktiere uns direkt</a>.

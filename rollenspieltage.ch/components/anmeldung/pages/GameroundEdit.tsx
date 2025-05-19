@@ -41,11 +41,14 @@ export type GameRoundEditForm = {
 
 export type GameRoundEditErrors = {
   titleMissing: boolean;
+  descriptionShortMissing: boolean;
   descriptionShortTooLong: boolean;
   descriptionLongTooLong: boolean;
   slotMissing: boolean;
-  playerCountInvalid: boolean;
 };
+
+const DESCR_SHORT_MAX_CHAR = 200;
+const DESCR_LONG_MAX_CHAR = 500;
 
 export function NewGamePage(props: {
   store: Store<GameRoundEdit>;
@@ -56,7 +59,44 @@ export function NewGamePage(props: {
 
   function onSubmit(e: Event): void {
     e.preventDefault();
+
+    const [min, max] = [store.form.playerCountMin, store.form.playerCountMax]
+      .map((n) => Math.max(1, n))
+      .toSorted((a, b) => a - b);
+    setStore("form", "playerCountMin", min ?? 1);
+    setStore("form", "playerCountMax", max ?? 1);
+
+    const titleIsMissing = store.form.titel.trim().length === 0;
+    setStore("errors", "titleMissing", titleIsMissing);
+
+    const descriptionShortIsMissing =
+      store.form.descriptionShort.trim().length === 0;
+    setStore("errors", "descriptionShortMissing", descriptionShortIsMissing);
+
+    const descriptionShortTooLong =
+      store.form.descriptionShort.length > DESCR_SHORT_MAX_CHAR;
+    setStore("errors", "descriptionShortTooLong", descriptionShortTooLong);
+
+    const descriptionLongTooLong =
+      store.form.descriptionLong.length > DESCR_LONG_MAX_CHAR;
+    setStore("errors", "descriptionLongTooLong", descriptionLongTooLong);
+
+    const slotMissing =
+      store.form.slots["SATURDAY"].concat(store.form.slots["SUNDAY"]).length ===
+      0;
+    setStore("errors", "slotMissing", slotMissing);
+
+    if (
+      store.errors.titleMissing ||
+      store.errors.descriptionShortMissing ||
+      store.errors.descriptionShortTooLong ||
+      store.errors.descriptionLongTooLong ||
+      store.errors.slotMissing
+    ) {
+      return;
+    }
   }
+
   return (
     <PageTemplate
       title="Neue Spielrunde erfassen"
@@ -67,8 +107,14 @@ export function NewGamePage(props: {
           label="Titel"
           name="title"
           value={store.form.titel}
-          onValueUpdate={(newValue) => setStore("form", "titel", newValue)}
+          onValueUpdate={(newValue) => {
+            setStore("form", "titel", newValue);
+            setStore("errors", "titleMissing", false);
+          }}
         />
+        <Show when={store.errors.titleMissing}>
+          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+        </Show>
         <Input
           label="System (optional)"
           name="System"
@@ -100,25 +146,49 @@ export function NewGamePage(props: {
           label="kurze Beschreibung"
           name="descriptionShort"
           value={store.form.descriptionShort}
-          onValueUpdate={(newValue) =>
-            setStore("form", "descriptionShort", newValue)
-          }
+          onValueUpdate={(newValue) => {
+            setStore("form", "descriptionShort", newValue);
+            setStore("errors", "descriptionShortMissing", false);
+            setStore(
+              "errors",
+              "descriptionShortTooLong",
+              newValue.length > DESCR_SHORT_MAX_CHAR,
+            );
+          }}
           size="sm"
         />
+        <Show when={store.errors.descriptionShortMissing}>
+          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+        </Show>
+        <Show when={store.errors.descriptionShortTooLong}>
+          <Box type="danger">
+            Dieses Feld ist auf {DESCR_SHORT_MAX_CHAR} Zeichen limitiert.
+          </Box>
+        </Show>
         <Textarea
           label="lange Beschreibung (optional)"
           name="descriptionLong"
           value={store.form.descriptionLong}
-          onValueUpdate={(newValue) =>
-            setStore("form", "descriptionLong", newValue)
-          }
+          onValueUpdate={(newValue) => {
+            setStore("form", "descriptionLong", newValue);
+            setStore(
+              "errors",
+              "descriptionLongTooLong",
+              newValue.length > DESCR_LONG_MAX_CHAR,
+            );
+          }}
         />
+        <Show when={store.errors.descriptionLongTooLong}>
+          <Box type="danger">
+            Dieses Feld ist auf {DESCR_LONG_MAX_CHAR} Zeichen limitiert.
+          </Box>
+        </Show>
         <fieldset>
           <legend>Zeitslots</legend>
           <TimeSlots
             slots={props.store.form.slots}
             openingHours={props.openingHours}
-            addTimeSlot={(dateTime: DateTimeWindow) =>
+            addTimeSlot={(dateTime: DateTimeWindow) => {
               setStore(
                 "form",
                 "slots",
@@ -127,8 +197,9 @@ export function NewGamePage(props: {
                   from: dateTime.from,
                   to: dateTime.to,
                 }),
-              )
-            }
+              );
+              setStore("errors", "slotMissing", false);
+            }}
             removeTimeSlot={(dateTime: DateTimeWindow) =>
               setStore(
                 "form",
@@ -140,6 +211,11 @@ export function NewGamePage(props: {
               )
             }
           />
+          <Show when={store.errors.slotMissing}>
+            <br />
+            <br />
+            <Box type="danger">Wähle mindestens einen Zeitslot aus.</Box>
+          </Show>
         </fieldset>
         <fieldset>
           <legend>Kategorien (optional)</legend>
@@ -172,8 +248,27 @@ export function NewGamePage(props: {
             </For>
           </div>
         </fieldset>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <Button kind="gray" label="Spielrunde als Entwurf speichern" />
+        <Show
+          when={
+            store.errors.titleMissing ||
+            store.errors.descriptionShortMissing ||
+            store.errors.descriptionShortTooLong ||
+            store.errors.descriptionLongTooLong ||
+            store.errors.slotMissing
+          }
+        >
+          <Box type="danger">
+            <h4>Spielrunde inkomplett</h4>
+            Du hast noch einen oder mehre Fehler/fehlende Informationen in
+            dieser Spielrunde (siehe oben). Du kannst die Spielrunde als Entwurf
+            speichern und später vervollständigen. Die Spielrunde wird erst
+            veröffentlicht, wenn alle Informationen komplett sind.
+            <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+              <Button kind="gray" label="Spielrunde als Entwurf speichern" />
+            </div>
+          </Box>
+        </Show>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
           <Button kind="danger" label="Abbrechen" />
           <Button type="submit" kind="success" label="Spielrunde erstellen" />
         </div>
