@@ -1,9 +1,9 @@
 import type { JSX } from "solid-js";
-import type { Page } from "../load";
+import type { PageMeta } from "../load";
 import { PageTemplate } from "./PageTemplate";
 
 export function SummaryPage(props: {
-  changePage: (page: Page) => void;
+  changePage: (pageMeta: PageMeta) => void;
 }): JSX.Element {
   return (
     <PageTemplate title="Zusammenfassung" changePage={props.changePage}>

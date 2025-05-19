@@ -9,41 +9,64 @@ import {
   gameRoundEditErrorsDefault,
 } from "./utils/gameRound";
 
-const PAGES = [
-  "CHOOSE",
-  "PLAYER",
-  "GAMEMASTER",
-  "GAMEMASTER_NEW",
-  "HELPING",
-  "SUMMARY",
-] as const;
-export type Page = (typeof PAGES)[number];
+export type PageMeta =
+  | ["CHOOSE"]
+  | ["PLAYER"]
+  | ["GAMEMASTER"]
+  | ["GAMEMASTER_NEW"]
+  | ["GAMEMASTER_EDIT", string]
+  | ["HELPING"]
+  | ["SUMMARY"];
+
+export type Page = PageMeta[0];
+
 export const MetaTitle: Record<Page, string> = {
   CHOOSE: "Übersicht",
   PLAYER: "Spielanmeldung",
   GAMEMASTER: "Spielleitung",
   GAMEMASTER_NEW: "Neue Spielrunde",
+  GAMEMASTER_EDIT: "Spielrunde editieren",
   HELPING: "Helfen",
   SUMMARY: "Zusammenfassung",
 };
 
-export function getPage(url: URL): Page {
-  const page = url.searchParams.get("page");
-  return PAGES.find((p) => page?.toUpperCase() === p.toUpperCase()) ?? "CHOOSE";
+const PAGES = [
+  "CHOOSE",
+  "PLAYER",
+  "GAMEMASTER",
+  "GAMEMASTER_NEW",
+  "GAMEMASTER_EDIT",
+  "HELPING",
+  "SUMMARY",
+] satisfies Page[];
+
+export function getPageMeta(url: URL): PageMeta {
+  const pageParam = url.searchParams.get("page");
+  const page =
+    PAGES.find((p) => pageParam?.toUpperCase() === p.toUpperCase()) ?? "CHOOSE";
+  if (page === "GAMEMASTER_EDIT") {
+    const uuid = url.searchParams.get("uuid");
+    if (uuid !== null) {
+      return [page, uuid];
+    }
+    return ["GAMEMASTER"];
+  }
+
+  return [page];
 }
 export type Params = {
   secret: string | null;
-  page: Page;
+  pageMeta: PageMeta;
   showCreateMessage: boolean;
 };
 
 export function loadParams(): Params {
   const currentUrl = new URL(location.href);
   const secret = currentUrl.searchParams.get("secret");
-  const page = getPage(currentUrl);
+  const pageMeta = getPageMeta(currentUrl);
   const showCreateMessage =
     currentUrl.searchParams.get("showCreateMessage") === "true";
-  return { secret, page, showCreateMessage };
+  return { secret, pageMeta, showCreateMessage };
 }
 
 export async function loadServerState(params: Params): Promise<AppState> {
@@ -60,7 +83,7 @@ export async function loadServerState(params: Params): Promise<AppState> {
   const serverState = {
     state: "IDLE",
     secret: params.secret,
-    page: params.page,
+    pageMeta: params.pageMeta,
     showCreateMessage: params.showCreateMessage,
     gameRoundEdit: {
       form: gameRoundDefault(),

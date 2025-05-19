@@ -15,6 +15,7 @@ const DEMO_SAVE: SaveFromServer = {
   gameMaster: {
     games: [
       {
+        uuid: crypto.randomUUID(),
         titel: "My game",
         system: "My own",
         descriptionShort: "lorem",

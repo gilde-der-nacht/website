@@ -1,5 +1,4 @@
 import { For, Match, Show, Switch, type JSX } from "solid-js";
-import type { Page } from "../load";
 import { PageTemplate } from "./PageTemplate";
 import { createStore, type Store } from "solid-js/store";
 import { Input, InputInteger } from "@common/components/Input";
@@ -28,11 +27,12 @@ import {
   hasErrors,
   type GameRoundEdit,
 } from "../utils/gameRound";
+import type { PageMeta } from "../load";
 
 export function NewGamePage(props: {
   store: Store<GameRoundEdit>;
   openingHours: OpeningHours;
-  changePage: (page: Page) => void;
+  changePage: (pageMeta: PageMeta) => void;
   createNewGame: () => void;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
@@ -77,7 +77,7 @@ export function NewGamePage(props: {
     }
 
     props.createNewGame();
-    props.changePage("GAMEMASTER");
+    props.changePage(["GAMEMASTER"]);
   }
 
   return (
@@ -244,7 +244,7 @@ export function NewGamePage(props: {
                 label="Spielrunde als Entwurf speichern"
                 onClick={() => {
                   props.createNewGame();
-                  props.changePage("GAMEMASTER");
+                  props.changePage(["GAMEMASTER"]);
                 }}
               />
             </div>
@@ -254,7 +254,7 @@ export function NewGamePage(props: {
           <Button
             kind="danger"
             label="Abbrechen"
-            onClick={() => props.changePage("GAMEMASTER")}
+            onClick={() => props.changePage(["GAMEMASTER"])}
           />
           <Button
             type="submit"

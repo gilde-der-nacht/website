@@ -2,10 +2,10 @@ import { Button } from "@common/components/Button";
 import { Icon } from "@common/components/Icon";
 import { Tooltip } from "@common/components/Tooltip";
 import type { JSX } from "solid-js/jsx-runtime";
-import type { Page } from "../load";
+import type { PageMeta } from "../load";
 
 export function QuickMenu(props: {
-  changePage: (page: Page) => void;
+  changePage: (pageMeta: PageMeta) => void;
 }): JSX.Element {
   return (
     <div class="quickmenu-wrapper">
@@ -13,31 +13,31 @@ export function QuickMenu(props: {
         <Tooltip tooltip="Zur Übersicht">
           <Button
             label={<Icon icon="backward" />}
-            onClick={() => props.changePage("CHOOSE")}
+            onClick={() => props.changePage(["CHOOSE"])}
           />
         </Tooltip>
         <Tooltip tooltip="Zu den Spielrunden">
           <Button
             label={<Icon icon="dice-d20" />}
-            onClick={() => props.changePage("PLAYER")}
+            onClick={() => props.changePage(["PLAYER"])}
           />
         </Tooltip>
         <Tooltip tooltip="Zu deinen Spielrunden">
           <Button
             label={<Icon icon="grid-2-plus" />}
-            onClick={() => props.changePage("GAMEMASTER")}
+            onClick={() => props.changePage(["GAMEMASTER"])}
           />
         </Tooltip>
         <Tooltip tooltip="Zum Helferplan">
           <Button
             label={<Icon icon="hand-heart" />}
-            onClick={() => props.changePage("HELPING")}
+            onClick={() => props.changePage(["HELPING"])}
           />
         </Tooltip>
         <Tooltip tooltip="Zur Zusammenfassung">
           <Button
             label={<Icon icon="list" />}
-            onClick={() => props.changePage("SUMMARY")}
+            onClick={() => props.changePage(["SUMMARY"])}
           />
         </Tooltip>
       </div>
@@ -46,7 +46,7 @@ export function QuickMenu(props: {
 }
 
 export function QuickMenuExtended(props: {
-  changePage: (page: Page) => void;
+  changePage: (pageMeta: PageMeta) => void;
 }): JSX.Element {
   return (
     <div class="quickmenu extended">
@@ -57,7 +57,7 @@ export function QuickMenuExtended(props: {
             <span>Zur Übersicht</span>
           </div>
         }
-        onClick={() => props.changePage("CHOOSE")}
+        onClick={() => props.changePage(["CHOOSE"])}
       />
       <Button
         label={
@@ -66,7 +66,7 @@ export function QuickMenuExtended(props: {
             <span>Zu den Spielrunden</span>
           </div>
         }
-        onClick={() => props.changePage("PLAYER")}
+        onClick={() => props.changePage(["PLAYER"])}
       />
       <Button
         label={
@@ -75,7 +75,7 @@ export function QuickMenuExtended(props: {
             <span>Zu deinen Spielrunden</span>
           </div>
         }
-        onClick={() => props.changePage("GAMEMASTER")}
+        onClick={() => props.changePage(["GAMEMASTER"])}
       />
       <Button
         label={
@@ -84,7 +84,7 @@ export function QuickMenuExtended(props: {
             <span>Zum Helferplan</span>
           </div>
         }
-        onClick={() => props.changePage("HELPING")}
+        onClick={() => props.changePage(["HELPING"])}
       />
       <Button
         label={
@@ -93,7 +93,7 @@ export function QuickMenuExtended(props: {
             <span>Zur Zusammenfassung</span>
           </div>
         }
-        onClick={() => props.changePage("SUMMARY")}
+        onClick={() => props.changePage(["SUMMARY"])}
       />
     </div>
   );

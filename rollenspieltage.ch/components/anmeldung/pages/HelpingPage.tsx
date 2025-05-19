@@ -1,9 +1,9 @@
 import type { JSX } from "solid-js";
 import { PageTemplate } from "./PageTemplate";
-import type { Page } from "../load";
+import type { PageMeta } from "../load";
 
 export function HelpingPage(props: {
-  changePage: (page: Page) => void;
+  changePage: (pageMeta: PageMeta) => void;
 }): JSX.Element {
   return (
     <PageTemplate title="Helfen" changePage={props.changePage}>

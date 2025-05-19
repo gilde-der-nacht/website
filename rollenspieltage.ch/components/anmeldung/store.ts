@@ -14,7 +14,7 @@ import type {
 import {
   loadServerState,
   MetaTitle,
-  type Page,
+  type PageMeta,
 } from "@rst/components/anmeldung/load";
 import { elysium } from "@common/components/utils";
 import {
@@ -23,7 +23,7 @@ import {
 } from "./utils/gameRound";
 
 type Actions = {
-  changePage: (page: Page, backButton?: boolean) => void;
+  changePage: (pageMeta: PageMeta, backButton?: boolean) => void;
   createNewGame: () => void;
   // old actions
   changeTab: (tab: Tab) => void;
@@ -44,29 +44,41 @@ export function initState(init: AppState): {
     window.scrollTo({ top: 0 });
   }
 
-  function initPage(page: Page): void {
+  function initPage(pageMeta: PageMeta): void {
+    const [page, uuid] = pageMeta;
     const url = new URL(location.href);
     url.searchParams.set("page", page.toLowerCase());
+    if (uuid !== undefined) {
+      url.searchParams.set("uuid", uuid);
+    }
     url.searchParams.delete("showCreateMessage");
-    history.replaceState({ page }, "", url);
+    history.replaceState({ pageMeta }, "", url);
     const newMetaTitle = MetaTitle[page];
     document.title = `Meine Anmeldung: ${newMetaTitle} | Luzerner Rollenspieltage `;
   }
-  initPage(init.page);
+  initPage(init.pageMeta);
 
-  function changePage(page: Page, backButton: boolean = false): void {
-    if (page === store.page) {
+  function changePage(pageMeta: PageMeta, backButton?: boolean): void {
+    if (
+      pageMeta[0] === store.pageMeta[0] &&
+      pageMeta[1] === store.pageMeta[1]
+    ) {
       return;
     }
+
+    const [page, uuid] = pageMeta;
 
     if (!backButton) {
       const url = new URL(location.href);
       url.searchParams.set("page", page.toLowerCase());
-      history.pushState({ page }, "", url);
+      if (uuid !== undefined) {
+        url.searchParams.append("uuid", uuid);
+      }
+      history.pushState({ pageMeta }, "", url);
     }
     const newMetaTitle = MetaTitle[page];
     document.title = `Meine Anmeldung: ${newMetaTitle} | Luzerner Rollenspieltage `;
-    setStore("page", page);
+    setStore("pageMeta", pageMeta);
     window.scrollTo({ top: 0 });
   }
 
@@ -140,7 +152,7 @@ export function initState(init: AppState): {
     if (response.ok) {
       const serverState = await loadServerState({
         secret: store.secret,
-        page: store.page,
+        pageMeta: store.pageMeta,
         showCreateMessage: false,
       });
       setStore({

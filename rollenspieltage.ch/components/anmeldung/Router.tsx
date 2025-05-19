@@ -3,7 +3,7 @@ import type { AppState } from "./types";
 import { Match, Show, Switch, type JSX } from "solid-js";
 import type { Program } from "./data";
 import { initState } from "./store";
-import { getPage } from "./load";
+import { getPageMeta } from "./load";
 import { SummaryPage } from "./pages/SummaryPage";
 import { HelpingPage } from "./pages/HelpingPage";
 import { NewGamePage } from "./pages/GameroundEdit";
@@ -22,8 +22,8 @@ export function Router(props: {
   window.addEventListener("popstate", (e: unknown) => {
     if (typeof e === "object" && e !== null && "state" in e) {
       const currentUrl = new URL(location.href);
-      const page = getPage(currentUrl);
-      actions.changePage(page, true);
+      const pageMeta = getPageMeta(currentUrl);
+      actions.changePage(pageMeta, true);
     }
   });
 
@@ -34,16 +34,16 @@ export function Router(props: {
         <br />
       </Show>
       <Switch fallback={<ChoosePage changePage={actions.changePage} />}>
-        <Match when={state.page === "PLAYER"}>
+        <Match when={state.pageMeta[0] === "PLAYER"}>
           <PlayerPage changePage={actions.changePage} />
         </Match>
-        <Match when={state.page === "GAMEMASTER"}>
+        <Match when={state.pageMeta[0] === "GAMEMASTER"}>
           <GamemasterPage
             store={state.currentSave.gameMaster}
             changePage={actions.changePage}
           />
         </Match>
-        <Match when={state.page === "GAMEMASTER_NEW"}>
+        <Match when={state.pageMeta[0] === "GAMEMASTER_NEW"}>
           <NewGamePage
             store={state.gameRoundEdit}
             changePage={actions.changePage}
@@ -51,10 +51,10 @@ export function Router(props: {
             createNewGame={actions.createNewGame}
           />
         </Match>
-        <Match when={state.page === "HELPING"}>
+        <Match when={state.pageMeta[0] === "HELPING"}>
           <HelpingPage changePage={actions.changePage} />
         </Match>
-        <Match when={state.page === "SUMMARY"}>
+        <Match when={state.pageMeta[0] === "SUMMARY"}>
           <SummaryPage changePage={actions.changePage} />
         </Match>
       </Switch>
