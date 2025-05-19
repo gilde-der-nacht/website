@@ -9,6 +9,7 @@
   gap: 0.5rem 1rem;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   &-special {
     @extend .box;
@@ -38,5 +39,13 @@
     @extend .box;
     border-color: c.getGray("background-solid");
     color: c.getGray("text-low-contrast");
+  }
+
+  &-with-close {
+    &>.button-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }

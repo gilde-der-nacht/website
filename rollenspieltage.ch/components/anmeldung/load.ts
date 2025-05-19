@@ -74,10 +74,10 @@ export async function loadServerState(params: Params): Promise<AppState> {
       },
       errors: {
         titleMissing: false,
+        descriptionShortMissing: false,
         descriptionShortTooLong: false,
         descriptionLongTooLong: false,
         slotMissing: false,
-        playerCountInvalid: false,
       },
     },
     currentSave: result.save,

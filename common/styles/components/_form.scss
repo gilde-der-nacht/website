@@ -149,6 +149,17 @@ button {
   padding: 0.25rem 0.5rem;
 }
 
+.button-icon {
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+  }
+}
+
 .checkbox-list,
 .radio-list {
   display: grid;

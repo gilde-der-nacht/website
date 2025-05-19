@@ -54,6 +54,7 @@ export function NewGamePage(props: {
   store: Store<GameRoundEdit>;
   openingHours: OpeningHours;
   changePage: (page: Page) => void;
+  createNewGame: () => void;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
 
@@ -95,6 +96,9 @@ export function NewGamePage(props: {
     ) {
       return;
     }
+
+    props.createNewGame();
+    props.changePage("GAMEMASTER");
   }
 
   return (
@@ -269,7 +273,11 @@ export function NewGamePage(props: {
           </Box>
         </Show>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
-          <Button kind="danger" label="Abbrechen" />
+          <Button
+            kind="danger"
+            label="Abbrechen"
+            onClick={() => props.changePage("GAMEMASTER")}
+          />
           <Button type="submit" kind="success" label="Spielrunde erstellen" />
         </div>
       </form>
@@ -457,14 +465,16 @@ function TimeSlotChooser(props: {
         />
       </Match>
       <Match when={store.kind === "CHOOSE_DAY"}>
-        <Box>
-          <DayChooser
-            changeDay={(day) => setStore({ kind: "CHOOSE_START", day })}
-          />
+        <Box onClose={() => setStore({ kind: "INITIAL" })}>
+          <div style="display: grid; gap: 0.5rem;">
+            <DayChooser
+              changeDay={(day) => setStore({ kind: "CHOOSE_START", day })}
+            />
+          </div>
         </Box>
       </Match>
       <Match when={store.kind === "CHOOSE_START"}>
-        <Box>
+        <Box onClose={() => setStore({ kind: "INITIAL" })}>
           <div style="display: grid; gap: 0.5rem;">
             <DayChooser
               chosenDay={store.kind === "CHOOSE_START" ? store.day : undefined}
@@ -484,7 +494,7 @@ function TimeSlotChooser(props: {
         </Box>
       </Match>
       <Match when={store.kind === "CHOOSE_END"}>
-        <Box>
+        <Box onClose={() => setStore({ kind: "INITIAL" })}>
           <div style="display: grid; gap: 0.5rem;">
             <DayChooser
               chosenDay={store.kind === "CHOOSE_END" ? store.day : undefined}
@@ -524,7 +534,7 @@ function TimeSlotChooser(props: {
         </Box>
       </Match>
       <Match when={store.kind === "WAIT_FOR_CONFIRMATION"}>
-        <Box>
+        <Box onClose={() => setStore({ kind: "INITIAL" })}>
           <div style="display: grid; gap: 0.5rem;">
             <DayChooser
               chosenDay={
