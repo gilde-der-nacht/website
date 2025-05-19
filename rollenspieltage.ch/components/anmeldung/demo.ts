@@ -12,6 +12,28 @@ const DEMO_SAVE: SaveFromServer = {
   wantsEmailUpdates: true,
   games: [],
   lastSaved: "2024-08-15T07:45:21.335Z",
+  gameMaster: {
+    games: [
+      {
+        titel: "My game",
+        system: "My own",
+        descriptionShort: "lorem",
+        descriptionLong: "",
+        slots: {
+          SATURDAY: [
+            {
+              from: 10,
+              to: 12,
+            },
+          ],
+          SUNDAY: [],
+        },
+        playerCountMin: 4,
+        playerCountMax: 5,
+        tags: [],
+      },
+    ],
+  },
 };
 
 export function getDemoSave(): SaveFromServer {

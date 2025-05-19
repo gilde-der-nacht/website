@@ -75,9 +75,16 @@ export function initState(init: AppState): {
       throw Error("ASSERTION_ERROR");
     }
 
-    setStore("gameMaster", "games", store.gameMaster.games.length, {
-      ...store.gameRoundEdit.form,
-    });
+    setStore(
+      "currentSave",
+      "gameMaster",
+      "games",
+      store.currentSave.gameMaster.games.length,
+      {
+        ...store.gameRoundEdit.form,
+        uuid: crypto.randomUUID(),
+      },
+    );
     setStore("gameRoundEdit", "form", gameRoundDefault());
     setStore("gameRoundEdit", "errors", gameRoundEditErrorsDefault());
   }

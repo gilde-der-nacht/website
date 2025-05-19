@@ -1,4 +1,4 @@
-import type { PerDay, TimeRange } from "./time";
+import type { GameMasterRoundNew } from "../data";
 
 export const gameTags = [
   {
@@ -16,18 +16,7 @@ export const gameTags = [
 ] as const;
 export type GameTag = (typeof gameTags)[number]["name"];
 
-export type GameRound = {
-  titel: string;
-  system: string;
-  descriptionShort: string;
-  descriptionLong: string;
-  slots: PerDay<TimeRange[]>;
-  playerCountMin: number;
-  playerCountMax: number;
-  tags: GameTag[];
-};
-
-export function gameRoundDefault(): GameRound {
+export function gameRoundDefault(): GameMasterRoundNew {
   return {
     titel: "",
     system: "",
@@ -44,7 +33,7 @@ export function gameRoundDefault(): GameRound {
 }
 
 export type GameRoundEdit = {
-  form: GameRound;
+  form: GameMasterRoundNew;
   errors: GameRoundEditErrors;
 };
 

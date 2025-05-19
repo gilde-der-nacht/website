@@ -1,7 +1,7 @@
 import type { Tab } from "@rst/components/anmeldung/Tabs";
 import type { SaveFromServer } from "@rst/components/anmeldung/data";
 import type { Page } from "./load";
-import type { GameRound, GameRoundEdit } from "./utils/gameRound";
+import type { GameRoundEdit } from "./utils/gameRound";
 import type { TimeRange } from "./utils/time";
 
 export type DayPeriod = "MORNING" | "AFTERNOON" | "EVENING";
@@ -24,19 +24,15 @@ export type ReservationView =
       reservationId: number;
     };
 
-export type GameMasterState = {
-  games: GameRound[];
-};
-
 export type AppState = {
   state: "IDLE" | "SAVING";
   secret: string;
   page: Page;
   showCreateMessage: boolean;
   gameRoundEdit: GameRoundEdit;
-  gameMaster: GameMasterState;
-  // old state
   currentSave: SaveFromServer;
+
+  // old state
   activeTab: Tab;
   lastSaved: string;
   hasChanged: boolean;

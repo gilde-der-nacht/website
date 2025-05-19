@@ -1,6 +1,5 @@
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
-import { getDemoProgram, getDemoSave } from "./demo";
 import {
   serverSchemaDay,
   type PerDay,
@@ -85,41 +84,6 @@ const reservationToServerSchema = z.union([
 ]);
 export type ReservationToServer = z.infer<typeof reservationToServerSchema>;
 
-const gameMasterRoundNewSchema = z.object({
-  titel: z.string(),
-  system: z.string(),
-  descriptionShort: z.string(),
-  descriptionLong: z.string(),
-  slots: z.object({
-    SATURDAY: z.array(
-      z.object({
-        from: z.number(),
-        to: z.number(),
-      }),
-    ),
-    SUNDAY: z.array(
-      z.object({
-        from: z.number(),
-        to: z.number(),
-      }),
-    ),
-  }),
-  playerCountMin: z.number(),
-  playerCountMax: z.number(),
-  tags: z.array(z.string()),
-});
-export type GameMasterRoundNew = z.infer<typeof gameMasterRoundNewSchema>;
-
-const gameMasterRoundSchema = gameMasterRoundNewSchema.extend({
-  uuid: z.string().uuid(),
-});
-export type GameMasterRound = z.infer<typeof gameMasterRoundSchema>;
-
-const gameMasterSaveSchema = z.object({
-  games: z.array(gameMasterRoundSchema),
-});
-export type GameMasterSave = z.infer<typeof gameMasterSaveSchema>;
-
 const saveFromServerSchema = z.object({
   registrationId: z.number(),
   name: z.string(),
@@ -127,7 +91,6 @@ const saveFromServerSchema = z.object({
   handynummer: z.string(),
   wantsEmailUpdates: z.boolean(),
   games: z.array(reservationFromServerSchema),
-  gameMaster: gameMasterSaveSchema,
   lastSaved: z.string(),
 });
 
@@ -151,12 +114,6 @@ export type UpdateSave = <T extends keyof SaveFromServer>(
 export async function loadSave(
   secret: string,
 ): Promise<{ kind: "SUCCESS"; save: SaveFromServer } | { kind: "FAILED" }> {
-  if (secret === "demo") {
-    return {
-      kind: "SUCCESS",
-      save: getDemoSave(),
-    };
-  }
   const loadUrl = elysium("/rst24/load");
   loadUrl.searchParams.append("secret", secret);
   const response = await fetch(loadUrl);
@@ -234,20 +191,13 @@ export function getByDayAndHour(
   }
   return Object.entries(grouped);
 }
-export async function loadProgram(demo: boolean): Promise<
+export async function loadProgram(): Promise<
   | {
       kind: "SUCCESS";
       program: Program;
     }
   | { kind: "FAILED" }
 > {
-  if (demo) {
-    return {
-      kind: "SUCCESS",
-      program: getDemoProgram(),
-    };
-  }
-
   const programUrl = elysium("/rst24/program");
   const reservedUrl = elysium("/rst24/reserved");
   const [programResponse, reservedResponse] = await Promise.all([

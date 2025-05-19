@@ -38,7 +38,10 @@ export function Router(props: {
           <PlayerPage changePage={actions.changePage} />
         </Match>
         <Match when={state.page === "GAMEMASTER"}>
-          <GamemasterPage changePage={actions.changePage} />
+          <GamemasterPage
+            store={state.currentSave.gameMaster}
+            changePage={actions.changePage}
+          />
         </Match>
         <Match when={state.page === "GAMEMASTER_NEW"}>
           <NewGamePage

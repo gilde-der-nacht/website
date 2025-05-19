@@ -66,12 +66,9 @@ export async function loadServerState(params: Params): Promise<AppState> {
       form: gameRoundDefault(),
       errors: gameRoundEditErrorsDefault(),
     },
-    gameMaster: {
-      games: [],
-    },
+    currentSave: result.save,
 
     // old state
-    currentSave: result.save,
     activeTab: "Contact",
     lastSaved: result.save.lastSaved,
     hasChanged: false,

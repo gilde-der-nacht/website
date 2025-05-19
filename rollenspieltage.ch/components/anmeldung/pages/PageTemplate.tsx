@@ -15,7 +15,7 @@ export function PageTemplate(
       {props.showQuickmenu !== false ? (
         <QuickMenu changePage={props.changePage} />
       ) : null}
-      <div>
+      <div class="page-content">
         <h2>{props.title}</h2>
         <br />
         {props.children}
