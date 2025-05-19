@@ -102,6 +102,21 @@ export function GamemasterPage(props: {
                                 )}
                               </p>
                             </div>
+                            <ul role="list" class="event-links">
+                              <li>
+                                <button
+                                  onClick={() =>
+                                    props.changePage([
+                                      "GAMEMASTER_EDIT",
+                                      game.uuid,
+                                    ])
+                                  }
+                                  class="event-link"
+                                >
+                                  <span>Bearbeiten</span>
+                                </button>
+                              </li>
+                            </ul>
                           </li>
                         );
                       }}

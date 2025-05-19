@@ -51,6 +51,14 @@ export function Router(props: {
             createNewGame={actions.createNewGame}
           />
         </Match>
+        <Match when={state.pageMeta[0] === "GAMEMASTER_EDIT"}>
+          <NewGamePage
+            store={state.gameRoundEdit}
+            changePage={actions.changePage}
+            openingHours={props.programResource.openingHours}
+            createNewGame={actions.createNewGame}
+          />
+        </Match>
         <Match when={state.pageMeta[0] === "HELPING"}>
           <HelpingPage changePage={actions.changePage} />
         </Match>

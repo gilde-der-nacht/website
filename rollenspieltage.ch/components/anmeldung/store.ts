@@ -72,7 +72,7 @@ export function initState(init: AppState): {
       const url = new URL(location.href);
       url.searchParams.set("page", page.toLowerCase());
       if (uuid !== undefined) {
-        url.searchParams.append("uuid", uuid);
+        url.searchParams.set("uuid", uuid);
       }
       history.pushState({ pageMeta }, "", url);
     }
