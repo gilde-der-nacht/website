@@ -25,6 +25,7 @@ import {
   DESCR_LONG_MAX_CHAR,
   DESCR_SHORT_MAX_CHAR,
   gameTags,
+  hasErrors,
   type GameRoundEdit,
 } from "../utils/gameRound";
 
@@ -230,15 +231,7 @@ export function NewGamePage(props: {
             </For>
           </div>
         </fieldset>
-        <Show
-          when={
-            store.errors.titleMissing ||
-            store.errors.descriptionShortMissing ||
-            store.errors.descriptionShortTooLong ||
-            store.errors.descriptionLongTooLong ||
-            store.errors.slotMissing
-          }
-        >
+        <Show when={hasErrors(store.errors)}>
           <Box type="danger">
             <h4>Spielrunde inkomplett</h4>
             Du hast noch einen oder mehre Fehler/fehlende Informationen in
@@ -247,7 +240,7 @@ export function NewGamePage(props: {
             veröffentlicht, wenn alle Informationen komplett sind.
             <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
               <Button
-                kind="gray"
+                kind="success"
                 label="Spielrunde als Entwurf speichern"
                 onClick={() => {
                   props.createNewGame();
@@ -263,7 +256,12 @@ export function NewGamePage(props: {
             label="Abbrechen"
             onClick={() => props.changePage("GAMEMASTER")}
           />
-          <Button type="submit" kind="success" label="Spielrunde erstellen" />
+          <Button
+            type="submit"
+            kind={hasErrors(store.errors) ? "gray" : "success"}
+            disabled={hasErrors(store.errors)}
+            label="Spielrunde erstellen"
+          />
         </div>
       </form>
     </PageTemplate>
@@ -358,10 +356,10 @@ function TimeSlots(props: {
                     <span>
                       von {slot.from} bis {slot.to} Uhr
                     </span>
-                    <Icon icon="trash" />
+                    <Icon icon="trash" style="color: var(--clr-danger-11);" />
                   </div>
                 }
-                kind="danger"
+                kind="gray"
                 onClick={() =>
                   props.removeTimeSlot({
                     day: "SATURDAY",
@@ -385,10 +383,10 @@ function TimeSlots(props: {
                     <span>
                       von {slot.from} bis {slot.to} Uhr
                     </span>
-                    <Icon icon="trash" />
+                    <Icon icon="trash" style="color: var(--clr-danger-11);" />
                   </div>
                 }
-                kind="danger"
+                kind="gray"
                 onClick={() =>
                   props.removeTimeSlot({
                     day: "SUNDAY",
