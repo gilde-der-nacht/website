@@ -1,8 +1,8 @@
 ---
 import Layout from "@lst/layouts/Layout.astro";
 import { Button } from "@common/components/Button.tsx";
-import { getProgramGroupedByStarthour } from "@lst/components/anmeldung/data.ts";
-import EventList from "@lst/components/anmeldung/EventList.astro";
+import { getProgramGroupedByStarthour } from "@lst/components/program/data.ts";
+import EventList from "@lst/components/program/EventList.astro";
 
 const program = await getProgramGroupedByStarthour();
 const saturday = Object.entries(program.SATURDAY);
