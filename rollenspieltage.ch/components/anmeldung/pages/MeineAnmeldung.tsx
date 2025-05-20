@@ -11,13 +11,13 @@ import {
   type JSX,
 } from "solid-js";
 import "../anmeldung.scss";
-import {
-  loadParams,
-  loadServerProgram,
-  loadServerState,
-  type Params,
-} from "../load";
+import { loadServerProgram } from "../load";
 import { Router } from "../Router";
+import { loadSave } from "@rst/components/anmeldung/api/save";
+import {
+  getPageState,
+  type PageState,
+} from "@rst/components/anmeldung/state/page-client";
 
 function Loading(): JSX.Element {
   return (
@@ -28,27 +28,24 @@ function Loading(): JSX.Element {
 }
 
 export function MeineAnmeldungWrapper(): JSX.Element {
-  const [params, setParams] = createSignal<Params | null>(null);
+  const [pageState, setPageState] = createSignal<PageState | null>(null);
 
   onMount(() => {
-    setParams(loadParams());
+    const currentUrl = new URL(location.href);
+    setPageState(getPageState(currentUrl));
   });
 
   return (
-    <Switch fallback={<Loading />}>
-      <Match when={params()}>
-        {(state) => <MeineAnmeldung params={state()} />}
-      </Match>
-    </Switch>
+    <Show fallback={<Loading />} when={pageState()}>
+      {(state) => <MeineAnmeldung pageState={state()} />}
+    </Show>
   );
 }
 
-function MeineAnmeldung(props: { params: Params }): JSX.Element {
-  const [serverStateResource] = createResource(() =>
-    loadServerState(props.params),
-  );
+function MeineAnmeldung(props: { pageState: PageState }): JSX.Element {
+  const [saveResource] = createResource(() => loadSave(props.pageState.secret));
   const [programResource] = createResource(() =>
-    loadServerProgram(props.params.secret === "demo"),
+    loadServerProgram(props.pageState.secret === "demo"),
   );
 
   return (
@@ -86,7 +83,7 @@ function MeineAnmeldung(props: { params: Params }): JSX.Element {
     >
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Match when={serverStateResource()}>
+          <Match when={saveResource()}>
             {(state) => (
               <Show when={programResource()}>
                 {(program) => (

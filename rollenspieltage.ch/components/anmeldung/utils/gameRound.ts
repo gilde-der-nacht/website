@@ -31,39 +31,3 @@ export function gameRoundDefault(): GameMasterRoundNew {
     tags: [],
   };
 }
-
-export type GameRoundEdit = {
-  form: GameMasterRoundNew;
-  errors: GameRoundEditErrors;
-};
-
-export type GameRoundEditErrors = {
-  titleMissing: boolean;
-  descriptionShortMissing: boolean;
-  descriptionShortTooLong: boolean;
-  descriptionLongTooLong: boolean;
-  slotMissing: boolean;
-};
-
-export function gameRoundEditErrorsDefault(): GameRoundEditErrors {
-  return {
-    titleMissing: false,
-    descriptionShortMissing: false,
-    descriptionShortTooLong: false,
-    descriptionLongTooLong: false,
-    slotMissing: false,
-  };
-}
-
-export const DESCR_SHORT_MAX_CHAR = 200;
-export const DESCR_LONG_MAX_CHAR = 500;
-
-export function hasErrors(errors: GameRoundEditErrors): boolean {
-  return (
-    errors.titleMissing ||
-    errors.descriptionShortMissing ||
-    errors.descriptionShortTooLong ||
-    errors.descriptionLongTooLong ||
-    errors.slotMissing
-  );
-}

@@ -4,10 +4,7 @@ import {
   type Program,
 } from "@rst/components/anmeldung/data";
 import type { AppState } from "@rst/components/anmeldung/types";
-import {
-  gameRoundDefault,
-  gameRoundEditErrorsDefault,
-} from "./utils/gameRound";
+import { gameRoundDefault } from "./utils/gameRound";
 
 export type PageMeta =
   | ["CHOOSE"]

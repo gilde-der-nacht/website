@@ -103,3 +103,7 @@ export function getNumberedKeys<A extends number>(obj: {
 }): number[] {
   return Object.keys(obj).map((n) => Number.parseInt(n));
 }
+
+export function sortTwoNumbers(nums: [number, number]): [number, number] {
+  return nums.toSorted((a, b) => a - b) as [number, number];
+}

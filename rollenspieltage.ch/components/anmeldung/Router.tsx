@@ -6,12 +6,13 @@ import { initState } from "./store";
 import { getPageMeta } from "./load";
 import { SummaryPage } from "./pages/SummaryPage";
 import { HelpingPage } from "./pages/HelpingPage";
-import { NewGamePage } from "./pages/GameroundEdit";
 import { GamemasterPage } from "./pages/Gamemaster";
 import { PlayerPage } from "./pages/PlayerPage";
 import { Box } from "@common/components/Box";
 import { TXT } from "./text";
 import { ChoosePage } from "./pages/Choose";
+import { NewGamePage } from "./pages/NewGamePage";
+import { EditGamePage } from "./pages/EditGamePage";
 
 export function Router(props: {
   state: Store<AppState>;
@@ -52,11 +53,11 @@ export function Router(props: {
           />
         </Match>
         <Match when={state.pageMeta[0] === "GAMEMASTER_EDIT"}>
-          <NewGamePage
-            store={state.gameRoundEdit}
-            changePage={actions.changePage}
-            openingHours={props.programResource.openingHours}
-            createNewGame={actions.createNewGame}
+          <EditGamePage
+          // store={state.gameRoundEdit}
+          // changePage={actions.changePage}
+          // openingHours={props.programResource.openingHours}
+          // createNewGame={actions.createNewGame}
           />
         </Match>
         <Match when={state.pageMeta[0] === "HELPING"}>

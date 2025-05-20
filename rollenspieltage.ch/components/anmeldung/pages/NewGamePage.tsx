@@ -1,4 +1,12 @@
-import { For, Match, Show, Switch, type JSX } from "solid-js";
+import {
+  batch,
+  createMemo,
+  For,
+  Match,
+  Show,
+  Switch,
+  type JSX,
+} from "solid-js";
 import { PageTemplate } from "./PageTemplate";
 import { createStore, type Store } from "solid-js/store";
 import { Input, InputInteger } from "@common/components/Input";
@@ -20,22 +28,27 @@ import {
   getNumberedKeys,
 } from "@common/components/utils";
 import { TXT } from "../text";
+import type { PageMeta } from "../load";
 import {
   DESCR_LONG_MAX_CHAR,
   DESCR_SHORT_MAX_CHAR,
-  gameTags,
-  hasErrors,
-  type GameRoundEdit,
-} from "../utils/gameRound";
-import type { PageMeta } from "../load";
+  validateGameRound,
+} from "../components/GamePagePartials";
 
 export function NewGamePage(props: {
-  store: Store<GameRoundEdit>;
+  store: Store<NewGameRound>;
   openingHours: OpeningHours;
   changePage: (pageMeta: PageMeta) => void;
   createNewGame: () => void;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
+  const errors = createMemo(() => validateGameRound(store.form));
+  const hasErrors = () =>
+    errors().titleMissing ||
+    errors().descriptionShortMissing ||
+    errors().descriptionShortTooLong ||
+    errors().descriptionLongTooLong ||
+    errors().slotMissing;
 
   function onSubmit(e: Event): void {
     e.preventDefault();
@@ -43,36 +56,13 @@ export function NewGamePage(props: {
     const [min, max] = [store.form.playerCountMin, store.form.playerCountMax]
       .map((n) => Math.max(1, n))
       .toSorted((a, b) => a - b);
-    setStore("form", "playerCountMin", min ?? 1);
-    setStore("form", "playerCountMax", max ?? 1);
 
-    const titleIsMissing = store.form.titel.trim().length === 0;
-    setStore("errors", "titleMissing", titleIsMissing);
+    batch(() => {
+      setStore("form", "playerCountMin", min ?? 1);
+      setStore("form", "playerCountMax", max ?? 1);
+    });
 
-    const descriptionShortIsMissing =
-      store.form.descriptionShort.trim().length === 0;
-    setStore("errors", "descriptionShortMissing", descriptionShortIsMissing);
-
-    const descriptionShortTooLong =
-      store.form.descriptionShort.length > DESCR_SHORT_MAX_CHAR;
-    setStore("errors", "descriptionShortTooLong", descriptionShortTooLong);
-
-    const descriptionLongTooLong =
-      store.form.descriptionLong.length > DESCR_LONG_MAX_CHAR;
-    setStore("errors", "descriptionLongTooLong", descriptionLongTooLong);
-
-    const slotMissing =
-      store.form.slots["SATURDAY"].concat(store.form.slots["SUNDAY"]).length ===
-      0;
-    setStore("errors", "slotMissing", slotMissing);
-
-    if (
-      store.errors.titleMissing ||
-      store.errors.descriptionShortMissing ||
-      store.errors.descriptionShortTooLong ||
-      store.errors.descriptionLongTooLong ||
-      store.errors.slotMissing
-    ) {
+    if (hasErrors()) {
       return;
     }
 

@@ -1,6 +1,5 @@
 import type { Tab } from "@rst/components/anmeldung/Tabs";
 import type { SaveFromServer } from "@rst/components/anmeldung/data";
-import type { GameRoundEdit } from "./utils/gameRound";
 import type { TimeRange } from "./utils/time";
 import type { PageMeta } from "./load";
 
