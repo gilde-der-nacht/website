@@ -19,16 +19,15 @@ import {
 import type { SaveClient } from "@rst/components/anmeldung/api/save";
 import { createStore, type Store } from "solid-js/store";
 
-function initPage(page: MetaClient): void {
-  const { kind } = page;
+function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
-  url.searchParams.set("page", kind.toLowerCase());
-  if (kind === "EDIT_GAMEROUND") {
-    url.searchParams.set("uuid", page.uuid);
+  url.searchParams.set("page", meta.page.kind.toLowerCase());
+  if (meta.page.kind === "EDIT_GAMEROUND") {
+    url.searchParams.set("uuid", meta.page.uuid);
   }
   url.searchParams.delete("showCreateMessage");
-  history.replaceState({ page }, "", url);
-  const newMetaTitle = TXT.pageTitle[kind];
+  history.replaceState({ page: meta }, "", url);
+  const newMetaTitle = TXT.pageTitle[meta.page.kind];
   document.title = TXT.metaTitle.replace("{}", newMetaTitle);
 }
 
@@ -56,52 +55,52 @@ function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
 }
 
 export function Router(props: {
-  page: MetaClient;
+  meta: MetaClient;
   save: SaveClient;
   programResource: Resource<Result<PublicProgramClient>>;
 }): JSX.Element {
-  initPage(props.page);
-  const [store, _setStore] = createStore({
-    page: props.page,
+  initPage(props.meta);
+  const [store] = createStore({
+    meta: props.meta,
     save: props.save,
   });
-  const changePage = createChangePageFn(store);
+  const changePage = createChangePageFn(store.meta);
 
   window.addEventListener("popstate", (e: unknown) => {
     if (typeof e === "object" && e !== null && "state" in e) {
       const currentUrl = new URL(location.href);
-      const pageMeta = getMetaState(currentUrl);
-      changePage(pageMeta, true);
+      const meta = getMetaState(currentUrl);
+      changePage(meta.page, true);
     }
   });
 
   return (
     <>
-      <Show when={store.page.showCreateMessage}>
+      <Show when={store.meta.showCreateMessage}>
         <Box type="success">{TXT.registrationStarted}</Box>
         <br />
       </Show>
       <Switch fallback={<ChoosePage changePage={changePage} />}>
-        <Match when={store.page.kind === "PLAYER"}>
+        <Match when={store.meta.page.kind === "PLAYER"}>
           <PlayerPage changePage={changePage} />
         </Match>
-        <Match when={store.page.kind === "GAMEMASTER"}>
+        <Match when={store.meta.page.kind === "GAMEMASTER"}>
           <GamemasterPage store={store.save.master} changePage={changePage} />
         </Match>
-        <Match when={store.page.kind === "NEW_GAMEROUND"}>
+        <Match when={store.meta.page.kind === "NEW_GAMEROUND"}>
           <NewGamePage
             store={state.gameRoundEdit}
             changePage={changePage}
             createNewGame={createNewGame}
           />
         </Match>
-        <Match when={store.page.kind === "EDIT_GAMEROUND"}>
+        <Match when={store.meta.page.kind === "EDIT_GAMEROUND"}>
           <EditGamePage />
         </Match>
-        <Match when={store.page.kind === "HELPING"}>
+        <Match when={store.meta.page.kind === "HELPING"}>
           <HelpingPage changePage={changePage} />
         </Match>
-        <Match when={store.page.kind === "SUMMARY"}>
+        <Match when={store.meta.page.kind === "SUMMARY"}>
           <SummaryPage changePage={changePage} />
         </Match>
       </Switch>

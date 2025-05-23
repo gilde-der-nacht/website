@@ -1,75 +1,57 @@
 import { z } from "astro/zod";
 
-const paramsClientSchema = z.object({
-  secret: z.string(),
-  showCreateMessage: z.boolean(),
-});
+/*
+ * Types
+ */
 
-const simplePageClientSchema = z.object({
-  kind: z.enum([
-    "CHOOSE",
-    "PLAYER",
-    "GAMEMASTER",
-    "NEW_GAMEROUND",
-    "HELPING",
-    "SUMMARY",
-  ]),
-});
-
-const editGameroundPageClientSchema = z.object({
-  kind: z.literal("EDIT_GAMEROUND"),
-  uuid: z.string().uuid(),
-});
-
-export const pageClientSchema = z.union([
-  simplePageClientSchema,
-  editGameroundPageClientSchema,
+const pageClientSchema = z.discriminatedUnion("kind", [
+  z.object({ kind: z.literal("CHOOSE") }),
+  z.object({ kind: z.literal("PLAYER") }),
+  z.object({ kind: z.literal("GAMEMASTER") }),
+  z.object({ kind: z.literal("NEW_GAMEROUND") }),
+  z.object({ kind: z.literal("HELPING") }),
+  z.object({ kind: z.literal("SUMMARY") }),
+  z.object({
+    kind: z.literal("EDIT_GAMEROUND"),
+    uuid: z.string().uuid(),
+  }),
 ]);
-
-export const metaClientSchema = z.union([
-  simplePageClientSchema.merge(paramsClientSchema),
-  editGameroundPageClientSchema.merge(paramsClientSchema),
-]);
-
-export type MetaClient = z.infer<typeof metaClientSchema>;
 export type PageClient = z.infer<typeof pageClientSchema>;
 export type PageKind = PageClient["kind"];
 
+const metaClientSchema = z.object({
+  page: pageClientSchema,
+  secret: z.string(),
+  showCreateMessage: z.boolean(),
+});
+export type MetaClient = z.infer<typeof metaClientSchema>;
+
+/*
+ * Methods
+ */
+
 export function getMetaState(url: URL): MetaClient {
   const pageParam = url.searchParams.get("page");
-  const uuid = url.searchParams.get("uuid");
+  const uuid = url.searchParams.get("uuid") ?? undefined;
   const secret = url.searchParams.get("secret");
   const showCreateMessage =
     url.searchParams.get("showCreateMessage") === "true";
 
-  if (uuid === null) {
-    const parseResult = metaClientSchema.safeParse({
-      kind: pageParam,
-      secret,
-      showCreateMessage,
-    });
-    if (parseResult.success) {
-      return parseResult.data;
-    }
-    console.error(parseResult.error);
-    return metaClientSchema.parse({
-      kind: "CHOOSE",
-      secret,
-      showCreateMessage,
-    });
-  }
-
-  const parseResult = metaClientSchema.safeParse({
-    kind: pageParam,
-    uuid,
+  const json = {
+    page: {
+      kind: pageParam?.toUpperCase(),
+      uuid,
+    },
     secret,
     showCreateMessage,
-  });
+  };
+  const parseResult = metaClientSchema.safeParse(json);
 
   if (parseResult.success) {
     return parseResult.data;
   }
 
+  console.error(parseResult.error);
   return metaClientSchema.parse({
     kind: "CHOOSE",
     secret,

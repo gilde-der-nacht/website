@@ -68,7 +68,7 @@ function MeineAnmeldung(props: { page: MetaClient }): JSX.Element {
               }
               return (
                 <Router
-                  page={props.page}
+                  meta={props.page}
                   save={value.data}
                   programResource={programResource}
                 />
