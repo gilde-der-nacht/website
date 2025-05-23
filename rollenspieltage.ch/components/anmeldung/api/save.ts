@@ -1,4 +1,4 @@
-import type { Result } from "@rst/components/anmeldung/api/utils";
+import type { ParseResult, Result } from "@rst/components/anmeldung/api/utils";
 import { mockedLoadSave } from "@rst/components/anmeldung/api/mock";
 import { z } from "astro/zod";
 import {
@@ -35,6 +35,7 @@ const masterClientSchema = z.object({
   games: z.array(gameroundEditClientSchema),
   wantsHelp: z.boolean(),
 });
+export type MasterClient = z.infer<typeof masterClientSchema>;
 
 /*
  * Helping
@@ -76,7 +77,7 @@ export type SaveClient = z.infer<typeof saveClientSchema>;
 export async function loadSave(secret: string): Promise<Result<SaveClient>> {
   if (secret !== "demo") {
     return {
-      success: false,
+      kind: "FAILURE",
     };
   }
 
@@ -85,22 +86,22 @@ export async function loadSave(secret: string): Promise<Result<SaveClient>> {
 
   if (!parseResult.success) {
     return {
-      success: false,
+      kind: "FAILURE",
     };
   }
   const transformResult = transformSaveFromServer(parseResult.data);
   if (!transformResult.success) {
     return {
-      success: false,
+      kind: "FAILURE",
     };
   }
 
   return {
-    success: true,
+    kind: "SUCCESS",
     data: transformResult.data,
   };
 }
 
-function transformSaveFromServer(s: SaveServer): Result<SaveClient> {
+function transformSaveFromServer(s: SaveServer): ParseResult<SaveClient> {
   return saveClientSchema.safeParse(s);
 }

@@ -7,7 +7,7 @@ import {
   Switch,
   type JSX,
 } from "solid-js";
-import { PageTemplate } from "./PageTemplate";
+import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { createStore, type Store } from "solid-js/store";
 import { Input, InputInteger } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
@@ -21,24 +21,27 @@ import {
   type PerDay,
   type ProgramDay,
   type TimeRange,
-} from "../utils/time";
-import type { OpeningHours } from "../data";
+} from "@rst/components/anmeldung/utils/time";
 import {
   collectPairsToObject,
   getNumberedKeys,
 } from "@common/components/utils";
-import { TXT } from "../text";
-import type { PageMeta } from "../load";
 import {
   DESCR_LONG_MAX_CHAR,
   DESCR_SHORT_MAX_CHAR,
   validateGameRound,
-} from "../components/GamePagePartials";
+} from "@rst/components/anmeldung/components/GamePagePartials";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import { gameTags } from "@rst/components/anmeldung/constant/tags";
+import {
+  openingHours,
+  type OpeningHours,
+} from "@rst/components/anmeldung/constant/hours";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
 
 export function NewGamePage(props: {
   store: Store<NewGameRound>;
-  openingHours: OpeningHours;
-  changePage: (pageMeta: PageMeta) => void;
+  changePage: ChangePageFn;
   createNewGame: () => void;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
@@ -67,7 +70,7 @@ export function NewGamePage(props: {
     }
 
     props.createNewGame();
-    props.changePage(["GAMEMASTER"]);
+    props.changePage({ kind: "GAMEMASTER" });
   }
 
   return (
@@ -160,7 +163,6 @@ export function NewGamePage(props: {
           <legend>Zeitslots</legend>
           <TimeSlots
             slots={props.store.form.slots}
-            openingHours={props.openingHours}
             addTimeSlot={(dateTime: DateTimeWindow) => {
               setStore(
                 "form",
@@ -234,7 +236,7 @@ export function NewGamePage(props: {
                 label="Spielrunde als Entwurf speichern"
                 onClick={() => {
                   props.createNewGame();
-                  props.changePage(["GAMEMASTER"]);
+                  props.changePage({ kind: "GAMEMASTER" });
                 }}
               />
             </div>
@@ -244,7 +246,7 @@ export function NewGamePage(props: {
           <Button
             kind="danger"
             label="Abbrechen"
-            onClick={() => props.changePage(["GAMEMASTER"])}
+            onClick={() => props.changePage({ kind: "GAMEMASTER" })}
           />
           <Button
             type="submit"
@@ -323,11 +325,10 @@ function calculateDaySections(openingHours: OpeningHours): DaySections {
 
 function TimeSlots(props: {
   slots: PerDay<TimeRange[]>;
-  openingHours: OpeningHours;
   addTimeSlot: (dateTime: DateTimeWindow) => void;
   removeTimeSlot: (dateTime: DateTimeWindow) => void;
 }): JSX.Element {
-  const daySections = calculateDaySections(props.openingHours);
+  const daySections = calculateDaySections(openingHours);
 
   return (
     <>

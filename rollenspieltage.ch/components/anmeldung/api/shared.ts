@@ -11,6 +11,7 @@ export const timeSlotSchema = z
   .refine((slot) => slot.from < slot.to, {
     message: "A TimeSlot can't end before it starts.",
   });
+export type TimeSlot = z.infer<typeof timeSlotSchema>;
 
 export const tagSchema = z.object({
   name: z.string(),

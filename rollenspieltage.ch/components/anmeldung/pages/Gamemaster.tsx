@@ -1,17 +1,20 @@
 import { For, Show, type JSX } from "solid-js";
-import { BoxLink } from "../components/BoxLink";
-import { PageTemplate } from "./PageTemplate";
+import { BoxLink } from "@rst/components/anmeldung/components/BoxLink";
+import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import type { Store } from "solid-js/store";
-import type { GameMasterRound, GameMasterSave } from "../data";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import type { MasterClient } from "@rst/components/anmeldung/api/save";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
+import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
+import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import {
   DESCR_LONG_MAX_CHAR,
   DESCR_SHORT_MAX_CHAR,
-  gameTags,
-} from "../utils/gameRound";
-import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+} from "@rst/components/anmeldung/forms/validation";
 
 export function GamemasterPage(props: {
-  store: Store<GameMasterSave>;
+  store: Store<MasterClient>;
   changePage: ChangePageFn;
 }): JSX.Element {
   return (
@@ -21,105 +24,43 @@ export function GamemasterPage(props: {
         type="success"
         onClick={() => props.changePage({ kind: "NEW_GAMEROUND" })}
       >
-        <h3>Neue Spielrunde erstellen</h3>
+        <h3>{TXT.createNewGameRound}</h3>
       </BoxLink>
 
       <Show when={props.store.games}>
         {(games) => (
           <div style="margin-top: 2rem;">
-            <h3 style="margin-bottom: 1rem;">Meine Spielrunden</h3>
+            <h3 style="margin-bottom: 1rem;">{TXT.myGameRounds}</h3>
             <ul class="event-list" role="list">
               <For each={games()}>
                 {(game) => {
-                  const saSlots = game.slots.SATURDAY.map((s) => ({
-                    ...s,
-                    kind: "SLOT" as const,
-                    day: "Samstag",
-                  }));
-                  const soSlots = game.slots.SUNDAY.map((s) => ({
-                    ...s,
-                    kind: "SLOT" as const,
-                    day: "Sonntag",
-                  }));
-                  const slots =
-                    saSlots.length === 0 && soSlots.length === 0
-                      ? [{ kind: "NO_SLOTS" as const }]
-                      : saSlots.concat(soSlots);
-
-                  const categories = game.tags
+                  const tags = game.tagNames
                     .map((t) => gameTags.find(({ name }) => name === t))
                     .filter((t) => t !== undefined)
                     .map(({ label }) => label);
+                  const isDraft = gameIsDraft(game);
                   return (
-                    <For each={slots}>
-                      {(slot) => {
-                        const isDraft = gameIsDraft(game);
-                        return (
-                          <li class={`event-entry ${isDraft ? "gray" : ""}`}>
-                            <h1 class="event-title">
-                              {isDraft ? <em>[Entwurf] </em> : ""}
-                              {game.titel.length > 0 ? (
-                                game.titel
-                              ) : (
-                                <em>Titel fehlt</em>
-                              )}
-                            </h1>
-                            <div class="event-details">
-                              <div class="event-tags">
-                                <strong>System:</strong>
-                                {game.system || <em>Kein System angegeben</em>}
-                              </div>
-                              <div class="event-tags">
-                                <strong>Zeit:</strong>
-                                {slot.kind === "SLOT" ? (
-                                  <span>
-                                    {slot.day}, {slot.from} - {slot.to} Uhr
-                                  </span>
-                                ) : (
-                                  <em>kein Zeitslot ausgewählt</em>
-                                )}
-                              </div>
-                              <div class="event-tags">
-                                <strong>Spielende:</strong>{" "}
-                                {game.playerCountMin} - {game.playerCountMax}
-                              </div>{" "}
-                              <div class="event-tags">
-                                <strong>Kategorien:</strong>{" "}
-                                {categories.join(", ") || (
-                                  <em>Keine Kategorien ausgewählt</em>
-                                )}
-                              </div>
-                            </div>
-                            <div class="event-description content">
-                              <p>
-                                <strong>Kurzbeschreibung:</strong>
-                                <br />
-
-                                {game.descriptionShort.length > 0 ? (
-                                  game.descriptionShort
-                                ) : (
-                                  <em>Kurzbeschreibung fehlt</em>
-                                )}
-                              </p>
-                            </div>
-                            <ul role="list" class="event-links">
-                              <li>
-                                <button
-                                  onClick={() =>
-                                    props.changePage({
-                                      kind: "EDIT_GAMEROUND",
-                                      uuid: game.uuid,
-                                    })
-                                  }
-                                  class="event-link"
-                                >
-                                  <span>Bearbeiten</span>
-                                </button>
-                              </li>
-                            </ul>
-                          </li>
-                        );
-                      }}
+                    <For
+                      each={game.slots}
+                      fallback={
+                        <Entry
+                          game={game}
+                          slot={null}
+                          tags={tags}
+                          isDraft={isDraft}
+                          changePage={props.changePage}
+                        />
+                      }
+                    >
+                      {(slot) => (
+                        <Entry
+                          game={game}
+                          slot={slot}
+                          tags={tags}
+                          isDraft={isDraft}
+                          changePage={props.changePage}
+                        />
+                      )}
                     </For>
                   );
                 }}
@@ -132,20 +73,93 @@ export function GamemasterPage(props: {
   );
 }
 
-function gameIsDraft(game: GameMasterRound): boolean {
-  if (game.titel.trim().length === 0) {
+function Entry(props: {
+  game: GameroundEditClient;
+  slot: TimeSlot | null;
+  isDraft: boolean;
+  tags: string[];
+  changePage: ChangePageFn;
+}): JSX.Element {
+  const { game, slot, isDraft, tags, changePage } = props;
+  return (
+    <li class={["event-entry", isDraft ? "gray" : ""].join(" ")}>
+      <h1 class="event-title">
+        {isDraft ? <em>[{TXT.draft}] </em> : ""}
+        {game.title.value.length > 0 ? (
+          game.title.value
+        ) : (
+          <em>{TXT.missingTitle}</em>
+        )}
+      </h1>
+      <div class="event-details">
+        <div class="event-tags">
+          <strong>System:</strong>
+          {game.system.value || <em>{TXT.missingSystem}</em>}
+        </div>
+        <div class="event-tags">
+          <strong>Zeit:</strong>
+          {slot !== null ? (
+            <span>
+              {slot.day}, {slot.from} - {slot.to} Uhr
+            </span>
+          ) : (
+            <em>{TXT.missingSlot}</em>
+          )}
+        </div>
+        <div class="event-tags">
+          <strong>Spielende:</strong> {game.playerCount.min.value} -{" "}
+          {game.playerCount.max.value}
+        </div>{" "}
+        <div class="event-tags">
+          <strong>Kategorien:</strong>{" "}
+          {tags.join(", ") || <em>{TXT.missingTags}</em>}
+        </div>
+      </div>
+      <div class="event-description content">
+        <p>
+          <strong>Kurzbeschreibung:</strong>
+          <br />
+
+          {game.description.short.value.length > 0 ? (
+            game.description.short.value
+          ) : (
+            <em>{TXT.missingShortDescription}</em>
+          )}
+        </p>
+      </div>
+      <ul role="list" class="event-links">
+        <li>
+          <button
+            onClick={() =>
+              changePage({
+                kind: "EDIT_GAMEROUND",
+                uuid: game.uuid,
+              })
+            }
+            class="event-link"
+          >
+            <span>Bearbeiten</span>
+          </button>
+        </li>
+      </ul>
+    </li>
+  );
+}
+
+function gameIsDraft(game: GameroundEditClient): boolean {
+  if (game.title.value.trim().length === 0) {
     return true;
   }
-  if (game.descriptionShort.trim().length === 0) {
+  if (game.description.short.value.trim().length === 0) {
     return true;
   }
-  if (game.descriptionShort.length > DESCR_SHORT_MAX_CHAR) {
+  if (game.description.short.value.length > DESCR_SHORT_MAX_CHAR) {
     return true;
   }
-  if (game.descriptionLong.length > DESCR_LONG_MAX_CHAR) {
+  if (game.description.long.value.length > DESCR_LONG_MAX_CHAR) {
     return true;
   }
-  if (game.slots.SATURDAY.length === 0 && game.slots.SUNDAY.length === 0) {
+  if (game.slots.length === 0) {
     return true;
   }
   return false;

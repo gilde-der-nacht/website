@@ -6,3 +6,12 @@ export type Result<T> =
   | {
       kind: "FAILURE";
     };
+
+export type ParseResult<T> =
+  | {
+      success: true;
+      data: T;
+    }
+  | {
+      success: false;
+    };

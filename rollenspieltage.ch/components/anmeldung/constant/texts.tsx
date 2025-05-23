@@ -39,6 +39,15 @@ const error = {
   ),
 };
 
+const draft = "Entwurf";
+const createNewGameRound = "Neue Spielrunde erstellen";
+const myGameRounds = "Meine Spielrunden";
+const missingTitle = "Titel fehlt";
+const missingSystem = "kein System angegeben";
+const missingSlot = "kein Zeitslot ausgewählt";
+const missingTags = "keine Kategorien ausgewählt";
+const missingShortDescription = "Kurzbeschreibung fehlt";
+
 const days = {
   SATURDAY: "Samstag",
   SUNDAY: "Sonntag",
@@ -61,6 +70,14 @@ export const TXT = {
   registrationStarted,
   loading,
   error,
+  draft,
+  createNewGameRound,
+  myGameRounds,
+  missingTitle,
+  missingSystem,
+  missingSlot,
+  missingTags,
+  missingShortDescription,
   days,
   pageTitle,
   metaTitle,

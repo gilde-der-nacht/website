@@ -86,26 +86,17 @@ export function Router(props: {
           <PlayerPage changePage={changePage} />
         </Match>
         <Match when={store.page.kind === "GAMEMASTER"}>
-          <GamemasterPage
-            store={state.currentSave.gameMaster}
-            changePage={changePage}
-          />
+          <GamemasterPage store={store.save.master} changePage={changePage} />
         </Match>
         <Match when={store.page.kind === "NEW_GAMEROUND"}>
           <NewGamePage
             store={state.gameRoundEdit}
             changePage={changePage}
-            openingHours={props.programResource.openingHours}
             createNewGame={createNewGame}
           />
         </Match>
         <Match when={store.page.kind === "EDIT_GAMEROUND"}>
-          <EditGamePage
-          // store={state.gameRoundEdit}
-          // changePage={changePage}
-          // openingHours={props.programResource.openingHours}
-          // createNewGame={createNewGame}
-          />
+          <EditGamePage />
         </Match>
         <Match when={store.page.kind === "HELPING"}>
           <HelpingPage changePage={changePage} />
