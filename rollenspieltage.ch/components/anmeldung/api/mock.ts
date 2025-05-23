@@ -1,5 +1,6 @@
 import type { SaveServer } from "@rst/components/anmeldung/api/save";
 import type { PublicProgramServer } from "@rst/components/anmeldung/api/program";
+import { resetEditFormServer } from "@rst/components/anmeldung/api/gameround-edit";
 
 const validTimeStamp = "2024-08-15T07:45:21.335Z";
 
@@ -38,6 +39,7 @@ const saveMock = {
         tagNames: ["children"],
       },
     ],
+    newEditForm: resetEditFormServer(),
     wantsHelp: false,
   },
   helping: {},

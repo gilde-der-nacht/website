@@ -6,6 +6,7 @@ import { Box } from "@common/components/Box";
 import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";
 import { Checkbox } from "@common/components/Checkbox";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
 
 export type PageState = {
   form: {
@@ -125,7 +126,7 @@ export function AnmeldungWrapper(): JSX.Element {
           }}
         />
         <Show when={store.errors.nameMissing}>
-          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+          <Box type="danger">{TXT.mandatoryField}</Box>
         </Show>
         <InputWithRef
           label="E-Mail"
@@ -140,7 +141,7 @@ export function AnmeldungWrapper(): JSX.Element {
           ref={emailField}
         />
         <Show when={store.errors.emailMissing}>
-          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+          <Box type="danger">{TXT.mandatoryField}</Box>
         </Show>
         <Show when={store.errors.emailInvalid}>
           <Box type="danger">

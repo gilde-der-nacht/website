@@ -99,3 +99,27 @@ export const gameroundNewEditClientSchema = z.object({
 export type GameroundNewEditClient = z.infer<
   typeof gameroundNewEditClientSchema
 >;
+
+export function transformGameroundNewEditFromServer(
+  s: GameroundNewEditServer,
+): GameroundNewEditClient {
+  return gameroundNewEditClientSchema.parse(s);
+}
+
+export function resetEditFormServer(): GameroundNewEditServer {
+  return {
+    title: "",
+    system: "",
+    description: {
+      short: "",
+      long: "",
+    },
+    slots: [],
+    playerCount: { min: 3, max: 4 },
+    tagNames: [],
+  };
+}
+
+export function resetEditFormClient(): GameroundNewEditClient {
+  return transformGameroundNewEditFromServer(resetEditFormServer());
+}

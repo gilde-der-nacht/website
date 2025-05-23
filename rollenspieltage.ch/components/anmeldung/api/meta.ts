@@ -31,32 +31,32 @@ export type MetaClient = z.infer<typeof metaClientSchema>;
  */
 
 export function getMetaState(url: URL): MetaClient {
-  const pageParam = url.searchParams.get("page");
+  const pageParam = url.searchParams.get("page") ?? "";
   const uuid = url.searchParams.get("uuid") ?? undefined;
-  const secret = url.searchParams.get("secret");
+  const secret = url.searchParams.get("secret") ?? "";
   const showCreateMessage =
     url.searchParams.get("showCreateMessage") === "true";
 
-  const json = {
+  const parseResult = metaClientSchema.safeParse({
     page: {
-      kind: pageParam?.toUpperCase(),
+      kind: pageParam.toUpperCase(),
       uuid,
     },
     secret,
     showCreateMessage,
-  };
-  const parseResult = metaClientSchema.safeParse(json);
+  });
 
   if (parseResult.success) {
     return parseResult.data;
   }
 
-  console.error(parseResult.error);
-  return metaClientSchema.parse({
-    kind: "CHOOSE",
+  return {
+    page: {
+      kind: "CHOOSE",
+    },
     secret,
     showCreateMessage,
-  });
+  };
 }
 
 export function isSamePage(p1: PageClient, p2: PageClient): boolean {

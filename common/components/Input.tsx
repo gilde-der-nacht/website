@@ -3,6 +3,7 @@ import { mergeProps, type JSX } from "solid-js";
 type InputProps = {
   value: string;
   onValueUpdate: (value: string) => void;
+  onBlur?: () => void;
   label: string;
   name: string;
   type?: "text" | "date" | "email" | "tel";
@@ -26,6 +27,7 @@ export function Input(props: InputProps): JSX.Element {
         required={propsWithDefaults.required}
         value={propsWithDefaults.value}
         onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
+        onBlur={props.onBlur}
       />
     </label>
   );
@@ -34,6 +36,7 @@ export function Input(props: InputProps): JSX.Element {
 type InputWithRefProps = {
   value: string;
   onValueUpdate: (value: string) => void;
+  onBlur?: () => void;
   label: string;
   name: string;
   type?: "text" | "date" | "email";
@@ -58,6 +61,7 @@ export function InputWithRef(props: InputWithRefProps): JSX.Element {
         required={propsWithDefaults.required}
         value={propsWithDefaults.value}
         onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
+        onBlur={props.onBlur}
         ref={propsWithDefaults.ref}
       />
     </label>
@@ -67,6 +71,7 @@ export function InputWithRef(props: InputWithRefProps): JSX.Element {
 type InputIntegerProps = {
   value: number;
   onValueUpdate: (value: number) => void;
+  onBlur?: () => void;
   label: string;
   name: string;
   required?: boolean;
@@ -93,6 +98,7 @@ export function InputInteger(props: InputIntegerProps): JSX.Element {
         onInput={(e) =>
           propsWithDefaults.onValueUpdate(Number.parseInt(e.target.value))
         }
+        onBlur={props.onBlur}
         step={1}
         min={propsWithDefaults.min}
         max={propsWithDefaults.max}

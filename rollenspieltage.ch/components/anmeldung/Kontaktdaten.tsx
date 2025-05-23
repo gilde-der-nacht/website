@@ -6,6 +6,7 @@ import { Input, InputWithRef } from "@common/components/Input";
 import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { Icon } from "@common/components/Icon";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
 
 export function Kontaktdaten(props: {
   save: SaveFromServer;
@@ -31,7 +32,7 @@ export function Kontaktdaten(props: {
       />
       <Show when={props.save.name.trim().length === 0}>
         <div style="margin-block: .5rem;">
-          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+          <Box type="danger">{TXT.mandatoryField}</Box>
         </div>
       </Show>
       <br />
@@ -45,7 +46,7 @@ export function Kontaktdaten(props: {
       />
       <Show when={props.save.email.trim().length === 0}>
         <div style="margin-block: .5rem;">
-          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+          <Box type="danger">{TXT.mandatoryField}</Box>
         </div>
       </Show>
       <Show

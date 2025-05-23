@@ -1,11 +1,11 @@
 import { Match, Show, Switch, type JSX, type Resource } from "solid-js";
 import { SummaryPage } from "@rst/components/anmeldung/pages/SummaryPage";
 import { HelpingPage } from "@rst/components/anmeldung/pages/HelpingPage";
-import { GamemasterPage } from "@rst/components/anmeldung/pages/Gamemaster";
+import { GamemasterPage } from "@rst/components/anmeldung/pages/GamemasterPage";
 import { PlayerPage } from "@rst/components/anmeldung/pages/PlayerPage";
 import { Box } from "@common/components/Box";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
-import { ChoosePage } from "@rst/components/anmeldung/pages/Choose";
+import { ChoosePage } from "@rst/components/anmeldung/pages/ChoosePage";
 import { NewGamePage } from "@rst/components/anmeldung/pages/NewGamePage";
 import { EditGamePage } from "@rst/components/anmeldung/pages/EditGamePage";
 import type { PublicProgramClient } from "@rst/components/anmeldung/api/program";
@@ -18,6 +18,7 @@ import {
 } from "@rst/components/anmeldung/api/meta";
 import type { SaveClient } from "@rst/components/anmeldung/api/save";
 import { createStore, type Store } from "solid-js/store";
+import { createNewGame } from "@rst/components/anmeldung/utils/store";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
@@ -91,7 +92,7 @@ export function Router(props: {
           <NewGamePage
             store={store.save.master.newEditForm}
             changePage={changePage}
-            createNewGame={createNewGame}
+            createNewGame={() => createNewGame(store)}
           />
         </Match>
         <Match when={store.meta.page.kind === "EDIT_GAMEROUND"}>

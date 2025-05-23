@@ -3,6 +3,7 @@ import { mergeProps, type JSX } from "solid-js";
 type Props = {
   value: string;
   onValueUpdate: (next: string) => void;
+  onBlur?: () => void;
   label: string;
   name: string;
   required?: boolean;
@@ -22,6 +23,7 @@ export function Textarea(props: Props): JSX.Element {
         required={propsWithDefaults.required}
         value={propsWithDefaults.value}
         onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
+        onBlur={props.onBlur}
       />
     </label>
   );

@@ -6,6 +6,7 @@ import {
   gameroundEditClientSchema,
   gameroundNewEditServerSchema,
   gameroundNewEditClientSchema,
+  resetEditFormServer,
 } from "@rst/components/anmeldung/api/gameround-edit";
 
 /*
@@ -30,7 +31,9 @@ const playingClientSchema = z.object({
 
 const masterServerSchema = z.object({
   games: z.array(gameroundEditServerSchema),
-  newEditForm: gameroundNewEditServerSchema,
+  newEditForm: z
+    .optional(gameroundNewEditServerSchema)
+    .transform((form) => form ?? resetEditFormServer()),
   wantsHelp: z.boolean(),
 });
 

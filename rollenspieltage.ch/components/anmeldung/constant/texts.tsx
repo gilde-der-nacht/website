@@ -54,6 +54,8 @@ const missingSystem = "kein System angegeben";
 const missingSlot = "kein Zeitslot ausgewählt";
 const missingTags = "keine Kategorien ausgewählt";
 const missingShortDescription = "Kurzbeschreibung fehlt";
+const mandatoryField = "Dies ist ein Pflichtfeld.";
+const charLimitBy = "Dieses Feld ist auf {} Zeichen limitiert.";
 
 const days = {
   SATURDAY: "Samstag",
@@ -85,6 +87,8 @@ export const TXT = {
   missingSlot,
   missingTags,
   missingShortDescription,
+  mandatoryField,
+  charLimitBy,
   days,
   pageTitle,
   metaTitle,

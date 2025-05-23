@@ -20,17 +20,11 @@ import {
   type DateTimeWindow,
   type PerDay,
   type ProgramDay,
-  type TimeRange,
 } from "@rst/components/anmeldung/utils/time";
 import {
   collectPairsToObject,
   getNumberedKeys,
 } from "@common/components/utils";
-import {
-  DESCR_LONG_MAX_CHAR,
-  DESCR_SHORT_MAX_CHAR,
-  validateGameRound,
-} from "@rst/components/anmeldung/components/GamePagePartials";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import {
@@ -39,6 +33,11 @@ import {
 } from "@rst/components/anmeldung/constant/hours";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import type { GameroundNewEditClient } from "@rst/components/anmeldung/api/gameround-edit";
+import {
+  DESCR_LONG_MAX_CHAR,
+  DESCR_SHORT_MAX_CHAR,
+  validateNewGameround,
+} from "@rst/components/anmeldung/forms/validation";
 
 export function NewGamePage(props: {
   store: Store<GameroundNewEditClient>;
@@ -46,27 +45,24 @@ export function NewGamePage(props: {
   createNewGame: () => void;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
-  const errors = createMemo(() => validateGameRound(store.form));
-  const hasErrors = () =>
-    errors().titleMissing ||
-    errors().descriptionShortMissing ||
-    errors().descriptionShortTooLong ||
-    errors().descriptionLongTooLong ||
-    errors().slotMissing;
+  const errors = createMemo(() => validateNewGameround(store));
 
   function onSubmit(e: Event): void {
     e.preventDefault();
 
-    const [min, max] = [store.form.playerCountMin, store.form.playerCountMax]
+    const [min, max] = [
+      store.playerCount.min.value,
+      store.playerCount.max.value,
+    ]
       .map((n) => Math.max(1, n))
       .toSorted((a, b) => a - b);
 
     batch(() => {
-      setStore("form", "playerCountMin", min ?? 1);
-      setStore("form", "playerCountMax", max ?? 1);
+      setStore("playerCount", "min", "value", min ?? 1);
+      setStore("playerCount", "max", "value", max ?? 1);
     });
 
-    if (hasErrors()) {
+    if (errors().hasErrors) {
       return;
     }
 
@@ -83,111 +79,107 @@ export function NewGamePage(props: {
         <Input
           label="Titel"
           name="title"
-          value={store.form.titel}
-          onValueUpdate={(newValue) => {
-            setStore("form", "titel", newValue);
-            setStore("errors", "titleMissing", false);
-          }}
+          value={store.title.value}
+          onValueUpdate={(newValue) => setStore("title", "value", newValue)}
+          onBlur={() => setStore("title", "isDirty", true)}
         />
-        <Show when={store.errors.titleMissing}>
-          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+        <Show when={errors().titleMissing && store.title.isDirty}>
+          <Box type="danger">{TXT.mandatoryField}</Box>
         </Show>
         <Input
           label="System (optional)"
           name="System"
-          value={store.form.system}
-          onValueUpdate={(newValue) => setStore("form", "system", newValue)}
+          value={store.system.value}
+          onValueUpdate={(newValue) => setStore("system", "value", newValue)}
+          onBlur={() => setStore("system", "isDirty", true)}
         />
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
           <InputInteger
             label="Anzahl Mitspielende (Minimum)"
             name="playerCountMin"
-            value={store.form.playerCountMin}
+            value={store.playerCount.min.value}
             onValueUpdate={(newValue) =>
-              setStore("form", "playerCountMin", newValue)
+              setStore("playerCount", "min", "value", newValue)
             }
+            onBlur={() => setStore("playerCount", "min", "isDirty", true)}
             min={1}
-            max={store.form.playerCountMax}
+            max={store.playerCount.max.value}
           />
           <InputInteger
             label="Anzahl Mitspielende (Maximum)"
             name="playerCountMax"
-            value={store.form.playerCountMax}
+            value={store.playerCount.max.value}
             onValueUpdate={(newValue) =>
-              setStore("form", "playerCountMax", newValue)
+              setStore("playerCount", "max", "value", newValue)
             }
-            min={store.form.playerCountMin}
+            onBlur={() => setStore("playerCount", "max", "isDirty", true)}
+            min={store.playerCount.min.value}
           />
         </div>
         <Textarea
           label="kurze Beschreibung"
           name="descriptionShort"
-          value={store.form.descriptionShort}
-          onValueUpdate={(newValue) => {
-            setStore("form", "descriptionShort", newValue);
-            setStore("errors", "descriptionShortMissing", false);
-            setStore(
-              "errors",
-              "descriptionShortTooLong",
-              newValue.length > DESCR_SHORT_MAX_CHAR,
-            );
-          }}
+          value={store.description.short.value}
+          onValueUpdate={(newValue) =>
+            setStore("description", "short", "value", newValue)
+          }
+          onBlur={() => setStore("description", "short", "isDirty", true)}
           size="sm"
         />
-        <Show when={store.errors.descriptionShortMissing}>
-          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+        <Show
+          when={
+            errors().descriptionShortMissing && store.description.short.isDirty
+          }
+        >
+          <Box type="danger">{TXT.mandatoryField}</Box>
         </Show>
-        <Show when={store.errors.descriptionShortTooLong}>
+        <Show
+          when={
+            errors().descriptionShortTooLong && store.description.short.isDirty
+          }
+        >
           <Box type="danger">
-            Dieses Feld ist auf {DESCR_SHORT_MAX_CHAR} Zeichen limitiert.
+            {TXT.charLimitBy.replace("{}", String(DESCR_SHORT_MAX_CHAR))}
           </Box>
         </Show>
         <Textarea
           label="lange Beschreibung (optional)"
           name="descriptionLong"
-          value={store.form.descriptionLong}
-          onValueUpdate={(newValue) => {
-            setStore("form", "descriptionLong", newValue);
-            setStore(
-              "errors",
-              "descriptionLongTooLong",
-              newValue.length > DESCR_LONG_MAX_CHAR,
-            );
-          }}
+          value={store.description.long.value}
+          onValueUpdate={(newValue) =>
+            setStore("description", "long", "value", newValue)
+          }
+          onBlur={() => setStore("description", "long", "isDirty", true)}
         />
-        <Show when={store.errors.descriptionLongTooLong}>
+        <Show
+          when={
+            errors().descriptionLongTooLong && store.description.long.isDirty
+          }
+        >
           <Box type="danger">
-            Dieses Feld ist auf {DESCR_LONG_MAX_CHAR} Zeichen limitiert.
+            {TXT.charLimitBy.replace("{}", String(DESCR_LONG_MAX_CHAR))}
           </Box>
         </Show>
         <fieldset>
           <legend>Zeitslots</legend>
           <TimeSlots
-            slots={props.store.form.slots}
-            addTimeSlot={(dateTime: DateTimeWindow) => {
+            slots={props.store.slots}
+            addTimeSlot={(newSlot: DateTimeWindow) =>
+              setStore("slots", store.slots.concat(newSlot))
+            }
+            removeTimeSlot={(slot: DateTimeWindow) =>
               setStore(
-                "form",
                 "slots",
-                dateTime.day,
-                store.form.slots[dateTime.day].concat({
-                  from: dateTime.from,
-                  to: dateTime.to,
-                }),
-              );
-              setStore("errors", "slotMissing", false);
-            }}
-            removeTimeSlot={(dateTime: DateTimeWindow) =>
-              setStore(
-                "form",
-                "slots",
-                dateTime.day,
-                store.form.slots[dateTime.day].filter(
-                  (s) => s.from !== dateTime.from || s.to !== dateTime.to,
+                store.slots.filter(
+                  (s) =>
+                    s.from !== slot.from ||
+                    s.to !== slot.to ||
+                    s.day !== slot.day,
                 ),
               )
             }
           />
-          <Show when={store.errors.slotMissing}>
+          <Show when={errors().slotMissing}>
             <br />
             <br />
             <Box type="danger">Wähle mindestens einen Zeitslot aus.</Box>
@@ -201,21 +193,19 @@ export function NewGamePage(props: {
                 <Checkbox
                   label={gameTag.label}
                   description={gameTag.description}
-                  checked={store.form.tags.includes(gameTag.name)}
+                  checked={store.tagNames.includes(gameTag.name)}
                   name={gameTag.name}
                   value={gameTag.name}
                   onValueUpdate={(checked) => {
                     if (checked) {
                       setStore(
-                        "form",
-                        "tags",
-                        store.form.tags.concat([gameTag.name]),
+                        "tagNames",
+                        store.tagNames.concat([gameTag.name]),
                       );
                     } else {
                       setStore(
-                        "form",
-                        "tags",
-                        store.form.tags.filter((t) => t !== gameTag.name),
+                        "tagNames",
+                        store.tagNames.filter((t) => t !== gameTag.name),
                       );
                     }
                   }}
@@ -224,7 +214,7 @@ export function NewGamePage(props: {
             </For>
           </div>
         </fieldset>
-        <Show when={hasErrors(store.errors)}>
+        <Show when={errors().hasErrors}>
           <Box type="danger">
             <h4>Spielrunde inkomplett</h4>
             Du hast noch einen oder mehre Fehler/fehlende Informationen in
@@ -251,8 +241,8 @@ export function NewGamePage(props: {
           />
           <Button
             type="submit"
-            kind={hasErrors(store.errors) ? "gray" : "success"}
-            disabled={hasErrors(store.errors)}
+            kind={errors().hasErrors ? "gray" : "success"}
+            disabled={errors().hasErrors}
             label="Spielrunde erstellen"
           />
         </div>
@@ -324,12 +314,18 @@ function calculateDaySections(openingHours: OpeningHours): DaySections {
   };
 }
 
+function groupByDay(slots: DateTimeWindow[]): PerDay<DateTimeWindow[]> {
+  const { SATURDAY, SUNDAY } = Object.groupBy(slots, (slot) => slot.day);
+  return { SATURDAY: SATURDAY ?? [], SUNDAY: SUNDAY ?? [] };
+}
+
 function TimeSlots(props: {
-  slots: PerDay<TimeRange[]>;
+  slots: DateTimeWindow[];
   addTimeSlot: (dateTime: DateTimeWindow) => void;
   removeTimeSlot: (dateTime: DateTimeWindow) => void;
 }): JSX.Element {
   const daySections = calculateDaySections(openingHours);
+  const { SATURDAY, SUNDAY } = groupByDay(props.slots);
 
   return (
     <>
@@ -337,10 +333,10 @@ function TimeSlots(props: {
         daySections={daySections}
         chooseTimeSlot={props.addTimeSlot}
       />
-      <Show when={props.slots["SATURDAY"].length > 0}>
+      <Show when={SATURDAY.length > 0}>
         <h6>Samstag, 23. August 2025</h6>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <For each={props.slots["SATURDAY"]}>
+          <For each={SATURDAY}>
             {(slot) => (
               <Button
                 label={
@@ -364,10 +360,10 @@ function TimeSlots(props: {
           </For>
         </div>
       </Show>
-      <Show when={props.slots["SUNDAY"].length > 0}>
+      <Show when={SUNDAY.length > 0}>
         <h6>Sonntag, 24. August 2025</h6>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <For each={props.slots["SUNDAY"]}>
+          <For each={SUNDAY}>
             {(slot) => (
               <Button
                 label={
