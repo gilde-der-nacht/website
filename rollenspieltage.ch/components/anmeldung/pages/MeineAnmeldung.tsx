@@ -10,9 +10,8 @@ import {
   onMount,
   type JSX,
 } from "solid-js";
-import "../anmeldung.scss";
-import { loadServerProgram } from "../load";
-import { Router } from "../Router";
+import "@rst/components/anmeldung/anmeldung.scss";
+import { Router } from "@rst/components/anmeldung/Router";
 import { loadSave } from "@rst/components/anmeldung/api/save";
 import {
   getPageState,

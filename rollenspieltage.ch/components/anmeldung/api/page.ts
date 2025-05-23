@@ -1,11 +1,11 @@
 import { z } from "astro/zod";
 
-const allPageStateSchema = z.object({
+const allPageClientSchema = z.object({
   secret: z.string(),
   showCreateMessage: z.boolean(),
 });
 
-const simplePageStateSchema = z
+const simplePageClientSchema = z
   .object({
     kind: z.enum([
       "CHOOSE",
@@ -16,23 +16,23 @@ const simplePageStateSchema = z
       "SUMMARY",
     ]),
   })
-  .merge(allPageStateSchema);
+  .merge(allPageClientSchema);
 
-const editGameroundPageStateSchema = z
+const editGameroundPageClientSchema = z
   .object({
     kind: z.literal("EDIT_GAMEROUND"),
     uuid: z.string().uuid(),
   })
-  .merge(allPageStateSchema);
+  .merge(allPageClientSchema);
 
-export const pageStateSchema = z.union([
-  simplePageStateSchema,
-  editGameroundPageStateSchema,
+export const pageClientSchema = z.union([
+  simplePageClientSchema,
+  editGameroundPageClientSchema,
 ]);
 
-export type PageState = z.infer<typeof pageStateSchema>;
+export type PageClient = z.infer<typeof pageClientSchema>;
 
-export function getPageState(url: URL): PageState {
+export function getPageState(url: URL): PageClient {
   const pageParam = url.searchParams.get("page");
   const uuid = url.searchParams.get("uuid");
   const secret = url.searchParams.get("secret");
@@ -40,7 +40,7 @@ export function getPageState(url: URL): PageState {
     url.searchParams.get("showCreateMessage") === "true";
 
   if (uuid === null) {
-    const parseResult = pageStateSchema.safeParse({
+    const parseResult = pageClientSchema.safeParse({
       kind: pageParam,
       secret,
       showCreateMessage,
@@ -49,14 +49,14 @@ export function getPageState(url: URL): PageState {
       return parseResult.data;
     }
     console.error(parseResult.error);
-    return pageStateSchema.parse({
+    return pageClientSchema.parse({
       kind: "CHOOSE",
       secret,
       showCreateMessage,
     });
   }
 
-  const parseResult = pageStateSchema.safeParse({
+  const parseResult = pageClientSchema.safeParse({
     kind: pageParam,
     uuid,
     secret,
@@ -67,7 +67,7 @@ export function getPageState(url: URL): PageState {
     return parseResult.data;
   }
 
-  return pageStateSchema.parse({
+  return pageClientSchema.parse({
     kind: "CHOOSE",
     secret,
     showCreateMessage,

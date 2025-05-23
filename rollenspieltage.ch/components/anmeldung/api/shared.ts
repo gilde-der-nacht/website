@@ -17,3 +17,4 @@ export const tagSchema = z.object({
   label: z.string(),
   description: z.string(),
 });
+export type Tag = z.infer<typeof tagSchema>;
