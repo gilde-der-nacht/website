@@ -1,10 +1,8 @@
 import type { JSX } from "solid-js";
-import { PageTemplate } from "./PageTemplate";
-import type { PageMeta } from "../load";
+import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 
-export function PlayerPage(props: {
-  changePage: (pageMeta: PageMeta) => void;
-}): JSX.Element {
+export function PlayerPage(props: { changePage: ChangePageFn }): JSX.Element {
   return (
     <PageTemplate title="Spielrundenübersicht" changePage={props.changePage}>
       <pre>

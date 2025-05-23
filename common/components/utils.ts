@@ -107,3 +107,16 @@ export function getNumberedKeys<A extends number>(obj: {
 export function sortTwoNumbers(nums: [number, number]): [number, number] {
   return nums.toSorted((a, b) => a - b) as [number, number];
 }
+
+type UnpackUnionResult<T> = T[] extends { kind: string }[]
+  ? T extends { kind: infer K }
+    ? { kind: K; value: T extends { kind: K } ? T : never }
+    : never
+  : never;
+
+export function unpackUnion<K extends string, T extends { kind: K }>(
+  union: T,
+): UnpackUnionResult<T> {
+  const kind = union.kind;
+  return { kind, value: union } as UnpackUnionResult<T>;
+}

@@ -1,73 +1,120 @@
-import type { Store } from "solid-js/store";
-import type { AppState } from "./types";
-import { Match, Show, Switch, type JSX } from "solid-js";
-import type { Program } from "./data";
-import { initState } from "./store";
-import { getPageMeta } from "./load";
-import { SummaryPage } from "./pages/SummaryPage";
-import { HelpingPage } from "./pages/HelpingPage";
-import { GamemasterPage } from "./pages/Gamemaster";
-import { PlayerPage } from "./pages/PlayerPage";
+import { Match, Show, Switch, type JSX, type Resource } from "solid-js";
+import { SummaryPage } from "@rst/components/anmeldung/pages/SummaryPage";
+import { HelpingPage } from "@rst/components/anmeldung/pages/HelpingPage";
+import { GamemasterPage } from "@rst/components/anmeldung/pages/Gamemaster";
+import { PlayerPage } from "@rst/components/anmeldung/pages/PlayerPage";
 import { Box } from "@common/components/Box";
-import { TXT } from "./text";
-import { ChoosePage } from "./pages/Choose";
-import { NewGamePage } from "./pages/NewGamePage";
-import { EditGamePage } from "./pages/EditGamePage";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { ChoosePage } from "@rst/components/anmeldung/pages/Choose";
+import { NewGamePage } from "@rst/components/anmeldung/pages/NewGamePage";
+import { EditGamePage } from "@rst/components/anmeldung/pages/EditGamePage";
+import type { PublicProgramClient } from "@rst/components/anmeldung/api/program";
+import type { Result } from "@rst/components/anmeldung/api/utils";
+import {
+  getMetaState,
+  isSamePage,
+  type MetaClient,
+  type PageClient,
+} from "@rst/components/anmeldung/api/meta";
+import type { SaveClient } from "@rst/components/anmeldung/api/save";
+import { createStore, type Store } from "solid-js/store";
+
+function initPage(page: MetaClient): void {
+  const { kind } = page;
+  const url = new URL(location.href);
+  url.searchParams.set("page", kind.toLowerCase());
+  if (kind === "EDIT_GAMEROUND") {
+    url.searchParams.set("uuid", page.uuid);
+  }
+  url.searchParams.delete("showCreateMessage");
+  history.replaceState({ page }, "", url);
+  const newMetaTitle = TXT.pageTitle[kind];
+  document.title = TXT.metaTitle.replace("{}", newMetaTitle);
+}
+
+export type ChangePageFn = (page: PageClient, backButton?: boolean) => void;
+function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
+  const [pageStore, setPageStore] = createStore(store.page);
+  return (page: PageClient, backButton?: boolean) => {
+    if (isSamePage(page, pageStore)) {
+      return;
+    }
+
+    if (!backButton) {
+      const url = new URL(location.href);
+      url.searchParams.set("page", page.kind.toLowerCase());
+      if (page.kind === "EDIT_GAMEROUND") {
+        url.searchParams.set("uuid", page.uuid);
+      }
+      history.pushState({ page }, "", url);
+    }
+    const newMetaTitle = TXT.pageTitle[page.kind];
+    document.title = TXT.metaTitle.replace("{}", newMetaTitle);
+    setPageStore(page);
+    window.scrollTo({ top: 0 });
+  };
+}
 
 export function Router(props: {
-  state: Store<AppState>;
-  programResource: Program;
+  page: MetaClient;
+  save: SaveClient;
+  programResource: Resource<Result<PublicProgramClient>>;
 }): JSX.Element {
-  const { state, actions } = initState(props.state);
+  initPage(props.page);
+  const [store, _setStore] = createStore({
+    page: props.page,
+    save: props.save,
+  });
+  const changePage = createChangePageFn(store);
 
   window.addEventListener("popstate", (e: unknown) => {
     if (typeof e === "object" && e !== null && "state" in e) {
       const currentUrl = new URL(location.href);
-      const pageMeta = getPageMeta(currentUrl);
-      actions.changePage(pageMeta, true);
+      const pageMeta = getMetaState(currentUrl);
+      changePage(pageMeta, true);
     }
   });
 
   return (
     <>
-      <Show when={state.showCreateMessage}>
+      <Show when={store.page.showCreateMessage}>
         <Box type="success">{TXT.registrationStarted}</Box>
         <br />
       </Show>
-      <Switch fallback={<ChoosePage changePage={actions.changePage} />}>
-        <Match when={state.pageMeta[0] === "PLAYER"}>
-          <PlayerPage changePage={actions.changePage} />
+      <Switch fallback={<ChoosePage changePage={changePage} />}>
+        <Match when={store.page.kind === "PLAYER"}>
+          <PlayerPage changePage={changePage} />
         </Match>
-        <Match when={state.pageMeta[0] === "GAMEMASTER"}>
+        <Match when={store.page.kind === "GAMEMASTER"}>
           <GamemasterPage
             store={state.currentSave.gameMaster}
-            changePage={actions.changePage}
+            changePage={changePage}
           />
         </Match>
-        <Match when={state.pageMeta[0] === "GAMEMASTER_NEW"}>
+        <Match when={store.page.kind === "NEW_GAMEROUND"}>
           <NewGamePage
             store={state.gameRoundEdit}
-            changePage={actions.changePage}
+            changePage={changePage}
             openingHours={props.programResource.openingHours}
-            createNewGame={actions.createNewGame}
+            createNewGame={createNewGame}
           />
         </Match>
-        <Match when={state.pageMeta[0] === "GAMEMASTER_EDIT"}>
+        <Match when={store.page.kind === "EDIT_GAMEROUND"}>
           <EditGamePage
           // store={state.gameRoundEdit}
-          // changePage={actions.changePage}
+          // changePage={changePage}
           // openingHours={props.programResource.openingHours}
-          // createNewGame={actions.createNewGame}
+          // createNewGame={createNewGame}
           />
         </Match>
-        <Match when={state.pageMeta[0] === "HELPING"}>
-          <HelpingPage changePage={actions.changePage} />
+        <Match when={store.page.kind === "HELPING"}>
+          <HelpingPage changePage={changePage} />
         </Match>
-        <Match when={state.pageMeta[0] === "SUMMARY"}>
-          <SummaryPage changePage={actions.changePage} />
+        <Match when={store.page.kind === "SUMMARY"}>
+          <SummaryPage changePage={changePage} />
         </Match>
       </Switch>
-      <pre>{JSON.stringify(state, null, 2)}</pre>
+      <pre>{JSON.stringify(store, null, 2)}</pre>
     </>
   );
 }

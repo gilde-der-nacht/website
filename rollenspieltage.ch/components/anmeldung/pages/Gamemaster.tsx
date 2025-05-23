@@ -1,5 +1,4 @@
 import { For, Show, type JSX } from "solid-js";
-import type { PageMeta } from "../load";
 import { BoxLink } from "../components/BoxLink";
 import { PageTemplate } from "./PageTemplate";
 import type { Store } from "solid-js/store";
@@ -9,17 +8,18 @@ import {
   DESCR_SHORT_MAX_CHAR,
   gameTags,
 } from "../utils/gameRound";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 
 export function GamemasterPage(props: {
   store: Store<GameMasterSave>;
-  changePage: (pageMeta: PageMeta) => void;
+  changePage: ChangePageFn;
 }): JSX.Element {
   return (
     <PageTemplate title="Meine Spielrunden" changePage={props.changePage}>
       <BoxLink
         icon="grid-2-plus"
         type="success"
-        onClick={() => props.changePage(["GAMEMASTER_NEW"])}
+        onClick={() => props.changePage({ kind: "NEW_GAMEROUND" })}
       >
         <h3>Neue Spielrunde erstellen</h3>
       </BoxLink>
@@ -106,10 +106,10 @@ export function GamemasterPage(props: {
                               <li>
                                 <button
                                   onClick={() =>
-                                    props.changePage([
-                                      "GAMEMASTER_EDIT",
-                                      game.uuid,
-                                    ])
+                                    props.changePage({
+                                      kind: "EDIT_GAMEROUND",
+                                      uuid: game.uuid,
+                                    })
                                   }
                                   class="event-link"
                                 >

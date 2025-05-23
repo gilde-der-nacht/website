@@ -1,16 +1,56 @@
 import { z } from "astro/zod";
+import type { Result } from "@rst/components/anmeldung/api/utils";
+import { mockedLoadProgram } from "@rst/components/anmeldung/api/mock";
+import { gameroundPublicServerSchema } from "@rst/components/anmeldung/api/gameround-public";
 
-const programEntryPublicSchema = z.object({
-  uuid: z.string().uuid(),
-});
-export type ProgramPublicEntry = z.infer<typeof programEntryPublicSchema>;
+/*
+ * Types
+ */
 
-const programEntryEditSchema = z.object({
-  uuid: z.string().uuid(),
+export const publicProgramServerSchema = z.object({
+  entries: z.array(gameroundPublicServerSchema),
 });
-export type ProgramEditEntry = z.infer<typeof programEntryEditSchema>;
+export type PublicProgramServer = z.infer<typeof publicProgramServerSchema>;
 
-export const programClientSchema = z.object({
-  entries: z.array(programEntryPublicSchema),
-});
-export type ProgramClient = z.infer<typeof programClientSchema>;
+export const publicProgramClientSchema = publicProgramServerSchema;
+export type PublicProgramClient = z.infer<typeof publicProgramClientSchema>;
+
+/*
+ * Methods
+ */
+
+export async function loadProgram(
+  secret: string,
+): Promise<Result<PublicProgramClient>> {
+  if (secret !== "demo") {
+    return {
+      success: false,
+    };
+  }
+
+  const program = await mockedLoadProgram();
+  const parseResult = publicProgramServerSchema.safeParse(program);
+
+  if (!parseResult.success) {
+    return {
+      success: false,
+    };
+  }
+  const transformResult = transformProgramFromServer(parseResult.data);
+  if (!transformResult.success) {
+    return {
+      success: false,
+    };
+  }
+
+  return {
+    success: true,
+    data: transformResult.data,
+  };
+}
+
+function transformProgramFromServer(
+  s: PublicProgramServer,
+): Result<PublicProgramClient> {
+  return publicProgramClientSchema.safeParse(s);
+}

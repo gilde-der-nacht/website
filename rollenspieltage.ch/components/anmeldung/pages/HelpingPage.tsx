@@ -1,10 +1,8 @@
 import type { JSX } from "solid-js";
-import { PageTemplate } from "./PageTemplate";
-import type { PageMeta } from "../load";
+import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 
-export function HelpingPage(props: {
-  changePage: (pageMeta: PageMeta) => void;
-}): JSX.Element {
+export function HelpingPage(props: { changePage: ChangePageFn }): JSX.Element {
   return (
     <PageTemplate title="Helfen" changePage={props.changePage}>
       <pre>

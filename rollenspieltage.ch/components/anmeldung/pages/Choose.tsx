@@ -1,25 +1,26 @@
 import type { JSX } from "solid-js";
-import { BoxLink } from "../components/BoxLink";
-import { PageTemplate } from "./PageTemplate";
-import type { PageMeta } from "../load";
+import { BoxLink } from "@rst/components/anmeldung/components/BoxLink";
+import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 
-export function ChoosePage(props: {
-  changePage: (pageMeta: PageMeta) => void;
-}): JSX.Element {
+export function ChoosePage(props: { changePage: ChangePageFn }): JSX.Element {
   return (
     <PageTemplate
       title="Wo möchtest du starten?"
       showQuickmenu={false}
       changePage={props.changePage}
     >
-      <BoxLink icon="dice-d20" onClick={() => props.changePage(["PLAYER"])}>
+      <BoxLink
+        icon="dice-d20"
+        onClick={() => props.changePage({ kind: "PLAYER" })}
+      >
         <h3>Spielrunden ansehen</h3>
         <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
       </BoxLink>
       <br />
       <BoxLink
         icon="grid-2-plus"
-        onClick={() => props.changePage(["GAMEMASTER"])}
+        onClick={() => props.changePage({ kind: "GAMEMASTER" })}
       >
         <h3>Spielrunden erstellen</h3>
         <p>
@@ -28,7 +29,10 @@ export function ChoosePage(props: {
         </p>
       </BoxLink>
       <br />
-      <BoxLink icon="hand-heart" onClick={() => props.changePage(["HELPING"])}>
+      <BoxLink
+        icon="hand-heart"
+        onClick={() => props.changePage({ kind: "HELPING" })}
+      >
         <h3>Helfen</h3>
         <p>
           Beim Kiosk und der Essensausgabe können wir immer ein paar helfende
@@ -36,7 +40,10 @@ export function ChoosePage(props: {
         </p>
       </BoxLink>
       <br />
-      <BoxLink icon="list" onClick={() => props.changePage(["SUMMARY"])}>
+      <BoxLink
+        icon="list"
+        onClick={() => props.changePage({ kind: "SUMMARY" })}
+      >
         <h3>Zusammenfassung</h3>
         <p>Erhalte einen Überblick über dein gesamtes Programm.</p>
       </BoxLink>

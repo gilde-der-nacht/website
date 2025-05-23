@@ -1,13 +1,16 @@
 import type { WithChildren } from "@common/components/utils";
 import type { JSX } from "solid-js/jsx-runtime";
-import { QuickMenu, QuickMenuExtended } from "../components/QuickMenu";
-import type { PageMeta } from "../load";
+import {
+  QuickMenu,
+  QuickMenuExtended,
+} from "@rst/components/anmeldung/components/QuickMenu";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 
 export function PageTemplate(
   props: WithChildren & {
     title: string;
     showQuickmenu?: boolean;
-    changePage: (pageMeta: PageMeta) => void;
+    changePage: ChangePageFn;
   },
 ): JSX.Element {
   return (

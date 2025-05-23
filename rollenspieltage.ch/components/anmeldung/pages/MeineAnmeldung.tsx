@@ -14,67 +14,45 @@ import "@rst/components/anmeldung/anmeldung.scss";
 import { Router } from "@rst/components/anmeldung/Router";
 import { loadSave } from "@rst/components/anmeldung/api/save";
 import {
-  getPageState,
-  type PageState,
-} from "@rst/components/anmeldung/state/page-client";
+  getMetaState,
+  type MetaClient,
+} from "@rst/components/anmeldung/api/meta";
+import { loadProgram } from "@rst/components/anmeldung/api/program";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { unpackUnion } from "@common/components/utils";
 
 function Loading(): JSX.Element {
-  return (
-    <Box>
-      <p>Deine Anmeldung wird geladen...</p>
-    </Box>
-  );
+  return <Box>{TXT.loading}</Box>;
 }
 
 export function MeineAnmeldungWrapper(): JSX.Element {
-  const [pageState, setPageState] = createSignal<PageState | null>(null);
+  const [pageState, setPageState] = createSignal<MetaClient | null>(null);
 
   onMount(() => {
     const currentUrl = new URL(location.href);
-    setPageState(getPageState(currentUrl));
+    setPageState(getMetaState(currentUrl));
   });
 
   return (
     <Show fallback={<Loading />} when={pageState()}>
-      {(state) => <MeineAnmeldung pageState={state()} />}
+      {(pageAccessor) => <MeineAnmeldung page={pageAccessor()} />}
     </Show>
   );
 }
 
-function MeineAnmeldung(props: { pageState: PageState }): JSX.Element {
-  const [saveResource] = createResource(() => loadSave(props.pageState.secret));
+function MeineAnmeldung(props: { page: MetaClient }): JSX.Element {
+  const [saveResource] = createResource(() => loadSave(props.page.secret));
   const [programResource] = createResource(() =>
-    loadServerProgram(props.pageState.secret === "demo"),
+    loadProgram(props.page.secret),
   );
 
   return (
     <ErrorBoundary
       fallback={(err) => (
         <Box type="danger">
-          <Switch
-            fallback={
-              <p>
-                Leider ist ein unerwarteter Fehler passiert. Versuche deine
-                Anmeldung erneut zu laden. Wiederholt sich dieser Fehler, bitte
-                kontaktiere uns sobald als möglich über das{" "}
-                <a href="/kontakt">Kontaktformular</a>, da dies nicht passieren
-                sollte.
-              </p>
-            }
-          >
+          <Switch fallback={TXT.error.general}>
             <Match when={err.message === "SECRET_ERROR"}>
-              <p>
-                Wir konnten leider keine Anmeldung finden. Wenn du bereits eine
-                Anmeldung begonnen hast, solltest du den korrekten Link per
-                E-Mail erhalten haben.
-                <br />
-                <br /> Falls du noch keine Anmeldung begonnen hast, kannst du{" "}
-                <a href="/anmeldung">hier</a> deine persönliche Anmeldung
-                beginnen. <br />
-                <br />
-                Für generelle Fragen oder Probleme, schreibe uns doch bitte über
-                unser <a href="/kontatk">Kontaktformular</a>.
-              </p>
+              {TXT.error.secretError}
             </Match>
           </Switch>
         </Box>
@@ -83,13 +61,19 @@ function MeineAnmeldung(props: { pageState: PageState }): JSX.Element {
       <Suspense fallback={<Loading />}>
         <Switch>
           <Match when={saveResource()}>
-            {(state) => (
-              <Show when={programResource()}>
-                {(program) => (
-                  <Router state={state()} programResource={program()} />
-                )}
-              </Show>
-            )}
+            {(state) => {
+              const { kind, value } = unpackUnion(state());
+              if (kind === "FAILURE") {
+                return <>{TXT.error.general}</>;
+              }
+              return (
+                <Router
+                  page={props.page}
+                  save={value.data}
+                  programResource={programResource}
+                />
+              );
+            }}
           </Match>
         </Switch>
       </Suspense>

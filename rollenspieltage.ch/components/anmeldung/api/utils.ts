@@ -1,8 +1,8 @@
 export type Result<T> =
   | {
-      success: true;
+      kind: "SUCCESS";
       data: T;
     }
   | {
-      success: false;
+      kind: "FAILURE";
     };
