@@ -89,7 +89,7 @@ export function Router(props: {
         </Match>
         <Match when={store.meta.page.kind === "NEW_GAMEROUND"}>
           <NewGamePage
-            store={state.gameRoundEdit}
+            store={store.save.master.newEditForm}
             changePage={changePage}
             createNewGame={createNewGame}
           />

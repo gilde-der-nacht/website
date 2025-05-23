@@ -64,7 +64,7 @@ function MeineAnmeldung(props: { page: MetaClient }): JSX.Element {
             {(state) => {
               const { kind, value } = unpackUnion(state());
               if (kind === "FAILURE") {
-                return <>{TXT.error.general}</>;
+                return <Box type="danger">{TXT.error.ourMistake}</Box>;
               }
               return (
                 <Router

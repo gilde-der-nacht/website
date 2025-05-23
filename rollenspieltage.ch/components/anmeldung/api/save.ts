@@ -4,6 +4,8 @@ import { z } from "astro/zod";
 import {
   gameroundEditServerSchema,
   gameroundEditClientSchema,
+  gameroundNewEditServerSchema,
+  gameroundNewEditClientSchema,
 } from "@rst/components/anmeldung/api/gameround-edit";
 
 /*
@@ -28,11 +30,13 @@ const playingClientSchema = z.object({
 
 const masterServerSchema = z.object({
   games: z.array(gameroundEditServerSchema),
+  newEditForm: gameroundNewEditServerSchema,
   wantsHelp: z.boolean(),
 });
 
 const masterClientSchema = z.object({
   games: z.array(gameroundEditClientSchema),
+  newEditForm: gameroundNewEditClientSchema,
   wantsHelp: z.boolean(),
 });
 export type MasterClient = z.infer<typeof masterClientSchema>;

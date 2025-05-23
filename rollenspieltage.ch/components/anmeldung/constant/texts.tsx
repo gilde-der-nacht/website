@@ -37,6 +37,13 @@ const error = {
       <a href="/kontatk">Kontaktformular</a>.
     </p>
   ),
+  ourMistake: (
+    <p>
+      Leider ist ein unerwarteter Fehler passiert. Vermutlich liegt es an uns.
+      Bitte kontaktiere uns sobald als möglich über das{" "}
+      <a href="/kontakt">Kontaktformular</a>.
+    </p>
+  ),
 };
 
 const draft = "Entwurf";

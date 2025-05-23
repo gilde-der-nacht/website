@@ -38,9 +38,10 @@ import {
   type OpeningHours,
 } from "@rst/components/anmeldung/constant/hours";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
+import type { GameroundNewEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 
 export function NewGamePage(props: {
-  store: Store<NewGameRound>;
+  store: Store<GameroundNewEditClient>;
   changePage: ChangePageFn;
   createNewGame: () => void;
 }): JSX.Element {

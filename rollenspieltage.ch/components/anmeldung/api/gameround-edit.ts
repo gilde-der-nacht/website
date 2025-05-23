@@ -10,6 +10,10 @@ import { sortTwoNumbers } from "@common/components/utils";
  * Types
  */
 
+/*
+ * Edit
+ */
+
 export const gameroundEditServerSchema = z.object({
   uuid: z.string().uuid(),
   title: z.string(),
@@ -50,3 +54,48 @@ export const gameroundEditClientSchema = z.object({
   tagNames: z.array(z.string()),
 });
 export type GameroundEditClient = z.infer<typeof gameroundEditClientSchema>;
+
+/*
+ * New
+ */
+
+export const gameroundNewEditServerSchema = z.object({
+  title: z.string(),
+  system: z.string(),
+  description: z.object({
+    short: z.string(),
+    long: z.string(),
+  }),
+  slots: z.array(timeSlotSchema),
+  playerCount: z
+    .object({
+      min: z.number().min(1),
+      max: z.number(),
+    })
+    .transform((count) => {
+      const [min, max] = sortTwoNumbers([count.min, count.max]);
+      return { min, max };
+    }),
+  tagNames: z.array(z.string()),
+});
+export type GameroundNewEditServer = z.infer<
+  typeof gameroundNewEditServerSchema
+>;
+
+export const gameroundNewEditClientSchema = z.object({
+  title: textInputSchema,
+  system: textInputSchema,
+  description: z.object({
+    short: textInputSchema,
+    long: textInputSchema,
+  }),
+  slots: z.array(timeSlotSchema),
+  playerCount: z.object({
+    min: numberInputSchema,
+    max: numberInputSchema,
+  }),
+  tagNames: z.array(z.string()),
+});
+export type GameroundNewEditClient = z.infer<
+  typeof gameroundNewEditClientSchema
+>;
