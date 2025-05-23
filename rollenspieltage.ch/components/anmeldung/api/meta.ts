@@ -19,7 +19,7 @@ const pageClientSchema = z.discriminatedUnion("kind", [
 export type PageClient = z.infer<typeof pageClientSchema>;
 export type PageKind = PageClient["kind"];
 
-const metaClientSchema = z.object({
+export const metaClientSchema = z.object({
   page: pageClientSchema,
   secret: z.string(),
   showCreateMessage: z.boolean(),

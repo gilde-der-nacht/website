@@ -1,5 +1,5 @@
 import { z } from "astro/zod";
-import type { Result } from "@rst/components/anmeldung/api/utils";
+import type { ParseResult, Result } from "@rst/components/anmeldung/api/utils";
 import { mockedLoadProgram } from "@rst/components/anmeldung/api/mock";
 import { gameroundPublicServerSchema } from "@rst/components/anmeldung/api/gameround-public";
 
@@ -24,7 +24,7 @@ export async function loadProgram(
 ): Promise<Result<PublicProgramClient>> {
   if (secret !== "demo") {
     return {
-      success: false,
+      kind: "FAILURE",
     };
   }
 
@@ -33,24 +33,24 @@ export async function loadProgram(
 
   if (!parseResult.success) {
     return {
-      success: false,
+      kind: "FAILURE",
     };
   }
   const transformResult = transformProgramFromServer(parseResult.data);
   if (!transformResult.success) {
     return {
-      success: false,
+      kind: "FAILURE",
     };
   }
 
   return {
-    success: true,
+    kind: "SUCCESS",
     data: transformResult.data,
   };
 }
 
 function transformProgramFromServer(
   s: PublicProgramServer,
-): Result<PublicProgramClient> {
+): ParseResult<PublicProgramClient> {
   return publicProgramClientSchema.safeParse(s);
 }

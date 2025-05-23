@@ -1,4 +1,4 @@
-import type { Tag } from "@rst/components/anmeldung/state/general";
+import type { Tag } from "@rst/components/anmeldung/api/shared";
 
 export const gameTags = [
   {

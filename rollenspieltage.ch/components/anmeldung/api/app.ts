@@ -1,10 +1,10 @@
 import { z } from "astro/zod";
-import { pageClientSchema } from "@rst/components/anmeldung/api/page";
+import { metaClientSchema } from "@rst/components/anmeldung/api/meta";
 import { saveClientSchema } from "@rst/components/anmeldung/api/save";
 import { publicProgramClientSchema } from "@rst/components/anmeldung/api/program";
 
 const appClientSchema = z.object({
-  page: pageClientSchema,
+  meta: metaClientSchema,
   save: saveClientSchema,
   program: publicProgramClientSchema,
 });
