@@ -5,7 +5,7 @@ type Props = {
   type?: "submit" | "button" | "reset";
   kind?: "accent" | "special" | "gray" | "success" | "danger";
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (e: Event) => void;
 };
 
 export function Button(
@@ -16,7 +16,7 @@ export function Button(
       type={props.type ?? "button"}
       class={`button-${props.kind ?? (props.disabled ? "gray" : "accent")}`}
       disabled={props.disabled === true}
-      onClick={() => props.onClick?.()}
+      onClick={(e) => props.onClick?.(e)}
     >
       {props.label}
     </button>
@@ -29,7 +29,7 @@ export function IconButton(props: Props & { icon: IconType }): JSX.Element {
       type={props.type ?? "button"}
       class={`button-${props.kind ?? (props.disabled ? "gray" : "accent")} button-icon`}
       disabled={props.disabled === true}
-      onClick={() => props.onClick?.()}
+      onClick={(e) => props.onClick?.(e)}
     >
       <Icon icon={props.icon} />
     </button>
