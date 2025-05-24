@@ -40,7 +40,7 @@ export function GameroundForm(props: {
   onSubmit: (e: Event) => void;
   onCancel: () => void;
 }): JSX.Element {
-  const [store, setStore] = createStore(props.store);
+  const [store] = createStore(props.store);
   const errors = createMemo(() => validateNewGameround(store));
 
   return (
@@ -96,23 +96,7 @@ export function GameroundForm(props: {
       />
       <fieldset>
         <legend>Zeitslots</legend>
-        <TimeSlots
-          slots={props.store.slots}
-          addTimeSlot={(newSlot: DateTimeWindow) =>
-            setStore("slots", store.slots.concat(newSlot))
-          }
-          removeTimeSlot={(slot: DateTimeWindow) =>
-            setStore(
-              "slots",
-              store.slots.filter(
-                (s) =>
-                  s.from !== slot.from ||
-                  s.to !== slot.to ||
-                  s.day !== slot.day,
-              ),
-            )
-          }
-        />
+        <TimeSlots store={props.store.slots} />
         <Show when={errors().slotMissing}>
           <br />
           <br />
@@ -121,30 +105,7 @@ export function GameroundForm(props: {
       </fieldset>
       <fieldset>
         <legend>Kategorien (optional)</legend>
-        <div style="display: grid; gap: 0.5rem; margin-block-end: 1rem;">
-          <For each={gameTags}>
-            {(gameTag) => (
-              <Checkbox
-                label={gameTag.label}
-                description={gameTag.description}
-                checked={store.tagNames.includes(gameTag.name)}
-                name={gameTag.name}
-                value={gameTag.name}
-                onValueUpdate={(checked) => {
-                  if (checked) {
-                    setStore("tagNames", store.tagNames.concat([gameTag.name]));
-                  } else {
-                    setStore(
-                      "tagNames",
-                      store.tagNames.filter((t) => t !== gameTag.name),
-                    );
-                  }
-                }}
-              />
-            )}
-          </For>
-        </div>
-        <Box>{TXT.tagIdeas}</Box>
+        <Tags store={store.tagNames} />
       </fieldset>
       <Show when={errors().hasErrors}>
         <Box type="danger">
@@ -178,6 +139,44 @@ export function GameroundForm(props: {
     </form>
   );
 }
+
+/*
+ * Tags
+ */
+
+function Tags(props: { store: Store<string[]> }): JSX.Element {
+  const [store, setStore] = createStore(props.store);
+  return (
+    <>
+      <div style="display: grid; gap: 0.5rem; margin-block-end: 1rem;">
+        <For each={gameTags}>
+          {(gameTag) => (
+            <Checkbox
+              label={gameTag.label}
+              description={gameTag.description}
+              checked={store.includes(gameTag.name)}
+              name={gameTag.name}
+              value={gameTag.name}
+              onValueUpdate={(checked) => {
+                if (checked) {
+                  setStore(store.concat([gameTag.name]));
+                } else {
+                  setStore(store.filter((t) => t !== gameTag.name));
+                }
+              }}
+            />
+          )}
+        </For>
+      </div>
+      <Box>{TXT.tagIdeas}</Box>
+    </>
+  );
+}
+
+/*
+ * Slots
+ */
+
 const MIN_SLOT_TIME_HOUR = 1;
 type DaySections = PerDay<{ [s: number]: number[] }>;
 function calculateDaySections(openingHours: OpeningHours): DaySections {
@@ -246,24 +245,32 @@ function groupByDay(slots: DateTimeWindow[]): PerDay<DateTimeWindow[]> {
   return { SATURDAY: SATURDAY ?? [], SUNDAY: SUNDAY ?? [] };
 }
 
-function TimeSlots(props: {
-  slots: DateTimeWindow[];
-  addTimeSlot: (dateTime: DateTimeWindow) => void;
-  removeTimeSlot: (dateTime: DateTimeWindow) => void;
-}): JSX.Element {
-  const daySections = calculateDaySections(openingHours);
-  const { SATURDAY, SUNDAY } = groupByDay(props.slots);
+function TimeSlots(props: { store: Store<DateTimeWindow[]> }): JSX.Element {
+  const [store, setStore] = createStore(props.store);
 
+  const daySections = createMemo(() => calculateDaySections(openingHours));
+  const days = createMemo(() => groupByDay(store));
+
+  function addTimeSlot(newSlot: DateTimeWindow) {
+    setStore(store.concat(newSlot));
+  }
+  function removeTimeSlot(slot: DateTimeWindow) {
+    setStore(
+      store.filter(
+        (s) => s.from !== slot.from || s.to !== slot.to || s.day !== slot.day,
+      ),
+    );
+  }
   return (
     <>
       <TimeSlotChooser
-        daySections={daySections}
-        chooseTimeSlot={props.addTimeSlot}
+        daySections={daySections()}
+        chooseTimeSlot={addTimeSlot}
       />
-      <Show when={SATURDAY.length > 0}>
+      <Show when={days().SATURDAY.length > 0}>
         <h6>Samstag, 23. August 2025</h6>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <For each={SATURDAY}>
+          <For each={days().SATURDAY}>
             {(slot) => (
               <Button
                 label={
@@ -276,7 +283,7 @@ function TimeSlots(props: {
                 }
                 kind="gray"
                 onClick={() =>
-                  props.removeTimeSlot({
+                  removeTimeSlot({
                     day: "SATURDAY",
                     from: slot.from,
                     to: slot.to,
@@ -287,10 +294,10 @@ function TimeSlots(props: {
           </For>
         </div>
       </Show>
-      <Show when={SUNDAY.length > 0}>
+      <Show when={days().SUNDAY.length > 0}>
         <h6>Sonntag, 24. August 2025</h6>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <For each={SUNDAY}>
+          <For each={days().SUNDAY}>
             {(slot) => (
               <Button
                 label={
@@ -303,7 +310,7 @@ function TimeSlots(props: {
                 }
                 kind="gray"
                 onClick={() =>
-                  props.removeTimeSlot({
+                  removeTimeSlot({
                     day: "SUNDAY",
                     from: slot.from,
                     to: slot.to,

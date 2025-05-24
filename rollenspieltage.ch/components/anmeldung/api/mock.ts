@@ -36,7 +36,7 @@ const saveMock = {
           max: 3,
         },
         playerNames: [],
-        tagNames: ["children"],
+        tagNames: ["deutsch"],
       },
     ],
     newEditForm: resetEditFormServer(),

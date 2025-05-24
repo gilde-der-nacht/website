@@ -97,10 +97,10 @@ function Entry(props: {
           {game.system.value || <em>{TXT.missingSystem}</em>}
         </div>
         <div class="event-tags">
-          <strong>Zeit:</strong>
+          <strong>Tag, Zeit:</strong>
           {slot !== null ? (
             <span>
-              {slot.day}, {slot.from} - {slot.to} Uhr
+              {TXT.days[slot.day]}, {slot.from} - {slot.to} Uhr
             </span>
           ) : (
             <em>{TXT.missingSlot}</em>
