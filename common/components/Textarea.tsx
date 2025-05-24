@@ -6,8 +6,8 @@ type Props = {
   onBlur?: () => void;
   label: string;
   name: string;
-  required?: boolean;
-  size?: "sm";
+  required?: boolean | undefined;
+  size?: "sm" | undefined;
 };
 
 export function Textarea(props: Props): JSX.Element {

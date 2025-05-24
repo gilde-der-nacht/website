@@ -9,8 +9,6 @@ import {
 } from "solid-js";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { createStore, type Store } from "solid-js/store";
-import { Input, InputInteger } from "@common/components/Input";
-import { Textarea } from "@common/components/Textarea";
 import { Button } from "@common/components/Button";
 import { Checkbox } from "@common/components/Checkbox";
 import { Icon } from "@common/components/Icon";
@@ -38,6 +36,11 @@ import {
   DESCR_SHORT_MAX_CHAR,
   validateNewGameround,
 } from "@rst/components/anmeldung/forms/validation";
+import {
+  NumberInputField,
+  TextareaField,
+  TextInputField,
+} from "@rst/components/anmeldung/forms/Components";
 
 export function NewGamePage(props: {
   store: Store<GameroundNewEditClient>;
@@ -76,90 +79,55 @@ export function NewGamePage(props: {
       changePage={props.changePage}
     >
       <form onSubmit={onSubmit} novalidate>
-        <Input
+        <TextInputField
+          store={store.title}
           label="Titel"
           name="title"
-          value={store.title.value}
-          onValueUpdate={(newValue) => setStore("title", "value", newValue)}
-          onBlur={() => setStore("title", "isDirty", true)}
+          errors={errors().titleMissing ? [TXT.mandatoryField] : []}
         />
-        <Show when={errors().titleMissing && store.title.isDirty}>
-          <Box type="danger">{TXT.mandatoryField}</Box>
-        </Show>
-        <Input
+        <TextInputField
+          store={store.system}
           label="System (optional)"
           name="System"
-          value={store.system.value}
-          onValueUpdate={(newValue) => setStore("system", "value", newValue)}
-          onBlur={() => setStore("system", "isDirty", true)}
         />
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
-          <InputInteger
+          <NumberInputField
+            store={store.playerCount.min}
             label="Anzahl Mitspielende (Minimum)"
             name="playerCountMin"
-            value={store.playerCount.min.value}
-            onValueUpdate={(newValue) =>
-              setStore("playerCount", "min", "value", newValue)
-            }
-            onBlur={() => setStore("playerCount", "min", "isDirty", true)}
             min={1}
             max={store.playerCount.max.value}
           />
-          <InputInteger
+          <NumberInputField
+            store={store.playerCount.max}
             label="Anzahl Mitspielende (Maximum)"
             name="playerCountMax"
-            value={store.playerCount.max.value}
-            onValueUpdate={(newValue) =>
-              setStore("playerCount", "max", "value", newValue)
-            }
-            onBlur={() => setStore("playerCount", "max", "isDirty", true)}
             min={store.playerCount.min.value}
           />
         </div>
-        <Textarea
+        <TextareaField
+          store={store.description.short}
           label="kurze Beschreibung"
           name="descriptionShort"
-          value={store.description.short.value}
-          onValueUpdate={(newValue) =>
-            setStore("description", "short", "value", newValue)
-          }
-          onBlur={() => setStore("description", "short", "isDirty", true)}
           size="sm"
+          errors={
+            errors().descriptionShortMissing
+              ? [TXT.mandatoryField]
+              : errors().descriptionShortTooLong
+                ? [TXT.charLimitBy.replace("{}", String(DESCR_SHORT_MAX_CHAR))]
+                : []
+          }
         />
-        <Show
-          when={
-            errors().descriptionShortMissing && store.description.short.isDirty
-          }
-        >
-          <Box type="danger">{TXT.mandatoryField}</Box>
-        </Show>
-        <Show
-          when={
-            errors().descriptionShortTooLong && store.description.short.isDirty
-          }
-        >
-          <Box type="danger">
-            {TXT.charLimitBy.replace("{}", String(DESCR_SHORT_MAX_CHAR))}
-          </Box>
-        </Show>
-        <Textarea
+        <TextareaField
+          store={store.description.long}
           label="lange Beschreibung (optional)"
           name="descriptionLong"
-          value={store.description.long.value}
-          onValueUpdate={(newValue) =>
-            setStore("description", "long", "value", newValue)
+          errors={
+            errors().descriptionLongTooLong
+              ? [TXT.charLimitBy.replace("{}", String(DESCR_LONG_MAX_CHAR))]
+              : []
           }
-          onBlur={() => setStore("description", "long", "isDirty", true)}
         />
-        <Show
-          when={
-            errors().descriptionLongTooLong && store.description.long.isDirty
-          }
-        >
-          <Box type="danger">
-            {TXT.charLimitBy.replace("{}", String(DESCR_LONG_MAX_CHAR))}
-          </Box>
-        </Show>
         <fieldset>
           <legend>Zeitslots</legend>
           <TimeSlots

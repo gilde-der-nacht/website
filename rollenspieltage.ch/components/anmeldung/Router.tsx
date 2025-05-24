@@ -96,7 +96,10 @@ export function Router(props: {
           />
         </Match>
         <Match when={store.meta.page.kind === "EDIT_GAMEROUND"}>
-          <EditGamePage />
+          <EditGamePage
+            store={store.save.master.games}
+            changePage={changePage}
+          />
         </Match>
         <Match when={store.meta.page.kind === "HELPING"}>
           <HelpingPage changePage={changePage} />

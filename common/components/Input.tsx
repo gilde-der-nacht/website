@@ -6,9 +6,9 @@ type InputProps = {
   onBlur?: () => void;
   label: string;
   name: string;
-  type?: "text" | "date" | "email" | "tel";
-  required?: boolean;
-  isHoneypot?: boolean;
+  type?: "text" | "date" | "email" | "tel" | undefined;
+  required?: boolean | undefined;
+  isHoneypot?: boolean | undefined;
 };
 
 export function Input(props: InputProps): JSX.Element {
@@ -74,10 +74,10 @@ type InputIntegerProps = {
   onBlur?: () => void;
   label: string;
   name: string;
-  required?: boolean;
-  isHoneypot?: boolean;
-  min?: number;
-  max?: number;
+  required?: boolean | undefined;
+  isHoneypot?: boolean | undefined;
+  min?: number | undefined;
+  max?: number | undefined;
 };
 
 export function InputInteger(props: InputIntegerProps): JSX.Element {
