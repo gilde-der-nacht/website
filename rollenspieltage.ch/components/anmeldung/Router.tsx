@@ -7,7 +7,10 @@ import { Box } from "@common/components/Box";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { ChoosePage } from "@rst/components/anmeldung/pages/ChoosePage";
 import { NewGamePage } from "@rst/components/anmeldung/pages/NewGamePage";
-import { EditGamePage } from "@rst/components/anmeldung/pages/EditGamePage";
+import {
+  EditGamePage,
+  FindGameround,
+} from "@rst/components/anmeldung/pages/EditGamePage";
 import type { PublicProgramClient } from "@rst/components/anmeldung/api/program";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import {
@@ -96,10 +99,19 @@ export function Router(props: {
           />
         </Match>
         <Match when={store.meta.page.kind === "EDIT_GAMEROUND"}>
-          <EditGamePage
-            store={store.save.master.games}
-            changePage={changePage}
-          />
+          <FindGameround
+            allRounds={store.save.master.games}
+            uuid={
+              store.meta.page.kind === "EDIT_GAMEROUND"
+                ? store.meta.page.uuid
+                : "should never happen"
+            }
+            fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
+          >
+            {(gameround) => (
+              <EditGamePage store={gameround} changePage={changePage} />
+            )}
+          </FindGameround>
         </Match>
         <Match when={store.meta.page.kind === "HELPING"}>
           <HelpingPage changePage={changePage} />
