@@ -22,6 +22,7 @@ import {
 import type { SaveClient } from "@rst/components/anmeldung/api/save";
 import { createStore, type Store } from "solid-js/store";
 import { createNewGame } from "@rst/components/anmeldung/utils/store";
+import { PageTemplate } from "./pages/PageTemplate";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
@@ -106,7 +107,14 @@ export function Router(props: {
                 ? store.meta.page.uuid
                 : "should never happen"
             }
-            fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
+            fallback={
+              <PageTemplate
+                title="Spielrunde editieren"
+                changePage={changePage}
+              >
+                <Box type="danger">{TXT.error.gameroundUuidError}</Box>
+              </PageTemplate>
+            }
           >
             {(gameround) => (
               <EditGamePage store={gameround} changePage={changePage} />

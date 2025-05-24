@@ -2,15 +2,68 @@ import type { Tag } from "@rst/components/anmeldung/api/shared";
 
 export const gameTags = [
   {
-    name: "children",
-    label: "Kinderfreundlich",
+    name: "ab6jahren",
+    label: "Ab 6 Jahren",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Spannungs- und Bedrohungsmomente werden kurz gehalten. In Begleitung oder nach Absprache mit einem Elternteil. Beispiele: My Little Pony, ...",
   },
   {
-    name: "selfmade",
-    label: "Mein eigenes System",
+    name: "ab12jahren",
+    label: "Ab 12 Jahren",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Antisoziales und destruktives wird auf ein Minimum begrenzt. Keine Diskriminierung, keine Radikalisierung, Sexualität wird nicht explizit dargestellt.",
+  },
+  {
+    name: "ab18jahren",
+    label: "Ab 18 Jahren",
+    description:
+      "Keinerlei Richtlinien bezüglich Inhalt, in der Gruppe sollte aber diskutiert werden, was akzeptabel ist und was nicht. Beispiele: Vampire the Masquerade, ...",
+  },
+  {
+    name: "fantasy",
+    label: "Fantasy",
+    description:
+      "Spielt in einer alternativen Vergangenheit, in welcher Elemente wie: Ritterinnen, Hexenmeister, Rüstungen, Magie, Goblins, Turniere usw. vorkommen können. Beispiele: Das Schwarze Auge, Dungeons & Dragons, ...",
+  },
+  {
+    name: "sciencefiction",
+    label: "Science Fiction",
+    description:
+      "Spielt in einer alternativen Zukunft, in welcher Elemente wie: Raumschiffe, Sternenportale, Künstliche Intelligenzen, Laserkanonen usw. vorkommen können. Beispiele: Shadowrun, Alien, ...",
+  },
+  {
+    name: "postapokalyptisch",
+    label: "Postapokalyptisch",
+    description:
+      "Spielt in einer Welt mitten oder nach einem Kollaps, wo nur ein grosser Teil der Gesellschaft ums Überleben kämpft. Beispiele: Mutant Year Zero, Apocalypse World",
+  },
+  {
+    name: "offenewelt",
+    label: "Offene Welt",
+    description:
+      "Es gibt nur einen losen Handlungsfaden, die Rollenspiel-Gruppe muss sich ihre Ziele selber festlegen. Beispiele: Ironsworn, Blades in the Dark, ...",
+  },
+  {
+    name: "gemeinsamespielleitung",
+    label: "Gemeinsame Spielleitung",
+    description:
+      "Die Regeln und die Umwelt werden gemeinsam von allen Spielenden umgesetzt. Beispiele: Microscope, The Quiet Year, ...",
+  },
+  {
+    name: "regelleicht",
+    label: "Regelleicht",
+    description:
+      "Die kompletten Regeln haben alle auf einer Seite Platz. Beispiele: Fiasco, Everyone is John, ...",
+  },
+  {
+    name: "deutsch",
+    label: "Deutsch",
+    description: "Bei der Spielrunde reden die Spielenden miteinander Deutsch.",
+  },
+  {
+    name: "englisch",
+    label: "Englisch",
+    description:
+      "Bei der Spielrunde reden die Spielenden miteinander Englisch.",
   },
 ] satisfies Tag[];

@@ -121,7 +121,7 @@ export function GameroundForm(props: {
       </fieldset>
       <fieldset>
         <legend>Kategorien (optional)</legend>
-        <div style="display: grid; gap: 0.5rem;">
+        <div style="display: grid; gap: 0.5rem; margin-block-end: 1rem;">
           <For each={gameTags}>
             {(gameTag) => (
               <Checkbox
@@ -144,6 +144,7 @@ export function GameroundForm(props: {
             )}
           </For>
         </div>
+        <Box>{TXT.tagIdeas}</Box>
       </fieldset>
       <Show when={errors().hasErrors}>
         <Box type="danger">

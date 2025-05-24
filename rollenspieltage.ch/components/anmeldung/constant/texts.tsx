@@ -65,6 +65,8 @@ const missingTags = "keine Kategorien ausgewählt";
 const missingShortDescription = "Kurzbeschreibung fehlt";
 const mandatoryField = "Dies ist ein Pflichtfeld.";
 const charLimitBy = "Dieses Feld ist auf {} Zeichen limitiert.";
+const tagIdeas =
+  "Findest du, es gäbe noch weitere hilfreiche Kategorien? Schreibe uns deinen Vorschlag per Kontaktformular.";
 
 const days = {
   SATURDAY: "Samstag",
@@ -98,6 +100,7 @@ export const TXT = {
   missingShortDescription,
   mandatoryField,
   charLimitBy,
+  tagIdeas,
   days,
   pageTitle,
   metaTitle,
