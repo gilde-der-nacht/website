@@ -22,6 +22,7 @@ const saveMock = {
     games: [
       {
         uuid: crypto.randomUUID(),
+        kind: "PUBLISHED",
         title: "Grolle in der Dunkelheit",
         system: "Warhammer Fantasy Rollenspiel",
         description: {

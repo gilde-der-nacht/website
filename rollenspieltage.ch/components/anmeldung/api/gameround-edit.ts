@@ -1,5 +1,8 @@
 import { z } from "astro/zod";
-import { timeSlotSchema } from "@rst/components/anmeldung/api/shared";
+import {
+  publishStateSchema,
+  timeSlotSchema,
+} from "@rst/components/anmeldung/api/shared";
 import {
   numberInputSchema,
   textInputSchema,
@@ -13,6 +16,7 @@ import type { ParseResult } from "@rst/components/anmeldung/api/utils";
 
 export const gameroundEditServerSchema = z.object({
   uuid: z.string().uuid(),
+  kind: publishStateSchema,
   title: z.string(),
   system: z.string(),
   description: z.object({
@@ -35,6 +39,7 @@ export type GameroundEditServer = z.infer<typeof gameroundEditServerSchema>;
 
 export const gameroundEditClientSchema = z.object({
   uuid: z.string().uuid(),
+  kind: publishStateSchema,
   title: textInputSchema,
   system: textInputSchema,
   description: z.object({
@@ -53,6 +58,7 @@ export type GameroundEditClient = z.infer<typeof gameroundEditClientSchema>;
 export function getNewGameround(): GameroundEditClient {
   const server = {
     uuid: crypto.randomUUID(),
+    kind: "DRAFT",
     title: "",
     system: "",
     description: {
