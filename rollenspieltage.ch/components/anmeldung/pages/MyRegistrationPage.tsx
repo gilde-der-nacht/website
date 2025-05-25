@@ -17,7 +17,6 @@ import {
   getMetaState,
   type MetaClient,
 } from "@rst/components/anmeldung/api/meta";
-import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { unpackUnion } from "@common/components/utils";
 
@@ -42,9 +41,6 @@ export function MeineAnmeldungWrapper(): JSX.Element {
 
 function MeineAnmeldung(props: { page: MetaClient }): JSX.Element {
   const [saveResource] = createResource(() => loadSave(props.page.secret));
-  const [programResource] = createResource(() =>
-    loadProgram(props.page.secret),
-  );
 
   return (
     <ErrorBoundary
@@ -66,13 +62,7 @@ function MeineAnmeldung(props: { page: MetaClient }): JSX.Element {
               if (kind === "FAILURE") {
                 return <Box type="danger">{TXT.error.ourMistake}</Box>;
               }
-              return (
-                <Router
-                  meta={props.page}
-                  save={value.data}
-                  programResource={programResource}
-                />
-              );
+              return <Router meta={props.page} save={value.data} />;
             }}
           </Match>
         </Switch>

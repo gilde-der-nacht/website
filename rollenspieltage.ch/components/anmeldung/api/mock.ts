@@ -1,7 +1,22 @@
 import type { SaveServer } from "@rst/components/anmeldung/api/save";
 import type { PublicProgramServer } from "@rst/components/anmeldung/api/program";
+import type { RegistrationsServer } from "./registrations";
 
 const validTimeStamp = "2024-08-15T07:45:21.335Z";
+const uuid = {
+  game: "37831e19-29d6-40bd-b99d-fb91b78aa7f9",
+  slot: "bfcbd156-b703-4664-9944-8936aede8476",
+};
+
+function fromLocalStoreOrDefault(key: string, fallback: unknown): unknown {
+  const localSave = localStorage.getItem(key);
+
+  if (localSave === null) {
+    return fallback;
+  }
+
+  return localSave;
+}
 
 /*
  * Save
@@ -21,7 +36,7 @@ const saveMock = {
   master: {
     games: [
       {
-        uuid: crypto.randomUUID(),
+        uuid: uuid.game,
         kind: "PUBLISHED",
         title: "Grolle in der Dunkelheit",
         system: "Warhammer Fantasy Rollenspiel",
@@ -32,10 +47,16 @@ const saveMock = {
         },
         slots: [
           {
-            uuid: crypto.randomUUID(),
+            uuid: uuid.slot,
             day: "SATURDAY",
             from: 10,
             to: 12,
+          },
+          {
+            uuid: crypto.randomUUID(),
+            day: "SUNDAY",
+            from: 14,
+            to: 17,
           },
         ],
         playerCount: {
@@ -51,14 +72,14 @@ const saveMock = {
 } satisfies SaveServer;
 
 export async function mockedLoadSave(): Promise<unknown> {
-  return Promise.resolve(fromLocalStoreOrDefault(SAVE_KEY, saveMock));
+  return new Promise((res) =>
+    setTimeout(() => res(fromLocalStoreOrDefault(SAVE_KEY, saveMock)), 1_000),
+  );
 }
 
 /*
  * Program
  */
-
-const PROGRAM_KEY = "PROGRAM";
 
 const programMock = {
   entries: [
@@ -84,14 +105,39 @@ const programMock = {
 } satisfies PublicProgramServer;
 
 export async function mockedLoadProgram(): Promise<unknown> {
-  return Promise.resolve(fromLocalStoreOrDefault(PROGRAM_KEY, programMock));
+  return new Promise((res) => setTimeout(() => res(programMock), 5_000));
 }
-function fromLocalStoreOrDefault(key: string, fallback: unknown): unknown {
-  const localSave = localStorage.getItem(key);
 
-  if (localSave === null) {
-    return fallback;
-  }
+/*
+ * Registrations
+ */
 
-  return localSave;
+const registrationsMock = {
+  entries: [
+    {
+      uuid: uuid.slot,
+      name: "Alice",
+    },
+    {
+      uuid: uuid.slot,
+      name: "Bob",
+    },
+  ],
+} satisfies RegistrationsServer;
+
+export async function mockedLoadRegistrations(
+  uuids: string[],
+): Promise<unknown> {
+  console.log({ uuids });
+  return new Promise((res) =>
+    setTimeout(
+      () =>
+        res({
+          entries: registrationsMock.entries.filter((entry) =>
+            uuids.includes(entry.uuid),
+          ),
+        }),
+      5_000,
+    ),
+  );
 }

@@ -1,4 +1,11 @@
-import { Match, Show, Switch, type JSX, type Resource } from "solid-js";
+import {
+  createResource,
+  Match,
+  Show,
+  Suspense,
+  Switch,
+  type JSX,
+} from "solid-js";
 import { SummaryPage } from "@rst/components/anmeldung/pages/SummaryPage";
 import { HelpingPage } from "@rst/components/anmeldung/pages/HelpingPage";
 import { GamemasterPage } from "@rst/components/anmeldung/pages/GamemasterPage";
@@ -10,8 +17,6 @@ import {
   EditGamePage,
   FindGameround,
 } from "@rst/components/anmeldung/pages/EditGamePage";
-import type { PublicProgramClient } from "@rst/components/anmeldung/api/program";
-import type { Result } from "@rst/components/anmeldung/api/utils";
 import {
   getMetaState,
   isSamePage,
@@ -20,7 +25,9 @@ import {
 } from "@rst/components/anmeldung/api/meta";
 import type { SaveClient } from "@rst/components/anmeldung/api/save";
 import { createStore, type Store } from "solid-js/store";
-import { PageTemplate } from "./pages/PageTemplate";
+import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
+import { loadRegistrations } from "@rst/components/anmeldung/api/registrations";
+import { loadProgram } from "@rst/components/anmeldung/api/program";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
@@ -60,13 +67,24 @@ function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
 export function Router(props: {
   meta: MetaClient;
   save: SaveClient;
-  programResource: Resource<Result<PublicProgramClient>>;
 }): JSX.Element {
   initPage(props.meta);
   const [store] = createStore({
     meta: props.meta,
     save: props.save,
   });
+
+  const slotUuids = () =>
+    store.save.master.games.flatMap((game) =>
+      game.slots.map((slot) => slot.uuid),
+    );
+
+  const [registrationResource] = createResource(slotUuids(), (uuids) =>
+    loadRegistrations(store.meta.secret, uuids),
+  );
+  const [programResource] = createResource(() =>
+    loadProgram(store.meta.secret),
+  );
   const changePage = createChangePageFn(store.meta);
 
   window.addEventListener("popstate", (e: unknown) => {
@@ -120,6 +138,24 @@ export function Router(props: {
         </Match>
       </Switch>
       <pre>{JSON.stringify(store, null, 2)}</pre>
+      <hr />
+      <div>
+        <code>Registrations (read-only)</code>
+      </div>
+      <Suspense fallback={<em>loading...</em>}>
+        <Show when={registrationResource()}>
+          {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
+        </Show>
+      </Suspense>
+      <hr />
+      <div>
+        <code>Program (read-only)</code>
+      </div>
+      <Suspense fallback={<em>loading...</em>}>
+        <Show when={programResource()}>
+          {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
+        </Show>
+      </Suspense>
     </>
   );
 }
