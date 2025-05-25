@@ -11,10 +11,6 @@ import {
 } from "@rst/components/anmeldung/api/gameround-edit";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
-import {
-  DESCR_LONG_MAX_CHAR,
-  DESCR_SHORT_MAX_CHAR,
-} from "@rst/components/anmeldung/forms/validation";
 
 export function GamemasterPage(props: {
   store: Store<MasterClient>;
@@ -37,13 +33,12 @@ export function GamemasterPage(props: {
           <div style="margin-top: 2rem;">
             <h3 style="margin-bottom: 1rem;">{TXT.myGameRounds}</h3>
             <ul class="event-list" role="list">
-              <For each={games()}>
+              <For each={games().filter((game) => game.kind !== "DELETED")}>
                 {(game) => {
                   const tags = game.tagNames
                     .map((t) => gameTags.find(({ name }) => name === t))
                     .filter((t) => t !== undefined)
                     .map(({ label }) => label);
-                  const isDraft = gameIsDraft(game);
                   return (
                     <For
                       each={game.slots}
@@ -52,7 +47,6 @@ export function GamemasterPage(props: {
                           game={game}
                           slot={null}
                           tags={tags}
-                          isDraft={isDraft}
                           changePage={props.changePage}
                         />
                       }
@@ -62,7 +56,6 @@ export function GamemasterPage(props: {
                           game={game}
                           slot={slot}
                           tags={tags}
-                          isDraft={isDraft}
                           changePage={props.changePage}
                         />
                       )}
@@ -81,11 +74,11 @@ export function GamemasterPage(props: {
 function Entry(props: {
   game: GameroundEditClient;
   slot: TimeSlot | null;
-  isDraft: boolean;
   tags: string[];
   changePage: ChangePageFn;
 }): JSX.Element {
-  const { game, slot, isDraft, tags, changePage } = props;
+  const { game, slot, tags, changePage } = props;
+  const isDraft = game.kind === "DRAFT";
   return (
     <li class={["event-entry", isDraft ? "gray" : ""].join(" ")}>
       <h1 class="event-title">
@@ -149,23 +142,4 @@ function Entry(props: {
       </ul>
     </li>
   );
-}
-
-function gameIsDraft(game: GameroundEditClient): boolean {
-  if (game.title.value.trim().length === 0) {
-    return true;
-  }
-  if (game.description.short.value.trim().length === 0) {
-    return true;
-  }
-  if (game.description.short.value.length > DESCR_SHORT_MAX_CHAR) {
-    return true;
-  }
-  if (game.description.long.value.length > DESCR_LONG_MAX_CHAR) {
-    return true;
-  }
-  if (game.slots.length === 0) {
-    return true;
-  }
-  return false;
 }
