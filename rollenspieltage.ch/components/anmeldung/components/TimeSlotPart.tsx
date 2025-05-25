@@ -3,6 +3,7 @@ import {
   For,
   Match,
   Show,
+  Suspense,
   Switch,
   type JSX,
   type Resource,
@@ -26,7 +27,7 @@ import {
 } from "@rst/components/anmeldung/constant/hours";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
-import { Dialog } from "@common/components/Dialog";
+import { Dialog, type DialogStore } from "@common/components/Dialog";
 import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 
@@ -116,15 +117,33 @@ function TimeSlots(props: {
   registrations: Resource<Result<RegistrationsClient>>;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
+  const [dialogStore, setDialogStore] = createStore<{
+    slot?: TimeSlot;
+    dialog: DialogStore;
+  }>({
+    dialog: { open: false },
+  });
 
   const daySections = createMemo(() => calculateDaySections(openingHours));
 
   function addTimeSlot(newSlot: TimeSlot) {
     setStore(store.concat(newSlot));
   }
+
   function removeTimeSlot(slotUuid: string) {
+    setDialogStore("dialog", "open", false);
+    setDialogStore("slot", undefined);
     setStore(store.filter((s) => s.uuid !== slotUuid));
   }
+
+  function confirmRemoval(slotUuid: string) {
+    setDialogStore("dialog", "open", true);
+    setDialogStore(
+      "slot",
+      store.find((slot) => slot.uuid === slotUuid),
+    );
+  }
+
   return (
     <>
       <TimeSlotChooser
@@ -133,10 +152,29 @@ function TimeSlots(props: {
       />
       <br />
       <br />
+      <Dialog
+        store={dialogStore.dialog}
+        title="Zeitslot löschen"
+        onClose={() => setDialogStore("slot", undefined)}
+      >
+        <div style="margin-block-end: 0.5rem;">
+          Zeitslot: {TXT.days[dialogStore.slot?.day!]}, {dialogStore.slot?.from}{" "}
+          -{dialogStore.slot?.to} Uhr
+        </div>
+        <Button
+          kind="danger"
+          label={
+            <span>
+              <Icon icon="trash" /> Löschen
+            </span>
+          }
+          onClick={() => removeTimeSlot(dialogStore.slot?.uuid!)}
+        />
+      </Dialog>
       <SlotGrid
         slots={store}
         registrations={props.registrations}
-        removeTimeSlot={removeTimeSlot}
+        confirmRemoval={confirmRemoval}
       />
     </>
   );
@@ -145,11 +183,11 @@ function TimeSlots(props: {
 function SlotGrid(props: {
   slots: TimeSlot[];
   registrations: Resource<Result<RegistrationsClient>>;
-  removeTimeSlot: (uuid: string) => void;
+  confirmRemoval: (uuid: string) => void;
 }): JSX.Element {
   return (
     <ul class="event-list" role="list">
-      <For each={props.slots}>
+      <For each={sortSlots(props.slots)}>
         {(slot) => (
           <li class="event-entry">
             <h2 class="event-title">
@@ -185,17 +223,57 @@ function SlotGrid(props: {
             </div>
             <div></div>
             <ul role="list" class="event-links">
-              <li>
-                <button
-                  onClick={() => props.removeTimeSlot(slot.uuid)}
-                  class="event-link"
-                >
-                  <div style="display: flex; gap: 0.25rem; align-items: center;">
-                    <Icon icon="trash" />
-                    <span>Löschen</span>
-                  </div>
-                </button>
-              </li>
+              <Suspense
+                fallback={
+                  <li>
+                    <em style="font-size: smaller;">
+                      Aktionen werden geladen...
+                    </em>
+                  </li>
+                }
+              >
+                <Show when={props.registrations()}>
+                  {(registrations) => {
+                    const r = registrations();
+                    if (r.kind === "FAILURE") {
+                      return (
+                        <li>
+                          <em style="font-size: smaller;">
+                            kann nicht gelöscht werden
+                          </em>
+                        </li>
+                      );
+                    }
+                    const playerNames = r.data.entries
+                      .filter((entry) => entry.uuid === slot.uuid)
+                      .map((entry) => entry.name);
+                    if (playerNames.length > 0) {
+                      return (
+                        <li>
+                          <em style="font-size: smaller;">
+                            kann nicht gelöscht werden
+                          </em>
+                        </li>
+                      );
+                    } else {
+                      return (
+                        <li>
+                          <button
+                            type="button"
+                            onClick={() => props.confirmRemoval(slot.uuid)}
+                            class="event-link"
+                          >
+                            <div style="display: flex; gap: 0.25rem; align-items: center;">
+                              <Icon icon="trash" />
+                              <span>Löschen</span>
+                            </div>
+                          </button>
+                        </li>
+                      );
+                    }
+                  }}
+                </Show>
+              </Suspense>
             </ul>
           </li>
         )}
@@ -485,4 +563,13 @@ function EndChooser(props: {
       </div>
     </>
   );
+}
+
+function sortSlots(slots: TimeSlot[]): TimeSlot[] {
+  return slots.toSorted((a, b) => {
+    if (a.day !== b.day) {
+      return a.day === "SATURDAY" ? -1 : 1;
+    }
+    return a.from - b.from;
+  });
 }

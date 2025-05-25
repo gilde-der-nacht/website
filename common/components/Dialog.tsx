@@ -4,8 +4,10 @@ import { IconButton } from "@common/components/Button";
 
 export type DialogType = "success" | "danger" | "special" | "gray" | "warning";
 
+export type DialogStore = { open: boolean };
+
 export function Dialog(props: {
-  store: Store<{ open: boolean }>;
+  store: Store<DialogStore>;
   title?: string;
   type?: DialogType;
   size?: "medium";
