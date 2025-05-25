@@ -22,6 +22,7 @@ import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameroun
 import { TimeSlotPart } from "@rst/components/anmeldung/components/TimeSlotPart";
 import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
+import { Chip } from "@common/components/Chip";
 
 export function FindGameround(props: {
   allRounds: Store<GameroundEditClient[]>;
@@ -69,6 +70,9 @@ export function EditGamePage(props: {
   }
   return (
     <PageTemplate title="Spielrunde editieren" changePage={props.changePage}>
+      <Chip kind="special">Status: {TXT.publishingSteps[store.kind]}</Chip>
+      <br />
+      <br />
       <GameroundForm
         store={props.store}
         registrations={props.registrations}

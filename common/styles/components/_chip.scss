@@ -1,0 +1,34 @@
+@use "../globals/patterns" as p;
+@use "../globals/colors" as c;
+
+.chip {
+  @include p.element;
+  background-color: transparent;
+  padding: 0.125rem 0.5rem;
+  font-size: smaller;
+
+  &.special {
+    border-color: hsl(from #{c.getSpecial("background-solid")} h s l / 0.5);
+    color: c.getSpecial("text-low-contrast");
+  }
+
+  &.success {
+    border-color: hsl(from #{c.getSuccess("background-solid")} h s l / 0.5);
+    color: c.getSuccess("text-low-contrast");
+  }
+
+  &.danger {
+    border-color: hsl(from #{c.getDanger("background-solid")} h s l / 0.5);
+    color: c.getDanger("text-low-contrast");
+  }
+
+  &.warning {
+    border-color: hsl(from #{c.getWarning("background-solid")} h s l / 0.5);
+    color: c.getWarning("text-low-contrast");
+  }
+
+  &.gray {
+    border-color: hsl(from #{c.getGray("background-solid")} h s l / 0.5);
+    color: c.getGray("text-low-contrast");
+  }
+}

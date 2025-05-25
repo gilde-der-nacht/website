@@ -1,5 +1,6 @@
 import type { PerDay } from "@rst/components/anmeldung/utils/time";
 import type { PageKind } from "@rst/components/anmeldung/api/meta";
+import type { PublishState } from "../api/shared";
 
 const registrationDeadline = "Donnerstag, 21. August 2025";
 
@@ -82,6 +83,12 @@ const pageTitle: Record<PageKind, string> = {
   SUMMARY: "Zusammenfassung",
 };
 
+const publishingSteps: Record<PublishState, string> = {
+  DRAFT: "Entwurf",
+  PUBLISHED: "Veröffentlicht",
+  DELETED: "Gelöscht",
+};
+
 const metaTitle = "Meine Anmeldung: {} | Luzerner Rollenspieltage";
 
 export const TXT = {
@@ -102,5 +109,6 @@ export const TXT = {
   tagIdeas,
   days,
   pageTitle,
+  publishingSteps,
   metaTitle,
 };
