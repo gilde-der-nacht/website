@@ -78,11 +78,9 @@ function Entry(props: {
   changePage: ChangePageFn;
 }): JSX.Element {
   const { game, slot, tags, changePage } = props;
-  const isDraft = game.kind === "DRAFT";
   return (
-    <li class={["event-entry", isDraft ? "gray" : ""].join(" ")}>
+    <li class={["event-entry", game.kind === "DRAFT" ? "gray" : ""].join(" ")}>
       <h1 class="event-title">
-        {isDraft ? <em>[{TXT.draft}] </em> : ""}
         {game.title.value.length > 0 ? (
           game.title.value
         ) : (
@@ -90,6 +88,10 @@ function Entry(props: {
         )}
       </h1>
       <div class="event-details">
+        <div class="event-tags">
+          <strong>Status:</strong>
+          {TXT.publishingSteps[game.kind]}
+        </div>
         <div class="event-tags">
           <strong>System:</strong>
           {game.system.value || <em>{TXT.missingSystem}</em>}

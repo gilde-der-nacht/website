@@ -1,9 +1,9 @@
-import { batch, type Resource } from "solid-js";
+import { type Resource } from "solid-js";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { createMemo, For, Show, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
-import { Button } from "@common/components/Button";
+import { ButtonWithIcon } from "@common/components/Button";
 import { Checkbox } from "@common/components/Checkbox";
 import { Box } from "@common/components/Box";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
@@ -23,6 +23,7 @@ import { TimeSlotPart } from "@rst/components/anmeldung/components/TimeSlotPart"
 import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import { Chip } from "@common/components/Chip";
+import { Dialog, type DialogStore } from "@common/components/Dialog";
 
 export function FindGameround(props: {
   allRounds: Store<GameroundEditClient[]>;
@@ -45,42 +46,83 @@ export function EditGamePage(props: {
   changePage: ChangePageFn;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
-  const errors = createMemo(() => validateGameround(store));
+  const [dialogStore, setDialogStore] = createStore<{
+    delete: DialogStore;
+    publish: DialogStore;
+  }>({
+    delete: {
+      open: false,
+    },
+    publish: {
+      open: false,
+    },
+  });
 
   function onSubmit(e: Event): void {
     e.preventDefault();
+    setDialogStore("publish", "open", true);
+  }
 
-    const [min, max] = [
-      store.playerCount.min.value,
-      store.playerCount.max.value,
-    ]
-      .map((n) => Math.max(1, n))
-      .toSorted((a, b) => a - b);
-
-    batch(() => {
-      setStore("playerCount", "min", "value", min ?? 1);
-      setStore("playerCount", "max", "value", max ?? 1);
-    });
-
-    if (errors().hasErrors) {
-      return;
-    }
-
+  function goBack(): void {
     props.changePage({ kind: "GAMEMASTER" });
   }
+
   return (
     <PageTemplate title="Spielrunde editieren" changePage={props.changePage}>
       <Chip kind="special">Status: {TXT.publishingSteps[store.kind]}</Chip>
       <br />
       <br />
       <GameroundForm
-        store={props.store}
+        store={store}
         registrations={props.registrations}
         onSubmit={onSubmit}
-        onCancel={() => {
-          props.changePage({ kind: "GAMEMASTER" });
-        }}
+        onCancel={() => setDialogStore("delete", "open", true)}
+        goBack={goBack}
       />
+      <Dialog
+        store={dialogStore.publish}
+        title="Spielrunde veröffentlichen"
+        onClose={() => {}}
+      >
+        <div class="content">
+          <p>Möchtest du diese Spielrunde gerne veröffentlichen?</p>
+          <ButtonWithIcon
+            kind="success"
+            icon="circle-plus"
+            label={`Ja, bitte "${store.title.value || "[" + TXT.missingTitle + "]"}" veröffentlichen.`}
+            onClick={() => {
+              setStore("kind", "PUBLISHED");
+              setDialogStore("publish", "open", false);
+            }}
+          />
+        </div>
+      </Dialog>
+      <Dialog
+        store={dialogStore.delete}
+        title="Spielrunde löschen"
+        onClose={() => {}}
+      >
+        <Show when={store.slots.length > 0}>
+          <em>
+            Du kannst die Spielrunde nur löschen, wenn du zuerst alle Zeitslots
+            entfernt hast.
+          </em>
+        </Show>
+        <Show when={store.slots.length === 0}>
+          <div class="content">
+            <p>Bist du sicher, dass du die Spielrunde löschen möchtest?</p>
+            <ButtonWithIcon
+              kind="danger"
+              icon="trash"
+              label={`Ja, bitte "${store.title.value || "[" + TXT.missingTitle + "]"}" löschen.`}
+              onClick={() => {
+                setStore("kind", "DELETED");
+                props.changePage({ kind: "GAMEMASTER" });
+              }}
+            />
+          </div>
+        </Show>
+      </Dialog>
     </PageTemplate>
   );
 }
@@ -90,6 +132,7 @@ function GameroundForm(props: {
   registrations: Resource<Result<RegistrationsClient>>;
   onSubmit: (e: Event) => void;
   onCancel: () => void;
+  goBack: () => void;
 }): JSX.Element {
   const [store] = createStore(props.store);
   const errors = createMemo(() => validateGameround(store));
@@ -157,33 +200,51 @@ function GameroundForm(props: {
       <Show when={errors().hasErrors}>
         <Box type="danger">
           <h4>Spielrunde inkomplett</h4>
-          Du hast noch einen oder mehre Fehler/fehlende Informationen in dieser
-          Spielrunde (siehe oben). Du kannst die Spielrunde als Entwurf
-          speichern und später vervollständigen. Die Spielrunde wird erst
-          veröffentlicht, wenn alle Informationen komplett sind.
-          <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
-            <Button
-              kind="success"
-              label="Spielrunde als Entwurf speichern"
-              onClick={props.onSubmit}
-            />
-          </div>
+          <p>
+            Du hast noch einen oder mehre Fehler/fehlende Informationen in
+            dieser Spielrunde:
+          </p>
+          <ul>
+            <Show when={errors().titleMissing}>
+              <li>"Titel" ist ein Pflichtfeld.</li>
+            </Show>
+            <Show when={errors().descriptionShortMissing}>
+              <li>"kurz Beschreibung" ist ein Pflichtfeld.</li>
+            </Show>
+            <Show when={errors().descriptionShortTooLong}>
+              <li>"kurz Beschreibung" ist zu lang.</li>
+            </Show>
+            <Show when={errors().descriptionLongTooLong}>
+              <li>"lange Beschreibung" ist zu lang.</li>
+            </Show>
+            <Show when={errors().slotMissing}>
+              <li>Mindest einen Zeitslot muss ausgewählt werden.</li>
+            </Show>
+          </ul>
         </Box>
       </Show>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
-        <Button kind="danger" label="Zurück" onClick={() => props.onCancel()} />
+        <ButtonWithIcon
+          icon="backward"
+          label="Zurück zu deinen Spielrunden"
+          onClick={props.goBack}
+        />
         <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <Button
+          <ButtonWithIcon
+            icon="trash"
             kind="danger"
             label="Löschen"
             onClick={() => props.onCancel()}
           />
-          <Button
-            type="submit"
-            kind={errors().hasErrors ? "gray" : "success"}
-            disabled={errors().hasErrors}
-            label="Spielrunde veröffentlichen"
-          />
+          <Show when={store.kind === "DRAFT"}>
+            <ButtonWithIcon
+              icon="circle-plus"
+              type="submit"
+              kind={errors().hasErrors ? "gray" : "success"}
+              disabled={errors().hasErrors}
+              label="Spielrunde veröffentlichen"
+            />
+          </Show>
         </div>
       </div>
     </form>

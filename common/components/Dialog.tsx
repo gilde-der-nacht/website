@@ -1,6 +1,6 @@
 import { createEffect, Show, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
-import { IconButton } from "@common/components/Button";
+import { IconOnlyButton } from "@common/components/Button";
 
 export type DialogType = "success" | "danger" | "special" | "gray" | "warning";
 
@@ -49,7 +49,7 @@ export function Dialog(props: {
     <>
       <dialog ref={dialogEl} onClose={close} class={classes().join(" ")}>
         <Show when={props.onClose}>
-          <IconButton onClick={close} icon="circle-xmark" kind="gray" />
+          <IconOnlyButton onClick={close} icon="circle-xmark" kind="gray" />
         </Show>
         <Show when={props.title}>{(title) => <h4>{title()}</h4>}</Show>
         {props.children}

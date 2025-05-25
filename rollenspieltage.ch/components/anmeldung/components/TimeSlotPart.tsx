@@ -9,7 +9,7 @@ import {
   type Resource,
 } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
-import { Button } from "@common/components/Button";
+import { Button, ButtonWithIcon } from "@common/components/Button";
 import { Icon } from "@common/components/Icon";
 import { Box } from "@common/components/Box";
 import {
@@ -41,8 +41,6 @@ export function TimeSlotPart(props: {
       <legend>Zeitslots</legend>
       <TimeSlots store={props.store} registrations={props.registrations} />
       <Show when={props.slotMissing}>
-        <br />
-        <br />
         <Box type="danger">Wähle mindestens einen Zeitslot aus.</Box>
       </Show>
     </fieldset>
@@ -161,13 +159,10 @@ function TimeSlots(props: {
           Zeitslot: {TXT.days[dialogStore.slot?.day!]}, {dialogStore.slot?.from}{" "}
           -{dialogStore.slot?.to} Uhr
         </div>
-        <Button
+        <ButtonWithIcon
           kind="danger"
-          label={
-            <span>
-              <Icon icon="trash" /> Löschen
-            </span>
-          }
+          icon="trash"
+          label="Löschen"
           onClick={() => removeTimeSlot(dialogStore.slot?.uuid!)}
         />
       </Dialog>

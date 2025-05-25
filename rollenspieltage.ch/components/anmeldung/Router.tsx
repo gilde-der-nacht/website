@@ -82,9 +82,11 @@ export function Router(props: {
   const [registrationsResource] = createResource(slotUuids(), (uuids) =>
     loadRegistrations(store.meta.secret, uuids),
   );
+
   const [programResource] = createResource(() =>
     loadProgram(store.meta.secret),
   );
+
   const changePage = createChangePageFn(store.meta);
 
   window.addEventListener("popstate", (e: unknown) => {
