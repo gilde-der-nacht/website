@@ -6,7 +6,6 @@ import { Icon } from "@common/components/Icon";
 import { Box } from "@common/components/Box";
 import {
   getHours,
-  type DateTimeWindow,
   type PerDay,
   type ProgramDay,
 } from "@rst/components/anmeldung/utils/time";
@@ -34,6 +33,7 @@ import type {
   GameroundEditClient,
   GameroundNewEditClient,
 } from "@rst/components/anmeldung/api/gameround-edit";
+import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
 
 export function GameroundForm(props: {
   store: Store<GameroundNewEditClient | GameroundEditClient>;
@@ -240,26 +240,22 @@ function calculateDaySections(openingHours: OpeningHours): DaySections {
   };
 }
 
-function groupByDay(slots: DateTimeWindow[]): PerDay<DateTimeWindow[]> {
+function groupByDay(slots: TimeSlot[]): PerDay<TimeSlot[]> {
   const { SATURDAY, SUNDAY } = Object.groupBy(slots, (slot) => slot.day);
   return { SATURDAY: SATURDAY ?? [], SUNDAY: SUNDAY ?? [] };
 }
 
-function TimeSlots(props: { store: Store<DateTimeWindow[]> }): JSX.Element {
+function TimeSlots(props: { store: Store<TimeSlot[]> }): JSX.Element {
   const [store, setStore] = createStore(props.store);
 
   const daySections = createMemo(() => calculateDaySections(openingHours));
   const days = createMemo(() => groupByDay(store));
 
-  function addTimeSlot(newSlot: DateTimeWindow) {
+  function addTimeSlot(newSlot: TimeSlot) {
     setStore(store.concat(newSlot));
   }
-  function removeTimeSlot(slot: DateTimeWindow) {
-    setStore(
-      store.filter(
-        (s) => s.from !== slot.from || s.to !== slot.to || s.day !== slot.day,
-      ),
-    );
+  function removeTimeSlot(slotUuid: string) {
+    setStore(store.filter((s) => s.uuid !== slotUuid));
   }
   return (
     <>
@@ -282,13 +278,7 @@ function TimeSlots(props: { store: Store<DateTimeWindow[]> }): JSX.Element {
                   </div>
                 }
                 kind="gray"
-                onClick={() =>
-                  removeTimeSlot({
-                    day: "SATURDAY",
-                    from: slot.from,
-                    to: slot.to,
-                  })
-                }
+                onClick={() => removeTimeSlot(slot.uuid)}
               />
             )}
           </For>
@@ -309,13 +299,7 @@ function TimeSlots(props: { store: Store<DateTimeWindow[]> }): JSX.Element {
                   </div>
                 }
                 kind="gray"
-                onClick={() =>
-                  removeTimeSlot({
-                    day: "SUNDAY",
-                    from: slot.from,
-                    to: slot.to,
-                  })
-                }
+                onClick={() => removeTimeSlot(slot.uuid)}
               />
             )}
           </For>
@@ -350,7 +334,7 @@ type SlotState =
 
 function TimeSlotChooser(props: {
   daySections: DaySections;
-  chooseTimeSlot: (dateTime: DateTimeWindow) => void;
+  chooseTimeSlot: (slot: TimeSlot) => void;
 }): JSX.Element {
   const [store, setStore] = createStore<SlotState>({
     kind: "INITIAL",
@@ -487,6 +471,7 @@ function TimeSlotChooser(props: {
                 onClick={() => {
                   if (store.kind === "WAIT_FOR_CONFIRMATION") {
                     props.chooseTimeSlot({
+                      uuid: crypto.randomUUID(),
                       day: store.day,
                       from: store.start,
                       to: store.end,

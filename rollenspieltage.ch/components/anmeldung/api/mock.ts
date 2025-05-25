@@ -30,7 +30,14 @@ const saveMock = {
             "Ein kurzes Abenteuer bei dem es um Fantasy, Action und einfaches Rollenspiel geht.",
           long: "Eine kleine Gruppe wagt sich in die dunklen Schächten einer Mine und weiter hinab, um einen mächtigen Gegenstand wieder zu erlangen. Wie werden die Gefährten auf die Gefahren des Untergrundes reagieren und welche Gefahren lauern in der Finsternis?",
         },
-        slots: [],
+        slots: [
+          {
+            uuid: crypto.randomUUID(),
+            day: "SATURDAY",
+            from: 10,
+            to: 12,
+          },
+        ],
         playerCount: {
           min: 1,
           max: 3,

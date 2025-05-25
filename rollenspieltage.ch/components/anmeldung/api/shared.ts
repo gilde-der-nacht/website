@@ -4,6 +4,7 @@ export const daySchema = z.enum(["SATURDAY", "SUNDAY"]);
 
 export const timeSlotSchema = z
   .object({
+    uuid: z.string().uuid(),
     day: daySchema,
     from: z.number(),
     to: z.number(),
