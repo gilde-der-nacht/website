@@ -15,10 +15,13 @@ export function TextInputField(props: {
   type?: "text" | "date" | "email" | "tel" | undefined;
   required?: boolean | undefined;
   isHoneypot?: boolean | undefined;
+  showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
-  const errors = () => (store.isDirty ? (props.errors ?? []) : []);
+  const alwaysShowErrors = props.showErrors === "ALWAYS";
+  const errors = () =>
+    alwaysShowErrors || store.isDirty ? (props.errors ?? []) : [];
   return (
     <>
       <Input
@@ -48,10 +51,13 @@ export function NumberInputField(props: {
   isHoneypot?: boolean | undefined;
   min?: number | undefined;
   max?: number | undefined;
+  showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
-  const errors = () => (store.isDirty ? (props.errors ?? []) : []);
+  const alwaysShowErrors = props.showErrors === "ALWAYS";
+  const errors = () =>
+    alwaysShowErrors || store.isDirty ? (props.errors ?? []) : [];
   return (
     <>
       <InputInteger
@@ -80,10 +86,13 @@ export function TextareaField(props: {
   name: string;
   required?: boolean | undefined;
   size?: "sm" | undefined;
+  showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
-  const errors = () => (store.isDirty ? (props.errors ?? []) : []);
+  const alwaysShowErrors = props.showErrors === "ALWAYS";
+  const errors = () =>
+    alwaysShowErrors || store.isDirty ? (props.errors ?? []) : [];
   return (
     <>
       <Textarea

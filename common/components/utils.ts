@@ -120,3 +120,10 @@ export function unpackUnion<K extends string, T extends { kind: K }>(
   const kind = union.kind;
   return { kind, value: union } as UnpackUnionResult<T>;
 }
+
+export function ellipsis(text: string, limit: number): string {
+  if (text.length < limit) {
+    return text;
+  }
+  return text.substring(0, limit) + "...";
+}

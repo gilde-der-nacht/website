@@ -143,6 +143,7 @@ function GameroundForm(props: {
         store={store.title}
         label="Titel"
         name="title"
+        showErrors={store.kind === "PUBLISHED" ? "ALWAYS" : "ON_BLUR"}
         errors={errors().titleMissing ? [TXT.mandatoryField] : []}
       />
       <TextInputField
@@ -170,6 +171,7 @@ function GameroundForm(props: {
         label="kurze Beschreibung"
         name="descriptionShort"
         size="sm"
+        showErrors={store.kind === "PUBLISHED" ? "ALWAYS" : "ON_BLUR"}
         errors={
           errors().descriptionShortMissing
             ? [TXT.mandatoryField]
@@ -182,6 +184,7 @@ function GameroundForm(props: {
         store={store.description.long}
         label="lange Beschreibung (optional)"
         name="descriptionLong"
+        showErrors={store.kind === "PUBLISHED" ? "ALWAYS" : "ON_BLUR"}
         errors={
           errors().descriptionLongTooLong
             ? [TXT.charLimitBy.replace("{}", String(DESCR_LONG_MAX_CHAR))]

@@ -11,6 +11,8 @@ import {
 } from "@rst/components/anmeldung/api/gameround-edit";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
+import { ellipsis } from "@common/components/utils";
+import { DESCR_SHORT_MAX_CHAR } from "../forms/validation";
 
 export function GamemasterPage(props: {
   store: Store<MasterClient>;
@@ -120,10 +122,10 @@ function Entry(props: {
           <strong>Kurzbeschreibung:</strong>
           <br />
 
-          {game.description.short.value.length > 0 ? (
-            game.description.short.value
-          ) : (
+          {game.description.short.value.length === 0 ? (
             <em>{TXT.missingShortDescription}</em>
+          ) : (
+            ellipsis(game.description.short.value, DESCR_SHORT_MAX_CHAR)
           )}
         </p>
       </div>
