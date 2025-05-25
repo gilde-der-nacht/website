@@ -128,7 +128,6 @@ const registrationsMock = {
 export async function mockedLoadRegistrations(
   uuids: string[],
 ): Promise<unknown> {
-  console.log({ uuids });
   return new Promise((res) =>
     setTimeout(
       () =>

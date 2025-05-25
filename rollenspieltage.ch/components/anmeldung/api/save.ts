@@ -74,10 +74,12 @@ export const saveClientSchema = z.object({
 
 export type SaveClient = z.infer<typeof saveClientSchema>;
 
-export async function loadSave(secret: string): Promise<Result<SaveClient>> {
+type SaveResult = Result<SaveClient> | { kind: "SECRET_INVALID" };
+
+export async function loadSave(secret: string): Promise<SaveResult> {
   if (secret !== "demo") {
     return {
-      kind: "FAILURE",
+      kind: "SECRET_INVALID",
     };
   }
 

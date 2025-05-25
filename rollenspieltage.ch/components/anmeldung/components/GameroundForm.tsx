@@ -121,17 +121,20 @@ export function GameroundForm(props: {
         </Box>
       </Show>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
-        <Button
-          kind="danger"
-          label="Abbrechen"
-          onClick={() => props.onCancel()}
-        />
-        <Button
-          type="submit"
-          kind={errors().hasErrors ? "gray" : "success"}
-          disabled={errors().hasErrors}
-          label="Spielrunde erstellen"
-        />
+        <Button kind="danger" label="Zurück" onClick={() => props.onCancel()} />
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <Button
+            kind="danger"
+            label="Löschen"
+            onClick={() => props.onCancel()}
+          />
+          <Button
+            type="submit"
+            kind={errors().hasErrors ? "gray" : "success"}
+            disabled={errors().hasErrors}
+            label="Spielrunde veröffentlichen"
+          />
+        </div>
       </div>
     </form>
   );

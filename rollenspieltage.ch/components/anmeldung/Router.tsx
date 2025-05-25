@@ -28,6 +28,7 @@ import { createStore, type Store } from "solid-js/store";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { loadRegistrations } from "@rst/components/anmeldung/api/registrations";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
+import { Dialog } from "@common/components/Dialog";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
@@ -101,6 +102,9 @@ export function Router(props: {
         <Box type="success">{TXT.registrationStarted}</Box>
         <br />
       </Show>
+      <Dialog>
+        <h1>oh yea</h1>
+      </Dialog>
       <Switch fallback={<ChoosePage changePage={changePage} />}>
         <Match when={store.meta.page.kind === "PLAYER"}>
           <PlayerPage changePage={changePage} />

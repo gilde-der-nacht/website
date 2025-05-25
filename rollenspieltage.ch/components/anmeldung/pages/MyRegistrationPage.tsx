@@ -44,21 +44,19 @@ function MeineAnmeldung(props: { page: MetaClient }): JSX.Element {
 
   return (
     <ErrorBoundary
-      fallback={(err) => (
-        <Box type="danger">
-          <Switch fallback={TXT.error.general}>
-            <Match when={err.message === "SECRET_ERROR"}>
-              {TXT.error.secretError}
-            </Match>
-          </Switch>
-        </Box>
-      )}
+      fallback={(err) => {
+        console.error(err);
+        return <Box type="danger">{TXT.error.general}</Box>;
+      }}
     >
       <Suspense fallback={<Loading />}>
         <Switch>
           <Match when={saveResource()}>
             {(state) => {
               const { kind, value } = unpackUnion(state());
+              if (kind === "SECRET_INVALID") {
+                return <Box type="danger">{TXT.error.secretError}</Box>;
+              }
               if (kind === "FAILURE") {
                 return <Box type="danger">{TXT.error.ourMistake}</Box>;
               }
