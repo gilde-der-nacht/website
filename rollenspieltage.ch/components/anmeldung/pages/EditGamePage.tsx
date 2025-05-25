@@ -12,6 +12,7 @@ import {
   DESCR_LONG_MAX_CHAR,
   DESCR_SHORT_MAX_CHAR,
   validateGameround,
+  type GameroundEditErrors,
 } from "@rst/components/anmeldung/forms/validation";
 import {
   NumberInputField,
@@ -139,6 +140,9 @@ function GameroundForm(props: {
 
   return (
     <form onSubmit={props.onSubmit} novalidate>
+      <Show when={store.kind === "PUBLISHED"}>
+        <ErrorSummary errors={errors()} />
+      </Show>
       <TextInputField
         store={store.title}
         label="Titel"
@@ -200,32 +204,7 @@ function GameroundForm(props: {
         <legend>Kategorien (optional)</legend>
         <Tags store={store.tagNames} />
       </fieldset>
-      <Show when={errors().hasErrors}>
-        <Box type="danger">
-          <h4>Spielrunde inkomplett</h4>
-          <p>
-            Du hast noch einen oder mehre Fehler/fehlende Informationen in
-            dieser Spielrunde:
-          </p>
-          <ul>
-            <Show when={errors().titleMissing}>
-              <li>"Titel" ist ein Pflichtfeld.</li>
-            </Show>
-            <Show when={errors().descriptionShortMissing}>
-              <li>"kurz Beschreibung" ist ein Pflichtfeld.</li>
-            </Show>
-            <Show when={errors().descriptionShortTooLong}>
-              <li>"kurz Beschreibung" ist zu lang.</li>
-            </Show>
-            <Show when={errors().descriptionLongTooLong}>
-              <li>"lange Beschreibung" ist zu lang.</li>
-            </Show>
-            <Show when={errors().slotMissing}>
-              <li>Mindest einen Zeitslot muss ausgewählt werden.</li>
-            </Show>
-          </ul>
-        </Box>
-      </Show>
+      <ErrorSummary errors={errors()} />
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
         <ButtonWithIcon
           icon="backward"
@@ -251,6 +230,37 @@ function GameroundForm(props: {
         </div>
       </div>
     </form>
+  );
+}
+
+function ErrorSummary(props: { errors: GameroundEditErrors }): JSX.Element {
+  return (
+    <Show when={props.errors.hasErrors}>
+      <Box type="danger">
+        <h4>Spielrunde inkomplett</h4>
+        <p>
+          Du hast noch einen oder mehre Fehler/fehlende Informationen in dieser
+          Spielrunde:
+        </p>
+        <ul>
+          <Show when={props.errors.titleMissing}>
+            <li>"Titel" ist ein Pflichtfeld.</li>
+          </Show>
+          <Show when={props.errors.descriptionShortMissing}>
+            <li>"kurz Beschreibung" ist ein Pflichtfeld.</li>
+          </Show>
+          <Show when={props.errors.descriptionShortTooLong}>
+            <li>"kurz Beschreibung" ist zu lang.</li>
+          </Show>
+          <Show when={props.errors.descriptionLongTooLong}>
+            <li>"lange Beschreibung" ist zu lang.</li>
+          </Show>
+          <Show when={props.errors.slotMissing}>
+            <li>Mindest einen Zeitslot muss ausgewählt werden.</li>
+          </Show>
+        </ul>
+      </Box>
+    </Show>
   );
 }
 
