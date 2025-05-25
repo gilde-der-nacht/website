@@ -34,6 +34,7 @@ import {
 } from "@rst/components/anmeldung/forms/Components";
 import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
+import { Dialog } from "@common/components/Dialog";
 
 export function FindGameround(props: {
   allRounds: Store<GameroundEditClient[]>;
@@ -370,9 +371,6 @@ function TimeSlots(props: { store: Store<TimeSlot[]> }): JSX.Element {
 
 type SlotState =
   | {
-      kind: "INITIAL";
-    }
-  | {
       kind: "CHOOSE_DAY";
     }
   | {
@@ -395,155 +393,193 @@ function TimeSlotChooser(props: {
   daySections: DaySections;
   chooseTimeSlot: (slot: TimeSlot) => void;
 }): JSX.Element {
-  const [store, setStore] = createStore<SlotState>({
-    kind: "INITIAL",
+  const [store, setStore] = createStore<{
+    slot: SlotState;
+    dialog: { open: boolean };
+  }>({
+    slot: {
+      kind: "CHOOSE_DAY",
+    },
+    dialog: { open: false },
   });
 
+  function resetDialog(): void {
+    setStore("slot", { kind: "CHOOSE_DAY" });
+    setStore("dialog", "open", false);
+  }
+
+  function createTimeSlot(slot: TimeSlot): void {
+    props.chooseTimeSlot(slot);
+    resetDialog();
+  }
+
   return (
-    <Switch>
-      <Match when={store.kind === "INITIAL"}>
-        <Button
-          kind="success"
-          label={
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-              <Icon icon="circle-plus" /> <span>Neuen Slot erfassen</span>
+    <>
+      <Button
+        kind="success"
+        label={
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+            <Icon icon="circle-plus" /> <span>Neuen Slot erfassen</span>
+          </div>
+        }
+        onClick={() => setStore("dialog", "open", true)}
+      />
+      <Dialog
+        title="Zeitslot erfassen"
+        store={store.dialog}
+        size="medium"
+        onClose={resetDialog}
+      >
+        <Switch>
+          <Match when={store.slot.kind === "CHOOSE_DAY"}>
+            <div style="display: grid; gap: 0.5rem;">
+              <DayChooser
+                changeDay={(day) =>
+                  setStore("slot", { kind: "CHOOSE_START", day })
+                }
+              />
             </div>
-          }
-          onClick={() => setStore({ kind: "CHOOSE_DAY" })}
-        />
-      </Match>
-      <Match when={store.kind === "CHOOSE_DAY"}>
-        <Box onClose={() => setStore({ kind: "INITIAL" })}>
-          <div style="display: grid; gap: 0.5rem;">
-            <DayChooser
-              changeDay={(day) => setStore({ kind: "CHOOSE_START", day })}
-            />
-          </div>
-        </Box>
-      </Match>
-      <Match when={store.kind === "CHOOSE_START"}>
-        <Box onClose={() => setStore({ kind: "INITIAL" })}>
-          <div style="display: grid; gap: 0.5rem;">
-            <DayChooser
-              chosenDay={store.kind === "CHOOSE_START" ? store.day : undefined}
-              changeDay={(day) => setStore({ kind: "CHOOSE_START", day })}
-            />
-            <StartChooser
-              startTimes={
-                store.kind === "CHOOSE_START"
-                  ? getNumberedKeys(props.daySections[store.day])
-                  : []
-              }
-              changeStart={(hour) =>
-                setStore({ kind: "CHOOSE_END", start: hour })
-              }
-            />
-          </div>
-        </Box>
-      </Match>
-      <Match when={store.kind === "CHOOSE_END"}>
-        <Box onClose={() => setStore({ kind: "INITIAL" })}>
-          <div style="display: grid; gap: 0.5rem;">
-            <DayChooser
-              chosenDay={store.kind === "CHOOSE_END" ? store.day : undefined}
-              changeDay={(day) => setStore({ kind: "CHOOSE_START", day })}
-            />
-            <StartChooser
-              chosenStart={
-                store.kind === "CHOOSE_END" ? store.start : undefined
-              }
-              startTimes={
-                store.kind === "CHOOSE_END"
-                  ? getNumberedKeys(props.daySections[store.day])
-                  : []
-              }
-              changeStart={(hour) =>
-                setStore({ kind: "CHOOSE_END", start: hour })
-              }
-            />
-            <EndChooser
-              endTimes={
-                store.kind === "CHOOSE_END"
-                  ? (props.daySections[store.day][store.start] ?? [])
-                  : []
-              }
-              changeEnd={(hour) => {
-                if (store.kind === "CHOOSE_END") {
-                  setStore({
-                    kind: "WAIT_FOR_CONFIRMATION",
-                    day: store.day,
-                    start: store.start,
-                    end: hour,
-                  });
+          </Match>
+          <Match when={store.slot.kind === "CHOOSE_START"}>
+            <div style="display: grid; gap: 0.5rem;">
+              <DayChooser
+                chosenDay={
+                  store.slot.kind === "CHOOSE_START"
+                    ? store.slot.day
+                    : undefined
                 }
-              }}
-            />
-          </div>
-        </Box>
-      </Match>
-      <Match when={store.kind === "WAIT_FOR_CONFIRMATION"}>
-        <Box onClose={() => setStore({ kind: "INITIAL" })}>
-          <div style="display: grid; gap: 0.5rem;">
-            <DayChooser
-              chosenDay={
-                store.kind === "WAIT_FOR_CONFIRMATION" ? store.day : undefined
-              }
-              changeDay={(day) => setStore({ kind: "CHOOSE_START", day })}
-            />
-            <StartChooser
-              chosenStart={
-                store.kind === "WAIT_FOR_CONFIRMATION" ? store.start : undefined
-              }
-              startTimes={
-                store.kind === "WAIT_FOR_CONFIRMATION"
-                  ? getNumberedKeys(props.daySections[store.day])
-                  : []
-              }
-              changeStart={(hour) =>
-                setStore({ kind: "CHOOSE_END", start: hour })
-              }
-            />
-            <EndChooser
-              chosenEnd={
-                store.kind === "WAIT_FOR_CONFIRMATION" ? store.end : undefined
-              }
-              endTimes={
-                store.kind === "WAIT_FOR_CONFIRMATION"
-                  ? (props.daySections[store.day][store.start] ?? [])
-                  : []
-              }
-              changeEnd={(hour) => {
-                if (store.kind === "WAIT_FOR_CONFIRMATION") {
-                  setStore({
-                    kind: "WAIT_FOR_CONFIRMATION",
-                    day: store.day,
-                    start: store.start,
-                    end: hour,
-                  });
+                changeDay={(day) =>
+                  setStore("slot", { kind: "CHOOSE_START", day })
                 }
-              }}
-            />
-            <div style="margin-block-start: 1rem;">
-              <Button
-                label={`Slot "${store.kind === "WAIT_FOR_CONFIRMATION" ? `${TXT.days[store.day]}, von ${store.start} bis ${store.end} Uhr` : ""}" erstellen`}
-                kind="success"
-                onClick={() => {
-                  if (store.kind === "WAIT_FOR_CONFIRMATION") {
-                    props.chooseTimeSlot({
-                      uuid: crypto.randomUUID(),
-                      day: store.day,
-                      from: store.start,
-                      to: store.end,
+              />
+              <StartChooser
+                startTimes={
+                  store.slot.kind === "CHOOSE_START"
+                    ? getNumberedKeys(props.daySections[store.slot.day])
+                    : []
+                }
+                changeStart={(hour) =>
+                  setStore("slot", { kind: "CHOOSE_END", start: hour })
+                }
+              />
+            </div>
+          </Match>
+          <Match when={store.slot.kind === "CHOOSE_END"}>
+            <div style="display: grid; gap: 0.5rem;">
+              <DayChooser
+                chosenDay={
+                  store.slot.kind === "CHOOSE_END" ? store.slot.day : undefined
+                }
+                changeDay={(day) =>
+                  setStore("slot", { kind: "CHOOSE_START", day })
+                }
+              />
+              <StartChooser
+                chosenStart={
+                  store.slot.kind === "CHOOSE_END"
+                    ? store.slot.start
+                    : undefined
+                }
+                startTimes={
+                  store.slot.kind === "CHOOSE_END"
+                    ? getNumberedKeys(props.daySections[store.slot.day])
+                    : []
+                }
+                changeStart={(hour) =>
+                  setStore("slot", { kind: "CHOOSE_END", start: hour })
+                }
+              />
+              <EndChooser
+                endTimes={
+                  store.slot.kind === "CHOOSE_END"
+                    ? (props.daySections[store.slot.day][store.slot.start] ??
+                      [])
+                    : []
+                }
+                changeEnd={(hour) => {
+                  if (store.slot.kind === "CHOOSE_END") {
+                    setStore("slot", {
+                      kind: "WAIT_FOR_CONFIRMATION",
+                      day: store.slot.day,
+                      start: store.slot.start,
+                      end: hour,
                     });
-                    setStore({ kind: "INITIAL" });
                   }
                 }}
               />
             </div>
-          </div>
-        </Box>
-      </Match>
-    </Switch>
+          </Match>
+          <Match when={store.slot.kind === "WAIT_FOR_CONFIRMATION"}>
+            <div style="display: grid; gap: 0.5rem;">
+              <DayChooser
+                chosenDay={
+                  store.slot.kind === "WAIT_FOR_CONFIRMATION"
+                    ? store.slot.day
+                    : undefined
+                }
+                changeDay={(day) =>
+                  setStore("slot", { kind: "CHOOSE_START", day })
+                }
+              />
+              <StartChooser
+                chosenStart={
+                  store.slot.kind === "WAIT_FOR_CONFIRMATION"
+                    ? store.slot.start
+                    : undefined
+                }
+                startTimes={
+                  store.slot.kind === "WAIT_FOR_CONFIRMATION"
+                    ? getNumberedKeys(props.daySections[store.slot.day])
+                    : []
+                }
+                changeStart={(hour) =>
+                  setStore("slot", { kind: "CHOOSE_END", start: hour })
+                }
+              />
+              <EndChooser
+                chosenEnd={
+                  store.slot.kind === "WAIT_FOR_CONFIRMATION"
+                    ? store.slot.end
+                    : undefined
+                }
+                endTimes={
+                  store.slot.kind === "WAIT_FOR_CONFIRMATION"
+                    ? (props.daySections[store.slot.day][store.slot.start] ??
+                      [])
+                    : []
+                }
+                changeEnd={(hour) => {
+                  if (store.slot.kind === "WAIT_FOR_CONFIRMATION") {
+                    setStore("slot", {
+                      kind: "WAIT_FOR_CONFIRMATION",
+                      day: store.slot.day,
+                      start: store.slot.start,
+                      end: hour,
+                    });
+                  }
+                }}
+              />
+              <div style="margin-block-start: 1rem;">
+                <Button
+                  label={`Slot "${store.slot.kind === "WAIT_FOR_CONFIRMATION" ? `${TXT.days[store.slot.day]}, von ${store.slot.start} bis ${store.slot.end} Uhr` : ""}" erstellen`}
+                  kind="success"
+                  onClick={() => {
+                    if (store.slot.kind === "WAIT_FOR_CONFIRMATION") {
+                      createTimeSlot({
+                        uuid: crypto.randomUUID(),
+                        day: store.slot.day,
+                        from: store.slot.start,
+                        to: store.slot.end,
+                      });
+                    }
+                  }}
+                />
+              </div>
+            </div>
+          </Match>
+        </Switch>
+      </Dialog>
+    </>
   );
 }
 

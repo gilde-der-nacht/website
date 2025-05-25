@@ -4,6 +4,10 @@
 dialog {
   @include p.element;
   padding: 1rem 2rem;
+
+  &.medium {
+    inline-size: clamp(50ch, 750px, 80vw);
+  }
 }
 
 .dialog {
@@ -31,9 +35,17 @@ dialog {
     border-color: c.getGray("background-solid");
     color: c.getGray("text-low-contrast");
   }
+
+  &-with-close {
+    &>.button-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 }
 
 dialog::backdrop {
   background-color: black;
-  opacity: 0.25;
+  opacity: 0.5;
 }

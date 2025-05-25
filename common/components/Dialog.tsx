@@ -1,5 +1,6 @@
 import { createEffect, Show, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
+import { IconButton } from "@common/components/Button";
 
 export type DialogType = "success" | "danger" | "special" | "gray" | "warning";
 
@@ -7,6 +8,8 @@ export function Dialog(props: {
   store: Store<{ open: boolean }>;
   title?: string;
   type?: DialogType;
+  size?: "medium";
+  onClose?: () => void;
   children: JSX.Element;
 }): JSX.Element {
   let dialogEl: HTMLDialogElement | undefined = undefined;
@@ -22,16 +25,33 @@ export function Dialog(props: {
 
   function close() {
     setStore({ open: false });
+    props.onClose?.();
   }
 
+  const classes = () => {
+    const cls: string[] = [];
+    if (props.type !== undefined) {
+      cls.push(props.type);
+    }
+    if (props.size !== undefined) {
+      cls.push(props.size);
+    }
+    if (props.onClose !== undefined) {
+      cls.push("dialog-with-close");
+    }
+
+    return cls;
+  };
+
   return (
-    <dialog
-      ref={dialogEl}
-      onClose={close}
-      class={`dialog-${props.type ?? "gray"}`}
-    >
-      <Show when={props.title}>{(title) => <h4>{title()}</h4>}</Show>
-      {props.children}
-    </dialog>
+    <>
+      <dialog ref={dialogEl} onClose={close} class={classes().join(" ")}>
+        <Show when={props.onClose}>
+          <IconButton onClick={close} icon="circle-xmark" kind="gray" />
+        </Show>
+        <Show when={props.title}>{(title) => <h4>{title()}</h4>}</Show>
+        {props.children}
+      </dialog>
+    </>
   );
 }
