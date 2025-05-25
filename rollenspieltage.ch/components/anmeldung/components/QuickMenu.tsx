@@ -5,6 +5,7 @@ import type { JSX } from "solid-js/jsx-runtime";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import type { SaveState } from "@rst/components/anmeldung/api/meta";
 import { Match, Switch } from "solid-js";
+import { formatDateTime } from "@common/components/utils";
 
 export function QuickMenu(props: {
   changePage: ChangePageFn;
@@ -46,7 +47,9 @@ export function QuickMenu(props: {
         </Tooltip>
         <Switch>
           <Match when={props.saveState === "IDLE"}>
-            <Tooltip tooltip={`Zuletzt gespeichert am: ${props.lastSaved}`}>
+            <Tooltip
+              tooltip={`Zuletzt gespeichert um: ${formatDateTime(props.lastSaved)} Uhr`}
+            >
               <Button label={<Icon icon="circle-check" />} kind="gray" />
             </Tooltip>
           </Match>
@@ -108,14 +111,14 @@ export function QuickMenuExtended(props: {
         <Match when={props.saveState === "IDLE"}>
           <ButtonWithIcon
             icon="circle-check"
-            label={`Zuletzt gespeichert am: ${props.lastSaved}`}
+            label={`Zuletzt gespeichert um: ${formatDateTime(props.lastSaved)} Uhr`}
             kind="gray"
           />
         </Match>
         <Match when={props.saveState === "SAVING"}>
           <ButtonWithIcon
-            icon="list"
-            label="floppy-disk-circle-arrow-right"
+            icon="floppy-disk-circle-arrow-right"
+            label="Am Speichern..."
             kind="success"
           />
         </Match>

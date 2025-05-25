@@ -38,20 +38,16 @@
     margin-block-end: 1.5lh;
     position: relative;
     z-index: 1;
+
+    button {
+      inline-size: 50px;
+    }
   }
 
   &.extended {
     margin-block-start: 1.5lh;
     grid-column-start: 2;
   }
-
-  .grid {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-
-  }
-
 }
 
 @media screen and (min-width: 1200px) {

@@ -9,6 +9,7 @@ import {
   gameroundEditClientSchema,
   transformGameroundFromClient,
 } from "@rst/components/anmeldung/api/gameround-edit";
+import { debounce } from "@common/components/utils";
 
 /*
  * Types
@@ -119,6 +120,9 @@ function transformSaveFromServer(s: SaveServer): ParseResult<SaveClient> {
 }
 
 export async function saveState(save: SaveClient): Promise<Result<Date>> {
+  console.log("saving");
+  const now = new Date();
+  save.lastSaved = now;
   const saveForServer = transformSaveFromClient(save);
   try {
     await mockedSaveState(saveForServer);
@@ -130,7 +134,7 @@ export async function saveState(save: SaveClient): Promise<Result<Date>> {
   }
   return {
     kind: "SUCCESS",
-    data: new Date(),
+    data: now,
   };
 }
 
@@ -144,3 +148,5 @@ function transformSaveFromClient(c: SaveClient): SaveServer {
     },
   };
 }
+
+export const debouncedSaveState = debounce(saveState, 1_000);

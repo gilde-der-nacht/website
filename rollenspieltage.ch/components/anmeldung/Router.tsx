@@ -23,7 +23,10 @@ import {
   type MetaClient,
   type PageClient,
 } from "@rst/components/anmeldung/api/meta";
-import { saveState, type SaveClient } from "@rst/components/anmeldung/api/save";
+import {
+  debouncedSaveState,
+  type SaveClient,
+} from "@rst/components/anmeldung/api/save";
 import { createStore, unwrap, type Store } from "solid-js/store";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { loadRegistrations } from "@rst/components/anmeldung/api/registrations";
@@ -91,11 +94,20 @@ export function Router(props: {
     () => JSON.stringify(store.save),
     async () => {
       setStore("meta", "saveState", "SAVING");
-      const saveResult = await saveState(unwrap(store.save));
-      if (saveResult.kind === "FAILURE") {
-        console.error(saveResult);
+      const copy = unwrap(store.save);
+      try {
+        const saveResult = await debouncedSaveState(copy);
+        if (saveResult.kind === "FAILURE") {
+          console.error(saveResult);
+          setStore("meta", "saveState", "ERROR");
+        } else {
+          setStore("save", "lastSaved", saveResult.data);
+          setStore("meta", "saveState", "IDLE");
+        }
+      } catch (e) {
+        console.error(e);
+        setStore("meta", "saveState", "ERROR");
       }
-      setStore("meta", "saveState", "IDLE");
     },
   );
 
