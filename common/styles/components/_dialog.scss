@@ -1,0 +1,39 @@
+@use "../globals/patterns" as p;
+@use "../globals/colors" as c;
+
+dialog {
+  @include p.element;
+  padding: 1rem 2rem;
+}
+
+.dialog {
+  &-special {
+    border-color: c.getSpecial("background-solid");
+    color: c.getSpecial("text-low-contrast");
+  }
+
+  &-success {
+    border-color: c.getSuccess("background-solid");
+    color: c.getSuccess("text-low-contrast");
+  }
+
+  &-danger {
+    border-color: c.getDanger("background-solid");
+    color: c.getDanger("text-low-contrast");
+  }
+
+  &-warning {
+    border-color: c.getWarning("background-solid");
+    color: c.getWarning("text-low-contrast");
+  }
+
+  &-gray {
+    border-color: c.getGray("background-solid");
+    color: c.getGray("text-low-contrast");
+  }
+}
+
+dialog::backdrop {
+  background-color: black;
+  opacity: 0.25;
+}
