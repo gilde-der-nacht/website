@@ -1,10 +1,16 @@
-import { Button } from "@common/components/Button";
+import { Button, ButtonWithIcon } from "@common/components/Button";
 import { Icon } from "@common/components/Icon";
 import { Tooltip } from "@common/components/Tooltip";
 import type { JSX } from "solid-js/jsx-runtime";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import type { SaveState } from "@rst/components/anmeldung/api/meta";
+import { Match, Switch } from "solid-js";
 
-export function QuickMenu(props: { changePage: ChangePageFn }): JSX.Element {
+export function QuickMenu(props: {
+  changePage: ChangePageFn;
+  saveState: SaveState;
+  lastSaved: Date;
+}): JSX.Element {
   return (
     <div class="quickmenu-wrapper">
       <div class="quickmenu">
@@ -38,6 +44,29 @@ export function QuickMenu(props: { changePage: ChangePageFn }): JSX.Element {
             onClick={() => props.changePage({ kind: "SUMMARY" })}
           />
         </Tooltip>
+        <Switch>
+          <Match when={props.saveState === "IDLE"}>
+            <Tooltip tooltip={`Zuletzt gespeichert am: ${props.lastSaved}`}>
+              <Button label={<Icon icon="circle-check" />} kind="gray" />
+            </Tooltip>
+          </Match>
+          <Match when={props.saveState === "SAVING"}>
+            <Tooltip tooltip="Am Speichern...">
+              <Button
+                label={<Icon icon="floppy-disk-circle-arrow-right" />}
+                kind="success"
+              />
+            </Tooltip>
+          </Match>
+          <Match when={props.saveState === "ERROR"}>
+            <Tooltip tooltip="Speichern war nicht möglich!">
+              <Button
+                label={<Icon icon="triangle-exclamation" />}
+                kind="danger"
+              />
+            </Tooltip>
+          </Match>
+        </Switch>
       </div>
     </div>
   );
@@ -45,54 +74,59 @@ export function QuickMenu(props: { changePage: ChangePageFn }): JSX.Element {
 
 export function QuickMenuExtended(props: {
   changePage: ChangePageFn;
+  saveState: SaveState;
+  lastSaved: Date;
 }): JSX.Element {
   return (
     <div class="quickmenu extended">
-      <Button
-        label={
-          <div class="grid">
-            <Icon icon="backward" />
-            <span>Zur Übersicht</span>
-          </div>
-        }
+      <ButtonWithIcon
+        icon="backward"
+        label="Zur Übersicht"
         onClick={() => props.changePage({ kind: "CHOOSE" })}
       />
-      <Button
-        label={
-          <div class="grid">
-            <Icon icon="dice-d20" />
-            <span>Zu den Spielrunden</span>
-          </div>
-        }
+      <ButtonWithIcon
+        icon="dice-d20"
+        label="Zu den Spielrunden"
         onClick={() => props.changePage({ kind: "PLAYER" })}
       />
-      <Button
-        label={
-          <div class="grid">
-            <Icon icon="grid-2-plus" />
-            <span>Zu deinen Spielrunden</span>
-          </div>
-        }
+      <ButtonWithIcon
+        icon="grid-2-plus"
+        label="Zu deinen Spielrunden"
         onClick={() => props.changePage({ kind: "GAMEMASTER" })}
       />
-      <Button
-        label={
-          <div class="grid">
-            <Icon icon="hand-heart" />
-            <span>Zum Helferplan</span>
-          </div>
-        }
+      <ButtonWithIcon
+        icon="hand-heart"
+        label="Zum Helferplan"
         onClick={() => props.changePage({ kind: "HELPING" })}
       />
-      <Button
-        label={
-          <div class="grid">
-            <Icon icon="list" />
-            <span>Zur Zusammenfassung</span>
-          </div>
-        }
+      <ButtonWithIcon
+        icon="list"
+        label="Zur Zusammenfassung"
         onClick={() => props.changePage({ kind: "SUMMARY" })}
       />
+      <Switch>
+        <Match when={props.saveState === "IDLE"}>
+          <ButtonWithIcon
+            icon="circle-check"
+            label={`Zuletzt gespeichert am: ${props.lastSaved}`}
+            kind="gray"
+          />
+        </Match>
+        <Match when={props.saveState === "SAVING"}>
+          <ButtonWithIcon
+            icon="list"
+            label="floppy-disk-circle-arrow-right"
+            kind="success"
+          />
+        </Match>
+        <Match when={props.saveState === "ERROR"}>
+          <ButtonWithIcon
+            icon="triangle-exclamation"
+            label="Speichern war nicht möglich!"
+            kind="danger"
+          />
+        </Match>
+      </Switch>
     </div>
   );
 }

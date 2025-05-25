@@ -1,9 +1,13 @@
 import type { ParseResult, Result } from "@rst/components/anmeldung/api/utils";
-import { mockedLoadSave } from "@rst/components/anmeldung/api/mock";
+import {
+  mockedLoadSave,
+  mockedSaveState,
+} from "@rst/components/anmeldung/api/mock";
 import { z } from "astro/zod";
 import {
   gameroundEditServerSchema,
   gameroundEditClientSchema,
+  transformGameroundFromClient,
 } from "@rst/components/anmeldung/api/gameround-edit";
 
 /*
@@ -76,6 +80,10 @@ export type SaveClient = z.infer<typeof saveClientSchema>;
 
 type SaveResult = Result<SaveClient> | { kind: "SECRET_INVALID" };
 
+/*
+ * Methods
+ */
+
 export async function loadSave(secret: string): Promise<SaveResult> {
   if (secret !== "demo") {
     return {
@@ -84,9 +92,11 @@ export async function loadSave(secret: string): Promise<SaveResult> {
   }
 
   const save = await mockedLoadSave();
-  const parseResult = saveServerSchema.safeParse(save);
+  const parseResult = saveServerSchema.safeParse(JSON.parse(save as string));
 
   if (!parseResult.success) {
+    console.log(save);
+    console.error(parseResult.error);
     return {
       kind: "FAILURE",
     };
@@ -106,4 +116,31 @@ export async function loadSave(secret: string): Promise<SaveResult> {
 
 function transformSaveFromServer(s: SaveServer): ParseResult<SaveClient> {
   return saveClientSchema.safeParse(s);
+}
+
+export async function saveState(save: SaveClient): Promise<Result<Date>> {
+  const saveForServer = transformSaveFromClient(save);
+  try {
+    await mockedSaveState(saveForServer);
+  } catch (e) {
+    console.error(e);
+    return {
+      kind: "FAILURE",
+    };
+  }
+  return {
+    kind: "SUCCESS",
+    data: new Date(),
+  };
+}
+
+function transformSaveFromClient(c: SaveClient): SaveServer {
+  return {
+    ...c,
+    lastSaved: String(c.lastSaved),
+    master: {
+      ...c.master,
+      games: c.master.games.map(transformGameroundFromClient),
+    },
+  };
 }

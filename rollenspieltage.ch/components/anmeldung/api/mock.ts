@@ -8,7 +8,7 @@ const uuid = {
   slot: "bfcbd156-b703-4664-9944-8936aede8476",
 };
 
-function fromLocalStoreOrDefault(key: string, fallback: unknown): unknown {
+function fromLocalStoreOrDefault(key: string, fallback: string): string {
   const localSave = localStorage.getItem(key);
 
   if (localSave === null) {
@@ -18,6 +18,9 @@ function fromLocalStoreOrDefault(key: string, fallback: unknown): unknown {
   return localSave;
 }
 
+function toLocalStorage(key: string, state: string): void {
+  localStorage.setItem(key, state);
+}
 /*
  * Save
  */
@@ -71,9 +74,21 @@ const saveMock = {
   helping: {},
 } satisfies SaveServer;
 
-export async function mockedLoadSave(): Promise<unknown> {
+export async function mockedLoadSave(): Promise<string> {
   return new Promise((res) =>
-    setTimeout(() => res(fromLocalStoreOrDefault(SAVE_KEY, saveMock)), 1_000),
+    setTimeout(
+      () => res(fromLocalStoreOrDefault(SAVE_KEY, JSON.stringify(saveMock))),
+      1_000,
+    ),
+  );
+}
+
+export async function mockedSaveState(state: SaveServer): Promise<void> {
+  return new Promise((res) =>
+    setTimeout(
+      () => res(toLocalStorage(SAVE_KEY, JSON.stringify(state))),
+      1_000,
+    ),
   );
 }
 

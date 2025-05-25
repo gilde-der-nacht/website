@@ -1,6 +1,5 @@
 import { type Resource } from "solid-js";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
-import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { createMemo, For, Show, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import { ButtonWithIcon } from "@common/components/Button";
@@ -69,7 +68,7 @@ export function EditGamePage(props: {
   }
 
   return (
-    <PageTemplate title="Spielrunde editieren" changePage={props.changePage}>
+    <>
       <Chip kind="special">Status: {TXT.publishingSteps[store.kind]}</Chip>
       <br />
       <br />
@@ -124,7 +123,7 @@ export function EditGamePage(props: {
           </div>
         </Show>
       </Dialog>
-    </PageTemplate>
+    </>
   );
 }
 

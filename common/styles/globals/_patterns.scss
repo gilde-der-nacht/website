@@ -34,19 +34,22 @@
   border-bottom-right-radius: 0.5rem;
   color: c.get("accent");
   background-color: c.get("background");
-  cursor: pointer;
-  touch-action: manipulation;
 
-  &:hover,
-  &:active {
-    background-color: c.get("background-subtle");
-    color: c.get("accent-hover");
-    border-color: c.get("text-high-contrast");
-  }
+  &:not(.button-no-event) {
+    cursor: pointer;
+    touch-action: manipulation;
 
-  &:focus-visible {
-    outline: 3px solid c.get("accent");
-    outline-offset: 0.25rem;
+    &:hover,
+    &:active {
+      background-color: c.get("background-subtle");
+      color: c.get("accent-hover");
+      border-color: c.get("text-high-contrast");
+    }
+
+    &:focus-visible {
+      outline: 3px solid c.get("accent");
+      outline-offset: 0.25rem;
+    }
   }
 }
 

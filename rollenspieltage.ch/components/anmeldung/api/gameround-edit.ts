@@ -85,3 +85,21 @@ function transformGameroundFromServer(
 ): ParseResult<GameroundEditClient> {
   return gameroundEditClientSchema.safeParse(s);
 }
+
+export function transformGameroundFromClient(
+  c: GameroundEditClient,
+): GameroundEditServer {
+  return {
+    ...c,
+    title: c.title.value,
+    system: c.system.value,
+    description: {
+      short: c.description.short.value,
+      long: c.description.long.value,
+    },
+    playerCount: {
+      min: c.playerCount.min.value,
+      max: c.playerCount.max.value,
+    },
+  };
+}

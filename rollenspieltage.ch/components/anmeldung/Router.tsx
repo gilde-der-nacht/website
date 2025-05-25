@@ -23,8 +23,8 @@ import {
   type MetaClient,
   type PageClient,
 } from "@rst/components/anmeldung/api/meta";
-import type { SaveClient } from "@rst/components/anmeldung/api/save";
-import { createStore, type Store } from "solid-js/store";
+import { saveState, type SaveClient } from "@rst/components/anmeldung/api/save";
+import { createStore, unwrap, type Store } from "solid-js/store";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { loadRegistrations } from "@rst/components/anmeldung/api/registrations";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
@@ -69,7 +69,7 @@ export function Router(props: {
   save: SaveClient;
 }): JSX.Element {
   initPage(props.meta);
-  const [store] = createStore({
+  const [store, setStore] = createStore({
     meta: props.meta,
     save: props.save,
   });
@@ -85,6 +85,18 @@ export function Router(props: {
 
   const [programResource] = createResource(() =>
     loadProgram(store.meta.secret),
+  );
+
+  createResource(
+    () => JSON.stringify(store.save),
+    async () => {
+      setStore("meta", "saveState", "SAVING");
+      const saveResult = await saveState(unwrap(store.save));
+      if (saveResult.kind === "FAILURE") {
+        console.error(saveResult);
+      }
+      setStore("meta", "saveState", "IDLE");
+    },
   );
 
   const changePage = createChangePageFn(store.meta);
@@ -103,44 +115,88 @@ export function Router(props: {
         <Box type="success">{TXT.registrationStarted}</Box>
         <br />
       </Show>
-      <Switch fallback={<ChoosePage changePage={changePage} />}>
+      <Switch
+        fallback={
+          <PageTemplate
+            title="Wo möchtest du starten?"
+            showQuickmenu={false}
+            changePage={changePage}
+            saveState={store.meta.saveState}
+            lastSaved={store.save.lastSaved}
+          >
+            <ChoosePage
+              changePage={changePage}
+              saveState={store.meta.saveState}
+              lastSaved={store.save.lastSaved}
+            />
+          </PageTemplate>
+        }
+      >
         <Match when={store.meta.page.kind === "PLAYER"}>
-          <PlayerPage changePage={changePage} />
+          <PageTemplate
+            title="Spielrundenübersicht"
+            changePage={changePage}
+            saveState={store.meta.saveState}
+            lastSaved={store.save.lastSaved}
+          >
+            <PlayerPage />
+          </PageTemplate>
         </Match>
         <Match when={store.meta.page.kind === "GAMEMASTER"}>
-          <GamemasterPage store={store.save.master} changePage={changePage} />
+          <PageTemplate
+            title="Meine Spielrunden"
+            changePage={changePage}
+            saveState={store.meta.saveState}
+            lastSaved={store.save.lastSaved}
+          >
+            <GamemasterPage store={store.save.master} changePage={changePage} />
+          </PageTemplate>
         </Match>
         <Match when={store.meta.page.kind === "EDIT_GAMEROUND"}>
-          <FindGameround
-            allRounds={store.save.master.games}
-            uuid={
-              store.meta.page.kind === "EDIT_GAMEROUND"
-                ? store.meta.page.uuid
-                : "should never happen"
-            }
-            fallback={
-              <PageTemplate
-                title="Spielrunde editieren"
-                changePage={changePage}
-              >
-                <Box type="danger">{TXT.error.gameroundUuidError}</Box>
-              </PageTemplate>
-            }
+          <PageTemplate
+            title="Spielrunde editieren"
+            changePage={changePage}
+            saveState={store.meta.saveState}
+            lastSaved={store.save.lastSaved}
           >
-            {(gameround) => (
-              <EditGamePage
-                store={gameround}
-                registrations={registrationsResource}
-                changePage={changePage}
-              />
-            )}
-          </FindGameround>
+            <FindGameround
+              allRounds={store.save.master.games}
+              uuid={
+                store.meta.page.kind === "EDIT_GAMEROUND"
+                  ? store.meta.page.uuid
+                  : "should never happen"
+              }
+              fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
+            >
+              {(gameround) => (
+                <EditGamePage
+                  store={gameround}
+                  registrations={registrationsResource}
+                  changePage={changePage}
+                />
+              )}
+            </FindGameround>
+          </PageTemplate>
         </Match>
         <Match when={store.meta.page.kind === "HELPING"}>
-          <HelpingPage changePage={changePage} />
+          <PageTemplate
+            title="Helfen"
+            changePage={changePage}
+            saveState={store.meta.saveState}
+            lastSaved={store.save.lastSaved}
+          >
+            <HelpingPage />
+          </PageTemplate>
         </Match>
         <Match when={store.meta.page.kind === "SUMMARY"}>
-          <SummaryPage changePage={changePage} />
+          <PageTemplate
+            title="Zusammenfassung"
+            changePage={changePage}
+            saveState={store.meta.saveState}
+            lastSaved={store.save.lastSaved}
+          >
+            <SummaryPage />
+          </PageTemplate>
         </Match>
       </Switch>
       <pre>{JSON.stringify(store, null, 2)}</pre>

@@ -11,10 +11,25 @@ type Props = {
 export function Button(
   props: Props & { label: string | JSX.Element },
 ): JSX.Element {
+  const classes = () => {
+    const cls: string[] = [];
+    if (props.kind !== undefined) {
+      cls.push(`button-${props.kind}`);
+    } else if (props.disabled) {
+      cls.push("button-gray");
+    } else {
+      cls.push("button-accent");
+    }
+    if (props.onClick === undefined) {
+      cls.push("button-no-event");
+    }
+    return cls;
+  };
+
   return (
     <button
       type={props.type ?? "button"}
-      class={`button-${props.kind ?? (props.disabled ? "gray" : "accent")}`}
+      class={classes().join(" ")}
       disabled={props.disabled === true}
       onClick={(e) => props.onClick?.(e)}
     >
@@ -26,10 +41,25 @@ export function Button(
 export function ButtonWithIcon(
   props: Props & { label: string; icon: IconType },
 ): JSX.Element {
+  const classes = () => {
+    const cls: string[] = [];
+    if (props.kind !== undefined) {
+      cls.push(`button-${props.kind}`);
+    } else if (props.disabled) {
+      cls.push("button-gray");
+    } else {
+      cls.push("button-accent");
+    }
+    if (props.onClick === undefined) {
+      cls.push("button-no-event");
+    }
+    return cls;
+  };
+
   return (
     <button
       type={props.type ?? "button"}
-      class={`button-${props.kind ?? (props.disabled ? "gray" : "accent")}`}
+      class={classes().join(" ")}
       disabled={props.disabled === true}
       onClick={(e) => props.onClick?.(e)}
     >
@@ -42,10 +72,25 @@ export function ButtonWithIcon(
 }
 
 export function IconOnlyButton(props: Props & { icon: IconType }): JSX.Element {
+  const classes = () => {
+    const cls: string[] = ["button-icon"];
+    if (props.kind !== undefined) {
+      cls.push(`button-${props.kind}`);
+    } else if (props.disabled) {
+      cls.push("button-gray");
+    } else {
+      cls.push("button-accent");
+    }
+    if (props.onClick === undefined) {
+      cls.push("button-no-event");
+    }
+    return cls;
+  };
+
   return (
     <button
       type={props.type ?? "button"}
-      class={`button-${props.kind ?? (props.disabled ? "gray" : "accent")} button-icon`}
+      class={classes().join(" ")}
       disabled={props.disabled === true}
       onClick={(e) => props.onClick?.(e)}
     >

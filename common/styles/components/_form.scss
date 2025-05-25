@@ -77,10 +77,13 @@ button {
   border-color: c.get("accent");
   color: c.get("accent");
 
-  &:hover,
-  &:active {
-    color: c.get("accent-hover");
-    border-color: c.get("accent-hover");
+  &:not(.button-no-event) {
+
+    &:hover,
+    &:active {
+      color: c.get("accent-hover");
+      border-color: c.get("accent-hover");
+    }
   }
 }
 
@@ -88,11 +91,14 @@ button {
   border-color: c.getSuccess("background-solid");
   color: c.getSuccess("text-low-contrast");
 
-  &:hover,
-  &:active {
-    background-color: c.getSuccess("background-subtle");
-    border-color: c.getSuccess("text-low-contrast");
-    color: c.getSuccess("text-high-contrast");
+  &:not(.button-no-event) {
+
+    &:hover,
+    &:active {
+      background-color: c.getSuccess("background-subtle");
+      border-color: c.getSuccess("text-low-contrast");
+      color: c.getSuccess("text-high-contrast");
+    }
   }
 }
 
@@ -100,11 +106,14 @@ button {
   border-color: c.getDanger("background-solid");
   color: c.getDanger("text-low-contrast");
 
-  &:hover,
-  &:active {
-    background-color: c.getDanger("background-subtle");
-    border-color: c.getDanger("text-low-contrast");
-    color: c.getDanger("text-high-contrast");
+  &:not(.button-no-event) {
+
+    &:hover,
+    &:active {
+      background-color: c.getDanger("background-subtle");
+      border-color: c.getDanger("text-low-contrast");
+      color: c.getDanger("text-high-contrast");
+    }
   }
 }
 
@@ -112,11 +121,14 @@ button {
   border-color: c.getSpecial("background-solid");
   color: c.getSpecial("text-low-contrast");
 
-  &:hover,
-  &:active {
-    background-color: c.getSpecial("background-subtle");
-    border-color: c.getSpecial("text-low-contrast");
-    color: c.getSpecial("text-high-contrast");
+  &:not(.button-no-event) {
+
+    &:hover,
+    &:active {
+      background-color: c.getSpecial("background-subtle");
+      border-color: c.getSpecial("text-low-contrast");
+      color: c.getSpecial("text-high-contrast");
+    }
   }
 }
 
@@ -124,11 +136,14 @@ button {
   border-color: c.getWarning("background-solid");
   color: c.getWarning("text-low-contrast");
 
-  &:hover,
-  &:active {
-    background-color: c.getWarning("background-subtle");
-    border-color: c.getWarning("text-low-contrast");
-    color: c.getWarning("text-high-contrast");
+  &:not(.button-no-event) {
+
+    &:hover,
+    &:active {
+      background-color: c.getWarning("background-subtle");
+      border-color: c.getWarning("text-low-contrast");
+      color: c.getWarning("text-high-contrast");
+    }
   }
 }
 
@@ -136,11 +151,14 @@ button {
   border-color: c.getGray("background-solid");
   color: c.getGray("text-low-contrast");
 
-  &:hover,
-  &:active {
-    background-color: c.getGray("background-subtle");
-    border-color: c.getGray("text-low-contrast");
-    color: c.getGray("text-high-contrast");
+  &:not(.button-no-event) {
+
+    &:hover,
+    &:active {
+      background-color: c.getGray("background-subtle");
+      border-color: c.getGray("text-low-contrast");
+      color: c.getGray("text-high-contrast");
+    }
   }
 }
 
@@ -159,6 +177,7 @@ button {
     background-color: transparent;
   }
 }
+
 
 .checkbox-list,
 .radio-list {

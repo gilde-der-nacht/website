@@ -1,15 +1,15 @@
 import type { JSX } from "solid-js";
 import { BoxLink } from "@rst/components/anmeldung/components/BoxLink";
-import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import type { SaveState } from "@rst/components/anmeldung/api/meta";
 
-export function ChoosePage(props: { changePage: ChangePageFn }): JSX.Element {
+export function ChoosePage(props: {
+  changePage: ChangePageFn;
+  saveState: SaveState;
+  lastSaved: Date;
+}): JSX.Element {
   return (
-    <PageTemplate
-      title="Wo möchtest du starten?"
-      showQuickmenu={false}
-      changePage={props.changePage}
-    >
+    <>
       <BoxLink
         icon="dice-d20"
         onClick={() => props.changePage({ kind: "PLAYER" })}
@@ -47,6 +47,6 @@ export function ChoosePage(props: { changePage: ChangePageFn }): JSX.Element {
         <h3>Zusammenfassung</h3>
         <p>Erhalte einen Überblick über dein gesamtes Programm.</p>
       </BoxLink>
-    </PageTemplate>
+    </>
   );
 }

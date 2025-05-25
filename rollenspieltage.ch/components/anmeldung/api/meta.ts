@@ -18,7 +18,11 @@ const pageClientSchema = z.discriminatedUnion("kind", [
 export type PageClient = z.infer<typeof pageClientSchema>;
 export type PageKind = PageClient["kind"];
 
+const saveStateSchema = z.enum(["SAVING", "IDLE", "ERROR"]);
+export type SaveState = z.infer<typeof saveStateSchema>;
+
 export const metaClientSchema = z.object({
+  saveState: saveStateSchema,
   page: pageClientSchema,
   secret: z.string(),
   showCreateMessage: z.boolean(),
@@ -37,6 +41,7 @@ export function getMetaState(url: URL): MetaClient {
     url.searchParams.get("showCreateMessage") === "true";
 
   const parseResult = metaClientSchema.safeParse({
+    saveState: "IDLE",
     page: {
       kind: pageParam.toUpperCase(),
       uuid,
@@ -50,6 +55,7 @@ export function getMetaState(url: URL): MetaClient {
   }
 
   return {
+    saveState: "IDLE",
     page: {
       kind: "CHOOSE",
     },

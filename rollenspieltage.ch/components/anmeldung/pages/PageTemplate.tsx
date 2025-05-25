@@ -5,18 +5,25 @@ import {
   QuickMenuExtended,
 } from "@rst/components/anmeldung/components/QuickMenu";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import type { SaveState } from "@rst/components/anmeldung/api/meta";
 
 export function PageTemplate(
   props: WithChildren & {
     title: string;
     showQuickmenu?: boolean;
     changePage: ChangePageFn;
+    saveState: SaveState;
+    lastSaved: Date;
   },
 ): JSX.Element {
   return (
     <div class="page">
       {props.showQuickmenu !== false ? (
-        <QuickMenu changePage={props.changePage} />
+        <QuickMenu
+          changePage={props.changePage}
+          saveState={props.saveState}
+          lastSaved={props.lastSaved}
+        />
       ) : null}
       <div class="page-content">
         <h2>{props.title}</h2>
@@ -24,7 +31,11 @@ export function PageTemplate(
         {props.children}
       </div>
       {props.showQuickmenu !== false ? (
-        <QuickMenuExtended changePage={props.changePage} />
+        <QuickMenuExtended
+          changePage={props.changePage}
+          saveState={props.saveState}
+          lastSaved={props.lastSaved}
+        />
       ) : null}
     </div>
   );

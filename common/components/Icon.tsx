@@ -4,10 +4,12 @@ const ICONS = [
   "arrow-turn-down-right",
   "backward",
   "calendar-range",
+  "circle-check",
   "circle-max",
   "circle-plus",
   "circle-xmark",
   "dice-d20",
+  "floppy-disk-circle-arrow-right",
   "grid-2-plus",
   "hand-heart",
   "list",
@@ -17,6 +19,7 @@ const ICONS = [
   "square-check",
   "tags",
   "trash",
+  "triangle-exclamation",
 ] as const;
 export type IconType = (typeof ICONS)[number];
 
