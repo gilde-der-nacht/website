@@ -79,7 +79,7 @@ export function Router(props: {
       game.slots.map((slot) => slot.uuid),
     );
 
-  const [registrationResource] = createResource(slotUuids(), (uuids) =>
+  const [registrationsResource] = createResource(slotUuids(), (uuids) =>
     loadRegistrations(store.meta.secret, uuids),
   );
   const [programResource] = createResource(() =>
@@ -126,7 +126,11 @@ export function Router(props: {
             }
           >
             {(gameround) => (
-              <EditGamePage store={gameround} changePage={changePage} />
+              <EditGamePage
+                store={gameround}
+                registrations={registrationsResource}
+                changePage={changePage}
+              />
             )}
           </FindGameround>
         </Match>
@@ -143,7 +147,7 @@ export function Router(props: {
         <code>Registrations (read-only)</code>
       </div>
       <Suspense fallback={<em>loading...</em>}>
-        <Show when={registrationResource()}>
+        <Show when={registrationsResource()}>
           {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
         </Show>
       </Suspense>

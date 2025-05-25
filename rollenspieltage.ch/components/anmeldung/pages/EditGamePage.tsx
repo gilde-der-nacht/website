@@ -1,4 +1,4 @@
-import { batch } from "solid-js";
+import { batch, type Resource } from "solid-js";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { createMemo, For, Show, type JSX } from "solid-js";
@@ -19,7 +19,9 @@ import {
   TextInputField,
 } from "@rst/components/anmeldung/forms/Components";
 import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
-import { TimeSlotPart } from "../components/TimeSlotPart";
+import { TimeSlotPart } from "@rst/components/anmeldung/components/TimeSlotPart";
+import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
+import type { Result } from "@rst/components/anmeldung/api/utils";
 
 export function FindGameround(props: {
   allRounds: Store<GameroundEditClient[]>;
@@ -38,6 +40,7 @@ export function FindGameround(props: {
 
 export function EditGamePage(props: {
   store: Store<GameroundEditClient>;
+  registrations: Resource<Result<RegistrationsClient>>;
   changePage: ChangePageFn;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
@@ -68,6 +71,7 @@ export function EditGamePage(props: {
     <PageTemplate title="Spielrunde editieren" changePage={props.changePage}>
       <GameroundForm
         store={props.store}
+        registrations={props.registrations}
         onSubmit={onSubmit}
         onCancel={() => {
           props.changePage({ kind: "GAMEMASTER" });
@@ -79,6 +83,7 @@ export function EditGamePage(props: {
 
 function GameroundForm(props: {
   store: Store<GameroundEditClient>;
+  registrations: Resource<Result<RegistrationsClient>>;
   onSubmit: (e: Event) => void;
   onCancel: () => void;
 }): JSX.Element {
@@ -138,6 +143,7 @@ function GameroundForm(props: {
       />
       <TimeSlotPart
         store={props.store.slots}
+        registrations={props.registrations}
         slotMissing={errors().slotMissing}
       />
       <fieldset>

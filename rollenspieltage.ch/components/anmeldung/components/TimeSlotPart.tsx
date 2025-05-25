@@ -1,4 +1,12 @@
-import { createMemo, For, Match, Show, Switch, type JSX } from "solid-js";
+import {
+  createMemo,
+  For,
+  Match,
+  Show,
+  Switch,
+  type JSX,
+  type Resource,
+} from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import { Button } from "@common/components/Button";
 import { Icon } from "@common/components/Icon";
@@ -19,15 +27,18 @@ import {
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
 import { Dialog } from "@common/components/Dialog";
+import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
+import type { Result } from "@rst/components/anmeldung/api/utils";
 
 export function TimeSlotPart(props: {
   store: Store<TimeSlot[]>;
+  registrations: Resource<Result<RegistrationsClient>>;
   slotMissing: boolean;
 }): JSX.Element {
   return (
     <fieldset>
       <legend>Zeitslots</legend>
-      <TimeSlots store={props.store} />
+      <TimeSlots store={props.store} registrations={props.registrations} />
       <Show when={props.slotMissing}>
         <br />
         <br />
@@ -100,16 +111,13 @@ function calculateDaySections(openingHours: OpeningHours): DaySections {
   };
 }
 
-function groupByDay(slots: TimeSlot[]): PerDay<TimeSlot[]> {
-  const { SATURDAY, SUNDAY } = Object.groupBy(slots, (slot) => slot.day);
-  return { SATURDAY: SATURDAY ?? [], SUNDAY: SUNDAY ?? [] };
-}
-
-function TimeSlots(props: { store: Store<TimeSlot[]> }): JSX.Element {
+function TimeSlots(props: {
+  store: Store<TimeSlot[]>;
+  registrations: Resource<Result<RegistrationsClient>>;
+}): JSX.Element {
   const [store, setStore] = createStore(props.store);
 
   const daySections = createMemo(() => calculateDaySections(openingHours));
-  const days = createMemo(() => groupByDay(store));
 
   function addTimeSlot(newSlot: TimeSlot) {
     setStore(store.concat(newSlot));
@@ -123,49 +131,76 @@ function TimeSlots(props: { store: Store<TimeSlot[]> }): JSX.Element {
         daySections={daySections()}
         chooseTimeSlot={addTimeSlot}
       />
-      <Show when={days().SATURDAY.length > 0}>
-        <h6>Samstag, 23. August 2025</h6>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <For each={days().SATURDAY}>
-            {(slot) => (
-              <Button
-                label={
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-                    <span>
-                      von {slot.from} bis {slot.to} Uhr
-                    </span>
-                    <Icon icon="trash" style="color: var(--clr-danger-11);" />
-                  </div>
-                }
-                kind="gray"
-                onClick={() => removeTimeSlot(slot.uuid)}
-              />
-            )}
-          </For>
-        </div>
-      </Show>
-      <Show when={days().SUNDAY.length > 0}>
-        <h6>Sonntag, 24. August 2025</h6>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <For each={days().SUNDAY}>
-            {(slot) => (
-              <Button
-                label={
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-                    <span>
-                      von {slot.from} bis {slot.to} Uhr
-                    </span>
-                    <Icon icon="trash" style="color: var(--clr-danger-11);" />
-                  </div>
-                }
-                kind="gray"
-                onClick={() => removeTimeSlot(slot.uuid)}
-              />
-            )}
-          </For>
-        </div>
-      </Show>
+      <br />
+      <br />
+      <SlotGrid
+        slots={store}
+        registrations={props.registrations}
+        removeTimeSlot={removeTimeSlot}
+      />
     </>
+  );
+}
+
+function SlotGrid(props: {
+  slots: TimeSlot[];
+  registrations: Resource<Result<RegistrationsClient>>;
+  removeTimeSlot: (uuid: string) => void;
+}): JSX.Element {
+  return (
+    <ul class="event-list" role="list">
+      <For each={props.slots}>
+        {(slot) => (
+          <li class="event-entry">
+            <h2 class="event-title">
+              {TXT.days[slot.day]}, {slot.from} - {slot.to} Uhr
+            </h2>
+            <div class="event-details">
+              <div class="event-tags">
+                <strong>Spielende:</strong>{" "}
+                <Switch>
+                  <Match when={props.registrations.loading}>
+                    <em>werden geladen...</em>
+                  </Match>
+                  <Match when={props.registrations()}>
+                    {(registrations) => {
+                      const r = registrations();
+                      if (r.kind === "FAILURE") {
+                        return <em>Fehler beim Laden.</em>;
+                      }
+                      const playerNames = r.data.entries
+                        .filter((entry) => entry.uuid === slot.uuid)
+                        .map((entry) => entry.name);
+                      return (
+                        <>
+                          {playerNames.join(", ") || (
+                            <em>noch keine Anmeldungen</em>
+                          )}
+                        </>
+                      );
+                    }}
+                  </Match>
+                </Switch>
+              </div>
+            </div>
+            <div></div>
+            <ul role="list" class="event-links">
+              <li>
+                <button
+                  onClick={() => props.removeTimeSlot(slot.uuid)}
+                  class="event-link"
+                >
+                  <div style="display: flex; gap: 0.25rem; align-items: center;">
+                    <Icon icon="trash" />
+                    <span>Löschen</span>
+                  </div>
+                </button>
+              </li>
+            </ul>
+          </li>
+        )}
+      </For>
+    </ul>
   );
 }
 
