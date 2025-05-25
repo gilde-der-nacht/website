@@ -3,7 +3,7 @@ import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 import { createStore, type Store } from "solid-js/store";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
-import { validateNewGameround } from "@rst/components/anmeldung/forms/validation";
+import { validateGameround } from "@rst/components/anmeldung/forms/validation";
 import { GameroundForm } from "@rst/components/anmeldung/components/GameroundForm";
 
 export function FindGameround(props: {
@@ -26,7 +26,7 @@ export function EditGamePage(props: {
   changePage: ChangePageFn;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
-  const errors = createMemo(() => validateNewGameround(store));
+  const errors = createMemo(() => validateGameround(store));
 
   function onSubmit(e: Event): void {
     e.preventDefault();

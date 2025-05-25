@@ -18,7 +18,8 @@
 
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:focus-within {
     .tooltip {
       display: block;
     }

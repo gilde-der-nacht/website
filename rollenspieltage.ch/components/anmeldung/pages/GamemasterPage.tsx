@@ -1,11 +1,14 @@
 import { For, Show, type JSX } from "solid-js";
 import { BoxLink } from "@rst/components/anmeldung/components/BoxLink";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
-import type { Store } from "solid-js/store";
+import { createStore, type Store } from "solid-js/store";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import type { MasterClient } from "@rst/components/anmeldung/api/save";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
-import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
+import {
+  getNewGameround,
+  type GameroundEditClient,
+} from "@rst/components/anmeldung/api/gameround-edit";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import {
@@ -17,13 +20,15 @@ export function GamemasterPage(props: {
   store: Store<MasterClient>;
   changePage: ChangePageFn;
 }): JSX.Element {
+  const [store, setStore] = createStore(props.store);
+  function createNewGameround(): void {
+    const newGameround = getNewGameround();
+    setStore("games", store.games.length, newGameround);
+    props.changePage({ kind: "EDIT_GAMEROUND", uuid: newGameround.uuid });
+  }
   return (
     <PageTemplate title="Meine Spielrunden" changePage={props.changePage}>
-      <BoxLink
-        icon="grid-2-plus"
-        type="success"
-        onClick={() => props.changePage({ kind: "NEW_GAMEROUND" })}
-      >
+      <BoxLink icon="grid-2-plus" type="success" onClick={createNewGameround}>
         <h3>{TXT.createNewGameRound}</h3>
       </BoxLink>
 

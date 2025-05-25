@@ -1,10 +1,10 @@
 import type { Store } from "solid-js/store";
-import type { GameroundNewEditClient } from "@rst/components/anmeldung/api/gameround-edit";
+import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 
 export const DESCR_SHORT_MAX_CHAR = 200;
 export const DESCR_LONG_MAX_CHAR = 500;
 
-export type GameRoundEditErrors = {
+export type GameroundEditErrors = {
   titleMissing: boolean;
   descriptionShortMissing: boolean;
   descriptionShortTooLong: boolean;
@@ -13,9 +13,9 @@ export type GameRoundEditErrors = {
   hasErrors: boolean;
 };
 
-export function validateNewGameround(
-  store: Store<GameroundNewEditClient>,
-): GameRoundEditErrors {
+export function validateGameround(
+  store: Store<GameroundEditClient>,
+): GameroundEditErrors {
   const titleMissing = store.title.value.trim().length === 0;
 
   const descriptionShortMissing =

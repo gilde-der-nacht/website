@@ -33,6 +33,8 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 
   &:not(.extended) {
     margin-block-end: 1.5lh;

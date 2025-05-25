@@ -77,7 +77,6 @@ const pageTitle: Record<PageKind, string> = {
   CHOOSE: "Übersicht",
   PLAYER: "Spielanmeldung",
   GAMEMASTER: "Spielleitung",
-  NEW_GAMEROUND: "Neue Spielrunde",
   EDIT_GAMEROUND: "Spielrunde editieren",
   HELPING: "Helfen",
   SUMMARY: "Zusammenfassung",

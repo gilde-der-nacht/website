@@ -8,7 +8,6 @@ const pageClientSchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("CHOOSE") }),
   z.object({ kind: z.literal("PLAYER") }),
   z.object({ kind: z.literal("GAMEMASTER") }),
-  z.object({ kind: z.literal("NEW_GAMEROUND") }),
   z.object({ kind: z.literal("HELPING") }),
   z.object({ kind: z.literal("SUMMARY") }),
   z.object({

@@ -22,26 +22,23 @@ import { TXT } from "@rst/components/anmeldung/constant/texts";
 import {
   DESCR_LONG_MAX_CHAR,
   DESCR_SHORT_MAX_CHAR,
-  validateNewGameround,
+  validateGameround,
 } from "@rst/components/anmeldung/forms/validation";
 import {
   NumberInputField,
   TextareaField,
   TextInputField,
 } from "@rst/components/anmeldung/forms/Components";
-import type {
-  GameroundEditClient,
-  GameroundNewEditClient,
-} from "@rst/components/anmeldung/api/gameround-edit";
+import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
 
 export function GameroundForm(props: {
-  store: Store<GameroundNewEditClient | GameroundEditClient>;
+  store: Store<GameroundEditClient>;
   onSubmit: (e: Event) => void;
   onCancel: () => void;
 }): JSX.Element {
   const [store] = createStore(props.store);
-  const errors = createMemo(() => validateNewGameround(store));
+  const errors = createMemo(() => validateGameround(store));
 
   return (
     <form onSubmit={props.onSubmit} novalidate>
