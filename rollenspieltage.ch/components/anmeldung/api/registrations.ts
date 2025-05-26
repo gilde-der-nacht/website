@@ -6,15 +6,18 @@ import { mockedLoadRegistrations } from "@rst/components/anmeldung/api/mock";
  * Types
  */
 
+const registrationServerSchema = z.object({
+  uuid: z.string().uuid(),
+  name: z.string(),
+});
+
 export const registrationsServerSchema = z.object({
-  entries: z.array(
-    z.object({
-      uuid: z.string().uuid(),
-      name: z.string(),
-    }),
-  ),
+  entries: z.array(registrationServerSchema),
 });
 export type RegistrationsServer = z.infer<typeof registrationsServerSchema>;
+
+const registrationClientSchema = registrationServerSchema;
+export type RegistrationClient = z.infer<typeof registrationClientSchema>;
 
 export const RegistrationsClientSchema = registrationsServerSchema;
 export type RegistrationsClient = z.infer<typeof RegistrationsClientSchema>;

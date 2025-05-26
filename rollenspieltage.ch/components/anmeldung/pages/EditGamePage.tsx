@@ -1,4 +1,4 @@
-import { type Resource } from "solid-js";
+import { Match, Switch, type Resource } from "solid-js";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import { createMemo, For, Show, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
@@ -10,7 +10,9 @@ import { TXT } from "@rst/components/anmeldung/constant/texts";
 import {
   DESCR_LONG_MAX_CHAR,
   DESCR_SHORT_MAX_CHAR,
+  UPDATE_MAX_CHAR,
   validateGameround,
+  validateUpdateText,
   type GameroundEditErrors,
 } from "@rst/components/anmeldung/forms/validation";
 import {
@@ -20,7 +22,10 @@ import {
 } from "@rst/components/anmeldung/forms/Components";
 import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 import { TimeSlotPart } from "@rst/components/anmeldung/components/TimeSlotPart";
-import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
+import type {
+  RegistrationClient,
+  RegistrationsClient,
+} from "@rst/components/anmeldung/api/registrations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import { Chip } from "@common/components/Chip";
 import {
@@ -29,7 +34,11 @@ import {
   type DialogStore,
 } from "@common/components/Dialog";
 import type { Queue } from "@common/components/utils";
-import { queueuPublishGameround, type EmailQueueableFns } from "../api/email";
+import {
+  queueSendGameroundUpdate,
+  queueuPublishGameround,
+  type EmailQueueableFns,
+} from "../api/email";
 
 export function FindGameround(props: {
   allRounds: Store<GameroundEditClient[]>;
@@ -82,6 +91,7 @@ export function EditGamePage(props: {
         registrations={props.registrations}
         onSubmit={onSubmit}
         onCancel={() => setDialogStore("delete", "open", true)}
+        onSendUpdate={() => setDialogStore("sendUpdate", "open", true)}
         goBack={goBack}
       />
       <PublishDialog
@@ -91,6 +101,21 @@ export function EditGamePage(props: {
           setStore("kind", "PUBLISHED");
           setDialogStore("publish", "open", false);
           props.queue.enqueue(queueuPublishGameround(store.uuid));
+        }}
+      />
+      <SendUpdateDialog
+        store={dialogStore.sendUpdate}
+        players={getPlayers(
+          props.registrations,
+          store.slots.map((slot) => slot.uuid),
+        )}
+        onSend={(text) => {
+          props.queue.enqueue(
+            queueSendGameroundUpdate(
+              text,
+              store.slots.map((slot) => slot.uuid),
+            ),
+          );
         }}
       />
       <DeleteDialog
@@ -130,6 +155,51 @@ function PublishDialog(props: {
   );
 }
 
+function SendUpdateDialog(props: {
+  store: Store<DialogStore>;
+  players: Players;
+  onSend: (text: string) => void;
+}): JSX.Element {
+  return (
+    <Dialog
+      store={props.store}
+      title="Update senden"
+      onClose={() => {}}
+      size="medium"
+    >
+      <>
+        {() => {
+          if (props.players.kind === "LOADING") {
+            return (
+              <em>Informationen zu den Anmeldungen müssen geladen werden...</em>
+            );
+          }
+          if (props.players.kind === "ERROR") {
+            return <>{TXT.error.general}</>;
+          }
+          if (props.players.data.length === 0) {
+            return (
+              <em>
+                Du kannst kein Update versenden, da sich noch niemand für diese
+                Spielrunde angemeldet hat.
+              </em>
+            );
+          }
+          return (
+            <>
+              <p>
+                An: {props.players.data.map((player) => player.name).join(", ")}
+              </p>
+              <br />
+              <SendUpdateForm onSend={props.onSend} />
+            </>
+          );
+        }}
+      </>
+    </Dialog>
+  );
+}
+
 function DeleteDialog(props: {
   store: Store<DialogStore>;
   hasSlots: boolean;
@@ -164,6 +234,7 @@ function GameroundForm(props: {
   registrations: Resource<Result<RegistrationsClient>>;
   onSubmit: (e: Event) => void;
   onCancel: () => void;
+  onSendUpdate: () => void;
   goBack: () => void;
 }): JSX.Element {
   const [store] = createStore(props.store);
@@ -254,11 +325,18 @@ function GameroundForm(props: {
           <Show when={store.kind === "DRAFT"}>
             <ButtonWithIcon
               icon="circle-plus"
-              type="submit"
               kind={errors().hasErrors ? "gray" : "success"}
               disabled={errors().hasErrors}
               label="Spielrunde veröffentlichen"
               onClick={errors().hasErrors ? undefined : props.onSubmit}
+            />
+          </Show>
+          <Show when={store.kind === "PUBLISHED"}>
+            <ButtonWithIcon
+              icon="circle-plus"
+              kind="success"
+              label="Update an Spielende schicken"
+              onClick={props.onSendUpdate}
             />
           </Show>
         </div>
@@ -298,6 +376,75 @@ function ErrorSummary(props: { errors: GameroundEditErrors }): JSX.Element {
   );
 }
 
+function SendUpdateForm(props: {
+  onSend: (text: string) => void;
+}): JSX.Element {
+  const [store, setStore] = createStore({
+    updateText: {
+      value: "",
+      isDirty: false,
+    },
+    hasBeenSent: false,
+  });
+  const errors = createMemo(() => validateUpdateText(store));
+  return (
+    <Switch
+      fallback={
+        <Box type="success">
+          Nachricht wurde registriert und wird in den nächsten 24 Stunden an die
+          Spielenden verschickt.
+        </Box>
+      }
+    >
+      <Match when={!store.hasBeenSent}>
+        <p>
+          <strong>Erklärung:</strong> Hast du eine wichtige Änderung an dieser
+          Spielrunde durchgeführt, während bereits Spielende angemeldet waren?
+          Lass hiermit die Angemeldeten wissen, was du geändert hast. Wichtige
+          Änderungen können sein: System geändert, Kategorien geändert. Für
+          kleine Änderungen, wie z.B. Rechtschreibfehler, sollte dies nicht
+          genutzt werden.
+        </p>
+        <br />
+        <p>
+          <em>Halte dich kurz und am besten Stichwortartig.</em>
+        </p>
+        <br />
+        <form novalidate={true}>
+          <TextareaField
+            store={store.updateText}
+            label="Zusammenfassung der Änderung"
+            name="updateText"
+            size="sm"
+            showErrors="ALWAYS"
+            errors={
+              errors().missing
+                ? [TXT.mandatoryField]
+                : errors().tooLong
+                  ? [TXT.charLimitBy.replace("{}", String(UPDATE_MAX_CHAR))]
+                  : []
+            }
+          />
+          <ButtonWithIcon
+            icon="paper-plane"
+            label="Spielende informieren"
+            kind={errors().hasErrors ? "gray" : "success"}
+            disabled={errors().hasErrors}
+            onClick={
+              errors().hasErrors
+                ? undefined
+                : () => {
+                    props.onSend(store.updateText.value);
+                    setStore("hasBeenSent", true);
+                  }
+            }
+          />
+        </form>
+      </Match>
+    </Switch>
+  );
+}
+
 /*
  * Tags
  */
@@ -330,3 +477,28 @@ function Tags(props: { store: Store<string[]> }): JSX.Element {
     </>
   );
 }
+
+type Players =
+  | { kind: "LOADING" }
+  | { kind: "ERROR" }
+  | { kind: "SUCCESS"; data: RegistrationClient[] };
+const getPlayers = (
+  registrations: Resource<Result<RegistrationsClient>>,
+  slotUuids: string[],
+): Players => {
+  if (registrations.loading) {
+    return { kind: "LOADING" };
+  }
+
+  if (registrations.error) {
+    return { kind: "ERROR" };
+  }
+  const result = registrations();
+  if (result === undefined || result.kind === "FAILURE") {
+    return { kind: "ERROR" };
+  }
+  return {
+    kind: "SUCCESS",
+    data: result.data.entries.filter((entry) => slotUuids.includes(entry.uuid)),
+  };
+};

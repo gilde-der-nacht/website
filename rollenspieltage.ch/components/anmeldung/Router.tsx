@@ -124,7 +124,6 @@ export function Router(props: {
     });
 
     setInterval(async () => {
-      console.log("checking queue");
       const next = queue.dequeue();
       if (next.kind === "NEXT_ELEMENT") {
         await next.data();

@@ -98,7 +98,6 @@ export async function loadSave(secret: string): Promise<SaveResult> {
   const parseResult = saveServerSchema.safeParse(JSON.parse(save as string));
 
   if (!parseResult.success) {
-    console.log(save);
     console.error(parseResult.error);
     return {
       kind: "FAILURE",

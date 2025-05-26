@@ -15,6 +15,7 @@ const ICONS = [
   "list",
   "location-dot",
   "moon-stars",
+  "paper-plane",
   "sun-bright",
   "square-check",
   "tags",

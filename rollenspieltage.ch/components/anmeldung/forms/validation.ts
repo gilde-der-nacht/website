@@ -3,6 +3,7 @@ import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameroun
 
 export const DESCR_SHORT_MAX_CHAR = 200;
 export const DESCR_LONG_MAX_CHAR = 500;
+export const UPDATE_MAX_CHAR = 200;
 
 export type GameroundEditErrors = {
   titleMissing: boolean;
@@ -41,5 +42,17 @@ export function validateGameround(
       descriptionShortTooLong ||
       descriptionLongTooLong ||
       slotMissing,
+  };
+}
+
+export function validateUpdateText(
+  store: Store<{ updateText: { value: string } }>,
+): { missing: boolean; tooLong: boolean; hasErrors: boolean } {
+  const missing = store.updateText.value.trim().length === 0;
+  const tooLong = store.updateText.value.length > UPDATE_MAX_CHAR;
+  return {
+    missing,
+    tooLong,
+    hasErrors: missing || tooLong,
   };
 }
