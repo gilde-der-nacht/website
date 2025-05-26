@@ -5,7 +5,7 @@ type Props = {
   type?: "submit" | "button" | "reset";
   kind?: "accent" | "special" | "gray" | "success" | "danger";
   disabled?: boolean;
-  onClick?: (e: Event) => void;
+  onClick?: ((e: Event) => void) | undefined;
 };
 
 export function Button(

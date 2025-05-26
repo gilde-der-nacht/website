@@ -1,6 +1,7 @@
 import {
   createResource,
   Match,
+  onMount,
   Show,
   Suspense,
   Switch,
@@ -31,6 +32,8 @@ import { createStore, unwrap, type Store } from "solid-js/store";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { loadRegistrations } from "@rst/components/anmeldung/api/registrations";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
+import { createQueue } from "@common/components/utils";
+import type { EmailQueueableFns } from "./api/email";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
@@ -112,13 +115,24 @@ export function Router(props: {
   );
 
   const changePage = createChangePageFn(store.meta);
+  const queue = createQueue<EmailQueueableFns>();
 
-  window.addEventListener("popstate", (e: unknown) => {
-    if (typeof e === "object" && e !== null && "state" in e) {
-      const currentUrl = new URL(location.href);
-      const meta = getMetaState(currentUrl);
-      changePage(meta.page, true);
-    }
+  onMount(() => {
+    window.addEventListener("popstate", (e: unknown) => {
+      if (typeof e === "object" && e !== null && "state" in e) {
+        const currentUrl = new URL(location.href);
+        const meta = getMetaState(currentUrl);
+        changePage(meta.page, true);
+      }
+    });
+
+    setInterval(async () => {
+      console.log("checking queue");
+      const next = queue.dequeue();
+      if (next.kind === "NEXT_ELEMENT") {
+        await next.data();
+      }
+    }, 1_000);
   });
 
   return (
@@ -184,6 +198,7 @@ export function Router(props: {
                 <EditGamePage
                   store={gameround}
                   registrations={registrationsResource}
+                  queue={queue}
                   changePage={changePage}
                 />
               )}

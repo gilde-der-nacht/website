@@ -151,3 +151,22 @@ export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
     return p;
   };
 }
+
+export type Queue<T> = {
+  enqueue: (element: T) => number;
+  dequeue: () => { kind: "QUEUE_EMPTY" } | { kind: "NEXT_ELEMENT"; data: T };
+};
+
+export function createQueue<T>(): Queue<T> {
+  const queue: T[] = [];
+  return {
+    enqueue: (element: T) => queue.push(element),
+    dequeue: () => {
+      const nextElement = queue.shift();
+      if (nextElement === undefined) {
+        return { kind: "QUEUE_EMPTY" };
+      }
+      return { kind: "NEXT_ELEMENT", data: nextElement };
+    },
+  };
+}

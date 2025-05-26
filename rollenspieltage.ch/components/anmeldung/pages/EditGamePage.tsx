@@ -24,6 +24,8 @@ import type { RegistrationsClient } from "@rst/components/anmeldung/api/registra
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import { Chip } from "@common/components/Chip";
 import { Dialog, type DialogStore } from "@common/components/Dialog";
+import type { Queue } from "@common/components/utils";
+import { queueuPublishGameround, type EmailQueueableFns } from "../api/email";
 
 export function FindGameround(props: {
   allRounds: Store<GameroundEditClient[]>;
@@ -43,6 +45,7 @@ export function FindGameround(props: {
 export function EditGamePage(props: {
   store: Store<GameroundEditClient>;
   registrations: Resource<Result<RegistrationsClient>>;
+  queue: Queue<EmailQueueableFns>;
   changePage: ChangePageFn;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
@@ -93,6 +96,7 @@ export function EditGamePage(props: {
             onClick={() => {
               setStore("kind", "PUBLISHED");
               setDialogStore("publish", "open", false);
+              props.queue.enqueue(queueuPublishGameround(store.uuid));
             }}
           />
         </div>
@@ -138,7 +142,7 @@ function GameroundForm(props: {
   const errors = createMemo(() => validateGameround(store));
 
   return (
-    <form onSubmit={props.onSubmit} novalidate>
+    <form novalidate>
       <Show when={store.kind === "PUBLISHED"}>
         <ErrorSummary errors={errors()} />
       </Show>
@@ -224,6 +228,7 @@ function GameroundForm(props: {
               kind={errors().hasErrors ? "gray" : "success"}
               disabled={errors().hasErrors}
               label="Spielrunde veröffentlichen"
+              onClick={errors().hasErrors ? undefined : props.onSubmit}
             />
           </Show>
         </div>
