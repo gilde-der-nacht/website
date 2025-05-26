@@ -6,6 +6,7 @@ import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import type { SaveState } from "@rst/components/anmeldung/api/meta";
 import { Match, Switch } from "solid-js";
 import { formatDateTime } from "@common/components/utils";
+import { Box } from "@common/components/Box";
 
 export function QuickMenu(props: {
   changePage: ChangePageFn;
@@ -81,55 +82,57 @@ export function QuickMenuExtended(props: {
   lastSaved: Date;
 }): JSX.Element {
   return (
-    <div class="quickmenu extended">
-      <ButtonWithIcon
-        icon="backward"
-        label="Zur Übersicht"
-        onClick={() => props.changePage({ kind: "CHOOSE" })}
-      />
-      <ButtonWithIcon
-        icon="dice-d20"
-        label="Zu den Spielrunden"
-        onClick={() => props.changePage({ kind: "PLAYER" })}
-      />
-      <ButtonWithIcon
-        icon="grid-2-plus"
-        label="Zu deinen Spielrunden"
-        onClick={() => props.changePage({ kind: "GAMEMASTER" })}
-      />
-      <ButtonWithIcon
-        icon="hand-heart"
-        label="Zum Helferplan"
-        onClick={() => props.changePage({ kind: "HELPING" })}
-      />
-      <ButtonWithIcon
-        icon="list"
-        label="Zur Zusammenfassung"
-        onClick={() => props.changePage({ kind: "SUMMARY" })}
-      />
-      <Switch>
-        <Match when={props.saveState === "IDLE"}>
-          <ButtonWithIcon
-            icon="circle-check"
-            label={`Zuletzt gespeichert um: ${formatDateTime(props.lastSaved)} Uhr`}
-            kind="gray"
-          />
-        </Match>
-        <Match when={props.saveState === "SAVING"}>
-          <ButtonWithIcon
-            icon="floppy-disk-circle-arrow-right"
-            label="Am Speichern..."
-            kind="success"
-          />
-        </Match>
-        <Match when={props.saveState === "ERROR"}>
-          <ButtonWithIcon
-            icon="triangle-exclamation"
-            label="Speichern war nicht möglich!"
-            kind="danger"
-          />
-        </Match>
-      </Switch>
-    </div>
+    <Box type="gray">
+      <div class="quickmenu extended">
+        <ButtonWithIcon
+          icon="backward"
+          label="Zur Übersicht"
+          onClick={() => props.changePage({ kind: "CHOOSE" })}
+        />
+        <ButtonWithIcon
+          icon="dice-d20"
+          label="Zu den Spielrunden"
+          onClick={() => props.changePage({ kind: "PLAYER" })}
+        />
+        <ButtonWithIcon
+          icon="grid-2-plus"
+          label="Zu deinen Spielrunden"
+          onClick={() => props.changePage({ kind: "GAMEMASTER" })}
+        />
+        <ButtonWithIcon
+          icon="hand-heart"
+          label="Zum Helferplan"
+          onClick={() => props.changePage({ kind: "HELPING" })}
+        />
+        <ButtonWithIcon
+          icon="list"
+          label="Zur Zusammenfassung"
+          onClick={() => props.changePage({ kind: "SUMMARY" })}
+        />
+        <Switch>
+          <Match when={props.saveState === "IDLE"}>
+            <ButtonWithIcon
+              icon="circle-check"
+              label={`Zuletzt gespeichert um: ${formatDateTime(props.lastSaved)} Uhr`}
+              kind="gray"
+            />
+          </Match>
+          <Match when={props.saveState === "SAVING"}>
+            <ButtonWithIcon
+              icon="floppy-disk-circle-arrow-right"
+              label="Am Speichern..."
+              kind="success"
+            />
+          </Match>
+          <Match when={props.saveState === "ERROR"}>
+            <ButtonWithIcon
+              icon="triangle-exclamation"
+              label="Speichern war nicht möglich!"
+              kind="danger"
+            />
+          </Match>
+        </Switch>
+      </div>
+    </Box>
   );
 }

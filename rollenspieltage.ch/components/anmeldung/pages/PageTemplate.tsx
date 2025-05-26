@@ -31,11 +31,13 @@ export function PageTemplate(
         {props.children}
       </div>
       {props.showQuickmenu !== false ? (
-        <QuickMenuExtended
-          changePage={props.changePage}
-          saveState={props.saveState}
-          lastSaved={props.lastSaved}
-        />
+        <div class="extended-wrapper" style="margin-block-start: 1rem;">
+          <QuickMenuExtended
+            changePage={props.changePage}
+            saveState={props.saveState}
+            lastSaved={props.lastSaved}
+          />
+        </div>
       ) : null}
     </div>
   );
