@@ -96,16 +96,13 @@ export function Router(props: {
   createResource(
     () => JSON.stringify(store.save),
     async () => {
-      setStore("meta", "saveState", "SAVING");
       const copy = unwrap(store.save);
       try {
-        const saveResult = await debouncedSaveState(copy);
+        const saveResult = await debouncedSaveState(store.meta, copy);
         if (saveResult.kind === "FAILURE") {
           console.error(saveResult);
-          setStore("meta", "saveState", "ERROR");
         } else {
           setStore("save", "lastSaved", saveResult.data);
-          setStore("meta", "saveState", "IDLE");
         }
       } catch (e) {
         console.error(e);

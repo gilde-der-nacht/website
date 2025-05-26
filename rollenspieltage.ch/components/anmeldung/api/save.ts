@@ -10,6 +10,8 @@ import {
   transformGameroundFromClient,
 } from "@rst/components/anmeldung/api/gameround-edit";
 import { debounce } from "@common/components/utils";
+import { createStore, type Store } from "solid-js/store";
+import type { SaveState } from "./meta";
 
 /*
  * Types
@@ -119,19 +121,25 @@ function transformSaveFromServer(s: SaveServer): ParseResult<SaveClient> {
   return saveClientSchema.safeParse(s);
 }
 
-export async function saveState(save: SaveClient): Promise<Result<Date>> {
-  console.log("saving");
+export async function saveState(
+  store: Store<{ saveState: SaveState }>,
+  save: SaveClient,
+): Promise<Result<Date>> {
+  const [_, setStore] = createStore(store);
+  setStore("saveState", "SAVING");
   const now = new Date();
   save.lastSaved = now;
   const saveForServer = transformSaveFromClient(save);
   try {
     await mockedSaveState(saveForServer);
   } catch (e) {
+    setStore("saveState", "ERROR");
     console.error(e);
     return {
       kind: "FAILURE",
     };
   }
+  setStore("saveState", "IDLE");
   return {
     kind: "SUCCESS",
     data: now,
