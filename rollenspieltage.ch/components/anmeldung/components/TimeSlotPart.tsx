@@ -27,7 +27,11 @@ import {
 } from "@rst/components/anmeldung/constant/hours";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
-import { Dialog, type DialogStore } from "@common/components/Dialog";
+import {
+  Dialog,
+  initDialogStore,
+  type DialogStore,
+} from "@common/components/Dialog";
 import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 
@@ -119,7 +123,7 @@ function TimeSlots(props: {
     slot?: TimeSlot;
     dialog: DialogStore;
   }>({
-    dialog: { open: false },
+    dialog: initDialogStore(),
   });
 
   const daySections = createMemo(() => calculateDaySections(openingHours));
@@ -308,7 +312,7 @@ function TimeSlotChooser(props: {
     slot: {
       kind: "CHOOSE_DAY",
     },
-    dialog: { open: false },
+    dialog: initDialogStore(),
   });
 
   function resetDialog(): void {

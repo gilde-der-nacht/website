@@ -4,6 +4,10 @@ import { IconOnlyButton } from "@common/components/Button";
 
 export type DialogType = "success" | "danger" | "special" | "gray" | "warning";
 
+export function initDialogStore(): DialogStore {
+  return { open: false };
+}
+
 export type DialogStore = { open: boolean };
 
 export function Dialog(props: {

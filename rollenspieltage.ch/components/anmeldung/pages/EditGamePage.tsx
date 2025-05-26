@@ -23,7 +23,11 @@ import { TimeSlotPart } from "@rst/components/anmeldung/components/TimeSlotPart"
 import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import { Chip } from "@common/components/Chip";
-import { Dialog, type DialogStore } from "@common/components/Dialog";
+import {
+  Dialog,
+  initDialogStore,
+  type DialogStore,
+} from "@common/components/Dialog";
 import type { Queue } from "@common/components/utils";
 import { queueuPublishGameround, type EmailQueueableFns } from "../api/email";
 
@@ -52,13 +56,11 @@ export function EditGamePage(props: {
   const [dialogStore, setDialogStore] = createStore<{
     delete: DialogStore;
     publish: DialogStore;
+    sendUpdate: DialogStore;
   }>({
-    delete: {
-      open: false,
-    },
-    publish: {
-      open: false,
-    },
+    delete: initDialogStore(),
+    publish: initDialogStore(),
+    sendUpdate: initDialogStore(),
   });
 
   function onSubmit(e: Event): void {
@@ -82,52 +84,78 @@ export function EditGamePage(props: {
         onCancel={() => setDialogStore("delete", "open", true)}
         goBack={goBack}
       />
-      <Dialog
+      <PublishDialog
         store={dialogStore.publish}
-        title="Spielrunde veröffentlichen"
-        onClose={() => {}}
-      >
+        title={store.title.value}
+        onPublish={() => {
+          setStore("kind", "PUBLISHED");
+          setDialogStore("publish", "open", false);
+          props.queue.enqueue(queueuPublishGameround(store.uuid));
+        }}
+      />
+      <DeleteDialog
+        store={dialogStore.delete}
+        hasSlots={store.slots.length !== 0}
+        title={store.title.value}
+        onDelete={() => {
+          setStore("kind", "DELETED");
+          props.changePage({ kind: "GAMEMASTER" });
+        }}
+      />
+    </>
+  );
+}
+
+function PublishDialog(props: {
+  store: Store<DialogStore>;
+  title: string;
+  onPublish: () => void;
+}): JSX.Element {
+  return (
+    <Dialog
+      store={props.store}
+      title="Spielrunde veröffentlichen"
+      onClose={() => {}}
+    >
+      <div class="content">
+        <p>Möchtest du diese Spielrunde gerne veröffentlichen?</p>
+        <ButtonWithIcon
+          kind="success"
+          icon="circle-plus"
+          label={`Ja, bitte "${props.title || "[" + TXT.missingTitle + "]"}" veröffentlichen.`}
+          onClick={props.onPublish}
+        />
+      </div>
+    </Dialog>
+  );
+}
+
+function DeleteDialog(props: {
+  store: Store<DialogStore>;
+  hasSlots: boolean;
+  title: string;
+  onDelete: () => void;
+}): JSX.Element {
+  return (
+    <Dialog store={props.store} title="Spielrunde löschen" onClose={() => {}}>
+      <Show when={props.hasSlots}>
+        <em>
+          Du kannst die Spielrunde nur löschen, wenn du zuerst alle Zeitslots
+          entfernt hast.
+        </em>
+      </Show>
+      <Show when={!props.hasSlots}>
         <div class="content">
-          <p>Möchtest du diese Spielrunde gerne veröffentlichen?</p>
+          <p>Bist du sicher, dass du die Spielrunde löschen möchtest?</p>
           <ButtonWithIcon
-            kind="success"
-            icon="circle-plus"
-            label={`Ja, bitte "${store.title.value || "[" + TXT.missingTitle + "]"}" veröffentlichen.`}
-            onClick={() => {
-              setStore("kind", "PUBLISHED");
-              setDialogStore("publish", "open", false);
-              props.queue.enqueue(queueuPublishGameround(store.uuid));
-            }}
+            kind="danger"
+            icon="trash"
+            label={`Ja, bitte "${props.title || "[" + TXT.missingTitle + "]"}" löschen.`}
+            onClick={props.onDelete}
           />
         </div>
-      </Dialog>
-      <Dialog
-        store={dialogStore.delete}
-        title="Spielrunde löschen"
-        onClose={() => {}}
-      >
-        <Show when={store.slots.length > 0}>
-          <em>
-            Du kannst die Spielrunde nur löschen, wenn du zuerst alle Zeitslots
-            entfernt hast.
-          </em>
-        </Show>
-        <Show when={store.slots.length === 0}>
-          <div class="content">
-            <p>Bist du sicher, dass du die Spielrunde löschen möchtest?</p>
-            <ButtonWithIcon
-              kind="danger"
-              icon="trash"
-              label={`Ja, bitte "${store.title.value || "[" + TXT.missingTitle + "]"}" löschen.`}
-              onClick={() => {
-                setStore("kind", "DELETED");
-                props.changePage({ kind: "GAMEMASTER" });
-              }}
-            />
-          </div>
-        </Show>
-      </Dialog>
-    </>
+      </Show>
+    </Dialog>
   );
 }
 
@@ -215,12 +243,14 @@ function GameroundForm(props: {
           onClick={props.goBack}
         />
         <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <ButtonWithIcon
-            icon="trash"
-            kind="danger"
-            label="Löschen"
-            onClick={() => props.onCancel()}
-          />
+          <Show when={store.kind !== "DELETED"}>
+            <ButtonWithIcon
+              icon="trash"
+              kind="danger"
+              label="Löschen"
+              onClick={() => props.onCancel()}
+            />
+          </Show>
           <Show when={store.kind === "DRAFT"}>
             <ButtonWithIcon
               icon="circle-plus"
