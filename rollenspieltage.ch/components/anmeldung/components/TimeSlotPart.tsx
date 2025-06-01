@@ -189,9 +189,9 @@ function SlotGrid(props: {
       <For each={sortSlots(props.slots)}>
         {(slot) => (
           <li class="event-entry">
-            <h2 class="event-title">
+            <h3 class="event-title">
               {TXT.days[slot.day]}, {slot.from} - {slot.to} Uhr
-            </h2>
+            </h3>
             <div class="event-details">
               <div class="event-tags">
                 <strong>Spielende:</strong>{" "}
