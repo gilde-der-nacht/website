@@ -12,6 +12,7 @@ import {
 import { debounce } from "@common/components/utils";
 import { createStore, type Store } from "solid-js/store";
 import type { SaveState } from "./meta";
+import { toast, updateToast } from "@common/components/Toast";
 
 /*
  * Types
@@ -120,12 +121,14 @@ function transformSaveFromServer(s: SaveServer): ParseResult<SaveClient> {
   return saveClientSchema.safeParse(s);
 }
 
+const toastId = crypto.randomUUID();
 export async function saveState(
   store: Store<{ saveState: SaveState }>,
   save: SaveClient,
 ): Promise<Result<Date>> {
   const [_, setStore] = createStore(store);
   setStore("saveState", "SAVING");
+  toast("Saving", { uuid: toastId });
   const now = new Date();
   save.lastSaved = now;
   const saveForServer = transformSaveFromClient(save);
@@ -134,10 +137,12 @@ export async function saveState(
   } catch (e) {
     setStore("saveState", "ERROR");
     console.error(e);
+    updateToast(toastId, "error", {});
     return {
       kind: "FAILURE",
     };
   }
+  updateToast(toastId, "erfolgreich", {});
   setStore("saveState", "IDLE");
   return {
     kind: "SUCCESS",

@@ -34,6 +34,7 @@ import { loadRegistrations } from "@rst/components/anmeldung/api/registrations";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { createQueue } from "@common/components/utils";
 import type { EmailQueueableFns } from "./api/email";
+import { ToastContainer } from "@common/components/Toast";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
@@ -241,6 +242,7 @@ export function Router(props: {
           {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
         </Show>
       </Suspense>
+      <ToastContainer />
     </>
   );
 }
