@@ -9,12 +9,12 @@
   h1 {
     text-align: center;
     max-inline-size: 100%;
-    font-size: 0.9rem;
+    font-size: var(--step-0);
   }
 }
 
 .logo {
-  > a {
+  >a {
     @include p.element;
     padding: 1rem;
     text-decoration: none;
@@ -42,7 +42,7 @@
       align-content: center;
 
       h2 {
-        font-size: 0.9rem;
+        font-size: var(--step--1);
         line-height: 1.1;
       }
 
@@ -50,7 +50,7 @@
         font-family: var(--ff-body);
         font-weight: 400;
         text-transform: none;
-        font-size: 0.8rem;
+        font-size: var(--step--1);
       }
     }
   }
@@ -61,13 +61,13 @@
   flex-wrap: wrap;
   gap: 1rem;
 
-  > * {
+  >* {
     flex-grow: 1;
     flex-basis: calc((50rem - 100%) * 999);
   }
 
   > :nth-last-child(n + 5),
-  > :nth-last-child(n + 5) ~ * {
+  > :nth-last-child(n + 5)~* {
     flex-basis: 100%;
   }
 }

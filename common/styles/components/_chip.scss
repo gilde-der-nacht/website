@@ -5,7 +5,7 @@
   @include p.element;
   background-color: transparent;
   padding: 0.125rem 0.5rem;
-  font-size: smaller;
+  font-size: var(--step--1);
 
   &.special {
     border-color: hsl(from #{c.getSpecial("background-solid")} h s l / 0.5);
