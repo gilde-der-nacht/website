@@ -11,7 +11,7 @@
   @include p.tag;
   padding: 0.125em 0.75em;
   white-space: nowrap;
-  font-size: 0.5em;
+  font-size: var(--step--1);
   color: white;
 
   &.special-case {

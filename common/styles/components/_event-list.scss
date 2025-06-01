@@ -81,7 +81,7 @@
 .event-details,
 .event-tag,
 .event-link {
-  font-size: 0.83rem;
+  font-size: var(--step--1);
 }
 
 .event-date,
@@ -139,7 +139,7 @@
 }
 
 .event-description {
-  font-size: .83rem;
+  font-size: var(--step--1);
   padding-block: 1rem 1.25rem;
   color: var(--event-color);
 

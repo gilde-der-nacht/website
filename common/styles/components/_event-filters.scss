@@ -8,7 +8,7 @@
 
   h2 {
     color: c.get("text-low-contrast");
-    font-size: 1rem;
+    font-size: var(--step-1);
   }
 
   ul {
@@ -20,7 +20,7 @@
 
   a {
     padding: 0;
-    font-size: 0.83rem;
+    font-size: var(--step--1);
     border: none;
 
     &.active {
@@ -31,7 +31,7 @@
 }
 
 .event-filters-reset a {
-  font-size: 0.83rem;
+  font-size: var(--step--1);
   color: c.getDanger("background-solid");
 
   &:hover,

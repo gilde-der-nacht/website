@@ -171,7 +171,7 @@ function EventEntry(props: EventEntryProps): JSX.Element {
       data-event-tags={`${props.event.tags?.map((tag) => tag.trim()).join(",") || ""}`}
     >
       {renderBackgroundIcon(props.event)}
-      <h1 class="event-title">{props.event.title}</h1>
+      <h3 class="event-title">{props.event.title}</h3>
       <div class="event-details">
         {renderDate(props.event)}
         {renderLocation(props.event)}

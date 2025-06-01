@@ -1,9 +1,9 @@
 .link-list {
   li {
-    font-size: 0.9em;
+    font-size: var(--step--1);
   }
 
-  > li + li {
+  >li+li {
     margin-top: 1.5rem;
   }
 

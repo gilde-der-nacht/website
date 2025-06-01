@@ -82,13 +82,13 @@ function Entry(props: {
   const { game, slot, tags, changePage } = props;
   return (
     <li class={["event-entry", game.kind === "DRAFT" ? "gray" : ""].join(" ")}>
-      <h1 class="event-title">
+      <h3 class="event-title">
         {game.title.value.length > 0 ? (
           game.title.value
         ) : (
           <em>{TXT.missingTitle}</em>
         )}
-      </h1>
+      </h3>
       <div class="event-details">
         <div class="event-tags">
           <strong>Status:</strong>
