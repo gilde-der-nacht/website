@@ -356,16 +356,16 @@ function ErrorSummary(props: { errors: GameroundEditErrors }): JSX.Element {
         </p>
         <ul>
           <Show when={props.errors.titleMissing}>
-            <li>"Titel" ist ein Pflichtfeld.</li>
+            <li>«Titel» ist ein Pflichtfeld.</li>
           </Show>
           <Show when={props.errors.descriptionShortMissing}>
-            <li>"kurz Beschreibung" ist ein Pflichtfeld.</li>
+            <li>«kurz Beschreibung» ist ein Pflichtfeld.</li>
           </Show>
           <Show when={props.errors.descriptionShortTooLong}>
-            <li>"kurz Beschreibung" ist zu lang.</li>
+            <li>«kurz Beschreibung» ist zu lang.</li>
           </Show>
           <Show when={props.errors.descriptionLongTooLong}>
-            <li>"lange Beschreibung" ist zu lang.</li>
+            <li>«lange Beschreibung» ist zu lang.</li>
           </Show>
           <Show when={props.errors.slotMissing}>
             <li>Mindest einen Zeitslot muss ausgewählt werden.</li>
