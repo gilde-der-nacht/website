@@ -9,7 +9,7 @@ import {
   gameroundEditClientSchema,
   transformGameroundFromClient,
 } from "@rst/components/anmeldung/api/gameround-edit";
-import { debounce } from "@common/components/utils";
+import { debounce, formatDateTime } from "@common/components/utils";
 import { createStore, type Store } from "solid-js/store";
 import type { SaveState } from "./meta";
 import { toast, updateToast } from "@common/components/Toast";
@@ -128,7 +128,7 @@ export async function saveState(
 ): Promise<Result<Date>> {
   const [_, setStore] = createStore(store);
   setStore("saveState", "SAVING");
-  toast("Saving", { uuid: toastId });
+  toast("Am Speichern...", { uuid: toastId, dismissable: false });
   const now = new Date();
   save.lastSaved = now;
   const saveForServer = transformSaveFromClient(save);
@@ -137,12 +137,19 @@ export async function saveState(
   } catch (e) {
     setStore("saveState", "ERROR");
     console.error(e);
-    updateToast(toastId, "error", {});
+    updateToast(toastId, "Speichern war nicht möglich!", {
+      kind: "danger",
+      duration: 10_000,
+      dismissable: true,
+    });
     return {
       kind: "FAILURE",
     };
   }
-  updateToast(toastId, "erfolgreich", {});
+  updateToast(toastId, `Zuletzt gespeichert um: ${formatDateTime(now)} Uhr`, {
+    kind: "success",
+    dismissable: true,
+  });
   setStore("saveState", "IDLE");
   return {
     kind: "SUCCESS",

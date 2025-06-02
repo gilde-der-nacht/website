@@ -1,7 +1,64 @@
+@use "../globals/patterns" as p;
+@use "../globals/colors" as c;
+
 .toast-container {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  min-height: 10px;
-  background-color: red;
+  bottom: var(--space-s);
+  left: var(--space-s);
+  right: var(--space-s);
+  display: grid;
+  gap: var(--space-2xs);
+  inline-size: min(20rem, 80vw);
+}
+
+.toast {
+  @include p.element;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: start;
+  font-size: var(--step--1);
+
+  &-dismiss {
+    border-radius: 50%;
+    padding: 0.25rem;
+    aspect-ratio: 1;
+
+    &:hover,
+    &:focus {
+      background: oklch(from white l c h / .1);
+    }
+  }
+
+  &-special {
+    border-color: c.getSpecial("text-high-contrast");
+    background-color: c.getSpecial("text-low-contrast");
+    color: c.getSpecial("background");
+  }
+
+  &-success {
+    border-color: c.getSuccess("text-high-contrast");
+    background-color: c.getSuccess("text-low-contrast");
+    color: c.getSuccess("background");
+  }
+
+  &-danger {
+    border-color: c.getDanger("text-high-contrast");
+    background-color: c.getDanger("text-low-contrast");
+    color: c.getDanger("background");
+  }
+
+  &-warning {
+    border-color: c.getWarning("text-high-contrast");
+    background-color: c.getWarning("text-low-contrast");
+    color: c.getWarning("background");
+  }
+
+  &-gray {
+    border-color: c.getGray("text-high-contrast");
+    background-color: c.getGray("text-low-contrast");
+    color: c.getGray("background");
+  }
 }

@@ -3,7 +3,7 @@ import { Icon, type IconType } from "./Icon";
 
 type Props = {
   type?: "submit" | "button" | "reset";
-  kind?: "accent" | "special" | "gray" | "success" | "danger";
+  kind?: "accent" | "special" | "gray" | "success" | "danger" | "ghost";
   disabled?: boolean;
   onClick?: ((e: Event) => void) | undefined;
 };

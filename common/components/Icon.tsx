@@ -21,6 +21,7 @@ const ICONS = [
   "tags",
   "trash",
   "triangle-exclamation",
+  "xmark",
 ] as const;
 export type IconType = (typeof ICONS)[number];
 

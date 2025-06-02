@@ -1,15 +1,20 @@
-import { For, type JSX } from "solid-js";
+import { For, Show, type JSX } from "solid-js";
 import { createStore } from "solid-js/store";
+import { Icon } from "@common/components/Icon";
+import { Button } from "@common/components/Button";
 
 export type Toast = {
   uuid: string;
-  kind: "accent" | "special" | "gray" | "success" | "danger";
+  kind: "special" | "gray" | "success" | "danger" | "warning";
   message: string;
   duration: number;
+  dismissable: boolean;
   cleanup: () => void;
 };
 
-export type ToastOptions = Partial<Pick<Toast, "uuid" | "kind" | "duration">>;
+export type ToastOptions = Partial<
+  Pick<Toast, "uuid" | "kind" | "duration" | "dismissable">
+>;
 
 const [store, setStore] = createStore<Toast[]>([]);
 
@@ -25,7 +30,23 @@ export function Toast(props: {
     return cls.join(" ");
   };
 
-  return <div class={classes()}>{props.options.message}</div>;
+  return (
+    <div
+      class={classes()}
+      role={props.options.kind === "danger" ? "alert" : "status"}
+      aria-live={props.options.kind === "danger" ? "assertive" : "polite"}
+      aria-atomic="true"
+    >
+      {props.options.message}
+      <Show when={props.options.dismissable}>
+        <Button
+          kind="ghost"
+          label={<Icon icon="xmark" classes={["toast-dismiss"]} />}
+          onClick={props.dismiss}
+        />
+      </Show>
+    </div>
+  );
 }
 
 export function ToastContainer(): JSX.Element {
@@ -35,7 +56,7 @@ export function ToastContainer(): JSX.Element {
   }
 
   return (
-    <div class="toast-container">
+    <div class="toast-container" aria-live="polite" aria-atomic="true">
       <For each={store}>
         {(toast) => (
           <Toast options={toast} dismiss={() => dismiss(toast.uuid)} />
@@ -45,25 +66,28 @@ export function ToastContainer(): JSX.Element {
   );
 }
 
-export function toast(message: string, opts: ToastOptions): string {
+export function toast(message: string, opts?: ToastOptions): string {
   if (
-    opts.uuid !== undefined &&
+    opts?.uuid !== undefined &&
     store.find((toast) => toast.uuid === opts.uuid) !== undefined
   ) {
     return updateToast(opts.uuid, message, opts);
   }
-  const uuid = opts.uuid ?? crypto.randomUUID();
-  const duration = opts.duration ?? 5_000;
-  const kind = opts.kind ?? "gray";
+  const uuid = opts?.uuid ?? crypto.randomUUID();
+  const duration = opts?.duration ?? 5_000;
+  const kind = opts?.kind ?? "gray";
+  const dismissable = opts?.dismissable ?? true;
 
   const timer = setTimeout(() => {
     setStore(store.filter((toast) => toast.uuid !== uuid));
   }, duration);
+
   setStore(store.length, {
     uuid,
     kind,
     message,
     duration,
+    dismissable,
     cleanup: () => clearTimeout(timer),
   });
 
@@ -82,6 +106,8 @@ export function updateToast(
   toast.cleanup();
   const duration = opts.duration ?? toast.duration;
   const kind = opts.kind ?? toast.kind;
+  const dismissable = opts?.dismissable ?? toast.dismissable;
+
   const timer = setTimeout(() => {
     setStore(store.filter((toast) => toast.uuid !== uuid));
   }, duration);
@@ -91,6 +117,7 @@ export function updateToast(
     kind,
     message,
     duration,
+    dismissable,
     cleanup: () => clearTimeout(timer),
   });
   return uuid;
