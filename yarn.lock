@@ -38,10 +38,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/compiler@npm:^2.11.0":
-  version: 2.11.0
-  resolution: "@astrojs/compiler@npm:2.11.0"
-  checksum: 10c0/33e95ad37f062757eeac26a2d00277196de888074d5b43eb7ef2f5548bfe7000384d934a750723af55946fef77408fd4712b23c9472350d44ebb51e3b47f63d9
+"@astrojs/compiler@npm:^2.12.2":
+  version: 2.12.2
+  resolution: "@astrojs/compiler@npm:2.12.2"
+  checksum: 10c0/3e63055117010247a9fa6d2c8de1263b3e6f3c089bb6b3cddea76bf3eea6b62b77359c89950e6d048d860874a79521ca2c0cc734af1ee59c7568e01e76a4df10
   languageName: node
   linkType: hard
 
@@ -1926,11 +1926,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.8.0":
-  version: 5.8.0
-  resolution: "astro@npm:5.8.0"
+"astro@npm:5.9.3":
+  version: 5.9.3
+  resolution: "astro@npm:5.9.3"
   dependencies:
-    "@astrojs/compiler": "npm:^2.11.0"
+    "@astrojs/compiler": "npm:^2.12.2"
     "@astrojs/internal-helpers": "npm:0.6.1"
     "@astrojs/markdown-remark": "npm:6.3.2"
     "@astrojs/telemetry": "npm:3.3.0"
@@ -1997,7 +1997,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/124d40e023d3126ecb307ccdc17f7a195ddac8d22a8ef826f5915ef2c41f38e63976a10738705afc1b60119dcd32f26a9e3a3799b297df611dfe75e2124273f5
+  checksum: 10c0/378797bef1a4b57e38cb15b230ebe230e3f60a1c94ef9c1dc67fde1ae2df1ae34c36189ee28039e175c4d5a20167e3dddba8186d4cc4b3328277941d40fe9d9a
   languageName: node
   linkType: hard
 
@@ -2443,13 +2443,13 @@ __metadata:
     "@astrojs/ts-plugin": "npm:^1.10.4"
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.6.2"
-    astro: "npm:5.8.0"
+    astro: "npm:5.9.3"
     luxon: "npm:^3.6.1"
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
     rehype-slug: "npm:^6.0.0"
     remark-smartypants: "npm:^3.0.2"
-    sass: "npm:^1.89.0"
+    sass: "npm:^1.89.2"
     solid-js: "npm:^1.9.7"
     typescript: "npm:^5.8.3"
     vite: "npm:^6.3.5"
@@ -5513,9 +5513,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.89.0":
-  version: 1.89.0
-  resolution: "sass@npm:1.89.0"
+"sass@npm:^1.89.2":
+  version: 1.89.2
+  resolution: "sass@npm:1.89.2"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -5526,7 +5526,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10c0/8e31b48c5e0abd9d437edb201919a82863f605ace1c1536ccdc6b3133937a70fe29b92ad536af632ecae2f140733931e4ec971e1bfbf8b835c54d392b28331df
+  checksum: 10c0/752ccc7581b0c6395f63918116c20924e99943a86d79e94f5c4a0d41b1e981fe1f0ecd1ee82fff21496f81dbc91f68fb35a498166562ec8ec53e7aad7c3dbd9d
   languageName: node
   linkType: hard
 
