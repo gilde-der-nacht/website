@@ -13,6 +13,7 @@ import { debounce, formatDateTime } from "@common/components/utils";
 import { createStore, type Store } from "solid-js/store";
 import type { SaveState } from "./meta";
 import { toast, updateToast } from "@common/components/Toast";
+import { elysiumLoadSave, elysiumSaveState } from "./elysium";
 
 /*
  * Types
@@ -89,14 +90,19 @@ type SaveResult = Result<SaveClient> | { kind: "SECRET_INVALID" };
  */
 
 export async function loadSave(secret: string): Promise<SaveResult> {
-  if (secret !== "demo") {
+  const save =
+    secret === "demo" ? await mockedLoadSave() : await elysiumLoadSave(secret);
+
+  if (save.kind === "FAILURE") {
+    console.error("Unexpected error. Maybe network, maybe server error.");
     return {
-      kind: "SECRET_INVALID",
+      kind: "FAILURE",
     };
   }
 
-  const save = await mockedLoadSave();
-  const parseResult = saveServerSchema.safeParse(JSON.parse(save as string));
+  const parseResult = saveServerSchema.safeParse(
+    JSON.parse(save.data as string),
+  );
 
   if (!parseResult.success) {
     console.error(parseResult.error);
@@ -125,6 +131,7 @@ const toastId = crypto.randomUUID();
 export async function saveState(
   store: Store<{ saveState: SaveState }>,
   save: SaveClient,
+  secret: string,
 ): Promise<Result<Date>> {
   const [_, setStore] = createStore(store);
   setStore("saveState", "SAVING");
@@ -133,7 +140,13 @@ export async function saveState(
   save.lastSaved = now;
   const saveForServer = transformSaveFromClient(save);
   try {
-    await mockedSaveState(saveForServer);
+    const result =
+      secret === "demo"
+        ? await mockedSaveState(saveForServer, secret)
+        : await elysiumSaveState(saveForServer, secret);
+    if (result.kind === "FAILURE") {
+      throw Error("");
+    }
   } catch (e) {
     setStore("saveState", "ERROR");
     console.error(e);

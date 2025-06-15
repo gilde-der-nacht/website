@@ -1,6 +1,7 @@
 import type { SaveServer } from "@rst/components/anmeldung/api/save";
 import type { PublicProgramServer } from "@rst/components/anmeldung/api/program";
 import type { RegistrationsServer } from "./registrations";
+import type { Result } from "./utils";
 
 const validTimeStamp = "2024-08-15T07:45:21.335Z";
 const uuid = {
@@ -74,21 +75,28 @@ const saveMock = {
   helping: {},
 } satisfies SaveServer;
 
-export async function mockedLoadSave(): Promise<string> {
+export async function mockedLoadSave(): Promise<Result<unknown>> {
   return new Promise((res) =>
     setTimeout(
-      () => res(fromLocalStoreOrDefault(SAVE_KEY, JSON.stringify(saveMock))),
+      () =>
+        res({
+          kind: "SUCCESS",
+          data: fromLocalStoreOrDefault(SAVE_KEY, JSON.stringify(saveMock)),
+        }),
       1_000,
     ),
   );
 }
 
-export async function mockedSaveState(state: SaveServer): Promise<void> {
+export async function mockedSaveState(
+  state: SaveServer,
+  secret: string,
+): Promise<Result<string>> {
   return new Promise((res) =>
-    setTimeout(
-      () => res(toLocalStorage(SAVE_KEY, JSON.stringify(state))),
-      1_000,
-    ),
+    setTimeout(() => {
+      toLocalStorage(SAVE_KEY, JSON.stringify(state));
+      return res({ kind: "SUCCESS", data: secret });
+    }, 1_000),
   );
 }
 

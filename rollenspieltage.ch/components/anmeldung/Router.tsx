@@ -101,7 +101,11 @@ export function Router(props: {
     async () => {
       const copy = unwrap(store.save);
       try {
-        const saveResult = await debouncedSaveState(store.meta, copy);
+        const saveResult = await debouncedSaveState(
+          store.meta,
+          copy,
+          store.meta.secret,
+        );
         if (saveResult.kind === "FAILURE") {
           console.error(saveResult);
         } else {
