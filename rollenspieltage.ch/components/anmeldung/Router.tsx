@@ -61,6 +61,8 @@ function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
       url.searchParams.set("page", page.kind.toLowerCase());
       if (page.kind === "EDIT_GAMEROUND") {
         url.searchParams.set("uuid", page.uuid);
+      } else {
+        url.searchParams.delete("uuid");
       }
       history.pushState({ page }, "", url);
     }
