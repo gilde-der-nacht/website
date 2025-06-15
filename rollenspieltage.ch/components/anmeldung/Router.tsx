@@ -223,25 +223,27 @@ export function Router(props: {
           </PageTemplate>
         </Match>
       </Switch>
-      <pre>{JSON.stringify(store, null, 2)}</pre>
-      <hr />
-      <div>
-        <code>Registrations (read-only)</code>
-      </div>
-      <Suspense fallback={<em>loading...</em>}>
-        <Show when={registrationsResource()}>
-          {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
-        </Show>
-      </Suspense>
-      <hr />
-      <div>
-        <code>Program (read-only)</code>
-      </div>
-      <Suspense fallback={<em>loading...</em>}>
-        <Show when={programResource()}>
-          {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
-        </Show>
-      </Suspense>
+      <Show when={store.meta.isDebugging}>
+        <pre>{JSON.stringify(store, null, 2)}</pre>
+        <hr />
+        <div>
+          <code>Registrations (read-only)</code>
+        </div>
+        <Suspense fallback={<em>loading...</em>}>
+          <Show when={registrationsResource()}>
+            {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
+          </Show>
+        </Suspense>
+        <hr />
+        <div>
+          <code>Program (read-only)</code>
+        </div>
+        <Suspense fallback={<em>loading...</em>}>
+          <Show when={programResource()}>
+            {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
+          </Show>
+        </Suspense>
+      </Show>
       <ToastContainer />
     </>
   );

@@ -26,6 +26,7 @@ export const metaClientSchema = z.object({
   page: pageClientSchema,
   secret: z.string(),
   showCreateMessage: z.boolean(),
+  isDebugging: z.boolean(),
 });
 export type MetaClient = z.infer<typeof metaClientSchema>;
 
@@ -39,6 +40,7 @@ export function getMetaState(url: URL): MetaClient {
   const secret = url.searchParams.get("secret") ?? "";
   const showCreateMessage =
     url.searchParams.get("showCreateMessage") === "true";
+  const isDebugging = url.searchParams.get("debug") === "true";
 
   const parseResult = metaClientSchema.safeParse({
     saveState: "IDLE",
@@ -48,6 +50,7 @@ export function getMetaState(url: URL): MetaClient {
     },
     secret,
     showCreateMessage,
+    isDebugging,
   });
 
   if (parseResult.success) {
@@ -61,6 +64,7 @@ export function getMetaState(url: URL): MetaClient {
     },
     secret,
     showCreateMessage,
+    isDebugging,
   };
 }
 
