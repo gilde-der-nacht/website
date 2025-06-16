@@ -28,7 +28,7 @@ export type PageState = {
 type StartData = {
   name: string;
   email: string;
-  handynummer: string;
+  mobile: string;
 };
 
 export function AnmeldungWrapper(): JSX.Element {
@@ -80,7 +80,7 @@ export function AnmeldungWrapper(): JSX.Element {
       const data: StartData = {
         name: store.form.name,
         email: store.form.email,
-        handynummer: store.form.tel,
+        mobile: store.form.tel,
       };
       const response = await fetch(elysium("/rst25/start"), {
         method: "post",
@@ -95,9 +95,6 @@ export function AnmeldungWrapper(): JSX.Element {
       } else {
         const json = await response.json();
         const schema = z.object({
-          name: z.string(),
-          email: z.string(),
-          registrationId: z.number(),
           secret: z.string(),
         });
         const data = schema.parse(json);
@@ -108,7 +105,6 @@ export function AnmeldungWrapper(): JSX.Element {
       }
     } catch (_: unknown) {
       setStore("errors", "general", true);
-    } finally {
       setStore("state", "IDLE");
     }
   }
