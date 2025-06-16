@@ -38,13 +38,13 @@ export async function elysiumLoadSave(
 }
 
 export async function elysiumSaveState(
-  state: SaveServer,
+  save: SaveServer,
   secret: string,
 ): Promise<Result<string>> {
   try {
     const result = await fetch(elysium("/rst25/save"), {
       method: "post",
-      body: JSON.stringify(state),
+      body: JSON.stringify({ secret, save }),
       headers: {
         "Content-Type": "application/json",
       },
