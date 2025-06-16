@@ -59,10 +59,11 @@ const helpingClientSchema = z.object({});
  */
 
 export const saveServerSchema = z.object({
-  uuid: z.string().uuid(),
-  name: z.string(),
-  email: z.string(),
-  mobile: z.string(),
+  init: z.object({
+    name: z.string(),
+    email: z.string(),
+    mobile: z.string(),
+  }),
   lastSaved: z.string(),
   playing: playingServerSchema,
   master: masterServerSchema,
@@ -71,10 +72,11 @@ export const saveServerSchema = z.object({
 export type SaveServer = z.infer<typeof saveServerSchema>;
 
 export const saveClientSchema = z.object({
-  uuid: z.string().uuid(),
-  name: z.string(),
-  email: z.string(),
-  mobile: z.string(),
+  init: z.object({
+    name: z.string(),
+    email: z.string(),
+    mobile: z.string(),
+  }),
   lastSaved: z.coerce.date(),
   playing: playingClientSchema,
   master: masterClientSchema,
@@ -100,9 +102,7 @@ export async function loadSave(secret: string): Promise<SaveResult> {
     };
   }
 
-  const parseResult = saveServerSchema.safeParse(
-    JSON.parse(save.data as string),
-  );
+  const parseResult = saveServerSchema.safeParse(save.data);
 
   if (!parseResult.success) {
     console.error(parseResult.error);

@@ -29,10 +29,11 @@ function toLocalStorage(key: string, state: string): void {
 const SAVE_KEY = "SAVE";
 
 const saveMock = {
-  uuid: crypto.randomUUID(),
-  name: "John Doe",
-  email: "john@doe.ch",
-  mobile: "+41 66 123 45 67",
+  init: {
+    name: "John Doe",
+    email: "john@doe.ch",
+    mobile: "+41 66 123 45 67",
+  },
   lastSaved: validTimeStamp,
   playing: {
     wantsUpdates: false,
