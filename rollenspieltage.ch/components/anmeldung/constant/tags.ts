@@ -38,6 +38,12 @@ export const gameTags = [
       "Spielt in einer Welt mitten oder nach einem Kollaps, wo nur ein grosser Teil der Gesellschaft ums Überleben kämpft. Beispiele: Mutant Year Zero, Apocalypse World",
   },
   {
+    name: "horror",
+    label: "Horror",
+    description:
+      "Eine gruselige Atmosphäre, psychologischen Druck oder unvorhersehbare Schreckensmomente. Beispiele: Cthulhu, ...",
+  },  
+  {
     name: "offenewelt",
     label: "Offene Welt",
     description:
@@ -66,4 +72,10 @@ export const gameTags = [
     description:
       "Bei der Spielrunde reden die Spielenden miteinander Englisch.",
   },
+  {
+    name: "workshop",
+    label: "Workshop",
+    description:
+      "Unter Anleitung, gemeinsam ein Rollenspiel-Thema vertiefen. Kreative Techniken stehen im Vordergrund. Beispiele: Gemeinsam ein Dungeon erschaffen, Gemeinsam ein Hintergrundgeschichte schreiben, ...",
+  },  
 ] satisfies Tag[];
