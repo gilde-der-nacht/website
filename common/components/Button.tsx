@@ -20,7 +20,7 @@ export function Button(
     } else {
       cls.push("button-accent");
     }
-    if (props.onClick === undefined) {
+    if (props.onClick === undefined && props.type !== "submit") {
       cls.push("button-no-event");
     }
     return cls;
