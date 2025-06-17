@@ -59,6 +59,7 @@ const helpingClientSchema = z.object({});
  */
 
 export const saveServerSchema = z.object({
+  version: z.literal(1),
   init: z.object({
     name: z.string(),
     email: z.string(),
@@ -72,6 +73,7 @@ export const saveServerSchema = z.object({
 export type SaveServer = z.infer<typeof saveServerSchema>;
 
 export const saveClientSchema = z.object({
+  version: z.literal(1),
   init: z.object({
     name: z.string(),
     email: z.string(),

@@ -29,6 +29,7 @@ function toLocalStorage(key: string, state: string): void {
 const SAVE_KEY = "SAVE";
 
 const saveMock = {
+  version: 1,
   init: {
     name: "John Doe",
     email: "john@doe.ch",

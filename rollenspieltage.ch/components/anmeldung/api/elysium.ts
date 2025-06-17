@@ -3,6 +3,7 @@ import type { Result } from "./utils";
 import type { SaveServer } from "./save";
 
 const initState = {
+  version: 1,
   init: {
     name: "",
     email: "",
