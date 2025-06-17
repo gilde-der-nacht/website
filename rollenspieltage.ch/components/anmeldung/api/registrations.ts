@@ -30,11 +30,8 @@ export async function loadRegistrations(
   secret: string,
   uuids: string[],
 ): Promise<Result<RegistrationsClient>> {
-  if (secret !== "demo") {
-    return {
-      kind: "FAILURE",
-    };
-  }
+  // TODO: implement non-mock version
+  console.log("loadRegistration still mocked", secret.substring(0, 4), "...");
 
   const registrations = await mockedLoadRegistrations(uuids);
   const parseResult = registrationsServerSchema.safeParse(registrations);

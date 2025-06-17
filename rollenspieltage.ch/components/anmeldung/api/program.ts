@@ -22,11 +22,8 @@ export type PublicProgramClient = z.infer<typeof publicProgramClientSchema>;
 export async function loadProgram(
   secret: string,
 ): Promise<Result<PublicProgramClient>> {
-  if (secret !== "demo") {
-    return {
-      kind: "FAILURE",
-    };
-  }
+  // TODO: implement non-mock version
+  console.log("loadProgram still mocked", secret.substring(0, 4), "...");
 
   const program = await mockedLoadProgram();
   const parseResult = publicProgramServerSchema.safeParse(program);
