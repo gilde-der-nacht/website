@@ -13,13 +13,40 @@ import {
 import { TextInputField } from "@rst/components/anmeldung/forms/Components";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { initTextInput } from "@rst/components/anmeldung/api/form";
-import { WeekendTimetable } from "@rst/components/anmeldung/components/Timetable";
+import {
+  WeekendTimetable,
+  type ProgramEntryTimetableView,
+} from "@rst/components/anmeldung/components/Timetable";
+import type {
+  DateTimeWindow,
+  PerDay,
+} from "@rst/components/anmeldung/utils/time";
+import { Box } from "@common/components/Box";
 
 export function SummaryPage(props: { store: Store<SaveClient> }): JSX.Element {
+  const masterEntries = props.store.master.games.flatMap((game) =>
+    game.slots.map((slot) => ({
+      dateTime: slot,
+      title: game.title.value,
+    })),
+  );
+
   return (
     <>
       <Contact store={props.store.init} />
-      <Timeview />
+      <br />
+      <Box type="danger">
+        <p>
+          Der folgende Abschnitt ist noch in Bearbeitung, wird demnächst
+          verbessert und kann aktuell noch Fehler beinhalten.
+        </p>
+      </Box>
+      <br />
+      <Timeview
+        playingEntries={[]}
+        masterEntries={masterEntries}
+        helpingEntries={[]}
+      />
     </>
   );
 }
@@ -29,7 +56,7 @@ function Contact(props: { store: Store<ContactClient> }): JSX.Element {
   const [dialogStore, setDialogStore] = createStore(initDialogStore());
 
   return (
-    <>
+    <Box>
       {
         // Show not really necesary, but I have some bug where the contact edit dialog does not get reset when closed. This is the hacky, fast solution for now.
       }
@@ -40,7 +67,7 @@ function Contact(props: { store: Store<ContactClient> }): JSX.Element {
           updateCurrentState={setStore}
         />
       </Show>
-      <div style="display: grid; gap: 1rem; margin-block-end: 2rem;">
+      <div style="display: grid; gap: 1rem;">
         <h3>Meine Kontaktdaten</h3>
         <p>
           <strong>Name:</strong> {props.store.name}
@@ -60,7 +87,7 @@ function Contact(props: { store: Store<ContactClient> }): JSX.Element {
           />
         </div>
       </div>
-    </>
+    </Box>
   );
 }
 
@@ -142,12 +169,58 @@ function ContactEditDialog(props: {
   );
 }
 
-function Timeview(): JSX.Element {
+function Timeview(props: {
+  playingEntries: { dateTime: DateTimeWindow; title: string }[];
+  masterEntries: { dateTime: DateTimeWindow; title: string }[];
+  helpingEntries: { dateTime: DateTimeWindow; title: string }[];
+}): JSX.Element {
+  const programEntries = aggregateEntries(
+    props.playingEntries,
+    props.masterEntries,
+    props.helpingEntries,
+  );
+
   return (
     <>
       <h3>Mein Programm</h3>
       <br />
-      <WeekendTimetable />
+      <WeekendTimetable programEntries={programEntries} />
     </>
   );
+}
+
+function aggregateEntries(
+  playingEntries: { dateTime: DateTimeWindow; title: string }[],
+  masterEntries: { dateTime: DateTimeWindow; title: string }[],
+  helpingEntries: { dateTime: DateTimeWindow; title: string }[],
+): PerDay<ProgramEntryTimetableView[]> {
+  const aggregation: PerDay<ProgramEntryTimetableView[]> = {
+    SATURDAY: [],
+    SUNDAY: [],
+  };
+
+  playingEntries.forEach((entry) => {
+    aggregation[entry.dateTime.day].push({
+      range: entry.dateTime,
+      component: <div>Playing: {entry.title}</div>,
+    });
+  });
+
+  masterEntries.forEach((entry) => {
+    aggregation[entry.dateTime.day].push({
+      range: entry.dateTime,
+      component: (
+        <div style="background: lightgray;">Master: {entry.title}</div>
+      ),
+    });
+  });
+
+  helpingEntries.forEach((entry) => {
+    aggregation[entry.dateTime.day].push({
+      range: entry.dateTime,
+      component: <div>Helping: {entry.title}</div>,
+    });
+  });
+
+  return aggregation;
 }

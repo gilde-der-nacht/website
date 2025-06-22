@@ -15,7 +15,7 @@ export type DateTimeWindow = { day: ProgramDay } & TimeRange;
 
 export function isWithin(num: number, range: TimeRange): boolean {
   const { from, to } = range;
-  return from <= num && num <= to;
+  return from < num && num < to;
 }
 
 export function isOverlapping(rangeA: TimeRange, rangeB: TimeRange): boolean {
@@ -25,7 +25,8 @@ export function isOverlapping(rangeA: TimeRange, rangeB: TimeRange): boolean {
     isWithin(fromA, rangeB) ||
     isWithin(toA, rangeB) ||
     isWithin(fromB, rangeA) ||
-    isWithin(toB, rangeA)
+    isWithin(toB, rangeA) ||
+    (fromA === fromB && toA === toB)
   );
 }
 

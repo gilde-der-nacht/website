@@ -170,3 +170,12 @@ export function createQueue<T>(): Queue<T> {
     },
   };
 }
+
+export function assert(
+  condition: boolean,
+  msg: string,
+): asserts condition is true {
+  if (!condition) {
+    throw new Error(msg);
+  }
+}

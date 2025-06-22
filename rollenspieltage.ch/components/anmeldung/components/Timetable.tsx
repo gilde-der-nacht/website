@@ -1,38 +1,84 @@
-import { For, type JSX } from "solid-js";
+import { For, Match, Switch, type JSX } from "solid-js";
 import {
   openingHours,
   type OpeningHours,
 } from "@rst/components/anmeldung/constant/hours";
-import { getHours, type TimeRange } from "@rst/components/anmeldung/utils/time";
+import {
+  getHours,
+  isOverlapping,
+  type PerDay,
+  type ProgramDay,
+  type TimeRange,
+} from "@rst/components/anmeldung/utils/time";
+import { assert } from "@common/components/utils";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { Box } from "@common/components/Box";
 
 export type TimetableConfiguration = {
   start: number;
   end: number;
 };
 
-export function WeekendTimetable(): JSX.Element {
+export function WeekendTimetable(props: {
+  programEntries: PerDay<ProgramEntryTimetableView[]>;
+}): JSX.Element {
   return (
     <div class="dynamic-columns" style="gap: 1rem; --min-width: 30rem;">
-      <div>
-        <h4 style="margin-block-end: 1.5rem;">Samstag</h4>
-        <Timetable programEntries={[]} openingHours={openingHours.SATURDAY} />
-      </div>
-      <div>
-        <h4 style="margin-block-end: 1.5rem;">Sonntag</h4>
-        <Timetable programEntries={[]} openingHours={openingHours.SUNDAY} />
-      </div>
+      <TimetableOfDay
+        programEntries={props.programEntries.SATURDAY}
+        openingHours={openingHours.SATURDAY}
+        day="SATURDAY"
+      />
+      <TimetableOfDay
+        programEntries={props.programEntries.SUNDAY}
+        openingHours={openingHours.SUNDAY}
+        day="SUNDAY"
+      />
     </div>
   );
 }
 
-type ProgramEntry = {
+function TimetableOfDay(props: {
+  programEntries: ProgramEntryTimetableView[];
+  openingHours: OpeningHours;
+  day: ProgramDay;
+}): JSX.Element {
+  const conflictingEntries = findConflicts(props.programEntries);
+
+  return (
+    <div>
+      <h4 style="margin-block-end: 1.5rem;">{TXT.days[props.day]}</h4>
+      <Switch
+        fallback={
+          <Box type="danger">
+            <p>
+              Konflikte gefunden! Bitte stelle sicher, dass du nicht zeitlich
+              überlappende Spielrunden eingetragen hast.
+            </p>
+          </Box>
+        }
+      >
+        <Match when={conflictingEntries.length === 0}>
+          <Timetable
+            programEntries={props.programEntries}
+            openingHours={props.openingHours}
+            day={props.day}
+          />
+        </Match>
+      </Switch>
+    </div>
+  );
+}
+
+export type ProgramEntryTimetableView = {
   range: TimeRange;
   component: JSX.Element;
 };
 
 export function Timetable(props: {
-  programEntries: ProgramEntry[];
+  programEntries: ProgramEntryTimetableView[];
   openingHours: OpeningHours;
+  day: ProgramDay;
 }): JSX.Element {
   const hours = getHours(props.openingHours.open);
   const breaks = props.openingHours.breaks.map(({ from }) => from);
@@ -43,7 +89,10 @@ export function Timetable(props: {
       <div class="entries" style={`grid-row: 1 / ${lastHour - offset + 1};`}>
         <For each={props.programEntries}>
           {(entry) => (
-            <div class="entry" style={rangeToGridRow(entry.range, offset)}>
+            <div
+              class="entry"
+              style={rangeToGridRow(entry.range, offset, props.day)}
+            >
               {entry.component}
             </div>
           )}
@@ -55,7 +104,11 @@ export function Timetable(props: {
           return (
             <div
               class={`hour ${isBreak ? "break" : ""}`}
-              style={rangeToGridRow({ from: hour, to: hour }, offset)}
+              style={rangeToGridRow(
+                { from: hour, to: hour },
+                offset,
+                props.day,
+              )}
             >
               <div class="annotation">{hour}</div>
               <div class="background"></div>
@@ -69,7 +122,36 @@ export function Timetable(props: {
     </div>
   );
 }
-function rangeToGridRow(range: TimeRange, offset: number): string {
+
+function rangeToGridRow(
+  range: TimeRange,
+  offset: number,
+  day: ProgramDay,
+): string {
   const { from, to } = range;
-  return `grid-row: ${from - offset} / ${to - offset};`;
+  const startRow = from - offset;
+  const endRow = to - offset;
+  const closingHour = openingHours[day].open.to;
+
+  assert(startRow > 0, `Entry can't start at ${from}.`);
+  assert(endRow > 0, `Entry can't end at ${to}.`);
+  assert(to <= closingHour, `Entry can't end at ${to}.`);
+
+  return `grid-row: ${startRow} / ${endRow};`;
+}
+
+type Conflicts = [ProgramEntryTimetableView, ProgramEntryTimetableView][];
+
+function findConflicts(entries: ProgramEntryTimetableView[]): Conflicts {
+  const conflicts: Conflicts = [];
+
+  entries.forEach((a, i) => {
+    entries.slice(i + 1).forEach((b) => {
+      if (isOverlapping(a.range, b.range)) {
+        conflicts.push([a, b]);
+      }
+    });
+  });
+
+  return conflicts;
 }

@@ -49,15 +49,11 @@ export function ChoosePage(props: {
       </BoxLink>
       <br />
       <BoxLink
-        type="gray"
         icon="list"
         onClick={() => props.changePage({ kind: "SUMMARY" })}
       >
         <h3>Zusammenfassung</h3>
         <p>Erhalte einen Überblick über dein gesamtes Programm.</p>
-        <p>
-          <strong>Noch nicht verfügbar.</strong>
-        </p>
       </BoxLink>
     </>
   );
