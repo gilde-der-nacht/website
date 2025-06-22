@@ -194,6 +194,11 @@ function SlotGrid(props: {
             </h3>
             <div class="event-details">
               <div class="event-tags">
+                <strong>Dauer:</strong>
+                {slot.to - slot.from}{" "}
+                {slot.to - slot.from > 1 ? "Stunden" : "Stunde"}
+              </div>
+              <div class="event-tags">
                 <strong>Spielende:</strong>{" "}
                 <Switch>
                   <Match when={props.registrations.loading}>
