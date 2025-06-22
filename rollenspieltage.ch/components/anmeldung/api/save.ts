@@ -20,6 +20,24 @@ import { elysiumLoadSave, elysiumSaveState } from "./elysium";
  */
 
 /*
+ * Contact
+ */
+
+const contactServerSchema = z.object({
+  name: z.string(),
+  email: z.string(),
+  mobile: z.string(),
+});
+
+const contactClientSchema = z.object({
+  name: z.string(),
+  email: z.string(),
+  mobile: z.string(),
+});
+
+export type ContactClient = z.infer<typeof contactClientSchema>;
+
+/*
  * Playing
  */
 
@@ -60,11 +78,7 @@ const helpingClientSchema = z.object({});
 
 export const saveServerSchema = z.object({
   version: z.literal(1),
-  init: z.object({
-    name: z.string(),
-    email: z.string(),
-    mobile: z.string(),
-  }),
+  init: contactServerSchema,
   lastSaved: z.string(),
   playing: playingServerSchema,
   master: masterServerSchema,
@@ -74,11 +88,7 @@ export type SaveServer = z.infer<typeof saveServerSchema>;
 
 export const saveClientSchema = z.object({
   version: z.literal(1),
-  init: z.object({
-    name: z.string(),
-    email: z.string(),
-    mobile: z.string(),
-  }),
+  init: contactClientSchema,
   lastSaved: z.coerce.date(),
   playing: playingClientSchema,
   master: masterClientSchema,

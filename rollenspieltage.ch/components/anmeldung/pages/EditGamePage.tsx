@@ -38,7 +38,7 @@ import {
   queueSendGameroundUpdate,
   queueuPublishGameround,
   type EmailQueueableFns,
-} from "../api/email";
+} from "@rst/components/anmeldung/api/email";
 
 export function FindGameround(props: {
   allRounds: Store<GameroundEditClient[]>;

@@ -225,7 +225,7 @@ export function Router(props: {
             saveState={store.meta.saveState}
             lastSaved={store.save.lastSaved}
           >
-            <SummaryPage />
+            <SummaryPage store={store.save} />
           </PageTemplate>
         </Match>
       </Switch>

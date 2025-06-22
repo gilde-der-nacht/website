@@ -64,6 +64,8 @@ const missingSystem = "kein System angegeben";
 const missingSlot = "kein Zeitslot ausgewählt";
 const missingTags = "keine Kategorien ausgewählt";
 const missingShortDescription = "Kurzbeschreibung fehlt";
+const invalidEmail =
+  "Die Eingabe scheint keine gültige E-Mail-Adresse zu sein.";
 const mandatoryField = "Dies ist ein Pflichtfeld.";
 const charLimitBy = "Dieses Feld ist auf {} Zeichen limitiert.";
 const tagIdeas =
@@ -104,6 +106,7 @@ export const TXT = {
   missingSlot,
   missingTags,
   missingShortDescription,
+  invalidEmail,
   mandatoryField,
   charLimitBy,
   tagIdeas,

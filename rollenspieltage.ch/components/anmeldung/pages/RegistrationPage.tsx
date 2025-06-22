@@ -140,9 +140,7 @@ export function AnmeldungWrapper(): JSX.Element {
           <Box type="danger">{TXT.mandatoryField}</Box>
         </Show>
         <Show when={store.errors.emailInvalid}>
-          <Box type="danger">
-            Die Eingabe scheint keine gültige E-Mail-Adresse zu sein.
-          </Box>
+          <Box type="danger">{TXT.invalidEmail}</Box>
         </Show>
         <Input
           label="Handynummer"
