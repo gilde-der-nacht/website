@@ -11,11 +11,15 @@ export function ChoosePage(props: {
   return (
     <>
       <BoxLink
+        type="gray"
         icon="dice-d20"
         onClick={() => props.changePage({ kind: "PLAYER" })}
       >
         <h3>Spielrunden ansehen</h3>
         <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
+        <p>
+          <strong>Noch nicht verfügbar.</strong>
+        </p>
       </BoxLink>
       <br />
       <BoxLink
@@ -30,6 +34,7 @@ export function ChoosePage(props: {
       </BoxLink>
       <br />
       <BoxLink
+        type="gray"
         icon="hand-heart"
         onClick={() => props.changePage({ kind: "HELPING" })}
       >
@@ -38,14 +43,21 @@ export function ChoosePage(props: {
           Beim Kiosk und der Essensausgabe können wir immer ein paar helfende
           Hände gebrauchen.
         </p>
+        <p>
+          <strong>Noch nicht verfügbar.</strong>
+        </p>
       </BoxLink>
       <br />
       <BoxLink
+        type="gray"
         icon="list"
         onClick={() => props.changePage({ kind: "SUMMARY" })}
       >
         <h3>Zusammenfassung</h3>
         <p>Erhalte einen Überblick über dein gesamtes Programm.</p>
+        <p>
+          <strong>Noch nicht verfügbar.</strong>
+        </p>
       </BoxLink>
     </>
   );

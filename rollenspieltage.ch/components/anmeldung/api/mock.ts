@@ -83,7 +83,9 @@ export async function mockedLoadSave(): Promise<Result<unknown>> {
       () =>
         res({
           kind: "SUCCESS",
-          data: fromLocalStoreOrDefault(SAVE_KEY, JSON.stringify(saveMock)),
+          data: JSON.parse(
+            fromLocalStoreOrDefault(SAVE_KEY, JSON.stringify(saveMock)),
+          ),
         }),
       1_000,
     ),
