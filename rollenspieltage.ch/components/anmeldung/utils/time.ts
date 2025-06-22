@@ -37,7 +37,7 @@ export function getHours(
   range: TimeRange,
   inclusiveeEnd: boolean = false,
 ): number[] {
-  const { from: from, to: to } = range;
+  const { from, to } = range;
 
   if (from > to) {
     return [];

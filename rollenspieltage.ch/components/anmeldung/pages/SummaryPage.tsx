@@ -1,4 +1,3 @@
-import { Box } from "@common/components/Box";
 import { createMemo, Show, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import type {
@@ -13,15 +12,14 @@ import {
 } from "@common/components/Dialog";
 import { TextInputField } from "@rst/components/anmeldung/forms/Components";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
-import { initTextInput } from "../api/form";
+import { initTextInput } from "@rst/components/anmeldung/api/form";
+import { WeekendTimetable } from "@rst/components/anmeldung/components/Timetable";
 
 export function SummaryPage(props: { store: Store<SaveClient> }): JSX.Element {
   return (
     <>
       <Contact store={props.store.init} />
-      <Box type="danger">
-        <p>Hier folgt später eine Gesamtübersicht über deinen Programmplan.</p>
-      </Box>
+      <Timeview />
     </>
   );
 }
@@ -141,5 +139,15 @@ function ContactEditDialog(props: {
         />
       </form>
     </Dialog>
+  );
+}
+
+function Timeview(): JSX.Element {
+  return (
+    <>
+      <h3>Mein Programm</h3>
+      <br />
+      <WeekendTimetable />
+    </>
   );
 }

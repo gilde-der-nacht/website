@@ -1,6 +1,14 @@
-import type { PerDay, TimeRange } from "@rst/components/anmeldung/utils/time";
+import type {
+  PerDay,
+  ProgramDay,
+  TimeRange,
+} from "@rst/components/anmeldung/utils/time";
 
-export type OpeningHours = PerDay<{ open: TimeRange; breaks: TimeRange[] }>;
+export type WeekendOpeningHours = PerDay<{
+  open: TimeRange;
+  breaks: TimeRange[];
+}>;
+export type OpeningHours = WeekendOpeningHours[ProgramDay];
 
 export const openingHours = {
   SATURDAY: {
@@ -25,4 +33,4 @@ export const openingHours = {
       },
     ],
   },
-} satisfies OpeningHours;
+} satisfies WeekendOpeningHours;

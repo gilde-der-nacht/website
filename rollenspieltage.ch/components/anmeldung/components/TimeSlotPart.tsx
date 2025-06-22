@@ -23,7 +23,7 @@ import {
 } from "@common/components/utils";
 import {
   openingHours,
-  type OpeningHours,
+  type WeekendOpeningHours,
 } from "@rst/components/anmeldung/constant/hours";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
@@ -53,9 +53,9 @@ export function TimeSlotPart(props: {
 
 const MIN_SLOT_TIME_HOUR = 1;
 type DaySections = PerDay<{ [s: number]: number[] }>;
-function calculateDaySections(openingHours: OpeningHours): DaySections {
+function calculateDaySections(openingHours: WeekendOpeningHours): DaySections {
   function calculatePerDay(
-    oh: OpeningHours[ProgramDay],
+    oh: WeekendOpeningHours[ProgramDay],
   ): Record<number, number[]> {
     const openHours = getHours(oh.open, true);
     const splitByBreaks = oh.breaks
