@@ -86,18 +86,6 @@ export function Timetable(props: {
   const lastHour = hours.at(-1) ?? 0;
   return (
     <div class="timetable">
-      <div class="entries" style={`grid-row: 1 / ${lastHour - offset + 1};`}>
-        <For each={props.programEntries}>
-          {(entry) => (
-            <div
-              class="entry"
-              style={rangeToGridRow(entry.range, offset, props.day)}
-            >
-              {entry.component}
-            </div>
-          )}
-        </For>
-      </div>
       <For each={hours}>
         {(hour) => {
           const isBreak = breaks.includes(hour);
@@ -116,6 +104,18 @@ export function Timetable(props: {
           );
         }}
       </For>
+      <div class="entries" style={`grid-row: 1 / ${lastHour - offset + 1};`}>
+        <For each={props.programEntries}>
+          {(entry) => (
+            <div
+              class="entry"
+              style={rangeToGridRow(entry.range, offset, props.day)}
+            >
+              {entry.component}
+            </div>
+          )}
+        </For>
+      </div>
       <div class="after-hour">
         <div class="annotation">{lastHour + 1}</div>
       </div>
