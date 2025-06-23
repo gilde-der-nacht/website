@@ -20,6 +20,7 @@ import {
 import type {
   DateTimeWindow,
   PerDay,
+  TimeRange,
 } from "@rst/components/anmeldung/utils/time";
 import { Box } from "@common/components/Box";
 
@@ -189,6 +190,25 @@ function Timeview(props: {
   );
 }
 
+function TimeviewEntry(props: {
+  title: string;
+  range: TimeRange;
+  additional?: string;
+}): JSX.Element {
+  const title = props.title.repeat(5);
+  return (
+    <div class="timeview-entry">
+      <h5 title={title}>{title}</h5>
+      <p>
+        von {props.range.from} bis {props.range.to} Uhr
+      </p>
+      <Show when={props.additional}>
+        {(additional) => <p>{additional()}</p>}
+      </Show>
+    </div>
+  );
+}
+
 function aggregateEntries(
   playingEntries: { dateTime: DateTimeWindow; title: string }[],
   masterEntries: { dateTime: DateTimeWindow; title: string }[],
@@ -202,7 +222,12 @@ function aggregateEntries(
   playingEntries.forEach((entry) => {
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
-      component: <div>Playing: {entry.title}</div>,
+      component: (
+        <TimeviewEntry
+          title={`playing: ${entry.title}`}
+          range={entry.dateTime}
+        />
+      ),
     });
   });
 
@@ -210,7 +235,10 @@ function aggregateEntries(
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: (
-        <div style="background: lightgray;">Master: {entry.title}</div>
+        <TimeviewEntry
+          title={`Master: ${entry.title}`}
+          range={entry.dateTime}
+        />
       ),
     });
   });
@@ -218,7 +246,12 @@ function aggregateEntries(
   helpingEntries.forEach((entry) => {
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
-      component: <div>Helping: {entry.title}</div>,
+      component: (
+        <TimeviewEntry
+          title={`Helping: ${entry.title}`}
+          range={entry.dateTime}
+        />
+      ),
     });
   });
 

@@ -97,6 +97,18 @@
   }
 }
 
+.timeview-entry {
+  background: hotpink;
+
+  h5 {
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+
 .page-content {
   min-block-size: 50vh;
 }
@@ -105,7 +117,7 @@
   $box-border: 0.125rem;
 
   display: grid;
-  grid-auto-rows: 2rem;
+  grid-auto-rows: 5rem;
   grid-template-columns: max-content 1fr;
   gap: 0 1rem;
 
