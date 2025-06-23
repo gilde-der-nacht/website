@@ -28,7 +28,7 @@ hhh-build:
 
 # Update environment and dependencies
 update:
-    nix flake update
+    nix flake update --flake ./nix-env/flake.nix
     yarn dlx npm-check-updates -u
 
 # Install dependencies
