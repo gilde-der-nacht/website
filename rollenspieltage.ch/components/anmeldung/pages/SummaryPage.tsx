@@ -29,6 +29,8 @@ import type {
 import { Box } from "@common/components/Box";
 import { Chip } from "@common/components/Chip";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import type { PublishState } from "@rst/components/anmeldung/api/shared";
+import type { IconType } from "@common/components/Icon";
 
 export function SummaryPage(props: {
   store: Store<SaveClient>;
@@ -36,9 +38,10 @@ export function SummaryPage(props: {
 }): JSX.Element {
   const masterEntries = props.store.master.games.flatMap((game) =>
     game.slots.map((slot) => ({
-      dateTime: slot,
-      title: game.title.value,
+      status: game.kind,
       uuid: game.uuid,
+      title: game.title.value,
+      dateTime: slot,
     })),
   );
 
@@ -191,44 +194,88 @@ function Timeview(props: {
   );
 }
 
+type TimeviewKind = "master-draft" | "master" | "play" | "help";
+
 function TimeviewEntry(props: {
   title: string;
   range: TimeRange;
-  kind: "master" | "play" | "help";
+  kind: TimeviewKind;
   onClick?: () => void;
 }): JSX.Element {
   const duration = props.range.to - props.range.from;
-  const labels = {
-    master: {
-      label: "SL",
-      help: "Spielleitung",
-    },
-    play: {
-      label: "TN",
-      help: "Teilnehmer:in",
-    },
-    help: {
-      label: "HL",
-      help: "Helfen",
-    },
-  }[props.kind];
+  const labels = (
+    {
+      "master-draft": {
+        label: "SL",
+        help: "Spielleitung",
+        link: {
+          icon: "pencil",
+          label: "Spielrunde bearbeiten",
+        },
+      },
+      master: {
+        label: "SL",
+        help: "Spielleitung",
+        link: {
+          icon: "pencil",
+          label: "Spielrunde bearbeiten",
+        },
+      },
+      play: {
+        label: "TN",
+        help: "Teilnehmer:in",
+        link: {
+          icon: "link",
+          label: "Zur Spielrunde",
+        },
+      },
+      help: {
+        label: "HL",
+        help: "Helfen",
+        link: {
+          icon: "link",
+          label: "",
+        },
+      },
+    } satisfies Record<
+      TimeviewKind,
+      {
+        label: string;
+        help: string;
+        link: {
+          icon: IconType;
+          label: string;
+        };
+      }
+    >
+  )[props.kind];
+
+  const classes = () => {
+    const cls = ["timeview-entry", "box-simple"];
+
+    if (props.kind === "master-draft") {
+      cls.push("gray");
+    }
+
+    if (props.kind === "master") {
+      cls.push("special");
+    }
+
+    return cls.join(" ");
+  };
 
   return (
-    <div class="timeview-entry box-simple special">
+    <div class={classes()}>
       <Chip title={labels.help} inverted={true} size="small">
         {labels.label}
       </Chip>
       <Show when={props.onClick}>
         {(onClick) => (
           <IconOnlyButton
-            icon={props.kind === "master" ? "pencil" : "link"}
+            icon={labels.link.icon}
             kind="ghost"
             onClick={onClick()}
-            title={
-              props.kind === "master"
-                ? "Spielrunde bearbeiten"
-                : "Zur Spielrunde"
-            }
+            title={labels.link.label}
           />
         )}
       </Show>
@@ -246,9 +293,21 @@ function TimeviewEntry(props: {
 }
 
 type EntriesForAggregation = {
-  master: { dateTime: DateTimeWindow; title: string; uuid: string }[];
-  play: { dateTime: DateTimeWindow; title: string; uuid: string }[];
-  help: { dateTime: DateTimeWindow; title: string }[];
+  master: {
+    status: PublishState;
+    uuid: string;
+    title: string;
+    dateTime: DateTimeWindow;
+  }[];
+  play: {
+    uuid: string;
+    title: string;
+    dateTime: DateTimeWindow;
+  }[];
+  help: {
+    title: string;
+    dateTime: DateTimeWindow;
+  }[];
 };
 
 function aggregateEntries(
@@ -270,13 +329,22 @@ function aggregateEntries(
   });
 
   entries.master.forEach((entry) => {
+    if (entry.status === "DELETED") {
+      return;
+    }
+
+    const titleBuffer = [entry.title];
+    if (entry.status === "DRAFT") {
+      titleBuffer.unshift("(noch nicht veröffentlicht)");
+    }
+
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: (
         <TimeviewEntry
-          title={entry.title}
+          title={titleBuffer.join(" ")}
           range={entry.dateTime}
-          kind="master"
+          kind={entry.status === "PUBLISHED" ? "master" : "master-draft"}
           onClick={() =>
             changePage({
               kind: "EDIT_GAMEROUND",
