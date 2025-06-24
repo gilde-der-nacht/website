@@ -8,6 +8,10 @@
   border-bottom-left-radius: 0.5rem;
 }
 
+@mixin element-small {
+  border-width: 0.125rem;
+}
+
 @mixin link {
   color: c.get("accent");
   border-bottom: 0.125rem solid currentColor;

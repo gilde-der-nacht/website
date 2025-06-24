@@ -7,7 +7,7 @@ type Props = {
   label: string;
   name: string;
   required?: boolean | undefined;
-  size?: "sm" | undefined;
+  size?: "small" | undefined;
 };
 
 export function Textarea(props: Props): JSX.Element {
@@ -17,7 +17,7 @@ export function Textarea(props: Props): JSX.Element {
     <label>
       {propsWithDefaults.label}
       <textarea
-        class={props.size === "sm" ? "small" : ""}
+        class={props.size === "small" ? "small" : ""}
         name={propsWithDefaults.name}
         placeholder={propsWithDefaults.label}
         required={propsWithDefaults.required}

@@ -276,7 +276,7 @@ function GameroundForm(props: {
         store={store.description.short}
         label="kurze Beschreibung"
         name="descriptionShort"
-        size="sm"
+        size="small"
         showErrors={store.kind === "PUBLISHED" ? "ALWAYS" : "ON_BLUR"}
         errors={
           errors().descriptionShortMissing
@@ -415,7 +415,7 @@ function SendUpdateForm(props: {
             store={store.updateText}
             label="Zusammenfassung der Änderung"
             name="updateText"
-            size="sm"
+            size="small"
             showErrors="ALWAYS"
             errors={
               errors().missing

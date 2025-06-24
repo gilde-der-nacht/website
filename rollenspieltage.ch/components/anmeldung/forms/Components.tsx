@@ -85,7 +85,7 @@ export function TextareaField(props: {
   label: string;
   name: string;
   required?: boolean | undefined;
-  size?: "sm" | undefined;
+  size?: "small" | undefined;
   showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
 }): JSX.Element {

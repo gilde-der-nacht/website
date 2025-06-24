@@ -98,14 +98,28 @@
 }
 
 .timeview-entry {
-  background: hotpink;
+  display: grid;
+  grid-template:
+    "tag title" max-content
+    ".   duration" 1fr
+    / max-content 1fr;
+  gap: 0 0.5rem;
+
+  .chip {
+    align-self: start;
+  }
 
   h5 {
+    grid-area: title;
     margin: 0;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+  }
+
+  .duration {
+    grid-area: duration;
   }
 }
 
@@ -117,7 +131,7 @@
   $box-border: 0.125rem;
 
   display: grid;
-  grid-auto-rows: 5rem;
+  grid-auto-rows: 4lh;
   grid-template-columns: max-content 1fr;
   gap: 0 1rem;
 

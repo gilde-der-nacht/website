@@ -49,3 +49,41 @@
     }
   }
 }
+
+.box-simple {
+  @include p.element;
+  padding: 0.25rem;
+  border-color: var(--box-border-color);
+  background-color: var(--box-background-color);
+  color: var(--box-color);
+
+  &.special {
+    --box-border-color: #{c.getSpecial("text-high-contrast")};
+    --box-background-color: #{c.getSpecial("text-low-contrast")};
+    --box-color: #{c.getSpecial("background")};
+  }
+
+  &.success {
+    --box-border-color: #{c.getSuccess("text-high-contrast")};
+    --box-background-color: #{c.getSuccess("text-low-contrast")};
+    --box-color: #{c.getSuccess("background")};
+  }
+
+  &.danger {
+    --box-border-color: #{c.getDanger("text-high-contrast")};
+    --box-background-color: #{c.getDanger("text-low-contrast")};
+    --box-color: #{c.getDanger("background")};
+  }
+
+  &.warning {
+    --box-border-color: #{c.getWarning("text-high-contrast")};
+    --box-background-color: #{c.getWarning("text-low-contrast")};
+    --box-color: #{c.getWarning("background")};
+  }
+
+  &.gray {
+    --box-border-color: #{c.getGray("text-high-contrast")};
+    --box-background-color: #{c.getGray("text-low-contrast")};
+    --box-color: #{c.getGray("background")};
+  }
+}

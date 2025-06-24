@@ -23,6 +23,7 @@ import type {
   TimeRange,
 } from "@rst/components/anmeldung/utils/time";
 import { Box } from "@common/components/Box";
+import { Chip } from "@common/components/Chip";
 
 export function SummaryPage(props: { store: Store<SaveClient> }): JSX.Element {
   const masterEntries = props.store.master.games.flatMap((game) =>
@@ -193,18 +194,38 @@ function Timeview(props: {
 function TimeviewEntry(props: {
   title: string;
   range: TimeRange;
-  additional?: string;
+  kind: "master" | "play" | "help";
 }): JSX.Element {
-  const title = props.title.repeat(5);
+  const duration = props.range.to - props.range.from;
+  const labels = {
+    master: {
+      label: "SL",
+      help: "Spielleitung",
+    },
+    play: {
+      label: "TN",
+      help: "Teilnehmer:in",
+    },
+    help: {
+      label: "HL",
+      help: "Helfen",
+    },
+  }[props.kind];
+
   return (
-    <div class="timeview-entry">
-      <h5 title={title}>{title}</h5>
-      <p>
-        von {props.range.from} bis {props.range.to} Uhr
+    <div class="timeview-entry box-simple special">
+      <Chip title={labels.help} inverted={true} size="small">
+        {labels.label}
+      </Chip>
+      <h5 title={props.title}>{props.title}</h5>
+      <p class="duration">
+        von {props.range.from} bis {props.range.to} Uhr{" "}
+        <em>
+          <small>
+            ({duration} {duration === 1 ? "Stunde" : "Stunden"})
+          </small>
+        </em>
       </p>
-      <Show when={props.additional}>
-        {(additional) => <p>{additional()}</p>}
-      </Show>
     </div>
   );
 }
@@ -223,10 +244,7 @@ function aggregateEntries(
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: (
-        <TimeviewEntry
-          title={`playing: ${entry.title}`}
-          range={entry.dateTime}
-        />
+        <TimeviewEntry title={entry.title} range={entry.dateTime} kind="play" />
       ),
     });
   });
@@ -236,8 +254,9 @@ function aggregateEntries(
       range: entry.dateTime,
       component: (
         <TimeviewEntry
-          title={`Master: ${entry.title}`}
+          title={entry.title}
           range={entry.dateTime}
+          kind="master"
         />
       ),
     });
@@ -247,10 +266,7 @@ function aggregateEntries(
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: (
-        <TimeviewEntry
-          title={`Helping: ${entry.title}`}
-          range={entry.dateTime}
-        />
+        <TimeviewEntry title={entry.title} range={entry.dateTime} kind="help" />
       ),
     });
   });
