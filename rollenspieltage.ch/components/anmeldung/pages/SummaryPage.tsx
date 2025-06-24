@@ -46,13 +46,6 @@ export function SummaryPage(props: {
     <>
       <Contact store={props.store.init} />
       <br />
-      <Box type="danger">
-        <p>
-          Der folgende Abschnitt ist noch in Bearbeitung, wird demnächst
-          verbessert und kann aktuell noch Fehler beinhalten.
-        </p>
-      </Box>
-      <br />
       <Timeview
         entries={{
           play: [],
