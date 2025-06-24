@@ -35,7 +35,7 @@ export const gameTags = [
     name: "postapokalyptisch",
     label: "Postapokalyptisch",
     description:
-      "Spielt in einer Welt mitten oder nach einem Kollaps, wo nur ein grosser Teil der Gesellschaft ums Überleben kämpft. Beispiele: Mutant Year Zero, Apocalypse World",
+      "Spielt in einer Welt mitten oder nach einem Kollaps, wo die Mehrheit ums Überleben kämpft. Beispiele: Mutant Year Zero, Apocalypse World",
   },
   {
     name: "horror",
