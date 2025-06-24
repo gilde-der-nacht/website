@@ -6,6 +6,7 @@ type Props = {
   kind?: "accent" | "special" | "gray" | "success" | "danger" | "ghost";
   disabled?: boolean;
   onClick?: ((e: Event) => void) | undefined;
+  title?: string;
 };
 
 export function Button(
@@ -32,6 +33,7 @@ export function Button(
       class={classes().join(" ")}
       disabled={props.disabled === true}
       onClick={(e) => props.onClick?.(e)}
+      title={props.title}
     >
       {props.label}
     </button>
@@ -62,6 +64,7 @@ export function ButtonWithIcon(
       class={classes().join(" ")}
       disabled={props.disabled === true}
       onClick={(e) => props.onClick?.(e)}
+      title={props.title}
     >
       <span style="display: flex; gap: 0.5rem; align-items: center;">
         <Icon icon={props.icon} />
@@ -93,6 +96,7 @@ export function IconOnlyButton(props: Props & { icon: IconType }): JSX.Element {
       class={classes().join(" ")}
       disabled={props.disabled === true}
       onClick={(e) => props.onClick?.(e)}
+      title={props.title}
     >
       <Icon icon={props.icon} />
     </button>

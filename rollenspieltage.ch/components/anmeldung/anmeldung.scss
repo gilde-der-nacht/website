@@ -100,12 +100,17 @@
 .timeview-entry {
   display: grid;
   grid-template:
-    "tag title" max-content
-    ".   duration" 1fr
+    "tag  title" max-content
+    "link duration" 1fr
     / max-content 1fr;
   gap: 0 0.5rem;
 
   .chip {
+    align-self: start;
+  }
+
+  button {
+    grid-area: link;
     align-self: start;
   }
 
@@ -116,6 +121,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    height: 2lh;
   }
 
   .duration {

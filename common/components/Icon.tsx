@@ -12,6 +12,7 @@ const ICONS = [
   "floppy-disk-circle-arrow-right",
   "grid-2-plus",
   "hand-heart",
+  "link",
   "list",
   "location-dot",
   "moon-stars",

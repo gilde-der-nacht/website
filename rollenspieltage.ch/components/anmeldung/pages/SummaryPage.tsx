@@ -4,7 +4,11 @@ import type {
   ContactClient,
   SaveClient,
 } from "@rst/components/anmeldung/api/save";
-import { Button, ButtonWithIcon } from "@common/components/Button";
+import {
+  Button,
+  ButtonWithIcon,
+  IconOnlyButton,
+} from "@common/components/Button";
 import {
   Dialog,
   initDialogStore,
@@ -24,12 +28,17 @@ import type {
 } from "@rst/components/anmeldung/utils/time";
 import { Box } from "@common/components/Box";
 import { Chip } from "@common/components/Chip";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 
-export function SummaryPage(props: { store: Store<SaveClient> }): JSX.Element {
+export function SummaryPage(props: {
+  store: Store<SaveClient>;
+  changePage: ChangePageFn;
+}): JSX.Element {
   const masterEntries = props.store.master.games.flatMap((game) =>
     game.slots.map((slot) => ({
       dateTime: slot,
       title: game.title.value,
+      uuid: game.uuid,
     })),
   );
 
@@ -45,9 +54,12 @@ export function SummaryPage(props: { store: Store<SaveClient> }): JSX.Element {
       </Box>
       <br />
       <Timeview
-        playingEntries={[]}
-        masterEntries={masterEntries}
-        helpingEntries={[]}
+        entries={{
+          play: [],
+          master: masterEntries,
+          help: [],
+        }}
+        changePage={props.changePage}
       />
     </>
   );
@@ -172,15 +184,10 @@ function ContactEditDialog(props: {
 }
 
 function Timeview(props: {
-  playingEntries: { dateTime: DateTimeWindow; title: string }[];
-  masterEntries: { dateTime: DateTimeWindow; title: string }[];
-  helpingEntries: { dateTime: DateTimeWindow; title: string }[];
+  entries: EntriesForAggregation;
+  changePage: ChangePageFn;
 }): JSX.Element {
-  const programEntries = aggregateEntries(
-    props.playingEntries,
-    props.masterEntries,
-    props.helpingEntries,
-  );
+  const programEntries = aggregateEntries(props.entries, props.changePage);
 
   return (
     <>
@@ -195,6 +202,7 @@ function TimeviewEntry(props: {
   title: string;
   range: TimeRange;
   kind: "master" | "play" | "help";
+  onClick?: () => void;
 }): JSX.Element {
   const duration = props.range.to - props.range.from;
   const labels = {
@@ -217,6 +225,20 @@ function TimeviewEntry(props: {
       <Chip title={labels.help} inverted={true} size="small">
         {labels.label}
       </Chip>
+      <Show when={props.onClick}>
+        {(onClick) => (
+          <IconOnlyButton
+            icon={props.kind === "master" ? "pencil" : "link"}
+            kind="ghost"
+            onClick={onClick()}
+            title={
+              props.kind === "master"
+                ? "Spielrunde bearbeiten"
+                : "Zur Spielrunde"
+            }
+          />
+        )}
+      </Show>
       <h5 title={props.title}>{props.title}</h5>
       <p class="duration">
         von {props.range.from} bis {props.range.to} Uhr{" "}
@@ -230,17 +252,22 @@ function TimeviewEntry(props: {
   );
 }
 
+type EntriesForAggregation = {
+  master: { dateTime: DateTimeWindow; title: string; uuid: string }[];
+  play: { dateTime: DateTimeWindow; title: string; uuid: string }[];
+  help: { dateTime: DateTimeWindow; title: string }[];
+};
+
 function aggregateEntries(
-  playingEntries: { dateTime: DateTimeWindow; title: string }[],
-  masterEntries: { dateTime: DateTimeWindow; title: string }[],
-  helpingEntries: { dateTime: DateTimeWindow; title: string }[],
+  entries: EntriesForAggregation,
+  changePage: ChangePageFn,
 ): PerDay<ProgramEntryTimetableView[]> {
   const aggregation: PerDay<ProgramEntryTimetableView[]> = {
     SATURDAY: [],
     SUNDAY: [],
   };
 
-  playingEntries.forEach((entry) => {
+  entries.play.forEach((entry) => {
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: (
@@ -249,7 +276,7 @@ function aggregateEntries(
     });
   });
 
-  masterEntries.forEach((entry) => {
+  entries.master.forEach((entry) => {
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: (
@@ -257,12 +284,18 @@ function aggregateEntries(
           title={entry.title}
           range={entry.dateTime}
           kind="master"
+          onClick={() =>
+            changePage({
+              kind: "EDIT_GAMEROUND",
+              uuid: entry.uuid,
+            })
+          }
         />
       ),
     });
   });
 
-  helpingEntries.forEach((entry) => {
+  entries.help.forEach((entry) => {
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: (
