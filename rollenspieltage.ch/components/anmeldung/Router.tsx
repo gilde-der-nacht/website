@@ -1,5 +1,6 @@
 import {
   createResource,
+  createSignal,
   Match,
   onMount,
   Show,
@@ -33,7 +34,7 @@ import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
 import { loadRegistrations } from "@rst/components/anmeldung/api/registrations";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { createQueue } from "@common/components/utils";
-import type { EmailQueueableFns } from "./api/email";
+import type { EmailQueueableFns } from "@rst/components/anmeldung/api/email";
 import { ToastContainer } from "@common/components/Toast";
 
 function initPage(meta: Store<MetaClient>): void {
@@ -96,14 +97,22 @@ export function Router(props: {
     loadProgram(store.meta.secret),
   );
 
+  // hacky solution to not save on first load when nothing has changed yet.
+  const [run, setRun] = createSignal(false);
   createResource(
     () => JSON.stringify(store.save),
     async () => {
-      const copy = unwrap(store.save);
+      if (!run()) {
+        setRun(true);
+        return;
+      }
+
+      const newState = unwrap(store.save);
+
       try {
         const saveResult = await debouncedSaveState(
           store.meta,
-          copy,
+          newState,
           store.meta.secret,
         );
         if (saveResult.kind === "FAILURE") {
