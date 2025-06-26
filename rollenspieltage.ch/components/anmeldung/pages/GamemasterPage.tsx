@@ -12,6 +12,7 @@ import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import { ellipsis } from "@common/components/utils";
 import { DESCR_SHORT_MAX_CHAR } from "../forms/validation";
+import { Checkbox } from "@common/components/Checkbox";
 
 export function GamemasterPage(props: {
   store: Store<MasterClient>;
@@ -29,6 +30,17 @@ export function GamemasterPage(props: {
       <BoxLink icon="grid-2-plus" type="success" onClick={createNewGameround}>
         <h3>{TXT.createNewGameRound}</h3>
       </BoxLink>
+
+      <br />
+      <Checkbox
+        label="Ich habe wenig bis keine Spielleitung-Erfahrung und möchte gerne in der Vorbereitung und/oder während der Spielrunde unterstützt werden."
+        checked={store.wantsHelp}
+        name="wantsHelp"
+        value="wantsHelp"
+        onValueUpdate={(checked) => {
+          setStore("wantsHelp", checked);
+        }}
+      />
 
       <Show when={props.store.games}>
         {(games) => (
