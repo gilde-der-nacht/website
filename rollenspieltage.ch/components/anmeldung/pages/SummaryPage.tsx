@@ -322,7 +322,7 @@ function aggregateEntries(
   entries.play.forEach((entry) => {
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
-      component: (
+      component: () => (
         <TimeviewEntry title={entry.title} range={entry.dateTime} kind="play" />
       ),
     });
@@ -340,7 +340,7 @@ function aggregateEntries(
 
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
-      component: (
+      component: () => (
         <TimeviewEntry
           title={titleBuffer.join(" ")}
           range={entry.dateTime}
@@ -359,7 +359,7 @@ function aggregateEntries(
   entries.help.forEach((entry) => {
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
-      component: (
+      component: () => (
         <TimeviewEntry title={entry.title} range={entry.dateTime} kind="help" />
       ),
     });

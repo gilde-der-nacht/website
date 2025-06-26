@@ -13,6 +13,7 @@ import {
 import { assert } from "@common/components/utils";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { Box } from "@common/components/Box";
+import { Icon } from "@common/components/Icon";
 
 export type TimetableConfiguration = {
   start: number;
@@ -50,12 +51,25 @@ function TimetableOfDay(props: {
       <h4 style="margin-block-end: 1.5rem;">{TXT.days[props.day]}</h4>
       <Switch
         fallback={
-          <Box type="danger">
-            <p>
-              Konflikte gefunden! Bitte stelle sicher, dass du nicht zeitlich
-              überlappende Spielrunden eingetragen hast.
-            </p>
-          </Box>
+          <>
+            <Box type="danger">
+              <p>
+                Konflikte gefunden! Bitte stelle sicher, dass du nicht zeitlich
+                überlappende Spielrunden eingetragen hast:
+              </p>
+            </Box>
+            <For each={conflictingEntries}>
+              {([a, b]) => (
+                <div style="display: grid; grid-template-columns: 1fr max-content 1fr; gap: 1rem; margin-block: 0.5rem;">
+                  {a.component()}
+                  <span style="color: var(--clr-warning-10); align-self: center; font-size: 2rem;">
+                    <Icon icon="triangle-exclamation" />
+                  </span>
+                  {b.component()}
+                </div>
+              )}
+            </For>
+          </>
         }
       >
         <Match when={conflictingEntries.length === 0}>
@@ -72,7 +86,7 @@ function TimetableOfDay(props: {
 
 export type ProgramEntryTimetableView = {
   range: TimeRange;
-  component: JSX.Element;
+  component: () => JSX.Element;
 };
 
 export function Timetable(props: {
@@ -111,7 +125,7 @@ export function Timetable(props: {
               class="entry"
               style={rangeToGridRow(entry.range, offset, props.day)}
             >
-              {entry.component}
+              {entry.component()}
             </div>
           )}
         </For>
