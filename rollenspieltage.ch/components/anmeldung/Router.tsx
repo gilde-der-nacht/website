@@ -178,7 +178,10 @@ export function Router(props: {
             saveState={store.meta.saveState}
             lastSaved={store.save.lastSaved}
           >
-            <PlayerPage isDebugging={store.meta.isDebugging} />
+            <PlayerPage
+              program={programResource}
+              isDebugging={store.meta.isDebugging}
+            />
           </PageTemplate>
         </Match>
         <Match when={store.meta.page.kind === "GAMEMASTER"}>
@@ -247,15 +250,6 @@ export function Router(props: {
         </div>
         <Suspense fallback={<em>loading...</em>}>
           <Show when={registrationsResource()}>
-            {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
-          </Show>
-        </Suspense>
-        <hr />
-        <div>
-          <code>Program (read-only)</code>
-        </div>
-        <Suspense fallback={<em>loading...</em>}>
-          <Show when={programResource()}>
             {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
           </Show>
         </Suspense>

@@ -329,12 +329,12 @@ function aggregateEntries(
   });
 
   entries.master.forEach((entry) => {
-    if (entry.status === "DELETED") {
+    if (entry.status === "deleted") {
       return;
     }
 
     const titleBuffer = [entry.title];
-    if (entry.status === "DRAFT") {
+    if (entry.status === "draft") {
       titleBuffer.unshift("(noch nicht veröffentlicht)");
     }
 
@@ -344,7 +344,7 @@ function aggregateEntries(
         <TimeviewEntry
           title={titleBuffer.join(" ")}
           range={entry.dateTime}
-          kind={entry.status === "PUBLISHED" ? "master" : "master-draft"}
+          kind={entry.status === "published" ? "master" : "master-draft"}
           onClick={() =>
             changePage({
               kind: "EDIT_GAMEROUND",

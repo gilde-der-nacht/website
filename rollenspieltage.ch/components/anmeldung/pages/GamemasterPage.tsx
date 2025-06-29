@@ -47,7 +47,7 @@ export function GamemasterPage(props: {
           <div style="margin-top: 2rem;">
             <h3 style="margin-bottom: 1rem;">{TXT.myGameRounds}</h3>
             <ul class="event-list" role="list">
-              <For each={games().filter((game) => game.kind !== "DELETED")}>
+              <For each={games().filter((game) => game.kind !== "deleted")}>
                 {(game) => {
                   const tags = game.tagNames
                     .map((t) => gameTags.find(({ name }) => name === t))
@@ -93,7 +93,7 @@ function Entry(props: {
 }): JSX.Element {
   const { game, slot, tags, changePage } = props;
   return (
-    <li class={["event-entry", game.kind === "DRAFT" ? "gray" : ""].join(" ")}>
+    <li class={["event-entry", game.kind === "draft" ? "gray" : ""].join(" ")}>
       <h3 class="event-title">
         {game.title.value.length > 0 ? (
           game.title.value

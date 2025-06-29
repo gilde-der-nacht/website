@@ -86,9 +86,9 @@ const pageTitle: Record<PageKind, string> = {
 };
 
 const publishingSteps: Record<PublishState, string> = {
-  DRAFT: "Entwurf",
-  PUBLISHED: "Veröffentlicht",
-  DELETED: "Gelöscht",
+  draft: "Entwurf",
+  published: "Veröffentlicht",
+  deleted: "Gelöscht",
 };
 
 const metaTitle = "Meine Anmeldung: {} | Luzerner Rollenspieltage";

@@ -1,7 +1,7 @@
 import type { SaveServer } from "@rst/components/anmeldung/api/save";
-import type { PublicProgramServer } from "@rst/components/anmeldung/api/program";
-import type { RegistrationsServer } from "./registrations";
-import type { Result } from "./utils";
+import type { RegistrationsServer } from "@rst/components/anmeldung/api/registrations";
+import type { Result } from "@rst/components/anmeldung/api/utils";
+import type { ProgramServer } from "@rst/components/anmeldung/api/program";
 
 const validTimeStamp = "2024-08-15T07:45:21.335Z";
 const uuid = {
@@ -43,7 +43,7 @@ const saveMock = {
     games: [
       {
         uuid: uuid.game,
-        kind: "PUBLISHED",
+        kind: "published",
         title: "Grolle in der Dunkelheit",
         system: "Warhammer Fantasy Rollenspiel",
         description: {
@@ -108,31 +108,35 @@ export async function mockedSaveState(
  * Program
  */
 
-const programMock = {
-  entries: [
-    {
-      uuid: crypto.randomUUID(),
-      gamemaster: "Mike Hunziker",
-      title: "Grolle in der Dunkelheit",
-      system: "Warhammer Fantasy Rollenspiel",
-      description: {
-        short:
-          "Ein kurzes Abenteuer bei dem es um Fantasy, Action und einfaches Rollenspiel geht.",
-        long: "Eine kleine Gruppe wagt sich in die dunklen Schächten einer Mine und weiter hinab, um einen mächtigen Gegenstand wieder zu erlangen. Wie werden die Gefährten auf die Gefahren des Untergrundes reagieren und welche Gefahren lauern in der Finsternis?",
-      },
-      slots: [],
-      playerCount: {
-        min: 1,
-        max: 3,
-        reserved: 0,
-      },
-      tagNames: ["children"],
+const programMock = [
+  {
+    uuid: crypto.randomUUID(),
+    gamemaster: "Mike Hunziker",
+    title: "Grolle in der Dunkelheit",
+    system: "Warhammer Fantasy Rollenspiel",
+    description: {
+      short:
+        "Ein kurzes Abenteuer bei dem es um Fantasy, Action und einfaches Rollenspiel geht.",
+      long: "Eine kleine Gruppe wagt sich in die dunklen Schächten einer Mine und weiter hinab, um einen mächtigen Gegenstand wieder zu erlangen. Wie werden die Gefährten auf die Gefahren des Untergrundes reagieren und welche Gefahren lauern in der Finsternis?",
     },
-  ],
-} satisfies PublicProgramServer;
+    slot: {
+      day: "SATURDAY",
+      from: 10,
+      to: 13,
+    },
+    playerCount: {
+      min: 1,
+      max: 3,
+      reserved: 0,
+    },
+    tags: ["children"],
+  },
+] satisfies ProgramServer;
 
-export async function mockedLoadProgram(): Promise<unknown> {
-  return new Promise((res) => setTimeout(() => res(programMock), 5_000));
+export async function mockedLoadProgram(): Promise<Result<unknown>> {
+  return new Promise((res) =>
+    setTimeout(() => res({ kind: "SUCCESS", data: programMock }), 5_000),
+  );
 }
 
 /*

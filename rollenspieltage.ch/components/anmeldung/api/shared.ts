@@ -21,5 +21,5 @@ export const tagSchema = z.object({
 });
 export type Tag = z.infer<typeof tagSchema>;
 
-export const publishStateSchema = z.enum(["DRAFT", "PUBLISHED", "DELETED"]);
+export const publishStateSchema = z.enum(["draft", "published", "deleted"]);
 export type PublishState = z.infer<typeof publishStateSchema>;

@@ -98,7 +98,7 @@ export function EditGamePage(props: {
         store={dialogStore.publish}
         title={store.title.value}
         onPublish={() => {
-          setStore("kind", "PUBLISHED");
+          setStore("kind", "published");
           setDialogStore("publish", "open", false);
           props.queue.enqueue(queueuPublishGameround(store.uuid));
         }}
@@ -123,7 +123,7 @@ export function EditGamePage(props: {
         hasSlots={store.slots.length !== 0}
         title={store.title.value}
         onDelete={() => {
-          setStore("kind", "DELETED");
+          setStore("kind", "deleted");
           props.changePage({ kind: "GAMEMASTER" });
         }}
       />
@@ -242,14 +242,14 @@ function GameroundForm(props: {
 
   return (
     <form novalidate>
-      <Show when={store.kind === "PUBLISHED"}>
+      <Show when={store.kind === "published"}>
         <ErrorSummary errors={errors()} />
       </Show>
       <TextInputField
         store={store.title}
         label="Titel"
         name="title"
-        showErrors={store.kind === "PUBLISHED" ? "ALWAYS" : "ON_BLUR"}
+        showErrors={store.kind === "published" ? "ALWAYS" : "ON_BLUR"}
         errors={errors().titleMissing ? [TXT.mandatoryField] : []}
       />
       <TextInputField
@@ -277,7 +277,7 @@ function GameroundForm(props: {
         label="kurze Beschreibung"
         name="descriptionShort"
         size="small"
-        showErrors={store.kind === "PUBLISHED" ? "ALWAYS" : "ON_BLUR"}
+        showErrors={store.kind === "published" ? "ALWAYS" : "ON_BLUR"}
         errors={
           errors().descriptionShortMissing
             ? [TXT.mandatoryField]
@@ -290,7 +290,7 @@ function GameroundForm(props: {
         store={store.description.long}
         label="lange Beschreibung (optional)"
         name="descriptionLong"
-        showErrors={store.kind === "PUBLISHED" ? "ALWAYS" : "ON_BLUR"}
+        showErrors={store.kind === "published" ? "ALWAYS" : "ON_BLUR"}
         errors={
           errors().descriptionLongTooLong
             ? [TXT.charLimitBy.replace("{}", String(DESCR_LONG_MAX_CHAR))]
@@ -314,7 +314,7 @@ function GameroundForm(props: {
           onClick={props.goBack}
         />
         <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <Show when={store.kind !== "DELETED"}>
+          <Show when={store.kind !== "deleted"}>
             <ButtonWithIcon
               icon="trash"
               kind="danger"
@@ -322,7 +322,7 @@ function GameroundForm(props: {
               onClick={() => props.onCancel()}
             />
           </Show>
-          <Show when={store.kind === "DRAFT"}>
+          <Show when={store.kind === "draft"}>
             <ButtonWithIcon
               icon="circle-plus"
               kind={errors().hasErrors ? "gray" : "success"}
@@ -331,7 +331,7 @@ function GameroundForm(props: {
               onClick={errors().hasErrors ? undefined : props.onSubmit}
             />
           </Show>
-          <Show when={store.kind === "PUBLISHED"}>
+          <Show when={store.kind === "published"}>
             <ButtonWithIcon
               icon="circle-plus"
               kind="success"

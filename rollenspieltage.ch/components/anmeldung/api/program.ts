@@ -1,19 +1,63 @@
 import { z } from "astro/zod";
 import type { ParseResult, Result } from "@rst/components/anmeldung/api/utils";
 import { mockedLoadProgram } from "@rst/components/anmeldung/api/mock";
-import { gameroundPublicServerSchema } from "@rst/components/anmeldung/api/gameround-public";
+import { elysiumLoadProgram } from "@rst/components/anmeldung/api/elysium";
+import { daySchema } from "@rst/components/anmeldung/api/shared";
 
 /*
  * Types
  */
 
-export const publicProgramServerSchema = z.object({
-  entries: z.array(gameroundPublicServerSchema),
+const programEntryServerSchema = z.object({
+  uuid: z.string().uuid(),
+  title: z.string(),
+  system: z.string(),
+  gamemaster: z.string(),
+  description: z.object({
+    short: z.string(),
+    long: z.string(),
+  }),
+  slot: z.object({
+    day: daySchema,
+    from: z.number(),
+    to: z.number(),
+  }),
+  playerCount: z.object({
+    min: z.number(),
+    max: z.number(),
+    reserved: z.number(),
+  }),
+  tags: z.array(z.string()),
 });
-export type PublicProgramServer = z.infer<typeof publicProgramServerSchema>;
+export type ProgramEntryServer = z.infer<typeof programEntryServerSchema>;
 
-export const publicProgramClientSchema = publicProgramServerSchema;
-export type PublicProgramClient = z.infer<typeof publicProgramClientSchema>;
+const programServerSchema = z.array(programEntryServerSchema);
+export type ProgramServer = z.infer<typeof programServerSchema>;
+
+const programEntryClientSchema = z.object({
+  uuid: z.string().uuid(),
+  title: z.string(),
+  system: z.string(),
+  description: z.object({
+    short: z.string(),
+    long: z.string(),
+  }),
+  slot: z.object({
+    day: daySchema,
+    from: z.number(),
+    to: z.number(),
+  }),
+  playerCount: z.object({
+    min: z.number(),
+    max: z.number(),
+    reserved: z.number(),
+  }),
+  tags: z.array(z.string()),
+});
+export type ProgramEntryClient = z.infer<typeof programEntryClientSchema>;
+
+const programClientSchema = z.array(programEntryClientSchema);
+export type ProgramClient = z.infer<typeof programClientSchema>;
 
 /*
  * Methods
@@ -21,19 +65,28 @@ export type PublicProgramClient = z.infer<typeof publicProgramClientSchema>;
 
 export async function loadProgram(
   secret: string,
-): Promise<Result<PublicProgramClient>> {
-  // TODO: implement non-mock version
-  console.log("loadProgram still mocked", secret.substring(0, 4), "...");
+): Promise<Result<ProgramClient>> {
+  const program =
+    secret === "demo" ? await mockedLoadProgram() : await elysiumLoadProgram();
 
-  const program = await mockedLoadProgram();
-  const parseResult = publicProgramServerSchema.safeParse(program);
+  if (program.kind === "FAILURE") {
+    console.error("Unexpected error. Maybe network, maybe server error.");
+    return {
+      kind: "FAILURE",
+    };
+  }
+
+  const parseResult = programServerSchema.safeParse(program.data);
 
   if (!parseResult.success) {
+    console.log(program.data);
+    console.error(parseResult.error);
     return {
       kind: "FAILURE",
     };
   }
   const transformResult = transformProgramFromServer(parseResult.data);
+
   if (!transformResult.success) {
     return {
       kind: "FAILURE",
@@ -47,7 +100,7 @@ export async function loadProgram(
 }
 
 function transformProgramFromServer(
-  s: PublicProgramServer,
-): ParseResult<PublicProgramClient> {
-  return publicProgramClientSchema.safeParse(s);
+  s: ProgramServer,
+): ParseResult<ProgramClient> {
+  return programClientSchema.safeParse(s);
 }

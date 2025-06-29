@@ -58,7 +58,7 @@ export type GameroundEditClient = z.infer<typeof gameroundEditClientSchema>;
 export function getNewGameround(): GameroundEditClient {
   const server = {
     uuid: crypto.randomUUID(),
-    kind: "DRAFT",
+    kind: "draft",
     title: "",
     system: "",
     description: {

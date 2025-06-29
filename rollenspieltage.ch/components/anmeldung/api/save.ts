@@ -41,7 +41,7 @@ export type ContactClient = z.infer<typeof contactClientSchema>;
  * Playing
  */
 
-const playingServerSchema = z.object({
+export const playingServerSchema = z.object({
   wantsUpdates: z.boolean(),
 });
 
@@ -53,7 +53,7 @@ const playingClientSchema = z.object({
  * Master
  */
 
-const masterServerSchema = z.object({
+export const masterServerSchema = z.object({
   games: z.array(gameroundEditServerSchema),
   wantsHelp: z.boolean(),
 });
@@ -68,7 +68,7 @@ export type MasterClient = z.infer<typeof masterClientSchema>;
  * Helping
  */
 
-const helpingServerSchema = z.object({});
+export const helpingServerSchema = z.object({});
 
 const helpingClientSchema = z.object({});
 
