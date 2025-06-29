@@ -166,6 +166,7 @@ export function Router(props: {
               changePage={changePage}
               saveState={store.meta.saveState}
               lastSaved={store.save.lastSaved}
+              isDebugging={store.meta.isDebugging}
             />
           </PageTemplate>
         }
@@ -177,7 +178,7 @@ export function Router(props: {
             saveState={store.meta.saveState}
             lastSaved={store.save.lastSaved}
           >
-            <PlayerPage />
+            <PlayerPage isDebugging={store.meta.isDebugging} />
           </PageTemplate>
         </Match>
         <Match when={store.meta.page.kind === "GAMEMASTER"}>

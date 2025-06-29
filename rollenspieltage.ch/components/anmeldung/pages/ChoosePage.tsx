@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js";
+import { Match, Switch, type JSX } from "solid-js";
 import { BoxLink } from "@rst/components/anmeldung/components/BoxLink";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import type { SaveState } from "@rst/components/anmeldung/api/meta";
@@ -7,20 +7,35 @@ export function ChoosePage(props: {
   changePage: ChangePageFn;
   saveState: SaveState;
   lastSaved: Date;
+  isDebugging: boolean;
 }): JSX.Element {
   return (
     <>
-      <BoxLink
-        type="gray"
-        icon="dice-d20"
-        onClick={() => props.changePage({ kind: "PLAYER" })}
+      <Switch
+        fallback={
+          <BoxLink
+            type="gray"
+            icon="dice-d20"
+            onClick={() => props.changePage({ kind: "PLAYER" })}
+          >
+            <h3>Spielrunden ansehen</h3>
+            <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
+            <p>
+              <strong>Noch nicht verfügbar.</strong>
+            </p>
+          </BoxLink>
+        }
       >
-        <h3>Spielrunden ansehen</h3>
-        <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
-        <p>
-          <strong>Noch nicht verfügbar.</strong>
-        </p>
-      </BoxLink>
+        <Match when={props.isDebugging}>
+          <BoxLink
+            icon="dice-d20"
+            onClick={() => props.changePage({ kind: "PLAYER" })}
+          >
+            <h3>Spielrunden ansehen</h3>
+            <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
+          </BoxLink>
+        </Match>
+      </Switch>
       <br />
       <BoxLink
         icon="grid-2-plus"
