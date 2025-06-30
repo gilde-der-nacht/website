@@ -1,5 +1,13 @@
 import { Box } from "@common/components/Box";
-import { For, Match, Show, Switch, type JSX, type Resource } from "solid-js";
+import {
+  createEffect,
+  For,
+  Match,
+  Show,
+  Switch,
+  type JSX,
+  type Resource,
+} from "solid-js";
 import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import type { PerDay } from "@rst/components/anmeldung/utils/time";
@@ -7,10 +15,13 @@ import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
 import { ellipsis } from "@common/components/utils";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
-import type { ChangePageFn } from "../Router";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import { Dialog, initDialogStore } from "@common/components/Dialog";
+import { createStore } from "solid-js/store";
 
 export function PlayerPage(props: {
   program: Resource<Result<ProgramEntryClient[]>>;
+  uuid: string | null;
   changePage: ChangePageFn;
   isDebugging: boolean;
 }): JSX.Element {
@@ -41,6 +52,7 @@ export function PlayerPage(props: {
             >
               <ProgramOverview
                 program={(program() as { data: ProgramEntryClient[] }).data}
+                uuid={props.uuid}
                 changePage={props.changePage}
               />
             </Show>
@@ -53,11 +65,40 @@ export function PlayerPage(props: {
 
 function ProgramOverview(props: {
   program: ProgramEntryClient[];
+  uuid: string | null;
   changePage: ChangePageFn;
 }): JSX.Element {
+  const [dialogStore, setDialogStore] = createStore(
+    initDialogStore(props.uuid !== undefined),
+  );
+  createEffect(() => {
+    setDialogStore("open", props.uuid !== null);
+  });
+
+  const selectedEntry = (): ProgramEntryClient | undefined => {
+    return props.program.find((entry) => entry.uuid === props.uuid);
+  };
+
   const groupedAndSorted = sortByFromHour(groupByDay(props.program));
   return (
     <>
+      <Show when={selectedEntry()}>
+        {(entry) => (
+          <Dialog
+            store={dialogStore}
+            title={entry().title}
+            onClose={() => {
+              return props.changePage(
+                { kind: "PLAYER" },
+                { disableScroll: true },
+              );
+            }}
+            size="medium"
+          >
+            <p>{entry().description.short}</p>
+          </Dialog>
+        )}
+      </Show>
       <br />
       <h3>Samstag</h3>
       <br />
@@ -172,7 +213,7 @@ function Entry(props: {
             onClick={() =>
               props.changePage(
                 {
-                  kind: "PLAYER",
+                  kind: "GAME",
                   uuid: props.entry.uuid,
                 },
                 {

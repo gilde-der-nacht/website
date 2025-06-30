@@ -4,8 +4,8 @@ import { IconOnlyButton } from "@common/components/Button";
 
 export type DialogType = "success" | "danger" | "special" | "gray" | "warning";
 
-export function initDialogStore(): DialogStore {
-  return { open: false };
+export function initDialogStore(open: boolean = false): DialogStore {
+  return { open };
 }
 
 export type DialogStore = { open: boolean };

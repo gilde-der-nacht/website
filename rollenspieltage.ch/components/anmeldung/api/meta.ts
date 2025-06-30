@@ -5,20 +5,62 @@ import { z } from "astro/zod";
  */
 
 const pageClientSchema = z.discriminatedUnion("kind", [
-  z.object({ kind: z.literal("CHOOSE") }),
+  z.object({
+    kind: z.literal("CHOOSE"),
+    uuid: z.null(),
+  }),
   z.object({
     kind: z.literal("PLAYER"),
-    uuid: z.string().uuid().optional(),
+    uuid: z.null(),
   }),
-  z.object({ kind: z.literal("GAMEMASTER") }),
-  z.object({ kind: z.literal("HELPING") }),
-  z.object({ kind: z.literal("SUMMARY") }),
+  z.object({
+    kind: z.literal("GAME"),
+    uuid: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("GAMEMASTER"),
+    uuid: z.null(),
+  }),
+  z.object({
+    kind: z.literal("HELPING"),
+    uuid: z.null(),
+  }),
+  z.object({
+    kind: z.literal("SUMMARY"),
+    uuid: z.null(),
+  }),
   z.object({
     kind: z.literal("EDIT_GAMEROUND"),
     uuid: z.string().uuid(),
   }),
 ]);
 export type PageClient = z.infer<typeof pageClientSchema>;
+const pageClientSimplifiedSchema = z.discriminatedUnion("kind", [
+  z.object({
+    kind: z.literal("CHOOSE"),
+  }),
+  z.object({
+    kind: z.literal("PLAYER"),
+  }),
+  z.object({
+    kind: z.literal("GAME"),
+    uuid: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("GAMEMASTER"),
+  }),
+  z.object({
+    kind: z.literal("HELPING"),
+  }),
+  z.object({
+    kind: z.literal("SUMMARY"),
+  }),
+  z.object({
+    kind: z.literal("EDIT_GAMEROUND"),
+    uuid: z.string().uuid(),
+  }),
+]);
+export type PageClientSimplified = z.infer<typeof pageClientSimplifiedSchema>;
 export type PageKind = PageClient["kind"];
 
 const saveStateSchema = z.enum(["SAVING", "IDLE", "ERROR"]);
@@ -39,7 +81,7 @@ export type MetaClient = z.infer<typeof metaClientSchema>;
 
 export function getMetaState(url: URL): MetaClient {
   const pageParam = url.searchParams.get("page") ?? "";
-  const uuid = url.searchParams.get("uuid") ?? undefined;
+  const uuid = url.searchParams.get("uuid") ?? null;
   const secret = url.searchParams.get("secret") ?? "";
   const showCreateMessage =
     url.searchParams.get("showCreateMessage") === "true";
@@ -64,6 +106,7 @@ export function getMetaState(url: URL): MetaClient {
     saveState: "IDLE",
     page: {
       kind: "CHOOSE",
+      uuid: null,
     },
     secret,
     showCreateMessage,
@@ -71,14 +114,17 @@ export function getMetaState(url: URL): MetaClient {
   };
 }
 
-export function isSamePage(p1: PageClient, p2: PageClient): boolean {
+export function isSamePage(
+  p1: PageClientSimplified,
+  p2: PageClientSimplified,
+): boolean {
   if (p1.kind !== p2.kind) {
     return false;
   }
   if (p1.kind === "EDIT_GAMEROUND" && p2.kind === "EDIT_GAMEROUND") {
     return p1.uuid === p2.uuid;
   }
-  if (p1.kind === "PLAYER" && p2.kind === "PLAYER") {
+  if (p1.kind === "GAME" && p2.kind === "GAME") {
     return p1.uuid === p2.uuid;
   }
   return true;

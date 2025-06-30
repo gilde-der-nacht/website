@@ -79,6 +79,7 @@ const days = {
 const pageTitle: Record<PageKind, string> = {
   CHOOSE: "Übersicht",
   PLAYER: "Spielanmeldung",
+  GAME: "Spielanmeldung",
   GAMEMASTER: "Spielleitung",
   EDIT_GAMEROUND: "Spielrunde editieren",
   HELPING: "Helfen",

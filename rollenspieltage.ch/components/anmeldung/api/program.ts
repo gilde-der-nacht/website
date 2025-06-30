@@ -80,8 +80,6 @@ export async function loadProgram(
   const parseResult = programServerSchema.safeParse(program.data);
 
   if (!parseResult.success) {
-    console.log(program.data);
-    console.error(parseResult.error);
     return {
       kind: "FAILURE",
     };

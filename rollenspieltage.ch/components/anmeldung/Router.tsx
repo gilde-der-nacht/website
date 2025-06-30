@@ -24,6 +24,7 @@ import {
   isSamePage,
   type MetaClient,
   type PageClient,
+  type PageClientSimplified,
 } from "@rst/components/anmeldung/api/meta";
 import {
   debouncedSaveState,
@@ -50,7 +51,7 @@ function initPage(meta: Store<MetaClient>): void {
 }
 
 export type ChangePageFn = (
-  page: PageClient,
+  page: PageClientSimplified,
   opts?: {
     backButton?: boolean;
     disableScroll?: boolean;
@@ -59,7 +60,7 @@ export type ChangePageFn = (
 function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
   const [pageStore, setPageStore] = createStore(store.page);
   return (
-    page: PageClient,
+    page: PageClientSimplified,
     opts?: {
       backButton?: boolean;
       disableScroll?: boolean;
@@ -77,16 +78,18 @@ function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
       url.searchParams.set("page", page.kind.toLowerCase());
       if (page.kind === "EDIT_GAMEROUND") {
         url.searchParams.set("uuid", page.uuid);
-      } else if (page.kind === "PLAYER" && page.uuid !== undefined) {
+        setPageStore(page);
+      } else if (page.kind === "GAME") {
         url.searchParams.set("uuid", page.uuid);
+        setPageStore(page);
       } else {
         url.searchParams.delete("uuid");
+        setPageStore({ ...page, uuid: null });
       }
       history.pushState({ page }, "", url);
     }
     const newMetaTitle = TXT.pageTitle[page.kind];
     document.title = TXT.metaTitle.replace("{}", newMetaTitle);
-    setPageStore(page);
     if (!disableScroll) {
       window.scrollTo({ top: 0 });
     }
@@ -190,7 +193,11 @@ export function Router(props: {
           </PageTemplate>
         }
       >
-        <Match when={store.meta.page.kind === "PLAYER"}>
+        <Match
+          when={
+            store.meta.page.kind === "PLAYER" || store.meta.page.kind === "GAME"
+          }
+        >
           <PageTemplate
             title="Spielrundenübersicht"
             changePage={changePage}
@@ -199,6 +206,9 @@ export function Router(props: {
           >
             <PlayerPage
               program={programResource}
+              uuid={
+                store.meta.page.kind === "GAME" ? store.meta.page.uuid : null
+              }
               changePage={changePage}
               isDebugging={store.meta.isDebugging}
             />
