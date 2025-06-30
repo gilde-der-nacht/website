@@ -95,6 +95,8 @@ const playingClientSchema = z.object({
   reservations: z.array(reservationClientSchema),
 });
 
+export type PlayingClient = z.infer<typeof playingClientSchema>;
+
 /*
  * Master
  */

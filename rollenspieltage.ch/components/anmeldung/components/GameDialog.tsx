@@ -169,7 +169,7 @@ export function GameDialog(props: {
                           <ButtonWithIcon
                             icon="person-to-portal"
                             label="Mich anmelden"
-                            kind="special"
+                            kind="success"
                             onClick={() =>
                               props.addReservation({
                                 kind: "SELF",
@@ -229,7 +229,7 @@ function InputButton(props: {
     >
       <input
         type="text"
-        style="border-color: var(--clr-success-9);"
+        style="border-color: var(--clr-special-9);"
         value={name()}
         onInput={(e) => setName(e.target.value)}
       />
@@ -237,7 +237,7 @@ function InputButton(props: {
         icon="arrow-right"
         type="submit"
         label="Begleitperson anmelden"
-        kind="success"
+        kind="special"
       />
     </form>
   );

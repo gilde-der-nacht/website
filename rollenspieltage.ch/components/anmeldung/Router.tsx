@@ -205,27 +205,8 @@ export function Router(props: {
             lastSaved={store.save.lastSaved}
           >
             <PlayerPage
+              store={store.save.playing}
               program={programResource}
-              reservations={store.save.playing.reservations}
-              addReservation={(reservation) =>
-                setStore(
-                  "save",
-                  "playing",
-                  "reservations",
-                  store.save.playing.reservations.length,
-                  { ...reservation, uuid: crypto.randomUUID() },
-                )
-              }
-              removeReservation={(reservationUuid) => {
-                setStore(
-                  "save",
-                  "playing",
-                  "reservations",
-                  store.save.playing.reservations.filter(
-                    (r) => r.uuid !== reservationUuid,
-                  ),
-                );
-              }}
               uuid={
                 store.meta.page.kind === "GAME" ? store.meta.page.uuid : null
               }

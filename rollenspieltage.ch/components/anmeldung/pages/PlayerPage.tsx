@@ -26,19 +26,21 @@ import { createStore, type Store } from "solid-js/store";
 import { openingHours } from "@rst/components/anmeldung/constant/hours";
 import { GameDialog } from "@rst/components/anmeldung/components/GameDialog";
 import type {
+  PlayingClient,
   ReservationClient,
   ReservationCreateClient,
 } from "@rst/components/anmeldung/api/save";
+import { Checkbox } from "@common/components/Checkbox";
 
 export function PlayerPage(props: {
+  store: Store<PlayingClient>;
   program: Resource<Result<ProgramEntryClient[]>>;
-  reservations: Store<ReservationClient[]>;
-  addReservation: (reservation: ReservationCreateClient) => void;
-  removeReservation: (reservationUuid: string) => void;
   uuid: string | null;
   changePage: ChangePageFn;
   isDebugging: boolean;
 }): JSX.Element {
+  const [store, setStore] = createStore(props.store);
+
   return (
     <Switch
       fallback={
@@ -54,6 +56,16 @@ export function PlayerPage(props: {
         <Box type="danger">
           <p>WIP</p>
         </Box>
+        <br />
+        <Checkbox
+          label="Schickt mir bitte E-Mails, wenn neue Spielrunden veröffentlicht werden."
+          checked={store.wantsUpdates}
+          name="wantsUpdates"
+          value="wantsUpdates"
+          onValueUpdate={(checked) => {
+            setStore("wantsUpdates", checked);
+          }}
+        />
         <br />
         <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
           <Show
@@ -71,9 +83,21 @@ export function PlayerPage(props: {
               >
                 <ProgramOverview
                   program={(program() as { data: ProgramEntryClient[] }).data}
-                  reservations={props.reservations}
-                  addReservation={props.addReservation}
-                  removeReservation={props.removeReservation}
+                  reservations={store.reservations}
+                  addReservation={(reservation) =>
+                    setStore("reservations", store.reservations.length, {
+                      ...reservation,
+                      uuid: crypto.randomUUID(),
+                    })
+                  }
+                  removeReservation={(reservationUuid) => {
+                    setStore(
+                      "reservations",
+                      store.reservations.filter(
+                        (r) => r.uuid !== reservationUuid,
+                      ),
+                    );
+                  }}
                   uuid={props.uuid}
                   changePage={props.changePage}
                 />
