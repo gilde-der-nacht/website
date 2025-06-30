@@ -6,7 +6,10 @@ import { z } from "astro/zod";
 
 const pageClientSchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("CHOOSE") }),
-  z.object({ kind: z.literal("PLAYER") }),
+  z.object({
+    kind: z.literal("PLAYER"),
+    uuid: z.string().uuid().optional(),
+  }),
   z.object({ kind: z.literal("GAMEMASTER") }),
   z.object({ kind: z.literal("HELPING") }),
   z.object({ kind: z.literal("SUMMARY") }),
@@ -72,8 +75,11 @@ export function isSamePage(p1: PageClient, p2: PageClient): boolean {
   if (p1.kind !== p2.kind) {
     return false;
   }
-  if (p1.kind !== "EDIT_GAMEROUND" || p2.kind !== "EDIT_GAMEROUND") {
-    return true;
+  if (p1.kind === "EDIT_GAMEROUND" && p2.kind === "EDIT_GAMEROUND") {
+    return p1.uuid === p2.uuid;
   }
-  return p1.uuid === p2.uuid;
+  if (p1.kind === "PLAYER" && p2.kind === "PLAYER") {
+    return p1.uuid === p2.uuid;
+  }
+  return true;
 }

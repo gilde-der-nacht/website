@@ -7,9 +7,11 @@ import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
 import { ellipsis } from "@common/components/utils";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
+import type { ChangePageFn } from "../Router";
 
 export function PlayerPage(props: {
   program: Resource<Result<ProgramEntryClient[]>>;
+  changePage: ChangePageFn;
   isDebugging: boolean;
 }): JSX.Element {
   return (
@@ -39,6 +41,7 @@ export function PlayerPage(props: {
             >
               <ProgramOverview
                 program={(program() as { data: ProgramEntryClient[] }).data}
+                changePage={props.changePage}
               />
             </Show>
           )}
@@ -50,6 +53,7 @@ export function PlayerPage(props: {
 
 function ProgramOverview(props: {
   program: ProgramEntryClient[];
+  changePage: ChangePageFn;
 }): JSX.Element {
   const groupedAndSorted = sortByFromHour(groupByDay(props.program));
   return (
@@ -62,7 +66,7 @@ function ProgramOverview(props: {
           each={groupedAndSorted.SATURDAY}
           fallback={<Box>Keine Spielrunden gefunden.</Box>}
         >
-          {(entry) => <Entry entry={entry} />}
+          {(entry) => <Entry entry={entry} changePage={props.changePage} />}
         </For>
       </ul>
       <br />
@@ -74,7 +78,7 @@ function ProgramOverview(props: {
           each={groupedAndSorted.SUNDAY}
           fallback={<Box>Keine Spielrunden gefunden.</Box>}
         >
-          {(entry) => <Entry entry={entry} />}
+          {(entry) => <Entry entry={entry} changePage={props.changePage} />}
         </For>
       </ul>
     </>
@@ -106,7 +110,10 @@ function sortByFromHour(
   };
 }
 
-function Entry(props: { entry: ProgramEntryClient }): JSX.Element {
+function Entry(props: {
+  entry: ProgramEntryClient;
+  changePage: ChangePageFn;
+}): JSX.Element {
   const tagNames = props.entry.tags
     .map((t) => gameTags.find(({ name }) => name === t))
     .filter((t) => t !== undefined)
@@ -162,18 +169,20 @@ function Entry(props: { entry: ProgramEntryClient }): JSX.Element {
       <ul role="list" class="event-links">
         <li>
           <button
-            onClick={() => console.log("not yet implemented")}
+            onClick={() =>
+              props.changePage(
+                {
+                  kind: "PLAYER",
+                  uuid: props.entry.uuid,
+                },
+                {
+                  disableScroll: true,
+                },
+              )
+            }
             class="event-link"
           >
-            <span>Teilnehmen</span>
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => console.log("not yet implemented")}
-            class="event-link"
-          >
-            <span>Details</span>
+            <span>Details & Teilnehmen</span>
           </button>
         </li>
       </ul>

@@ -49,18 +49,35 @@ function initPage(meta: Store<MetaClient>): void {
   document.title = TXT.metaTitle.replace("{}", newMetaTitle);
 }
 
-export type ChangePageFn = (page: PageClient, backButton?: boolean) => void;
+export type ChangePageFn = (
+  page: PageClient,
+  opts?: {
+    backButton?: boolean;
+    disableScroll?: boolean;
+  },
+) => void;
 function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
   const [pageStore, setPageStore] = createStore(store.page);
-  return (page: PageClient, backButton?: boolean) => {
+  return (
+    page: PageClient,
+    opts?: {
+      backButton?: boolean;
+      disableScroll?: boolean;
+    },
+  ) => {
     if (isSamePage(page, pageStore)) {
       return;
     }
+
+    const backButton = opts?.backButton ?? false;
+    const disableScroll = opts?.disableScroll ?? false;
 
     if (!backButton) {
       const url = new URL(location.href);
       url.searchParams.set("page", page.kind.toLowerCase());
       if (page.kind === "EDIT_GAMEROUND") {
+        url.searchParams.set("uuid", page.uuid);
+      } else if (page.kind === "PLAYER" && page.uuid !== undefined) {
         url.searchParams.set("uuid", page.uuid);
       } else {
         url.searchParams.delete("uuid");
@@ -70,7 +87,9 @@ function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
     const newMetaTitle = TXT.pageTitle[page.kind];
     document.title = TXT.metaTitle.replace("{}", newMetaTitle);
     setPageStore(page);
-    window.scrollTo({ top: 0 });
+    if (!disableScroll) {
+      window.scrollTo({ top: 0 });
+    }
   };
 }
 
@@ -135,7 +154,7 @@ export function Router(props: {
       if (typeof e === "object" && e !== null && "state" in e) {
         const currentUrl = new URL(location.href);
         const meta = getMetaState(currentUrl);
-        changePage(meta.page, true);
+        changePage(meta.page, { backButton: true });
       }
     });
 
@@ -180,6 +199,7 @@ export function Router(props: {
           >
             <PlayerPage
               program={programResource}
+              changePage={changePage}
               isDebugging={store.meta.isDebugging}
             />
           </PageTemplate>
