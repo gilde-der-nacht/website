@@ -32,7 +32,7 @@ import {
 } from "@rst/components/anmeldung/api/save";
 import { createStore, unwrap, type Store } from "solid-js/store";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
-import { loadRegistrations } from "@rst/components/anmeldung/api/registrations";
+import { loadReservations } from "@rst/components/anmeldung/api/reservations";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { createQueue } from "@common/components/utils";
 import type { EmailQueueableFns } from "@rst/components/anmeldung/api/email";
@@ -112,7 +112,7 @@ export function Router(props: {
     );
 
   const [registrationsResource] = createResource(slotUuids(), (uuids) =>
-    loadRegistrations(store.meta.secret, uuids),
+    loadReservations(store.meta.secret, uuids),
   );
 
   const [programResource] = createResource(() =>

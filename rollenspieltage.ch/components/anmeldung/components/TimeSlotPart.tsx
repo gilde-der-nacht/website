@@ -32,12 +32,12 @@ import {
   initDialogStore,
   type DialogStore,
 } from "@common/components/Dialog";
-import type { RegistrationsClient } from "@rst/components/anmeldung/api/registrations";
+import type { ReservationsClient } from "@rst/components/anmeldung/api/reservations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 
 export function TimeSlotPart(props: {
   store: Store<TimeSlot[]>;
-  registrations: Resource<Result<RegistrationsClient>>;
+  registrations: Resource<Result<ReservationsClient>>;
   slotMissing: boolean;
 }): JSX.Element {
   return (
@@ -116,7 +116,7 @@ function calculateDaySections(openingHours: WeekendOpeningHours): DaySections {
 
 function TimeSlots(props: {
   store: Store<TimeSlot[]>;
-  registrations: Resource<Result<RegistrationsClient>>;
+  registrations: Resource<Result<ReservationsClient>>;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
   const [dialogStore, setDialogStore] = createStore<{
@@ -181,7 +181,7 @@ function TimeSlots(props: {
 
 function SlotGrid(props: {
   slots: TimeSlot[];
-  registrations: Resource<Result<RegistrationsClient>>;
+  registrations: Resource<Result<ReservationsClient>>;
   confirmRemoval: (uuid: string) => void;
 }): JSX.Element {
   return (

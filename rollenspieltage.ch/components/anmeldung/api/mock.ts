@@ -1,5 +1,5 @@
 import type { SaveServer } from "@rst/components/anmeldung/api/save";
-import type { RegistrationsServer } from "@rst/components/anmeldung/api/registrations";
+import type { ReservationsServer } from "@rst/components/anmeldung/api/reservations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import type { ProgramServer } from "@rst/components/anmeldung/api/program";
 
@@ -213,7 +213,7 @@ export async function mockedLoadProgram(): Promise<Result<unknown>> {
  * Registrations
  */
 
-const registrationsMock = {
+const reservationsMock = {
   entries: [
     {
       uuid: uuid.slot,
@@ -224,18 +224,21 @@ const registrationsMock = {
       name: "Bob",
     },
   ],
-} satisfies RegistrationsServer;
+} satisfies ReservationsServer;
 
-export async function mockedLoadRegistrations(
+export async function mockedLoadReservations(
   uuids: string[],
-): Promise<unknown> {
+): Promise<Result<unknown>> {
   return new Promise((res) =>
     setTimeout(
       () =>
         res({
-          entries: registrationsMock.entries.filter((entry) =>
-            uuids.includes(entry.uuid),
-          ),
+          kind: "SUCCESS",
+          data: {
+            entries: reservationsMock.entries.filter((entry) =>
+              uuids.includes(entry.uuid),
+            ),
+          },
         }),
       5_000,
     ),

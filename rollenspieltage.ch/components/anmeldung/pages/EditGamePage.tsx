@@ -23,9 +23,9 @@ import {
 import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 import { TimeSlotPart } from "@rst/components/anmeldung/components/TimeSlotPart";
 import type {
-  RegistrationClient,
-  RegistrationsClient,
-} from "@rst/components/anmeldung/api/registrations";
+  ReservationClient,
+  ReservationsClient,
+} from "@rst/components/anmeldung/api/reservations";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import { Chip } from "@common/components/Chip";
 import {
@@ -57,7 +57,7 @@ export function FindGameround(props: {
 
 export function EditGamePage(props: {
   store: Store<GameroundEditClient>;
-  registrations: Resource<Result<RegistrationsClient>>;
+  registrations: Resource<Result<ReservationsClient>>;
   queue: Queue<EmailQueueableFns>;
   changePage: ChangePageFn;
 }): JSX.Element {
@@ -231,7 +231,7 @@ function DeleteDialog(props: {
 
 function GameroundForm(props: {
   store: Store<GameroundEditClient>;
-  registrations: Resource<Result<RegistrationsClient>>;
+  registrations: Resource<Result<ReservationsClient>>;
   onSubmit: (e: Event) => void;
   onCancel: () => void;
   onSendUpdate: () => void;
@@ -481,9 +481,9 @@ function Tags(props: { store: Store<string[]> }): JSX.Element {
 type Players =
   | { kind: "LOADING" }
   | { kind: "ERROR" }
-  | { kind: "SUCCESS"; data: RegistrationClient[] };
+  | { kind: "SUCCESS"; data: ReservationClient[] };
 const getPlayers = (
-  registrations: Resource<Result<RegistrationsClient>>,
+  registrations: Resource<Result<ReservationsClient>>,
   slotUuids: string[],
 ): Players => {
   if (registrations.loading) {

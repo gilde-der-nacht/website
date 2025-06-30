@@ -81,3 +81,28 @@ export async function elysiumLoadProgram(): Promise<Result<unknown>> {
     return { kind: "FAILURE" };
   }
 }
+
+export async function elysiumLoadReservations(
+  secret: string,
+  uuids: string[],
+): Promise<Result<unknown>> {
+  try {
+    const result = await fetch(elysium("/rst25/registrations"), {
+      method: "post",
+      body: JSON.stringify({ secret, uuids }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!result.ok) {
+      console.error(await result.text());
+      return { kind: "FAILURE" };
+    }
+    const data = (await result.json()) as unknown;
+
+    return { kind: "SUCCESS", data };
+  } catch (e) {
+    console.error(e);
+    return { kind: "FAILURE" };
+  }
+}
