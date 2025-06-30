@@ -1,6 +1,7 @@
 import type { JSX } from "solid-js";
 
 const ICONS = [
+  "arrow-right",
   "arrow-turn-down-right",
   "backward",
   "calendar-range",
@@ -18,6 +19,7 @@ const ICONS = [
   "moon-stars",
   "paper-plane",
   "pencil",
+  "person-to-portal",
   "sun-bright",
   "square-check",
   "tags",

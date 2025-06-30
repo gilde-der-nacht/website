@@ -14,7 +14,7 @@ export function Dialog(props: {
   store: Store<DialogStore>;
   title?: string;
   type?: DialogType;
-  size?: "medium";
+  size?: "medium" | "large";
   onClose?: () => void;
   children: JSX.Element;
 }): JSX.Element {

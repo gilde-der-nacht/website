@@ -8,6 +8,10 @@ dialog {
   &.medium {
     inline-size: clamp(50ch, 750px, 80vw);
   }
+
+  &.large {
+    inline-size: clamp(50ch, 1750px, 90vw);
+  }
 }
 
 .dialog {

@@ -41,12 +41,39 @@ export type ContactClient = z.infer<typeof contactClientSchema>;
  * Playing
  */
 
+const reservationServerSchema = z.union([
+  z.object({
+    kind: z.literal("SELF"),
+    gameRound: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("FRIEND"),
+    gameRound: z.string().uuid(),
+    name: z.string(),
+  }),
+]);
+
 export const playingServerSchema = z.object({
   wantsUpdates: z.boolean(),
+  reservations: z.array(reservationServerSchema),
 });
+
+const reservationClientSchema = z.union([
+  z.object({
+    kind: z.literal("SELF"),
+    gameRound: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("FRIEND"),
+    gameRound: z.string().uuid(),
+    name: z.string(),
+  }),
+]);
+export type ReservationClient = z.infer<typeof reservationClientSchema>;
 
 const playingClientSchema = z.object({
   wantsUpdates: z.boolean(),
+  reservations: z.array(reservationClientSchema),
 });
 
 /*

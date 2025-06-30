@@ -45,7 +45,9 @@ export function getHours(
   }
 
   const length = to - from;
-  return [...Array(inclusiveeEnd ? length + 1 : length)].map(
-    (_, i) => i + from,
-  );
+  return toRange(inclusiveeEnd ? length + 1 : length, from);
+}
+
+export function toRange(length: number, offset: number = 0): number[] {
+  return [...Array(length)].map((_, i) => i + offset);
 }

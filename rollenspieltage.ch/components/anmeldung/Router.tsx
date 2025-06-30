@@ -206,6 +206,16 @@ export function Router(props: {
           >
             <PlayerPage
               program={programResource}
+              reservations={store.save.playing.reservations}
+              addReservation={(reservation) =>
+                setStore(
+                  "save",
+                  "playing",
+                  "reservations",
+                  store.save.playing.reservations.length,
+                  reservation,
+                )
+              }
               uuid={
                 store.meta.page.kind === "GAME" ? store.meta.page.uuid : null
               }

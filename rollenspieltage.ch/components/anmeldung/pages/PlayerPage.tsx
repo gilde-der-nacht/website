@@ -21,11 +21,15 @@ import { ellipsis } from "@common/components/utils";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import { Dialog, initDialogStore } from "@common/components/Dialog";
-import { createStore } from "solid-js/store";
+import { createStore, type Store } from "solid-js/store";
 import { openingHours } from "@rst/components/anmeldung/constant/hours";
+import { GameDialog } from "@rst/components/anmeldung/components/GameDialog";
+import type { ReservationClient } from "@rst/components/anmeldung/api/save";
 
 export function PlayerPage(props: {
   program: Resource<Result<ProgramEntryClient[]>>;
+  reservations: Store<ReservationClient[]>;
+  addReservation: (reservation: ReservationClient) => void;
   uuid: string | null;
   changePage: ChangePageFn;
   isDebugging: boolean;
@@ -57,6 +61,8 @@ export function PlayerPage(props: {
             >
               <ProgramOverview
                 program={(program() as { data: ProgramEntryClient[] }).data}
+                reservations={props.reservations}
+                addReservation={props.addReservation}
                 uuid={props.uuid}
                 changePage={props.changePage}
               />
@@ -70,6 +76,8 @@ export function PlayerPage(props: {
 
 function ProgramOverview(props: {
   program: ProgramEntryClient[];
+  reservations: ReservationClient[];
+  addReservation: (reservation: ReservationClient) => void;
   uuid: string | null;
   changePage: ChangePageFn;
 }): JSX.Element {
@@ -85,6 +93,7 @@ function ProgramOverview(props: {
   };
 
   const groupedAndSorted = sortByFromHour(groupByDay(props.program));
+
   return (
     <>
       <Show when={selectedEntry()}>
@@ -98,9 +107,13 @@ function ProgramOverview(props: {
                 { disableScroll: true },
               );
             }}
-            size="medium"
+            size="large"
           >
-            <p>{entry().description.short}</p>
+            <GameDialog
+              entry={entry()}
+              reservations={props.reservations}
+              addReservation={props.addReservation}
+            />
           </Dialog>
         )}
       </Show>

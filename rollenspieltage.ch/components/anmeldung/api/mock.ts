@@ -38,6 +38,7 @@ const saveMock = {
   lastSaved: validTimeStamp,
   playing: {
     wantsUpdates: false,
+    reservations: [],
   },
   master: {
     games: [
