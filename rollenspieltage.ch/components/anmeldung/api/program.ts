@@ -38,6 +38,7 @@ const programEntryClientSchema = z.object({
   uuid: z.string().uuid(),
   title: z.string(),
   system: z.string(),
+  gamemaster: z.string(),
   description: z.object({
     short: z.string(),
     long: z.string(),

@@ -111,7 +111,7 @@ export async function mockedSaveState(
 const programMock = [
   {
     uuid: crypto.randomUUID(),
-    gamemaster: "Mike Hunziker",
+    gamemaster: "Game Master",
     title: "Grolle in der Dunkelheit",
     system: "Warhammer Fantasy Rollenspiel",
     description: {
@@ -129,7 +129,50 @@ const programMock = [
       max: 3,
       reserved: 0,
     },
-    tags: ["children"],
+    tags: ["ab12jahren"],
+  },
+  {
+    uuid: crypto.randomUUID(),
+    gamemaster: "Other Game Master",
+    title: "Acrimony",
+    system: "D&D",
+    description: {
+      short: "Ein Lo-Fi Space Western Abenteuer",
+      long: 'Ein Lo-Fi Space Western Abenteuer: "Eine frisch formierte Gruppe von Kopfgeldjägern wird mit einer riskanten Mission betraut: Sie müssen den berüchtigten Outlaw Jeb "Rusty" Rourke in der abgeschiedenen Grenzstadt aufspüren. Bei dieser unbarmherzigen Jagd lernen die Spieler die harte Realität der Kopfgeldjagd kennen, wo jeder Schuss und jede Entscheidung über ihr Schicksal entscheidet.',
+    },
+    slot: {
+      day: "SATURDAY",
+      from: 10,
+      to: 13,
+    },
+    playerCount: {
+      min: 2,
+      max: 8,
+      reserved: 3,
+    },
+    tags: ["ab12jahren", "horror"],
+  },
+  {
+    uuid: crypto.randomUUID(),
+    gamemaster: "Some Other Game Master",
+    title: "Solo RPGs",
+    system: "",
+    description: {
+      short:
+        "Wir spielen primär das Solo Rollenspiel NoteQuest, werden aber kurz auch noch ein paar andere Solo Rollenspiele miteinander anschauen.",
+      long: "",
+    },
+    slot: {
+      day: "SATURDAY",
+      from: 14,
+      to: 18,
+    },
+    playerCount: {
+      min: 2,
+      max: 4,
+      reserved: 3,
+    },
+    tags: [],
   },
 ] satisfies ProgramServer;
 

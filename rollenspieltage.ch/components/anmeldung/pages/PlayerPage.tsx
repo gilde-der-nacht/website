@@ -6,7 +6,7 @@ import type { PerDay } from "@rst/components/anmeldung/utils/time";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
 import { ellipsis } from "@common/components/utils";
-import { gameTags } from "../constant/tags";
+import { gameTags } from "@rst/components/anmeldung/constant/tags";
 
 export function PlayerPage(props: {
   program: Resource<Result<ProgramEntryClient[]>>;
@@ -54,15 +54,26 @@ function ProgramOverview(props: {
   const groupedAndSorted = sortByFromHour(groupByDay(props.program));
   return (
     <>
+      <br />
       <h3>Samstag</h3>
-      <ul class="event-list" role="list">
-        <For each={groupedAndSorted.SATURDAY}>
+      <br />
+      <ul class="event-list max" role="list">
+        <For
+          each={groupedAndSorted.SATURDAY}
+          fallback={<Box>Keine Spielrunden gefunden.</Box>}
+        >
           {(entry) => <Entry entry={entry} />}
         </For>
       </ul>
+      <br />
+      <br />
       <h3>Sonntag</h3>
-      <ul class="event-list" role="list">
-        <For each={groupedAndSorted.SUNDAY}>
+      <br />
+      <ul class="event-list max" role="list">
+        <For
+          each={groupedAndSorted.SUNDAY}
+          fallback={<Box>Keine Spielrunden gefunden.</Box>}
+        >
           {(entry) => <Entry entry={entry} />}
         </For>
       </ul>
@@ -106,8 +117,16 @@ function Entry(props: { entry: ProgramEntryClient }): JSX.Element {
       <h3 class="event-title">{props.entry.title}</h3>
       <div class="event-details">
         <div class="event-tags">
+          <strong>Spielleitung:</strong>
+          {props.entry.gamemaster}
+        </div>
+        <div class="event-tags">
           <strong>System:</strong>
-          {props.entry.system}
+          {props.entry.system.trim().length > 0 ? (
+            props.entry.system
+          ) : (
+            <em>kein System angegeben</em>
+          )}
         </div>
         <div class="event-tags">
           <strong>Tag, Zeit:</strong>
@@ -121,10 +140,16 @@ function Entry(props: { entry: ProgramEntryClient }): JSX.Element {
           {Math.max(
             props.entry.playerCount.max - 1 - props.entry.playerCount.reserved,
             0,
-          )}
+          )}{" "}
+          (von {props.entry.playerCount.max - 1})
         </div>{" "}
         <div class="event-tags">
-          <strong>Kategorien:</strong> {tagNames.join(", ")}
+          <strong>Kategorien:</strong>{" "}
+          {tagNames.length > 0 ? (
+            tagNames.join(", ")
+          ) : (
+            <em>keine Kategorien</em>
+          )}
         </div>
       </div>
       <div class="event-description content">

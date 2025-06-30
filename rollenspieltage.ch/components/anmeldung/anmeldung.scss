@@ -196,7 +196,6 @@
     grid-template-rows: subgrid;
     grid-column: 2 / 3;
     grid-row: 1 / -1;
-    /* z-index: 1; */
 
     .entry {
       padding: 0.5rem;
@@ -207,4 +206,8 @@
       }
     }
   }
+}
+
+.event-list.max {
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
 }
