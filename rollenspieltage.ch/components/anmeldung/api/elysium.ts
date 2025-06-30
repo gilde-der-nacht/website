@@ -12,6 +12,7 @@ const initState = {
   lastSaved: new Date().toISOString(),
   playing: {
     wantsUpdates: true,
+    reservations: [],
   },
   master: {
     games: [],

@@ -7,6 +7,11 @@ const validTimeStamp = "2024-08-15T07:45:21.335Z";
 const uuid = {
   game: "37831e19-29d6-40bd-b99d-fb91b78aa7f9",
   slot: "bfcbd156-b703-4664-9944-8936aede8476",
+  slot2: "f58e7242-e1ff-4cfc-a992-ca18dd5207c3",
+  program: "16f387ab-0adf-406b-ba5c-2e4eb200fda8",
+  program2: "11b6b38a-a4d3-40ed-9d4a-d2abcab661a5",
+  program3: "5294bc63-4857-404e-b72d-53ecbd87a27b",
+  program4: "6e9477f1-6dd5-4cd7-b3c3-03085022d967",
 };
 
 function fromLocalStoreOrDefault(key: string, fallback: string): string {
@@ -60,7 +65,7 @@ const saveMock = {
             to: 12,
           },
           {
-            uuid: crypto.randomUUID(),
+            uuid: uuid.slot2,
             day: "SUNDAY",
             from: 14,
             to: 17,
@@ -111,7 +116,7 @@ export async function mockedSaveState(
 
 const programMock = [
   {
-    uuid: crypto.randomUUID(),
+    uuid: uuid.program,
     gamemaster: "Game Master",
     title: "Grolle in der Dunkelheit",
     system: "Warhammer Fantasy Rollenspiel",
@@ -133,7 +138,7 @@ const programMock = [
     tags: ["ab12jahren"],
   },
   {
-    uuid: crypto.randomUUID(),
+    uuid: uuid.program2,
     gamemaster: "Other Game Master",
     title: "Acrimony",
     system: "D&D",
@@ -154,7 +159,7 @@ const programMock = [
     tags: ["ab12jahren", "horror"],
   },
   {
-    uuid: crypto.randomUUID(),
+    uuid: uuid.program3,
     gamemaster: "Other Game Master",
     title: "Acrimony",
     system: "D&D",
@@ -175,7 +180,7 @@ const programMock = [
     tags: ["ab12jahren", "horror"],
   },
   {
-    uuid: crypto.randomUUID(),
+    uuid: uuid.program4,
     gamemaster: "Some Other Game Master",
     title: "Solo RPGs",
     system: "",

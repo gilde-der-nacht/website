@@ -45,11 +45,13 @@ const reservationServerSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
     gameRound: z.string().uuid(),
+    uuid: z.string().uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
     gameRound: z.string().uuid(),
     name: z.string(),
+    uuid: z.string().uuid(),
   }),
 ]);
 
@@ -62,6 +64,21 @@ const reservationClientSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
     gameRound: z.string().uuid(),
+    uuid: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("FRIEND"),
+    gameRound: z.string().uuid(),
+    name: z.string(),
+    uuid: z.string().uuid(),
+  }),
+]);
+export type ReservationClient = z.infer<typeof reservationClientSchema>;
+
+const reservationCreateClientSchema = z.union([
+  z.object({
+    kind: z.literal("SELF"),
+    gameRound: z.string().uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
@@ -69,7 +86,9 @@ const reservationClientSchema = z.union([
     name: z.string(),
   }),
 ]);
-export type ReservationClient = z.infer<typeof reservationClientSchema>;
+export type ReservationCreateClient = z.infer<
+  typeof reservationCreateClientSchema
+>;
 
 const playingClientSchema = z.object({
   wantsUpdates: z.boolean(),
@@ -140,7 +159,6 @@ export async function loadSave(secret: string): Promise<SaveResult> {
       kind: "FAILURE",
     };
   }
-
   const parseResult = saveServerSchema.safeParse(save.data);
 
   if (!parseResult.success) {

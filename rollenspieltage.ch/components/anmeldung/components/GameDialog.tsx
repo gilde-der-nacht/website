@@ -1,16 +1,20 @@
-import { createSignal, For, Match, Switch, type JSX } from "solid-js";
+import { createSignal, For, Match, Show, Switch, type JSX } from "solid-js";
 import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
-import type { ReservationClient } from "@rst/components/anmeldung/api/save";
-import { ButtonWithIcon } from "@common/components/Button";
+import type {
+  ReservationClient,
+  ReservationCreateClient,
+} from "@rst/components/anmeldung/api/save";
+import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { toRange } from "@rst/components/anmeldung/utils/time";
-import { Box } from "@common/components/Box";
+import { Box, SimpleBox } from "@common/components/Box";
 
 export function GameDialog(props: {
   entry: ProgramEntryClient;
   reservations: ReservationClient[];
-  addReservation: (reservation: ReservationClient) => void;
+  addReservation: (reservation: ReservationCreateClient) => void;
+  removeReservation: (reservationUuid: string) => void;
 }): JSX.Element {
   const gameReservations = () =>
     props.reservations.filter((r) => r.gameRound === props.entry.uuid);
@@ -40,6 +44,10 @@ export function GameDialog(props: {
       }
       return { kind: "FREE" } as const;
     });
+
+  const hasReservedForThemselves = (): boolean => {
+    return gameReservations().find((r) => r.kind === "SELF") !== undefined;
+  };
 
   return (
     <div class="game-dialog">
@@ -108,16 +116,44 @@ export function GameDialog(props: {
                 <div class="count">{i() + 1}</div>
                 <Switch>
                   <Match when={seat.kind === "SELF"}>
-                    <Box type="success">Reserviert für mich</Box>
+                    <SimpleBox type="success">
+                      <div class="reservation-table-entry">
+                        <p>Reserviert für mich </p>
+                        <IconOnlyButton
+                          icon="trash"
+                          onClick={() =>
+                            props.removeReservation(
+                              seat.kind === "SELF"
+                                ? seat.uuid
+                                : "should not happen",
+                            )
+                          }
+                        />
+                      </div>
+                    </SimpleBox>
                   </Match>
                   <Match when={seat.kind === "FRIEND"}>
-                    <Box type="success">
-                      Reserviert für "
-                      {seat.kind === "FRIEND"
-                        ? seat.name
-                        : "[Fehler beim Laden]"}
-                      "
-                    </Box>
+                    <SimpleBox type="success">
+                      <div class="reservation-table-entry">
+                        <p>
+                          Reserviert für "
+                          {seat.kind === "FRIEND"
+                            ? seat.name
+                            : "[Fehler beim Laden]"}
+                          "
+                        </p>
+                        <IconOnlyButton
+                          icon="trash"
+                          onClick={() =>
+                            props.removeReservation(
+                              seat.kind === "FRIEND"
+                                ? seat.uuid
+                                : "should not happen",
+                            )
+                          }
+                        />
+                      </div>
+                    </SimpleBox>
                   </Match>
                   <Match when={seat.kind === "RESERVED_OTHER"}>
                     <Box>Bereits reserviert</Box>
@@ -126,18 +162,33 @@ export function GameDialog(props: {
                     <Box>Reserviert für spontane Spieler:innen</Box>
                   </Match>
                   <Match when={seat.kind === "FREE"}>
-                    <div style="display:grid; gap: 1rem; grid-template-columns: max-content 1fr;">
-                      <ButtonWithIcon
-                        icon="person-to-portal"
-                        label="Mich anmelden"
-                        kind="special"
-                        onClick={() =>
-                          props.addReservation({
-                            kind: "SELF",
-                            gameRound: props.entry.uuid,
-                          })
-                        }
-                      />
+                    <Show
+                      when={hasReservedForThemselves()}
+                      fallback={
+                        <div style="display:grid; gap: 1rem; grid-template-columns: max-content 1fr;">
+                          <ButtonWithIcon
+                            icon="person-to-portal"
+                            label="Mich anmelden"
+                            kind="special"
+                            onClick={() =>
+                              props.addReservation({
+                                kind: "SELF",
+                                gameRound: props.entry.uuid,
+                              })
+                            }
+                          />
+                          <InputButton
+                            addFriend={(name) =>
+                              props.addReservation({
+                                kind: "FRIEND",
+                                gameRound: props.entry.uuid,
+                                name,
+                              })
+                            }
+                          />
+                        </div>
+                      }
+                    >
                       <InputButton
                         addFriend={(name) =>
                           props.addReservation({
@@ -147,7 +198,7 @@ export function GameDialog(props: {
                           })
                         }
                       />
-                    </div>
+                    </Show>
                   </Match>
                 </Switch>
               </>

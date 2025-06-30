@@ -61,8 +61,6 @@ export function SummaryPage(props: {
     return new Set(uuids);
   };
 
-  console.log(program());
-
   const playEntries = () =>
     program()
       .filter((p) => reservationUuids().has(p.uuid))
@@ -210,7 +208,6 @@ function Timeview(props: {
   entries: EntriesForAggregation;
   changePage: ChangePageFn;
 }): JSX.Element {
-  console.log(props.entries.play);
   const programEntries = aggregateEntries(props.entries, props.changePage);
 
   return (

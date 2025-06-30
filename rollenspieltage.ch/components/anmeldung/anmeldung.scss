@@ -252,3 +252,15 @@
     font-size: smaller;
   }
 }
+
+
+.reservation-table-entry {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr max-content;
+  align-items: center;
+
+  button {
+    height: unset;
+  }
+}

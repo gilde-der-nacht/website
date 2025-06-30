@@ -25,12 +25,16 @@ import { Dialog, initDialogStore } from "@common/components/Dialog";
 import { createStore, type Store } from "solid-js/store";
 import { openingHours } from "@rst/components/anmeldung/constant/hours";
 import { GameDialog } from "@rst/components/anmeldung/components/GameDialog";
-import type { ReservationClient } from "@rst/components/anmeldung/api/save";
+import type {
+  ReservationClient,
+  ReservationCreateClient,
+} from "@rst/components/anmeldung/api/save";
 
 export function PlayerPage(props: {
   program: Resource<Result<ProgramEntryClient[]>>;
   reservations: Store<ReservationClient[]>;
-  addReservation: (reservation: ReservationClient) => void;
+  addReservation: (reservation: ReservationCreateClient) => void;
+  removeReservation: (reservationUuid: string) => void;
   uuid: string | null;
   changePage: ChangePageFn;
   isDebugging: boolean;
@@ -69,6 +73,7 @@ export function PlayerPage(props: {
                   program={(program() as { data: ProgramEntryClient[] }).data}
                   reservations={props.reservations}
                   addReservation={props.addReservation}
+                  removeReservation={props.removeReservation}
                   uuid={props.uuid}
                   changePage={props.changePage}
                 />
@@ -84,7 +89,8 @@ export function PlayerPage(props: {
 function ProgramOverview(props: {
   program: ProgramEntryClient[];
   reservations: ReservationClient[];
-  addReservation: (reservation: ReservationClient) => void;
+  addReservation: (reservation: ReservationCreateClient) => void;
+  removeReservation: (reservationUuid: string) => void;
   uuid: string | null;
   changePage: ChangePageFn;
 }): JSX.Element {
@@ -120,6 +126,7 @@ function ProgramOverview(props: {
               entry={entry()}
               reservations={props.reservations}
               addReservation={props.addReservation}
+              removeReservation={props.removeReservation}
             />
           </Dialog>
         )}

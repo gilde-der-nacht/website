@@ -58,6 +58,7 @@ function MeineAnmeldung(props: { page: MetaClient }): JSX.Element {
                 return <Box type="danger">{TXT.error.secretError}</Box>;
               }
               if (kind === "FAILURE") {
+                console.error(value);
                 return <Box type="danger">{TXT.error.ourMistake}</Box>;
               }
               return <Router meta={props.page} save={value.data} />;
