@@ -12,9 +12,7 @@ const reservationServerSchema = z.object({
   name: z.string(),
 });
 
-export const reservationsServerSchema = z.object({
-  entries: z.array(reservationServerSchema),
-});
+export const reservationsServerSchema = z.array(reservationServerSchema);
 export type ReservationsServer = z.infer<typeof reservationsServerSchema>;
 
 const reservationClientSchema = reservationServerSchema;
@@ -34,7 +32,7 @@ export async function loadReservations(
   const registrations =
     secret === "demo"
       ? await mockedLoadReservations(uuids)
-      : await elysiumLoadReservations(secret, uuids);
+      : await elysiumLoadReservations(secret);
 
   if (registrations.kind === "FAILURE") {
     console.error("Unexpected error. Maybe network, maybe server error.");

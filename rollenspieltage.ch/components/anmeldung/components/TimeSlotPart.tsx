@@ -210,7 +210,7 @@ function SlotGrid(props: {
                       if (r.kind === "FAILURE") {
                         return <em>Fehler beim Laden.</em>;
                       }
-                      const playerNames = r.data.entries
+                      const playerNames = r.data
                         .filter((entry) => entry.uuid === slot.uuid)
                         .map((entry) => entry.name);
                       return (
@@ -248,7 +248,7 @@ function SlotGrid(props: {
                         </li>
                       );
                     }
-                    const playerNames = r.data.entries
+                    const playerNames = r.data
                       .filter((entry) => entry.uuid === slot.uuid)
                       .map((entry) => entry.name);
                     if (playerNames.length > 0) {

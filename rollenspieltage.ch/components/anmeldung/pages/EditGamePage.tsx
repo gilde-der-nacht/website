@@ -499,6 +499,6 @@ const getPlayers = (
   }
   return {
     kind: "SUCCESS",
-    data: result.data.entries.filter((entry) => slotUuids.includes(entry.uuid)),
+    data: result.data.filter((entry) => slotUuids.includes(entry.uuid)),
   };
 };

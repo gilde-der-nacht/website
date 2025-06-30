@@ -84,16 +84,11 @@ export async function elysiumLoadProgram(): Promise<Result<unknown>> {
 
 export async function elysiumLoadReservations(
   secret: string,
-  uuids: string[],
 ): Promise<Result<unknown>> {
   try {
-    const result = await fetch(elysium("/rst25/registrations"), {
-      method: "post",
-      body: JSON.stringify({ secret, uuids }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const url = new URL(elysium("/rst25/registrations"));
+    url.searchParams.append("secret", secret);
+    const result = await fetch(url);
     if (!result.ok) {
       console.error(await result.text());
       return { kind: "FAILURE" };

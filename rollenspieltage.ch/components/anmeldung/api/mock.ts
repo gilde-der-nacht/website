@@ -213,18 +213,16 @@ export async function mockedLoadProgram(): Promise<Result<unknown>> {
  * Registrations
  */
 
-const reservationsMock = {
-  entries: [
-    {
-      uuid: uuid.slot,
-      name: "Alice",
-    },
-    {
-      uuid: uuid.slot,
-      name: "Bob",
-    },
-  ],
-} satisfies ReservationsServer;
+const reservationsMock = [
+  {
+    uuid: uuid.slot,
+    name: "Alice",
+  },
+  {
+    uuid: uuid.slot,
+    name: "Bob",
+  },
+] satisfies ReservationsServer;
 
 export async function mockedLoadReservations(
   uuids: string[],
@@ -234,11 +232,7 @@ export async function mockedLoadReservations(
       () =>
         res({
           kind: "SUCCESS",
-          data: {
-            entries: reservationsMock.entries.filter((entry) =>
-              uuids.includes(entry.uuid),
-            ),
-          },
+          data: reservationsMock.filter((entry) => uuids.includes(entry.uuid)),
         }),
       5_000,
     ),
