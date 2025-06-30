@@ -10,7 +10,11 @@ import {
 } from "solid-js";
 import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
 import type { Result } from "@rst/components/anmeldung/api/utils";
-import type { PerDay } from "@rst/components/anmeldung/utils/time";
+import {
+  getHours,
+  type PerDay,
+  type ProgramDay,
+} from "@rst/components/anmeldung/utils/time";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
 import { ellipsis } from "@common/components/utils";
@@ -18,6 +22,7 @@ import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import { Dialog, initDialogStore } from "@common/components/Dialog";
 import { createStore } from "solid-js/store";
+import { openingHours } from "@rst/components/anmeldung/constant/hours";
 
 export function PlayerPage(props: {
   program: Resource<Result<ProgramEntryClient[]>>;
@@ -100,29 +105,84 @@ function ProgramOverview(props: {
         )}
       </Show>
       <br />
-      <h3>Samstag</h3>
-      <br />
-      <ul class="event-list max" role="list">
-        <For
-          each={groupedAndSorted.SATURDAY}
-          fallback={<Box>Keine Spielrunden gefunden.</Box>}
-        >
-          {(entry) => <Entry entry={entry} changePage={props.changePage} />}
-        </For>
-      </ul>
+      <ProgramOfDay
+        day="SATURDAY"
+        programOfDay={groupedAndSorted.SATURDAY}
+        changePage={props.changePage}
+      />
       <br />
       <br />
-      <h3>Sonntag</h3>
-      <br />
-      <ul class="event-list max" role="list">
-        <For
-          each={groupedAndSorted.SUNDAY}
-          fallback={<Box>Keine Spielrunden gefunden.</Box>}
-        >
-          {(entry) => <Entry entry={entry} changePage={props.changePage} />}
-        </For>
-      </ul>
+      <ProgramOfDay
+        day="SUNDAY"
+        programOfDay={groupedAndSorted.SUNDAY}
+        changePage={props.changePage}
+      />
     </>
+  );
+}
+
+function ProgramOfDay(props: {
+  day: ProgramDay;
+  programOfDay: Record<number, ProgramEntryClient[]>;
+  changePage: ChangePageFn;
+}): JSX.Element {
+  const breaks = openingHours[props.day].breaks;
+  const breakStarts = breaks.map((b) => b.from);
+  const getType = (start: number) =>
+    breakStarts.indexOf(start) === 0 ? "LUNCH" : "DINNER";
+
+  return (
+    <>
+      <h3>{TXT.days[props.day]}</h3>
+      <For
+        each={Object.entries(props.programOfDay)}
+        fallback={<Box>Keine Spielrunden gefunden.</Box>}
+      >
+        {([hour, entries]) =>
+          breakStarts.includes(Number(hour)) ? (
+            <Break
+              type={getType(Number(hour))}
+              range={{ from: Number(hour), to: Number(hour) - 1 }}
+            />
+          ) : entries.length === 0 ? null : (
+            <>
+              <h4 style="margin-block-start: 2rem; margin-block-end: 1rem;">
+                Start: {hour} Uhr
+              </h4>
+              <ul class="event-list max" role="list">
+                <For each={entries}>
+                  {(entry) => (
+                    <Entry entry={entry} changePage={props.changePage} />
+                  )}
+                </For>
+              </ul>
+            </>
+          )
+        }
+      </For>
+    </>
+  );
+}
+
+function Break(props: {
+  type: "LUNCH" | "DINNER";
+  range: { from: number; to: number };
+}): JSX.Element {
+  const title = props.type === "LUNCH" ? "Mittagessen" : "Nachtessen";
+  const menu =
+    "Pilzrisotto (vegi&nbsp;/&nbsp;vegan), Penne All'Arrabbiata und Penne Pesto (vegi&nbsp;/&nbsp;vegan).";
+  return (
+    <div style="margin-block-start: 2rem;">
+      <Box>
+        <small>
+          {props.range.from} - {props.range.to} Uhr
+        </small>
+        <h4 style="margin-block-end: 0.5rem;">{title}</h4>
+        <p>
+          Wir kochen: <span innerHTML={menu}></span>
+        </p>
+      </Box>
+    </div>
   );
 }
 
@@ -138,16 +198,31 @@ function groupByDay(
 
 function sortByFromHour(
   program: PerDay<ProgramEntryClient[]>,
-): PerDay<ProgramEntryClient[]> {
+): PerDay<Record<number, ProgramEntryClient[]>> {
   function sort(a: ProgramEntryClient, b: ProgramEntryClient): number {
     const { from: fromA, to: toA } = a.slot;
     const { from: fromB, to: toB } = b.slot;
     return fromA === fromB ? toA - toB : fromA - fromB;
   }
+  const saturdaySorted = program.SATURDAY.toSorted(sort);
+  const sundaySorted = program.SUNDAY.toSorted(sort);
+
+  const saturdayByHours = getHours(openingHours.SATURDAY.open).reduce<
+    Record<number, ProgramEntryClient[]>
+  >((acc, hour) => {
+    acc[hour] = saturdaySorted.filter((entry) => entry.slot.from === hour);
+    return acc;
+  }, {});
+  const sundayByHours = getHours(openingHours.SUNDAY.open).reduce<
+    Record<number, ProgramEntryClient[]>
+  >((acc, hour) => {
+    acc[hour] = sundaySorted.filter((entry) => entry.slot.from === hour);
+    return acc;
+  }, {});
 
   return {
-    SATURDAY: program.SATURDAY.toSorted(sort),
-    SUNDAY: program.SUNDAY.toSorted(sort),
+    SATURDAY: saturdayByHours,
+    SUNDAY: sundayByHours,
   };
 }
 
