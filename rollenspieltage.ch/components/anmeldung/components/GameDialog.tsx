@@ -35,7 +35,6 @@ export function GameDialog(props: {
       if (i + 1 === max) {
         return { kind: "RESERVED_SPONTANIOUS" } as const;
       }
-      console.log(max, externalReserved);
       if (max - externalReserved <= i) {
         return { kind: "RESERVED_OTHER" } as const;
       }

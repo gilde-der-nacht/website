@@ -4,6 +4,7 @@ import {
   For,
   Match,
   Show,
+  Suspense,
   Switch,
   type JSX,
   type Resource,
@@ -49,26 +50,32 @@ export function PlayerPage(props: {
         <Box type="danger">
           <p>WIP</p>
         </Box>
-        <Show when={props.program()} fallback={<h1>loading</h1>}>
-          {(program) => (
-            <Show
-              when={program().kind === "SUCCESS"}
-              fallback={
-                <Box type="danger">
-                  <p>Programm konnte nicht geladen werden.</p>
-                </Box>
-              }
-            >
-              <ProgramOverview
-                program={(program() as { data: ProgramEntryClient[] }).data}
-                reservations={props.reservations}
-                addReservation={props.addReservation}
-                uuid={props.uuid}
-                changePage={props.changePage}
-              />
-            </Show>
-          )}
-        </Show>
+        <br />
+        <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
+          <Show
+            when={props.program()}
+            fallback={<Box type="danger">{TXT.error.program}</Box>}
+          >
+            {(program) => (
+              <Show
+                when={program().kind === "SUCCESS"}
+                fallback={
+                  <Box type="danger">
+                    <p>Programm konnte nicht geladen werden.</p>
+                  </Box>
+                }
+              >
+                <ProgramOverview
+                  program={(program() as { data: ProgramEntryClient[] }).data}
+                  reservations={props.reservations}
+                  addReservation={props.addReservation}
+                  uuid={props.uuid}
+                  changePage={props.changePage}
+                />
+              </Show>
+            )}
+          </Show>
+        </Suspense>
       </Match>
     </Switch>
   );

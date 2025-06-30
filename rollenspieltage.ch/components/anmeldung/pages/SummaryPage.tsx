@@ -1,4 +1,4 @@
-import { createMemo, Show, type JSX } from "solid-js";
+import { createMemo, Show, type JSX, type Resource } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import type {
   ContactClient,
@@ -31,9 +31,12 @@ import { Chip } from "@common/components/Chip";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import type { PublishState } from "@rst/components/anmeldung/api/shared";
 import type { IconType } from "@common/components/Icon";
+import type { Result } from "@rst/components/anmeldung/api/utils";
+import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
 
 export function SummaryPage(props: {
   store: Store<SaveClient>;
+  program: Resource<Result<ProgramEntryClient[]>>;
   changePage: ChangePageFn;
 }): JSX.Element {
   const masterEntries = props.store.master.games.flatMap((game) =>
@@ -45,13 +48,37 @@ export function SummaryPage(props: {
     })),
   );
 
+  const program = () => {
+    const p = props.program();
+    if (p?.kind === "SUCCESS") {
+      return p.data;
+    }
+    return [];
+  };
+
+  const reservationUuids = () => {
+    const uuids = props.store.playing.reservations.map((r) => r.gameRound);
+    return new Set(uuids);
+  };
+
+  console.log(program());
+
+  const playEntries = () =>
+    program()
+      .filter((p) => reservationUuids().has(p.uuid))
+      .map((p) => ({
+        uuid: p.uuid,
+        title: p.title,
+        dateTime: p.slot,
+      }));
+
   return (
     <>
       <Contact store={props.store.init} />
       <br />
       <Timeview
         entries={{
-          play: [],
+          play: playEntries(),
           master: masterEntries,
           help: [],
         }}
@@ -183,6 +210,7 @@ function Timeview(props: {
   entries: EntriesForAggregation;
   changePage: ChangePageFn;
 }): JSX.Element {
+  console.log(props.entries.play);
   const programEntries = aggregateEntries(props.entries, props.changePage);
 
   return (
@@ -261,6 +289,10 @@ function TimeviewEntry(props: {
       cls.push("special");
     }
 
+    if (props.kind === "play") {
+      cls.push("danger");
+    }
+
     return cls.join(" ");
   };
 
@@ -323,7 +355,17 @@ function aggregateEntries(
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: () => (
-        <TimeviewEntry title={entry.title} range={entry.dateTime} kind="play" />
+        <TimeviewEntry
+          title={entry.title}
+          range={entry.dateTime}
+          kind="play"
+          onClick={() =>
+            changePage({
+              kind: "GAME",
+              uuid: entry.uuid,
+            })
+          }
+        />
       ),
     });
   });

@@ -21,7 +21,7 @@ import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { unpackUnion } from "@common/components/utils";
 
 function Loading(): JSX.Element {
-  return <Box>{TXT.loading}</Box>;
+  return <Box>{TXT.loading.registration}</Box>;
 }
 
 export function MeineAnmeldungWrapper(): JSX.Element {

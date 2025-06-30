@@ -15,7 +15,10 @@ const registrationStarted = (
   </>
 );
 
-const loading = <p>Deine Anmeldung wird geladen...</p>;
+const loading = {
+  registration: <p>Deine Anmeldung wird geladen...</p>,
+  program: <p>Das Programm wird geladen...</p>,
+};
 
 const error = {
   general: (
@@ -52,6 +55,13 @@ const error = {
       Leider ist ein unerwarteter Fehler passiert. Vermutlich liegt es an uns.
       Bitte kontaktiere uns sobald als möglich über das{" "}
       <a href="/kontakt">Kontaktformular</a>.
+    </p>
+  ),
+  program: (
+    <p>
+      Leider ist ein unerwarteter Fehler passiert beim Laden des Programmes.
+      Vermutlich liegt es an uns. Bitte kontaktiere uns sobald als möglich über
+      das <a href="/kontakt">Kontaktformular</a>.
     </p>
   ),
 };
