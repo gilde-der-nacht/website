@@ -7,6 +7,7 @@ import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";
 import { Checkbox } from "@common/components/Checkbox";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
+import type { SaveClient } from "@rst/components/anmeldung/api/save";
 
 export type PageState = {
   form: {
@@ -23,12 +24,6 @@ export type PageState = {
     general: boolean;
   };
   state: "IDLE" | "LOADING";
-};
-
-type StartData = {
-  name: string;
-  email: string;
-  mobile: string;
 };
 
 export function AnmeldungWrapper(): JSX.Element {
@@ -77,14 +72,27 @@ export function AnmeldungWrapper(): JSX.Element {
     setStore("state", "LOADING");
 
     try {
-      const data: StartData = {
-        name: store.form.name,
-        email: store.form.email,
-        mobile: store.form.tel,
-      };
+      const initialDataWithDefaults = {
+        version: 1,
+        init: {
+          name: store.form.name,
+          email: store.form.email,
+          mobile: store.form.tel,
+        },
+        playing: {
+          wantsUpdates: true,
+          reservations: [],
+        },
+        master: {
+          wantsHelp: false,
+          games: [],
+        },
+        helping: {},
+        lastSaved: new Date(),
+      } satisfies SaveClient;
       const response = await fetch(elysium("/rst25/start"), {
         method: "post",
-        body: JSON.stringify(data),
+        body: JSON.stringify(initialDataWithDefaults),
         headers: {
           "Content-Type": "application/json",
         },
