@@ -123,7 +123,7 @@ export function EditGamePage(props: {
         hasSlots={store.slots.length !== 0}
         title={store.title.value}
         onDelete={() => {
-          setStore("kind", "deleted");
+          setStore("kind", "archived");
           props.changePage({ kind: "GAMEMASTER" });
         }}
       />
@@ -314,7 +314,7 @@ function GameroundForm(props: {
           onClick={props.goBack}
         />
         <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <Show when={store.kind !== "deleted"}>
+          <Show when={store.kind !== "archived"}>
             <ButtonWithIcon
               icon="trash"
               kind="danger"

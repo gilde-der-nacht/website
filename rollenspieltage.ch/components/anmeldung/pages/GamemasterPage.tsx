@@ -47,7 +47,7 @@ export function GamemasterPage(props: {
           <div style="margin-top: 2rem;">
             <h3 style="margin-bottom: 1rem;">{TXT.myGameRounds}</h3>
             <ul class="event-list" role="list">
-              <For each={games().filter((game) => game.kind !== "deleted")}>
+              <For each={games().filter((game) => game.kind !== "archived")}>
                 {(game) => {
                   const tags = game.tagNames
                     .map((t) => gameTags.find(({ name }) => name === t))

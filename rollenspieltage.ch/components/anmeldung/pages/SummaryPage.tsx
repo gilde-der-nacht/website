@@ -368,7 +368,7 @@ function aggregateEntries(
   });
 
   entries.master.forEach((entry) => {
-    if (entry.status === "deleted") {
+    if (entry.status === "archived") {
       return;
     }
 

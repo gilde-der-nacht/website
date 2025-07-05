@@ -99,7 +99,7 @@ const pageTitle: Record<PageKind, string> = {
 const publishingSteps: Record<PublishState, string> = {
   draft: "Entwurf",
   published: "Veröffentlicht",
-  deleted: "Gelöscht",
+  archived: "Gelöscht",
 };
 
 const metaTitle = "Meine Anmeldung: {} | Luzerner Rollenspieltage";
