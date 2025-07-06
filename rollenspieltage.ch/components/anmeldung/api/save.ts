@@ -11,9 +11,13 @@ import {
 } from "@rst/components/anmeldung/api/gameround-edit";
 import { debounce, formatDateTime } from "@common/components/utils";
 import { createStore, type Store } from "solid-js/store";
-import type { SaveState } from "./meta";
+import type { SaveState } from "@rst/components/anmeldung/api/meta";
 import { toast, updateToast } from "@common/components/Toast";
-import { elysiumLoadSave, elysiumSaveState } from "./elysium";
+import {
+  elysiumLoadSave,
+  elysiumSaveState,
+} from "@rst/components/anmeldung/api/elysium";
+import { publishStateSchema } from "@rst/components/anmeldung/api/shared";
 
 /*
  * Types
@@ -131,6 +135,7 @@ export const saveServerSchema = z.object({
   playing: playingServerSchema,
   master: masterServerSchema,
   helping: helpingServerSchema,
+  publishState: publishStateSchema,
 });
 export type SaveServer = z.infer<typeof saveServerSchema>;
 
@@ -141,6 +146,7 @@ export const saveClientSchema = z.object({
   playing: playingClientSchema,
   master: masterClientSchema,
   helping: helpingClientSchema,
+  publishState: publishStateSchema,
 });
 
 export type SaveClient = z.infer<typeof saveClientSchema>;
