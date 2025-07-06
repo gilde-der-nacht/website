@@ -16,6 +16,7 @@ import { Checkbox } from "@common/components/Checkbox";
 
 export function GamemasterPage(props: {
   store: Store<MasterClient>;
+  isEditable: boolean;
   changePage: ChangePageFn;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
@@ -27,10 +28,11 @@ export function GamemasterPage(props: {
 
   return (
     <>
-      <BoxLink icon="grid-2-plus" type="success" onClick={createNewGameround}>
-        <h3>{TXT.createNewGameRound}</h3>
-      </BoxLink>
-
+      <Show when={props.isEditable}>
+        <BoxLink icon="grid-2-plus" type="success" onClick={createNewGameround}>
+          <h3>{TXT.createNewGameRound}</h3>
+        </BoxLink>
+      </Show>
       <br />
       <Checkbox
         label="Ich habe wenig bis keine Spielleitung-Erfahrung und möchte gerne in der Vorbereitung und/oder während der Spielrunde unterstützt werden."
@@ -40,6 +42,7 @@ export function GamemasterPage(props: {
         onValueUpdate={(checked) => {
           setStore("wantsHelp", checked);
         }}
+        disabled={!props.isEditable}
       />
 
       <Show when={props.store.games}>

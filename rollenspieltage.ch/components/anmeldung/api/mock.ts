@@ -81,6 +81,7 @@ const saveMock = {
     wantsHelp: false,
   },
   helping: {},
+  publishState: "published",
 } satisfies SaveServer;
 
 export async function mockedLoadSave(): Promise<Result<unknown>> {

@@ -37,6 +37,7 @@ import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
 export function SummaryPage(props: {
   store: Store<SaveClient>;
   program: Resource<Result<ProgramEntryClient[]>>;
+  isEditable: boolean;
   changePage: ChangePageFn;
 }): JSX.Element {
   const masterEntries = props.store.master.games.flatMap((game) =>
@@ -72,7 +73,7 @@ export function SummaryPage(props: {
 
   return (
     <>
-      <Contact store={props.store.init} />
+      <Contact store={props.store.init} isEditable={props.isEditable} />
       <br />
       <Timeview
         entries={{
@@ -81,12 +82,16 @@ export function SummaryPage(props: {
           help: [],
         }}
         changePage={props.changePage}
+        isEditable={props.isEditable}
       />
     </>
   );
 }
 
-function Contact(props: { store: Store<ContactClient> }): JSX.Element {
+function Contact(props: {
+  store: Store<ContactClient>;
+  isEditable: boolean;
+}): JSX.Element {
   const [_, setStore] = createStore(props.store);
   const [dialogStore, setDialogStore] = createStore(initDialogStore());
 
@@ -114,13 +119,15 @@ function Contact(props: { store: Store<ContactClient> }): JSX.Element {
           <strong>Handynummer:</strong> {props.store.mobile}
         </p>
 
-        <div>
-          <ButtonWithIcon
-            icon="pencil"
-            label="Kontakdaten editieren"
-            onClick={() => setDialogStore("open", true)}
-          />
-        </div>
+        <Show when={props.isEditable}>
+          <div>
+            <ButtonWithIcon
+              icon="pencil"
+              label="Kontaktdaten editieren"
+              onClick={() => setDialogStore("open", true)}
+            />
+          </div>
+        </Show>
       </div>
     </Box>
   );
@@ -207,8 +214,13 @@ function ContactEditDialog(props: {
 function Timeview(props: {
   entries: EntriesForAggregation;
   changePage: ChangePageFn;
+  isEditable: boolean;
 }): JSX.Element {
-  const programEntries = aggregateEntries(props.entries, props.changePage);
+  const programEntries = aggregateEntries(
+    props.entries,
+    props.changePage,
+    props.isEditable,
+  );
 
   return (
     <>
@@ -342,11 +354,16 @@ type EntriesForAggregation = {
 function aggregateEntries(
   entries: EntriesForAggregation,
   changePage: ChangePageFn,
+  isEditable: boolean,
 ): PerDay<ProgramEntryTimetableView[]> {
   const aggregation: PerDay<ProgramEntryTimetableView[]> = {
     SATURDAY: [],
     SUNDAY: [],
   };
+
+  if (!isEditable) {
+    return aggregation;
+  }
 
   entries.play.forEach((entry) => {
     aggregation[entry.dateTime.day].push({

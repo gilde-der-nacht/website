@@ -13,6 +13,7 @@ import { Box, SimpleBox } from "@common/components/Box";
 export function GameDialog(props: {
   entry: ProgramEntryClient;
   reservations: ReservationClient[];
+  isEditable: boolean;
   addReservation: (reservation: ReservationCreateClient) => void;
   removeReservation: (reservationUuid: string) => void;
 }): JSX.Element {
@@ -115,6 +116,15 @@ export function GameDialog(props: {
               <>
                 <div class="count">{i() + 1}</div>
                 <Switch>
+                  <Match when={seat.kind === "RESERVED_OTHER"}>
+                    <Box>Bereits reserviert</Box>
+                  </Match>
+                  <Match when={seat.kind === "RESERVED_SPONTANIOUS"}>
+                    <Box>Reserviert für spontane Spieler:innen</Box>
+                  </Match>
+                  <Match when={!props.isEditable}>
+                    <Box>Freier Platz</Box>
+                  </Match>
                   <Match when={seat.kind === "SELF"}>
                     <SimpleBox type="success">
                       <div class="reservation-table-entry">
@@ -154,12 +164,6 @@ export function GameDialog(props: {
                         />
                       </div>
                     </SimpleBox>
-                  </Match>
-                  <Match when={seat.kind === "RESERVED_OTHER"}>
-                    <Box>Bereits reserviert</Box>
-                  </Match>
-                  <Match when={seat.kind === "RESERVED_SPONTANIOUS"}>
-                    <Box>Reserviert für spontane Spieler:innen</Box>
                   </Match>
                   <Match when={seat.kind === "FREE"}>
                     <Show

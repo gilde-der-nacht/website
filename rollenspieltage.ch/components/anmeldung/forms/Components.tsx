@@ -17,6 +17,7 @@ export function TextInputField(props: {
   isHoneypot?: boolean | undefined;
   showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
+  disabled?: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
   const alwaysShowErrors = props.showErrors === "ALWAYS";
@@ -33,6 +34,7 @@ export function TextInputField(props: {
         type={props.type}
         required={props.required}
         isHoneypot={props.isHoneypot}
+        disabled={props.disabled}
       />
       <Show when={errors().length > 0}>
         <Box type="danger">
@@ -53,6 +55,7 @@ export function NumberInputField(props: {
   max?: number | undefined;
   showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
+  disabled?: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
   const alwaysShowErrors = props.showErrors === "ALWAYS";
@@ -70,6 +73,7 @@ export function NumberInputField(props: {
         isHoneypot={props.isHoneypot}
         min={props.min}
         max={props.max}
+        disabled={props.disabled}
       />
       <Show when={errors().length > 0}>
         <Box type="danger">
@@ -88,6 +92,7 @@ export function TextareaField(props: {
   size?: "small" | undefined;
   showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
+  disabled?: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
   const alwaysShowErrors = props.showErrors === "ALWAYS";
@@ -103,6 +108,7 @@ export function TextareaField(props: {
         onBlur={() => setStore("isDirty", true)}
         required={props.required}
         size={props.size}
+        disabled={props.disabled}
       />
       <Show when={errors().length > 0}>
         <Box type="danger">

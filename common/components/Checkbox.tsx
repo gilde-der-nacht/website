@@ -6,6 +6,7 @@ type CheckboxItem<T extends string> = {
   name: string;
   value: T;
   checked: boolean;
+  disabled?: boolean | undefined;
 };
 
 export type CheckboxGroupProps<T extends string> = {
@@ -29,6 +30,7 @@ export function CheckboxGroup<T extends string>(
               onValueUpdate={(value) =>
                 props.onValueUpdate(checkbox.value, value)
               }
+              disabled={checkbox.disabled}
             />
           </li>
         )}
@@ -52,6 +54,7 @@ export function Checkbox<T extends string>(
         value={props.value}
         checked={props.checked}
         onChange={(e) => props.onValueUpdate(e.target.checked)}
+        disabled={props.disabled === true}
       />
       <div>
         {props.label}

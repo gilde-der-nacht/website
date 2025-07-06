@@ -36,7 +36,7 @@ import { loadReservations } from "@rst/components/anmeldung/api/reservations";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { createQueue } from "@common/components/utils";
 import type { EmailQueueableFns } from "@rst/components/anmeldung/api/email";
-import { ToastContainer } from "@common/components/Toast";
+import { toast, ToastContainer } from "@common/components/Toast";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
@@ -119,6 +119,7 @@ export function Router(props: {
     loadProgram(store.meta.secret),
   );
 
+  const deactivateToastUuid = crypto.randomUUID();
   // hacky solution to not save on first load when nothing has changed yet.
   const [run, setRun] = createSignal(false);
   createResource(
@@ -126,6 +127,14 @@ export function Router(props: {
     async () => {
       if (!run()) {
         setRun(true);
+        return;
+      }
+
+      if (store.save.publishState !== "published") {
+        toast(
+          "Diese Anmeldung wurde deaktiviert und kann nicht editiert werden.",
+          { kind: "danger", uuid: deactivateToastUuid },
+        );
         return;
       }
 
@@ -175,6 +184,13 @@ export function Router(props: {
         <Box type="success">{TXT.registrationStarted}</Box>
         <br />
       </Show>
+      <Show when={store.save.publishState !== "published"}>
+        <Box type="danger">
+          Diese Anmeldung wurde deaktiviert. Sollte dies ein Fehler sein,
+          kontaktiere uns bitte.
+        </Box>
+        <br />
+      </Show>
       <Switch
         fallback={
           <PageTemplate
@@ -210,6 +226,7 @@ export function Router(props: {
               uuid={
                 store.meta.page.kind === "GAME" ? store.meta.page.uuid : null
               }
+              isEditable={store.save.publishState === "published"}
               changePage={changePage}
               isDebugging={store.meta.isDebugging}
             />
@@ -222,7 +239,11 @@ export function Router(props: {
             saveState={store.meta.saveState}
             lastSaved={store.save.lastSaved}
           >
-            <GamemasterPage store={store.save.master} changePage={changePage} />
+            <GamemasterPage
+              store={store.save.master}
+              isEditable={store.save.publishState === "published"}
+              changePage={changePage}
+            />
           </PageTemplate>
         </Match>
         <Match when={store.meta.page.kind === "EDIT_GAMEROUND"}>
@@ -246,6 +267,7 @@ export function Router(props: {
                   store={gameround}
                   registrations={registrationsResource}
                   queue={queue}
+                  isEditable={store.save.publishState === "published"}
                   changePage={changePage}
                 />
               )}
@@ -272,6 +294,7 @@ export function Router(props: {
             <SummaryPage
               store={store.save}
               program={programResource}
+              isEditable={store.save.publishState === "published"}
               changePage={changePage}
             />
           </PageTemplate>

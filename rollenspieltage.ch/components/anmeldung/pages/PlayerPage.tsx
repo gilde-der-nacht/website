@@ -36,6 +36,7 @@ export function PlayerPage(props: {
   store: Store<PlayingClient>;
   program: Resource<Result<ProgramEntryClient[]>>;
   uuid: string | null;
+  isEditable: boolean;
   changePage: ChangePageFn;
   isDebugging: boolean;
 }): JSX.Element {
@@ -84,6 +85,7 @@ export function PlayerPage(props: {
                 <ProgramOverview
                   program={(program() as { data: ProgramEntryClient[] }).data}
                   reservations={store.reservations}
+                  isEditable={props.isEditable}
                   addReservation={(reservation) =>
                     setStore("reservations", store.reservations.length, {
                       ...reservation,
@@ -113,6 +115,7 @@ export function PlayerPage(props: {
 function ProgramOverview(props: {
   program: ProgramEntryClient[];
   reservations: ReservationClient[];
+  isEditable: boolean;
   addReservation: (reservation: ReservationCreateClient) => void;
   removeReservation: (reservationUuid: string) => void;
   uuid: string | null;
@@ -149,6 +152,7 @@ function ProgramOverview(props: {
             <GameDialog
               entry={entry()}
               reservations={props.reservations}
+              isEditable={props.isEditable}
               addReservation={props.addReservation}
               removeReservation={props.removeReservation}
             />
@@ -349,7 +353,7 @@ function Entry(props: {
             }
             class="event-link"
           >
-            <span>Details & Teilnehmen</span>
+            <span>Details & Teilnahme</span>
           </button>
         </li>
       </ul>

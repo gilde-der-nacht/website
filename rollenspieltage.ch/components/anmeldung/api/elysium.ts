@@ -19,6 +19,7 @@ const initState = {
     wantsHelp: false,
   },
   helping: {},
+  publishState: "draft",
 } satisfies SaveServer;
 
 export async function elysiumLoadSave(

@@ -9,6 +9,7 @@ type InputProps = {
   type?: "text" | "date" | "email" | "tel" | undefined;
   required?: boolean | undefined;
   isHoneypot?: boolean | undefined;
+  disabled?: boolean | undefined;
 };
 
 export function Input(props: InputProps): JSX.Element {
@@ -28,6 +29,7 @@ export function Input(props: InputProps): JSX.Element {
         value={propsWithDefaults.value}
         onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
         onBlur={props.onBlur}
+        disabled={props.disabled === true}
       />
     </label>
   );
@@ -43,6 +45,7 @@ type InputWithRefProps = {
   required?: boolean;
   isHoneypot?: boolean;
   ref: HTMLInputElement;
+  disabled?: boolean | undefined;
 };
 
 export function InputWithRef(props: InputWithRefProps): JSX.Element {
@@ -63,6 +66,7 @@ export function InputWithRef(props: InputWithRefProps): JSX.Element {
         onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
         onBlur={props.onBlur}
         ref={propsWithDefaults.ref}
+        disabled={props.disabled === true}
       />
     </label>
   );
@@ -78,6 +82,7 @@ type InputIntegerProps = {
   isHoneypot?: boolean | undefined;
   min?: number | undefined;
   max?: number | undefined;
+  disabled?: boolean | undefined;
 };
 
 export function InputInteger(props: InputIntegerProps): JSX.Element {
@@ -102,6 +107,7 @@ export function InputInteger(props: InputIntegerProps): JSX.Element {
         step={1}
         min={propsWithDefaults.min}
         max={propsWithDefaults.max}
+        disabled={props.disabled === true}
       />
     </label>
   );

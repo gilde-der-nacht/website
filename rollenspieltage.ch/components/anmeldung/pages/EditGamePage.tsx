@@ -59,6 +59,7 @@ export function EditGamePage(props: {
   store: Store<GameroundEditClient>;
   registrations: Resource<Result<ReservationsClient>>;
   queue: Queue<EmailQueueableFns>;
+  isEditable: boolean;
   changePage: ChangePageFn;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
@@ -93,6 +94,7 @@ export function EditGamePage(props: {
         onCancel={() => setDialogStore("delete", "open", true)}
         onSendUpdate={() => setDialogStore("sendUpdate", "open", true)}
         goBack={goBack}
+        isEditable={props.isEditable}
       />
       <PublishDialog
         store={dialogStore.publish}
@@ -236,6 +238,7 @@ function GameroundForm(props: {
   onCancel: () => void;
   onSendUpdate: () => void;
   goBack: () => void;
+  isEditable: boolean;
 }): JSX.Element {
   const [store] = createStore(props.store);
   const errors = createMemo(() => validateGameround(store));
@@ -251,11 +254,13 @@ function GameroundForm(props: {
         name="title"
         showErrors={store.kind === "published" ? "ALWAYS" : "ON_BLUR"}
         errors={errors().titleMissing ? [TXT.mandatoryField] : []}
+        disabled={!props.isEditable}
       />
       <TextInputField
         store={store.system}
         label="System (optional)"
         name="System"
+        disabled={!props.isEditable}
       />
       <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
         <NumberInputField
@@ -264,12 +269,14 @@ function GameroundForm(props: {
           name="playerCountMin"
           min={1}
           max={store.playerCount.max.value}
+          disabled={!props.isEditable}
         />
         <NumberInputField
           store={store.playerCount.max}
           label="Anzahl Mitspielende (Maximum)"
           name="playerCountMax"
           min={store.playerCount.min.value}
+          disabled={!props.isEditable}
         />
       </div>
       <TextareaField
@@ -285,6 +292,7 @@ function GameroundForm(props: {
               ? [TXT.charLimitBy.replace("{}", String(DESCR_SHORT_MAX_CHAR))]
               : []
         }
+        disabled={!props.isEditable}
       />
       <TextareaField
         store={store.description.long}
@@ -296,15 +304,17 @@ function GameroundForm(props: {
             ? [TXT.charLimitBy.replace("{}", String(DESCR_LONG_MAX_CHAR))]
             : []
         }
+        disabled={!props.isEditable}
       />
       <TimeSlotPart
         store={props.store.slots}
         registrations={props.registrations}
         slotMissing={errors().slotMissing}
+        isEditable={props.isEditable}
       />
       <fieldset>
         <legend>Kategorien (optional)</legend>
-        <Tags store={store.tagNames} />
+        <Tags store={store.tagNames} isEditable={props.isEditable} />
       </fieldset>
       <ErrorSummary errors={errors()} />
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
@@ -320,13 +330,14 @@ function GameroundForm(props: {
               kind="danger"
               label="Löschen"
               onClick={() => props.onCancel()}
+              disabled={!props.isEditable}
             />
           </Show>
           <Show when={store.kind === "draft"}>
             <ButtonWithIcon
               icon="circle-plus"
               kind={errors().hasErrors ? "gray" : "success"}
-              disabled={errors().hasErrors}
+              disabled={errors().hasErrors || !props.isEditable}
               label="Spielrunde veröffentlichen"
               onClick={errors().hasErrors ? undefined : props.onSubmit}
             />
@@ -337,6 +348,7 @@ function GameroundForm(props: {
               kind="success"
               label="Update an Spielende schicken"
               onClick={props.onSendUpdate}
+              disabled={!props.isEditable}
             />
           </Show>
         </div>
@@ -449,7 +461,10 @@ function SendUpdateForm(props: {
  * Tags
  */
 
-function Tags(props: { store: Store<string[]> }): JSX.Element {
+function Tags(props: {
+  store: Store<string[]>;
+  isEditable: boolean;
+}): JSX.Element {
   const [store, setStore] = createStore(props.store);
   return (
     <>
@@ -469,6 +484,7 @@ function Tags(props: { store: Store<string[]> }): JSX.Element {
                   setStore(store.filter((t) => t !== gameTag.name));
                 }
               }}
+              disabled={!props.isEditable}
             />
           )}
         </For>

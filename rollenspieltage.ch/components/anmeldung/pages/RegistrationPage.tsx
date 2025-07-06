@@ -89,7 +89,7 @@ export function AnmeldungWrapper(): JSX.Element {
         },
         helping: {},
         lastSaved: new Date(),
-      } satisfies SaveClient;
+      } satisfies Omit<SaveClient, "publishState">;
       const response = await fetch(elysium("/rst25/start"), {
         method: "post",
         body: JSON.stringify(initialDataWithDefaults),

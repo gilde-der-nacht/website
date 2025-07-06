@@ -8,6 +8,7 @@ type Props = {
   name: string;
   required?: boolean | undefined;
   size?: "small" | undefined;
+  disabled?: boolean | undefined;
 };
 
 export function Textarea(props: Props): JSX.Element {
@@ -24,6 +25,7 @@ export function Textarea(props: Props): JSX.Element {
         value={propsWithDefaults.value}
         onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
         onBlur={props.onBlur}
+        disabled={props.disabled === true}
       />
     </label>
   );

@@ -44,6 +44,10 @@ textarea {
   &:disabled {
     cursor: not-allowed;
     background-color: transparent !important;
+
+    &[type=checkbox] {
+      background-color: var(--clr-gray-11) !important;
+    }
   }
 }
 

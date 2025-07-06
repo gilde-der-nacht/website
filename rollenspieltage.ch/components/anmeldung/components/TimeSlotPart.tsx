@@ -39,11 +39,16 @@ export function TimeSlotPart(props: {
   store: Store<TimeSlot[]>;
   registrations: Resource<Result<ReservationsClient>>;
   slotMissing: boolean;
+  isEditable: boolean;
 }): JSX.Element {
   return (
     <fieldset>
       <legend>Zeitslots</legend>
-      <TimeSlots store={props.store} registrations={props.registrations} />
+      <TimeSlots
+        store={props.store}
+        registrations={props.registrations}
+        isEditable={props.isEditable}
+      />
       <Show when={props.slotMissing}>
         <Box type="danger">Wähle mindestens einen Zeitslot aus.</Box>
       </Show>
@@ -117,6 +122,7 @@ function calculateDaySections(openingHours: WeekendOpeningHours): DaySections {
 function TimeSlots(props: {
   store: Store<TimeSlot[]>;
   registrations: Resource<Result<ReservationsClient>>;
+  isEditable: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
   const [dialogStore, setDialogStore] = createStore<{
@@ -151,6 +157,7 @@ function TimeSlots(props: {
       <TimeSlotChooser
         daySections={daySections()}
         chooseTimeSlot={addTimeSlot}
+        isEditable={props.isEditable}
       />
       <br />
       <br />
@@ -174,6 +181,7 @@ function TimeSlots(props: {
         slots={store}
         registrations={props.registrations}
         confirmRemoval={confirmRemoval}
+        isEditable={props.isEditable}
       />
     </>
   );
@@ -183,6 +191,7 @@ function SlotGrid(props: {
   slots: TimeSlot[];
   registrations: Resource<Result<ReservationsClient>>;
   confirmRemoval: (uuid: string) => void;
+  isEditable: boolean;
 }): JSX.Element {
   return (
     <ul class="event-list" role="list">
@@ -266,6 +275,7 @@ function SlotGrid(props: {
                             type="button"
                             onClick={() => props.confirmRemoval(slot.uuid)}
                             class="event-link"
+                            disabled={!props.isEditable}
                           >
                             <div style="display: flex; gap: 0.25rem; align-items: center;">
                               <Icon icon="trash" />
@@ -309,6 +319,7 @@ type SlotState =
 function TimeSlotChooser(props: {
   daySections: DaySections;
   chooseTimeSlot: (slot: TimeSlot) => void;
+  isEditable: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore<{
     slot: SlotState;
@@ -340,6 +351,7 @@ function TimeSlotChooser(props: {
           </div>
         }
         onClick={() => setStore("dialog", "open", true)}
+        disabled={!props.isEditable}
       />
       <Dialog
         title="Zeitslot erfassen"
