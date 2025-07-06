@@ -3,7 +3,14 @@ import { Icon, type IconType } from "./Icon";
 
 type Props = {
   type?: "submit" | "button" | "reset";
-  kind?: "accent" | "special" | "gray" | "success" | "danger" | "ghost";
+  kind?:
+    | "accent"
+    | "special"
+    | "gray"
+    | "success"
+    | "danger"
+    | "ghost"
+    | "ghost-danger";
   disabled?: boolean;
   onClick?: ((e: Event) => void) | undefined;
   title?: string;
@@ -23,6 +30,10 @@ export function Button(
     }
     if (props.onClick === undefined && props.type !== "submit") {
       cls.push("button-no-event");
+    }
+    if (props.kind === "ghost-danger") {
+      cls.push("button-ghost");
+      cls.push("button-danger");
     }
     return cls;
   };
@@ -55,6 +66,10 @@ export function ButtonWithIcon(
     if (props.onClick === undefined && props.type !== "submit") {
       cls.push("button-no-event");
     }
+    if (props.kind === "ghost-danger") {
+      cls.push("button-ghost");
+      cls.push("button-danger");
+    }
     return cls;
   };
 
@@ -86,6 +101,10 @@ export function IconOnlyButton(props: Props & { icon: IconType }): JSX.Element {
     }
     if (props.onClick === undefined) {
       cls.push("button-no-event");
+    }
+    if (props.kind === "ghost-danger") {
+      cls.push("button-ghost");
+      cls.push("button-danger");
     }
     return cls;
   };

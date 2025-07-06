@@ -31,6 +31,12 @@ import type {
   ReservationCreateClient,
 } from "@rst/components/anmeldung/api/save";
 import { Checkbox } from "@common/components/Checkbox";
+import {
+  applyFilter,
+  Filters,
+  initalizeFilters,
+  type ActiveFilter,
+} from "@rst/components/anmeldung/components/Filter";
 
 export function PlayerPage(props: {
   store: Store<PlayingClient>;
@@ -40,7 +46,10 @@ export function PlayerPage(props: {
   changePage: ChangePageFn;
   isDebugging: boolean;
 }): JSX.Element {
-  const [store, setStore] = createStore(props.store);
+  const [store, setStore] = createStore({
+    playing: props.store,
+    activeFilter: initalizeFilters(),
+  });
 
   return (
     <Switch
@@ -60,13 +69,15 @@ export function PlayerPage(props: {
         <br />
         <Checkbox
           label="Schickt mir bitte E-Mails, wenn neue Spielrunden veröffentlicht werden."
-          checked={store.wantsUpdates}
+          checked={store.playing.wantsUpdates}
           name="wantsUpdates"
           value="wantsUpdates"
           onValueUpdate={(checked) => {
-            setStore("wantsUpdates", checked);
+            setStore("playing", "wantsUpdates", checked);
           }}
         />
+        <br />
+        <Filters activeFilter={store.activeFilter} />
         <br />
         <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
           <Show
@@ -84,18 +95,25 @@ export function PlayerPage(props: {
               >
                 <ProgramOverview
                   program={(program() as { data: ProgramEntryClient[] }).data}
-                  reservations={store.reservations}
+                  filter={store.activeFilter}
+                  reservations={store.playing.reservations}
                   isEditable={props.isEditable}
                   addReservation={(reservation) =>
-                    setStore("reservations", store.reservations.length, {
-                      ...reservation,
-                      uuid: crypto.randomUUID(),
-                    })
+                    setStore(
+                      "playing",
+                      "reservations",
+                      store.playing.reservations.length,
+                      {
+                        ...reservation,
+                        uuid: crypto.randomUUID(),
+                      },
+                    )
                   }
                   removeReservation={(reservationUuid) => {
                     setStore(
+                      "playing",
                       "reservations",
-                      store.reservations.filter(
+                      store.playing.reservations.filter(
                         (r) => r.uuid !== reservationUuid,
                       ),
                     );
@@ -115,6 +133,7 @@ export function PlayerPage(props: {
 function ProgramOverview(props: {
   program: ProgramEntryClient[];
   reservations: ReservationClient[];
+  filter: ActiveFilter;
   isEditable: boolean;
   addReservation: (reservation: ReservationCreateClient) => void;
   removeReservation: (reservationUuid: string) => void;
@@ -132,10 +151,18 @@ function ProgramOverview(props: {
     return props.program.find((entry) => entry.uuid === props.uuid);
   };
 
-  const groupedAndSorted = sortByFromHour(groupByDay(props.program));
+  const getFilteredProgram = () => applyFilter(props.program, props.filter);
+
+  const getGroupedAndSorted = () =>
+    sortByFromHour(groupByDay(getFilteredProgram()));
 
   return (
     <>
+      <em>
+        {getFilteredProgram().length} von {props.program.length} Runden
+        gefunden.
+      </em>
+      <br />
       <Show when={selectedEntry()}>
         {(entry) => (
           <Dialog
@@ -162,14 +189,14 @@ function ProgramOverview(props: {
       <br />
       <ProgramOfDay
         day="SATURDAY"
-        programOfDay={groupedAndSorted.SATURDAY}
+        programOfDay={getGroupedAndSorted().SATURDAY}
         changePage={props.changePage}
       />
       <br />
       <br />
       <ProgramOfDay
         day="SUNDAY"
-        programOfDay={groupedAndSorted.SUNDAY}
+        programOfDay={getGroupedAndSorted().SUNDAY}
         changePage={props.changePage}
       />
     </>
@@ -181,6 +208,7 @@ function ProgramOfDay(props: {
   programOfDay: Record<number, ProgramEntryClient[]>;
   changePage: ChangePageFn;
 }): JSX.Element {
+  const hasEntries = () => Object.values(props.programOfDay).flat().length > 0;
   const breaks = openingHours[props.day].breaks;
   const breakStarts = breaks.map((b) => b.from);
   const getType = (start: number) =>
@@ -189,32 +217,39 @@ function ProgramOfDay(props: {
   return (
     <>
       <h3>{TXT.days[props.day]}</h3>
-      <For
-        each={Object.entries(props.programOfDay)}
-        fallback={<Box>Keine Spielrunden gefunden.</Box>}
-      >
-        {([hour, entries]) =>
-          breakStarts.includes(Number(hour)) ? (
-            <Break
-              type={getType(Number(hour))}
-              range={{ from: Number(hour), to: Number(hour) - 1 }}
-            />
-          ) : entries.length === 0 ? null : (
-            <>
-              <h4 style="margin-block-start: 2rem; margin-block-end: 1rem;">
-                Start: {hour} Uhr
-              </h4>
-              <ul class="event-list max" role="list">
-                <For each={entries}>
-                  {(entry) => (
-                    <Entry entry={entry} changePage={props.changePage} />
-                  )}
-                </For>
-              </ul>
-            </>
-          )
+      <Show
+        when={hasEntries()}
+        fallback={
+          <Box>
+            Keine Spielrunden mit den ausgewählten Filtern am{" "}
+            {TXT.days[props.day]} gefunden.
+          </Box>
         }
-      </For>
+      >
+        <For each={Object.entries(props.programOfDay)}>
+          {([hour, entries]) =>
+            breakStarts.includes(Number(hour)) ? (
+              <Break
+                type={getType(Number(hour))}
+                range={{ from: Number(hour), to: Number(hour) - 1 }}
+              />
+            ) : entries.length === 0 ? null : (
+              <>
+                <h4 style="margin-block-start: 2rem; margin-block-end: 1rem;">
+                  Start: {hour} Uhr
+                </h4>
+                <ul class="event-list max" role="list">
+                  <For each={entries}>
+                    {(entry) => (
+                      <Entry entry={entry} changePage={props.changePage} />
+                    )}
+                  </For>
+                </ul>
+              </>
+            )
+          }
+        </For>
+      </Show>
     </>
   );
 }
