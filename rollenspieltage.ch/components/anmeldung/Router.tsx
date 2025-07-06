@@ -73,19 +73,19 @@ function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
     const backButton = opts?.backButton ?? false;
     const disableScroll = opts?.disableScroll ?? false;
 
+    const url = new URL(location.href);
+    url.searchParams.set("page", page.kind.toLowerCase());
+    if (page.kind === "EDIT_GAMEROUND") {
+      url.searchParams.set("uuid", page.uuid);
+      setPageStore(page);
+    } else if (page.kind === "GAME") {
+      url.searchParams.set("uuid", page.uuid);
+      setPageStore(page);
+    } else {
+      url.searchParams.delete("uuid");
+      setPageStore({ ...page, uuid: null });
+    }
     if (!backButton) {
-      const url = new URL(location.href);
-      url.searchParams.set("page", page.kind.toLowerCase());
-      if (page.kind === "EDIT_GAMEROUND") {
-        url.searchParams.set("uuid", page.uuid);
-        setPageStore(page);
-      } else if (page.kind === "GAME") {
-        url.searchParams.set("uuid", page.uuid);
-        setPageStore(page);
-      } else {
-        url.searchParams.delete("uuid");
-        setPageStore({ ...page, uuid: null });
-      }
       history.pushState({ page }, "", url);
     }
     const newMetaTitle = TXT.pageTitle[page.kind];
