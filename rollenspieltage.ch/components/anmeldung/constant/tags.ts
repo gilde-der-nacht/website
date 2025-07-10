@@ -41,7 +41,7 @@ export const gameTags = [
     name: "horror",
     label: "Horror",
     description:
-      "Eine gruselige Atmosphäre, psychologischen Druck oder unvorhersehbare Schreckensmomente. Beispiele: Cthulhu, ...",
+      "Eine gruselige Atmosphäre, psychologischer Druck oder unvorhersehbare Schreckensmomente. Beispiele: Cthulhu, ...",
   },  
   {
     name: "offenewelt",
@@ -76,6 +76,6 @@ export const gameTags = [
     name: "workshop",
     label: "Workshop",
     description:
-      "Unter Anleitung, gemeinsam ein Rollenspiel-Thema vertiefen. Kreative Techniken stehen im Vordergrund. Beispiele: Gemeinsam ein Dungeon erschaffen, Gemeinsam ein Hintergrundgeschichte schreiben, ...",
+      "Unter Anleitung, gemeinsam ein Rollenspiel-Thema vertiefen. Kreative Techniken stehen im Vordergrund. Beispiele: Gemeinsam einen Dungeon erschaffen, gemeinsam eine Hintergrundgeschichte schreiben, ...",
   },  
 ] satisfies Tag[];
