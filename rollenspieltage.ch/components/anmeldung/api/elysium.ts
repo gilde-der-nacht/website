@@ -87,7 +87,7 @@ export async function elysiumLoadReservations(
   secret: string,
 ): Promise<Result<unknown>> {
   try {
-    const url = new URL(elysium("/rst25/registrations"));
+    const url = new URL(elysium("/rst25/reservations"));
     url.searchParams.append("secret", secret);
     const result = await fetch(url);
     if (!result.ok) {
