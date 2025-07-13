@@ -103,7 +103,12 @@ export function EditGamePage(props: {
         onPublish={() => {
           setStore("kind", "published");
           setDialogStore("publish", "open", false);
-          props.queue.enqueue(queueuPublishGameround(props.secret, store.uuid));
+          props.queue.enqueue(
+            queueuPublishGameround({
+              secret: props.secret,
+              gameroundUuid: store.uuid,
+            }),
+          );
         }}
       />
       <SendUpdateDialog
@@ -114,10 +119,11 @@ export function EditGamePage(props: {
         )}
         onSend={(text) => {
           props.queue.enqueue(
-            queueSendGameroundUpdate(
-              text,
-              store.slots.map((slot) => slot.uuid),
-            ),
+            queueSendGameroundUpdate({
+              update: text,
+              slotUuids: store.slots.map((slot) => slot.uuid),
+              gameroundUuid: store.uuid,
+            }),
           );
         }}
       />
