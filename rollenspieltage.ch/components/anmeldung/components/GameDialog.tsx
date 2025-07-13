@@ -50,6 +50,20 @@ export function GameDialog(props: {
     return gameReservations().find((r) => r.kind === "SELF") !== undefined;
   };
 
+  const freeSpaces = (): number => {
+    const myReservationCount = range().filter(
+      (r) => r.kind === "SELF" || r.kind === "FRIEND",
+    ).length;
+
+    const calculatedFreeSpaces =
+      props.entry.playerCount.max -
+      1 -
+      props.entry.playerCount.reserved -
+      myReservationCount;
+
+    return Math.max(calculatedFreeSpaces, 0);
+  };
+
   return (
     <div class="game-dialog">
       <ul role="list" style="display: grid; gap: 0.5rem;">
@@ -74,11 +88,7 @@ export function GameDialog(props: {
         <li>
           <strong style="color: var(--clr-accent-1);">Freie Plätze:</strong>
           <br />
-          {Math.max(
-            props.entry.playerCount.max - 1 - props.entry.playerCount.reserved,
-            0,
-          )}{" "}
-          (von {props.entry.playerCount.max - 1})
+          {freeSpaces()} (von {props.entry.playerCount.max - 1})
         </li>
         <li>
           <strong style="color: var(--clr-accent-1);">Kategorien:</strong>

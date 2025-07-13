@@ -68,7 +68,9 @@ export async function loadProgram(
   secret: string,
 ): Promise<Result<ProgramClient>> {
   const program =
-    secret === "demo" ? await mockedLoadProgram() : await elysiumLoadProgram();
+    secret === "demo"
+      ? await mockedLoadProgram()
+      : await elysiumLoadProgram(secret);
 
   if (program.kind === "FAILURE") {
     console.error("Unexpected error. Maybe network, maybe server error.");
