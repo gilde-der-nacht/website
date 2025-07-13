@@ -269,6 +269,7 @@ export function Router(props: {
                   queue={queue}
                   isEditable={store.save.publishState === "published"}
                   changePage={changePage}
+                  secret={store.meta.secret}
                 />
               )}
             </FindGameround>

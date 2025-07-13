@@ -61,6 +61,7 @@ export function EditGamePage(props: {
   queue: Queue<EmailQueueableFns>;
   isEditable: boolean;
   changePage: ChangePageFn;
+  secret: string;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
   const [dialogStore, setDialogStore] = createStore<{
@@ -102,7 +103,7 @@ export function EditGamePage(props: {
         onPublish={() => {
           setStore("kind", "published");
           setDialogStore("publish", "open", false);
-          props.queue.enqueue(queueuPublishGameround(store.uuid));
+          props.queue.enqueue(queueuPublishGameround(props.secret, store.uuid));
         }}
       />
       <SendUpdateDialog

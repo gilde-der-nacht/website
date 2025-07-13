@@ -102,3 +102,26 @@ export async function elysiumLoadReservations(
     return { kind: "FAILURE" };
   }
 }
+
+export async function elysiumPublishGameround(payload: {
+  secret: string;
+  gameroundUuid: string;
+}): Promise<Result<unknown>> {
+  try {
+    const result = await fetch(elysium("/rst25/publishGameround"), {
+      method: "post",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!result.ok) {
+      console.error(await result.text());
+      return { kind: "FAILURE" };
+    }
+    return { kind: "SUCCESS", data: payload.gameroundUuid };
+  } catch (e) {
+    console.error(e);
+    return { kind: "FAILURE" };
+  }
+}

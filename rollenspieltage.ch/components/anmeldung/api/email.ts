@@ -1,12 +1,12 @@
-export function queueuPublishGameround(gameUuid: string): () => Promise<void> {
-  const now = new Date();
-  return async () =>
-    new Promise((res) => {
-      setTimeout(() => {
-        console.error("NOT YET IMPLEMENTED: `publishGameround`", gameUuid, now);
-        return res();
-      }, 500);
-    });
+import { elysiumPublishGameround } from "@rst/components/anmeldung/api/elysium";
+
+export function queueuPublishGameround(
+  secret: string,
+  gameroundUuid: string,
+): () => Promise<void> {
+  return async () => {
+    await elysiumPublishGameround({ secret, gameroundUuid });
+  };
 }
 
 export function queueSendGameroundUpdate(
