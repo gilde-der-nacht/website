@@ -111,7 +111,7 @@ export function Router(props: {
       game.slots.map((slot) => slot.uuid),
     );
 
-  const [registrationsResource] = createResource(slotUuids(), (uuids) =>
+  const [reservationsResource] = createResource(slotUuids(), (uuids) =>
     loadReservations(store.meta.secret, uuids),
   );
 
@@ -265,7 +265,7 @@ export function Router(props: {
               {(gameround) => (
                 <EditGamePage
                   store={gameround}
-                  registrations={registrationsResource}
+                  registrations={reservationsResource}
                   queue={queue}
                   isEditable={store.save.publishState === "published"}
                   changePage={changePage}
@@ -304,10 +304,10 @@ export function Router(props: {
         <pre>{JSON.stringify(store, null, 2)}</pre>
         <hr />
         <div>
-          <code>Registrations (read-only)</code>
+          <code>Reservations (read-only)</code>
         </div>
         <Suspense fallback={<em>loading...</em>}>
-          <Show when={registrationsResource()}>
+          <Show when={reservationsResource()}>
             {(r) => <pre>{JSON.stringify(r(), null, 2)}</pre>}
           </Show>
         </Suspense>
