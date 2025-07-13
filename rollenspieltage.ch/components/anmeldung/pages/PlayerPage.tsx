@@ -345,9 +345,8 @@ function Entry(props: {
   entry: ProgramEntryClient;
   changePage: ChangePageFn;
 }): JSX.Element {
-  const tagNames = props.entry.tags
-    .map((t) => gameTags.find(({ name }) => name === t))
-    .filter((t) => t !== undefined)
+  const tagNames = gameTags
+    .filter((g) => props.entry.tags.includes(g.name))
     .map(({ label }) => label);
 
   return (
