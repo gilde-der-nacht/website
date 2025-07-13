@@ -378,7 +378,7 @@ function Entry(props: {
             props.entry.playerCount.max - 1 - props.entry.playerCount.reserved,
             0,
           )}{" "}
-          (von {props.entry.playerCount.max - 1})
+          (von {props.entry.playerCount.max})
         </div>{" "}
         <div class="event-tags">
           <strong>Kategorien:</strong>{" "}

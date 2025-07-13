@@ -88,7 +88,7 @@ export function GameDialog(props: {
         <li>
           <strong style="color: var(--clr-accent-1);">Freie Plätze:</strong>
           <br />
-          {freeSpaces()} (von {props.entry.playerCount.max - 1})
+          {freeSpaces()} (von {props.entry.playerCount.max})
         </li>
         <li>
           <strong style="color: var(--clr-accent-1);">Kategorien:</strong>
