@@ -51,3 +51,25 @@ export function getHours(
 export function toRange(length: number, offset: number = 0): number[] {
   return [...Array(length)].map((_, i) => i + offset);
 }
+
+export function sortByDateTimeWindow(
+  a: DateTimeWindow | null,
+  b: DateTimeWindow | null,
+): number {
+  if (a === null) {
+    return -1;
+  }
+  if (b === null) {
+    return 1;
+  }
+  if (a.day === "SATURDAY" && b.day === "SUNDAY") {
+    return -1;
+  }
+  if (a.day === "SUNDAY" && b.day === "SATURDAY") {
+    return 1;
+  }
+  if (a.from === b.from) {
+    return a.to - b.to;
+  }
+  return a.from - b.from;
+}

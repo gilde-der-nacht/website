@@ -11,8 +11,9 @@ import {
 import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import { ellipsis } from "@common/components/utils";
-import { DESCR_SHORT_MAX_CHAR } from "../forms/validation";
+import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
 import { Checkbox } from "@common/components/Checkbox";
+import { sortByDateTimeWindow } from "../utils/time";
 
 export function GamemasterPage(props: {
   store: Store<MasterClient>;
@@ -25,6 +26,33 @@ export function GamemasterPage(props: {
     setStore("games", store.games.length, newGameround);
     props.changePage({ kind: "EDIT_GAMEROUND", uuid: newGameround.uuid });
   }
+
+  type SlotOfGame = {
+    game: GameroundEditClient;
+    slot: TimeSlot | null;
+  };
+
+  const games = (): SlotOfGame[] =>
+    props.store.games
+      .flatMap((game): SlotOfGame[] => {
+        const slots = game.slots;
+        if (slots.length === 0) {
+          return [
+            {
+              slot: null,
+              game,
+            },
+          ];
+        }
+
+        return game.slots.map((slot) => {
+          return {
+            slot,
+            game,
+          };
+        });
+      })
+      .toSorted((a, b) => sortByDateTimeWindow(a.slot, b.slot));
 
   return (
     <>
@@ -45,38 +73,26 @@ export function GamemasterPage(props: {
         disabled={!props.isEditable}
       />
 
-      <Show when={props.store.games}>
-        {(games) => (
+      <Show when={games()}>
+        {(gameList) => (
           <div style="margin-top: 2rem;">
             <h3 style="margin-bottom: 1rem;">{TXT.myGameRounds}</h3>
             <ul class="event-list" role="list">
-              <For each={games().filter((game) => game.kind !== "archived")}>
-                {(game) => {
+              <For
+                each={gameList().filter(({ game }) => game.kind !== "archived")}
+              >
+                {({ game, slot }) => {
                   const tags = game.tagNames
                     .map((t) => gameTags.find(({ name }) => name === t))
                     .filter((t) => t !== undefined)
                     .map(({ label }) => label);
                   return (
-                    <For
-                      each={game.slots}
-                      fallback={
-                        <Entry
-                          game={game}
-                          slot={null}
-                          tags={tags}
-                          changePage={props.changePage}
-                        />
-                      }
-                    >
-                      {(slot) => (
-                        <Entry
-                          game={game}
-                          slot={slot}
-                          tags={tags}
-                          changePage={props.changePage}
-                        />
-                      )}
-                    </For>
+                    <Entry
+                      game={game}
+                      slot={slot}
+                      tags={tags}
+                      changePage={props.changePage}
+                    />
                   );
                 }}
               </For>
