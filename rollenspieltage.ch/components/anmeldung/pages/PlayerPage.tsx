@@ -281,8 +281,8 @@ function Break(props: {
   range: { from: number; to: number };
 }): JSX.Element {
   const title = props.type === "LUNCH" ? "Mittagessen" : "Nachtessen";
-  const menu =
-    "Pilzrisotto (vegi&nbsp;/&nbsp;vegan), Penne All'Arrabbiata und Penne Pesto (vegi&nbsp;/&nbsp;vegan).";
+  // const menu =
+  ("Pilzrisotto (vegi&nbsp;/&nbsp;vegan), Penne All'Arrabbiata und Penne Pesto (vegi&nbsp;/&nbsp;vegan).");
   return (
     <div style="margin-block-start: 2rem;">
       <Box>
@@ -290,9 +290,12 @@ function Break(props: {
           {props.range.from} - {props.range.to} Uhr
         </small>
         <h4 style="margin-block-end: 0.5rem;">{title}</h4>
-        <p>
-          Wir kochen: <span innerHTML={menu}></span>
-        </p>
+        <em>Das Menü wird zu einem späteren Zeitpunkt kommuniziert.</em>
+        {
+          // <p>
+          //   Wir kochen: <span innerHTML={menu}></span>
+          // </p>
+        }
       </Box>
     </div>
   );
