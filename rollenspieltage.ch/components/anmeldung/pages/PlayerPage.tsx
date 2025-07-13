@@ -49,6 +49,7 @@ export function PlayerPage(props: {
   const [store, setStore] = createStore({
     playing: props.store,
     activeFilter: initalizeFilters(),
+    categoryDialog: initDialogStore(),
   });
 
   return (
@@ -77,7 +78,28 @@ export function PlayerPage(props: {
           }}
         />
         <br />
-        <Filters activeFilter={store.activeFilter} />
+        <Filters
+          activeFilter={store.activeFilter}
+          showExplanationOfCategories={() =>
+            setStore("categoryDialog", "open", true)
+          }
+        />
+        <Dialog
+          store={store.categoryDialog}
+          title="Erklärungen der Kategorien"
+          onClose={() => {}}
+          size="medium"
+        >
+          <ul style="padding: 0; padding-block-start: 1rem; margin: 0; max-inline-size: 100%; display: grid; gap: 0.5rem;">
+            {gameTags.map((t) => (
+              <li>
+                <strong>{t.label}</strong>
+                <br />
+                <p>{t.description}</p>
+              </li>
+            ))}
+          </ul>
+        </Dialog>
         <br />
         <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
           <Show

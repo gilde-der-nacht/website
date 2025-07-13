@@ -8,6 +8,7 @@ const ICONS = [
   "circle-check",
   "circle-max",
   "circle-plus",
+  "circle-question",
   "circle-xmark",
   "dice-d20",
   "floppy-disk-circle-arrow-right",

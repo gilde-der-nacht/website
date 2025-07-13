@@ -1,5 +1,9 @@
 import { Box } from "@common/components/Box";
-import { Button, ButtonWithIcon } from "@common/components/Button";
+import {
+  Button,
+  ButtonWithIcon,
+  IconOnlyButton,
+} from "@common/components/Button";
 import type { ProgramDay } from "@rst/components/anmeldung/utils/time";
 import { For, type JSX } from "solid-js";
 import {
@@ -120,6 +124,7 @@ function createFilterUpdater(
 
 export function Filters(props: {
   activeFilter: Store<ActiveFilter>;
+  showExplanationOfCategories: () => void;
 }): JSX.Element {
   const [store, setStore] = createStore(props.activeFilter);
   const updater = createFilterUpdater(store, setStore);
@@ -147,7 +152,17 @@ export function Filters(props: {
           onClick={() => updater.toggleDay("SUNDAY")}
         />
       </div>
-      <h6 style="margin-block: 0.5rem;">Kategorien</h6>
+      <h6 style="margin-block: 0.5rem;">
+        Kategorien{" "}
+        <span>
+          <IconOnlyButton
+            icon="circle-question"
+            kind="ghost"
+            title="Erklärungen der Kategorien"
+            onClick={props.showExplanationOfCategories}
+          />
+        </span>
+      </h6>
       <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
         <For each={gameTags}>
           {(gameTag) => (

@@ -4,12 +4,15 @@
 .box {
   @include p.element;
   padding: 0.5rem 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
+
+  &:has(>:nth-child(2)) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &-special {
     @extend .box;
