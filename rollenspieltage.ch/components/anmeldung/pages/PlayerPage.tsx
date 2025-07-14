@@ -253,7 +253,7 @@ function ProgramOfDay(props: {
             breakStarts.includes(Number(hour)) ? (
               <Break
                 type={getType(Number(hour))}
-                range={{ from: Number(hour), to: Number(hour) - 1 }}
+                range={{ from: Number(hour), to: Number(hour) + 1 }}
               />
             ) : entries.length === 0 ? null : (
               <>
@@ -281,8 +281,7 @@ function Break(props: {
   range: { from: number; to: number };
 }): JSX.Element {
   const title = props.type === "LUNCH" ? "Mittagessen" : "Nachtessen";
-  // const menu =
-  ("Pilzrisotto (vegi&nbsp;/&nbsp;vegan), Penne All'Arrabbiata und Penne Pesto (vegi&nbsp;/&nbsp;vegan).");
+  /* const menu = "Pilzrisotto (vegi&nbsp;/&nbsp;vegan), Penne All'Arrabbiata und Penne Pesto (vegi&nbsp;/&nbsp;vegan).";*/
   return (
     <div style="margin-block-start: 2rem;">
       <Box>
