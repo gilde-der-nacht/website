@@ -1,6 +1,6 @@
-import { IconOnlyButton } from "@common/components/Button";
-import { createEffect, type JSX, Show } from "solid-js";
+import { createEffect, Show, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
+import { IconOnlyButton } from "@common/components/Button";
 
 export type DialogType = "success" | "danger" | "special" | "gray" | "warning";
 
@@ -18,7 +18,7 @@ export function Dialog(props: {
   onClose?: () => void;
   children: JSX.Element;
 }): JSX.Element {
-  let dialogEl: HTMLDialogElement | undefined;
+  let dialogEl: HTMLDialogElement | undefined = undefined;
   const [store, setStore] = createStore(props.store);
 
   createEffect(() => {

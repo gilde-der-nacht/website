@@ -1,7 +1,7 @@
-import type { SaveState } from "@rst/components/anmeldung/api/meta";
+import { Match, Switch, type JSX } from "solid-js";
 import { BoxLink } from "@rst/components/anmeldung/components/BoxLink";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
-import { type JSX, Match, Switch } from "solid-js";
+import type { SaveState } from "@rst/components/anmeldung/api/meta";
 
 export function ChoosePage(props: {
   changePage: ChangePageFn;

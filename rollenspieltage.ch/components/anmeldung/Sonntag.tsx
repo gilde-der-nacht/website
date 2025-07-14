@@ -1,3 +1,4 @@
+import type { JSX } from "solid-js";
 import {
   getByDayAndHour,
   type Program,
@@ -9,7 +10,6 @@ import type {
   Reservation,
   ReservationView,
 } from "@rst/components/anmeldung/types";
-import type { JSX } from "solid-js";
 
 export function Sonntag(props: {
   selfName: string;

@@ -42,7 +42,7 @@ export const gameTags = [
     label: "Horror",
     description:
       "Eine gruselige Atmosphäre, psychologischer Druck oder unvorhersehbare Schreckensmomente. Beispiele: Cthulhu, ...",
-  },
+  },  
   {
     name: "offenewelt",
     label: "Offene Welt",
@@ -77,5 +77,5 @@ export const gameTags = [
     label: "Workshop",
     description:
       "Unter Anleitung, gemeinsam ein Rollenspiel-Thema vertiefen. Kreative Techniken stehen im Vordergrund. Beispiele: Gemeinsam einen Dungeon erschaffen, gemeinsam eine Hintergrundgeschichte schreiben, ...",
-  },
+  },  
 ] satisfies Tag[];

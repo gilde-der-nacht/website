@@ -4,7 +4,7 @@ import { Header } from "@hhh/components/webapp/layout/Header";
 import { Navbar } from "@hhh/components/webapp/layout/Navbar";
 import type { AppState } from "@hhh/components/webapp/util/StateTypes";
 import { hideToast, link, setToast } from "@hhh/components/webapp/util/utils";
-import type { Accessor, JSX, Setter } from "solid-js";
+import { type Accessor, type JSX, type Setter } from "solid-js";
 
 type Props = {
   stateSignal: [Accessor<AppState>, Setter<AppState>];

@@ -1,51 +1,44 @@
-import { Box } from "@common/components/Box";
+import { Match, Switch, type Resource } from "solid-js";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import { createMemo, For, Show, type JSX } from "solid-js";
+import { createStore, type Store } from "solid-js/store";
 import { ButtonWithIcon } from "@common/components/Button";
 import { Checkbox } from "@common/components/Checkbox";
-import { Chip } from "@common/components/Chip";
-import {
-  Dialog,
-  type DialogStore,
-  initDialogStore,
-} from "@common/components/Dialog";
-import type { Queue } from "@common/components/utils";
-import {
-  type EmailQueueableFns,
-  queueSendGameroundUpdate,
-  queueuPublishGameround,
-} from "@rst/components/anmeldung/api/email";
-import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
-import type {
-  ReservationClient,
-  ReservationsClient,
-} from "@rst/components/anmeldung/api/reservations";
-import type { Result } from "@rst/components/anmeldung/api/utils";
-import { TimeSlotPart } from "@rst/components/anmeldung/components/TimeSlotPart";
+import { Box } from "@common/components/Box";
 import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
+import {
+  DESCR_LONG_MAX_CHAR,
+  DESCR_SHORT_MAX_CHAR,
+  UPDATE_MAX_CHAR,
+  validateGameround,
+  validateUpdateText,
+  type GameroundEditErrors,
+} from "@rst/components/anmeldung/forms/validation";
 import {
   NumberInputField,
   TextareaField,
   TextInputField,
 } from "@rst/components/anmeldung/forms/Components";
+import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
+import { TimeSlotPart } from "@rst/components/anmeldung/components/TimeSlotPart";
+import type {
+  ReservationClient,
+  ReservationsClient,
+} from "@rst/components/anmeldung/api/reservations";
+import type { Result } from "@rst/components/anmeldung/api/utils";
+import { Chip } from "@common/components/Chip";
 import {
-  DESCR_LONG_MAX_CHAR,
-  DESCR_SHORT_MAX_CHAR,
-  type GameroundEditErrors,
-  UPDATE_MAX_CHAR,
-  validateGameround,
-  validateUpdateText,
-} from "@rst/components/anmeldung/forms/validation";
-import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+  Dialog,
+  initDialogStore,
+  type DialogStore,
+} from "@common/components/Dialog";
+import type { Queue } from "@common/components/utils";
 import {
-  createMemo,
-  For,
-  type JSX,
-  Match,
-  type Resource,
-  Show,
-  Switch,
-} from "solid-js";
-import { createStore, type Store } from "solid-js/store";
+  queueSendGameroundUpdate,
+  queueuPublishGameround,
+  type EmailQueueableFns,
+} from "@rst/components/anmeldung/api/email";
 
 export function FindGameround(props: {
   allRounds: Store<GameroundEditClient[]>;

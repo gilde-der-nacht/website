@@ -1,14 +1,14 @@
-import { sortTwoNumbers } from "@common/components/utils";
-import {
-  numberInputSchema,
-  textInputSchema,
-} from "@rst/components/anmeldung/api/form";
+import { z } from "astro/zod";
 import {
   publishStateSchema,
   timeSlotSchema,
 } from "@rst/components/anmeldung/api/shared";
+import {
+  numberInputSchema,
+  textInputSchema,
+} from "@rst/components/anmeldung/api/form";
+import { sortTwoNumbers } from "@common/components/utils";
 import type { ParseResult } from "@rst/components/anmeldung/api/utils";
-import { z } from "astro/zod";
 
 /*
  * Types

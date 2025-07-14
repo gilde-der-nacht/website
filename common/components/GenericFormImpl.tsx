@@ -1,14 +1,14 @@
-import { Box } from "@common/components/Box";
-import { Form } from "@common/components/Form";
-import { HiddenInput } from "@common/components/HiddenInput";
-import { Input } from "@common/components/Input";
-import { Textarea } from "@common/components/Textarea";
 import {
-  type Category,
   elysium,
+  type Category,
   type Language,
 } from "@common/components/utils";
-import { createSignal, For, type JSX, Match, Show, Switch } from "solid-js";
+import { Input } from "@common/components/Input";
+import { Form } from "@common/components/Form";
+import { Textarea } from "@common/components/Textarea";
+import { For, Match, Show, Switch, createSignal, type JSX } from "solid-js";
+import { Box } from "@common/components/Box";
+import { HiddenInput } from "@common/components/HiddenInput";
 
 export type FormElement = {
   type: "text" | "textarea" | "tel" | "email" | "date";

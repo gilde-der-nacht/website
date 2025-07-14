@@ -4,16 +4,16 @@ import {
   ButtonWithIcon,
   IconOnlyButton,
 } from "@common/components/Button";
-import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
-import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import type { ProgramDay } from "@rst/components/anmeldung/utils/time";
 import { For, type JSX } from "solid-js";
 import {
   createStore,
+  unwrap,
   type SetStoreFunction,
   type Store,
-  unwrap,
 } from "solid-js/store";
+import { gameTags } from "@rst/components/anmeldung/constant/tags";
+import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
 
 type Option = "withOpenSeats" | "iHaveTime";
 

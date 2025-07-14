@@ -1,4 +1,4 @@
-import { For, type JSX, mergeProps } from "solid-js";
+import { type JSX, For, mergeProps } from "solid-js";
 
 type Props = {
   hasErrors?: boolean;

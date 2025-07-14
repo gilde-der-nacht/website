@@ -1,6 +1,6 @@
 import { elysium } from "@common/components/utils";
-import type { SaveServer } from "./save";
 import type { Result } from "./utils";
+import type { SaveServer } from "./save";
 
 const initState = {
   version: 1,

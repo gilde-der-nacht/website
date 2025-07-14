@@ -1,24 +1,24 @@
 import { Box } from "@common/components/Box";
 import {
-  createResource,
-  createSignal,
   ErrorBoundary,
-  type JSX,
   Match,
-  onMount,
   Show,
   Suspense,
   Switch,
+  createResource,
+  createSignal,
+  onMount,
+  type JSX,
 } from "solid-js";
 import "@rst/components/anmeldung/anmeldung.scss";
-import { unpackUnion } from "@common/components/utils";
+import { Router } from "@rst/components/anmeldung/Router";
+import { loadSave } from "@rst/components/anmeldung/api/save";
 import {
   getMetaState,
   type MetaClient,
 } from "@rst/components/anmeldung/api/meta";
-import { loadSave } from "@rst/components/anmeldung/api/save";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
-import { Router } from "@rst/components/anmeldung/Router";
+import { unpackUnion } from "@common/components/utils";
 
 function Loading(): JSX.Element {
   return <Box>{TXT.loading.registration}</Box>;

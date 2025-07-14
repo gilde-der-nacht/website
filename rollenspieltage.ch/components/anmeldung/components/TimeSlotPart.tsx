@@ -1,39 +1,39 @@
-import { Box } from "@common/components/Box";
+import {
+  createMemo,
+  For,
+  Match,
+  Show,
+  Suspense,
+  Switch,
+  type JSX,
+  type Resource,
+} from "solid-js";
+import { createStore, type Store } from "solid-js/store";
 import { Button, ButtonWithIcon } from "@common/components/Button";
-import {
-  Dialog,
-  type DialogStore,
-  initDialogStore,
-} from "@common/components/Dialog";
 import { Icon } from "@common/components/Icon";
-import {
-  collectPairsToObject,
-  getNumberedKeys,
-} from "@common/components/utils";
-import type { ReservationsClient } from "@rst/components/anmeldung/api/reservations";
-import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
-import type { Result } from "@rst/components/anmeldung/api/utils";
-import {
-  openingHours,
-  type WeekendOpeningHours,
-} from "@rst/components/anmeldung/constant/hours";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { Box } from "@common/components/Box";
 import {
   getHours,
   type PerDay,
   type ProgramDay,
 } from "@rst/components/anmeldung/utils/time";
 import {
-  createMemo,
-  For,
-  type JSX,
-  Match,
-  type Resource,
-  Show,
-  Suspense,
-  Switch,
-} from "solid-js";
-import { createStore, type Store } from "solid-js/store";
+  collectPairsToObject,
+  getNumberedKeys,
+} from "@common/components/utils";
+import {
+  openingHours,
+  type WeekendOpeningHours,
+} from "@rst/components/anmeldung/constant/hours";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
+import {
+  Dialog,
+  initDialogStore,
+  type DialogStore,
+} from "@common/components/Dialog";
+import type { ReservationsClient } from "@rst/components/anmeldung/api/reservations";
+import type { Result } from "@rst/components/anmeldung/api/utils";
 
 export function TimeSlotPart(props: {
   store: Store<TimeSlot[]>;

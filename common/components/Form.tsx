@@ -1,6 +1,6 @@
+import { mergeProps, onMount, type JSX } from "solid-js";
 import { Button } from "@common/components/Button";
 import type { Language } from "@common/components/utils";
-import { type JSX, mergeProps, onMount } from "solid-js";
 
 type Props = {
   actionUrl: URL;

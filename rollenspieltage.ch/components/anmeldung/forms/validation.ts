@@ -1,5 +1,5 @@
-import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 import type { Store } from "solid-js/store";
+import type { GameroundEditClient } from "@rst/components/anmeldung/api/gameround-edit";
 
 export const DESCR_SHORT_MAX_CHAR = 200;
 export const DESCR_LONG_MAX_CHAR = 500;

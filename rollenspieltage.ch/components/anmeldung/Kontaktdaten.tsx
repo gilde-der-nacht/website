@@ -1,12 +1,12 @@
-import { Box } from "@common/components/Box";
-import { Icon } from "@common/components/Icon";
-import { Input, InputWithRef } from "@common/components/Input";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
 import type {
   SaveFromServer,
   UpdateSave,
 } from "@rst/components/anmeldung/data";
-import { type JSX, Show } from "solid-js";
+import { Input, InputWithRef } from "@common/components/Input";
+import { Show, type JSX } from "solid-js";
+import { Box } from "@common/components/Box";
+import { Icon } from "@common/components/Icon";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
 
 export function Kontaktdaten(props: {
   save: SaveFromServer;
@@ -72,7 +72,7 @@ export function Kontaktdaten(props: {
         <Icon icon="square-check" style="position: relative; top: 0.25rem;" />
         <span>
           Ich bestätige, dass ich den{" "}
-          <a href="/verhaltenskodex" target="_blank" rel="noopener">
+          <a href="/verhaltenskodex" target="_blank">
             Verhaltenskodex
           </a>{" "}
           gelesen habe und mich an die Regeln halten werde.

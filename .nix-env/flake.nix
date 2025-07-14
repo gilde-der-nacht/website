@@ -26,8 +26,8 @@
             nodePackages.typescript
             nodePackages.typescript-language-server
             nodePackages."@astrojs/language-server"
+            nodePackages.prettier
             vscode-langservers-extracted
-            biome
           ];
         };
       }

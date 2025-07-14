@@ -2,9 +2,6 @@
 default:
     @just --list
 
-check:
-    biome check .
-
 gdn-dev USE_LOCAL_ELYSIUM="false":
     PUBLIC_USE_LOCAL_ELYSIUM={{USE_LOCAL_ELYSIUM}} yarn gdn-dev
 

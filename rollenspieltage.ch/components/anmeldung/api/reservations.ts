@@ -1,7 +1,7 @@
-import { elysiumLoadReservations } from "@rst/components/anmeldung/api/elysium";
-import { mockedLoadReservations } from "@rst/components/anmeldung/api/mock";
-import type { ParseResult, Result } from "@rst/components/anmeldung/api/utils";
 import { z } from "astro/zod";
+import type { ParseResult, Result } from "@rst/components/anmeldung/api/utils";
+import { mockedLoadReservations } from "@rst/components/anmeldung/api/mock";
+import { elysiumLoadReservations } from "@rst/components/anmeldung/api/elysium";
 
 /*
  * Types

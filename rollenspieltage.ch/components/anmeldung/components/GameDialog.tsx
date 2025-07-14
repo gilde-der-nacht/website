@@ -1,14 +1,14 @@
-import { Box, SimpleBox } from "@common/components/Box";
-import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
+import { createSignal, For, Match, Show, Switch, type JSX } from "solid-js";
 import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import type {
   ReservationClient,
   ReservationCreateClient,
 } from "@rst/components/anmeldung/api/save";
-import { gameTags } from "@rst/components/anmeldung/constant/tags";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { toRange } from "@rst/components/anmeldung/utils/time";
-import { createSignal, For, type JSX, Match, Show, Switch } from "solid-js";
+import { Box, SimpleBox } from "@common/components/Box";
 
 export function GameDialog(props: {
   entry: ProgramEntryClient;

@@ -1,13 +1,13 @@
-import { Box } from "@common/components/Box";
+import { For, Show, createSignal, type JSX } from "solid-js";
+import { Form } from "@common/components/Form";
+import { Input, InputWithRef } from "@common/components/Input";
 import {
   CheckboxGroup,
   type CheckboxGroupProps,
 } from "@common/components/Checkbox";
-import { Form } from "@common/components/Form";
-import { HiddenInput } from "@common/components/HiddenInput";
-import { Input, InputWithRef } from "@common/components/Input";
 import { RadioGroup, type RadioGroupProps } from "@common/components/Radio";
-import { createSignal, For, type JSX, Show } from "solid-js";
+import { HiddenInput } from "@common/components/HiddenInput";
+import { Box } from "@common/components/Box";
 
 type Frequency = "oft" | "selten";
 
@@ -152,9 +152,8 @@ export function NewsletterImpl(props: Props): JSX.Element {
   // Need to find better solution for this
   let emailInput!: HTMLInputElement;
 
-  const [fieldErrors, setFieldErrors] = createSignal<FieldErrors>(
-    resetFieldErrors(),
-  );
+  const [fieldErrors, setFieldErrors] =
+    createSignal<FieldErrors>(resetFieldErrors());
 
   function isValid(_formData: FormData): boolean {
     setFieldErrors(resetFieldErrors());

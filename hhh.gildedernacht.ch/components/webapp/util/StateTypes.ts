@@ -1,4 +1,3 @@
-import type { ZodTypeAny } from "astro:schema";
 import type { ToastOptions } from "@hhh/components/webapp/components/static/Toast";
 import type { PageType } from "@hhh/components/webapp/pages/util/Router";
 import type {
@@ -7,7 +6,8 @@ import type {
   RestaurantBase,
 } from "@hhh/components/webapp/util/BasicTypes";
 import { z } from "astro/zod";
-import type { DateTime } from "luxon";
+import type { ZodTypeAny } from "astro:schema";
+import { DateTime } from "luxon";
 
 /* SERVER SIDE TYPES */
 

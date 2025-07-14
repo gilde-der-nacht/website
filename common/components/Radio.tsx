@@ -16,7 +16,7 @@ export function RadioGroup<T extends string>(
   props: RadioGroupProps<T>,
 ): JSX.Element {
   return (
-    <ul class="radio-list">
+    <ul role="list" class="radio-list">
       <For each={props.items}>
         {(radio) => (
           <li>

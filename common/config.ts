@@ -1,5 +1,5 @@
-import mdx from "@astrojs/mdx";
 import solidJs from "@astrojs/solid-js";
+import mdx from "@astrojs/mdx";
 import type { AstroUserConfig, RemarkPlugins } from "astro";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
