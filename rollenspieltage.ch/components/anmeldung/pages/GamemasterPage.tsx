@@ -83,7 +83,7 @@ export function GamemasterPage(props: {
               >
                 {({ game, slot }) => {
                   const tagNames = gameTags
-                    .filter((g) => props.entry.tags.includes(g.name))
+                    .filter((g) => game.tagNames.includes(g.name))
                     .map(({ label }) => label);
                   return (
                     <Entry
