@@ -9,7 +9,7 @@ import { OrderAPI } from "@hhh/components/webapp/api/order-api";
 import { RestaurantAPI } from "@hhh/components/webapp/api/restaurant-api";
 import type { ToastOptions } from "@hhh/components/webapp/components/static/Toast";
 import type { AppData } from "@hhh/components/webapp/util/StateTypes";
-import { DateTime } from "luxon";
+import type { DateTime } from "luxon";
 
 export type ApiProps = {
   refetch: Refetcher;

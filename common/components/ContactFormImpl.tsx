@@ -1,14 +1,14 @@
-import { For, Match, Show, Switch, createSignal, type JSX } from "solid-js";
+import { Box } from "@common/components/Box";
 import { Form } from "@common/components/Form";
+import { HiddenInput } from "@common/components/HiddenInput";
 import { Input, InputWithRef } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
-import { HiddenInput } from "@common/components/HiddenInput";
-import { Box } from "@common/components/Box";
 import {
-  elysium,
   type Category,
+  elysium,
   type Language,
 } from "@common/components/utils";
+import { createSignal, For, type JSX, Match, Show, Switch } from "solid-js";
 
 /*
  * This is a hot mess. Should work for now, but should be cleaned up.

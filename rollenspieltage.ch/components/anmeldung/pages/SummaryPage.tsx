@@ -1,38 +1,38 @@
-import { createMemo, Show, type JSX, type Resource } from "solid-js";
-import { createStore, type Store } from "solid-js/store";
-import type {
-  ContactClient,
-  SaveClient,
-} from "@rst/components/anmeldung/api/save";
+import { Box } from "@common/components/Box";
 import {
   Button,
   ButtonWithIcon,
   IconOnlyButton,
 } from "@common/components/Button";
+import { Chip } from "@common/components/Chip";
 import {
   Dialog,
-  initDialogStore,
   type DialogStore,
+  initDialogStore,
 } from "@common/components/Dialog";
-import { TextInputField } from "@rst/components/anmeldung/forms/Components";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
+import type { IconType } from "@common/components/Icon";
 import { initTextInput } from "@rst/components/anmeldung/api/form";
+import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
+import type {
+  ContactClient,
+  SaveClient,
+} from "@rst/components/anmeldung/api/save";
+import type { PublishState } from "@rst/components/anmeldung/api/shared";
+import type { Result } from "@rst/components/anmeldung/api/utils";
 import {
-  WeekendTimetable,
   type ProgramEntryTimetableView,
+  WeekendTimetable,
 } from "@rst/components/anmeldung/components/Timetable";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { TextInputField } from "@rst/components/anmeldung/forms/Components";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import type {
   DateTimeWindow,
   PerDay,
   TimeRange,
 } from "@rst/components/anmeldung/utils/time";
-import { Box } from "@common/components/Box";
-import { Chip } from "@common/components/Chip";
-import type { ChangePageFn } from "@rst/components/anmeldung/Router";
-import type { PublishState } from "@rst/components/anmeldung/api/shared";
-import type { IconType } from "@common/components/Icon";
-import type { Result } from "@rst/components/anmeldung/api/utils";
-import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
+import { createMemo, type JSX, type Resource, Show } from "solid-js";
+import { createStore, type Store } from "solid-js/store";
 
 export function SummaryPage(props: {
   store: Store<SaveClient>;

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "includes": [
+      "common/**/*.{js, ts, tsx, jsx}",
+      "gildedernacht.ch/**/*.{js, ts, tsx, jsx}",
+      "!gildedernacht.ch/public/icons/fontawesome.min.js",
+      "!gildedernacht.ch/public/icons/duotone.min.js",
+      "spieltage.ch/**/*.{js, ts, tsx, jsx}",
+      "!spieltage.ch/public/icons/fontawesome.min.js",
+      "!spieltage.ch/public/icons/duotone.min.js",
+      "rollenspieltage.ch/**/*.{js, ts, tsx, jsx}",
+      "!rollenspieltage.ch/public/icons/fontawesome.min.js",
+      "!rollenspieltage.ch/public/icons/duotone.min.js",
+      "hhh.gildedernacht.ch/**/*.{js, ts, tsx, jsx}",
+      "!hhh.gildedernacht.ch/public/icons/fontawesome.min.js",
+      "!hhh.gildedernacht.ch/public/icons/duotone.min.js"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}

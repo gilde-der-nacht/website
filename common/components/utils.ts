@@ -98,9 +98,11 @@ export function collectPairsToObject<A extends string | number, B>(
   return mapToObject(collectPairs(pairs)) as { [P in A]: B };
 }
 
-export function getNumberedKeys<A extends number>(obj: {
-  [P in A]: unknown;
-}): number[] {
+export function getNumberedKeys<A extends number>(
+  obj: {
+    [P in A]: unknown;
+  },
+): number[] {
   return Object.keys(obj).map((n) => Number.parseInt(n));
 }
 
@@ -125,7 +127,7 @@ export function ellipsis(text: string, limit: number): string {
   if (text.length < limit) {
     return text;
   }
-  return text.substring(0, limit) + "...";
+  return `${text.substring(0, limit)}...`;
 }
 
 export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
@@ -138,7 +140,7 @@ export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
       clearTimeout(timer);
       timer = setTimeout(() => {
         try {
-          let output = callback(...args);
+          const output = callback(...args);
           resolve(output);
         } catch (err) {
           if (err instanceof Error) {

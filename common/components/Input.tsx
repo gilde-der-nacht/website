@@ -1,4 +1,4 @@
-import { mergeProps, type JSX } from "solid-js";
+import { type JSX, mergeProps } from "solid-js";
 
 type InputProps = {
   value: string;

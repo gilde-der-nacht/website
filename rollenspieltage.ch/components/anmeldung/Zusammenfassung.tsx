@@ -1,13 +1,13 @@
-import type { JSX } from "solid-js";
+import { Box } from "@common/components/Box";
 import type {
   Program,
   ProgramEntry,
   ReservationFromServer,
   SaveFromServer,
 } from "@rst/components/anmeldung/data";
-import { Box } from "@common/components/Box";
-import type { DayPeriod, Reservation } from "@rst/components/anmeldung/types";
 import { MealBreak } from "@rst/components/anmeldung/MealBreak";
+import type { DayPeriod, Reservation } from "@rst/components/anmeldung/types";
+import type { JSX } from "solid-js";
 
 type ReservationAndGame = { reservation: Reservation; game: ProgramEntry };
 
@@ -21,7 +21,9 @@ function ReservationItem(props: {
     <Box type={props.type ?? "gray"}>
       <p>
         <strong>
-          {game.title === null ? game.system : `${game.title} (${game.system})`}{" "}
+          {game.title === null
+            ? game.system
+            : `${game.title} (${game.system})`}{" "}
         </strong>
         | {game.slot.day === "SATURDAY" ? "Samstag" : "Sonntag"},{" "}
         {game.slot.start} bis {game.slot.end} Uhr

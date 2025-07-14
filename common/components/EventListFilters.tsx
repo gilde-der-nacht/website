@@ -1,7 +1,7 @@
-import type { JSX } from "solid-js";
 import type { OlympEvent } from "@common/components/events";
+import { Icon } from "@common/components/Icon";
 import type { Language } from "@common/components/utils";
-import { Icon } from "./Icon";
+import type { JSX } from "solid-js";
 
 type Props = {
   events: OlympEvent[];
@@ -38,7 +38,7 @@ export function EventListFilters(props: Props): JSX.Element {
           <Icon icon="circle-xmark" />
         </a>
       </div>
-      <ul role="list">{listOfTags.map(renderFilterList)}</ul>
+      <ul>{listOfTags.map(renderFilterList)}</ul>
     </div>
   );
 }

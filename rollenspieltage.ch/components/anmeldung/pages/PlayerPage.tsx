@@ -1,42 +1,42 @@
 import { Box } from "@common/components/Box";
-import {
-  createEffect,
-  For,
-  Match,
-  Show,
-  Suspense,
-  Switch,
-  type JSX,
-  type Resource,
-} from "solid-js";
-import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
-import type { Result } from "@rst/components/anmeldung/api/utils";
-import {
-  getHours,
-  type PerDay,
-  type ProgramDay,
-} from "@rst/components/anmeldung/utils/time";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
-import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
-import { ellipsis } from "@common/components/utils";
-import { gameTags } from "@rst/components/anmeldung/constant/tags";
-import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import { Checkbox } from "@common/components/Checkbox";
 import { Dialog, initDialogStore } from "@common/components/Dialog";
-import { createStore, type Store } from "solid-js/store";
-import { openingHours } from "@rst/components/anmeldung/constant/hours";
-import { GameDialog } from "@rst/components/anmeldung/components/GameDialog";
+import { ellipsis } from "@common/components/utils";
+import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
 import type {
   PlayingClient,
   ReservationClient,
   ReservationCreateClient,
 } from "@rst/components/anmeldung/api/save";
-import { Checkbox } from "@common/components/Checkbox";
+import type { Result } from "@rst/components/anmeldung/api/utils";
 import {
+  type ActiveFilter,
   applyFilter,
   Filters,
   initalizeFilters,
-  type ActiveFilter,
 } from "@rst/components/anmeldung/components/Filter";
+import { GameDialog } from "@rst/components/anmeldung/components/GameDialog";
+import { openingHours } from "@rst/components/anmeldung/constant/hours";
+import { gameTags } from "@rst/components/anmeldung/constant/tags";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import {
+  getHours,
+  type PerDay,
+  type ProgramDay,
+} from "@rst/components/anmeldung/utils/time";
+import {
+  createEffect,
+  For,
+  type JSX,
+  Match,
+  type Resource,
+  Show,
+  Suspense,
+  Switch,
+} from "solid-js";
+import { createStore, type Store } from "solid-js/store";
 
 export function PlayerPage(props: {
   store: Store<PlayingClient>;

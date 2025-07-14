@@ -3,7 +3,7 @@ import type {
   OrderBase,
   RestaurantBase,
 } from "@hhh/components/webapp/util/BasicTypes";
-import { DateTime } from "luxon";
+import type { DateTime } from "luxon";
 
 export type RestaurantStatus = "active" | "inactive" | "deleted";
 export type OrderStatus = "auto" | "active" | "inactive" | "deleted";

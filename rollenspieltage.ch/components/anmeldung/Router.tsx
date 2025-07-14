@@ -1,24 +1,7 @@
-import {
-  createResource,
-  createSignal,
-  Match,
-  onMount,
-  Show,
-  Suspense,
-  Switch,
-  type JSX,
-} from "solid-js";
-import { SummaryPage } from "@rst/components/anmeldung/pages/SummaryPage";
-import { HelpingPage } from "@rst/components/anmeldung/pages/HelpingPage";
-import { GamemasterPage } from "@rst/components/anmeldung/pages/GamemasterPage";
-import { PlayerPage } from "@rst/components/anmeldung/pages/PlayerPage";
 import { Box } from "@common/components/Box";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
-import { ChoosePage } from "@rst/components/anmeldung/pages/ChoosePage";
-import {
-  EditGamePage,
-  FindGameround,
-} from "@rst/components/anmeldung/pages/EditGamePage";
+import { ToastContainer, toast } from "@common/components/Toast";
+import { createQueue } from "@common/components/utils";
+import type { EmailQueueableFns } from "@rst/components/anmeldung/api/email";
 import {
   getMetaState,
   isSamePage,
@@ -26,17 +9,34 @@ import {
   type PageClient,
   type PageClientSimplified,
 } from "@rst/components/anmeldung/api/meta";
+import { loadProgram } from "@rst/components/anmeldung/api/program";
+import { loadReservations } from "@rst/components/anmeldung/api/reservations";
 import {
   debouncedSaveState,
   type SaveClient,
 } from "@rst/components/anmeldung/api/save";
-import { createStore, unwrap, type Store } from "solid-js/store";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { ChoosePage } from "@rst/components/anmeldung/pages/ChoosePage";
+import {
+  EditGamePage,
+  FindGameround,
+} from "@rst/components/anmeldung/pages/EditGamePage";
+import { GamemasterPage } from "@rst/components/anmeldung/pages/GamemasterPage";
+import { HelpingPage } from "@rst/components/anmeldung/pages/HelpingPage";
 import { PageTemplate } from "@rst/components/anmeldung/pages/PageTemplate";
-import { loadReservations } from "@rst/components/anmeldung/api/reservations";
-import { loadProgram } from "@rst/components/anmeldung/api/program";
-import { createQueue } from "@common/components/utils";
-import type { EmailQueueableFns } from "@rst/components/anmeldung/api/email";
-import { toast, ToastContainer } from "@common/components/Toast";
+import { PlayerPage } from "@rst/components/anmeldung/pages/PlayerPage";
+import { SummaryPage } from "@rst/components/anmeldung/pages/SummaryPage";
+import {
+  createResource,
+  createSignal,
+  type JSX,
+  Match,
+  onMount,
+  Show,
+  Suspense,
+  Switch,
+} from "solid-js";
+import { createStore, type Store, unwrap } from "solid-js/store";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);

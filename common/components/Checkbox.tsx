@@ -1,4 +1,4 @@
-import { For, Show, type JSX } from "solid-js";
+import { For, type JSX, Show } from "solid-js";
 
 type CheckboxItem<T extends string> = {
   label: string | JSX.Element;
@@ -18,7 +18,7 @@ export function CheckboxGroup<T extends string>(
   props: CheckboxGroupProps<T>,
 ): JSX.Element {
   return (
-    <ul role="list" class="checkbox-list">
+    <ul class="checkbox-list">
       <For each={props.items}>
         {(checkbox) => (
           <li>

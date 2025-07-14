@@ -1,8 +1,11 @@
-import { For, Match, Switch, type JSX } from "solid-js";
+import { Box } from "@common/components/Box";
+import { Icon } from "@common/components/Icon";
+import { assert } from "@common/components/utils";
 import {
-  openingHours,
   type OpeningHours,
+  openingHours,
 } from "@rst/components/anmeldung/constant/hours";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
 import {
   getHours,
   isOverlapping,
@@ -10,10 +13,7 @@ import {
   type ProgramDay,
   type TimeRange,
 } from "@rst/components/anmeldung/utils/time";
-import { assert } from "@common/components/utils";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
-import { Box } from "@common/components/Box";
-import { Icon } from "@common/components/Icon";
+import { For, type JSX, Match, Switch } from "solid-js";
 
 export type TimetableConfiguration = {
   start: number;

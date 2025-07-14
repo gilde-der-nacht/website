@@ -1,11 +1,11 @@
 import type { WithChildren } from "@common/components/utils";
-import type { JSX } from "solid-js/jsx-runtime";
+import type { SaveState } from "@rst/components/anmeldung/api/meta";
 import {
   QuickMenu,
   QuickMenuExtended,
 } from "@rst/components/anmeldung/components/QuickMenu";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
-import type { SaveState } from "@rst/components/anmeldung/api/meta";
+import type { JSX } from "solid-js/jsx-runtime";
 
 export function PageTemplate(
   props: WithChildren & {

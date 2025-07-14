@@ -4,21 +4,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@common/*": [
-        "common/*"
-      ],
-      "@gdn/*": [
-        "gildedernacht.ch/*"
-      ],
-      "@lst/*": [
-        "spieltage.ch/*"
-      ],
-      "@rst/*": [
-        "rollenspieltage.ch/*"
-      ],
-      "@hhh/*": [
-        "hhh.gildedernacht.ch/*"
-      ]
+      "@common/*": ["common/*"],
+      "@gdn/*": ["gildedernacht.ch/*"],
+      "@lst/*": ["spieltage.ch/*"],
+      "@rst/*": ["rollenspieltage.ch/*"],
+      "@hhh/*": ["hhh.gildedernacht.ch/*"]
     },
     "verbatimModuleSyntax": true,
     "jsx": "preserve",

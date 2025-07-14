@@ -1,13 +1,13 @@
-import { Input, InputWithRef } from "common/components/Input.tsx";
-import { createStore } from "solid-js/store";
-import { Button } from "@common/components/Button";
-import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
-import { z } from "astro/zod";
-import { elysium } from "@common/components/utils";
+import { Button } from "@common/components/Button";
 import { Checkbox } from "@common/components/Checkbox";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { elysium } from "@common/components/utils";
 import type { SaveClient } from "@rst/components/anmeldung/api/save";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { z } from "astro/zod";
+import { Input, InputWithRef } from "common/components/Input.tsx";
+import { type JSX, Show } from "solid-js";
+import { createStore } from "solid-js/store";
 
 export type PageState = {
   form: {
@@ -162,7 +162,7 @@ export function AnmeldungWrapper(): JSX.Element {
           label={
             <span>
               Ich bestätige, dass ich den{" "}
-              <a href="/verhaltenskodex" target="_blank">
+              <a href="/verhaltenskodex" target="_blank" rel="noopener">
                 Verhaltenskodex
               </a>{" "}
               gelesen habe und mich an die Regeln halten werde.

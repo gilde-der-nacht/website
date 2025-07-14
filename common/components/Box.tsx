@@ -1,7 +1,7 @@
-import { Show, type JSX } from "solid-js";
+import { IconOnlyButton } from "@common/components/Button";
+import { Icon } from "@common/components/Icon";
 import type { WithChildren } from "@common/components/utils";
-import { Icon } from "./Icon";
-import { IconOnlyButton } from "./Button";
+import { type JSX, Show } from "solid-js";
 
 export type BoxType = "success" | "danger" | "special" | "gray";
 
@@ -14,6 +14,8 @@ type Props = WithChildren & {
 };
 
 export function Box(props: Props): JSX.Element {
+  /* biome-ignore-start lint/a11y/noStaticElementInteractions: fix later
+    biome-ignore-start lint/a11y/useKeyWithClickEvents: fix later */
   return (
     <div
       class={`box-${props.type ?? "gray"} ${props.onClose !== undefined ? "box-with-close" : ""}`}
@@ -36,6 +38,8 @@ export function Box(props: Props): JSX.Element {
       </Show>
     </div>
   );
+  /* biome-ignore-end lint/a11y/useKeyWithClickEvents: fix later 
+    biome-ignore-end lint/a11y/noStaticElementInteractions: fix later */
 }
 
 export function SimpleBox(

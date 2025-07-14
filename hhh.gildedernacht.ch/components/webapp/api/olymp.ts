@@ -1,11 +1,11 @@
 import {
+  type Entry,
   entryParser,
   getOlympParser,
-  orderParser,
-  restaurantParser,
-  type Entry,
   type Order,
+  orderParser,
   type Restaurant,
+  restaurantParser,
 } from "../util/StateTypes";
 
 export const BASE_ENDPOINT = new URL("https://olymp.gildedernacht.ch");

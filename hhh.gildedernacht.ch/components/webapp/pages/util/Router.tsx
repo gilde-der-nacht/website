@@ -1,4 +1,4 @@
-import API from "@hhh/components/webapp/api/api";
+import type API from "@hhh/components/webapp/api/api";
 import { NewOrderPage } from "@hhh/components/webapp/pages/NewOrderPage";
 import { NewRestaurantPage } from "@hhh/components/webapp/pages/NewRestaurantPage";
 import { StartPage } from "@hhh/components/webapp/pages/StartPage";

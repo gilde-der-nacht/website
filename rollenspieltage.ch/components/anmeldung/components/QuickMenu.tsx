@@ -1,12 +1,12 @@
+import { Box } from "@common/components/Box";
 import { Button, ButtonWithIcon } from "@common/components/Button";
 import { Icon } from "@common/components/Icon";
 import { Tooltip } from "@common/components/Tooltip";
-import type { JSX } from "solid-js/jsx-runtime";
-import type { ChangePageFn } from "@rst/components/anmeldung/Router";
-import type { SaveState } from "@rst/components/anmeldung/api/meta";
-import { Match, Switch } from "solid-js";
 import { formatDateTime } from "@common/components/utils";
-import { Box } from "@common/components/Box";
+import type { SaveState } from "@rst/components/anmeldung/api/meta";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import { Match, Switch } from "solid-js";
+import type { JSX } from "solid-js/jsx-runtime";
 
 export function QuickMenu(props: {
   changePage: ChangePageFn;

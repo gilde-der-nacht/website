@@ -1,7 +1,7 @@
-import type { SaveServer } from "@rst/components/anmeldung/api/save";
-import type { ReservationsServer } from "@rst/components/anmeldung/api/reservations";
-import type { Result } from "@rst/components/anmeldung/api/utils";
 import type { ProgramServer } from "@rst/components/anmeldung/api/program";
+import type { ReservationsServer } from "@rst/components/anmeldung/api/reservations";
+import type { SaveServer } from "@rst/components/anmeldung/api/save";
+import type { Result } from "@rst/components/anmeldung/api/utils";
 
 const validTimeStamp = "2024-08-15T07:45:21.335Z";
 const uuid = {

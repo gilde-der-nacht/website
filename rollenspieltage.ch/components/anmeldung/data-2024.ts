@@ -1,9 +1,9 @@
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import {
-  serverSchemaDay,
   type PerDay,
   type ProgramDay,
+  serverSchemaDay,
   type TimeRange,
 } from "./utils/time";
 
@@ -182,7 +182,7 @@ export function getByDayAndHour(
       reservedIds: reserved.map((entry) => entry.id),
     } satisfies ProgramEntryExtended;
   });
-  let grouped: Record<number, ProgramEntryExtended[]> = {};
+  const grouped: Record<number, ProgramEntryExtended[]> = {};
   for (const entry of gamesExtended) {
     const { start } = entry.slot;
     const list: ProgramEntryExtended[] = grouped[start] ?? [];

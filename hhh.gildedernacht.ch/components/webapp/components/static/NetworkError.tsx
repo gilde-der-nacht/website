@@ -9,7 +9,14 @@ export const NetworkError = () => (
       </p>
       <p>
         Erhältst du den Fehler erneut, schreibe uns bitte eine Nachricht per{" "}
-        <a href="https://gildedernacht.ch/kontakt/" target="_blank">Kontaktformular</a>.
+        <a
+          href="https://gildedernacht.ch/kontakt/"
+          target="_blank"
+          rel="noopener"
+        >
+          Kontaktformular
+        </a>
+        .
       </p>
     </div>
   </Notification>

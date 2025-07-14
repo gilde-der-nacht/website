@@ -1,19 +1,19 @@
-import { createSignal, type JSX } from "solid-js";
+import { Checkbox } from "@common/components/Checkbox";
+import { Icon } from "@common/components/Icon";
 import type {
   ProgramByHour,
   ProgramEntryExtended,
   ReservationFromServer,
   UpdateSave,
 } from "@rst/components/anmeldung/data";
-import { Checkbox } from "@common/components/Checkbox";
+import { MealBreak } from "@rst/components/anmeldung/MealBreak";
 import type {
+  DayPeriod,
   Reservation,
   ReservationView,
   ReservedTimeRange,
-  DayPeriod,
 } from "@rst/components/anmeldung/types";
-import { MealBreak } from "@rst/components/anmeldung/MealBreak";
-import { Icon } from "@common/components/Icon";
+import { createSignal, type JSX } from "solid-js";
 import { isOverlapping } from "./utils/time";
 
 const BUFFER_SEATS = 1 as const;

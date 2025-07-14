@@ -1,8 +1,8 @@
-import { z } from "astro/zod";
-import type { ParseResult, Result } from "@rst/components/anmeldung/api/utils";
-import { mockedLoadProgram } from "@rst/components/anmeldung/api/mock";
 import { elysiumLoadProgram } from "@rst/components/anmeldung/api/elysium";
+import { mockedLoadProgram } from "@rst/components/anmeldung/api/mock";
 import { daySchema } from "@rst/components/anmeldung/api/shared";
+import type { ParseResult, Result } from "@rst/components/anmeldung/api/utils";
+import { z } from "astro/zod";
 
 /*
  * Types

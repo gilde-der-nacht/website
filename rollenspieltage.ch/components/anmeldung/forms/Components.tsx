@@ -1,12 +1,12 @@
-import { Input, InputInteger } from "@common/components/Input";
-import { For, Show, type JSX } from "solid-js";
-import { createStore, type Store } from "solid-js/store";
-import type {
-  TextInput,
-  NumberInput,
-} from "@rst/components/anmeldung/api/form";
 import { Box } from "@common/components/Box";
+import { Input, InputInteger } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";
+import type {
+  NumberInput,
+  TextInput,
+} from "@rst/components/anmeldung/api/form";
+import { For, type JSX, Show } from "solid-js";
+import { createStore, type Store } from "solid-js/store";
 
 export function TextInputField(props: {
   store: Store<TextInput>;

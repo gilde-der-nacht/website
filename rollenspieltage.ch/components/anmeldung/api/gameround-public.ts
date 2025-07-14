@@ -1,6 +1,6 @@
-import { z } from "astro/zod";
-import { timeSlotSchema } from "@rst/components/anmeldung/api/shared";
 import { sortTwoNumbers } from "@common/components/utils";
+import { timeSlotSchema } from "@rst/components/anmeldung/api/shared";
+import { z } from "astro/zod";
 
 /*
  * Types

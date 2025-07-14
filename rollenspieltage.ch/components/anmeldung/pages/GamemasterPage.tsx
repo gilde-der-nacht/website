@@ -1,18 +1,18 @@
-import { For, Show, type JSX } from "solid-js";
-import { BoxLink } from "@rst/components/anmeldung/components/BoxLink";
-import { createStore, type Store } from "solid-js/store";
-import type { ChangePageFn } from "@rst/components/anmeldung/Router";
-import type { MasterClient } from "@rst/components/anmeldung/api/save";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
-import {
-  getNewGameround,
-  type GameroundEditClient,
-} from "@rst/components/anmeldung/api/gameround-edit";
-import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
-import { gameTags } from "@rst/components/anmeldung/constant/tags";
-import { ellipsis } from "@common/components/utils";
-import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
 import { Checkbox } from "@common/components/Checkbox";
+import { ellipsis } from "@common/components/utils";
+import {
+  type GameroundEditClient,
+  getNewGameround,
+} from "@rst/components/anmeldung/api/gameround-edit";
+import type { MasterClient } from "@rst/components/anmeldung/api/save";
+import type { TimeSlot } from "@rst/components/anmeldung/api/shared";
+import { BoxLink } from "@rst/components/anmeldung/components/BoxLink";
+import { gameTags } from "@rst/components/anmeldung/constant/tags";
+import { TXT } from "@rst/components/anmeldung/constant/texts";
+import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
+import type { ChangePageFn } from "@rst/components/anmeldung/Router";
+import { For, type JSX, Show } from "solid-js";
+import { createStore, type Store } from "solid-js/store";
 import { sortByDateTimeWindow } from "../utils/time";
 
 export function GamemasterPage(props: {

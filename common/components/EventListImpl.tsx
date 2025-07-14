@@ -1,10 +1,10 @@
-import type { JSX } from "solid-js";
 import type { OlympEvent } from "@common/components/events";
 import {
   formatDate,
   formatDateRange,
   formatDateTime,
 } from "@common/components/utils";
+import type { JSX } from "solid-js";
 import { Icon } from "./Icon";
 
 function getTheme(eventType: string): { theme: string; icon: string } | null {
@@ -116,7 +116,7 @@ function renderTags(event: OlympEvent): JSX.Element {
       <div class="event-icon">
         <Icon icon="tags" />
       </div>
-      <ul role="list">{event.tags.map(renderTag)}</ul>
+      <ul>{event.tags.map(renderTag)}</ul>
     </div>
   );
 }
@@ -134,7 +134,7 @@ function renderDescription(event: OlympEvent): JSX.Element {
     return event.description;
   }
 
-  return event.type.description + "\n\n" + event.description;
+  return `${event.type.description}\n\n${event.description}`;
 }
 
 function renderLinks(event: OlympEvent): JSX.Element {
@@ -153,11 +153,7 @@ function renderLinks(event: OlympEvent): JSX.Element {
     return "";
   }
 
-  return (
-    <ul role="list" class="event-links">
-      {event.links.map(renderLink)}
-    </ul>
-  );
+  return <ul class="event-links">{event.links.map(renderLink)}</ul>;
 }
 
 type EventEntryProps = {
@@ -193,7 +189,7 @@ function sortByStartDate(a: OlympEvent, b: OlympEvent) {
 
 export function EventListImpl(props: EventListProps): JSX.Element {
   return (
-    <ul class="event-list" role="list">
+    <ul class="event-list">
       {props.events.toSorted(sortByStartDate).map((event) => (
         <EventEntry event={event} />
       ))}
