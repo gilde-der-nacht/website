@@ -82,15 +82,14 @@ export function GamemasterPage(props: {
                 each={gameList().filter(({ game }) => game.kind !== "archived")}
               >
                 {({ game, slot }) => {
-                  const tags = game.tagNames
-                    .map((t) => gameTags.find(({ name }) => name === t))
-                    .filter((t) => t !== undefined)
+                  const tagNames = gameTags
+                    .filter((g) => props.entry.tags.includes(g.name))
                     .map(({ label }) => label);
                   return (
                     <Entry
                       game={game}
                       slot={slot}
-                      tags={tags}
+                      tags={tagNames}
                       changePage={props.changePage}
                     />
                   );
