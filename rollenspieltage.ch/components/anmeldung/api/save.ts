@@ -158,6 +158,10 @@ type SaveResult = Result<SaveClient> | { kind: "SECRET_INVALID" };
  */
 
 export async function loadSave(secret: string): Promise<SaveResult> {
+  if (secret.trim().length === 0 || secret.length !== 36) {
+    return { kind: "SECRET_INVALID" };
+  }
+
   const save =
     secret === "demo" ? await mockedLoadSave() : await elysiumLoadSave(secret);
 
