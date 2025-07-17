@@ -80,7 +80,7 @@ const saveMock = {
     ],
     wantsHelp: false,
   },
-  helping: {},
+  helping: [],
   publishState: "published",
 } satisfies SaveServer;
 

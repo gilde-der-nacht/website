@@ -18,7 +18,7 @@ const initState = {
     games: [],
     wantsHelp: false,
   },
-  helping: {},
+  helping: [],
   publishState: "draft",
 } satisfies SaveServer;
 
