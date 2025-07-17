@@ -26,6 +26,10 @@ const pageClientSchema = z.discriminatedUnion("kind", [
     uuid: z.null(),
   }),
   z.object({
+    kind: z.literal("HELPING-SLOT"),
+    uuid: z.string().uuid(),
+  }),
+  z.object({
     kind: z.literal("SUMMARY"),
     uuid: z.null(),
   }),
@@ -51,6 +55,10 @@ const pageClientSimplifiedSchema = z.discriminatedUnion("kind", [
   }),
   z.object({
     kind: z.literal("HELPING"),
+  }),
+  z.object({
+    kind: z.literal("HELPING-SLOT"),
+    uuid: z.string().uuid(),
   }),
   z.object({
     kind: z.literal("SUMMARY"),

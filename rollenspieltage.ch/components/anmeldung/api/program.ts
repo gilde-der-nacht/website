@@ -67,7 +67,7 @@ export type ProgramClient = z.infer<typeof programClientSchema>;
  */
 
 export async function loadProgram(
-  secret?: string,
+  secret: string,
 ): Promise<Result<ProgramClient>> {
   const program =
     secret === "demo"

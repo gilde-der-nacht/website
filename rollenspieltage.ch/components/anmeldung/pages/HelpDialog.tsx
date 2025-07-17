@@ -1,38 +1,16 @@
-import { createSignal, For, Match, Show, Switch, type JSX } from "solid-js";
-import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
-import { TXT } from "@rst/components/anmeldung/constant/texts";
-import { gameTags } from "@rst/components/anmeldung/constant/tags";
-import type {
-  ReservationClient,
-  ReservationCreateClient,
-} from "@rst/components/anmeldung/api/save";
-import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
-import { toRange } from "@rst/components/anmeldung/utils/time";
 import { Box, SimpleBox } from "@common/components/Box";
+import { IconOnlyButton, ButtonWithIcon } from "@common/components/Button";
+import { type JSX, For, Switch, Match, Show } from "solid-js";
+import { type HelpEntryView, helpTypes } from "../constant/helping";
+import { TXT } from "../constant/texts";
+import { toRange } from "../utils/time";
 
-export function GameDialog(props: {
-  entry: ProgramEntryClient;
-  reservations: ReservationClient[];
-  isEditable: boolean;
-  addReservation: (reservation: ReservationCreateClient) => void;
-  removeReservation: (reservationUuid: string) => void;
-}): JSX.Element {
-  const gameReservations = () =>
-    props.reservations.filter((r) => r.gameRound === props.entry.uuid);
+export function HelpDialog(props: { entry: HelpEntryView }): JSX.Element {
+  const { dateTime, entry } = props.entry;
+  const helpType = helpTypes[entry.kind];
 
-  const externalReserved = Math.max(
-    props.entry.playerCount.reserved + 1 - gameReservations.length,
-    1,
-  );
-
-  const tagNames = props.entry.tags
-    .map((t) => gameTags.find(({ name }) => name === t))
-    .filter((t) => t !== undefined)
-    .map(({ label }) => label);
-
-  const max = props.entry.playerCount.max;
   const range = () =>
-    toRange(max).map((i) => {
+    toRange(entry.count).map((i) => {
       const myReservation = gameReservations()[i];
       if (myReservation !== undefined) {
         return myReservation;
@@ -46,82 +24,17 @@ export function GameDialog(props: {
       return { kind: "FREE" } as const;
     });
 
-  const hasReservedForThemselves = (): boolean => {
-    return gameReservations().find((r) => r.kind === "SELF") !== undefined;
-  };
-
-  const freeSpaces = (): number => {
-    const myReservationCount = range().filter(
-      (r) => r.kind === "SELF" || r.kind === "FRIEND",
-    ).length;
-
-    const calculatedFreeSpaces =
-      props.entry.playerCount.max -
-      1 -
-      props.entry.playerCount.reserved -
-      myReservationCount;
-
-    return Math.max(calculatedFreeSpaces, 0);
-  };
-
   return (
     <div class="game-dialog">
-      <ul role="list" style="display: grid; gap: 0.5rem;">
-        <li>
-          <strong style="color: var(--clr-accent-1);">Spielleitung:</strong>
-          <br /> {props.entry.gamemaster}
-        </li>
-        <li>
-          <strong style="color: var(--clr-accent-1);">System:</strong>
-          <br />
-          {props.entry.system.trim().length > 0 ? (
-            props.entry.system
-          ) : (
-            <em>kein System angegeben</em>
-          )}
-        </li>
-        <li>
-          <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong> <br />
-          {TXT.days[props.entry.slot.day]}, {props.entry.slot.from} -{" "}
-          {props.entry.slot.to} Uhr
-        </li>
-        <li>
-          <strong style="color: var(--clr-accent-1);">Freie Plätze:</strong>
-          <br />
-          {freeSpaces()} (von {props.entry.playerCount.max})
-        </li>
-        <li>
-          <strong style="color: var(--clr-accent-1);">Kategorien:</strong>
-          <br />
-          {tagNames.length > 0 ? (
-            tagNames.join(", ")
-          ) : (
-            <em>keine Kategorien</em>
-          )}
-        </li>
-        <li>
-          <strong style="color: var(--clr-accent-1);">
-            Kurze Beschreibung:
-          </strong>
-          <br />
-          {props.entry.description.short}
-        </li>
-        <li>
-          <strong style="color: var(--clr-accent-1);">
-            Lange Beschreibung:
-          </strong>
-          <br />
-          {props.entry.description.long.trim().length > 0 ? (
-            <>{props.entry.description.long}</>
-          ) : (
-            <em>Keine lange Beschreibung angegeben.</em>
-          )}
-        </li>
-      </ul>
+      <div>
+        <p>{helpType.description}</p>
+      </div>
+      <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong> <br />
+      {TXT.days[dateTime.day]}, {dateTime.from} - {dateTime.to} Uhr
       <div class="reservations">
         <h5 style="margin-block-start: 0">Plätze reservieren</h5>
         <div class="reservation-table">
-          <For each={range()}>
+          <For each={toRange(entry().entry.count)}>
             {(seat, i) => (
               <>
                 <div class="count">{i() + 1}</div>
@@ -221,38 +134,5 @@ export function GameDialog(props: {
         </div>
       </div>
     </div>
-  );
-}
-
-export function InputButton(props: {
-  addFriend: (name: string) => void;
-}): JSX.Element {
-  const [name, setName] = createSignal("");
-  return (
-    <form
-      novalidate={true}
-      style="display: grid; gap: 0rem; grid-template-columns: 1fr max-content"
-      class="input-button"
-      onSubmit={(e: SubmitEvent) => {
-        e.preventDefault();
-        const n = name();
-        if (n.trim().length > 0) {
-          props.addFriend(n);
-        }
-      }}
-    >
-      <input
-        type="text"
-        style="border-color: var(--clr-special-9);"
-        value={name()}
-        onInput={(e) => setName(e.target.value)}
-      />
-      <ButtonWithIcon
-        icon="arrow-right"
-        type="submit"
-        label="Begleitperson anmelden"
-        kind="special"
-      />
-    </form>
   );
 }

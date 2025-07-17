@@ -64,6 +64,13 @@ const error = {
       das <a href="/kontakt">Kontaktformular</a>.
     </p>
   ),
+  help: (
+    <p>
+      Leider ist ein unerwarteter Fehler passiert beim Laden von Daten.
+      Vermutlich liegt es an uns. Bitte kontaktiere uns sobald als möglich über
+      das <a href="/kontakt">Kontaktformular</a>.
+    </p>
+  ),
 };
 
 const draft = "Entwurf";
@@ -93,6 +100,7 @@ const pageTitle: Record<PageKind, string> = {
   GAMEMASTER: "Spielleitung",
   EDIT_GAMEROUND: "Spielrunde editieren",
   HELPING: "Helfen",
+  "HELPING-SLOT": "Helfen",
   SUMMARY: "Zusammenfassung",
 };
 

@@ -30,7 +30,6 @@ export function ChoosePage(props: {
       </BoxLink>
       <br />
       <BoxLink
-        type="gray"
         icon="hand-heart"
         onClick={() => props.changePage({ kind: "HELPING" })}
       >
@@ -38,9 +37,6 @@ export function ChoosePage(props: {
         <p>
           Beim Kiosk und der Essensausgabe können wir immer ein paar helfende
           Hände gebrauchen.
-        </p>
-        <p>
-          <strong>Noch nicht verfügbar.</strong>
         </p>
       </BoxLink>
       <br />

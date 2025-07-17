@@ -37,6 +37,7 @@ import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { createQueue } from "@common/components/utils";
 import type { EmailQueueableFns } from "@rst/components/anmeldung/api/email";
 import { toast, ToastContainer } from "@common/components/Toast";
+import { loadHelp } from "@rst/components/anmeldung/api/help";
 
 function initPage(meta: Store<MetaClient>): void {
   const url = new URL(location.href);
@@ -81,6 +82,9 @@ function createChangePageFn(store: Store<{ page: PageClient }>): ChangePageFn {
     } else if (page.kind === "GAME") {
       url.searchParams.set("uuid", page.uuid);
       setPageStore(page);
+    } else if (page.kind === "HELPING-SLOT") {
+      url.searchParams.set("uuid", page.uuid);
+      setPageStore(page);
     } else {
       url.searchParams.delete("uuid");
       setPageStore({ ...page, uuid: null });
@@ -118,6 +122,8 @@ export function Router(props: {
   const [programResource] = createResource(() =>
     loadProgram(store.meta.secret),
   );
+
+  const [helpResource] = createResource(() => loadHelp(store.meta.secret));
 
   const deactivateToastUuid = crypto.randomUUID();
   // hacky solution to not save on first load when nothing has changed yet.
@@ -273,14 +279,29 @@ export function Router(props: {
             </FindGameround>
           </PageTemplate>
         </Match>
-        <Match when={store.meta.page.kind === "HELPING"}>
+        <Match
+          when={
+            store.meta.page.kind === "HELPING" ||
+            store.meta.page.kind === "HELPING-SLOT"
+          }
+        >
           <PageTemplate
             title="Helfen"
             changePage={changePage}
             saveState={store.meta.saveState}
             lastSaved={store.save.lastSaved}
           >
-            <HelpingPage />
+            <HelpingPage
+              store={store.save}
+              help={helpResource}
+              uuid={
+                store.meta.page.kind === "HELPING-SLOT"
+                  ? store.meta.page.uuid
+                  : null
+              }
+              isEditable={store.save.publishState === "published"}
+              changePage={changePage}
+            />
           </PageTemplate>
         </Match>
         <Match when={store.meta.page.kind === "SUMMARY"}>

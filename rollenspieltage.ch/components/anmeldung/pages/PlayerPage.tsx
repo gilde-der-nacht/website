@@ -145,7 +145,7 @@ function ProgramOverview(props: {
   changePage: ChangePageFn;
 }): JSX.Element {
   const [dialogStore, setDialogStore] = createStore(
-    initDialogStore(props.uuid !== undefined),
+    initDialogStore(props.uuid !== null),
   );
   createEffect(() => {
     setDialogStore("open", props.uuid !== null);

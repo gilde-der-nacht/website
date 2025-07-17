@@ -22,6 +22,7 @@ export type TimetableConfiguration = {
 
 export function WeekendTimetable(props: {
   programEntries: PerDay<ProgramEntryTimetableView[]>;
+  conflictsAllowed?: boolean;
 }): JSX.Element {
   return (
     <div class="dynamic-columns" style="gap: 1rem; --min-width: 30rem;">
@@ -29,11 +30,13 @@ export function WeekendTimetable(props: {
         programEntries={props.programEntries.SATURDAY}
         openingHours={openingHours.SATURDAY}
         day="SATURDAY"
+        conflictsAllowed={props.conflictsAllowed ?? false}
       />
       <TimetableOfDay
         programEntries={props.programEntries.SUNDAY}
         openingHours={openingHours.SUNDAY}
         day="SUNDAY"
+        conflictsAllowed={props.conflictsAllowed ?? false}
       />
     </div>
   );
@@ -43,8 +46,11 @@ function TimetableOfDay(props: {
   programEntries: ProgramEntryTimetableView[];
   openingHours: OpeningHours;
   day: ProgramDay;
+  conflictsAllowed: boolean;
 }): JSX.Element {
-  const conflictingEntries = findConflicts(props.programEntries);
+  const conflictingEntries = props.conflictsAllowed
+    ? []
+    : findConflicts(props.programEntries);
 
   return (
     <div>
@@ -77,6 +83,7 @@ function TimetableOfDay(props: {
             programEntries={props.programEntries}
             openingHours={props.openingHours}
             day={props.day}
+            conflictsAllowed={props.conflictsAllowed}
           />
         </Match>
       </Switch>
@@ -93,13 +100,23 @@ export function Timetable(props: {
   programEntries: ProgramEntryTimetableView[];
   openingHours: OpeningHours;
   day: ProgramDay;
+  conflictsAllowed: boolean;
 }): JSX.Element {
   const hours = getHours(props.openingHours.open);
   const breaks = props.openingHours.breaks.map(({ from }) => from);
   const offset = (hours[0] ?? 0) - 1;
   const lastHour = hours.at(-1) ?? 0;
+
+  const classes = () => {
+    const cls = ["timetable"];
+    if (props.conflictsAllowed) {
+      cls.push("two-columns");
+    }
+    return cls.join(" ");
+  };
+
   return (
-    <div class="timetable">
+    <div class={classes()}>
       <For each={hours}>
         {(hour) => {
           const isBreak = breaks.includes(hour);

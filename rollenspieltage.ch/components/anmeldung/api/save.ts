@@ -120,9 +120,54 @@ export type MasterClient = z.infer<typeof masterClientSchema>;
  * Helping
  */
 
-export const helpingServerSchema = z.array(z.string().uuid());
+const helpReservationServerSchema = z.union([
+  z.object({
+    kind: z.literal("SELF"),
+    helpEntryUuid: z.string().uuid(),
+    uuid: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("FRIEND"),
+    helpEntryUuid: z.string().uuid(),
+    name: z.string(),
+    uuid: z.string().uuid(),
+  }),
+]);
 
-const helpingClientSchema = z.array(z.string().uuid());
+export const helpingServerSchema = z.array(helpReservationServerSchema);
+
+const helpReservationClientSchema = z.union([
+  z.object({
+    kind: z.literal("SELF"),
+    helpEntryUuid: z.string().uuid(),
+    uuid: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("FRIEND"),
+    helpEntryUuid: z.string().uuid(),
+    name: z.string(),
+    uuid: z.string().uuid(),
+  }),
+]);
+export type HelpReservationClient = z.infer<typeof helpReservationClientSchema>;
+
+const helpingClientSchema = z.array(helpReservationClientSchema);
+export type HelpingClient = z.infer<typeof helpingClientSchema>;
+
+const helpReservationCreateClientSchema = z.union([
+  z.object({
+    kind: z.literal("SELF"),
+    helpEntryUuid: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("FRIEND"),
+    helpEntryUuid: z.string().uuid(),
+    name: z.string(),
+  }),
+]);
+export type HelpReservationCreateClient = z.infer<
+  typeof helpReservationCreateClientSchema
+>;
 
 /*
  * Everything
