@@ -1,6 +1,7 @@
 import type {
   DateTimeWindow,
   PerDay,
+  ProgramDay,
 } from "@rst/components/anmeldung/utils/time";
 
 export const helpTypes = {
@@ -163,3 +164,34 @@ export const helpTimes = {
     ],
   },
 } satisfies PerDay<HelpTimes>;
+
+export function findHelpEntryByUuid(uuid: string | null): HelpEntryView | null {
+  const allEntries = helpTimesToHelpEntryView(
+    "SATURDAY",
+    helpTimes.SATURDAY,
+  ).concat(helpTimesToHelpEntryView("SUNDAY", helpTimes.SUNDAY));
+  return allEntries.find((entry) => entry.entry.uuid === uuid) ?? null;
+}
+
+function helpTimesToHelpEntryView(
+  day: ProgramDay,
+  perDay: HelpTimes,
+): HelpEntryView[] {
+  const views: HelpEntryView[] = [];
+
+  Object.entries(perDay).forEach(([hourStr, entries]) => {
+    const hour = Number(hourStr);
+    entries.forEach((entry) => {
+      views.push({
+        dateTime: {
+          day,
+          from: hour,
+          to: hour + 1,
+        },
+        entry,
+      });
+    });
+  });
+
+  return views;
+}

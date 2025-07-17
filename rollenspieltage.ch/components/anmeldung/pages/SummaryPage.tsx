@@ -33,6 +33,10 @@ import type { PublishState } from "@rst/components/anmeldung/api/shared";
 import type { IconType } from "@common/components/Icon";
 import type { Result } from "@rst/components/anmeldung/api/utils";
 import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
+import {
+  findHelpEntryByUuid,
+  helpTypes,
+} from "@rst/components/anmeldung/constant/helping";
 
 export function SummaryPage(props: {
   store: Store<SaveClient>;
@@ -71,6 +75,22 @@ export function SummaryPage(props: {
         dateTime: p.slot,
       }));
 
+  const helpEntries = () => {
+    return props.store.helping
+      .map((entry) => {
+        const helpSlot = findHelpEntryByUuid(entry.helpEntryUuid);
+        if (helpSlot === null) {
+          return null;
+        }
+        return {
+          uuid: entry.helpEntryUuid,
+          title: `Helfen: ${helpTypes[helpSlot.entry.kind].title}`,
+          dateTime: helpSlot.dateTime,
+        };
+      })
+      .filter((e) => e !== null);
+  };
+
   return (
     <>
       <Contact store={props.store.init} isEditable={props.isEditable} />
@@ -79,7 +99,7 @@ export function SummaryPage(props: {
         entries={{
           play: playEntries(),
           master: masterEntries,
-          help: [],
+          help: helpEntries(),
         }}
         changePage={props.changePage}
         isEditable={props.isEditable}
@@ -271,7 +291,7 @@ function TimeviewEntry(props: {
         help: "Helfen",
         link: {
           icon: "link",
-          label: "",
+          label: "Zum Eintrag",
         },
       },
     } satisfies Record<
@@ -307,7 +327,7 @@ function TimeviewEntry(props: {
 
   return (
     <div class={classes()}>
-      <Chip title={labels.help} inverted={true} size="small">
+      <Chip title={labels.help} inverted={props.kind !== "help"} size="small">
         {labels.label}
       </Chip>
       <Show when={props.onClick}>
@@ -346,6 +366,7 @@ type EntriesForAggregation = {
     dateTime: DateTimeWindow;
   }[];
   help: {
+    uuid: string;
     title: string;
     dateTime: DateTimeWindow;
   }[];
@@ -416,7 +437,17 @@ function aggregateEntries(
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: () => (
-        <TimeviewEntry title={entry.title} range={entry.dateTime} kind="help" />
+        <TimeviewEntry
+          title={entry.title}
+          range={entry.dateTime}
+          kind="help"
+          onClick={() =>
+            changePage({
+              kind: "HELPING-SLOT",
+              uuid: entry.uuid,
+            })
+          }
+        />
       ),
     });
   });

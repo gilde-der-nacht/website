@@ -12,12 +12,9 @@ import {
   WeekendTimetable,
   type ProgramEntryTimetableView,
 } from "@rst/components/anmeldung/components/Timetable";
+import { toRange, type PerDay } from "@rst/components/anmeldung/utils/time";
 import {
-  toRange,
-  type PerDay,
-  type ProgramDay,
-} from "@rst/components/anmeldung/utils/time";
-import {
+  findHelpEntryByUuid,
   helpTimes,
   helpTypes,
   type HelpEntryView,
@@ -114,12 +111,8 @@ function HelpingContent(props: {
     setDialogStore("open", props.uuid !== null);
   });
 
-  const selectedEntry = (): HelpEntryView | undefined => {
-    const allEntries = helpTimesToHelpEntryView(
-      "SATURDAY",
-      helpTimes.SATURDAY,
-    ).concat(helpTimesToHelpEntryView("SUNDAY", helpTimes.SUNDAY));
-    return allEntries.find((entry) => entry.entry.uuid === props.uuid);
+  const selectedEntry = (): HelpEntryView | null => {
+    return findHelpEntryByUuid(props.uuid);
   };
 
   const alreadyReservedUuids = (): string[] => {
@@ -277,29 +270,6 @@ function aggregateEntries(props: {
     });
   });
   return entries;
-}
-
-function helpTimesToHelpEntryView(
-  day: ProgramDay,
-  perDay: HelpTimes,
-): HelpEntryView[] {
-  const views: HelpEntryView[] = [];
-
-  Object.entries(perDay).forEach(([hourStr, entries]) => {
-    const hour = Number(hourStr);
-    entries.forEach((entry) => {
-      views.push({
-        dateTime: {
-          day,
-          from: hour,
-          to: hour + 1,
-        },
-        entry,
-      });
-    });
-  });
-
-  return views;
 }
 
 function HelpDialog(props: {
