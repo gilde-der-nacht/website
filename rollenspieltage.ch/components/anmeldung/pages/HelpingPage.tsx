@@ -122,9 +122,29 @@ function HelpingContent(props: {
     return allEntries.find((entry) => entry.entry.uuid === props.uuid);
   };
 
+  const alreadyReservedUuids = (): string[] => {
+    const already: string[] = [];
+    props.helpReservations.forEach((r) => {
+      already.push(r.helpEntryUuid);
+    });
+    props.externalHelpReservations.forEach((r) => {
+      already.push(r);
+    });
+
+    return already;
+  };
+
   const entries = {
-    SATURDAY: aggregateEntries(helpTimes.SATURDAY, props.changePage),
-    SUNDAY: aggregateEntries(helpTimes.SUNDAY, props.changePage),
+    SATURDAY: aggregateEntries(
+      helpTimes.SATURDAY,
+      alreadyReservedUuids(),
+      props.changePage,
+    ),
+    SUNDAY: aggregateEntries(
+      helpTimes.SUNDAY,
+      alreadyReservedUuids(),
+      props.changePage,
+    ),
   } satisfies PerDay<ProgramEntryTimetableView[]>;
 
   return (
@@ -160,38 +180,61 @@ function HelpingContent(props: {
 
 function aggregateEntries(
   constants: HelpTimes,
+  alreadyReservedUuids: string[],
   changePage: ChangePageFn,
 ): ProgramEntryTimetableView[] {
   const entries: ProgramEntryTimetableView[] = [];
+  const frequencies = uuidFrequencies(alreadyReservedUuids);
+
   Object.entries(constants).forEach(([hour, slots]) => {
     slots.forEach((slot) => {
       const range = {
         from: Number(hour),
         to: Number(hour) + 1,
       };
-      entries.push({
-        range,
-        component: () => (
-          <div class="box-simple timeview-entry">
-            <Chip title="Helfer:innen gesucht" size="small">
-              HL
-            </Chip>
-            <IconOnlyButton
-              icon="hand-heart"
-              kind="ghost"
-              onClick={() =>
-                changePage({ kind: "HELPING-SLOT", uuid: slot.uuid })
-              }
-              title="Helfen"
-            />
-            <h5>{helpTypes[slot.kind].title}</h5>
-            <p class="duration">
-              {slot.count} {slot.count === 1 ? "Helfer:in" : "Helfer:innen"}{" "}
-              gesucht
-            </p>
-          </div>
-        ),
-      });
+
+      const emptySeats = slot.count - (frequencies[slot.uuid] ?? 0);
+
+      if (emptySeats === 0) {
+        entries.push({
+          range,
+          component: () => (
+            <div class="box-simple disabled timeview-entry">
+              <Chip title="Helfer:innen gesucht" size="small">
+                HL
+              </Chip>
+              <h5>{helpTypes[slot.kind].title}</h5>
+              <p class="duration">
+                <em>alle Helfer:innen gefunden</em>
+              </p>
+            </div>
+          ),
+        });
+      } else {
+        entries.push({
+          range,
+          component: () => (
+            <div class="box-simple timeview-entry">
+              <Chip title="Helfer:innen gesucht" size="small">
+                HL
+              </Chip>
+              <IconOnlyButton
+                icon="hand-heart"
+                kind="ghost"
+                onClick={() =>
+                  changePage({ kind: "HELPING-SLOT", uuid: slot.uuid })
+                }
+                title="Helfen"
+              />
+              <h5>{helpTypes[slot.kind].title}</h5>
+              <p class="duration">
+                {emptySeats} {emptySeats === 1 ? "Helfer:in" : "Helfer:innen"}{" "}
+                gesucht
+              </p>
+            </div>
+          ),
+        });
+      }
     });
   });
   return entries;
@@ -368,4 +411,13 @@ function HelpDialog(props: {
       </div>
     </div>
   );
+}
+
+function uuidFrequencies(uuids: string[]): Record<string, number> {
+  const grouped = Object.groupBy(uuids, (id) => id);
+  const frequencies: Record<string, number> = {};
+  for (const uuid of uuids) {
+    frequencies[uuid] = grouped[uuid]?.length ?? 0;
+  }
+  return frequencies;
 }
