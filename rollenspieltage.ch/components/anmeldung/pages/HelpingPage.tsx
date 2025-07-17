@@ -134,18 +134,21 @@ function HelpingContent(props: {
     return already;
   };
 
-  const entries = {
-    SATURDAY: aggregateEntries(
-      helpTimes.SATURDAY,
-      alreadyReservedUuids(),
-      props.changePage,
-    ),
-    SUNDAY: aggregateEntries(
-      helpTimes.SUNDAY,
-      alreadyReservedUuids(),
-      props.changePage,
-    ),
-  } satisfies PerDay<ProgramEntryTimetableView[]>;
+  const entries = () =>
+    ({
+      SATURDAY: aggregateEntries({
+        constants: helpTimes.SATURDAY,
+        alreadyReservedUuids: alreadyReservedUuids(),
+        myReservations: props.helpReservations,
+        changePage: props.changePage,
+      }),
+      SUNDAY: aggregateEntries({
+        constants: helpTimes.SUNDAY,
+        alreadyReservedUuids: alreadyReservedUuids(),
+        myReservations: props.helpReservations,
+        changePage: props.changePage,
+      }),
+    }) satisfies PerDay<ProgramEntryTimetableView[]>;
 
   return (
     <>
@@ -173,36 +176,65 @@ function HelpingContent(props: {
           </Dialog>
         )}
       </Show>
-      <WeekendTimetable programEntries={entries} conflictsAllowed={true} />
+      <WeekendTimetable programEntries={entries()} conflictsAllowed={true} />
     </>
   );
 }
 
-function aggregateEntries(
-  constants: HelpTimes,
-  alreadyReservedUuids: string[],
-  changePage: ChangePageFn,
-): ProgramEntryTimetableView[] {
+function aggregateEntries(props: {
+  constants: HelpTimes;
+  alreadyReservedUuids: string[];
+  myReservations: HelpReservationClient[];
+  changePage: ChangePageFn;
+}): ProgramEntryTimetableView[] {
   const entries: ProgramEntryTimetableView[] = [];
-  const frequencies = uuidFrequencies(alreadyReservedUuids);
+  const frequencies = uuidFrequencies(props.alreadyReservedUuids);
 
-  Object.entries(constants).forEach(([hour, slots]) => {
+  Object.entries(props.constants).forEach(([hour, slots]) => {
     slots.forEach((slot) => {
       const range = {
         from: Number(hour),
         to: Number(hour) + 1,
       };
 
-      const emptySeats = slot.count - (frequencies[slot.uuid] ?? 0);
+      const emptySeats = () => slot.count - (frequencies[slot.uuid] ?? 0);
+      const helpingMyself = () =>
+        props.myReservations.filter((r) => r.helpEntryUuid === slot.uuid)
+          .length > 0;
 
-      if (emptySeats === 0) {
+      const classes = () => {
+        const cls = ["box-simple", "timeview-entry"];
+        if (helpingMyself()) {
+          cls.push("success");
+        }
+        return cls.join(" ");
+      };
+
+      if (emptySeats() === 0) {
         entries.push({
           range,
           component: () => (
-            <div class="box-simple disabled timeview-entry">
-              <Chip title="Helfer:innen gesucht" size="small">
+            <div class={classes()}>
+              <Chip
+                title="Helfer:innen gesucht"
+                inverted={helpingMyself()}
+                size="small"
+              >
                 HL
               </Chip>
+              <Show when={helpingMyself()}>
+                <IconOnlyButton
+                  icon="hand-heart"
+                  kind="ghost"
+                  onClick={() =>
+                    props.changePage(
+                      { kind: "HELPING-SLOT", uuid: slot.uuid },
+                      { disableScroll: true },
+                    )
+                  }
+                  title="Helfen"
+                />
+              </Show>
               <h5>{helpTypes[slot.kind].title}</h5>
               <p class="duration">
                 <em>alle Helfer:innen gefunden</em>
@@ -214,22 +246,29 @@ function aggregateEntries(
         entries.push({
           range,
           component: () => (
-            <div class="box-simple timeview-entry">
-              <Chip title="Helfer:innen gesucht" size="small">
+            <div class={classes()}>
+              <Chip
+                title="Helfer:innen gesucht"
+                inverted={helpingMyself()}
+                size="small"
+              >
                 HL
               </Chip>
               <IconOnlyButton
                 icon="hand-heart"
                 kind="ghost"
                 onClick={() =>
-                  changePage({ kind: "HELPING-SLOT", uuid: slot.uuid })
+                  props.changePage(
+                    { kind: "HELPING-SLOT", uuid: slot.uuid },
+                    { disableScroll: true },
+                  )
                 }
                 title="Helfen"
               />
               <h5>{helpTypes[slot.kind].title}</h5>
               <p class="duration">
-                {emptySeats} {emptySeats === 1 ? "Helfer:in" : "Helfer:innen"}{" "}
-                gesucht
+                {emptySeats()}{" "}
+                {emptySeats() === 1 ? "Helfer:in" : "Helfer:innen"} gesucht
               </p>
             </div>
           ),
