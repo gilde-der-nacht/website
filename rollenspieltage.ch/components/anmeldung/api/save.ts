@@ -120,9 +120,9 @@ export type MasterClient = z.infer<typeof masterClientSchema>;
  * Helping
  */
 
-export const helpingServerSchema = z.object({});
+export const helpingServerSchema = z.array(z.string().uuid());
 
-const helpingClientSchema = z.object({});
+const helpingClientSchema = z.array(z.string().uuid());
 
 /*
  * Everything
