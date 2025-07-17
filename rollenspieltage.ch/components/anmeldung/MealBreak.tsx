@@ -11,8 +11,7 @@ export function MealBreak(props: Props): JSX.Element {
   const to = props.type === "LUNCH" ? 14 : 19;
   const small = props.small === true;
   const title = props.type === "LUNCH" ? "Mittagessen" : "Nachtessen";
-  const menu =
-    "Pilzrisotto (vegi&nbsp;/&nbsp;vegan), Penne All'Arrabbiata und Penne Pesto (vegi&nbsp;/&nbsp;vegan).";
+  const menu = "Das Menü wird zu einem späteren Zeitpunkt kommuniziert."; //"Pilzrisotto (vegi&nbsp;/&nbsp;vegan), Penne All'Arrabbiata und Penne Pesto (vegi&nbsp;/&nbsp;vegan).";
 
   if (small) {
     return (
@@ -39,9 +38,12 @@ export function MealBreak(props: Props): JSX.Element {
         {from} - {to} Uhr
       </small>
       <h4 style="margin-block-end: 0.5rem;">{title}</h4>
-      <p>
-        Wir kochen: <span innerHTML={menu}></span>
-      </p>
+      <em>Das Menü wird zu einem späteren Zeitpunkt kommuniziert.</em>
+      {
+        // <p>
+        //   Wir kochen: <span innerHTML={menu}></span>
+        // </p>
+      }
     </Box>
   );
 }

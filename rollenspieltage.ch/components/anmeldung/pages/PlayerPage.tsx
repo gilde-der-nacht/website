@@ -7,13 +7,13 @@ import {
   type JSX,
   type Resource,
 } from "solid-js";
-import type { ProgramEntryClient } from "@rst/components/anmeldung/api/program";
-import type { Result } from "@rst/components/anmeldung/api/utils";
 import {
-  getHours,
-  type PerDay,
-  type ProgramDay,
-} from "@rst/components/anmeldung/utils/time";
+  groupByDay,
+  sortByFromHour,
+  type ProgramEntryClient,
+} from "@rst/components/anmeldung/api/program";
+import type { Result } from "@rst/components/anmeldung/api/utils";
+import { type ProgramDay } from "@rst/components/anmeldung/utils/time";
 import { TXT } from "@rst/components/anmeldung/constant/texts";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
 import { ellipsis } from "@common/components/utils";
@@ -280,46 +280,6 @@ function Break(props: {
       </Box>
     </div>
   );
-}
-
-function groupByDay(
-  program: ProgramEntryClient[],
-): PerDay<ProgramEntryClient[]> {
-  const grouped = Object.groupBy(program, (entry) => entry.slot.day);
-  return {
-    SATURDAY: grouped.SATURDAY ?? [],
-    SUNDAY: grouped.SUNDAY ?? [],
-  };
-}
-
-function sortByFromHour(
-  program: PerDay<ProgramEntryClient[]>,
-): PerDay<Record<number, ProgramEntryClient[]>> {
-  function sort(a: ProgramEntryClient, b: ProgramEntryClient): number {
-    const { from: fromA, to: toA } = a.slot;
-    const { from: fromB, to: toB } = b.slot;
-    return fromA === fromB ? toA - toB : fromA - fromB;
-  }
-  const saturdaySorted = program.SATURDAY.toSorted(sort);
-  const sundaySorted = program.SUNDAY.toSorted(sort);
-
-  const saturdayByHours = getHours(openingHours.SATURDAY.open).reduce<
-    Record<number, ProgramEntryClient[]>
-  >((acc, hour) => {
-    acc[hour] = saturdaySorted.filter((entry) => entry.slot.from === hour);
-    return acc;
-  }, {});
-  const sundayByHours = getHours(openingHours.SUNDAY.open).reduce<
-    Record<number, ProgramEntryClient[]>
-  >((acc, hour) => {
-    acc[hour] = sundaySorted.filter((entry) => entry.slot.from === hour);
-    return acc;
-  }, {});
-
-  return {
-    SATURDAY: saturdayByHours,
-    SUNDAY: sundayByHours,
-  };
 }
 
 function Entry(props: {

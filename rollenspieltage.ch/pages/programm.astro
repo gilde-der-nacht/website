@@ -1,39 +1,47 @@
 ---
 import Layout from "@rst/layouts/Layout.astro";
 import { Button } from "@common/components/Button.tsx";
-import { getProgramGroupedByStarthour } from "@rst/components/anmeldung/data-2024.ts";
 import EventList from "@rst/components/anmeldung/EventList.astro";
 import { MealBreak } from "@rst/components/anmeldung/MealBreak.tsx";
-import { Box } from "@common/components/Box.tsx";
+import {
+  loadProgram,
+  groupByDay,
+  sortByFromHour,
+} from "@rst/components/anmeldung/api/program";
+import { assert } from "@common/components/utils";
 
 export const frontmatter = {
   navigation: {
     group: "main",
-    label: "Programm 2024",
-    order: 2,
+    label: "Programm",
+    order: 1,
   },
 };
 
-const program = await getProgramGroupedByStarthour();
-const saturday = Object.entries(program.SATURDAY);
-const sunday = Object.entries(program.SUNDAY);
+const programRequest = await loadProgram();
+assert(programRequest.kind === "SUCCESS", "loadProgram failed");
+const programList =
+  programRequest.kind === "SUCCESS" ? programRequest.data : [];
+
+const program = sortByFromHour(groupByDay(programList));
+const saturday = Object.entries(program.SATURDAY).filter(
+  ([_, entries]) => entries.length > 0,
+);
+const sunday = Object.entries(program.SUNDAY).filter(
+  ([_, entries]) => entries.length > 0,
+);
 ---
 
-<Layout metaTitle="Programm 2024">
-  <h1 id="programm-2024">
-    <a href="#programm-2024" class="header-anchor">Programm 2024</a>
+<Layout metaTitle="Programm 2025">
+  <h1 id="programm-2025">
+    <a href="#programm-2025" class="header-anchor">Programm 2025</a>
   </h1>
-
-  <Box type="special">
-    **Achtung,** das Programm ist noch vom letzten Jahr und wird erst im
-    Frühling 2025 aktualisiert.
-  </Box>
 
   <a href="#Samstag" style="border: none;"><Button label="Samstag" /></a>
   <a href="#Sonntag" style="border: none;"><Button label="Sonntag" /></a>
 
   <h2 id="Samstag">
-    <a href="#Samstag" class="header-anchor">Samstag, 24. August 2024</a>
+    <a href="#Samstag" class="header-anchor">Samstag, 23. August 2025</a>
   </h2>
   {
     saturday
@@ -96,7 +104,7 @@ const sunday = Object.entries(program.SUNDAY);
   <a href="#top" style="border: none;"><Button label="nach oben" /></a>
 
   <h2 id="Sonntag">
-    <a href="#Sonntag" class="header-anchor">Sonntag, 25. August 2024</a>
+    <a href="#Sonntag" class="header-anchor">Sonntag, 24. August 2025</a>
   </h2>
 
   {

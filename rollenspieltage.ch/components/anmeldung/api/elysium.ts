@@ -64,11 +64,13 @@ export async function elysiumSaveState(
 }
 
 export async function elysiumLoadProgram(
-  secret: string,
+  secret?: string,
 ): Promise<Result<unknown>> {
   try {
     const url = new URL(elysium("/rst25/program"));
-    url.searchParams.append("secret", secret);
+    if (secret !== undefined) {
+      url.searchParams.append("secret", secret);
+    }
     const result = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
