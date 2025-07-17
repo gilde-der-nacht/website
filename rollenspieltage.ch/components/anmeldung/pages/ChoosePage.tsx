@@ -7,35 +7,16 @@ export function ChoosePage(props: {
   changePage: ChangePageFn;
   saveState: SaveState;
   lastSaved: Date;
-  isDebugging: boolean;
 }): JSX.Element {
   return (
     <>
-      <Switch
-        fallback={
-          <BoxLink
-            type="gray"
-            icon="dice-d20"
-            onClick={() => props.changePage({ kind: "PLAYER" })}
-          >
-            <h3>Spielrunden ansehen</h3>
-            <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
-            <p>
-              <strong>Noch nicht verfügbar.</strong>
-            </p>
-          </BoxLink>
-        }
+      <BoxLink
+        icon="dice-d20"
+        onClick={() => props.changePage({ kind: "PLAYER" })}
       >
-        <Match when={props.isDebugging}>
-          <BoxLink
-            icon="dice-d20"
-            onClick={() => props.changePage({ kind: "PLAYER" })}
-          >
-            <h3>Spielrunden ansehen</h3>
-            <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
-          </BoxLink>
-        </Match>
-      </Switch>
+        <h3>Spielrunden ansehen</h3>
+        <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
+      </BoxLink>
       <br />
       <BoxLink
         icon="grid-2-plus"

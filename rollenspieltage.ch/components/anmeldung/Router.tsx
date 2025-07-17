@@ -204,7 +204,6 @@ export function Router(props: {
               changePage={changePage}
               saveState={store.meta.saveState}
               lastSaved={store.save.lastSaved}
-              isDebugging={store.meta.isDebugging}
             />
           </PageTemplate>
         }
@@ -228,7 +227,6 @@ export function Router(props: {
               }
               isEditable={store.save.publishState === "published"}
               changePage={changePage}
-              isDebugging={store.meta.isDebugging}
             />
           </PageTemplate>
         </Match>

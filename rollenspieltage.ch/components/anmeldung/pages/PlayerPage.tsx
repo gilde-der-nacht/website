@@ -2,10 +2,8 @@ import { Box } from "@common/components/Box";
 import {
   createEffect,
   For,
-  Match,
   Show,
   Suspense,
-  Switch,
   type JSX,
   type Resource,
 } from "solid-js";
@@ -44,7 +42,6 @@ export function PlayerPage(props: {
   uuid: string | null;
   isEditable: boolean;
   changePage: ChangePageFn;
-  isDebugging: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore({
     playing: props.store,
@@ -53,102 +50,87 @@ export function PlayerPage(props: {
   });
 
   return (
-    <Switch
-      fallback={
-        <Box type="danger">
-          <p>
-            Diese Seite ist leider noch nicht bereit. Komm bitte später nochmal
-            zurück.
-          </p>
-        </Box>
-      }
-    >
-      <Match when={props.isDebugging}>
-        <Box type="danger">
-          <p>WIP</p>
-        </Box>
-        <br />
-        <Checkbox
-          label="Schickt mir bitte E-Mails, wenn neue Spielrunden veröffentlicht werden."
-          checked={store.playing.wantsUpdates}
-          name="wantsUpdates"
-          value="wantsUpdates"
-          onValueUpdate={(checked) => {
-            setStore("playing", "wantsUpdates", checked);
-          }}
-        />
-        <br />
-        <Filters
-          activeFilter={store.activeFilter}
-          showExplanationOfCategories={() =>
-            setStore("categoryDialog", "open", true)
-          }
-        />
-        <Dialog
-          store={store.categoryDialog}
-          title="Erklärungen der Kategorien"
-          onClose={() => {}}
-          size="medium"
+    <>
+      <Checkbox
+        label="Schickt mir bitte E-Mails, wenn neue Spielrunden veröffentlicht werden."
+        checked={store.playing.wantsUpdates}
+        name="wantsUpdates"
+        value="wantsUpdates"
+        onValueUpdate={(checked) => {
+          setStore("playing", "wantsUpdates", checked);
+        }}
+      />
+      <br />
+      <Filters
+        activeFilter={store.activeFilter}
+        showExplanationOfCategories={() =>
+          setStore("categoryDialog", "open", true)
+        }
+      />
+      <Dialog
+        store={store.categoryDialog}
+        title="Erklärungen der Kategorien"
+        onClose={() => {}}
+        size="medium"
+      >
+        <ul style="padding: 0; padding-block-start: 1rem; margin: 0; max-inline-size: 100%; display: grid; gap: 0.5rem;">
+          {gameTags.map((t) => (
+            <li>
+              <strong>{t.label}</strong>
+              <br />
+              <p>{t.description}</p>
+            </li>
+          ))}
+        </ul>
+      </Dialog>
+      <br />
+      <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
+        <Show
+          when={props.program()}
+          fallback={<Box type="danger">{TXT.error.program}</Box>}
         >
-          <ul style="padding: 0; padding-block-start: 1rem; margin: 0; max-inline-size: 100%; display: grid; gap: 0.5rem;">
-            {gameTags.map((t) => (
-              <li>
-                <strong>{t.label}</strong>
-                <br />
-                <p>{t.description}</p>
-              </li>
-            ))}
-          </ul>
-        </Dialog>
-        <br />
-        <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-          <Show
-            when={props.program()}
-            fallback={<Box type="danger">{TXT.error.program}</Box>}
-          >
-            {(program) => (
-              <Show
-                when={program().kind === "SUCCESS"}
-                fallback={
-                  <Box type="danger">
-                    <p>Programm konnte nicht geladen werden.</p>
-                  </Box>
+          {(program) => (
+            <Show
+              when={program().kind === "SUCCESS"}
+              fallback={
+                <Box type="danger">
+                  <p>Programm konnte nicht geladen werden.</p>
+                </Box>
+              }
+            >
+              <ProgramOverview
+                program={(program() as { data: ProgramEntryClient[] }).data}
+                filter={store.activeFilter}
+                reservations={store.playing.reservations}
+                isEditable={props.isEditable}
+                addReservation={(reservation) =>
+                  setStore(
+                    "playing",
+                    "reservations",
+                    store.playing.reservations.length,
+                    {
+                      ...reservation,
+                      uuid: crypto.randomUUID(),
+                    },
+                  )
                 }
-              >
-                <ProgramOverview
-                  program={(program() as { data: ProgramEntryClient[] }).data}
-                  filter={store.activeFilter}
-                  reservations={store.playing.reservations}
-                  isEditable={props.isEditable}
-                  addReservation={(reservation) =>
-                    setStore(
-                      "playing",
-                      "reservations",
-                      store.playing.reservations.length,
-                      {
-                        ...reservation,
-                        uuid: crypto.randomUUID(),
-                      },
-                    )
-                  }
-                  removeReservation={(reservationUuid) => {
-                    setStore(
-                      "playing",
-                      "reservations",
-                      store.playing.reservations.filter(
-                        (r) => r.uuid !== reservationUuid,
-                      ),
-                    );
-                  }}
-                  uuid={props.uuid}
-                  changePage={props.changePage}
-                />
-              </Show>
-            )}
-          </Show>
-        </Suspense>
-      </Match>
-    </Switch>
+                removeReservation={(reservationUuid) => {
+                  setStore(
+                    "playing",
+                    "reservations",
+                    store.playing.reservations.filter(
+                      (r) => r.uuid !== reservationUuid,
+                    ),
+                  );
+                }}
+                uuid={props.uuid}
+                changePage={props.changePage}
+              />
+            </Show>
+          )}
+        </Show>
+      </Suspense>
+    </>
   );
 }
 
