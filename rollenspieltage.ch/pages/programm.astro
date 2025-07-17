@@ -4,9 +4,9 @@ import { Button } from "@common/components/Button.tsx";
 import EventList from "@rst/components/anmeldung/EventList.astro";
 import { MealBreak } from "@rst/components/anmeldung/MealBreak.tsx";
 import {
-  loadProgram,
   groupByDay,
   sortByFromHour,
+  loadAnonymousProgram,
 } from "@rst/components/anmeldung/api/program";
 import { assert } from "@common/components/utils";
 
@@ -18,7 +18,7 @@ export const frontmatter = {
   },
 };
 
-const programRequest = await loadProgram();
+const programRequest = await loadAnonymousProgram();
 assert(programRequest.kind === "SUCCESS", "loadProgram failed");
 const programList =
   programRequest.kind === "SUCCESS" ? programRequest.data : [];
