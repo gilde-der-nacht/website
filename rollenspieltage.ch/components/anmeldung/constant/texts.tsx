@@ -1,6 +1,6 @@
 import type { PerDay } from "@rst/components/anmeldung/utils/time";
 import type { PageKind } from "@rst/components/anmeldung/api/meta";
-import type { PublishState } from "../api/shared";
+import type { PublishState } from "@rst/components/anmeldung/api/shared";
 
 const registrationDeadline = "Donnerstag, 21. August 2025";
 
