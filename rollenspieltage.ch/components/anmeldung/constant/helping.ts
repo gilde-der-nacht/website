@@ -76,6 +76,11 @@ export const helpTimes = {
     ],
     14: [
       { uuid: "a155bb61-d1a6-4f3f-8da3-46eb57030a96", count: 1, kind: "kiosk" },
+      {
+        uuid: "9faf0a19-45be-4968-9eb0-a9f48e94a616",
+        count: 1,
+        kind: "cleaning",
+      },
     ],
     15: [
       { uuid: "30c6d6ea-3d65-4040-9dde-abb5f4b58e35", count: 1, kind: "kiosk" },
@@ -107,7 +112,7 @@ export const helpTimes = {
       { uuid: "6fd5ef92-5bb3-4f1a-8673-e81596e53894", count: 1, kind: "kiosk" },
       {
         uuid: "6333be4b-93d9-40c4-8167-dca4f9bb87e1",
-        count: 2,
+        count: 1,
         kind: "cleaning",
       },
     ],
