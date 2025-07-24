@@ -66,6 +66,18 @@ export function SummaryPage(props: {
     return new Set(uuids);
   };
 
+  const getPlayerNamesOfGameround = (gameroundUuid: string) => {
+    return props.store.playing.reservations
+      .filter((r) => r.gameRound === gameroundUuid)
+      .map((r) => (r.kind === "SELF" ? props.store.init.name : r.name));
+  };
+
+  const getHelperNamesOfEntry = (helpEntryUuid: string) => {
+    return props.store.helping
+      .filter((r) => r.helpEntryUuid === helpEntryUuid)
+      .map((r) => (r.kind === "SELF" ? props.store.init.name : r.name));
+  };
+
   const playEntries = () =>
     program()
       .filter((p) => reservationUuids().has(p.uuid))
@@ -73,6 +85,7 @@ export function SummaryPage(props: {
         uuid: p.uuid,
         title: p.title,
         dateTime: p.slot,
+        playerNames: getPlayerNamesOfGameround(p.uuid),
       }));
 
   const helpEntries = () => {
@@ -84,8 +97,9 @@ export function SummaryPage(props: {
         }
         return {
           uuid: entry.helpEntryUuid,
-          title: `Helfen: ${helpTypes[helpSlot.entry.kind].title}`,
+          title: helpTypes[helpSlot.entry.kind].title,
           dateTime: helpSlot.dateTime,
+          helperNames: getHelperNamesOfEntry(entry.helpEntryUuid),
         };
       })
       .filter((e) => e !== null);
@@ -364,11 +378,13 @@ type EntriesForAggregation = {
     uuid: string;
     title: string;
     dateTime: DateTimeWindow;
+    playerNames: string[];
   }[];
   help: {
     uuid: string;
     title: string;
     dateTime: DateTimeWindow;
+    helperNames: string[];
   }[];
 };
 
@@ -387,11 +403,13 @@ function aggregateEntries(
   }
 
   entries.play.forEach((entry) => {
+    const title = `${entry.title} (${entry.playerNames.join(", ")})`;
+
     aggregation[entry.dateTime.day].push({
       range: entry.dateTime,
       component: () => (
         <TimeviewEntry
-          title={entry.title}
+          title={title}
           range={entry.dateTime}
           kind="play"
           onClick={() =>
@@ -433,18 +451,41 @@ function aggregateEntries(
     });
   });
 
-  entries.help.forEach((entry) => {
-    aggregation[entry.dateTime.day].push({
-      range: entry.dateTime,
+  const groupedHelp = Object.groupBy(entries.help, (e) => {
+    const { day, from, to } = e.dateTime;
+    return `${day}-${from}-${to}`;
+  });
+  Object.values(groupedHelp).forEach((entries) => {
+    if (entries === undefined) {
+      return;
+    }
+
+    const first = entries[0];
+    if (first === undefined) {
+      return;
+    }
+
+    const groupedHelpEntries = Object.groupBy(entries, (e) => e.title);
+    const title = Object.entries(groupedHelpEntries)
+      .map(([title, es]) =>
+        es === undefined
+          ? null
+          : `${title} (${es.flatMap((e) => e.helperNames).join(", ")})`,
+      )
+      .filter((e) => e !== null)
+      .join(", ");
+
+    aggregation[first.dateTime.day].push({
+      range: first.dateTime,
       component: () => (
         <TimeviewEntry
-          title={entry.title}
-          range={entry.dateTime}
+          title={`Helfen: ${title}`}
+          range={first.dateTime}
           kind="help"
           onClick={() =>
             changePage({
               kind: "HELPING-SLOT",
-              uuid: entry.uuid,
+              uuid: first.uuid,
             })
           }
         />
