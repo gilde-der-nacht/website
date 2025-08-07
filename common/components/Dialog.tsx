@@ -51,7 +51,12 @@ export function Dialog(props: {
 
   return (
     <>
-      <dialog ref={dialogEl} onClose={close} class={classes().join(" ")}>
+      <dialog
+        ref={dialogEl}
+        onClose={close}
+        class={classes().join(" ")}
+        closedby="any"
+      >
         <Show when={props.onClose}>
           <IconOnlyButton onClick={close} icon="circle-xmark" kind="gray" />
         </Show>
