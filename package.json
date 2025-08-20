@@ -18,7 +18,7 @@
     "@astrojs/mdx": "4.3.3",
     "@astrojs/solid-js": "5.1.0",
     "@astrojs/ts-plugin": "^1.10.4",
-    "astro": "5.12.8",
+    "astro": "5.13.1",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
