@@ -197,129 +197,147 @@ export function Router(props: {
         </Box>
         <br />
       </Show>
-      <Switch
-        fallback={
-          <PageTemplate
-            title="Wo möchtest du starten?"
-            showQuickmenu={false}
-            changePage={changePage}
-            saveState={store.meta.saveState}
-            lastSaved={store.save.lastSaved}
-          >
-            <ChoosePage
+      <PageTemplate
+        title="Zusammenfassung"
+        changePage={changePage}
+        saveState={store.meta.saveState}
+        lastSaved={store.save.lastSaved}
+      >
+        <SummaryPage
+          store={store.save}
+          program={programResource}
+          isEditable={store.save.publishState === "published"}
+          changePage={changePage}
+        />
+      </PageTemplate>
+      <div hidden>
+        <Switch
+          fallback={
+            <PageTemplate
+              title="Wo möchtest du starten?"
+              showQuickmenu={false}
               changePage={changePage}
               saveState={store.meta.saveState}
               lastSaved={store.save.lastSaved}
-            />
-          </PageTemplate>
-        }
-      >
-        <Match
-          when={
-            store.meta.page.kind === "PLAYER" || store.meta.page.kind === "GAME"
-          }
-        >
-          <PageTemplate
-            title="Spielrundenübersicht"
-            changePage={changePage}
-            saveState={store.meta.saveState}
-            lastSaved={store.save.lastSaved}
-          >
-            <PlayerPage
-              store={store.save.playing}
-              program={programResource}
-              uuid={
-                store.meta.page.kind === "GAME" ? store.meta.page.uuid : null
-              }
-              isEditable={store.save.publishState === "published"}
-              changePage={changePage}
-            />
-          </PageTemplate>
-        </Match>
-        <Match when={store.meta.page.kind === "GAMEMASTER"}>
-          <PageTemplate
-            title="Meine Spielrunden"
-            changePage={changePage}
-            saveState={store.meta.saveState}
-            lastSaved={store.save.lastSaved}
-          >
-            <GamemasterPage
-              store={store.save.master}
-              isEditable={store.save.publishState === "published"}
-              changePage={changePage}
-            />
-          </PageTemplate>
-        </Match>
-        <Match when={store.meta.page.kind === "EDIT_GAMEROUND"}>
-          <PageTemplate
-            title="Spielrunde editieren"
-            changePage={changePage}
-            saveState={store.meta.saveState}
-            lastSaved={store.save.lastSaved}
-          >
-            <FindGameround
-              allRounds={store.save.master.games}
-              uuid={
-                store.meta.page.kind === "EDIT_GAMEROUND"
-                  ? store.meta.page.uuid
-                  : "should never happen"
-              }
-              fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
             >
-              {(gameround) => (
-                <EditGamePage
-                  store={gameround}
-                  registrations={reservationsResource}
-                  queue={queue}
-                  isEditable={store.save.publishState === "published"}
-                  changePage={changePage}
-                  secret={store.meta.secret}
-                />
-              )}
-            </FindGameround>
-          </PageTemplate>
-        </Match>
-        <Match
-          when={
-            store.meta.page.kind === "HELPING" ||
-            store.meta.page.kind === "HELPING-SLOT"
+              <ChoosePage
+                changePage={changePage}
+                saveState={store.meta.saveState}
+                lastSaved={store.save.lastSaved}
+              />
+            </PageTemplate>
           }
         >
-          <PageTemplate
-            title="Helfen"
-            changePage={changePage}
-            saveState={store.meta.saveState}
-            lastSaved={store.save.lastSaved}
+          <Match
+            when={
+              store.meta.page.kind === "PLAYER" ||
+              store.meta.page.kind === "GAME"
+            }
           >
-            <HelpingPage
-              store={store.save}
-              help={helpResource}
-              uuid={
-                store.meta.page.kind === "HELPING-SLOT"
-                  ? store.meta.page.uuid
-                  : null
-              }
-              isEditable={store.save.publishState === "published"}
+            <PageTemplate
+              title="Spielrundenübersicht"
               changePage={changePage}
-            />
-          </PageTemplate>
-        </Match>
-        <Match when={store.meta.page.kind === "SUMMARY"}>
-          <PageTemplate
-            title="Zusammenfassung"
-            changePage={changePage}
-            saveState={store.meta.saveState}
-            lastSaved={store.save.lastSaved}
+              saveState={store.meta.saveState}
+              lastSaved={store.save.lastSaved}
+            >
+              <PlayerPage
+                store={store.save.playing}
+                program={programResource}
+                uuid={
+                  store.meta.page.kind === "GAME" ? store.meta.page.uuid : null
+                }
+                isEditable={store.save.publishState === "published"}
+                changePage={changePage}
+              />
+            </PageTemplate>
+          </Match>
+          <Match when={store.meta.page.kind === "GAMEMASTER"}>
+            <PageTemplate
+              title="Meine Spielrunden"
+              changePage={changePage}
+              saveState={store.meta.saveState}
+              lastSaved={store.save.lastSaved}
+            >
+              <GamemasterPage
+                store={store.save.master}
+                isEditable={store.save.publishState === "published"}
+                changePage={changePage}
+              />
+            </PageTemplate>
+          </Match>
+          <Match when={store.meta.page.kind === "EDIT_GAMEROUND"}>
+            <PageTemplate
+              title="Spielrunde editieren"
+              changePage={changePage}
+              saveState={store.meta.saveState}
+              lastSaved={store.save.lastSaved}
+            >
+              <FindGameround
+                allRounds={store.save.master.games}
+                uuid={
+                  store.meta.page.kind === "EDIT_GAMEROUND"
+                    ? store.meta.page.uuid
+                    : "should never happen"
+                }
+                fallback={
+                  <Box type="danger">{TXT.error.gameroundUuidError}</Box>
+                }
+              >
+                {(gameround) => (
+                  <EditGamePage
+                    store={gameround}
+                    registrations={reservationsResource}
+                    queue={queue}
+                    isEditable={store.save.publishState === "published"}
+                    changePage={changePage}
+                    secret={store.meta.secret}
+                  />
+                )}
+              </FindGameround>
+            </PageTemplate>
+          </Match>
+          <Match
+            when={
+              store.meta.page.kind === "HELPING" ||
+              store.meta.page.kind === "HELPING-SLOT"
+            }
           >
-            <SummaryPage
-              store={store.save}
-              program={programResource}
-              isEditable={store.save.publishState === "published"}
+            <PageTemplate
+              title="Helfen"
               changePage={changePage}
-            />
-          </PageTemplate>
-        </Match>
-      </Switch>
+              saveState={store.meta.saveState}
+              lastSaved={store.save.lastSaved}
+            >
+              <HelpingPage
+                store={store.save}
+                help={helpResource}
+                uuid={
+                  store.meta.page.kind === "HELPING-SLOT"
+                    ? store.meta.page.uuid
+                    : null
+                }
+                isEditable={store.save.publishState === "published"}
+                changePage={changePage}
+              />
+            </PageTemplate>
+          </Match>
+          <Match when={store.meta.page.kind === "SUMMARY"}>
+            <PageTemplate
+              title="Zusammenfassung"
+              changePage={changePage}
+              saveState={store.meta.saveState}
+              lastSaved={store.save.lastSaved}
+            >
+              <SummaryPage
+                store={store.save}
+                program={programResource}
+                isEditable={store.save.publishState === "published"}
+                changePage={changePage}
+              />
+            </PageTemplate>
+          </Match>
+        </Switch>
+      </div>
       <Show when={store.meta.isDebugging}>
         <pre>{JSON.stringify(store, null, 2)}</pre>
         <hr />
