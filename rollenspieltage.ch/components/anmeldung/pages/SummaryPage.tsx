@@ -1,4 +1,11 @@
-import { createMemo, Show, type JSX, type Resource } from "solid-js";
+import {
+  createMemo,
+  Match,
+  Show,
+  Switch,
+  type JSX,
+  type Resource,
+} from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import type {
   ContactClient,
@@ -44,6 +51,32 @@ export function SummaryPage(props: {
   isEditable: boolean;
   changePage: ChangePageFn;
 }): JSX.Element {
+  return (
+    <>
+      <Contact store={props.store.init} isEditable={props.isEditable} />
+      <br />
+      <Switch fallback={<Box>{TXT.loading.program}</Box>}>
+        <Match when={props.program()}>
+          {(program) => (
+            <TimeviewSuspenseWrapper
+              store={props.store}
+              program={program()}
+              isEditable={props.isEditable}
+              changePage={props.changePage}
+            />
+          )}
+        </Match>
+      </Switch>
+    </>
+  );
+}
+
+function TimeviewSuspenseWrapper(props: {
+  store: Store<SaveClient>;
+  program: Result<ProgramEntryClient[]>;
+  isEditable: boolean;
+  changePage: ChangePageFn;
+}): JSX.Element {
   const masterEntries = props.store.master.games.flatMap((game) =>
     game.slots.map((slot) => ({
       status: game.kind,
@@ -52,32 +85,6 @@ export function SummaryPage(props: {
       dateTime: slot,
     })),
   );
-
-  const program = () => {
-    const p = props.program();
-    if (p?.kind === "SUCCESS") {
-      return p.data;
-    }
-    return [];
-  };
-
-  const reservationUuids = () => {
-    const uuids = props.store.playing.reservations.map((r) => r.gameRound);
-    return new Set(uuids);
-  };
-
-  const getPlayerNamesOfGameround = (gameroundUuid: string) => {
-    return props.store.playing.reservations
-      .filter((r) => r.gameRound === gameroundUuid)
-      .map((r) => (r.kind === "SELF" ? props.store.init.name : r.name));
-  };
-
-  const getHelperNamesOfEntry = (helpEntryUuid: string) => {
-    return props.store.helping
-      .filter((r) => r.helpEntryUuid === helpEntryUuid)
-      .map((r) => (r.kind === "SELF" ? props.store.init.name : r.name));
-  };
-
   const playEntries = () =>
     program()
       .filter((p) => reservationUuids().has(p.uuid))
@@ -105,20 +112,40 @@ export function SummaryPage(props: {
       .filter((e) => e !== null);
   };
 
+  const program = () => {
+    if (props.program.kind === "SUCCESS") {
+      return props.program.data;
+    }
+    return [];
+  };
+
+  const reservationUuids = () => {
+    const uuids = props.store.playing.reservations.map((r) => r.gameRound);
+    return new Set(uuids);
+  };
+
+  const getPlayerNamesOfGameround = (gameroundUuid: string) => {
+    return props.store.playing.reservations
+      .filter((r) => r.gameRound === gameroundUuid)
+      .map((r) => (r.kind === "SELF" ? props.store.init.name : r.name));
+  };
+
+  const getHelperNamesOfEntry = (helpEntryUuid: string) => {
+    return props.store.helping
+      .filter((r) => r.helpEntryUuid === helpEntryUuid)
+      .map((r) => (r.kind === "SELF" ? props.store.init.name : r.name));
+  };
+
   return (
-    <>
-      <Contact store={props.store.init} isEditable={props.isEditable} />
-      <br />
-      <Timeview
-        entries={{
-          play: playEntries(),
-          master: masterEntries,
-          help: helpEntries(),
-        }}
-        changePage={props.changePage}
-        isEditable={props.isEditable}
-      />
-    </>
+    <Timeview
+      entries={{
+        play: playEntries(),
+        master: masterEntries,
+        help: helpEntries(),
+      }}
+      changePage={props.changePage}
+      isEditable={props.isEditable}
+    />
   );
 }
 
