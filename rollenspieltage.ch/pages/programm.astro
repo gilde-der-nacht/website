@@ -9,6 +9,7 @@ import {
   loadAnonymousProgram,
 } from "@rst/components/anmeldung/api/program";
 import { assert } from "@common/components/utils";
+import Outdated from "@common/components/Outdated.astro";
 
 export const frontmatter = {
   navigation: {
@@ -36,6 +37,8 @@ const sunday = Object.entries(program.SUNDAY).filter(
   <h1 id="programm-2025">
     <a href="#programm-2025" class="header-anchor">Programm 2025</a>
   </h1>
+
+  <Outdated event="RST" language="DE" />
 
   <a href="#Samstag" style="border: none;"><Button label="Samstag" /></a>
   <a href="#Sonntag" style="border: none;"><Button label="Sonntag" /></a>

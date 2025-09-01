@@ -1,0 +1,51 @@
+---
+import { Box } from "@common/components/Box.tsx";
+
+export interface Props {
+  language: "DE" | "EN";
+  event: "LST" | "RST";
+}
+
+const { language, event } = Astro.props;
+
+const VARS = {
+  LST: {
+    eventName: "Luzerner Spieltage",
+    date: {
+      DE: "15. und 16. März 2026",
+      EN: "15 and 16 March 2026",
+    },
+  },
+  RST: {
+    eventName: "Luzerner Rollenspieltage",
+    date: {
+      DE: "23. und 24. August 2026",
+      EN: "23 and 24 August 2026",
+    },
+  },
+} as const;
+
+const vars = VARS[event];
+---
+
+<Box type="special">
+  <p>
+    {
+      language === "DE"
+        ? `Die kommenden ${vars.eventName} finden am ${vars.date[language]} statt.`
+        : `The upcoming ${vars.eventName} will take place on ${vars.date[language]}.`
+    }
+  </p>
+
+  <br />
+
+  <p>
+    <strong>
+      {
+        language === "DE"
+          ? "Die Informationen und das Programm auf dieser Webseite sind vom letzten Jahr und werden noch aktualisiert."
+          : "The information and the program on this website are from last year and will be updated."
+      }
+    </strong>
+  </p>
+</Box>
