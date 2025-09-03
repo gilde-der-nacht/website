@@ -22,7 +22,7 @@
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
-    "sass": "^1.91.0",
+    "sass": "^1.92.0",
     "solid-js": "^1.9.9",
     "typescript": "^5.9.2",
     "vite": "^7.1.4"
