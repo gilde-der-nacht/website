@@ -53,10 +53,12 @@ function renderDate(event: OlympEvent): JSX.Element {
     </div>
   );
   if (event.date.fullDay && event.date.multipleDays) {
+    const fixedEnd = new Date(event.date.end);
+    fixedEnd.setDate(event.date.end.getDate() - 1);
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateRange(event.date.start, event.date.end)}</span>
+        <span>{formatDateRange(event.date.start, fixedEnd)}</span>
       </div>
     );
   } else if (event.date.fullDay) {
