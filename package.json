@@ -15,22 +15,22 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "4.3.4",
-    "@astrojs/solid-js": "5.1.0",
+    "@astrojs/mdx": "4.3.7",
+    "@astrojs/solid-js": "5.1.1",
     "@astrojs/ts-plugin": "^1.10.4",
-    "astro": "5.13.5",
+    "astro": "5.14.4",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
-    "sass": "^1.92.0",
+    "sass": "^1.93.2",
     "solid-js": "^1.9.9",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.4"
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9"
   },
   "devDependencies": {
     "@types/html-escaper": "^3.0.4",
     "@types/luxon": "^3.7.1",
-    "luxon": "^3.7.1",
+    "luxon": "^3.7.2",
     "prettier-plugin-astro": "^0.14.1"
   }
 }
