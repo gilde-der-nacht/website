@@ -19,4 +19,11 @@
     border-color: c.get("accent");
     color: c.get("text-high-contrast");
   }
+
+
+  &.inverted {
+    background-color: c.get("background");
+    border-color: c.get("background-solid");
+    color: c.get("background-solid-hover");
+  }
 }

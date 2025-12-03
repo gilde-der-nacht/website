@@ -2,3 +2,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(var(--min-width, 20rem), 100%), 1fr));
 }
+
+.cluster {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

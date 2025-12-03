@@ -1,8 +1,218 @@
 ---
+import { Icon } from "@common/components/Icon";
 import Layout from "@lst/layouts/Layout.astro";
-import { Highlights } from "@lst/components/Highlights.tsx";
+import { Picture } from "astro:assets";
+import lst202401 from "@lst/images/2024-spieltage-01.jpg";
+import lst202203 from "@lst/images/2022-spieltage-03.jpg";
+import lst201908 from "@lst/images/2019-spieltage-08.jpg";
+import lst201810 from "@lst/images/2018-spieltage-10.jpg";
+import lst202206 from "@lst/images/2022-spieltage-06.jpg";
+import lst202208 from "@lst/images/2022-spieltage-08.jpg";
 ---
 
+<style>
+  .hero {
+    display: grid;
+    gap: 1rem;
+
+    .cluster {
+      li {
+        font-size: 1.1em;
+      }
+
+      a {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        color: unset;
+        text-decoration: none;
+        border: none;
+
+        > :last-child {
+          transition: all 0.5s;
+          opacity: 0.4;
+        }
+
+        &:hover,
+        &:active {
+          > :last-child {
+            transform: translateX(0.5rem);
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .big-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+      gap: 1.5rem;
+
+      li {
+        position: relative;
+      }
+
+      a {
+        padding: 0;
+
+        .tag {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .tag > :last-child {
+          transition: all 0.5s;
+          opacity: 0.4;
+        }
+
+        &:hover,
+        &:active {
+          .tag > :last-child {
+            transform: translateX(0.5rem);
+            opacity: 1;
+          }
+        }
+      }
+
+      span {
+        font-size: 1.1em;
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline: 0;
+        font-weight: bold;
+      }
+    }
+    .tag {
+      padding-inline-start: 0.5rem;
+    }
+  }
+</style>
+
 <Layout>
-  <Highlights />
+  <div class="hero">
+    <ul class="cluster" role="list">
+      <li class="tag inverted">
+        <a href="">
+          <Icon icon="calendar-days" />
+          14. + 15. März 2026
+          <Icon icon="chevrons-right" />
+        </a>
+      </li>
+      <li class="tag inverted">
+        <a href="">
+          <Icon icon="ticket" /> Eintritt kostenfrei
+          <Icon icon="chevrons-right" />
+        </a>
+      </li>
+      <li class="tag inverted">
+        <a href="">
+          <Icon icon="location-smile" /> Schädrütistrasse 26, Luzern
+          <Icon icon="chevrons-right" />
+        </a>
+      </li>
+    </ul>
+    <ul class="big-grid" role="list">
+      <li>
+        <a href="">
+          <Picture
+            src={lst202401}
+            formats={["avif", "webp", "jpg"]}
+            alt="2024, Luzerner Rollenspieltage"
+          />
+          <span class="tag">
+            Freies Spielen
+            <Icon icon="chevrons-right" />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <Picture
+            src={lst202203}
+            formats={["avif", "webp", "jpg"]}
+            alt="2022, Luzerner Rollenspieltage"
+          />
+          <span class="tag">
+            Organisierte Spiele
+            <Icon icon="chevrons-right" />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <Picture
+            src={lst201908}
+            formats={["avif", "webp", "jpg"]}
+            alt="2019, Luzerner Rollenspieltage"
+          />
+          <span class="tag">
+            Flohmarkt
+            <Icon icon="chevrons-right" />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <Picture
+            src={lst201810}
+            formats={["avif", "webp", "jpg"]}
+            alt="2018, Luzerner Rollenspieltage"
+          />
+          <span class="tag">
+            Verpflegung
+            <Icon icon="chevrons-right" />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <Picture
+            src={lst202206}
+            formats={["avif", "webp", "jpg"]}
+            alt="2022, Luzerner Rollenspieltage"
+          />
+          <span class="tag">
+            Familiensonntag
+            <Icon icon="chevrons-right" />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <Picture
+            src={lst202208}
+            formats={["avif", "webp", "jpg"]}
+            alt="2022, Luzerner Rollenspieltage"
+          />
+          <span class="tag">
+            Spieldesigner
+            <Icon icon="chevrons-right" />
+          </span>
+        </a>
+      </li>
+    </ul>
+    <ul class="cluster" role="list" style="justify-content: flex-end;">
+      <li class="tag inverted">
+        <a href="">
+          <Icon icon="list-radio" /> Programm entdecken
+          <Icon icon="chevrons-right" />
+        </a>
+      </li>
+      <li class="tag inverted">
+        <a href="">
+          <Icon icon="hand-heart" /> Unterstütze uns
+          <Icon icon="chevrons-right" />
+        </a>
+      </li>
+      <li class="tag inverted">
+        <a href="">
+          <Icon icon="mailbox" /> Schreib uns eine Nachricht
+          <Icon icon="chevrons-right" />
+        </a>
+      </li>
+    </ul>
+  </div>
 </Layout>
