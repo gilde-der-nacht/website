@@ -46,7 +46,10 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
 
     .big-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(clamp(20vw, 20rem, 100%), 1fr)
+      );
       gap: 1.5rem;
 
       li {
@@ -85,6 +88,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
         font-weight: bold;
       }
     }
+
     .tag {
       padding-inline-start: 0.5rem;
     }
@@ -194,7 +198,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
         </a>
       </li>
     </ul>
-    <ul class="cluster" role="list" style="justify-content: flex-end;">
+    <ul class="cluster" role="list">
       <li class="tag inverted">
         <a href="">
           <Icon icon="list-radio" /> Programm entdecken
@@ -203,7 +207,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
       </li>
       <li class="tag inverted">
         <a href="">
-          <Icon icon="hand-heart" /> Unterstütze uns
+          <Icon icon="hand-heart" /> Hilf mit
           <Icon icon="chevrons-right" />
         </a>
       </li>
