@@ -5,13 +5,14 @@
   "private": true,
   "scripts": {
     "gdn-dev": "astro --config ./gildedernacht.ch/config.ts dev",
-    "gdn-build": "astro --config ./gildedernacht.ch/config.ts check && astro --config ./gildedernacht.ch/config.ts build",
+    "gdn-build": "yarn build-ics && astro --config ./gildedernacht.ch/config.ts check && astro --config ./gildedernacht.ch/config.ts build",
     "lst-dev": "astro --config ./spieltage.ch/config.ts dev",
     "lst-build": "astro --config ./spieltage.ch/config.ts check && astro --config ./spieltage.ch/config.ts build",
     "rst-dev": "astro --config ./rollenspieltage.ch/config.ts dev",
     "rst-build": "astro --config ./rollenspieltage.ch/config.ts check && astro --config ./rollenspieltage.ch/config.ts build",
     "hhh-dev": "astro --config ./hhh.gildedernacht.ch/config.ts dev",
-    "hhh-build": "astro --config ./hhh.gildedernacht.ch/config.ts check && astro --config ./hhh.gildedernacht.ch/config.ts build"
+    "hhh-build": "astro --config ./hhh.gildedernacht.ch/config.ts check && astro --config ./hhh.gildedernacht.ch/config.ts build",
+    "build-ics": "tsx ./gildedernacht.ch/build.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -24,6 +25,7 @@
     "remark-smartypants": "^3.0.2",
     "sass": "^1.97.1",
     "solid-js": "^1.9.10",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.0"
   },
