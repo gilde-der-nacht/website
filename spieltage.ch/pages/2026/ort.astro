@@ -1,0 +1,151 @@
+---
+import Layout from "@lst/layouts/Layout.astro";
+---
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+<script
+  is:inline
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+
+<link
+  rel="stylesheet"
+  href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
+  integrity="sha256-LhJiGL8zdnwmqQgxK45GXouxZnYhMrDdor4wyLxKxSg="
+  crossorigin=""
+/>
+<script
+  is:inline
+  src="//unpkg.com/leaflet-gesture-handling"
+  integrity="sha256-Z27Vo2NYi3eklYwgKkhgysoiRMJNOaBP+o4eF586vZ8="
+  crossorigin=""></script>
+
+<Layout>
+  <h1>before</h1>
+  <div id="map-big" class="full-width" style="height: 60svh;"></div>
+  <h2>Between</h2>
+  <div id="map-small" class="full-width" style="height: 70svh;"></div>
+  <h2>after</h2>
+  <style>
+    .leaflet-container {
+      img {
+        border: initial;
+        display: initial;
+        background-color: initial;
+      }
+      a {
+        border: initial;
+      }
+    }
+  </style>
+
+  <script is:inline type="module">
+    // Big
+
+    const colorTiles = new L.TileLayer(
+      "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg",
+      {
+        attribution: '<a href="https://map.geo.admin.ch">geo.admin.ch</a>',
+      },
+    );
+
+    const mapBig = new L.Map("map-big", {
+      center: [47.05042, 8.32674],
+      zoom: 15,
+      gestureHandling: true,
+      layers: [colorTiles],
+    });
+
+    const markerBig = new L.Marker([47.055781, 8.344615]).addTo(mapBig);
+    markerBig
+      .bindPopup(
+        "<b>Pfarrei St. Johannes</b><br>Würzenbachsaal<br>Schädrütistrasse 22, Luzern",
+      )
+      .openPopup();
+
+    // Small
+
+    const grayTiles = new L.TileLayer(
+      "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-grau/default/current/3857/{z}/{x}/{y}.jpeg",
+      {
+        attribution: '<a href="https://map.geo.admin.ch">geo.admin.ch</a>',
+      },
+    );
+    const transportTiles = new L.TileLayer(
+      "https://wmts.geo.admin.ch/1.0.0/ch.bav.haltestellen-oev/default/current/3857/{z}/{x}/{y}.png",
+    );
+
+    const mapSmall = new L.Map("map-small", {
+      center: [47.055098, 8.344566],
+      zoom: 18,
+      gestureHandling: true,
+      layers: [grayTiles, transportTiles],
+    });
+
+    const grayIcon = new L.Icon({
+      iconUrl:
+        "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png",
+      shadowUrl:
+        "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    });
+    new L.Marker([47.055781, 8.344615], {
+      icon: grayIcon,
+    })
+      .addTo(mapSmall)
+      .bindPopup("<b>Würzenbachsaal</b>", {
+        closeOnClick: false,
+        autoClose: false,
+      })
+      .openPopup();
+
+    new L.Marker([47.055321, 8.345031], {
+      icon: grayIcon,
+    })
+      .addTo(mapSmall)
+      .bindPopup("<b>Unterkirche</b>", {
+        closeOnClick: false,
+        autoClose: false,
+      })
+      .openPopup();
+
+    const schloesslihalde = new L.Marker([47.056089, 8.344255])
+      .addTo(mapSmall)
+      .bindPopup(
+        "<b>Luzern, Schlösslihalde</b><br>Bus 14, Richtung Brüelstrasse<br>Bus 73, Richtung Adligenswil",
+        {
+          closeOnClick: false,
+          autoClose: false,
+        },
+      )
+      .openPopup();
+
+    const wuerzenbachmatte = new L.Marker([47.054777, 8.344067])
+      .addTo(mapSmall)
+      .bindPopup(
+        "<b>Luzern, Würzenbachmatte</b><br>Bus 8, Richtung Würzenbach",
+        {
+          closeOnClick: false,
+          autoClose: false,
+        },
+      )
+      .openPopup();
+
+    const giseli = new L.Marker([47.053649, 8.344588])
+      .addTo(mapSmall)
+      .bindPopup("<b>Luzern, Giseli</b><br>Bus 6, Richtung Büttenenhalde", {
+        closeOnClick: false,
+        autoClose: false,
+      })
+      .openPopup();
+  </script>
+</Layout>
