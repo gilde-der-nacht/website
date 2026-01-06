@@ -9,7 +9,7 @@ navigation:
   order: 8
 ---
 
-<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+<button type="button" class="button-accent" data-toggle-details="">
   alle Antworten   
   <span data-toggle-label="open">zuklappen</span>
   <span data-toggle-label="close" hidden>aufklappen</span>
@@ -77,7 +77,7 @@ navigation:
 
 </details>
 
-<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+<button type="button" class="button-accent" data-toggle-details="">
   alle Antworten   
   <span data-toggle-label="open">zuklappen</span>
   <span data-toggle-label="close" hidden>aufklappen</span>
@@ -127,7 +127,7 @@ navigation:
 
 </details>
 
-<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+<button type="button" class="button-accent" data-toggle-details="">
   alle Antworten   
   <span data-toggle-label="open">zuklappen</span>
   <span data-toggle-label="close" hidden>aufklappen</span>
@@ -214,7 +214,7 @@ navigation:
 
 </details>
 
-<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+<button type="button" class="button-accent" data-toggle-details="">
   alle Antworten   
   <span data-toggle-label="open">zuklappen</span>
   <span data-toggle-label="close" hidden>aufklappen</span>
@@ -243,7 +243,7 @@ navigation:
 
 </details>
 
-<button type="button" class="button-accent" data-toggle-details="" style="margin-block-start: 1rem;">
+<button type="button" class="button-accent" data-toggle-details="">
   alle Antworten   
   <span data-toggle-label="open">zuklappen</span>
   <span data-toggle-label="close" hidden>aufklappen</span>
@@ -286,3 +286,10 @@ navigation:
   });
 }
 </script>
+
+<style>
+[data-toggle-details] {
+  margin-block-start: 1rem;
+  justify-self: start;
+}
+</style>
