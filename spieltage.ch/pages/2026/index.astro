@@ -1,5 +1,6 @@
 ---
 import { Icon } from "@common/components/Icon";
+import { Box } from "@common/components/Box";
 import Layout from "@lst/layouts/Layout.astro";
 import { Picture } from "astro:assets";
 import lst202401 from "@lst/images/2024-spieltage-01.jpg";
@@ -99,14 +100,14 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
   <div class="hero">
     <ul class="cluster" role="list">
       <li class="tag inverted">
-        <a href="">
+        <a href="#öffnungszeiten">
           <Icon icon="calendar-days" />
           14. + 15. März 2026
           <Icon icon="chevrons-right" />
         </a>
       </li>
       <li class="tag inverted">
-        <a href="">
+        <a href="#eintritt-anmeldung">
           <Icon icon="ticket" /> Eintritt kostenfrei
           <Icon icon="chevrons-right" />
         </a>
@@ -120,7 +121,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
     </ul>
     <ul class="big-grid" role="list">
       <li>
-        <a href="">
+        <a href="/todo">
           <Picture
             src={lst202401}
             formats={["avif", "webp", "jpg"]}
@@ -133,7 +134,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="/todo">
           <Picture
             src={lst202203}
             formats={["avif", "webp", "jpg"]}
@@ -159,7 +160,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="#verpflegung">
           <Picture
             src={lst201810}
             formats={["avif", "webp", "jpg"]}
@@ -172,7 +173,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="/todo">
           <Picture
             src={lst202206}
             formats={["avif", "webp", "jpg"]}
@@ -185,7 +186,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="/todo">
           <Picture
             src={lst202208}
             formats={["avif", "webp", "jpg"]}
@@ -200,7 +201,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
     </ul>
     <ul class="cluster" role="list">
       <li class="tag inverted">
-        <a href="">
+        <a href="/todo">
           <Icon icon="list-radio" /> Programm entdecken
           <Icon icon="chevrons-right" />
         </a>
@@ -219,4 +220,138 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
       </li>
     </ul>
   </div>
+
+  <h1 id="herzlich-willkommen">
+    <a href="#herzlich-willkommen" class="header-anchor">
+      Herzlich willkommen <br />an den Luzerner Spieltage 2026
+    </a>
+  </h1>
+  <p>
+    Am
+    <strong> Samstag, 14. und Sonntag, 15. März 2026 </strong>
+    verwandeln wir den <a href="/2026/adresse">Würzenbachsaal</a>
+    in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder
+    Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan.
+    Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
+  </p>
+  <p>
+    Falls du Fragen hast oder an den Spieltagen <a href="/helfen"
+      ><strong>mithelfen</strong></a
+    >
+    möchtest, zögere nicht, uns über das <a href="/kontakt">Kontaktformular</a>
+    anzuschreiben. Wir freuen uns auf deine Nachricht.
+  </p>
+
+  <h2 id="wichtige-infos">
+    <a href="#wichtige-infos" class="header-anchor">
+      Die wichtigsten Informationen auf einen Blick
+    </a>
+  </h2>
+
+  <h3 id="öffnungszeiten">
+    <a href="#öffnungszeiten" class="header-anchor"> Öffnungszeiten </a>
+  </h3>
+
+  <p>
+    <code>
+      Samstag, 22. März 2025, 10 bis 24 Uhr <br />
+      Sonntag, 23. März 2025, 10 bis 18 Uhr*
+    </code>
+  </p>
+
+  <p>
+    <em>*Der Flohmarkt schliesst am Sonntag bereits um 17 Uhr.</em>
+  </p>
+
+  <h3 id="eintritt-anmeldung">
+    <a href="#eintritt-anmeldung" class="header-anchor">
+      Eintritt & Anmeldung
+    </a>
+  </h3>
+
+  <p>
+    Der Eintritt ist kostenfrei und eine Anmeldung ist nicht nötig. Bei gewissem
+    Spezialprogramm hat es begrenzte Plätze, für die du dich im Vorfeld anmelden
+    kannst.
+  </p>
+
+  <ul class="cluster" role="list">
+    <li class="tag inverted">
+      <a href="/todo">
+        zum Programm
+        <Icon icon="chevrons-right" />
+      </a>
+    </li>
+  </ul>
+
+  <h3 id="anreise">
+    <a href="#anreise" class="header-anchor"> Anreise </a>
+  </h3>
+
+  <p>Die Adresse lautet: Schädrütistrasse 26 6006 Luzern.</p>
+
+  <ul class="cluster" role="list">
+    <li class="tag inverted">
+      <a href="/2026/adresse">
+        alle Informationen zur Lokalität und Anreise
+        <Icon icon="chevrons-right" />
+      </a>
+    </li>
+  </ul>
+
+  <h3 id="verpflegung">
+    <a href="#verpflegung" class="header-anchor"> Verpflegung </a>
+  </h3>
+
+  <p>
+    Ein Kiosk mit Getränken und Snacks steht während den Öffnungszeiten zur
+    Verfügung und am Mittag und am Abend kochen wir etwas Leckeres für euch,
+    inkl. Optionen für Veganer.
+  </p>
+
+  <p>
+    <em>Speisen und Getränke können Bar oder per Twint bezahlt werden.</em>
+  </p>
+
+  <Box
+    type="success"
+    link="https://gildedernacht.ch/"
+    linkLabel="Zur Gilde der Nacht"
+  >
+    Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein,
+    den Organisatoren der Luzerner Spieltage.
+    <!-- <br />Und merk dir unbedingt das -->
+    <!-- Datum fürs nächste Jahr: <strong>14. + 15. März 2026</strong>. -->
+  </Box>
+
+  <style>
+    .cluster {
+      li {
+        font-size: 1.1em;
+      }
+
+      a {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        color: unset;
+        text-decoration: none;
+        border: none;
+
+        > :last-child {
+          transition: all 0.5s;
+          opacity: 0.4;
+        }
+
+        &:hover,
+        &:active {
+          > :last-child {
+            transform: translateX(0.5rem);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  </style>
 </Layout>
