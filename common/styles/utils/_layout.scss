@@ -1,6 +1,7 @@
 .dynamic-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(var(--min-width, 20rem), 100%), 1fr));
+  gap: 2rem 5rem;
 }
 
 .cluster {
