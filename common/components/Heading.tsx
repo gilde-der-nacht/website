@@ -5,7 +5,13 @@ import type { WithChildren } from "./utils";
 type Level = 1 | 2 | 3 | 4;
 
 function toKebabCase(str: string): string {
-  return encodeURIComponent(str.replaceAll(/\s/g, "-").toLocaleLowerCase());
+  return encodeURIComponent(
+    str
+      .replaceAll(/\s/g, "-")
+      .replaceAll("&", "")
+      .replaceAll(/-{1,}/g, "-")
+      .toLocaleLowerCase(),
+  );
 }
 
 type HeadingProps = {

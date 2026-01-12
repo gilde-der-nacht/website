@@ -8,6 +8,14 @@ import Outdated from "@common/components/Outdated.astro";
 const program = await getProgramGroupedByStarthour();
 const saturday = Object.entries(program.SATURDAY);
 const sunday = Object.entries(program.SUNDAY);
+
+export const frontmatter = {
+  navigation: {
+    group: "main",
+    label: "Organisierte Spiele",
+    order: 5,
+  },
+};
 ---
 
 <Layout metaTitle="Programm 2025">

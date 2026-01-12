@@ -9,6 +9,14 @@ import lst201802 from "@lst/images/2018-spieltage-02.jpg";
 import lst201911 from "@lst/images/2019-spieltage-11.jpg";
 import Picture from "astro/components/Picture.astro";
 import { Heading } from "@common/components/Heading";
+
+export const frontmatter = {
+  navigation: {
+    group: "main",
+    label: "Freies Spielen",
+    order: 1,
+  },
+};
 ---
 
 <Layout metaTitle="Freies Spielen">

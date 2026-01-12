@@ -1,6 +1,14 @@
 ---
 import { Icon } from "@common/components/Icon";
 import Layout from "@lst/layouts/Layout.astro";
+
+export const frontmatter = {
+  navigation: {
+    group: "secondary",
+    label: "Anreise",
+    order: 1,
+  },
+};
 ---
 
 <link
@@ -116,19 +124,19 @@ import Layout from "@lst/layouts/Layout.astro";
       <p>
         Der grössere der beiden Räume. Hier findest du den Hauptteil unseres
         Programms:
-        <a href="/todo">
+        <a href="/programm/freies-spielen">
           die Spielbibliothek, die Erklärbären, viel Platz zum Spielen
-        </a> und der <a href="/todo">Kiosk</a>.
+        </a> und der <a href="/#verpflegung">Kiosk</a>.
       </p>
     </div>
     <div class="content">
       <h3>Unterkirche (unten)</h3>
       <p>
-        Hier findest du den <a href="/todo">Flohmarkt</a>,
-        <a href="/todo">Schweizer Spieldesigner</a>,
-        <a href="/todo">die Ludothek</a>
+        Hier findest du den <a href="/flohmarkt">Flohmarkt</a>,
+        <a href="/programm/spieldesigner">Schweizer Spieldesigner</a>,
+        <a href="/programm/familien">die Ludothek</a>
         und diverses
-        <a href="/todo">Spezialprogramm</a>.
+        <a href="/programm/organisiert">Spezialprogramm</a>.
       </p>
     </div>
   </div>
