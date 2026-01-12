@@ -1,0 +1,54 @@
+---
+import Layout from "@lst/layouts/Layout.astro";
+import {
+  ImageText,
+  ImageTextLeft,
+  ImageTextRight,
+} from "@common/components/ImageText.tsx";
+import lst201802 from "@lst/images/2018-spieltage-02.jpg";
+import lst201911 from "@lst/images/2019-spieltage-11.jpg";
+import Picture from "astro/components/Picture.astro";
+import { Heading } from "@common/components/Heading";
+---
+
+<Layout metaTitle="Freies Spielen">
+  <Heading level={1} title="Freies Spielen" />
+
+  <Heading level={2} title="Spiele-Bibliothek" />
+
+  <ImageText>
+    <ImageTextLeft>
+      Die grosse Bibliothek mit Spielen für Jung und Alt, für Strategen und
+      Geniesser, für Einzel- oder Teamkämpfer steht im Fokus des Anlasses –
+      entdecke mit uns Spiele, welche wir dir vor Ort erklären, ohne dass du das
+      Regelbuch in die Hand nehmen musst.
+    </ImageTextLeft>
+
+    <ImageTextRight>
+      <Picture
+        src={lst201802}
+        formats={["avif", "webp", "jpg"]}
+        alt="2018, Luzerner Spieltage"
+      />
+    </ImageTextRight>
+  </ImageText>
+
+  <Heading level={2} title="Erklärbären / Spielempfehlungen" />
+
+  <ImageText>
+    <ImageTextLeft>
+      Wir haben dieses Jahr wieder eine Auswahl an Spielen, welche Erklärbären
+      und Erklärbärinnen aus dem Effeff beherschen. Sieh dich nach den roten
+      T-Shirts um, melde dich am Infopoint oder stöbere selber in unserer
+      Bibliothek.
+    </ImageTextLeft>
+
+    <ImageTextRight>
+      <Picture
+        src={lst201911}
+        formats={["avif", "webp", "jpg"]}
+        alt="2019, Luzerner Spieltage"
+      />
+    </ImageTextRight>
+  </ImageText>
+</Layout>

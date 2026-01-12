@@ -10,6 +10,7 @@ import {
 } from "@rst/components/anmeldung/api/program";
 import { assert } from "@common/components/utils";
 import Outdated from "@common/components/Outdated.astro";
+import { Heading } from "@common/components/Heading";
 
 export const frontmatter = {
   navigation: {
@@ -34,18 +35,15 @@ const sunday = Object.entries(program.SUNDAY).filter(
 ---
 
 <Layout metaTitle="Programm 2025">
-  <h1 id="programm-2025">
-    <a href="#programm-2025" class="header-anchor">Programm 2025</a>
-  </h1>
+  <Heading level={1} title="Programm 2025" />
 
   <Outdated event="RST" language="DE" />
 
   <a href="#Samstag" style="border: none;"><Button label="Samstag" /></a>
   <a href="#Sonntag" style="border: none;"><Button label="Sonntag" /></a>
 
-  <h2 id="Samstag">
-    <a href="#Samstag" class="header-anchor">Samstag, 23. August 2025</a>
-  </h2>
+  <Heading level={2} title="Samstag, 22. März 2025" id="samstag" />
+
   {
     saturday
       .filter(([hour]) => {
@@ -53,11 +51,11 @@ const sunday = Object.entries(program.SUNDAY).filter(
       })
       .map(([hour, entries]) => (
         <>
-          <h3 id={`Samstag-${hour}`}>
-            <a href={`#Samstag-${hour}`} class="header-anchor">
-              Start {hour} Uhr
-            </a>
-          </h3>
+          <Heading
+            level={3}
+            title={`Start ${hour} Uhr`}
+            id={`samstag-${hour}`}
+          />
           <EventList hour={hour} entries={entries} />
         </>
       ))
@@ -74,11 +72,11 @@ const sunday = Object.entries(program.SUNDAY).filter(
       })
       .map(([hour, entries]) => (
         <>
-          <h3 id={`Samstag-${hour}`}>
-            <a href={`#Samstag-${hour}`} class="header-anchor">
-              Start {hour} Uhr
-            </a>
-          </h3>
+          <Heading
+            level={3}
+            title={`Start ${hour} Uhr`}
+            id={`samstag-${hour}`}
+          />
           <EventList hour={hour} entries={entries} />
         </>
       ))
@@ -95,20 +93,18 @@ const sunday = Object.entries(program.SUNDAY).filter(
       })
       .map(([hour, entries]) => (
         <>
-          <h3 id={`Samstag-${hour}`}>
-            <a href={`#Samstag-${hour}`} class="header-anchor">
-              Start {hour} Uhr
-            </a>
-          </h3>
+          <Heading
+            level={3}
+            title={`Start ${hour} Uhr`}
+            id={`samstag-${hour}`}
+          />
           <EventList hour={hour} entries={entries} />
         </>
       ))
   }
   <a href="#top" style="border: none;"><Button label="nach oben" /></a>
 
-  <h2 id="Sonntag">
-    <a href="#Sonntag" class="header-anchor">Sonntag, 24. August 2025</a>
-  </h2>
+  <Heading level={2} title="Sonntag, 24. August 2025" id="sonntag" />
 
   {
     sunday
@@ -117,11 +113,11 @@ const sunday = Object.entries(program.SUNDAY).filter(
       })
       .map(([hour, entries]) => (
         <>
-          <h3 id={`Sonntag-${hour}`}>
-            <a href={`#Sonntag-${hour}`} class="header-anchor">
-              Start {hour} Uhr
-            </a>
-          </h3>
+          <Heading
+            level={3}
+            title={`Start ${hour} Uhr`}
+            id={`sonntag-${hour}`}
+          />
           <EventList hour={hour} entries={entries} />
         </>
       ))
@@ -138,11 +134,11 @@ const sunday = Object.entries(program.SUNDAY).filter(
       })
       .map(([hour, entries]) => (
         <>
-          <h3 id={`Sonntag-${hour}`}>
-            <a href={`#Sonntag-${hour}`} class="header-anchor">
-              Start {hour} Uhr
-            </a>
-          </h3>
+          <Heading
+            level={3}
+            title={`Start ${hour} Uhr`}
+            id={`sonntag-${hour}`}
+          />
           <EventList hour={hour} entries={entries} />
         </>
       ))

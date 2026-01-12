@@ -9,92 +9,8 @@ import lst201908 from "@lst/images/2019-spieltage-08.jpg";
 import lst201810 from "@lst/images/2018-spieltage-10.jpg";
 import lst202206 from "@lst/images/2022-spieltage-06.jpg";
 import lst202208 from "@lst/images/2022-spieltage-08.jpg";
+import { Heading } from "@common/components/Heading";
 ---
-
-<style>
-  .hero {
-    display: grid;
-    gap: 1rem;
-
-    .cluster {
-      li {
-        font-size: 1.1em;
-      }
-
-      a {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        justify-content: space-between;
-        color: unset;
-        text-decoration: none;
-        border: none;
-
-        > :last-child {
-          transition: all 0.5s;
-          opacity: 0.4;
-        }
-
-        &:hover,
-        &:active {
-          > :last-child {
-            transform: translateX(0.5rem);
-            opacity: 1;
-          }
-        }
-      }
-    }
-
-    .big-grid {
-      display: grid;
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(clamp(20vw, 20rem, 100%), 1fr)
-      );
-      gap: 1.5rem;
-
-      li {
-        position: relative;
-      }
-
-      a {
-        padding: 0;
-
-        .tag {
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .tag > :last-child {
-          transition: all 0.5s;
-          opacity: 0.4;
-        }
-
-        &:hover,
-        &:active {
-          .tag > :last-child {
-            transform: translateX(0.5rem);
-            opacity: 1;
-          }
-        }
-      }
-
-      span {
-        font-size: 1.1em;
-        position: absolute;
-        inset-block-end: 0;
-        inset-inline: 0;
-        font-weight: bold;
-      }
-    }
-
-    .tag {
-      padding-inline-start: 0.5rem;
-    }
-  }
-</style>
 
 <Layout>
   <div class="hero">
@@ -121,7 +37,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
     </ul>
     <ul class="big-grid" role="list">
       <li>
-        <a href="/todo">
+        <a href="/programm/freies-spielen">
           <Picture
             src={lst202401}
             formats={["avif", "webp", "jpg"]}
@@ -221,11 +137,11 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
     </ul>
   </div>
 
-  <h1 id="herzlich-willkommen">
-    <a href="#herzlich-willkommen" class="header-anchor">
-      Herzlich willkommen <br />an den Luzerner Spieltage 2026
-    </a>
-  </h1>
+  <Heading level={1} id="herzlich-willkommen">
+    Herzlich willkommen <br />
+    an den Luzerner Spieltage 2026
+  </Heading>
+
   <p>
     Am
     <strong> Samstag, 14. und Sonntag, 15. März 2026 </strong>
@@ -242,15 +158,13 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
     anzuschreiben. Wir freuen uns auf deine Nachricht.
   </p>
 
-  <h2 id="wichtige-infos">
-    <a href="#wichtige-infos" class="header-anchor">
-      Die wichtigsten Informationen auf einen Blick
-    </a>
-  </h2>
+  <Heading
+    level={2}
+    title="Die wichtigsten Informationen auf einen Blick"
+    id="wichtige-infos"
+  />
 
-  <h3 id="öffnungszeiten">
-    <a href="#öffnungszeiten" class="header-anchor"> Öffnungszeiten </a>
-  </h3>
+  <Heading level={3} title="Öffnungszeiten" />
 
   <p>
     <code>
@@ -263,11 +177,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
     <em>*Der Flohmarkt schliesst am Sonntag bereits um 17 Uhr.</em>
   </p>
 
-  <h3 id="eintritt-anmeldung">
-    <a href="#eintritt-anmeldung" class="header-anchor">
-      Eintritt & Anmeldung
-    </a>
-  </h3>
+  <Heading level={3} title="Eintritt & Anmeldung" />
 
   <p>
     Der Eintritt ist kostenfrei und eine Anmeldung ist nicht nötig. Bei gewissem
@@ -284,9 +194,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
     </li>
   </ul>
 
-  <h3 id="anreise">
-    <a href="#anreise" class="header-anchor"> Anreise </a>
-  </h3>
+  <Heading level={3} title="Anreise" />
 
   <p>Die Adresse lautet: Schädrütistrasse 26 6006 Luzern.</p>
 
@@ -299,9 +207,7 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
     </li>
   </ul>
 
-  <h3 id="verpflegung">
-    <a href="#verpflegung" class="header-anchor"> Verpflegung </a>
-  </h3>
+  <Heading level={3} title="Verpflegung" />
 
   <p>
     Ein Kiosk mit Getränken und Snacks steht während den Öffnungszeiten zur
@@ -351,6 +257,60 @@ import lst202208 from "@lst/images/2022-spieltage-08.jpg";
             opacity: 1;
           }
         }
+      }
+    }
+
+    .hero {
+      display: grid;
+      gap: 1rem;
+
+      .big-grid {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(clamp(20vw, 20rem, 100%), 1fr)
+        );
+        gap: 1.5rem;
+
+        li {
+          position: relative;
+        }
+
+        a {
+          padding: 0;
+
+          .tag {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+          .tag > :last-child {
+            transition: all 0.5s;
+            opacity: 0.4;
+          }
+
+          &:hover,
+          &:active {
+            .tag > :last-child {
+              transform: translateX(0.5rem);
+              opacity: 1;
+            }
+          }
+        }
+
+        span {
+          font-size: 1.1em;
+          position: absolute;
+          inset-block-end: 0;
+          inset-inline: 0;
+          font-weight: bold;
+        }
+      }
+
+      .tag {
+        padding-inline-start: 0.5rem;
       }
     }
   </style>

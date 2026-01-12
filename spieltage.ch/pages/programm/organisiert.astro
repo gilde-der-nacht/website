@@ -3,16 +3,14 @@ import Layout from "@lst/layouts/Layout.astro";
 import { Button } from "@common/components/Button.tsx";
 import { getProgramGroupedByStarthour } from "@lst/components/program/data.ts";
 import EventList from "@lst/components/program/EventList.astro";
-
+import { Heading } from "@common/components/Heading";
 const program = await getProgramGroupedByStarthour();
 const saturday = Object.entries(program.SATURDAY);
 const sunday = Object.entries(program.SUNDAY);
 ---
 
 <Layout metaTitle="Programm 2025">
-  <h1 id="programm-2025">
-    <a href="#programm-2025" class="header-anchor">Organisierte Spielerunden</a>
-  </h1>
+  <Heading level={1} title="Organisierte Spielerunden" />
 
   <a href="#Samstag" style="border: none;"><Button label="Samstag" /></a>
   <a href="#Sonntag" style="border: none;"><Button label="Sonntag" /></a>
@@ -37,17 +35,12 @@ const sunday = Object.entries(program.SUNDAY);
     </a>
   </div>
 
-  <h2 id="Samstag">
-    <a href="#Samstag" class="header-anchor">Samstag, 22. März 2025</a>
-  </h2>
+  <Heading level={2} title="Samstag, 22. März 2025" id="samstag" />
+
   {
     saturday.map(([hour, entries], i) => (
       <>
-        <h3 id={`Samstag-${hour}`}>
-          <a href={`#Samstag-${hour}`} class="header-anchor">
-            Start {hour} Uhr
-          </a>
-        </h3>
+        <Heading level={3} title={`Start ${hour} Uhr`} id={`samstag-${hour}`} />
         <EventList hour={hour} entries={entries} showQuestion={i === 0} />
         <div style="margin-block: 2.5rem;">
           <a href="/anmeldung" style="border: none;">
@@ -61,18 +54,13 @@ const sunday = Object.entries(program.SUNDAY);
     ))
   }
 
-  <h2 id="Sonntag">
-    <a href="#Sonntag" class="header-anchor">Sonntag, 23. März 2025</a>
-  </h2>
+  <Heading level={2} title="Sonntag, 23. März 2025" id="sonntag" />
 
   {
     sunday.map(([hour, entries], i) => (
       <>
-        <h3 id={`Sonntag-${hour}`}>
-          <a href={`#Sonntag-${hour}`} class="header-anchor">
-            Start {hour} Uhr
-          </a>
-        </h3>
+        <Heading level={3} title={`Start ${hour} Uhr`} id={`sonntag-${hour}`} />
+
         <EventList hour={hour} entries={entries} showQuestion={i === 0} />
 
         <div style="margin-block: 2.5rem;">
