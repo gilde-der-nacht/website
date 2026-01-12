@@ -4,6 +4,7 @@ import { Button } from "@common/components/Button.tsx";
 import { getProgramGroupedByStarthour } from "@lst/components/program/data.ts";
 import EventList from "@lst/components/program/EventList.astro";
 import { Heading } from "@common/components/Heading";
+import Outdated from "@common/components/Outdated.astro";
 const program = await getProgramGroupedByStarthour();
 const saturday = Object.entries(program.SATURDAY);
 const sunday = Object.entries(program.SUNDAY);
@@ -12,8 +13,12 @@ const sunday = Object.entries(program.SUNDAY);
 <Layout metaTitle="Programm 2025">
   <Heading level={1} title="Organisierte Spielerunden" />
 
-  <a href="#Samstag" style="border: none;"><Button label="Samstag" /></a>
-  <a href="#Sonntag" style="border: none;"><Button label="Sonntag" /></a>
+  <Outdated language="DE" event="LST" />
+
+  <div class="cluster">
+    <a href="#Samstag" style="border: none;"><Button label="Samstag" /></a>
+    <a href="#Sonntag" style="border: none;"><Button label="Sonntag" /></a>
+  </div>
 
   <p style="margin-block-start: 2.5rem;">
     Wir veranstalten diverse Spielrunden, die für Action und Spannung stehen.
