@@ -7,7 +7,9 @@ import {
   isNotProduction,
 } from "@common/components/utils.ts";
 
-const articles = await Astro.glob("./**/*.{md,mdx,astro}");
+const articles: Record<string, any>[] = Object.values(
+  import.meta.glob("./**/*.{md,mdx,astro}", { eager: true }),
+);
 
 function sortByDate(a: Record<string, any>, b: Record<string, any>): number {
   return sortUtil(a.frontmatter, b.frontmatter);
