@@ -3,10 +3,12 @@ import path from "path";
 
 fetch("https://elysium.gildedernacht.ch/calendar/v2/gilde.ics").then(
   async (result) => {
+    const text = await result.text();
+
     if (result.ok) {
       fs.writeFile(
         path.join(process.cwd(), "gildedernacht.ch/public", "test.ics"),
-        await result.text(),
+        text,
         () => {},
       );
       fs.writeFile(
@@ -15,7 +17,7 @@ fetch("https://elysium.gildedernacht.ch/calendar/v2/gilde.ics").then(
           "gildedernacht.ch/public",
           "gilden-kalender.ics",
         ),
-        await result.text(),
+        text,
         () => {},
       );
     }
