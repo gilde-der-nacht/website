@@ -1,19 +1,12 @@
 import { z } from "astro/zod";
 import { elysium } from "./utils";
 
-const statusSchema = z.enum(["published", "draft", "archived"]);
-
 const locationSchema = z.object({
   label: z.string(),
   labelLong: z.nullable(z.string()),
   virtual: z.boolean(),
-  url: z.nullable(z.string()),
+  url: z.nullable(z.string().url()),
   comment: z.nullable(z.string()),
-});
-
-const typeSchema = z.object({
-  label: z.string(),
-  description: z.nullable(z.string()),
 });
 
 const organizerSchema = z.object({
@@ -21,37 +14,47 @@ const organizerSchema = z.object({
   url: z.nullable(z.string()),
 });
 
+const simpleDateSchema = z.object({
+  day: z.number(),
+  month: z.number(),
+  year: z.number(),
+});
+
+export type SimpleDate = z.infer<typeof simpleDateSchema>;
+
+const simpleTimeSchema = z.object({
+  hour: z.number(),
+  minute: z.number(),
+});
+
+export type SimpleTime = z.infer<typeof simpleTimeSchema>;
+
+const simpleDateTimeSchema = z.object({
+  startDate: simpleDateSchema,
+  endDate: z.nullable(simpleDateSchema),
+  startTime: z.nullable(simpleTimeSchema),
+  endTime: z.nullable(simpleTimeSchema),
+});
+
+export type SimpleDateTime = z.infer<typeof simpleDateTimeSchema>;
+
 const eventSchema = z.object({
-  id: z.number(),
-  status: statusSchema,
+  uuid: z.string().uuid(),
   title: z.string(),
-  description: z.nullable(z.string()),
-  googleCalendarId: z.nullable(z.string()),
-  date: z.object({
-    multipleDays: z.boolean(),
-    fullDay: z.boolean(),
-    start: z.coerce.date(),
-    end: z.coerce.date(),
-  }),
+  description: z.string(),
   tags: z.array(z.string()),
-  links: z.array(
-    z.object({
-      label: z.string(),
-      url: z.string(),
-    }),
-  ),
+  links: z.array(z.object({ label: z.string(), url: z.string().url() })),
+  type: z.string(),
   location: locationSchema,
-  type: typeSchema,
   organizer: organizerSchema,
+  date: simpleDateTimeSchema,
 });
 
 export type OlympEvent = z.infer<typeof eventSchema>;
 
 export async function loadPublishedEvents(): Promise<OlympEvent[]> {
-  const response = await fetch(elysium("/calendar"));
+  const response = await fetch(elysium("/calendar/v2"));
   const json = (await response.json()) as unknown;
 
-  const parsed = z.array(eventSchema).parse(json);
-
-  return parsed.filter((event) => event.status === "published");
+  return z.array(eventSchema).parse(json);
 }

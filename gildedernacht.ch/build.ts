@@ -9,6 +9,15 @@ fetch("https://elysium.gildedernacht.ch/calendar/v2/gilde.ics").then(
         await result.text(),
         () => {},
       );
+      fs.writeFile(
+        path.join(
+          process.cwd(),
+          "gildedernacht.ch/public",
+          "gilden-kalender.ics",
+        ),
+        await result.text(),
+        () => {},
+      );
     }
   },
 );

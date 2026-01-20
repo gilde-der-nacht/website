@@ -34,7 +34,7 @@ function getTheme(eventType: string): { theme: string; icon: string } | null {
 }
 
 function renderBackgroundIcon(event: OlympEvent): JSX.Element {
-  const entry = getTheme(event.type.label);
+  const entry = getTheme(event.type);
   if (entry === null || !entry.icon) {
     return "";
   }
@@ -46,40 +46,54 @@ function renderBackgroundIcon(event: OlympEvent): JSX.Element {
   );
 }
 
+function isFullDay(event: OlympEvent): boolean {
+  return event.date.startTime === null;
+}
+
+function isMultipleDays(event: OlympEvent): boolean {
+  const { startDate, endDate } = event.date;
+  if (endDate === null) {
+    return false;
+  }
+  return !(
+    startDate.year === endDate.year &&
+    startDate.month === endDate.month &&
+    startDate.day === endDate.day
+  );
+}
+
 function renderDate(event: OlympEvent): JSX.Element {
   const icon = (
     <div class="event-icon">
       <Icon icon="calendar-range" />
     </div>
   );
-  if (event.date.fullDay && event.date.multipleDays) {
-    const fixedEnd = new Date(event.date.end);
-    fixedEnd.setDate(event.date.end.getDate() - 1);
+  if (isFullDay(event) && isMultipleDays(event)) {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateRange(event.date.start, fixedEnd)}</span>
+        <span>{formatDateRange(event.date)}</span>
       </div>
     );
-  } else if (event.date.fullDay) {
+  } else if (isFullDay(event)) {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDate(event.date.start)}</span>
+        <span>{formatDate(event.date)}</span>
       </div>
     );
-  } else if (event.date.multipleDays) {
+  } else if (isMultipleDays(event)) {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateRange(event.date.start, event.date.end)}</span>
+        <span>{formatDateRange(event.date)}</span>
       </div>
     );
   } else {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateTime(event.date.start)} Uhr</span>
+        <span>{formatDateTime(event.date)} Uhr</span>
       </div>
     );
   }
@@ -123,22 +137,6 @@ function renderTags(event: OlympEvent): JSX.Element {
   );
 }
 
-function renderDescription(event: OlympEvent): JSX.Element {
-  if (!event.description && !event.type.description) {
-    return "";
-  }
-
-  if (!event.description) {
-    return event.type.description;
-  }
-
-  if (!event.type.description) {
-    return event.description;
-  }
-
-  return event.type.description + "\n\n" + event.description;
-}
-
 function renderLinks(event: OlympEvent): JSX.Element {
   function renderLink(link: { url: string; label: string }) {
     return (
@@ -169,7 +167,7 @@ type EventEntryProps = {
 function EventEntry(props: EventEntryProps): JSX.Element {
   return (
     <li
-      class={`event-entry ${getTheme(props.event.type.label)?.theme || ""}`}
+      class={`event-entry ${getTheme(props.event.type)?.theme || ""}`}
       data-event-tags={`${props.event.tags?.map((tag) => tag.trim()).join(",") || ""}`}
     >
       {renderBackgroundIcon(props.event)}
@@ -179,9 +177,7 @@ function EventEntry(props: EventEntryProps): JSX.Element {
         {renderLocation(props.event)}
         {renderTags(props.event)}
       </div>
-      <div class="event-description content">
-        {renderDescription(props.event)}
-      </div>
+      <div class="event-description content">{props.event.description}</div>
       {renderLinks(props.event)}
     </li>
   );
@@ -190,7 +186,33 @@ function EventEntry(props: EventEntryProps): JSX.Element {
 type EventListProps = { events: OlympEvent[] };
 
 function sortByStartDate(a: OlympEvent, b: OlympEvent) {
-  return a.date.start.getTime() - b.date.start.getTime();
+  const {
+    date: { startDate: startDateA, startTime: startTimeA },
+  } = a;
+  const {
+    date: { startDate: startDateB, startTime: startTimeB },
+  } = b;
+  if (startDateA.year !== startDateB.year) {
+    return startDateA.year - startDateB.year;
+  }
+  if (startDateA.month !== startDateB.month) {
+    return startDateA.month - startDateB.month;
+  }
+  if (startDateA.day !== startDateB.day) {
+    return startDateA.day - startDateB.day;
+  }
+
+  const startHourA = startTimeA?.hour ?? 0;
+  const startHourB = startTimeB?.hour ?? 0;
+
+  if (startHourA !== startHourB) {
+    return startHourA - startHourB;
+  }
+
+  const startMinuteA = startTimeA?.minute ?? 0;
+  const startMinuteB = startTimeB?.minute ?? 0;
+
+  return startMinuteA - startMinuteB;
 }
 
 export function EventListImpl(props: EventListProps): JSX.Element {
