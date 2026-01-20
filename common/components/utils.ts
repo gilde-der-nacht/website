@@ -17,7 +17,11 @@ const dateFormat = new Intl.DateTimeFormat("de-CH", {
   dateStyle: "long",
 });
 
-export function formatDate(date: SimpleDateTime): string {
+export function formatDate(date: Date): string {
+  return dateFormat.format(date);
+}
+
+export function formatSimpleDate(date: SimpleDateTime): string {
   const d = new Date(
     date.startDate.year,
     date.startDate.month - 1,
@@ -34,7 +38,11 @@ const dateTimeFormat = new Intl.DateTimeFormat("de-CH", {
   timeZone: "Europe/Zurich",
 });
 
-export function formatDateTime(date: SimpleDateTime): string {
+export function formatDateTime(date: Date): string {
+  return dateTimeFormat.format(date);
+}
+
+export function formatSimpleDateTime(date: SimpleDateTime): string {
   const d = new Date(
     date.startDate.year,
     date.startDate.month - 1,
@@ -45,7 +53,37 @@ export function formatDateTime(date: SimpleDateTime): string {
   return dateTimeFormat.format(d);
 }
 
-export function formatDateRange(date: SimpleDateTime): string {
+export function formatDateRange(from: Date, to: Date): string {
+  const sameYear = from.getFullYear() === to.getFullYear();
+  const sameMonth = from.getMonth() === to.getMonth();
+
+  const endFormatter = new Intl.DateTimeFormat("de-CH", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  if (sameYear && sameMonth) {
+    const startFormatter = new Intl.DateTimeFormat("de-CH", {
+      day: "numeric",
+    });
+    return `${startFormatter.format(from)}. bis ${endFormatter.format(to)}`;
+  }
+  if (sameYear) {
+    const startFormatter = new Intl.DateTimeFormat("de-CH", {
+      day: "numeric",
+      month: "long",
+    });
+    return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
+  }
+  const startFormatter = new Intl.DateTimeFormat("de-CH", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
+}
+
+export function formatSimpleDateRange(date: SimpleDateTime): string {
   const sameYear =
     date.endDate === null || date.startDate.year === date.endDate.year;
   const sameMonth =

@@ -1,9 +1,9 @@
 import type { JSX } from "solid-js";
 import type { OlympEvent } from "@common/components/events";
 import {
-  formatDate,
-  formatDateRange,
-  formatDateTime,
+  formatSimpleDate,
+  formatSimpleDateRange,
+  formatSimpleDateTime,
 } from "@common/components/utils";
 import { Icon } from "./Icon";
 
@@ -72,28 +72,28 @@ function renderDate(event: OlympEvent): JSX.Element {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateRange(event.date)}</span>
+        <span>{formatSimpleDateRange(event.date)}</span>
       </div>
     );
   } else if (isFullDay(event)) {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDate(event.date)}</span>
+        <span>{formatSimpleDate(event.date)}</span>
       </div>
     );
   } else if (isMultipleDays(event)) {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateRange(event.date)}</span>
+        <span>{formatSimpleDateRange(event.date)}</span>
       </div>
     );
   } else {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatDateTime(event.date)} Uhr</span>
+        <span>{formatSimpleDateTime(event.date)} Uhr</span>
       </div>
     );
   }

@@ -5,8 +5,8 @@ import type { JSX } from "solid-js/jsx-runtime";
 import type { ChangePageFn } from "@rst/components/anmeldung/Router";
 import type { SaveState } from "@rst/components/anmeldung/api/meta";
 import { Match, Switch } from "solid-js";
-import { formatDateTime } from "@common/components/utils";
 import { Box } from "@common/components/Box";
+import { formatDateTime } from "@common/components/utils";
 
 export function QuickMenu(props: {
   changePage: ChangePageFn;
