@@ -2326,9 +2326,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.16.14":
-  version: 5.16.14
-  resolution: "astro@npm:5.16.14"
+"astro@npm:5.16.15":
+  version: 5.16.15
+  resolution: "astro@npm:5.16.15"
   dependencies:
     "@astrojs/compiler": "npm:^2.13.0"
     "@astrojs/internal-helpers": "npm:0.7.5"
@@ -2399,7 +2399,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/9df98351b16e1ab32c7f8f2772792d1f4e8c3b4c721d52102d802e25283de8c985636135db7514e5c11c5cf0079dd2b25fe256f4e01b1120309516ff2c932edc
+  checksum: 10/659e19632a310ed20568ab4084c789efc1155e850f511465d3042e914dd79813c5177bae4ca13e10032b414a90de244b1449b04dabbc8bc33c2e852371b1251a
   languageName: node
   linkType: hard
 
@@ -2847,14 +2847,14 @@ __metadata:
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.7.1"
     "@types/node": "npm:^25.0.10"
-    astro: "npm:5.16.14"
+    astro: "npm:5.16.15"
     luxon: "npm:^3.7.2"
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
     rehype-slug: "npm:^6.0.0"
     remark-smartypants: "npm:^3.0.2"
     sass: "npm:^1.97.3"
-    solid-js: "npm:^1.9.10"
+    solid-js: "npm:^1.9.11"
     tsx: "npm:^4.21.0"
     typescript: "npm:^5.9.3"
     vite: "npm:^7.3.1"
@@ -6219,19 +6219,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"seroval-plugins@npm:~1.3.0":
-  version: 1.3.1
-  resolution: "seroval-plugins@npm:1.3.1"
+"seroval-plugins@npm:~1.5.0":
+  version: 1.5.0
+  resolution: "seroval-plugins@npm:1.5.0"
   peerDependencies:
     seroval: ^1.0
-  checksum: 10/79efe551523f3e5fe48bbf86578bb400977985324956a0a1b6ab6f96832d9f12ffac7cf1f5273e90e95803a2a0af2d02b3e1d0eeaa9d5fa63c04e07481a7bfc3
+  checksum: 10/af55ad90edff8b60a7da691f311d8cfabb869b78e4e34ec43676df6e61795484bb3d4b0e563bd18a65268fd3734941b48702efaeee8c348ad9f093c86dc65141
   languageName: node
   linkType: hard
 
-"seroval@npm:~1.3.0":
-  version: 1.3.1
-  resolution: "seroval@npm:1.3.1"
-  checksum: 10/c3e853031ef516e613d120d87d3994c614656823ebecd3d7ca61dd5dc890a4622fd9e6cdecce12a9af30440c76688d13b714a0e9c774c65100e357b8fcb68657
+"seroval@npm:~1.5.0":
+  version: 1.5.0
+  resolution: "seroval@npm:1.5.0"
+  checksum: 10/d47eab66bd0388917c6cb244d000f2b5dbd7bd91aee353b1fdfe8ae1271f2e42eba9682a49bde25fffcbd9a654cefa154c00e78a713af338ca5391bd8b8d27f2
   languageName: node
   linkType: hard
 
@@ -6417,14 +6417,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solid-js@npm:^1.9.10":
-  version: 1.9.10
-  resolution: "solid-js@npm:1.9.10"
+"solid-js@npm:^1.9.11":
+  version: 1.9.11
+  resolution: "solid-js@npm:1.9.11"
   dependencies:
     csstype: "npm:^3.1.0"
-    seroval: "npm:~1.3.0"
-    seroval-plugins: "npm:~1.3.0"
-  checksum: 10/a61e0d5b8ba89cbc629e0866e9a5ee50c73a39d5fb3cf156297a8fc628ea075ce5de76f574fbc4e3b74ae9e5263acb2261a5edba56ea5ffbbcc975ea636d96a1
+    seroval: "npm:~1.5.0"
+    seroval-plugins: "npm:~1.5.0"
+  checksum: 10/cf0dba201ab7e11af223890c4ba3c7b160c2b70c36fe46bbbaab544477fefde5d5f4aa3db8d33b856976e256b2f476a91e6cfec4bdb395d2ea2aff1e1d3d4524
   languageName: node
   linkType: hard
 
