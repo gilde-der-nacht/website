@@ -1,0 +1,72 @@
+---
+import Layout from "@lst/layouts/Layout.astro";
+import { Anmeldung as A } from "@lst/components/anmeldung/Anmeldung.tsx";
+import { Box } from "@common/components/Box";
+import { Button } from "@common/components/Button";
+
+/*
+export const frontmatter = {
+  navigation: {
+    group: "main",
+    label: "Anmeldung",
+    order: 3,
+  },
+};
+*/
+---
+
+<Layout metaTitle="Anmeldung">
+  <h1 style="margin: 0;">Anmeldung</h1>
+  <h2 style="margin: 0;">für organisierte Spielrunden</h2>
+  <h2 style="margin: 0; margin-block-end: 1rem;">& zum Helfen</h2>
+
+  <Box type="danger">
+    <p>
+      Die Anmeldung befindet sich noch in der Testphase. Bitte noch nicht
+      benutzen.
+    </p>
+  </Box>
+
+  <p>
+    Wir veranstalten diverse Spielrunden, die für Action und Spannung stehen.
+    Komplexe oder tumultreiche Spiele, so wie Spiele mit hoher Spieleranzahl
+    finden so ihren Platz. Das ist auch eine gute Gelegenheit, andere
+    Mitspieler:innen zu finden, wenn du alleine anreist.
+  </p>
+  <p>Du kannst dir hier bereits im Vorfeld einen Platz sichern!</p>
+  <p>
+    <i>
+      Hast du selbst ein Spiel, welches du für eine Gruppe anbiten möchtest?
+      Dann kontaktiere uns via Kontaktformular.
+    </i>
+  </p>
+
+  <div style="margin-block: 2.5rem;">
+    <a href="/programm/organisiert" style="border: none;">
+      <Button label="Zur Spielrunden-Übersicht" />
+    </a>
+  </div>
+
+  <Box>
+    <p>
+      Falls du bereits eine Anmeldung begonnen hast, dann solltest du eine
+      E-Mail mit einem persönlichen Link erhalten haben. Dieser erlaubt es dir
+      deine Anmeldung anzupassen.
+    </p>
+  </Box>
+  <A client:load />
+  <div style="margin-block: 2.5rem;">
+    <Box type="special">
+      <p>
+        Deine persönlichen Daten werden ausschliesslich für die Luzerner
+        Spieltage 2026 verwendet.
+      </p>
+      <p>
+        Möchtest du auch nach dem Event über Anlässe von uns informiert werden,
+        dann empfehlen wir dir, unseren <a href="/newsletter"
+          >Newsletter zu abonnieren</a
+        >.
+      </p>
+    </Box>
+  </div>
+</Layout>
