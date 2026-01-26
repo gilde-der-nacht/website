@@ -1,0 +1,9 @@
+---
+import Layout from "@lst/layouts/Layout.astro";
+import { MeineAnmeldungWrapper } from "@lst/components/anmeldung/pages/MyRegistrationPage.tsx";
+---
+
+<Layout metaTitle="Meine Anmeldung">
+  <h1>Meine Anmeldung</h1>
+  <MeineAnmeldungWrapper client:only />
+</Layout>

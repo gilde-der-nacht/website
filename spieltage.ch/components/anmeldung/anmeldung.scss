@@ -1,0 +1,287 @@
+@use "../../../common/styles/globals/colors" as c with ($color1: hsl(10 100% 99.4%),
+  $color2: hsl(8 100% 98.4%),
+  $color3: hsl(8 100% 96.6%),
+  $color4: hsl(8 100% 94.3%),
+  $color5: hsl(8 92.8% 91%),
+  $color6: hsl(9 84.7% 86.3%),
+  $color7: hsl(10 77.3% 79.5%),
+  $color8: hsl(10 71.6% 71%),
+  $color9: hsl(10 78% 54%),
+  $color10: hsl(10 71.5% 50%),
+  $color11: hsl(10 82% 43.5%),
+  $color12: hsl(10 50% 13.5%),
+  $colorDark1: hsl(10 23% 9.4%),
+  $colorDark2: hsl(9 44.8% 11.4%),
+  $colorDark3: hsl(8 52% 15.3%),
+  $colorDark4: hsl(7 56.3% 18%),
+  $colorDark5: hsl(7 60.1% 20.6%),
+  $colorDark6: hsl(8 64.8% 24%),
+  $colorDark7: hsl(8 71.2% 29.1%),
+  $colorDark8: hsl(10 80.2% 35.7%),
+  $colorDark9: hsl(10 78% 54%),
+  $colorDark10: hsl(10 81.7% 59%),
+  $colorDark11: hsl(10 85% 62.8%),
+  $colorDark12: hsl(10 89% 96%),
+  $colorAccent1: hsl(25 30% 41%),
+  $colorAccent2: hsl(20 30% 19%),
+  $colorAccentDark1: hsl(28 60% 64.5%),
+  $colorAccentDark2: hsl(30 67% 94%),
+);
+
+.boxLink {
+  [class^=box] {
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      background-color: c.get("background-subtle");
+      color: c.get("accent-hover");
+      border-color: c.get("text-high-contrast");
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  p {
+    max-inline-size: unset;
+  }
+
+  svg {
+    font-size: var(--step-3);
+  }
+}
+
+.quickmenu {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  &:not(.extended) {
+    margin-block-end: 1.5lh;
+    position: relative;
+    z-index: 1;
+
+    button {
+      aspect-ratio: 1/1;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .page:has(.quickmenu) {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 1rem;
+
+    .extended-wrapper {
+      margin-block-start: 1rem;
+      grid-column-start: 2;
+    }
+
+    .quickmenu:not(.extended) {
+      flex-direction: column;
+      position: sticky;
+      top: 1rem;
+      margin-block-end: 0;
+
+      .tooltip {
+        top: 0;
+        left: 2lh;
+      }
+    }
+  }
+}
+
+.timeview-entry {
+  display: grid;
+  grid-template:
+    "tag  title" max-content
+    "link duration" 1fr
+    / max-content 1fr;
+  gap: 0 0.5rem;
+
+  .chip {
+    align-self: start;
+  }
+
+  button {
+    grid-area: link;
+    align-self: start;
+  }
+
+  h5 {
+    grid-area: title;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 2lh;
+  }
+
+  .duration {
+    grid-area: duration;
+  }
+}
+
+.page-content {
+  min-block-size: 50vh;
+}
+
+.timetable {
+  $box-border: 0.125rem;
+
+  display: grid;
+  grid-auto-rows: 4lh;
+  grid-template-columns: max-content 1fr;
+  gap: 0 1rem;
+
+  &.two-columns {
+    grid-template-columns: max-content 1fr 1fr;
+
+    .hour {
+      grid-column: 1 / 4;
+
+      .background {
+        grid-column: 2 / 4;
+      }
+    }
+
+    .entries {
+      grid-column: 2 / 4;
+
+      .entry {
+        grid-column: unset;
+      }
+    }
+  }
+
+  .hour {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / 3;
+
+
+    .background {
+      border: #{$box-border} solid var(--clr-7);
+      background-color: hsl(from var(--clr-3) h s l / 0.7);
+    }
+
+    &:not(:first-child) {
+      .background {
+        border-block-start: none;
+      }
+    }
+
+    &:not(:nth-last-child(3)) {
+      .background {
+        border-block-end: calc(#{$box-border} / 2) dotted var(--clr-7);
+      }
+    }
+
+    &:nth-last-child(3) {
+      .background {
+        border-bottom-width: 0.25rem;
+        border-bottom-right-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+
+    &.break {
+      .background {
+        $color1: hsl(from var(--clr-7) h s l / 0.25);
+        $color2: hsl(from var(--clr-1) h s l / 0.5);
+        background-color: #{$color1};
+        background: repeating-linear-gradient(-45deg, #{$color1}, #{$color1} 5px, #{$color2} 5px, #{$color2} 25px);
+      }
+    }
+  }
+
+  .annotation {
+    font-family: monospace;
+    font-size: smaller;
+    padding-inline-start: 0.25rem;
+    position: relative;
+    top: -0.75em;
+  }
+
+  .entries {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-column: 2 / 3;
+    grid-row: 1 / -1;
+
+    .entry {
+      padding: 0.5rem;
+      grid-column: 1 / 2;
+
+      >* {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.event-list.max {
+  grid-template-columns: repeat(auto-fill, minmax(min(25rem, 100%), 1fr));
+}
+
+.game-dialog {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  align-items: start;
+
+  .reservations {
+    grid-column: span 2;
+  }
+}
+
+.input-button {
+  input {
+    border-end-end-radius: 0;
+    border-inline-end-width: 0;
+  }
+
+  button {
+    border-end-start-radius: 0;
+  }
+}
+
+.reservation-table {
+  --height: 3rem;
+  display: grid;
+  gap: 1rem 0.5rem;
+  grid-template-columns: max-content 1fr;
+  grid-auto-rows: var(--height);
+
+  button,
+  input {
+    height: var(--height);
+  }
+
+  .count {
+    font-family: monospace;
+    text-align: right;
+    font-size: smaller;
+  }
+}
+
+
+.reservation-table-entry {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr max-content;
+
+  button {
+    height: unset;
+    position: relative;
+    top: -.2rem;
+  }
+}

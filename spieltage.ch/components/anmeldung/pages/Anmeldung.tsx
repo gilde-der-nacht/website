@@ -91,7 +91,7 @@ export function Anmeldung(): JSX.Element {
             }),
           }),
           z.object({
-            kind: z.literal("ERROR"),
+            kind: z.literal("FAILURE"),
             reason: z.literal("DUPLICATE_EMAIL"),
           }),
         ]);
@@ -100,14 +100,14 @@ export function Anmeldung(): JSX.Element {
         setStore(
           "showErrors",
           "emailDuplicate",
-          data.kind === "ERROR" && data.reason === "DUPLICATE_EMAIL",
+          data.kind === "FAILURE" && data.reason === "DUPLICATE_EMAIL",
         );
 
         if (data.kind === "SUCCESS") {
           const redirect = new URL(location.origin + "/meine-anmeldung");
           redirect.searchParams.append("secret", data.data.secret);
           redirect.searchParams.append("showCreateMessage", "true");
-          window.location.replace(redirect);
+          window.location.href = `${redirect.origin}${redirect.pathname}#/${redirect.search}`; // Add the `#/` before the search string, otherwise the Solid HashRouter has no access to the search params
         }
       }
     } catch (e: unknown) {
