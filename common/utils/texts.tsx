@@ -1,5 +1,5 @@
-import type { PerDay } from "@common/utils/anmeldung/utils/time";
-import type { PublishState } from "@common/utils/anmeldung/api/shared";
+import type { PerDay } from "@common/utils/time";
+import type { PublishState } from "@common/utils/shared";
 
 const registrationDeadline = "Donnerstag, 21. August 2025";
 
@@ -88,20 +88,10 @@ const tagIdeas =
   "Findest du, es gäbe noch weitere hilfreiche Kategorien? Schreibe uns deinen Vorschlag per Kontaktformular.";
 
 const days = {
+  FRIDAY: "Freitag",
   SATURDAY: "Samstag",
   SUNDAY: "Sonntag",
 } satisfies PerDay<string>;
-
-const pageTitle: Record<PageKind, string> = {
-  CHOOSE: "Übersicht",
-  PLAYER: "Spielanmeldung",
-  GAME: "Spielanmeldung",
-  GAMEMASTER: "Spielleitung",
-  EDIT_GAMEROUND: "Spielrunde editieren",
-  HELPING: "Helfen",
-  "HELPING-SLOT": "Helfen",
-  SUMMARY: "Zusammenfassung",
-};
 
 const publishingSteps: Record<PublishState, string> = {
   draft: "Entwurf",
@@ -129,7 +119,7 @@ export const TXT = {
   charLimitBy,
   tagIdeas,
   days,
-  pageTitle,
+
   publishingSteps,
   metaTitle,
 };

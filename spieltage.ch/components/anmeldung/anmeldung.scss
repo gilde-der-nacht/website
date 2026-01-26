@@ -285,3 +285,12 @@
     top: -.2rem;
   }
 }
+
+.button-link {
+  border: none;
+  display: block;
+
+  button {
+    cursor: pointer;
+  }
+}

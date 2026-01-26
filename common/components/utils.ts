@@ -9,9 +9,9 @@ export type Category =
   | "rollenspieltage"
   | "tabletoptage";
 
-export type WithChildren = {
+export type WithChildren<T = object> = {
   children?: JSX.Element;
-};
+} & T;
 
 const dateFormat = new Intl.DateTimeFormat("de-CH", {
   dateStyle: "long",

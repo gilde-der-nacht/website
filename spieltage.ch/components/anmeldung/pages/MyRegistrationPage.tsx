@@ -7,11 +7,11 @@ import {
   createResource,
   type JSX,
 } from "solid-js";
-import { A, HashRouter } from "@solidjs/router";
 import "@lst/components/anmeldung/anmeldung.scss";
 import { loadSave } from "@lst/components/anmeldung/api/save";
 import { TXT } from "@common/utils/texts";
 import { unpackUnion } from "@common/components/utils";
+import { Router } from "@lst/components/anmeldung/components/Router";
 
 function Loading(): JSX.Element {
   return <Box>{TXT.loading.registration}</Box>;
@@ -21,10 +21,6 @@ export function MeineAnmeldungWrapper(): JSX.Element {
   const url = URL.parse(location.toString().replace("#/", "")); // bit hacky to work with Solid Router
   const secret = url?.searchParams.get("secret") ?? "no-secret-found";
   const [saveResource] = createResource(() => loadSave(secret));
-
-  function link(path: string): string {
-    return `${path}?secret=${secret}`;
-  }
 
   return (
     <ErrorBoundary
@@ -45,23 +41,7 @@ export function MeineAnmeldungWrapper(): JSX.Element {
                 console.error(value);
                 return <Box type="danger">{TXT.error.ourMistake}</Box>;
               }
-              return (
-                <HashRouter>
-                  {[
-                    {
-                      path: "/",
-                      component: () => (
-                        <>
-                          <h1>Root</h1>
-                          <div>
-                            <A href={link("/second")}>second</A>
-                          </div>
-                        </>
-                      ),
-                    },
-                  ]}
-                </HashRouter>
-              );
+              return <Router initState={value.data} secret={secret} />;
             }}
           </Match>
         </Switch>
