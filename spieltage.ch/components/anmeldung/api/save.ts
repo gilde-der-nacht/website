@@ -17,9 +17,25 @@ const contactSchema = z.object({
 });
 export type Contact = z.infer<typeof contactSchema>;
 
+const helpingReservationSchema = z.union([
+  z.object({
+    kind: z.literal("SELF"),
+    helpEntryUuid: z.string().uuid(),
+    uuid: z.string().uuid(),
+  }),
+  z.object({
+    kind: z.literal("FRIEND"),
+    helpEntryUuid: z.string().uuid(),
+    name: z.string(),
+    uuid: z.string().uuid(),
+  }),
+]);
+export type HelpingReservation = z.infer<typeof helpingReservationSchema>;
+
 const saveSchema = z.object({
-  version: z.literal(2),
+  version: z.literal(3),
   contact: contactSchema,
+  helping: z.array(helpingReservationSchema),
 });
 
 export type Save = z.infer<typeof saveSchema>;

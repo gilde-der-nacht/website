@@ -12,6 +12,7 @@ import { createStore, unwrap } from "solid-js/store";
 import { toast } from "@common/components/Toast";
 import type { SaveState } from "@lst/components/anmeldung/api/meta";
 import { Layout } from "@lst/components/anmeldung/components/Layout";
+import { HelfenDetail } from "@lst/components/anmeldung/pages/HelfenDetail";
 
 export function Router(props: {
   initState: LoadSave;
@@ -105,7 +106,28 @@ export function Router(props: {
               lastSaved={store.meta.lastSaved}
               showQuickmenu={true}
             >
-              <Helfen />
+              <Helfen
+                store={store.save}
+                isEditable={props.initState.status === "published"}
+                link={link}
+              />
+            </Layout>
+          ),
+        },
+        {
+          path: "/helfen/:uuid",
+          component: () => (
+            <Layout
+              title="Helfen"
+              link={link}
+              saveState={store.meta.saveState}
+              lastSaved={store.meta.lastSaved}
+              showQuickmenu={true}
+            >
+              <HelfenDetail
+                store={store.save}
+                isEditable={props.initState.status === "published"}
+              />
             </Layout>
           ),
         },

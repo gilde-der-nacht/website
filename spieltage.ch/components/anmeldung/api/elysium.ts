@@ -50,3 +50,27 @@ export async function elysiumSaveState(
     return { kind: "FAILURE" };
   }
 }
+
+export async function elysiumLoadHelp(
+  secret: string,
+): Promise<Result<unknown>> {
+  try {
+    const url = new URL(elysium("/lst26/help"));
+    url.searchParams.append("secret", secret);
+    const result = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!result.ok) {
+      console.error(await result.text());
+      return { kind: "FAILURE" };
+    }
+    const data = (await result.json()) as unknown;
+
+    return { kind: "SUCCESS", data };
+  } catch (e) {
+    console.error(e);
+    return { kind: "FAILURE" };
+  }
+}

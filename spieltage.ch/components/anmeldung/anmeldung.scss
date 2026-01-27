@@ -237,6 +237,8 @@
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
   align-items: start;
+  background-color: var(--clr-1);
+  padding: 1rem;
 
   .reservations {
     grid-column: span 2;
