@@ -15,6 +15,7 @@ export function TextInputField(props: {
   showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
   disabled?: boolean;
+  onUpdate?: () => void;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
   const alwaysShowErrors = props.showErrors === "ALWAYS";
@@ -26,7 +27,10 @@ export function TextInputField(props: {
         label={props.label}
         name={props.name}
         value={store.value}
-        onValueUpdate={(newValue) => setStore("value", newValue)}
+        onValueUpdate={(newValue) => {
+          setStore("value", newValue);
+          props.onUpdate?.();
+        }}
         onBlur={() => setStore("isDirty", true)}
         type={props.type}
         required={props.required}

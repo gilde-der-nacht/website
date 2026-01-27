@@ -11,6 +11,9 @@ import { TextInputField } from "@common/components/Components";
 import { TXT } from "@common/utils/texts";
 import { initTextInput } from "@common/components/form";
 import type { Contact, Save } from "@lst/components/anmeldung/api/save";
+import { elysium } from "@common/components/utils";
+import { z } from "astro/zod";
+import { useSearchParams } from "@solidjs/router";
 
 export function Zusammenfassung(props: {
   store: Store<Save>;
@@ -63,16 +66,34 @@ function Contact(props: {
     </Box>
   );
 }
+
+type EmailDuplicateStore =
+  | {
+      kind: "CHECKING";
+    }
+  | {
+      kind: "IDLE";
+      isDuplicate: boolean;
+    };
+
 function ContactEditDialog(props: {
   dialogStore: Store<DialogStore>;
   currentState: Contact;
   updateCurrentState: (newState: Contact) => void;
 }): JSX.Element {
+  const [searchParams] = useSearchParams();
+
   const [formStore] = createStore({
     name: initTextInput(props.currentState.name),
     email: initTextInput(props.currentState.email),
     mobile: initTextInput(props.currentState.mobile),
   });
+
+  const [emailIsDuplicate, setEmailIsDuplicate] =
+    createStore<EmailDuplicateStore>({
+      kind: "IDLE",
+      isDuplicate: false,
+    });
 
   const errors = createMemo(() => {
     const err: { name: string[]; email: string[] } = {
@@ -88,6 +109,10 @@ function ContactEditDialog(props: {
       err.email.push(TXT.mandatoryField);
     } else if (!formStore.email.value.includes("@")) {
       err.email.push(TXT.invalidEmail);
+    }
+
+    if (emailIsDuplicate.kind === "IDLE" && emailIsDuplicate.isDuplicate) {
+      err.email.push("Diese E-Mail wird bereits verwendet.");
     }
 
     return { ...err, hasErrors: err.name.length + err.email.length > 0 };
@@ -114,8 +139,11 @@ function ContactEditDialog(props: {
           store={formStore.email}
           label="E-Mail"
           name="email"
-          showErrors="ON_BLUR"
+          showErrors="ALWAYS"
           errors={errors().email}
+          onUpdate={() =>
+            setEmailIsDuplicate({ kind: "IDLE", isDuplicate: false })
+          }
         />
         <TextInputField
           store={formStore.mobile}
@@ -124,14 +152,43 @@ function ContactEditDialog(props: {
         />
         <Button
           label="Speichern"
-          disabled={errors().hasErrors}
-          onClick={() => {
+          disabled={errors().hasErrors || emailIsDuplicate.kind === "CHECKING"}
+          onClick={async () => {
             if (!errors().hasErrors) {
+              setEmailIsDuplicate({ kind: "CHECKING" });
+
+              const secret = searchParams["secret"];
+              const result = await fetch(
+                elysium(
+                  `/lst26/check-email?email=${formStore.email.value}&secret=${secret}`,
+                ),
+              );
+
+              if (!result.ok) {
+                setEmailIsDuplicate({ kind: "IDLE", isDuplicate: true });
+                return;
+              }
+
+              const data = (await result.json()) as unknown;
+              const parsed = checkEmailDuplicateSchema.safeParse(data);
+              if (!parsed.success) {
+                setEmailIsDuplicate({ kind: "IDLE", isDuplicate: true });
+                return;
+              }
+
+              if (parsed.data.kind === "FAILURE") {
+                setEmailIsDuplicate({ kind: "IDLE", isDuplicate: true });
+                return;
+              }
+
+              setEmailIsDuplicate({ kind: "IDLE", isDuplicate: false });
+
               props.updateCurrentState({
                 name: formStore.name.value,
                 email: formStore.email.value,
                 mobile: formStore.mobile.value,
               });
+
               setDialogStore("open", false);
             }
           }}
@@ -140,3 +197,8 @@ function ContactEditDialog(props: {
     </Dialog>
   );
 }
+
+const checkEmailDuplicateSchema = z.union([
+  z.object({ kind: z.literal("SUCCESS") }),
+  z.object({ kind: z.literal("FAILURE") }),
+]);
