@@ -41,7 +41,7 @@ export type SimpleDateTime = z.infer<typeof simpleDateTimeSchema>;
 const eventSchema = z.object({
   uuid: z.string().uuid(),
   title: z.string(),
-  description: z.string(),
+  description: z.nullable(z.string()),
   tags: z.array(z.string()),
   links: z.array(z.object({ label: z.string(), url: z.string().url() })),
   type: z.string(),

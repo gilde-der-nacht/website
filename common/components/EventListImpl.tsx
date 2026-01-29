@@ -28,7 +28,13 @@ function getTheme(eventType: string): { theme: string; icon: string } | null {
       };
     }
     default: {
-      return null;
+      if (eventType.includes("Spieltreffen")) {
+        return null;
+      }
+      return {
+        theme: "warning",
+        icon: "dice",
+      };
     }
   }
 }
