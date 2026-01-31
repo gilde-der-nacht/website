@@ -118,11 +118,11 @@ export function Router(props: {
           path: "/helfen/:uuid",
           component: () => (
             <Layout
-              title="Helfen"
               link={link}
               saveState={store.meta.saveState}
               lastSaved={store.meta.lastSaved}
               showQuickmenu={true}
+              parentPath="/helfen"
             >
               <HelfenDetail
                 store={store.save}

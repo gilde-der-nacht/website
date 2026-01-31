@@ -105,6 +105,11 @@
     "link duration" 1fr
     / max-content 1fr;
   gap: 0 0.5rem;
+  background: hsl(from var(--clr-7) h s l / .2);
+
+  &:hover {
+    cursor: pointer;
+  }
 
   .chip {
     align-self: start;
@@ -155,6 +160,26 @@
 
     .entries {
       grid-column: 2 / 4;
+
+      .entry {
+        grid-column: unset;
+      }
+    }
+  }
+
+  &.four-columns {
+    grid-template-columns: max-content repeat(4, 1fr);
+
+    .hour {
+      grid-column: 1 / 6;
+
+      .background {
+        grid-column: 2 / 6;
+      }
+    }
+
+    .entries {
+      grid-column: 2 / 6;
 
       .entry {
         grid-column: unset;

@@ -12,12 +12,13 @@ export function QuickMenu(props: {
   link: (path: string) => string;
   saveState: SaveState;
   lastSaved: Date;
+  parentPath: string;
 }): JSX.Element {
   return (
     <div class="quickmenu-wrapper">
       <div class="quickmenu">
         <Tooltip tooltip="Zur Übersicht">
-          <A href={props.link("/")} class="button-link">
+          <A href={props.link(props.parentPath)} class="button-link">
             <Button label={<Icon icon="backward" />} />
           </A>
         </Tooltip>
@@ -56,12 +57,13 @@ export function QuickMenuExtended(props: {
   link: (path: string) => string;
   saveState: SaveState;
   lastSaved: Date;
+  parentPath: string;
 }): JSX.Element {
   return (
     <>
       <Box type="gray">
         <div class="quickmenu extended">
-          <A href={props.link("/")} class="button-link">
+          <A href={props.link(props.parentPath)} class="button-link">
             <ButtonWithIcon icon="backward" label="Zur Übersicht" />
           </A>
           {/*

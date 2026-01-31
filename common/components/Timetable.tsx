@@ -10,6 +10,7 @@ import { assert } from "@common/components/utils";
 import { Box } from "@common/components/Box";
 import { Icon } from "@common/components/Icon";
 import { TXT } from "@common/utils/texts";
+import { Heading } from "@common/components/Heading";
 
 export type WeekendOpeningHours = PerDay<{
   open: TimeRange;
@@ -26,6 +27,7 @@ export function WeekendTimetable(props: {
   programEntries: PerDay<ProgramEntryTimetableView[]>;
   conflictsAllowed?: boolean;
   openingHours: WeekendOpeningHours;
+  columns: 2 | 4;
 }): JSX.Element {
   return (
     <div class="dynamic-columns" style="gap: 1rem; --min-width: 30rem;">
@@ -41,6 +43,7 @@ export function WeekendTimetable(props: {
           openingHours={props.openingHours}
           day="FRIDAY"
           conflictsAllowed={props.conflictsAllowed ?? false}
+          columns={props.columns}
         />
       </Show>
       <TimetableOfDay
@@ -49,6 +52,7 @@ export function WeekendTimetable(props: {
         openingHours={props.openingHours}
         day="SATURDAY"
         conflictsAllowed={props.conflictsAllowed ?? false}
+        columns={props.columns}
       />
       <TimetableOfDay
         programEntries={props.programEntries.SUNDAY}
@@ -56,6 +60,7 @@ export function WeekendTimetable(props: {
         openingHours={props.openingHours}
         day="SUNDAY"
         conflictsAllowed={props.conflictsAllowed ?? false}
+        columns={props.columns}
       />
     </div>
   );
@@ -67,6 +72,7 @@ function TimetableOfDay(props: {
   openingHours: WeekendOpeningHours;
   day: ProgramDay;
   conflictsAllowed: boolean;
+  columns: 2 | 4;
 }): JSX.Element {
   const conflictingEntries = props.conflictsAllowed
     ? []
@@ -74,7 +80,9 @@ function TimetableOfDay(props: {
 
   return (
     <div>
-      <h4 style="margin-block-end: 1.5rem;">{TXT.days[props.day]}</h4>
+      <div style="margin-block-end: 1.5rem;">
+        <Heading level={4} title={TXT.days[props.day]} />
+      </div>
       <Switch
         fallback={
           <>
@@ -105,6 +113,7 @@ function TimetableOfDay(props: {
             openingHours={props.openingHours}
             day={props.day}
             conflictsAllowed={props.conflictsAllowed}
+            columns={props.columns}
           />
         </Match>
       </Switch>
@@ -123,16 +132,28 @@ export function Timetable(props: {
   openingHours: WeekendOpeningHours;
   day: ProgramDay;
   conflictsAllowed: boolean;
+  columns: 2 | 4;
 }): JSX.Element {
   const hours = getHours(props.openingHoursOfDay.open);
-  const breaks = props.openingHoursOfDay.breaks.map(({ from }) => from);
+  const breaks = props.openingHoursOfDay.breaks.flatMap(({ from, to }) => {
+    assert(
+      from < to,
+      `Break is not valid, as from '${from}' is not smaller than to '${to}'`,
+    );
+    const list = [from];
+    let count = to - from;
+    while (count > 1) {
+      list.push(from + --count);
+    }
+    return list;
+  });
   const offset = (hours[0] ?? 0) - 1;
   const lastHour = hours.at(-1) ?? 0;
 
   const classes = () => {
     const cls = ["timetable"];
     if (props.conflictsAllowed) {
-      cls.push("two-columns");
+      cls.push(props.columns === 2 ? "two-columns" : "four-columns");
     }
     return cls.join(" ");
   };
@@ -193,9 +214,15 @@ function rangeToGridRow(
   const endRow = to - offset;
   const closingHour = openingHours[day].open.to;
 
-  assert(startRow > 0, `Entry can't start at ${from}.`);
-  assert(endRow > 0, `Entry can't end at ${to}.`);
-  assert(to <= closingHour, `Entry can't end at ${to}.`);
+  assert(
+    startRow > 0,
+    `[${JSON.stringify(range)}] Entry can't start at ${from}.`,
+  );
+  assert(endRow > 0, `[${JSON.stringify(range)}] Entry can't end at ${to}.`);
+  assert(
+    to <= closingHour,
+    `[${JSON.stringify(range)}] Entry can't end at ${to}. Closing hour set to '${closingHour}' on day '${day}'`,
+  );
 
   return `grid-row: ${startRow} / ${endRow};`;
 }

@@ -116,120 +116,124 @@ function HelfenDetailContent(props: {
   };
 
   return (
-    <div class="game-dialog">
-      <ul role="list" style="display: grid; gap: 0.5rem;">
-        <li>
-          <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong> <br />
-          {TXT.days[dateTime.day]}, {dateTime.from} - {dateTime.to} Uhr
-        </li>
-        <li>
-          <strong style="color: var(--clr-accent-1);">Beschreibung:</strong>{" "}
-          <br />
-          {helpType.description}
-        </li>
-      </ul>
-      <div class="reservations">
-        <h5 style="margin-block-start: 0">Plätze reservieren</h5>
-        <div class="reservation-table">
-          <For each={range()}>
-            {(seat, i) => (
-              <>
-                <div class="count">{i() + 1}</div>
-                <Switch>
-                  <Match when={seat.kind === "RESERVED_OTHER"}>
-                    <Box>Bereits reserviert</Box>
-                  </Match>
-                  <Match when={!props.isEditable}>
-                    <Box>Freier Platz</Box>
-                  </Match>
-                  <Match when={seat.kind === "SELF"}>
-                    <SimpleBox type="success">
-                      <div class="reservation-table-entry">
-                        <p>Reserviert für mich </p>
-                        <IconOnlyButton
-                          icon="trash"
-                          onClick={() =>
-                            props.removeReservation(
-                              seat.kind === "SELF"
-                                ? seat.uuid
-                                : "should not happen",
-                            )
-                          }
-                        />
-                      </div>
-                    </SimpleBox>
-                  </Match>
-                  <Match when={seat.kind === "FRIEND"}>
-                    <SimpleBox type="success">
-                      <div class="reservation-table-entry">
-                        <p>
-                          Reserviert für "
-                          {seat.kind === "FRIEND"
-                            ? seat.name
-                            : "[Fehler beim Laden]"}
-                          "
-                        </p>
-                        <IconOnlyButton
-                          icon="trash"
-                          onClick={() =>
-                            props.removeReservation(
-                              seat.kind === "FRIEND"
-                                ? seat.uuid
-                                : "should not happen",
-                            )
-                          }
-                        />
-                      </div>
-                    </SimpleBox>
-                  </Match>
-                  <Match when={seat.kind === "FREE"}>
-                    <Show
-                      when={hasReservedForThemselves()}
-                      fallback={
-                        <div style="display:grid; gap: 1rem; grid-template-columns: max-content 1fr;">
-                          <ButtonWithIcon
-                            icon="person-to-portal"
-                            label="Mich anmelden"
-                            kind="success"
+    <>
+      <h3>{helpType.title}</h3>
+      <div class="game-dialog">
+        <ul role="list" style="display: grid; gap: 0.5rem;">
+          <li>
+            <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
+            <br />
+            {TXT.days[dateTime.day]}, {dateTime.from} - {dateTime.to} Uhr
+          </li>
+          <li>
+            <strong style="color: var(--clr-accent-1);">Beschreibung:</strong>{" "}
+            <br />
+            {helpType.description}
+          </li>
+        </ul>
+        <div class="reservations">
+          <h5 style="margin-block-start: 0">Plätze reservieren</h5>
+          <div class="reservation-table">
+            <For each={range()}>
+              {(seat, i) => (
+                <>
+                  <div class="count">{i() + 1}</div>
+                  <Switch>
+                    <Match when={seat.kind === "RESERVED_OTHER"}>
+                      <Box>Bereits reserviert</Box>
+                    </Match>
+                    <Match when={!props.isEditable}>
+                      <Box>Freier Platz</Box>
+                    </Match>
+                    <Match when={seat.kind === "SELF"}>
+                      <SimpleBox type="success">
+                        <div class="reservation-table-entry">
+                          <p>Reserviert für mich </p>
+                          <IconOnlyButton
+                            icon="trash"
                             onClick={() =>
-                              props.addReservation({
-                                kind: "SELF",
-                                helpEntryUuid: entry.uuid,
-                                uuid: crypto.randomUUID(),
-                              })
-                            }
-                          />
-                          <InputButton
-                            addFriend={(name) =>
-                              props.addReservation({
-                                kind: "FRIEND",
-                                helpEntryUuid: entry.uuid,
-                                name,
-                                uuid: crypto.randomUUID(),
-                              })
+                              props.removeReservation(
+                                seat.kind === "SELF"
+                                  ? seat.uuid
+                                  : "should not happen",
+                              )
                             }
                           />
                         </div>
-                      }
-                    >
-                      <InputButton
-                        addFriend={(name) =>
-                          props.addReservation({
-                            kind: "FRIEND",
-                            helpEntryUuid: entry.uuid,
-                            name,
-                            uuid: crypto.randomUUID(),
-                          })
+                      </SimpleBox>
+                    </Match>
+                    <Match when={seat.kind === "FRIEND"}>
+                      <SimpleBox type="success">
+                        <div class="reservation-table-entry">
+                          <p>
+                            Reserviert für "
+                            {seat.kind === "FRIEND"
+                              ? seat.name
+                              : "[Fehler beim Laden]"}
+                            "
+                          </p>
+                          <IconOnlyButton
+                            icon="trash"
+                            onClick={() =>
+                              props.removeReservation(
+                                seat.kind === "FRIEND"
+                                  ? seat.uuid
+                                  : "should not happen",
+                              )
+                            }
+                          />
+                        </div>
+                      </SimpleBox>
+                    </Match>
+                    <Match when={seat.kind === "FREE"}>
+                      <Show
+                        when={hasReservedForThemselves()}
+                        fallback={
+                          <div style="display:grid; gap: 1rem; grid-template-columns: max-content 1fr;">
+                            <ButtonWithIcon
+                              icon="person-to-portal"
+                              label="Mich anmelden"
+                              kind="success"
+                              onClick={() =>
+                                props.addReservation({
+                                  kind: "SELF",
+                                  helpEntryUuid: entry.uuid,
+                                  uuid: crypto.randomUUID(),
+                                })
+                              }
+                            />
+                            <InputButton
+                              addFriend={(name) =>
+                                props.addReservation({
+                                  kind: "FRIEND",
+                                  helpEntryUuid: entry.uuid,
+                                  name,
+                                  uuid: crypto.randomUUID(),
+                                })
+                              }
+                            />
+                          </div>
                         }
-                      />
-                    </Show>
-                  </Match>
-                </Switch>
-              </>
-            )}
-          </For>
+                      >
+                        <InputButton
+                          addFriend={(name) =>
+                            props.addReservation({
+                              kind: "FRIEND",
+                              helpEntryUuid: entry.uuid,
+                              name,
+                              uuid: crypto.randomUUID(),
+                            })
+                          }
+                        />
+                      </Show>
+                    </Match>
+                  </Switch>
+                </>
+              )}
+            </For>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

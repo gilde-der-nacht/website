@@ -8,7 +8,7 @@ import {
 import {
   helpTimes,
   helpTypes,
-  openingHours,
+  openingHoursHelping,
   type HelpTimes,
 } from "@lst/components/anmeldung/constant/helping";
 import { IconOnlyButton } from "@common/components/Button";
@@ -113,8 +113,9 @@ function HelpingContent(props: {
   return (
     <WeekendTimetable
       programEntries={entries()}
-      openingHours={openingHours}
+      openingHours={openingHoursHelping}
       conflictsAllowed={true}
+      columns={4}
     />
   );
 }
@@ -133,7 +134,7 @@ function aggregateEntries(props: {
     slots.forEach((slot) => {
       const range = {
         from: Number(hour),
-        to: Number(hour) + 1,
+        to: Number(hour) + slot.duration,
       };
 
       const emptySeats = () => slot.count - (frequencies[slot.uuid] ?? 0);
@@ -153,7 +154,10 @@ function aggregateEntries(props: {
         entries.push({
           range,
           component: () => (
-            <div class={classes()}>
+            <div
+              class={classes()}
+              onClick={() => navigate(props.link(`/helfen/${slot.uuid}`))}
+            >
               <Chip
                 title="Helfer:innen gesucht"
                 inverted={helpingMyself()}
@@ -169,9 +173,13 @@ function aggregateEntries(props: {
                   title="Helfen"
                 />
               </Show>
-              <h5>{helpTypes[slot.kind].title}</h5>
+              <h5 title={helpTypes[slot.kind].title}>
+                {helpTypes[slot.kind].title}
+              </h5>
               <p class="duration">
-                <em>alle Helfer:innen gefunden</em>
+                <em>
+                  {emptySeats()} / {slot.count}
+                </em>
               </p>
             </div>
           ),
@@ -180,7 +188,10 @@ function aggregateEntries(props: {
         entries.push({
           range,
           component: () => (
-            <div class={classes()}>
+            <div
+              class={classes()}
+              onClick={() => navigate(props.link(`/helfen/${slot.uuid}`))}
+            >
               <Chip
                 title="Helfer:innen gesucht"
                 inverted={helpingMyself()}
@@ -194,10 +205,13 @@ function aggregateEntries(props: {
                 onClick={() => navigate(props.link(`/helfen/${slot.uuid}`))}
                 title="Helfen"
               />
-              <h5>{helpTypes[slot.kind].title}</h5>
+              <h5 title={helpTypes[slot.kind].title}>
+                {helpTypes[slot.kind].title}
+              </h5>
               <p class="duration">
-                {emptySeats()}{" "}
-                {emptySeats() === 1 ? "Helfer:in" : "Helfer:innen"} gesucht
+                <em>
+                  {slot.count - emptySeats()} / {slot.count}
+                </em>
               </p>
             </div>
           ),

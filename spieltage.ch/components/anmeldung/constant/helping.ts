@@ -19,12 +19,33 @@ export const helpTypes = {
     title: "Kiosk",
     description: "Am Kiosk Getränke (inkl. Kaffee) und Snacks verkaufen.",
   },
+  flohmarkt: {
+    title: "Flohmarkt",
+    description:
+      "Hilf uns beim Auf- oder Abbau des Flohmarkt und der Annahme oder Abgabe von Spielen.",
+  },
+  checkout: {
+    title: "Kiosk / Flohmarkt",
+    description:
+      "Am Kiosk Getränke und Snacks verkaufen oder am Flohmarkt die Kasse bedienen.",
+  },
+  setup: {
+    title: "Aufbau",
+    description:
+      "Hilf uns beim Zubereiten der Menüs und Aufstellen von Tischen, Stühle und der Bibliothek.",
+  },
+  breakdown: {
+    title: "Abbau",
+    description:
+      "Hilf uns beim Zusammenräumen von Tischen, Stühle, der Bibliothek und dem Flohmarkt.",
+  },
 } as const;
 
 export type HelpType = keyof typeof helpTypes;
 export type HelpEntry = {
-  uuid: string;
+  uuid: `${string}-${string}-${string}-${string}-${string}`;
   count: number;
+  duration: number;
   kind: HelpType;
 };
 export type HelpTimes = Record<number, HelpEntry[]>;
@@ -35,144 +56,265 @@ export type HelpEntryView = {
 };
 
 export const helpTimes = {
-  FRIDAY: {},
+  FRIDAY: {
+    16: [
+      {
+        uuid: "eb443040-0674-429c-a3ad-48634a323b76",
+        count: 4,
+        duration: 5,
+        kind: "setup",
+      },
+    ],
+    19: [
+      {
+        uuid: "91699a72-78d0-4dc9-bfe1-ece55b15db7d",
+        count: 1,
+        duration: 3,
+        kind: "flohmarkt",
+      },
+    ],
+  },
   SATURDAY: {
+    9: [
+      {
+        uuid: "6303bd52-cd10-4dd0-b760-b71ab971ad3b",
+        count: 4,
+        duration: 2,
+        kind: "flohmarkt",
+      },
+    ],
     10: [
       {
-        uuid: "90178258-734d-4c7d-9df0-891f6d46a5dc",
-        count: 1,
-        kind: "kiosk",
-      },
-      {
         uuid: "9ebca7e9-f44a-4cc9-8961-73539f17d5d6",
-        count: 1,
-        kind: "kitchen",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
       },
     ],
     11: [
-      { uuid: "690037d9-bd4f-407c-b202-d0dd71d775d2", count: 1, kind: "kiosk" },
       {
         uuid: "804c379d-c747-4d7c-9f0c-a53f8548216e",
-        count: 1,
-        kind: "kitchen",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
       },
     ],
     12: [
-      { uuid: "bfec6f59-14eb-45b9-a21c-d33ee2205b64", count: 1, kind: "kiosk" },
       {
-        uuid: "97507994-efa1-4e38-9191-3034f77005ad",
+        uuid: "bfec6f59-14eb-45b9-a21c-d33ee2205b64",
         count: 2,
-        kind: "kitchen",
+        duration: 2,
+        kind: "checkout",
       },
     ],
     13: [
       {
         uuid: "8db23dfd-616e-4f1d-9a07-deb6e519d35a",
         count: 2,
-        kind: "service",
+        duration: 2,
+        kind: "checkout",
       },
     ],
     14: [
-      { uuid: "a155bb61-d1a6-4f3f-8da3-46eb57030a96", count: 1, kind: "kiosk" },
       {
-        uuid: "9faf0a19-45be-4968-9eb0-a9f48e94a616",
-        count: 1,
-        kind: "cleaning",
+        uuid: "477a1c27-b660-4221-9be0-de34de910f4b",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
       },
     ],
     15: [
-      { uuid: "30c6d6ea-3d65-4040-9dde-abb5f4b58e35", count: 1, kind: "kiosk" },
+      {
+        uuid: "516de07b-bc06-45b5-94f6-be5de186d4d5b",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
+      },
     ],
     16: [
-      { uuid: "f70d01f6-cba3-4e3a-be3e-7cdea2cbdb4b", count: 1, kind: "kiosk" },
       {
-        uuid: "210e67fe-541e-48bc-a515-d0f5cac12c0b",
-        count: 1,
-        kind: "kitchen",
+        uuid: "490c799f-ced5-461e-a483-ad6a90df221b",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
       },
     ],
     17: [
-      { uuid: "8cdc6efb-d0ff-4a8e-8130-700d2284d2e1", count: 1, kind: "kiosk" },
       {
-        uuid: "40ad7820-f4cd-4c8b-914a-203f4cc7b00a",
+        uuid: "c9f79536-225a-41ee-93e6-ef1741b511f7",
         count: 2,
-        kind: "kitchen",
+        duration: 2,
+        kind: "checkout",
       },
     ],
     18: [
       {
-        uuid: "d4eac28b-130b-4a8e-ad5f-8aee57c2d4d8",
+        uuid: "c6c3f0f7-04c6-4819-95e6-aa8476e4392c",
         count: 2,
-        kind: "service",
+        duration: 2,
+        kind: "checkout",
       },
     ],
     19: [
-      { uuid: "6fd5ef92-5bb3-4f1a-8673-e81596e53894", count: 1, kind: "kiosk" },
       {
-        uuid: "6333be4b-93d9-40c4-8167-dca4f9bb87e1",
-        count: 1,
-        kind: "cleaning",
+        uuid: "9748b1e6-1712-449b-8dda-eb44f172071e",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
       },
     ],
     20: [
-      { uuid: "037c19be-79b5-4f94-967d-ffdf9e8c4cd0", count: 1, kind: "kiosk" },
+      {
+        uuid: "04f724ea-4a78-4363-ba0a-75a71ab22598",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
+      },
     ],
     21: [
-      { uuid: "ce9d82b2-7633-4741-ae58-c96872ffd6bd", count: 1, kind: "kiosk" },
+      {
+        uuid: "62d5af53-5e3e-4d59-b574-261e33b0a872",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
+      },
+    ],
+    22: [
+      {
+        uuid: "98fef052-02ba-4a33-ba2a-13ccad6834c7",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
+      },
+    ],
+    23: [
+      {
+        uuid: "e4700acc-7192-4063-b03d-cb4009cbe6f2",
+        count: 2,
+        duration: 1,
+        kind: "checkout",
+      },
     ],
   },
   SUNDAY: {
     10: [
-      { uuid: "ff91d0b8-8bf3-4390-be69-3097d94b7ff0", count: 1, kind: "kiosk" },
+      {
+        uuid: "d30340e1-e49f-44aa-bf1b-d90839b0f1aa",
+        count: 2,
+        duration: 1,
+        kind: "checkout",
+      },
+      {
+        uuid: "e1a9b252-628c-4c01-b8e1-e1964b51e646",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
+      },
     ],
     11: [
-      { uuid: "f19c658b-5ad3-4c6a-b344-a2e6756385d9", count: 1, kind: "kiosk" },
       {
-        uuid: "ca76897c-844d-4be4-9f5f-8e22e04ee0af",
-        count: 1,
-        kind: "kitchen",
+        uuid: "873a1308-57bc-46bc-bdfc-a82213364c77",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
       },
     ],
     12: [
-      { uuid: "21d3be63-10a6-4165-8203-b4d202d78718", count: 1, kind: "kiosk" },
       {
-        uuid: "90dfe7c7-1742-4bbf-8f83-cdf6b149af2e",
+        uuid: "2e9864a9-0208-4e56-b232-dcd258e31545",
         count: 2,
-        kind: "kitchen",
+        duration: 2,
+        kind: "checkout",
       },
     ],
     13: [
       {
-        uuid: "9d189005-d51b-4fa8-81f1-22e5110fe684",
+        uuid: "caef5fea-8458-4b65-b699-9c4e5ee6589d",
         count: 2,
-        kind: "service",
+        duration: 2,
+        kind: "checkout",
       },
     ],
     14: [
-      { uuid: "01fef159-e93c-4066-9a79-85ba7333dd02", count: 1, kind: "kiosk" },
       {
-        uuid: "1196df90-15a5-4c2b-b30e-722c868ebead",
-        count: 1,
-        kind: "cleaning",
+        uuid: "0da24180-0269-4206-adf7-4b9faeefa091",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
       },
     ],
     15: [
-      { uuid: "aef187b1-97f8-4607-844c-79c1404a3796", count: 1, kind: "kiosk" },
+      {
+        uuid: "6c0430dd-9968-456d-bf68-d893040f73fa",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
+      },
     ],
     16: [
-      { uuid: "cd1077c1-8fea-42de-a769-32b255f89070", count: 1, kind: "kiosk" },
+      {
+        uuid: "40eaef18-d6a0-46e8-b3e5-a98be09cef57",
+        count: 2,
+        duration: 2,
+        kind: "checkout",
+      },
     ],
     17: [
-      { uuid: "1231cecf-7aeb-45e7-b0dc-af8641ecdd94", count: 1, kind: "kiosk" },
+      {
+        uuid: "3c6468ad-fdb8-432d-92ce-a52fae471206",
+        count: 2,
+        duration: 1,
+        kind: "checkout",
+      },
+      {
+        uuid: "b9da7047-c359-49fa-b558-53207ac5255a",
+        count: 2,
+        duration: 2,
+        kind: "flohmarkt",
+      },
+      {
+        uuid: "c0e1d54c-0832-4147-9054-082208dab2f2",
+        count: 4,
+        duration: 3,
+        kind: "breakdown",
+      },
     ],
   },
 } satisfies PerDay<HelpTimes>;
 
+const allUUids = [
+  ...Object.values(helpTimes.FRIDAY),
+  ...Object.values(helpTimes.SATURDAY),
+  ...Object.values(helpTimes.SUNDAY),
+].flatMap((e) => e.map((ee) => ee.uuid));
+
+const duplicateUuids = Object.entries(Object.groupBy(allUUids, (uuid) => uuid))
+  .reduce(
+    (acc, [uuid, list]) => {
+      return [
+        ...acc,
+        {
+          uuid,
+          count: list?.length ?? 0,
+        },
+      ];
+    },
+    [] as { uuid: string; count: number }[],
+  )
+  .filter(({ count }) => {
+    return count !== 1;
+  });
+
+if (duplicateUuids.length > 0) {
+  throw Error(
+    `duplicate uuids found:  ${duplicateUuids.map(({ uuid }) => uuid).join(", ")}`,
+  );
+}
+
 export function findHelpEntryByUuid(uuid: string | null): HelpEntryView | null {
-  const allEntries = helpTimesToHelpEntryView(
-    "SATURDAY",
-    helpTimes.SATURDAY,
-  ).concat(helpTimesToHelpEntryView("SUNDAY", helpTimes.SUNDAY));
+  const allEntries = helpTimesToHelpEntryView("FRIDAY", helpTimes.FRIDAY)
+    .concat(helpTimesToHelpEntryView("SATURDAY", helpTimes.SATURDAY))
+    .concat(helpTimesToHelpEntryView("SUNDAY", helpTimes.SUNDAY));
   return allEntries.find((entry) => entry.entry.uuid === uuid) ?? null;
 }
 
@@ -200,29 +342,35 @@ function helpTimesToHelpEntryView(
 }
 export const openingHours = {
   FRIDAY: {
-    open: { from: 16, to: 24 },
+    open: { from: 0, to: 0 },
     breaks: [],
   },
   SATURDAY: {
-    open: { from: 9, to: 24 },
-    breaks: [
-      {
-        from: 13,
-        to: 14,
-      },
-      {
-        from: 18,
-        to: 19,
-      },
-    ],
+    open: { from: 10, to: 24 },
+    breaks: [],
   },
   SUNDAY: {
     open: { from: 10, to: 18 },
+    breaks: [],
+  },
+} satisfies WeekendOpeningHours;
+
+export const openingHoursHelping = {
+  FRIDAY: {
+    open: { from: 16, to: 22 },
     breaks: [
       {
-        from: 13,
-        to: 14,
+        from: 16,
+        to: 22,
       },
     ],
+  },
+  SATURDAY: {
+    open: { from: 9, to: 24 },
+    breaks: [{ from: 9, to: 10 }],
+  },
+  SUNDAY: {
+    open: { from: 10, to: 20 },
+    breaks: [{ from: 18, to: 20 }],
   },
 } satisfies WeekendOpeningHours;

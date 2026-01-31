@@ -19,7 +19,12 @@ export function Zusammenfassung(props: {
   store: Store<Save>;
   isEditable: boolean;
 }): JSX.Element {
-  return <Contact store={props.store.contact} isEditable={props.isEditable} />;
+  return (
+    <div style="display: grid; gap: 1rem;">
+      <Contact store={props.store.contact} isEditable={props.isEditable} />
+      <Box type="special">Eine persöhnliche Zusammenfassung folgt noch.</Box>
+    </div>
+  );
 }
 
 function Contact(props: {

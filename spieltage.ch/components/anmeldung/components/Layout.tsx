@@ -8,11 +8,12 @@ import type { SaveState } from "@lst/components/anmeldung/api/meta";
 
 export function Layout(
   props: WithChildren<{
-    title: string;
+    title?: string;
     showQuickmenu?: boolean;
     link: (path: string) => string;
     saveState: SaveState;
     lastSaved: Date;
+    parentPath?: string;
   }>,
 ): JSX.Element {
   return (
@@ -22,11 +23,16 @@ export function Layout(
           link={props.link}
           saveState={props.saveState}
           lastSaved={props.lastSaved}
+          parentPath={props.parentPath ?? "/"}
         />
       ) : null}
       <div class="page-content">
-        <h2>{props.title}</h2>
-        <br />
+        {props.title === undefined ? null : (
+          <>
+            <h2>{props.title}</h2>
+            <br />
+          </>
+        )}
         {props.children}
       </div>
       {props.showQuickmenu !== false ? (
@@ -35,6 +41,7 @@ export function Layout(
             link={props.link}
             saveState={props.saveState}
             lastSaved={props.lastSaved}
+            parentPath={props.parentPath ?? "/"}
           />
         </div>
       ) : null}
