@@ -216,6 +216,11 @@ button {
 .radio-list {
   display: grid;
   gap: 0.5rem;
+
+  &.horizontal {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .input-checkbox,

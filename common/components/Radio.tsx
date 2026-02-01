@@ -10,19 +10,23 @@ export type RadioGroupProps<T extends string> = {
   name: string;
   items: RadioItem<T>[];
   onValueUpdate: (value: T) => void;
+  disabled?: boolean;
+  layout?: "horizontal" | "vertical";
 };
 
 export function RadioGroup<T extends string>(
   props: RadioGroupProps<T>,
 ): JSX.Element {
+  const layout = props.layout ?? "vertical";
+
   return (
-    <ul role="list" class="radio-list">
+    <ul role="list" class={`radio-list ${layout}`}>
       <For each={props.items}>
         {(radio) => (
           <li>
             <Radio
               label={radio.label}
-              name={radio.label}
+              name={`${radio.value}-${props.name}`}
               value={radio.value}
               checked={radio.checked}
               onValueUpdate={() => props.onValueUpdate(radio.value)}

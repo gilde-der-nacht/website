@@ -8,7 +8,11 @@ import {
 } from "@lst/components/anmeldung/api/elysium";
 import { z } from "astro/zod";
 import { createStore, type Store } from "solid-js/store";
-import type { SaveState } from "@lst/components/anmeldung/api/meta";
+import {
+  rolesSchema,
+  type SaveState,
+} from "@lst/components/anmeldung/api/meta";
+import { dateTimeWindowSchema } from "@common/utils/time";
 
 const contactSchema = z.object({
   name: z.string(),
@@ -16,6 +20,16 @@ const contactSchema = z.object({
   mobile: z.string(),
 });
 export type Contact = z.infer<typeof contactSchema>;
+
+const erklaerbaerReservationSchema = z.object({
+  kind: z.literal("ERKLAERBAER"),
+  uuid: z.string().uuid(),
+  slot: dateTimeWindowSchema,
+});
+
+export type ErklaerbaerReservation = z.infer<
+  typeof erklaerbaerReservationSchema
+>;
 
 const helpingReservationSchema = z.union([
   z.object({
@@ -29,11 +43,12 @@ const helpingReservationSchema = z.union([
     name: z.string(),
     uuid: z.string().uuid(),
   }),
+  erklaerbaerReservationSchema,
 ]);
 export type HelpingReservation = z.infer<typeof helpingReservationSchema>;
 
 const saveSchema = z.object({
-  version: z.literal(3),
+  version: z.literal(4),
   contact: contactSchema,
   helping: z.array(helpingReservationSchema),
 });
@@ -43,6 +58,7 @@ export type Save = z.infer<typeof saveSchema>;
 const loadSaveSchema = z.object({
   kind: z.literal("SUCCESS"),
   status: publishStateSchema,
+  roles: rolesSchema,
   data: saveSchema,
 });
 

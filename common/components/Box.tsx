@@ -9,8 +9,8 @@ type Props = WithChildren & {
   type?: BoxType;
   link?: string;
   linkLabel?: string;
-  onClick?: () => void;
-  onClose?: () => void;
+  onClick?: (() => void) | undefined;
+  onClose?: (() => void) | undefined;
 };
 
 export function Box(props: Props): JSX.Element {

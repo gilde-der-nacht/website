@@ -6,12 +6,18 @@ export type ProgramDay = z.infer<typeof serverSchemaDay>;
 export type PerDay<T> = {
   [Day in ProgramDay]: T;
 };
-export type TimeRange = {
-  from: number;
-  to: number;
-};
 
-export type DateTimeWindow = { day: ProgramDay } & TimeRange;
+const timeRangeSchema = z.object({
+  from: z.number(),
+  to: z.number(),
+});
+export type TimeRange = z.infer<typeof timeRangeSchema>;
+
+export const dateTimeWindowSchema = timeRangeSchema.extend({
+  day: serverSchemaDay,
+});
+
+export type DateTimeWindow = z.infer<typeof dateTimeWindowSchema>;
 
 export function isWithin(num: number, range: TimeRange): boolean {
   const { from, to } = range;

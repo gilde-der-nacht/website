@@ -93,7 +93,9 @@ function HelfenDetailContent(props: {
   const helpType = helpTypes[entry.kind];
 
   const helpReservations = () =>
-    props.helpReservations.filter((r) => r.helpEntryUuid === entry.uuid);
+    props.helpReservations.filter(
+      (r) => "helpEntryUuid" in r && r.helpEntryUuid === entry.uuid,
+    );
 
   const externalReserved = props.externalHelpReservations.filter(
     (r) => r === entry.uuid,

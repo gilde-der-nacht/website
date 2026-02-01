@@ -1,5 +1,11 @@
 import { HashRouter } from "@solidjs/router";
-import { createResource, createSignal, type JSX } from "solid-js";
+import {
+  createResource,
+  createSignal,
+  Match,
+  Switch,
+  type JSX,
+} from "solid-js";
 import { Root } from "@lst/components/anmeldung/pages/Root";
 import {
   debouncedSaveState,
@@ -10,21 +16,29 @@ import { Helfen } from "@lst/components/anmeldung/pages/Helfen";
 import { Zusammenfassung } from "@lst/components/anmeldung/pages/Zusammenfassung";
 import { createStore, unwrap } from "solid-js/store";
 import { toast } from "@common/components/Toast";
-import type { SaveState } from "@lst/components/anmeldung/api/meta";
+import type { Roles, SaveState } from "@lst/components/anmeldung/api/meta";
 import { Layout } from "@lst/components/anmeldung/components/Layout";
 import { HelfenDetail } from "@lst/components/anmeldung/pages/HelfenDetail";
+import { Box } from "@common/components/Box";
+import { TXT } from "@common/utils/texts";
+import { Erklaerbaer } from "../pages/Erklaerbaer";
 
 export function Router(props: {
   initState: LoadSave;
   secret: string;
 }): JSX.Element {
   const [store, setStore] = createStore<{
-    meta: { saveState: SaveState; lastSaved: Date };
+    meta: {
+      saveState: SaveState;
+      lastSaved: Date;
+      roles: Roles;
+    };
     save: Save;
   }>({
     meta: {
       saveState: "IDLE",
       lastSaved: new Date(),
+      roles: props.initState.roles,
     },
     save: props.initState.data,
   });
@@ -110,6 +124,7 @@ export function Router(props: {
                 store={store.save}
                 isEditable={props.initState.status === "published"}
                 link={link}
+                roles={store.meta.roles}
               />
             </Layout>
           ),
@@ -132,6 +147,40 @@ export function Router(props: {
           ),
         },
         {
+          path: "/erklaerbaer",
+          component: () => (
+            <Switch
+              fallback={
+                <Layout
+                  title="Keinen Zugriff"
+                  link={link}
+                  saveState={store.meta.saveState}
+                  lastSaved={store.meta.lastSaved}
+                  showQuickmenu={true}
+                >
+                  <Box type="danger">{TXT.error.noAccess}</Box>
+                </Layout>
+              }
+            >
+              <Match when={store.meta.roles.includes("erklaerbaer")}>
+                <Layout
+                  title="Helfen: Erklärbären"
+                  link={link}
+                  saveState={store.meta.saveState}
+                  lastSaved={store.meta.lastSaved}
+                  showQuickmenu={true}
+                  parentPath="/helfen"
+                >
+                  <Erklaerbaer
+                    store={store.save}
+                    isEditable={props.initState.status === "published"}
+                  />
+                </Layout>
+              </Match>
+            </Switch>
+          ),
+        },
+        {
           path: "/zusammenfassung",
           component: () => (
             <Layout
@@ -145,6 +194,20 @@ export function Router(props: {
                 store={store.save}
                 isEditable={props.initState.status === "published"}
               />
+            </Layout>
+          ),
+        },
+        {
+          path: "*",
+          component: () => (
+            <Layout
+              title="Seite nicht gefunden"
+              link={link}
+              saveState={store.meta.saveState}
+              lastSaved={store.meta.lastSaved}
+              showQuickmenu={true}
+            >
+              <Box type="danger">{TXT.error.siteNotFound}</Box>
             </Layout>
           ),
         },

@@ -11,9 +11,9 @@ import {
   openingHoursHelping,
   type HelpTimes,
 } from "@lst/components/anmeldung/constant/helping";
-import { IconOnlyButton } from "@common/components/Button";
+import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
-import { useNavigate, useSearchParams } from "@solidjs/router";
+import { A, useNavigate, useSearchParams } from "@solidjs/router";
 import type {
   HelpingReservation,
   Save,
@@ -22,11 +22,13 @@ import { type Store } from "solid-js/store";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import { loadHelp } from "@lst/components/anmeldung/api/help";
+import type { Roles } from "@lst/components/anmeldung/api/meta";
 
 export function Helfen(props: {
   store: Store<Save>;
   isEditable: boolean;
   link: (path: string) => string;
+  roles: Roles;
 }): JSX.Element {
   const [searchParams] = useSearchParams();
 
@@ -42,6 +44,15 @@ export function Helfen(props: {
         jeweiligen Stunde auf das Handsymbol <Icon icon="hand-heart" />.
       </p>
       <br />
+      <Show when={props.roles.includes("erklaerbaer")}>
+        <A
+          href={props.link("/erklaerbaer")}
+          class="button-link"
+          style="margin-block-end: 1rem;"
+        >
+          <ButtonWithIcon icon="hand-heart" label="Anmelden als Erklärbär" />
+        </A>
+      </Show>
       <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
         <Show
           when={helpResource()}
@@ -79,7 +90,9 @@ function HelpingContent(props: {
   const alreadyReservedUuids = (): string[] => {
     const already: string[] = [];
     props.helpReservations.forEach((r) => {
-      already.push(r.helpEntryUuid);
+      if (r.kind !== "ERKLAERBAER") {
+        already.push(r.helpEntryUuid);
+      }
     });
     props.externalHelpReservations.forEach((r) => {
       already.push(r);
@@ -139,8 +152,9 @@ function aggregateEntries(props: {
 
       const emptySeats = () => slot.count - (frequencies[slot.uuid] ?? 0);
       const helpingMyself = () =>
-        props.myReservations.filter((r) => r.helpEntryUuid === slot.uuid)
-          .length > 0;
+        props.myReservations.filter(
+          (r) => "helpEntryUuid" in r && r.helpEntryUuid === slot.uuid,
+        ).length > 0;
 
       const classes = () => {
         const cls = ["box-simple", "timeview-entry"];

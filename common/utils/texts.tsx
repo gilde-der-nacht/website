@@ -70,10 +70,26 @@ const error = {
       das <a href="/kontakt">Kontaktformular</a>.
     </p>
   ),
+  siteNotFound: (
+    <p>
+      Leider ist das keine gültige Seite. Versuche deine Anmeldung erneut zu
+      laden. Wiederholt sich dieser Fehler, bitte kontaktiere uns sobald als
+      möglich über das <a href="/kontakt">Kontaktformular</a>, da dies nicht
+      passieren sollte.
+    </p>
+  ),
+  noAccess: (
+    <p>
+      Leider hast du keinen Zugriff auf diese Seite. Sollte dies ein Fehler
+      sein, dann kontaktiere uns sobald als möglich über das{" "}
+      <a href="/kontakt">Kontaktformular</a>.
+    </p>
+  ),
 };
 
 const draft = "Entwurf";
 const createNewGameRound = "Neue Spielrunde erstellen";
+const createNewEntry = "Neuer Eintrag erstellen";
 const myGameRounds = "Meine Spielrunden";
 const missingTitle = "Titel fehlt";
 const missingSystem = "kein System angegeben";
@@ -108,6 +124,7 @@ export const TXT = {
   error,
   draft,
   createNewGameRound,
+  createNewEntry,
   myGameRounds,
   missingTitle,
   missingSystem,
@@ -119,7 +136,6 @@ export const TXT = {
   charLimitBy,
   tagIdeas,
   days,
-
   publishingSteps,
   metaTitle,
 };
