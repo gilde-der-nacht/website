@@ -28,13 +28,15 @@ export function WeekendTimetable(props: {
   conflictsAllowed?: boolean;
   openingHours: WeekendOpeningHours;
   columns: 2 | 4;
+  dayFilter: ProgramDay | null;
 }): JSX.Element {
   return (
-    <div class="dynamic-columns" style="gap: 1rem; --min-width: 30rem;">
+    <div style="display: grid; gap: 1rem;">
       <Show
         when={
           props.openingHours.FRIDAY.open.from !==
-          props.openingHours.FRIDAY.open.to
+            props.openingHours.FRIDAY.open.to &&
+          (props.dayFilter === null || props.dayFilter === "FRIDAY")
         }
       >
         <TimetableOfDay
@@ -46,22 +48,26 @@ export function WeekendTimetable(props: {
           columns={props.columns}
         />
       </Show>
-      <TimetableOfDay
-        programEntries={props.programEntries.SATURDAY}
-        openingHoursOfDay={props.openingHours.SATURDAY}
-        openingHours={props.openingHours}
-        day="SATURDAY"
-        conflictsAllowed={props.conflictsAllowed ?? false}
-        columns={props.columns}
-      />
-      <TimetableOfDay
-        programEntries={props.programEntries.SUNDAY}
-        openingHoursOfDay={props.openingHours.SUNDAY}
-        openingHours={props.openingHours}
-        day="SUNDAY"
-        conflictsAllowed={props.conflictsAllowed ?? false}
-        columns={props.columns}
-      />
+      <Show when={props.dayFilter === null || props.dayFilter === "SATURDAY"}>
+        <TimetableOfDay
+          programEntries={props.programEntries.SATURDAY}
+          openingHoursOfDay={props.openingHours.SATURDAY}
+          openingHours={props.openingHours}
+          day="SATURDAY"
+          conflictsAllowed={props.conflictsAllowed ?? false}
+          columns={props.columns}
+        />
+      </Show>
+      <Show when={props.dayFilter === null || props.dayFilter === "SUNDAY"}>
+        <TimetableOfDay
+          programEntries={props.programEntries.SUNDAY}
+          openingHoursOfDay={props.openingHours.SUNDAY}
+          openingHours={props.openingHours}
+          day="SUNDAY"
+          conflictsAllowed={props.conflictsAllowed ?? false}
+          columns={props.columns}
+        />
+      </Show>
     </div>
   );
 }

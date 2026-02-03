@@ -105,7 +105,7 @@
     "link duration" 1fr
     / max-content 1fr;
   gap: 0 0.5rem;
-  background: hsl(from var(--clr-7) h s l / .2);
+  --box-background-color: hsl(from var(--clr-7) h s l / .2);
 
   &:hover {
     cursor: pointer;

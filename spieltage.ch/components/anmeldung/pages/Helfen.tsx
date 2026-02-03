@@ -1,6 +1,12 @@
-import { createResource, Show, Suspense, type JSX } from "solid-js";
+import {
+  createResource,
+  createSignal,
+  Show,
+  Suspense,
+  type JSX,
+} from "solid-js";
 import { Icon } from "@common/components/Icon";
-import type { PerDay } from "@common/utils/time";
+import type { PerDay, ProgramDay } from "@common/utils/time";
 import {
   WeekendTimetable,
   type ProgramEntryTimetableView,
@@ -11,7 +17,11 @@ import {
   openingHoursHelping,
   type HelpTimes,
 } from "@lst/components/anmeldung/constant/helping";
-import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
+import {
+  Button,
+  ButtonWithIcon,
+  IconOnlyButton,
+} from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
 import { A, useNavigate, useSearchParams } from "@solidjs/router";
 import type {
@@ -31,6 +41,7 @@ export function Helfen(props: {
   roles: Roles;
 }): JSX.Element {
   const [searchParams] = useSearchParams();
+  const [dayFilter, setDayFilter] = createSignal<ProgramDay | null>(null);
 
   const [helpResource] = createResource(() =>
     loadHelp(String(searchParams["secret"])),
@@ -53,6 +64,37 @@ export function Helfen(props: {
           <ButtonWithIcon icon="hand-heart" label="Anmelden als Erklärbär" />
         </A>
       </Show>
+
+      <Box>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
+          <h5 style="margin: 0;">Filter</h5>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <Button
+            label="Alle Tage"
+            kind={dayFilter() === null ? "success" : "gray"}
+            onClick={() => setDayFilter(null)}
+          />
+          <Button
+            label="Freitag"
+            kind={dayFilter() === "FRIDAY" ? "success" : "gray"}
+            onClick={() => setDayFilter("FRIDAY")}
+          />
+          <Button
+            label="Samstag"
+            kind={dayFilter() === "SATURDAY" ? "success" : "gray"}
+            onClick={() => setDayFilter("SATURDAY")}
+          />
+          <Button
+            label="Sonntag"
+            kind={dayFilter() === "SUNDAY" ? "success" : "gray"}
+            onClick={() => setDayFilter("SUNDAY")}
+          />
+        </div>
+      </Box>
+
+      <br />
+
       <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
         <Show
           when={helpResource()}
@@ -72,6 +114,7 @@ export function Helfen(props: {
                 externalHelpReservations={(help() as { data: string[] }).data}
                 isEditable={props.isEditable}
                 link={props.link}
+                dayFilter={dayFilter()}
               />
             </Show>
           )}
@@ -86,6 +129,7 @@ function HelpingContent(props: {
   externalHelpReservations: string[];
   isEditable: boolean;
   link: (path: string) => string;
+  dayFilter: ProgramDay | null;
 }): JSX.Element {
   const alreadyReservedUuids = (): string[] => {
     const already: string[] = [];
@@ -129,6 +173,7 @@ function HelpingContent(props: {
       openingHours={openingHoursHelping}
       conflictsAllowed={true}
       columns={4}
+      dayFilter={props.dayFilter}
     />
   );
 }
