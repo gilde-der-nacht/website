@@ -21,12 +21,13 @@ import type {
   HelpingReservation,
   Save,
 } from "@lst/components/anmeldung/api/save";
-import { useParams, useSearchParams } from "@solidjs/router";
+import { A, useParams, useSearchParams } from "@solidjs/router";
 import { createStore, type Store } from "solid-js/store";
 import { loadHelp } from "@lst/components/anmeldung/api/help";
 
 export function HelfenDetail(props: {
   store: Store<Save>;
+  link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
@@ -71,6 +72,7 @@ export function HelfenDetail(props: {
                       store.helping.filter((r) => r.uuid !== reservationUuid),
                     );
                   }}
+                  link={props.link}
                 />
               )}
             </Show>
@@ -88,6 +90,7 @@ function HelfenDetailContent(props: {
   isEditable: boolean;
   addReservation: (reservation: HelpingReservation) => void;
   removeReservation: (reservationUuid: string) => void;
+  link: (path: string) => string;
 }): JSX.Element {
   const { dateTime, entry } = props.entry;
   const helpType = helpTypes[entry.kind];
@@ -119,7 +122,12 @@ function HelfenDetailContent(props: {
 
   return (
     <>
-      <h3>{helpType.title}</h3>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between;">
+        <h3>{helpType.title}</h3>
+        <A href={props.link("/helfen")} class="button-link">
+          <ButtonWithIcon icon="backward" label="Zurück zur Helfer-Übersicht" />
+        </A>
+      </div>
       <div class="game-dialog">
         <ul role="list" style="display: grid; gap: 0.5rem;">
           <li>

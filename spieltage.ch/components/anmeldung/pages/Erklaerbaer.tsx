@@ -1,5 +1,5 @@
 import { Heading } from "@common/components/Heading";
-import { For, Show, type JSX } from "solid-js";
+import { For, Match, Show, Switch, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import type {
   ErklaerbaerReservation,
@@ -10,10 +10,12 @@ import { TXT } from "@common/utils/texts";
 import { Box } from "@common/components/Box";
 import { RadioGroup } from "@common/components/Radio";
 import { InputInteger } from "@common/components/Input";
-import { openingHours } from "../constant/helping";
+import { openingHours } from "@lst/components/anmeldung/constant/helping";
+import type { Roles } from "@lst/components/anmeldung/api/meta";
 
 export function Erklaerbaer(props: {
   store: Store<Save>;
+  roles: Roles;
   isEditable: boolean;
 }): JSX.Element {
   return (
@@ -26,62 +28,72 @@ export function Erklaerbaer(props: {
         T-Shirt erkennbar.
       </p>
       <br />
-      <Heading level={3} title="Was machen die Erklärbären" />
-      <ul>
-        <li>Sie müssen nicht alle Spiele der Spiele-Bibliothek kennen!</li>
-        <li>
-          Sie erklären Spiele während der eingeplanten Zeit
+      <div class="dynamic-columns">
+        <div>
+          <ErklaerbaerJobs
+            store={props.store}
+            roles={props.roles}
+            isEditable={props.isEditable}
+          />
+        </div>
+        <div>
+          <Heading level={3} title="Was machen die Erklärbären" />
           <ul>
-            <li>Grundsätzlich spielen die Erklärbären nicht mit</li>
+            <li>Sie müssen nicht alle Spiele der Spiele-Bibliothek kennen!</li>
             <li>
-              Sobald die Spieler/-innen die Regeln verstanden haben (z.B. nach
-              den ersten paar Runden) verlassen sie den Tisch
+              Sie erklären Spiele während der eingeplanten Zeit
+              <ul>
+                <li>Grundsätzlich spielen die Erklärbären nicht mit</li>
+                <li>
+                  Sobald die Spieler/-innen die Regeln verstanden haben (z.B.
+                  nach den ersten paar Runden) verlassen sie den Tisch
+                </li>
+                <li>
+                  Sie stehen weiterhin für Fragen zur Verfügung und kommen
+                  allenfalls periodisch zum Tisch zurück
+                </li>
+              </ul>
             </li>
             <li>
-              Sie stehen weiterhin für Fragen zur Verfügung und kommen
-              allenfalls periodisch zum Tisch zurück
+              Sie bringen Spiele für die Spiele-Bibliothek mit welche sie
+              erklären können
+              <ul>
+                <li>
+                  Diese Spiele sollen ein breites Spektrum, von einfach bis
+                  komplex, abdecken
+                </li>
+                <li>
+                  Eine Liste der mitgebrachten Spiele (Spiele-Bibliothek) wird
+                  vor dem Event von allen Erklärbären zusammen erstellt
+                </li>
+                <li>
+                  Vor dem Event notieren die Erklärbären, was sie aus der
+                  Spiele-Bibliothek erklären können - (Mitbringen eigener Spiele
+                  ist nicht Pflicht, falls genügend Spiele aus der Liste erklärt
+                  werden können)
+                </li>
+              </ul>
+            </li>
+            <li>
+              Sie erarbeiten gemeinsam vor dem Event eine Empfehlungsliste aus
+              ca.&nbsp;6&nbsp;Spielen
+              <ul>
+                <li>
+                  Alle Erklärbären sollen die Regeln dieser Spiele vor dem Event
+                  lesen
+                </li>
+              </ul>
             </li>
           </ul>
-        </li>
-        <li>
-          Sie bringen Spiele für die Spiele-Bibliothek mit welche sie erklären
-          können
-          <ul>
-            <li>
-              Diese Spiele sollen ein breites Spektrum, von einfach bis komplex,
-              abdecken
-            </li>
-            <li>
-              Eine Liste der mitgebrachten Spiele (Spiele-Bibliothek) wird vor
-              dem Event von allen Erklärbären zusammen erstellt
-            </li>
-            <li>
-              Vor dem Event notieren die Erklärbären, was sie aus der
-              Spiele-Bibliothek erklären können - (Mitbringen eigener Spiele ist
-              nicht Pflicht, falls genügend Spiele aus der Liste erklärt werden
-              können)
-            </li>
-          </ul>
-        </li>
-        <li>
-          Sie erarbeiten gemeinsam vor dem Event eine Empfehlungsliste aus
-          ca.&nbsp;6&nbsp;Spielen
-          <ul>
-            <li>
-              Alle Erklärbären sollen die Regeln dieser Spiele vor dem Event
-              lesen
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <ErklaerbaerJobs store={props.store} isEditable={props.isEditable} />
+        </div>
+      </div>
     </>
   );
 }
 
 function ErklaerbaerJobs(props: {
   store: Store<Save>;
+  roles: Roles;
   isEditable: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store.helping);
@@ -94,51 +106,65 @@ function ErklaerbaerJobs(props: {
     <>
       <Heading level={3} title="Meine Einsätze" />
       <br />
-      <div style="display: grid; gap: 1rem;">
-        <For
-          each={getErklaerbaerJobs()}
-          fallback={<em>Noch keine Einsätze eingetragen</em>}
-        >
-          {(job) => (
-            <JobEntry
-              job={job}
-              updateJob={(j) => {
-                setStore(
-                  store.map((entry) => {
-                    if (entry.uuid === job.uuid) {
-                      return j;
-                    }
-                    return entry;
-                  }),
-                );
-              }}
-              removeJob={() => {
-                setStore(store.filter((entry) => entry.uuid !== job.uuid));
-              }}
-              isEditable={props.isEditable}
-            />
-          )}
-        </For>
-        <Show when={props.isEditable}>
-          <BoxLink
-            icon="grid-2-plus"
-            type="success"
-            onClick={() => {
-              setStore(store.length, {
-                kind: "ERKLAERBAER",
-                uuid: crypto.randomUUID(),
-                slot: {
-                  day: "SATURDAY",
-                  from: 10,
-                  to: 18,
-                },
-              });
-            }}
-          >
-            <h3>{TXT.createNewEntry}</h3>
-          </BoxLink>
-        </Show>
-      </div>
+      <Switch
+        fallback={
+          <Box>
+            <p>
+              Bitte nimm mit uns <a href="/kontakt">Kontakt</a> auf, damit wir
+              uns kurz mit dir absprechen und dir diesen Bereich freischalten
+              können.
+            </p>
+          </Box>
+        }
+      >
+        <Match when={props.roles.includes("erklaerbaer")}>
+          <div style="display: grid; gap: 1rem;">
+            <For
+              each={getErklaerbaerJobs()}
+              fallback={<em>Noch keine Einsätze eingetragen</em>}
+            >
+              {(job) => (
+                <JobEntry
+                  job={job}
+                  updateJob={(j) => {
+                    setStore(
+                      store.map((entry) => {
+                        if (entry.uuid === job.uuid) {
+                          return j;
+                        }
+                        return entry;
+                      }),
+                    );
+                  }}
+                  removeJob={() => {
+                    setStore(store.filter((entry) => entry.uuid !== job.uuid));
+                  }}
+                  isEditable={props.isEditable}
+                />
+              )}
+            </For>
+            <Show when={props.isEditable}>
+              <BoxLink
+                icon="grid-2-plus"
+                type="success"
+                onClick={() => {
+                  setStore(store.length, {
+                    kind: "ERKLAERBAER",
+                    uuid: crypto.randomUUID(),
+                    slot: {
+                      day: "SATURDAY",
+                      from: 10,
+                      to: 18,
+                    },
+                  });
+                }}
+              >
+                <h3>{TXT.createNewEntry}</h3>
+              </BoxLink>
+            </Show>
+          </div>
+        </Match>
+      </Switch>
     </>
   );
 }

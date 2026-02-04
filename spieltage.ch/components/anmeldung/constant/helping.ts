@@ -30,7 +30,7 @@ export const helpTypes = {
       "Am Kiosk Getränke und Snacks verkaufen oder am Flohmarkt die Kasse bedienen.",
   },
   setup: {
-    title: "Aufbau",
+    title: "Menü-Vorbereitung / Aufbau",
     description:
       "Hilf uns beim Zubereiten der Menüs und Aufstellen von Tischen, Stühle und der Bibliothek.",
   },

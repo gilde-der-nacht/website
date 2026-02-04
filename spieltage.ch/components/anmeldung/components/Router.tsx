@@ -1,11 +1,5 @@
 import { HashRouter } from "@solidjs/router";
-import {
-  createResource,
-  createSignal,
-  Match,
-  Switch,
-  type JSX,
-} from "solid-js";
+import { createResource, createSignal, type JSX } from "solid-js";
 import { Root } from "@lst/components/anmeldung/pages/Root";
 import {
   debouncedSaveState,
@@ -141,6 +135,7 @@ export function Router(props: {
             >
               <HelfenDetail
                 store={store.save}
+                link={link}
                 isEditable={props.initState.status === "published"}
               />
             </Layout>
@@ -149,35 +144,20 @@ export function Router(props: {
         {
           path: "/erklaerbaer",
           component: () => (
-            <Switch
-              fallback={
-                <Layout
-                  title="Keinen Zugriff"
-                  link={link}
-                  saveState={store.meta.saveState}
-                  lastSaved={store.meta.lastSaved}
-                  showQuickmenu={true}
-                >
-                  <Box type="danger">{TXT.error.noAccess}</Box>
-                </Layout>
-              }
+            <Layout
+              title="Helfen: Erklärbären"
+              link={link}
+              saveState={store.meta.saveState}
+              lastSaved={store.meta.lastSaved}
+              showQuickmenu={true}
+              parentPath="/helfen"
             >
-              <Match when={store.meta.roles.includes("erklaerbaer")}>
-                <Layout
-                  title="Helfen: Erklärbären"
-                  link={link}
-                  saveState={store.meta.saveState}
-                  lastSaved={store.meta.lastSaved}
-                  showQuickmenu={true}
-                  parentPath="/helfen"
-                >
-                  <Erklaerbaer
-                    store={store.save}
-                    isEditable={props.initState.status === "published"}
-                  />
-                </Layout>
-              </Match>
-            </Switch>
+              <Erklaerbaer
+                store={store.save}
+                roles={store.meta.roles}
+                isEditable={props.initState.status === "published"}
+              />
+            </Layout>
           ),
         },
         {

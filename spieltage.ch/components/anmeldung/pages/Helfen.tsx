@@ -17,11 +17,7 @@ import {
   openingHoursHelping,
   type HelpTimes,
 } from "@lst/components/anmeldung/constant/helping";
-import {
-  Button,
-  ButtonWithIcon,
-  IconOnlyButton,
-} from "@common/components/Button";
+import { Button, IconOnlyButton } from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
 import { A, useNavigate, useSearchParams } from "@solidjs/router";
 import type {
@@ -33,6 +29,8 @@ import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import { loadHelp } from "@lst/components/anmeldung/api/help";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
+import { Heading } from "@common/components/Heading";
+import { BoxLink } from "@common/components/BoxLink";
 
 export function Helfen(props: {
   store: Store<Save>;
@@ -55,15 +53,25 @@ export function Helfen(props: {
         jeweiligen Stunde auf das Handsymbol <Icon icon="hand-heart" />.
       </p>
       <br />
-      <Show when={props.roles.includes("erklaerbaer")}>
-        <A
-          href={props.link("/erklaerbaer")}
-          class="button-link"
-          style="margin-block-end: 1rem;"
-        >
-          <ButtonWithIcon icon="hand-heart" label="Anmelden als Erklärbär" />
-        </A>
-      </Show>
+      <Heading level={3} title="Erklärbären" />
+      <br />
+      <p>
+        Eines der Hauptziele der Luzerner Spieltage ist es, dass die
+        Besucher/-innen noch nicht gespielte Spiele ausprobieren können. Dazu
+        unterstützen uns jedes Jahr Freiwillige und erklären die ihnen bekannten
+        Spiele aus der Spiele-Bibliothek. Diese Erklärbären sind durch ihr rotes
+        T-Shirt erkennbar.
+      </p>
+      <br />
+      <A
+        href={props.link("/erklaerbaer")}
+        class="button-link"
+        style="margin-block-end: 1rem; padding: 0;"
+      >
+        <BoxLink icon="forward" type="success">
+          <h4>Anmelden als Erklärbär</h4>
+        </BoxLink>
+      </A>
 
       <Box>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">

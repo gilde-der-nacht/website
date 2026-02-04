@@ -47,10 +47,20 @@ const helpingReservationSchema = z.union([
 ]);
 export type HelpingReservation = z.infer<typeof helpingReservationSchema>;
 
+const programEntrySchema = z.object({});
+const reservationEntrySchema = z.object({});
+
 const saveSchema = z.object({
-  version: z.literal(4),
+  version: z.literal(5),
   contact: contactSchema,
+  config: z.object({
+    wantsUpdates: z.boolean(),
+  }),
   helping: z.array(helpingReservationSchema),
+  program: z.object({
+    organising: z.array(programEntrySchema),
+    participating: z.array(reservationEntrySchema),
+  }),
 });
 
 export type Save = z.infer<typeof saveSchema>;
