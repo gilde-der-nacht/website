@@ -4,12 +4,13 @@ import {
   QuickMenu,
   QuickMenuExtended,
 } from "@lst/components/anmeldung/components/QuickMenu";
-import type { SaveState } from "@lst/components/anmeldung/api/meta";
+import type { Roles, SaveState } from "@lst/components/anmeldung/api/meta";
 
 export function Layout(
   props: WithChildren<{
     title?: string;
     showQuickmenu?: boolean;
+    roles: Roles;
     link: (path: string) => string;
     saveState: SaveState;
     lastSaved: Date;
@@ -20,6 +21,7 @@ export function Layout(
     <div class="page">
       {props.showQuickmenu !== false ? (
         <QuickMenu
+          roles={props.roles}
           link={props.link}
           saveState={props.saveState}
           lastSaved={props.lastSaved}
@@ -38,6 +40,7 @@ export function Layout(
       {props.showQuickmenu !== false ? (
         <div class="extended-wrapper" style="margin-block-start: 1rem;">
           <QuickMenuExtended
+            roles={props.roles}
             link={props.link}
             saveState={props.saveState}
             lastSaved={props.lastSaved}

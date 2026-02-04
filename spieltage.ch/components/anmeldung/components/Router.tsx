@@ -15,7 +15,9 @@ import { Layout } from "@lst/components/anmeldung/components/Layout";
 import { HelfenDetail } from "@lst/components/anmeldung/pages/HelfenDetail";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
-import { Erklaerbaer } from "../pages/Erklaerbaer";
+import { Erklaerbaer } from "@lst/components/anmeldung/pages/Erklaerbaer";
+import { Programm } from "@lst/components/anmeldung/pages/Programm";
+import { Erstellen } from "@lst/components/anmeldung/pages/Erstellen";
 
 export function Router(props: {
   initState: LoadSave;
@@ -88,27 +90,49 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Wo möchtest du starten?"
+              roles={store.meta.roles}
               link={link}
               saveState={store.meta.saveState}
               lastSaved={store.meta.lastSaved}
             >
-              <Root link={link} />
+              <Root roles={store.meta.roles} link={link} />
             </Layout>
           ),
         },
         {
-          path: "/runden",
-          component: () => <Root link={link} />,
+          path: "/programm",
+          component: () => (
+            <Layout
+              title="Programm"
+              roles={store.meta.roles}
+              link={link}
+              saveState={store.meta.saveState}
+              lastSaved={store.meta.lastSaved}
+            >
+              <Programm />
+            </Layout>
+          ),
         },
         {
           path: "/erstellen",
-          component: () => <Root link={link} />,
+          component: () => (
+            <Layout
+              title="Programmpunkte erstellen und editieren"
+              roles={store.meta.roles}
+              link={link}
+              saveState={store.meta.saveState}
+              lastSaved={store.meta.lastSaved}
+            >
+              <Erstellen />
+            </Layout>
+          ),
         },
         {
           path: "/helfen",
           component: () => (
             <Layout
               title="Helfen"
+              roles={store.meta.roles}
               link={link}
               saveState={store.meta.saveState}
               lastSaved={store.meta.lastSaved}
@@ -128,6 +152,7 @@ export function Router(props: {
           component: () => (
             <Layout
               link={link}
+              roles={store.meta.roles}
               saveState={store.meta.saveState}
               lastSaved={store.meta.lastSaved}
               showQuickmenu={true}
@@ -146,6 +171,7 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Helfen: Erklärbären"
+              roles={store.meta.roles}
               link={link}
               saveState={store.meta.saveState}
               lastSaved={store.meta.lastSaved}
@@ -165,6 +191,7 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Zusammenfassung"
+              roles={store.meta.roles}
               link={link}
               saveState={store.meta.saveState}
               lastSaved={store.meta.lastSaved}
@@ -182,6 +209,7 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Seite nicht gefunden"
+              roles={store.meta.roles}
               link={link}
               saveState={store.meta.saveState}
               lastSaved={store.meta.lastSaved}

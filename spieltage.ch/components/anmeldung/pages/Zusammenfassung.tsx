@@ -14,14 +14,25 @@ import type { Contact, Save } from "@lst/components/anmeldung/api/save";
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { useSearchParams } from "@solidjs/router";
+import { Checkbox } from "@common/components/Checkbox";
 
 export function Zusammenfassung(props: {
   store: Store<Save>;
   isEditable: boolean;
 }): JSX.Element {
+  const [store, setStore] = createStore(props.store);
   return (
     <div style="display: grid; gap: 1rem;">
       <Contact store={props.store.contact} isEditable={props.isEditable} />
+      <Checkbox
+        label="Schickt mir bitte E-Mails, wenn neue Programmpunkte veröffentlicht werden."
+        checked={store.config.wantsUpdates}
+        name="wantsUpdates"
+        value="wantsUpdates"
+        onValueUpdate={(checked) => {
+          setStore("config", "wantsUpdates", checked);
+        }}
+      />
       <Box type="special">Eine persöhnliche Zusammenfassung folgt noch.</Box>
     </div>
   );

@@ -55,23 +55,26 @@ export function Helfen(props: {
       <br />
       <Heading level={3} title="Erklärbären" />
       <br />
-      <p>
-        Eines der Hauptziele der Luzerner Spieltage ist es, dass die
-        Besucher/-innen noch nicht gespielte Spiele ausprobieren können. Dazu
-        unterstützen uns jedes Jahr Freiwillige und erklären die ihnen bekannten
-        Spiele aus der Spiele-Bibliothek. Diese Erklärbären sind durch ihr rotes
-        T-Shirt erkennbar.
-      </p>
+      <div class="dynamic-columns">
+        <p>
+          Eines der Hauptziele der Luzerner Spieltage ist es, dass die
+          Besucher/-innen noch nicht gespielte Spiele ausprobieren können. Dazu
+          unterstützen uns jedes Jahr Freiwillige und erklären die ihnen
+          bekannten Spiele aus der Spiele-Bibliothek. Diese Erklärbären sind
+          durch ihr rotes T-Shirt erkennbar.
+        </p>
+        <A
+          href={props.link("/erklaerbaer")}
+          class="button-link"
+          style="margin-block-end: 1rem; padding: 0;"
+        >
+          <BoxLink icon="forward" type="success">
+            <h4>Zur Anmeldung für Erklärbären</h4>
+          </BoxLink>
+        </A>
+      </div>
+
       <br />
-      <A
-        href={props.link("/erklaerbaer")}
-        class="button-link"
-        style="margin-block-end: 1rem; padding: 0;"
-      >
-        <BoxLink icon="forward" type="success">
-          <h4>Anmelden als Erklärbär</h4>
-        </BoxLink>
-      </A>
 
       <Box>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
