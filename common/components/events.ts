@@ -14,29 +14,190 @@ const organizerSchema = z.object({
   url: z.nullable(z.string()),
 });
 
-const simpleDateSchema = z.object({
+// TODO: Migrate to Temporal.PlainDate, when widely available
+const plainDateSchema = z.object({
   day: z.number(),
   month: z.number(),
   year: z.number(),
 });
 
-export type SimpleDate = z.infer<typeof simpleDateSchema>;
+export type PlainDate = z.infer<typeof plainDateSchema>;
 
-const simpleTimeSchema = z.object({
+// TODO: Migrate to Temporal.PlainTime, when widely available
+const plainTimeSchema = z.object({
   hour: z.number(),
   minute: z.number(),
 });
 
-export type SimpleTime = z.infer<typeof simpleTimeSchema>;
+export type PlainTime = z.infer<typeof plainTimeSchema>;
 
-const simpleDateTimeSchema = z.object({
-  startDate: simpleDateSchema,
-  endDate: z.nullable(simpleDateSchema),
-  startTime: z.nullable(simpleTimeSchema),
-  endTime: z.nullable(simpleTimeSchema),
+// TODO: Migrate to Temporal.PlainDateTime, when widely available
+const plainDateTimeSchema = z.object({
+  day: z.number(),
+  month: z.number(),
+  year: z.number(),
+  hour: z.number(),
+  minute: z.number(),
 });
 
-export type SimpleDateTime = z.infer<typeof simpleDateTimeSchema>;
+export type PlainDateTime = z.infer<typeof plainDateTimeSchema>;
+
+// TODO: Migrate to Temporal.PlainDate, when widely available
+const plainDateDurationSchema = z.object({
+  startDate: plainDateSchema,
+  endDate: plainDateSchema,
+});
+
+// TODO: Migrate to Temporal.PlainDate, when widely available
+const plainDateTimeDurationSchema = z.object({
+  startDate: plainDateTimeSchema,
+  endDate: plainDateTimeSchema,
+});
+
+const plainDateOrTimeDurationSchema = z.union([
+  plainDateDurationSchema,
+  plainDateTimeDurationSchema,
+]);
+export type PlainDateOrTimeDuration = z.infer<
+  typeof plainDateOrTimeDurationSchema
+>;
+
+const eventDateTimeSchema = z
+  .object({
+    startDate: z.string(),
+    endDate: z.string(),
+  })
+  .transform((val, ctx): PlainDateOrTimeDuration => {
+    const parsedStartDate = parsePlainDateOrTime(val.startDate);
+    if (parsedStartDate.kind === "ERROR") {
+      ctx.addIssue({
+        code: "custom",
+        message: parsedStartDate.message,
+      });
+    }
+    const parsedEndDate = parsePlainDateOrTime(val.endDate);
+    if (parsedEndDate.kind === "ERROR") {
+      ctx.addIssue({
+        code: "custom",
+        message: parsedEndDate.message,
+      });
+    }
+
+    if (parsedStartDate.kind === "ERROR" || parsedEndDate.kind === "ERROR") {
+      return z.NEVER;
+    }
+
+    if (parsedStartDate.kind !== parsedEndDate.kind) {
+      ctx.addIssue({
+        code: "custom",
+        message: `Both dates must be either of type PlainDate or PlainDateTime but not mixed. "startDate": '${val.startDate}'; "endDate": '${val.endDate}'`,
+      });
+
+      return z.NEVER;
+    }
+
+    return {
+      startDate: parsedStartDate.value,
+      endDate: parsedEndDate.value,
+    };
+  });
+
+export type EventDateTime = z.infer<typeof eventDateTimeSchema>;
+
+type PlainDateParseResult =
+  | {
+      kind: "ERROR";
+      message: string;
+    }
+  | {
+      kind: "DATE";
+      value: PlainDate;
+    }
+  | {
+      kind: "DATETIME";
+      value: PlainDateTime;
+    };
+
+function parsePlainDateOrTime(input: string): PlainDateParseResult {
+  const [date, time] = input.split("T");
+  if (date === undefined) {
+    return { kind: "ERROR", message: "Empty string" };
+  }
+  const [yearStr, monthStr, dayStr] = date.split("-");
+
+  if (yearStr === undefined || yearStr.length !== 4) {
+    return {
+      kind: "ERROR",
+      message: `Invalid year '${yearStr}' in '${input}'`,
+    };
+  }
+
+  if (monthStr === undefined || monthStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid month '${monthStr}' in '${input}'`,
+    };
+  }
+
+  if (dayStr === undefined || dayStr.length !== 2) {
+    return { kind: "ERROR", message: `Invalid day '${dayStr}' in '${input}'` };
+  }
+
+  const [year, month, day] = [
+    Number.parseInt(yearStr),
+    Number.parseInt(monthStr),
+    Number.parseInt(dayStr),
+  ];
+
+  if (time === undefined) {
+    return {
+      kind: "DATE",
+      value: {
+        year,
+        month,
+        day,
+      },
+    };
+  }
+
+  const [hourStr, minuteStr, _secondStr] = time.split(":");
+  if (hourStr === undefined || hourStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid hour '${hourStr}' in '${input}'`,
+    };
+  }
+
+  if (minuteStr === undefined || minuteStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid minute '${minuteStr}' in '${input}'`,
+    };
+  }
+
+  const [hour, minute] = [Number.parseInt(hourStr), Number.parseInt(minuteStr)];
+
+  return {
+    kind: "DATETIME",
+    value: {
+      year,
+      month,
+      day,
+      hour,
+      minute,
+    },
+  };
+}
+
+export function toJSDate(date: PlainDate | PlainDateTime): Date {
+  return new Date(
+    date.year,
+    date.month - 1,
+    date.day,
+    "hour" in date ? date.hour : 0,
+    "minute" in date ? date.minute : 0,
+  );
+}
 
 const eventSchema = z.object({
   uuid: z.string().uuid(),
@@ -47,7 +208,7 @@ const eventSchema = z.object({
   type: z.string(),
   location: locationSchema,
   organizer: organizerSchema,
-  date: simpleDateTimeSchema,
+  date: eventDateTimeSchema,
 });
 
 export type OlympEvent = z.infer<typeof eventSchema>;

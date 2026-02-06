@@ -53,7 +53,7 @@ function renderBackgroundIcon(event: OlympEvent): JSX.Element {
 }
 
 function isFullDay(event: OlympEvent): boolean {
-  return event.date.startTime === null;
+  return !("hour" in event.date.startDate);
 }
 
 function isMultipleDays(event: OlympEvent): boolean {
@@ -193,10 +193,10 @@ type EventListProps = { events: OlympEvent[] };
 
 function sortByStartDate(a: OlympEvent, b: OlympEvent) {
   const {
-    date: { startDate: startDateA, startTime: startTimeA },
+    date: { startDate: startDateA },
   } = a;
   const {
-    date: { startDate: startDateB, startTime: startTimeB },
+    date: { startDate: startDateB },
   } = b;
   if (startDateA.year !== startDateB.year) {
     return startDateA.year - startDateB.year;
@@ -208,15 +208,15 @@ function sortByStartDate(a: OlympEvent, b: OlympEvent) {
     return startDateA.day - startDateB.day;
   }
 
-  const startHourA = startTimeA?.hour ?? 0;
-  const startHourB = startTimeB?.hour ?? 0;
+  const startHourA = "hour" in startDateA ? startDateA.hour : 0;
+  const startHourB = "hour" in startDateB ? startDateB.hour : 0;
 
   if (startHourA !== startHourB) {
     return startHourA - startHourB;
   }
 
-  const startMinuteA = startTimeA?.minute ?? 0;
-  const startMinuteB = startTimeB?.minute ?? 0;
+  const startMinuteA = "hour" in startDateA ? startDateA.hour : 0;
+  const startMinuteB = "hour" in startDateB ? startDateB.hour : 0;
 
   return startMinuteA - startMinuteB;
 }

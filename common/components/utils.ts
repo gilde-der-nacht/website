@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js";
-import type { SimpleDateTime } from "./events";
+import { toJSDate, type EventDateTime } from "./events";
 
 export type Language = "de" | "en";
 
@@ -21,15 +21,8 @@ export function formatDate(date: Date): string {
   return dateFormat.format(date);
 }
 
-export function formatSimpleDate(date: SimpleDateTime): string {
-  const d = new Date(
-    date.startDate.year,
-    date.startDate.month - 1,
-    date.startDate.day,
-    date.startTime?.hour ?? 0,
-    date.startTime?.minute ?? 0,
-  );
-  return dateFormat.format(d);
+export function formatSimpleDate(date: EventDateTime): string {
+  return dateFormat.format(toJSDate(date.startDate));
 }
 
 const dateTimeFormat = new Intl.DateTimeFormat("de-CH", {
@@ -42,15 +35,8 @@ export function formatDateTime(date: Date): string {
   return dateTimeFormat.format(date);
 }
 
-export function formatSimpleDateTime(date: SimpleDateTime): string {
-  const d = new Date(
-    date.startDate.year,
-    date.startDate.month - 1,
-    date.startDate.day,
-    date.startTime?.hour ?? 0,
-    date.startTime?.minute ?? 0,
-  );
-  return dateTimeFormat.format(d);
+export function formatSimpleDateTime(date: EventDateTime): string {
+  return dateTimeFormat.format(toJSDate(date.startDate));
 }
 
 export function formatDateRange(from: Date, to: Date): string {
@@ -83,27 +69,14 @@ export function formatDateRange(from: Date, to: Date): string {
   return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
 }
 
-export function formatSimpleDateRange(date: SimpleDateTime): string {
+export function formatSimpleDateRange(date: EventDateTime): string {
   const sameYear =
     date.endDate === null || date.startDate.year === date.endDate.year;
   const sameMonth =
     date.endDate === null || date.startDate.month === date.endDate.month;
 
-  const from = new Date(
-    date.startDate.year,
-    date.startDate.month - 1,
-    date.startDate.day,
-    date.startTime?.hour ?? 0,
-    date.startTime?.minute ?? 0,
-  );
-
-  const to = new Date(
-    (date.endDate ?? date.startDate).year,
-    (date.endDate ?? date.startDate).month - 1,
-    (date.endDate ?? date.startDate).day,
-    date.endTime?.hour ?? 0,
-    date.endTime?.minute ?? 0,
-  );
+  const from = toJSDate(date.startDate);
+  const to = toJSDate(date.endDate);
 
   const endFormatter = new Intl.DateTimeFormat("de-CH", {
     day: "numeric",
