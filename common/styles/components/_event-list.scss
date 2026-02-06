@@ -5,6 +5,7 @@
   max-inline-size: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  grid-template-rows: max-content max-content 1fr max-content;
   gap: 1.75rem;
 }
 
@@ -21,8 +22,9 @@
   padding: 1.25em 1.5em 0;
   font-size: 0.6rem;
   max-inline-size: 100%;
+  grid-row: span 4;
   display: grid;
-  grid-template-rows: max-content max-content 1fr max-content;
+  grid-template-rows: subgrid;
   gap: 0.5rem;
   position: relative;
   overflow: hidden;
