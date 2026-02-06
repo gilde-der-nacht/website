@@ -12,7 +12,7 @@ import {
   helpTypes,
   type HelpEntry,
 } from "@lst/components/anmeldung/constant/helping";
-import { formatTime, toRange, type ProgramDay } from "@common/utils/time";
+import { formatTime, toRange } from "@common/utils/time";
 import { InputButton } from "@common/components/InputButton";
 import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { Box, SimpleBox } from "@common/components/Box";
@@ -146,7 +146,7 @@ function HelfenDetailContent(props: {
           <li>
             <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
             <br />
-            {TXT.days[day as ProgramDay]},{" "}
+            {TXT.days[day]},{" "}
             {formatTime(dateTime.startDate, { minutes: false })} -{" "}
             {formatTime(dateTime.endDate, { minutes: false })} Uhr
           </li>

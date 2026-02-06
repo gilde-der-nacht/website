@@ -161,7 +161,22 @@ export function formatTime(
 ): string {
   const { minutes } = opts ?? { minutes: true };
   if (minutes) {
-    return `${date.hour}.${date.minute}`;
+    return `${date.hour}.${date.minute.toString().padStart(2, "0")}`;
   }
   return `${date.hour}`;
+}
+
+export function formatTimeDuration(from: PlainTime, to: PlainTime): string {
+  const fromMinutes = from.minute + from.hour * 60;
+  const toMinutes = to.minute + to.hour * 60;
+  const diff = Math.abs(toMinutes - fromMinutes);
+  const diffMinutes = diff % 60;
+  const diffHours = Math.round((diff - diffMinutes) / 60);
+  if (diffMinutes === 0) {
+    return `${diffHours} ${diffHours === 1 ? "Stunde" : "Stunden"}`;
+  }
+  if (diffHours === 0) {
+    return `${diffMinutes} ${diffMinutes === 1 ? "Minute" : "Minuten"}`;
+  }
+  return `${diffHours},${diffMinutes} Stunden`;
 }

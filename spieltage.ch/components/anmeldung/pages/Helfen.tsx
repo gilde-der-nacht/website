@@ -17,7 +17,7 @@ import {
   openingHoursHelping,
   type HelpEntry,
 } from "@lst/components/anmeldung/constant/helping";
-import { Button, IconOnlyButton } from "@common/components/Button";
+import { IconOnlyButton } from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
 import { A, useNavigate } from "@solidjs/router";
 import type {
@@ -36,6 +36,7 @@ import { Heading } from "@common/components/Heading";
 import { BoxLink } from "@common/components/BoxLink";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { getDay } from "@lst/components/anmeldung/constant/time";
+import { DayFilter, type DayFilterState } from "@common/components/Filter";
 
 export function Helfen(props: {
   store: Store<Save>;
@@ -44,7 +45,7 @@ export function Helfen(props: {
   link: (path: string) => string;
   roles: Roles;
 }): JSX.Element {
-  const [dayFilter, setDayFilter] = createSignal<ProgramDay | null>(null);
+  const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
 
   return (
     <>
@@ -77,33 +78,7 @@ export function Helfen(props: {
 
       <br />
 
-      <Box>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
-          <h5 style="margin: 0;">Filter</h5>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <Button
-            label="Alle Tage"
-            kind={dayFilter() === null ? "success" : "gray"}
-            onClick={() => setDayFilter(null)}
-          />
-          <Button
-            label="Freitag"
-            kind={dayFilter() === "FRIDAY" ? "success" : "gray"}
-            onClick={() => setDayFilter("FRIDAY")}
-          />
-          <Button
-            label="Samstag"
-            kind={dayFilter() === "SATURDAY" ? "success" : "gray"}
-            onClick={() => setDayFilter("SATURDAY")}
-          />
-          <Button
-            label="Sonntag"
-            kind={dayFilter() === "SUNDAY" ? "success" : "gray"}
-            onClick={() => setDayFilter("SUNDAY")}
-          />
-        </div>
-      </Box>
+      <DayFilter dayFilter={dayFilter} setDayFilter={setDayFilter} />
 
       <br />
 
@@ -293,6 +268,7 @@ function aggregateEntries(props: {
             </h5>
             <p class="duration">
               <span>
+                von
                 {range.startTime.hour}&nbsp;bis {range.endTime.hour}
                 &nbsp;Uhr |{" "}
               </span>

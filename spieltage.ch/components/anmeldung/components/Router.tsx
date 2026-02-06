@@ -205,6 +205,7 @@ export function Router(props: {
               <Zusammenfassung
                 store={store.save}
                 publicResource={publicResource}
+                link={link}
                 isEditable={props.initState.status === "published"}
               />
             </Layout>

@@ -10,8 +10,8 @@ import { TXT } from "@common/utils/texts";
 import { Box } from "@common/components/Box";
 import { RadioGroup } from "@common/components/Radio";
 import { InputInteger } from "@common/components/Input";
-import { openingHours } from "@lst/components/anmeldung/constant/helping";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
+import { openingHours } from "@lst/components/anmeldung/constant/time";
 
 export function Erklaerbaer(props: {
   store: Store<Save>;

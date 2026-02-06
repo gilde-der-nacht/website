@@ -1,4 +1,4 @@
-import { createMemo, Show, type JSX, type Resource } from "solid-js";
+import { createMemo, Show, Suspense, type JSX, type Resource } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import { Box } from "@common/components/Box";
 import {
@@ -17,10 +17,12 @@ import { useSearchParams } from "@solidjs/router";
 import { Checkbox } from "@common/components/Checkbox";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import type { Public } from "@lst/components/anmeldung/api/public";
+import { Timeview } from "@lst/components/anmeldung/components/Timeview";
 
 export function Zusammenfassung(props: {
   store: Store<Save>;
   publicResource: Resource<Result<Public>>;
+  link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
@@ -36,7 +38,26 @@ export function Zusammenfassung(props: {
           setStore("config", "wantsUpdates", checked);
         }}
       />
-      <Box type="special">Eine persöhnliche Zusammenfassung folgt noch.</Box>
+
+      <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
+        <Show
+          when={props.publicResource()}
+          fallback={<Box type="danger">{TXT.error.help}</Box>}
+        >
+          {(publicData) => (
+            <Show
+              when={publicData().kind === "SUCCESS"}
+              fallback={<Box type="danger">{TXT.loading.program}</Box>}
+            >
+              <Timeview
+                save={props.store}
+                publicState={(publicData() as { data: Public }).data}
+                link={props.link}
+              />
+            </Show>
+          )}
+        </Show>
+      </Suspense>
     </div>
   );
 }

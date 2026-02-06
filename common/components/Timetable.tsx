@@ -28,13 +28,17 @@ export function WeekendTimetable(props: {
   programEntries: PerDay<ProgramEntryTimetableView[]>;
   conflictsAllowed?: boolean;
   openingHours: WeekendOpeningHours;
-  columns: 2 | 4;
+  columns: 1 | 2 | 4;
   dayFilter: ProgramDay | null;
+  exclude?: ProgramDay[];
 }): JSX.Element {
+  const exclude = props.exclude ?? [];
+
   return (
     <div style="display: grid; gap: 1rem;">
       <Show
         when={
+          !exclude.includes("FRIDAY") &&
           props.openingHours.FRIDAY.open.from !==
             props.openingHours.FRIDAY.open.to &&
           (props.dayFilter === null || props.dayFilter === "FRIDAY")
@@ -43,27 +47,34 @@ export function WeekendTimetable(props: {
         <TimetableOfDay
           programEntries={props.programEntries.FRIDAY}
           openingHoursOfDay={props.openingHours.FRIDAY}
-          openingHours={props.openingHours}
           day="FRIDAY"
           conflictsAllowed={props.conflictsAllowed ?? false}
           columns={props.columns}
         />
       </Show>
-      <Show when={props.dayFilter === null || props.dayFilter === "SATURDAY"}>
+      <Show
+        when={
+          (!exclude.includes("SATURDAY") && props.dayFilter === null) ||
+          props.dayFilter === "SATURDAY"
+        }
+      >
         <TimetableOfDay
           programEntries={props.programEntries.SATURDAY}
           openingHoursOfDay={props.openingHours.SATURDAY}
-          openingHours={props.openingHours}
           day="SATURDAY"
           conflictsAllowed={props.conflictsAllowed ?? false}
           columns={props.columns}
         />
       </Show>
-      <Show when={props.dayFilter === null || props.dayFilter === "SUNDAY"}>
+      <Show
+        when={
+          (!exclude.includes("SUNDAY") && props.dayFilter === null) ||
+          props.dayFilter === "SUNDAY"
+        }
+      >
         <TimetableOfDay
           programEntries={props.programEntries.SUNDAY}
           openingHoursOfDay={props.openingHours.SUNDAY}
-          openingHours={props.openingHours}
           day="SUNDAY"
           conflictsAllowed={props.conflictsAllowed ?? false}
           columns={props.columns}
@@ -76,10 +87,9 @@ export function WeekendTimetable(props: {
 function TimetableOfDay(props: {
   programEntries: ProgramEntryTimetableView[];
   openingHoursOfDay: OpeningHours;
-  openingHours: WeekendOpeningHours;
   day: ProgramDay;
   conflictsAllowed: boolean;
-  columns: 2 | 4;
+  columns: 1 | 2 | 4;
 }): JSX.Element {
   const conflictingEntries = props.conflictsAllowed
     ? []
@@ -117,7 +127,6 @@ function TimetableOfDay(props: {
           <Timetable
             programEntries={props.programEntries}
             openingHoursOfDay={props.openingHoursOfDay}
-            openingHours={props.openingHours}
             day={props.day}
             conflictsAllowed={props.conflictsAllowed}
             columns={props.columns}
@@ -136,10 +145,9 @@ export type ProgramEntryTimetableView = {
 export function Timetable(props: {
   programEntries: ProgramEntryTimetableView[];
   openingHoursOfDay: OpeningHours;
-  openingHours: WeekendOpeningHours;
   day: ProgramDay;
   conflictsAllowed: boolean;
-  columns: 2 | 4;
+  columns: 1 | 2 | 4;
 }): JSX.Element {
   const hours = getHours(props.openingHoursOfDay.open);
   const breaks = props.openingHoursOfDay.breaks.flatMap(({ from, to }) => {
@@ -160,7 +168,13 @@ export function Timetable(props: {
   const classes = () => {
     const cls = ["timetable"];
     if (props.conflictsAllowed) {
-      cls.push(props.columns === 2 ? "two-columns" : "four-columns");
+      cls.push(
+        props.columns === 2
+          ? "two-columns"
+          : props.columns === 4
+            ? "four-columns"
+            : "",
+      );
     }
     return cls.join(" ");
   };
@@ -180,7 +194,7 @@ export function Timetable(props: {
                 },
                 offset,
                 props.day,
-                props.openingHours,
+                props.openingHoursOfDay,
               )}
             >
               <div class="annotation">{hour}</div>
@@ -198,7 +212,7 @@ export function Timetable(props: {
                 entry.range,
                 offset,
                 props.day,
-                props.openingHours,
+                props.openingHoursOfDay,
               )}
             >
               {entry.component()}
@@ -217,12 +231,12 @@ function rangeToGridRow(
   range: PlainTimeDuration,
   offset: number,
   day: ProgramDay,
-  openingHours: WeekendOpeningHours,
+  openingHoursOfDay: OpeningHours,
 ): string {
   const { startTime, endTime } = range;
   const startRow = startTime.hour - offset;
   const endRow = endTime.hour - offset;
-  const closingHour = openingHours[day].open.to;
+  const closingHour = openingHoursOfDay.open.to;
 
   assert(
     startRow > 0,

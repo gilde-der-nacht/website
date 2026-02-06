@@ -569,21 +569,6 @@ export function findHelpEntryByUuid(uuid: string | null): HelpEntry | null {
   return helpTimes.find((entry) => entry.uuid === uuid) ?? null;
 }
 
-export const openingHours = {
-  FRIDAY: {
-    open: { from: 0, to: 0 },
-    breaks: [],
-  },
-  SATURDAY: {
-    open: { from: 10, to: 24 },
-    breaks: [],
-  },
-  SUNDAY: {
-    open: { from: 10, to: 18 },
-    breaks: [],
-  },
-} satisfies WeekendOpeningHours;
-
 export const openingHoursHelping = {
   FRIDAY: {
     open: { from: 16, to: 22 },
