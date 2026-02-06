@@ -6,7 +6,7 @@ import {
   type Resource,
 } from "solid-js";
 import { Icon } from "@common/components/Icon";
-import type { PerDay, ProgramDay } from "@common/utils/time";
+import type { PerDay, PlainTimeDuration, ProgramDay } from "@common/utils/time";
 import {
   WeekendTimetable,
   type ProgramEntryTimetableView,
@@ -15,7 +15,7 @@ import {
   helpTimes,
   helpTypes,
   openingHoursHelping,
-  type HelpTimes,
+  type HelpEntry,
 } from "@lst/components/anmeldung/constant/helping";
 import { Button, IconOnlyButton } from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
@@ -35,6 +35,7 @@ import type { Roles } from "@lst/components/anmeldung/api/meta";
 import { Heading } from "@common/components/Heading";
 import { BoxLink } from "@common/components/BoxLink";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
+import { getDay } from "@lst/components/anmeldung/constant/time";
 
 export function Helfen(props: {
   store: Store<Save>;
@@ -151,19 +152,22 @@ function HelpingContent(props: {
   const entries = () =>
     ({
       FRIDAY: aggregateEntries({
-        constants: helpTimes.FRIDAY,
+        day: "FRIDAY",
+        entries: helpTimes,
         alreadyReservedUuids: alreadyReservedUuids(),
         myReservations: props.myHelpReservations,
         link: props.link,
       }),
       SATURDAY: aggregateEntries({
-        constants: helpTimes.SATURDAY,
+        day: "SATURDAY",
+        entries: helpTimes,
         alreadyReservedUuids: alreadyReservedUuids(),
         myReservations: props.myHelpReservations,
         link: props.link,
       }),
       SUNDAY: aggregateEntries({
-        constants: helpTimes.SUNDAY,
+        day: "SUNDAY",
+        entries: helpTimes,
         alreadyReservedUuids: alreadyReservedUuids(),
         myReservations: props.myHelpReservations,
         link: props.link,
@@ -182,106 +186,127 @@ function HelpingContent(props: {
 }
 
 function aggregateEntries(props: {
-  constants: HelpTimes;
+  day: ProgramDay;
+  entries: HelpEntry[];
   alreadyReservedUuids: string[];
   myReservations: HelpingReservation[];
   link: (path: string) => string;
 }): ProgramEntryTimetableView[] {
   const navigate = useNavigate();
-  const entries: ProgramEntryTimetableView[] = [];
+  const timetableView: ProgramEntryTimetableView[] = [];
   const frequencies = uuidFrequencies(props.alreadyReservedUuids);
 
-  Object.entries(props.constants).forEach(([hour, slots]) => {
-    slots.forEach((slot) => {
-      const range = {
-        from: Number(hour),
-        to: Number(hour) + slot.duration,
-      };
+  const byDay = Object.groupBy(
+    props.entries,
+    (entry) => getDay(entry.dateTime.startDate) ?? "empty",
+  );
 
-      const emptySeats = () => slot.count - (frequencies[slot.uuid] ?? 0);
-      const helpingMyself = () =>
-        props.myReservations.filter(
-          (r) => "helpEntryUuid" in r && r.helpEntryUuid === slot.uuid,
-        ).length > 0;
+  byDay[props.day]?.forEach((entry) => {
+    const emptySeats = () => entry.count - (frequencies[entry.uuid] ?? 0);
+    const helpingMyself = () =>
+      props.myReservations.filter(
+        (r) => "helpEntryUuid" in r && r.helpEntryUuid === entry.uuid,
+      ).length > 0;
 
-      const classes = () => {
-        const cls = ["box-simple", "timeview-entry"];
-        if (helpingMyself()) {
-          cls.push("success");
-        }
-        return cls.join(" ");
-      };
+    const classes = () => {
+      const cls = ["box-simple", "timeview-entry"];
+      if (helpingMyself()) {
+        cls.push("success");
+      }
+      return cls.join(" ");
+    };
 
-      if (emptySeats() === 0) {
-        entries.push({
-          range,
-          component: () => (
-            <div
-              class={classes()}
-              onClick={() => navigate(props.link(`/helfen/${slot.uuid}`))}
+    const range: PlainTimeDuration = {
+      startTime: {
+        hour: entry.dateTime.startDate.hour,
+        minute: entry.dateTime.startDate.minute,
+      },
+      endTime:
+        entry.dateTime.startDate.day !== entry.dateTime.endDate.day
+          ? {
+              hour: entry.dateTime.endDate.hour + 24, // Quick solution to handle midnight for now
+              minute: entry.dateTime.endDate.minute,
+            }
+          : {
+              hour: entry.dateTime.endDate.hour,
+              minute: entry.dateTime.endDate.minute,
+            },
+    };
+
+    if (emptySeats() === 0) {
+      timetableView.push({
+        range,
+        component: () => (
+          <div
+            class={classes()}
+            onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
+          >
+            <Chip
+              title="Helfer:innen gesucht"
+              inverted={helpingMyself()}
+              size="small"
             >
-              <Chip
-                title="Helfer:innen gesucht"
-                inverted={helpingMyself()}
-                size="small"
-              >
-                HL
-              </Chip>
-              <Show when={helpingMyself()}>
-                <IconOnlyButton
-                  icon="hand-heart"
-                  kind="ghost"
-                  onClick={() => navigate(props.link(`/helfen/${slot.uuid}`))}
-                  title="Helfen"
-                />
-              </Show>
-              <h5 title={helpTypes[slot.kind].title}>
-                {helpTypes[slot.kind].title}
-              </h5>
-              <p class="duration">
-                <em>
-                  {emptySeats()} / {slot.count}
-                </em>
-              </p>
-            </div>
-          ),
-        });
-      } else {
-        entries.push({
-          range,
-          component: () => (
-            <div
-              class={classes()}
-              onClick={() => navigate(props.link(`/helfen/${slot.uuid}`))}
-            >
-              <Chip
-                title="Helfer:innen gesucht"
-                inverted={helpingMyself()}
-                size="small"
-              >
-                HL
-              </Chip>
+              HL
+            </Chip>
+            <Show when={helpingMyself()}>
               <IconOnlyButton
                 icon="hand-heart"
                 kind="ghost"
-                onClick={() => navigate(props.link(`/helfen/${slot.uuid}`))}
+                onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
                 title="Helfen"
               />
-              <h5 title={helpTypes[slot.kind].title}>
-                {helpTypes[slot.kind].title}
-              </h5>
-              <p class="duration">
-                <em>
-                  {slot.count - emptySeats()} / {slot.count}
-                </em>
-              </p>
-            </div>
-          ),
-        });
-      }
-    });
+            </Show>
+            <h5 title={helpTypes[entry.kind].title}>
+              {helpTypes[entry.kind].title}
+            </h5>
+            <p class="duration">
+              <em>
+                {emptySeats()} / {entry.count}
+              </em>
+            </p>
+          </div>
+        ),
+      });
+    } else {
+      timetableView.push({
+        range,
+        component: () => (
+          <div
+            class={classes()}
+            onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
+          >
+            <Chip
+              title="Helfer:innen gesucht"
+              inverted={helpingMyself()}
+              size="small"
+            >
+              HL
+            </Chip>
+            <IconOnlyButton
+              icon="hand-heart"
+              kind="ghost"
+              onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
+              title="Helfen"
+            />
+            <h5 title={helpTypes[entry.kind].title}>
+              {helpTypes[entry.kind].title}
+            </h5>
+            <p class="duration">
+              <span>
+                {range.startTime.hour}&nbsp;bis {range.endTime.hour}
+                &nbsp;Uhr |{" "}
+              </span>
+              <em>
+                {entry.count - emptySeats()}&nbsp;/&nbsp;{entry.count}
+              </em>
+            </p>
+          </div>
+        ),
+      });
+    }
   });
-  return entries;
+
+  return timetableView;
 }
 
 function uuidFrequencies(uuids: string[]): Record<string, number> {

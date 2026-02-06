@@ -4,7 +4,8 @@ import {
   isOverlapping,
   type PerDay,
   type ProgramDay,
-  type TimeRange,
+  type HourRange,
+  type PlainTimeDuration,
 } from "@common/utils/time";
 import { assert } from "@common/components/utils";
 import { Box } from "@common/components/Box";
@@ -13,8 +14,8 @@ import { TXT } from "@common/utils/texts";
 import { Heading } from "@common/components/Heading";
 
 export type WeekendOpeningHours = PerDay<{
-  open: TimeRange;
-  breaks: TimeRange[];
+  open: HourRange;
+  breaks: HourRange[];
 }>;
 export type OpeningHours = WeekendOpeningHours[ProgramDay];
 
@@ -128,7 +129,7 @@ function TimetableOfDay(props: {
 }
 
 export type ProgramEntryTimetableView = {
-  range: TimeRange;
+  range: PlainTimeDuration;
   component: () => JSX.Element;
 };
 
@@ -173,7 +174,10 @@ export function Timetable(props: {
             <div
               class={`hour ${isBreak ? "break" : ""}`}
               style={rangeToGridRow(
-                { from: hour, to: hour },
+                {
+                  startTime: { hour, minute: 0 },
+                  endTime: { hour, minute: 0 },
+                },
                 offset,
                 props.day,
                 props.openingHours,
@@ -210,24 +214,27 @@ export function Timetable(props: {
 }
 
 function rangeToGridRow(
-  range: TimeRange,
+  range: PlainTimeDuration,
   offset: number,
   day: ProgramDay,
   openingHours: WeekendOpeningHours,
 ): string {
-  const { from, to } = range;
-  const startRow = from - offset;
-  const endRow = to - offset;
+  const { startTime, endTime } = range;
+  const startRow = startTime.hour - offset;
+  const endRow = endTime.hour - offset;
   const closingHour = openingHours[day].open.to;
 
   assert(
     startRow > 0,
-    `[${JSON.stringify(range)}] Entry can't start at ${from}.`,
+    `[${JSON.stringify(range)}] Entry can't start at '${startTime.hour}'.`,
   );
-  assert(endRow > 0, `[${JSON.stringify(range)}] Entry can't end at ${to}.`);
   assert(
-    to <= closingHour,
-    `[${JSON.stringify(range)}] Entry can't end at ${to}. Closing hour set to '${closingHour}' on day '${day}'`,
+    endRow > 0,
+    `[${JSON.stringify(range)}] Entry can't end at '${endTime.hour}'.`,
+  );
+  assert(
+    endTime.hour <= closingHour,
+    `[${JSON.stringify(range)}] Entry can't end at '${endTime.hour}'. Closing hour set to '${closingHour}' on day '${day}'`,
   );
 
   return `grid-row: ${startRow} / ${endRow};`;

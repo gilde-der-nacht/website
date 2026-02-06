@@ -10,9 +10,9 @@ import {
 import {
   findHelpEntryByUuid,
   helpTypes,
-  type HelpEntryView,
+  type HelpEntry,
 } from "@lst/components/anmeldung/constant/helping";
-import { toRange } from "@common/utils/time";
+import { formatTime, toRange, type ProgramDay } from "@common/utils/time";
 import { InputButton } from "@common/components/InputButton";
 import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { Box, SimpleBox } from "@common/components/Box";
@@ -28,6 +28,8 @@ import {
   type Reservations,
 } from "@lst/components/anmeldung/api/public";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
+import { getDay } from "@lst/components/anmeldung/constant/time";
+import { assert } from "@common/components/utils";
 
 export function HelfenDetail(props: {
   store: Store<Save>;
@@ -48,13 +50,16 @@ export function HelfenDetail(props: {
         {(publicData) => (
           <Show
             when={publicData().kind === "SUCCESS"}
-            fallback={
-              <Box type="danger">
-                <p>Plan konnte nicht geladen werden.</p>
-              </Box>
-            }
+            fallback={<Box type="danger">{TXT.loading.program}</Box>}
           >
-            <Show when={entry}>
+            <Show
+              when={entry}
+              fallback={
+                <Box type="danger">
+                  <p>Details konnten nicht geladen werden.</p>
+                </Box>
+              }
+            >
               {(e) => (
                 <HelfenDetailContent
                   entry={e()}
@@ -87,7 +92,7 @@ export function HelfenDetail(props: {
 }
 
 function HelfenDetailContent(props: {
-  entry: HelpEntryView;
+  entry: HelpEntry;
   myHelpReservations: HelpingReservation[];
   allReservations: Reservations;
   isEditable: boolean;
@@ -95,24 +100,30 @@ function HelfenDetailContent(props: {
   removeReservation: (reservationUuid: string) => void;
   link: (path: string) => string;
 }): JSX.Element {
-  const { dateTime, entry } = props.entry;
-  const helpType = helpTypes[entry.kind];
+  const { dateTime, kind } = props.entry;
+  const helpType = helpTypes[kind];
+  const day = getDay(dateTime.startDate);
+  assert(
+    day !== null,
+    `Date '${JSON.stringify(dateTime.startDate)}' is not a valid event date.`,
+  );
 
   const myHelpReservations = () =>
     props.myHelpReservations.filter(
-      (r) => "helpEntryUuid" in r && r.helpEntryUuid === entry.uuid,
+      (r) => "helpEntryUuid" in r && r.helpEntryUuid === props.entry.uuid,
     );
 
   const externalReserved =
-    (props.allReservations[entry.uuid] ?? 0) - myHelpReservations().length;
+    (props.allReservations[props.entry.uuid] ?? 0) -
+    myHelpReservations().length;
 
   const range = () =>
-    toRange(entry.count).map((i) => {
+    toRange(props.entry.count).map((i) => {
       const myReservation = myHelpReservations()[i];
       if (myReservation !== undefined) {
         return myReservation;
       }
-      if (entry.count - externalReserved <= i) {
+      if (props.entry.count - externalReserved <= i) {
         return { kind: "RESERVED_OTHER" } as const;
       }
       return { kind: "FREE" } as const;
@@ -135,7 +146,9 @@ function HelfenDetailContent(props: {
           <li>
             <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
             <br />
-            {TXT.days[dateTime.day]}, {dateTime.from} - {dateTime.to} Uhr
+            {TXT.days[day as ProgramDay]},{" "}
+            {formatTime(dateTime.startDate, { minutes: false })} -{" "}
+            {formatTime(dateTime.endDate, { minutes: false })} Uhr
           </li>
           <li>
             <strong style="color: var(--clr-accent-1);">Beschreibung:</strong>{" "}
@@ -209,7 +222,7 @@ function HelfenDetailContent(props: {
                               onClick={() =>
                                 props.addReservation({
                                   kind: "SELF",
-                                  helpEntryUuid: entry.uuid,
+                                  helpEntryUuid: props.entry.uuid,
                                   uuid: crypto.randomUUID(),
                                 })
                               }
@@ -218,7 +231,7 @@ function HelfenDetailContent(props: {
                               addFriend={(name) =>
                                 props.addReservation({
                                   kind: "FRIEND",
-                                  helpEntryUuid: entry.uuid,
+                                  helpEntryUuid: props.entry.uuid,
                                   name,
                                   uuid: crypto.randomUUID(),
                                 })
@@ -231,7 +244,7 @@ function HelfenDetailContent(props: {
                           addFriend={(name) =>
                             props.addReservation({
                               kind: "FRIEND",
-                              helpEntryUuid: entry.uuid,
+                              helpEntryUuid: props.entry.uuid,
                               name,
                               uuid: crypto.randomUUID(),
                             })

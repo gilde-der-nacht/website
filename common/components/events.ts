@@ -1,5 +1,10 @@
 import { z } from "astro/zod";
 import { elysium } from "./utils";
+import type {
+  PlainDate,
+  PlainDateOrTimeDuration,
+  PlainDateTime,
+} from "@common/utils/time";
 
 const locationSchema = z.object({
   label: z.string(),
@@ -13,54 +18,6 @@ const organizerSchema = z.object({
   name: z.string(),
   url: z.nullable(z.string()),
 });
-
-// TODO: Migrate to Temporal.PlainDate, when widely available
-const plainDateSchema = z.object({
-  day: z.number(),
-  month: z.number(),
-  year: z.number(),
-});
-
-export type PlainDate = z.infer<typeof plainDateSchema>;
-
-// TODO: Migrate to Temporal.PlainTime, when widely available
-const plainTimeSchema = z.object({
-  hour: z.number(),
-  minute: z.number(),
-});
-
-export type PlainTime = z.infer<typeof plainTimeSchema>;
-
-// TODO: Migrate to Temporal.PlainDateTime, when widely available
-const plainDateTimeSchema = z.object({
-  day: z.number(),
-  month: z.number(),
-  year: z.number(),
-  hour: z.number(),
-  minute: z.number(),
-});
-
-export type PlainDateTime = z.infer<typeof plainDateTimeSchema>;
-
-// TODO: Migrate to Temporal.PlainDate, when widely available
-const plainDateDurationSchema = z.object({
-  startDate: plainDateSchema,
-  endDate: plainDateSchema,
-});
-
-// TODO: Migrate to Temporal.PlainDate, when widely available
-const plainDateTimeDurationSchema = z.object({
-  startDate: plainDateTimeSchema,
-  endDate: plainDateTimeSchema,
-});
-
-const plainDateOrTimeDurationSchema = z.union([
-  plainDateDurationSchema,
-  plainDateTimeDurationSchema,
-]);
-export type PlainDateOrTimeDuration = z.infer<
-  typeof plainDateOrTimeDurationSchema
->;
 
 const eventDateTimeSchema = z
   .object({

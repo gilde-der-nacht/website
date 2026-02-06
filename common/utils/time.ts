@@ -7,32 +7,48 @@ export type PerDay<T> = {
   [Day in ProgramDay]: T;
 };
 
-const timeRangeSchema = z.object({
+const hourRangeSchema = z.object({
   from: z.number(),
   to: z.number(),
 });
-export type TimeRange = z.infer<typeof timeRangeSchema>;
+export type HourRange = z.infer<typeof hourRangeSchema>;
 
-export const dateTimeWindowSchema = timeRangeSchema.extend({
+export const dateTimeWindowSchema = hourRangeSchema.extend({
   day: serverSchemaDay,
 });
 
 export type DateTimeWindow = z.infer<typeof dateTimeWindowSchema>;
 
-export function isWithin(num: number, range: TimeRange): boolean {
-  const { from, to } = range;
-  return from < num && num < to;
+export function isWithin(time: PlainTime, range: PlainTimeDuration): boolean {
+  const { startTime, endTime } = range;
+  if (startTime.hour > time.hour) {
+    return false;
+  }
+  if (startTime.hour === time.hour && startTime.minute > time.minute) {
+    return false;
+  }
+  if (endTime.hour < time.hour) {
+    return false;
+  }
+  if (endTime.hour === time.hour && endTime.minute < time.minute) {
+    return false;
+  }
+
+  return true;
 }
 
-export function isOverlapping(rangeA: TimeRange, rangeB: TimeRange): boolean {
-  const { from: fromA, to: toA } = rangeA;
-  const { from: fromB, to: toB } = rangeB;
+export function isOverlapping(
+  rangeA: PlainTimeDuration,
+  rangeB: PlainTimeDuration,
+): boolean {
+  const { startTime: startTimeA, endTime: endTimeA } = rangeA;
+  const { startTime: startTimeB, endTime: endTimeB } = rangeB;
   return (
-    isWithin(fromA, rangeB) ||
-    isWithin(toA, rangeB) ||
-    isWithin(fromB, rangeA) ||
-    isWithin(toB, rangeA) ||
-    (fromA === fromB && toA === toB)
+    isWithin(startTimeA, rangeB) ||
+    isWithin(endTimeA, rangeB) ||
+    isWithin(startTimeB, rangeA) ||
+    isWithin(endTimeB, rangeA) ||
+    (startTimeA === startTimeB && endTimeA === endTimeB)
   );
 }
 
@@ -41,7 +57,7 @@ export function isOverlapping(rangeA: TimeRange, rangeB: TimeRange): boolean {
  * @returns list of hours starting with `range.from` (inclusive) until `range.to` (exclusive).
  */
 export function getHours(
-  range: TimeRange,
+  range: HourRange,
   inclusiveeEnd: boolean = false,
 ): number[] {
   const { from, to } = range;
@@ -78,4 +94,74 @@ export function sortByDateTimeWindow(
     return a.to - b.to;
   }
   return a.from - b.from;
+}
+
+// TODO: Migrate to Temporal.PlainDate, when widely available
+const plainDateSchema = z.object({
+  day: z.number(),
+  month: z.number(),
+  year: z.number(),
+});
+
+export type PlainDate = z.infer<typeof plainDateSchema>;
+
+// TODO: Migrate to Temporal.PlainTime, when widely available
+const plainTimeSchema = z.object({
+  hour: z.number(),
+  minute: z.number(),
+});
+
+export type PlainTime = z.infer<typeof plainTimeSchema>;
+
+// TODO: Migrate to Temporal.PlainDateTime, when widely available
+const plainDateTimeSchema = z.object({
+  day: z.number(),
+  month: z.number(),
+  year: z.number(),
+  hour: z.number(),
+  minute: z.number(),
+});
+
+export type PlainDateTime = z.infer<typeof plainDateTimeSchema>;
+
+// TODO: Migrate to Temporal.PlainDate, when widely available
+const plainDateDurationSchema = z.object({
+  startDate: plainDateSchema,
+  endDate: plainDateSchema,
+});
+
+// TODO: Migrate to Temporal.PlainDate, when widely available
+const plainDateTimeDurationSchema = z.object({
+  startDate: plainDateTimeSchema,
+  endDate: plainDateTimeSchema,
+});
+
+export type PlainDateTimeDuration = z.infer<typeof plainDateTimeDurationSchema>;
+
+// TODO: Migrate to Temporal.PlainTime, when widely available
+const plainTimeDurationSchema = z.object({
+  startTime: plainTimeSchema,
+  endTime: plainTimeSchema,
+});
+
+export type PlainTimeDuration = z.infer<typeof plainTimeDurationSchema>;
+
+export const plainDateOrTimeDurationSchema = z.union([
+  plainDateDurationSchema,
+  plainDateTimeDurationSchema,
+]);
+
+export type PlainDateOrTimeDuration = z.infer<
+  typeof plainDateOrTimeDurationSchema
+>;
+
+export function formatTime(
+  date: PlainTime,
+  opts?: { minutes: boolean },
+): string {
+  const { minutes } = opts ?? { minutes: true };
+  if (minutes) {
+    return `${date.hour}.${date.minute}`;
+  }
+  return `${date.hour}`;
 }

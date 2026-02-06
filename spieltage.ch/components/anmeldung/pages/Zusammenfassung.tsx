@@ -1,4 +1,4 @@
-import { createMemo, Show, type JSX } from "solid-js";
+import { createMemo, Show, type JSX, type Resource } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import { Box } from "@common/components/Box";
 import {
@@ -15,9 +15,12 @@ import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { useSearchParams } from "@solidjs/router";
 import { Checkbox } from "@common/components/Checkbox";
+import type { Result } from "@lst/components/anmeldung/api/elysium";
+import type { Public } from "@lst/components/anmeldung/api/public";
 
 export function Zusammenfassung(props: {
   store: Store<Save>;
+  publicResource: Resource<Result<Public>>;
   isEditable: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
