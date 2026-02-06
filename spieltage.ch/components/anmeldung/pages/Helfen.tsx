@@ -1,9 +1,9 @@
 import {
-  createResource,
   createSignal,
   Show,
   Suspense,
   type JSX,
+  type Resource,
 } from "solid-js";
 import { Icon } from "@common/components/Icon";
 import type { PerDay, ProgramDay } from "@common/utils/time";
@@ -19,7 +19,7 @@ import {
 } from "@lst/components/anmeldung/constant/helping";
 import { Button, IconOnlyButton } from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
-import { A, useNavigate, useSearchParams } from "@solidjs/router";
+import { A, useNavigate } from "@solidjs/router";
 import type {
   HelpingReservation,
   Save,
@@ -27,23 +27,23 @@ import type {
 import { type Store } from "solid-js/store";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
-import { loadHelp } from "@lst/components/anmeldung/api/help";
+import {
+  type Public,
+  type Reservations,
+} from "@lst/components/anmeldung/api/public";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
 import { Heading } from "@common/components/Heading";
 import { BoxLink } from "@common/components/BoxLink";
+import type { Result } from "@lst/components/anmeldung/api/elysium";
 
 export function Helfen(props: {
   store: Store<Save>;
+  publicResource: Resource<Result<Public>>;
   isEditable: boolean;
   link: (path: string) => string;
   roles: Roles;
 }): JSX.Element {
-  const [searchParams] = useSearchParams();
   const [dayFilter, setDayFilter] = createSignal<ProgramDay | null>(null);
-
-  const [helpResource] = createResource(() =>
-    loadHelp(String(searchParams["secret"])),
-  );
 
   return (
     <>
@@ -108,12 +108,12 @@ export function Helfen(props: {
 
       <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
         <Show
-          when={helpResource()}
+          when={props.publicResource()}
           fallback={<Box type="danger">{TXT.error.help}</Box>}
         >
-          {(help) => (
+          {(publicData) => (
             <Show
-              when={help().kind === "SUCCESS"}
+              when={publicData().kind === "SUCCESS"}
               fallback={
                 <Box type="danger">
                   <p>Plan konnte nicht geladen werden.</p>
@@ -121,8 +121,10 @@ export function Helfen(props: {
               }
             >
               <HelpingContent
-                helpReservations={props.store.helping}
-                externalHelpReservations={(help() as { data: string[] }).data}
+                myHelpReservations={props.store.helping}
+                allReservations={
+                  (publicData() as { data: Public }).data.reservations
+                }
                 isEditable={props.isEditable}
                 link={props.link}
                 dayFilter={dayFilter()}
@@ -136,24 +138,14 @@ export function Helfen(props: {
 }
 
 function HelpingContent(props: {
-  helpReservations: HelpingReservation[];
-  externalHelpReservations: string[];
+  myHelpReservations: HelpingReservation[];
+  allReservations: Reservations;
   isEditable: boolean;
   link: (path: string) => string;
   dayFilter: ProgramDay | null;
 }): JSX.Element {
   const alreadyReservedUuids = (): string[] => {
-    const already: string[] = [];
-    props.helpReservations.forEach((r) => {
-      if (r.kind !== "ERKLAERBAER") {
-        already.push(r.helpEntryUuid);
-      }
-    });
-    props.externalHelpReservations.forEach((r) => {
-      already.push(r);
-    });
-
-    return already;
+    return Object.keys(props.allReservations);
   };
 
   const entries = () =>
@@ -161,19 +153,19 @@ function HelpingContent(props: {
       FRIDAY: aggregateEntries({
         constants: helpTimes.FRIDAY,
         alreadyReservedUuids: alreadyReservedUuids(),
-        myReservations: props.helpReservations,
+        myReservations: props.myHelpReservations,
         link: props.link,
       }),
       SATURDAY: aggregateEntries({
         constants: helpTimes.SATURDAY,
         alreadyReservedUuids: alreadyReservedUuids(),
-        myReservations: props.helpReservations,
+        myReservations: props.myHelpReservations,
         link: props.link,
       }),
       SUNDAY: aggregateEntries({
         constants: helpTimes.SUNDAY,
         alreadyReservedUuids: alreadyReservedUuids(),
-        myReservations: props.helpReservations,
+        myReservations: props.myHelpReservations,
         link: props.link,
       }),
     }) satisfies PerDay<ProgramEntryTimetableView[]>;

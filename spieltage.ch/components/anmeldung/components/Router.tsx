@@ -18,11 +18,14 @@ import { TXT } from "@common/utils/texts";
 import { Erklaerbaer } from "@lst/components/anmeldung/pages/Erklaerbaer";
 import { Programm } from "@lst/components/anmeldung/pages/Programm";
 import { Erstellen } from "@lst/components/anmeldung/pages/Erstellen";
+import { loadPublic } from "../api/public";
 
 export function Router(props: {
   initState: LoadSave;
   secret: string;
 }): JSX.Element {
+  const [publicResource] = createResource(loadPublic);
+
   const [store, setStore] = createStore<{
     meta: {
       saveState: SaveState;
@@ -140,6 +143,7 @@ export function Router(props: {
             >
               <Helfen
                 store={store.save}
+                publicResource={publicResource}
                 isEditable={props.initState.status === "published"}
                 link={link}
                 roles={store.meta.roles}
@@ -160,6 +164,7 @@ export function Router(props: {
             >
               <HelfenDetail
                 store={store.save}
+                publicResource={publicResource}
                 link={link}
                 isEditable={props.initState.status === "published"}
               />

@@ -1,11 +1,11 @@
 import {
-  createResource,
   For,
   Match,
   Show,
   Suspense,
   Switch,
   type JSX,
+  type Resource,
 } from "solid-js";
 import {
   findHelpEntryByUuid,
@@ -21,32 +21,33 @@ import type {
   HelpingReservation,
   Save,
 } from "@lst/components/anmeldung/api/save";
-import { A, useParams, useSearchParams } from "@solidjs/router";
+import { A, useParams } from "@solidjs/router";
 import { createStore, type Store } from "solid-js/store";
-import { loadHelp } from "@lst/components/anmeldung/api/help";
+import {
+  type Public,
+  type Reservations,
+} from "@lst/components/anmeldung/api/public";
+import type { Result } from "@lst/components/anmeldung/api/elysium";
 
 export function HelfenDetail(props: {
   store: Store<Save>;
+  publicResource: Resource<Result<Public>>;
   link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
   const [store, setStore] = createStore(props.store);
   const uuid = useParams().uuid ?? "no-uuid-found";
   const entry = findHelpEntryByUuid(uuid);
-  const [searchParams] = useSearchParams();
-  const [helpResource] = createResource(() =>
-    loadHelp(String(searchParams["secret"])),
-  );
 
   return (
     <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
       <Show
-        when={helpResource()}
+        when={props.publicResource()}
         fallback={<Box type="danger">{TXT.error.help}</Box>}
       >
-        {(help) => (
+        {(publicData) => (
           <Show
-            when={help().kind === "SUCCESS"}
+            when={publicData().kind === "SUCCESS"}
             fallback={
               <Box type="danger">
                 <p>Plan konnte nicht geladen werden.</p>
@@ -57,8 +58,10 @@ export function HelfenDetail(props: {
               {(e) => (
                 <HelfenDetailContent
                   entry={e()}
-                  helpReservations={props.store.helping}
-                  externalHelpReservations={(help() as { data: string[] }).data}
+                  myHelpReservations={props.store.helping}
+                  allReservations={
+                    (publicData() as { data: Public }).data.reservations
+                  }
                   isEditable={props.isEditable}
                   addReservation={(reservation) =>
                     setStore("helping", store.helping.length, {
@@ -85,8 +88,8 @@ export function HelfenDetail(props: {
 
 function HelfenDetailContent(props: {
   entry: HelpEntryView;
-  helpReservations: HelpingReservation[];
-  externalHelpReservations: string[];
+  myHelpReservations: HelpingReservation[];
+  allReservations: Reservations;
   isEditable: boolean;
   addReservation: (reservation: HelpingReservation) => void;
   removeReservation: (reservationUuid: string) => void;
@@ -95,18 +98,17 @@ function HelfenDetailContent(props: {
   const { dateTime, entry } = props.entry;
   const helpType = helpTypes[entry.kind];
 
-  const helpReservations = () =>
-    props.helpReservations.filter(
+  const myHelpReservations = () =>
+    props.myHelpReservations.filter(
       (r) => "helpEntryUuid" in r && r.helpEntryUuid === entry.uuid,
     );
 
-  const externalReserved = props.externalHelpReservations.filter(
-    (r) => r === entry.uuid,
-  ).length;
+  const externalReserved =
+    (props.allReservations[entry.uuid] ?? 0) - myHelpReservations().length;
 
   const range = () =>
     toRange(entry.count).map((i) => {
-      const myReservation = helpReservations()[i];
+      const myReservation = myHelpReservations()[i];
       if (myReservation !== undefined) {
         return myReservation;
       }
@@ -117,7 +119,7 @@ function HelfenDetailContent(props: {
     });
 
   const hasReservedForThemselves = (): boolean => {
-    return helpReservations().find((r) => r.kind === "SELF") !== undefined;
+    return myHelpReservations().find((r) => r.kind === "SELF") !== undefined;
   };
 
   return (
