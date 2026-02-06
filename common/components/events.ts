@@ -53,7 +53,7 @@ const eventSchema = z.object({
 export type OlympEvent = z.infer<typeof eventSchema>;
 
 export async function loadPublishedEvents(): Promise<OlympEvent[]> {
-  const response = await fetch(elysium("/calendar/v2"));
+  const response = await fetch(elysium("/calendar"));
   const json = (await response.json()) as unknown;
 
   return z.array(eventSchema).parse(json);

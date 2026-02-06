@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-fetch("https://elysium.gildedernacht.ch/calendar/v2/gilde.ics").then(
+fetch("https://elysium.gildedernacht.ch/calendar/gilde.ics").then(
   async (result) => {
     const text = await result.text();
 
