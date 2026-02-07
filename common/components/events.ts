@@ -5,6 +5,7 @@ import type {
   PlainDateOrTimeDuration,
   PlainDateTime,
 } from "@common/utils/time";
+import { Temporal } from "@js-temporal/polyfill";
 
 const locationSchema = z.object({
   label: z.string(),
@@ -60,6 +61,50 @@ const eventDateTimeSchema = z
   });
 
 export type EventDateTime = z.infer<typeof eventDateTimeSchema>;
+
+type EventTemporal =
+  | {
+      startDate: Temporal.PlainDate;
+      endDate: Temporal.PlainDate;
+    }
+  | {
+      startDate: Temporal.PlainDateTime;
+      endDate: Temporal.PlainDateTime;
+    };
+
+export function toTemporal(eventDateTime: EventDateTime): EventTemporal {
+  const { startDate, endDate } = eventDateTime;
+  if ("hour" in startDate && "hour" in endDate) {
+    return {
+      startDate: Temporal.PlainDateTime.from({
+        year: startDate.year,
+        month: startDate.month,
+        day: startDate.day,
+        hour: startDate.hour,
+        minute: startDate.minute,
+      }),
+      endDate: Temporal.PlainDateTime.from({
+        year: endDate.year,
+        month: endDate.month,
+        day: endDate.day,
+        hour: endDate.hour,
+        minute: endDate.minute,
+      }),
+    };
+  }
+  return {
+    startDate: Temporal.PlainDate.from({
+      year: startDate.year,
+      month: startDate.month,
+      day: startDate.day,
+    }),
+    endDate: Temporal.PlainDate.from({
+      year: endDate.year,
+      month: endDate.month,
+      day: endDate.day,
+    }),
+  };
+}
 
 type PlainDateParseResult =
   | {
@@ -144,16 +189,6 @@ function parsePlainDateOrTime(input: string): PlainDateParseResult {
       minute,
     },
   };
-}
-
-export function toJSDate(date: PlainDate | PlainDateTime): Date {
-  return new Date(
-    date.year,
-    date.month - 1,
-    date.day,
-    "hour" in date ? date.hour : 0,
-    "minute" in date ? date.minute : 0,
-  );
 }
 
 const eventSchema = z.object({

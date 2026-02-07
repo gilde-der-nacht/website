@@ -1,5 +1,6 @@
 import type { JSX } from "solid-js";
-import { toJSDate, type EventDateTime } from "./events";
+import { toTemporal, type EventDateTime } from "./events";
+import { Intl as IntlP } from "@js-temporal/polyfill";
 
 export type Language = "de" | "en";
 
@@ -13,7 +14,7 @@ export type WithChildren<T = object> = {
   children?: JSX.Element;
 } & T;
 
-const dateFormat = new Intl.DateTimeFormat("de-CH", {
+const dateFormat = new IntlP.DateTimeFormat("de-CH", {
   dateStyle: "long",
 });
 
@@ -22,10 +23,10 @@ export function formatDate(date: Date): string {
 }
 
 export function formatSimpleDate(date: EventDateTime): string {
-  return dateFormat.format(toJSDate(date.startDate));
+  return dateFormat.format(toTemporal(date).startDate);
 }
 
-const dateTimeFormat = new Intl.DateTimeFormat("de-CH", {
+const dateTimeFormat = new IntlP.DateTimeFormat("de-CH", {
   timeStyle: "short",
   dateStyle: "long",
   timeZone: "Europe/Zurich",
@@ -36,7 +37,7 @@ export function formatDateTime(date: Date): string {
 }
 
 export function formatSimpleDateTime(date: EventDateTime): string {
-  return dateTimeFormat.format(toJSDate(date.startDate));
+  return dateTimeFormat.format(toTemporal(date).startDate);
 }
 
 export function formatDateRange(from: Date, to: Date): string {
@@ -69,34 +70,33 @@ export function formatDateRange(from: Date, to: Date): string {
   return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
 }
 
-export function formatSimpleDateRange(date: EventDateTime): string {
+export function formatEventDateTime(date: EventDateTime): string {
   const sameYear =
     date.endDate === null || date.startDate.year === date.endDate.year;
   const sameMonth =
     date.endDate === null || date.startDate.month === date.endDate.month;
 
-  const from = toJSDate(date.startDate);
-  const to = toJSDate(date.endDate);
+  const { startDate: from, endDate: to } = toTemporal(date);
 
-  const endFormatter = new Intl.DateTimeFormat("de-CH", {
+  const endFormatter = new IntlP.DateTimeFormat("de-CH", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
   if (sameYear && sameMonth) {
-    const startFormatter = new Intl.DateTimeFormat("de-CH", {
+    const startFormatter = new IntlP.DateTimeFormat("de-CH", {
       day: "numeric",
     });
     return `${startFormatter.format(from)}. bis ${endFormatter.format(to)}`;
   }
   if (sameYear) {
-    const startFormatter = new Intl.DateTimeFormat("de-CH", {
+    const startFormatter = new IntlP.DateTimeFormat("de-CH", {
       day: "numeric",
       month: "long",
     });
     return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
   }
-  const startFormatter = new Intl.DateTimeFormat("de-CH", {
+  const startFormatter = new IntlP.DateTimeFormat("de-CH", {
     day: "numeric",
     month: "long",
     year: "numeric",

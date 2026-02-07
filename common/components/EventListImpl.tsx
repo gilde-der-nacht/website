@@ -2,7 +2,7 @@ import type { JSX } from "solid-js";
 import type { OlympEvent } from "@common/components/events";
 import {
   formatSimpleDate,
-  formatSimpleDateRange,
+  formatEventDateTime,
   formatSimpleDateTime,
 } from "@common/components/utils";
 import { Icon } from "./Icon";
@@ -78,7 +78,7 @@ function renderDate(event: OlympEvent): JSX.Element {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatSimpleDateRange(event.date)}</span>
+        <span>{formatEventDateTime(event.date)}</span>
       </div>
     );
   } else if (isFullDay(event)) {
@@ -92,7 +92,7 @@ function renderDate(event: OlympEvent): JSX.Element {
     return (
       <div class="event-date">
         {icon}
-        <span>{formatSimpleDateRange(event.date)}</span>
+        <span>{formatEventDateTime(event.date)}</span>
       </div>
     );
   } else {
