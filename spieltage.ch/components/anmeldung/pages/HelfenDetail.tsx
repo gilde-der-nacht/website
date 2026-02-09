@@ -147,8 +147,8 @@ function HelfenDetailContent(props: {
             <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
             <br />
             {TXT.days[day]},{" "}
-            {formatTime(dateTime.startDate, { minutes: false })} -{" "}
-            {formatTime(dateTime.endDate, { minutes: false })} Uhr
+            {formatTime(dateTime.startDate.toPlainTime(), { minutes: false })} -{" "}
+            {formatTime(dateTime.endDate.toPlainTime(), { minutes: false })} Uhr
           </li>
           <li>
             <strong style="color: var(--clr-accent-1);">Beschreibung:</strong>{" "}

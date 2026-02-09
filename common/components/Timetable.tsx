@@ -5,13 +5,14 @@ import {
   type PerDay,
   type ProgramDay,
   type HourRange,
-  type PlainTimeDuration,
+  type PlainTimeRange,
 } from "@common/utils/time";
 import { assert } from "@common/components/utils";
 import { Box } from "@common/components/Box";
 import { Icon } from "@common/components/Icon";
 import { TXT } from "@common/utils/texts";
 import { Heading } from "@common/components/Heading";
+import { Temporal } from "@js-temporal/polyfill";
 
 export type WeekendOpeningHours = PerDay<{
   open: HourRange;
@@ -138,7 +139,7 @@ function TimetableOfDay(props: {
 }
 
 export type ProgramEntryTimetableView = {
-  range: PlainTimeDuration;
+  range: PlainTimeRange;
   component: () => JSX.Element;
 };
 
@@ -189,8 +190,8 @@ export function Timetable(props: {
               class={`hour ${isBreak ? "break" : ""}`}
               style={rangeToGridRow(
                 {
-                  startTime: { hour, minute: 0 },
-                  endTime: { hour, minute: 0 },
+                  startTime: Temporal.PlainTime.from({ hour, minute: 0 }),
+                  endTime: Temporal.PlainTime.from({ hour, minute: 0 }),
                 },
                 offset,
                 props.day,
@@ -228,7 +229,7 @@ export function Timetable(props: {
 }
 
 function rangeToGridRow(
-  range: PlainTimeDuration,
+  range: PlainTimeRange,
   offset: number,
   day: ProgramDay,
   openingHoursOfDay: OpeningHours,

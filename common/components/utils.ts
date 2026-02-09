@@ -44,25 +44,25 @@ export function formatDateRange(from: Date, to: Date): string {
   const sameYear = from.getFullYear() === to.getFullYear();
   const sameMonth = from.getMonth() === to.getMonth();
 
-  const endFormatter = new Intl.DateTimeFormat("de-CH", {
+  const endFormatter = new IntlP.DateTimeFormat("de-CH", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
   if (sameYear && sameMonth) {
-    const startFormatter = new Intl.DateTimeFormat("de-CH", {
+    const startFormatter = new IntlP.DateTimeFormat("de-CH", {
       day: "numeric",
     });
     return `${startFormatter.format(from)}. bis ${endFormatter.format(to)}`;
   }
   if (sameYear) {
-    const startFormatter = new Intl.DateTimeFormat("de-CH", {
+    const startFormatter = new IntlP.DateTimeFormat("de-CH", {
       day: "numeric",
       month: "long",
     });
     return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
   }
-  const startFormatter = new Intl.DateTimeFormat("de-CH", {
+  const startFormatter = new IntlP.DateTimeFormat("de-CH", {
     day: "numeric",
     month: "long",
     year: "numeric",

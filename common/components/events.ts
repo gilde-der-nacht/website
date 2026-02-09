@@ -1,10 +1,6 @@
 import { z } from "astro/zod";
 import { elysium } from "./utils";
-import type {
-  PlainDate,
-  PlainDateOrTimeDuration,
-  PlainDateTime,
-} from "@common/utils/time";
+import type { PlainDateOrTimeRange } from "@common/utils/time";
 import { Temporal } from "@js-temporal/polyfill";
 
 const locationSchema = z.object({
@@ -25,7 +21,7 @@ const eventDateTimeSchema = z
     startDate: z.string(),
     endDate: z.string(),
   })
-  .transform((val, ctx): PlainDateOrTimeDuration => {
+  .transform((val, ctx): PlainDateOrTimeRange => {
     const parsedStartDate = parsePlainDateOrTime(val.startDate);
     if (parsedStartDate.kind === "ERROR") {
       ctx.addIssue({
@@ -45,19 +41,27 @@ const eventDateTimeSchema = z
       return z.NEVER;
     }
 
-    if (parsedStartDate.kind !== parsedEndDate.kind) {
-      ctx.addIssue({
-        code: "custom",
-        message: `Both dates must be either of type PlainDate or PlainDateTime but not mixed. "startDate": '${val.startDate}'; "endDate": '${val.endDate}'`,
-      });
-
-      return z.NEVER;
+    if (parsedStartDate.kind === "DATE" && parsedEndDate.kind === "DATE") {
+      return {
+        startDate: parsedStartDate.value,
+        endDate: parsedEndDate.value,
+      };
+    } else if (
+      parsedStartDate.kind === "DATETIME" &&
+      parsedEndDate.kind === "DATETIME"
+    ) {
+      return {
+        startDate: parsedStartDate.value,
+        endDate: parsedEndDate.value,
+      };
     }
 
-    return {
-      startDate: parsedStartDate.value,
-      endDate: parsedEndDate.value,
-    };
+    ctx.addIssue({
+      code: "custom",
+      message: `Both dates must be either of type PlainDate or PlainDateTime but not mixed. "startDate": '${val.startDate}'; "endDate": '${val.endDate}'`,
+    });
+
+    return z.NEVER;
   });
 
 export type EventDateTime = z.infer<typeof eventDateTimeSchema>;
@@ -113,11 +117,11 @@ type PlainDateParseResult =
     }
   | {
       kind: "DATE";
-      value: PlainDate;
+      value: Temporal.PlainDate;
     }
   | {
       kind: "DATETIME";
-      value: PlainDateTime;
+      value: Temporal.PlainDateTime;
     };
 
 function parsePlainDateOrTime(input: string): PlainDateParseResult {
@@ -154,11 +158,11 @@ function parsePlainDateOrTime(input: string): PlainDateParseResult {
   if (time === undefined) {
     return {
       kind: "DATE",
-      value: {
+      value: Temporal.PlainDate.from({
         year,
         month,
         day,
-      },
+      }),
     };
   }
 
@@ -181,13 +185,13 @@ function parsePlainDateOrTime(input: string): PlainDateParseResult {
 
   return {
     kind: "DATETIME",
-    value: {
+    value: Temporal.PlainDateTime.from({
       year,
       month,
       day,
       hour,
       minute,
-    },
+    }),
   };
 }
 

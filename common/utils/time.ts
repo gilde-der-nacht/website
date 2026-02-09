@@ -1,3 +1,4 @@
+import type { Temporal } from "@js-temporal/polyfill";
 import { z } from "astro/zod";
 
 export const serverSchemaDay = z.enum(["FRIDAY", "SATURDAY", "SUNDAY"]);
@@ -19,7 +20,10 @@ export const dateTimeWindowSchema = hourRangeSchema.extend({
 
 export type DateTimeWindow = z.infer<typeof dateTimeWindowSchema>;
 
-export function isWithin(time: PlainTime, range: PlainTimeDuration): boolean {
+export function isWithin(
+  time: Temporal.PlainTime,
+  range: PlainTimeRange,
+): boolean {
   const { startTime, endTime } = range;
   if (startTime.hour > time.hour) {
     return false;
@@ -38,8 +42,8 @@ export function isWithin(time: PlainTime, range: PlainTimeDuration): boolean {
 }
 
 export function isOverlapping(
-  rangeA: PlainTimeDuration,
-  rangeB: PlainTimeDuration,
+  rangeA: PlainTimeRange,
+  rangeB: PlainTimeRange,
 ): boolean {
   const { startTime: startTimeA, endTime: endTimeA } = rangeA;
   const { startTime: startTimeB, endTime: endTimeB } = rangeB;
@@ -58,7 +62,7 @@ export function isOverlapping(
  */
 export function getHours(
   range: HourRange,
-  inclusiveeEnd: boolean = false,
+  inclusiveEnd: boolean = false,
 ): number[] {
   const { from, to } = range;
 
@@ -67,7 +71,7 @@ export function getHours(
   }
 
   const length = to - from;
-  return toRange(inclusiveeEnd ? length + 1 : length, from);
+  return toRange(inclusiveEnd ? length + 1 : length, from);
 }
 
 export function toRange(length: number, offset: number = 0): number[] {
@@ -96,67 +100,25 @@ export function sortByDateTimeWindow(
   return a.from - b.from;
 }
 
-// TODO: Migrate to Temporal.PlainDate, when widely available
-const plainDateSchema = z.object({
-  day: z.number(),
-  month: z.number(),
-  year: z.number(),
-});
+export type PlainDateRange = {
+  startDate: Temporal.PlainDate;
+  endDate: Temporal.PlainDate;
+};
 
-export type PlainDate = z.infer<typeof plainDateSchema>;
+export type PlainDateTimeRange = {
+  startDate: Temporal.PlainDateTime;
+  endDate: Temporal.PlainDateTime;
+};
 
-// TODO: Migrate to Temporal.PlainTime, when widely available
-const plainTimeSchema = z.object({
-  hour: z.number(),
-  minute: z.number(),
-});
+export type PlainTimeRange = {
+  startTime: Temporal.PlainTime;
+  endTime: Temporal.PlainTime;
+};
 
-export type PlainTime = z.infer<typeof plainTimeSchema>;
-
-// TODO: Migrate to Temporal.PlainDateTime, when widely available
-const plainDateTimeSchema = z.object({
-  day: z.number(),
-  month: z.number(),
-  year: z.number(),
-  hour: z.number(),
-  minute: z.number(),
-});
-
-export type PlainDateTime = z.infer<typeof plainDateTimeSchema>;
-
-// TODO: Migrate to Temporal.PlainDate, when widely available
-const plainDateDurationSchema = z.object({
-  startDate: plainDateSchema,
-  endDate: plainDateSchema,
-});
-
-// TODO: Migrate to Temporal.PlainDate, when widely available
-const plainDateTimeDurationSchema = z.object({
-  startDate: plainDateTimeSchema,
-  endDate: plainDateTimeSchema,
-});
-
-export type PlainDateTimeDuration = z.infer<typeof plainDateTimeDurationSchema>;
-
-// TODO: Migrate to Temporal.PlainTime, when widely available
-const plainTimeDurationSchema = z.object({
-  startTime: plainTimeSchema,
-  endTime: plainTimeSchema,
-});
-
-export type PlainTimeDuration = z.infer<typeof plainTimeDurationSchema>;
-
-export const plainDateOrTimeDurationSchema = z.union([
-  plainDateDurationSchema,
-  plainDateTimeDurationSchema,
-]);
-
-export type PlainDateOrTimeDuration = z.infer<
-  typeof plainDateOrTimeDurationSchema
->;
+export type PlainDateOrTimeRange = PlainDateTimeRange | PlainDateRange;
 
 export function formatTime(
-  date: PlainTime,
+  date: Temporal.PlainTime,
   opts?: { minutes: boolean },
 ): string {
   const { minutes } = opts ?? { minutes: true };
@@ -166,7 +128,10 @@ export function formatTime(
   return `${date.hour}`;
 }
 
-export function formatTimeDuration(from: PlainTime, to: PlainTime): string {
+export function formatTimeDuration(
+  from: Temporal.PlainTime,
+  to: Temporal.PlainTime,
+): string {
   const fromMinutes = from.minute + from.hour * 60;
   const toMinutes = to.minute + to.hour * 60;
   const diff = Math.abs(toMinutes - fromMinutes);

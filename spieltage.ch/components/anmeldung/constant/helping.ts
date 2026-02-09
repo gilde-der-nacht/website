@@ -1,5 +1,6 @@
 import type { WeekendOpeningHours } from "@common/components/Timetable";
-import type { DateTimeWindow, PlainDateTimeDuration } from "@common/utils/time";
+import type { DateTimeWindow, PlainDateTimeRange } from "@common/utils/time";
+
 import {
   FRIDAY,
   SATURDAY,
@@ -51,7 +52,7 @@ export type HelpEntry = {
   uuid: `${string}-${string}-${string}-${string}-${string}`;
   count: number;
   kind: HelpType;
-  dateTime: PlainDateTimeDuration;
+  dateTime: PlainDateTimeRange;
 };
 
 export const helpTimes: HelpEntry[] = [
@@ -60,16 +61,14 @@ export const helpTimes: HelpEntry[] = [
     count: 4,
     kind: "setup",
     dateTime: {
-      startDate: {
-        ...FRIDAY,
+      startDate: FRIDAY.toPlainDateTime({
         hour: 16,
         minute: 0,
-      },
-      endDate: {
-        ...FRIDAY,
+      }),
+      endDate: FRIDAY.toPlainDateTime({
         hour: 21,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -77,16 +76,14 @@ export const helpTimes: HelpEntry[] = [
     count: 1,
     kind: "flohmarkt",
     dateTime: {
-      startDate: {
-        ...FRIDAY,
+      startDate: FRIDAY.toPlainDateTime({
         hour: 19,
         minute: 0,
-      },
-      endDate: {
-        ...FRIDAY,
+      }),
+      endDate: FRIDAY.toPlainDateTime({
         hour: 22,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -94,16 +91,14 @@ export const helpTimes: HelpEntry[] = [
     count: 4,
     kind: "flohmarkt",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 9,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 11,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -111,16 +106,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 10,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 12,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -128,16 +121,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 11,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 13,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -145,16 +136,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 12,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 14,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -162,16 +151,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 13,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 15,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -179,16 +166,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 14,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 16,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -196,16 +181,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 15,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 17,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -213,16 +196,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 16,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 18,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -230,16 +211,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 17,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 19,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -247,16 +226,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 18,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 20,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -264,16 +241,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 19,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 21,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -281,16 +256,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 20,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 22,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -298,16 +271,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 21,
         minute: 0,
-      },
-      endDate: {
-        ...SATURDAY,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
         hour: 23,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -315,16 +286,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 22,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 0,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -332,16 +301,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SATURDAY,
+      startDate: SATURDAY.toPlainDateTime({
         hour: 23,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 0,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -349,16 +316,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 10,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 11,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -366,16 +331,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 10,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 12,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -383,16 +346,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 11,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 13,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -400,16 +361,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 12,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 14,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -417,16 +376,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 13,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 15,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -434,16 +391,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 14,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 16,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -451,16 +406,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 15,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 17,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -468,16 +421,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 16,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 18,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -485,16 +436,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "checkout",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 17,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 19,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -502,16 +451,14 @@ export const helpTimes: HelpEntry[] = [
     count: 2,
     kind: "flohmarkt",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 17,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 19,
         minute: 0,
-      },
+      }),
     },
   },
   {
@@ -519,16 +466,14 @@ export const helpTimes: HelpEntry[] = [
     count: 4,
     kind: "breakdown",
     dateTime: {
-      startDate: {
-        ...SUNDAY,
+      startDate: SUNDAY.toPlainDateTime({
         hour: 17,
         minute: 0,
-      },
-      endDate: {
-        ...SUNDAY,
+      }),
+      endDate: SUNDAY.toPlainDateTime({
         hour: 20,
         minute: 0,
-      },
+      }),
     },
   },
 ];

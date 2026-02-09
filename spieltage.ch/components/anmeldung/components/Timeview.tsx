@@ -17,8 +17,8 @@ import {
   formatTime,
   formatTimeDuration,
   type PerDay,
-  type PlainDateTimeDuration,
-  type PlainTimeDuration,
+  type PlainDateTimeRange,
+  type PlainTimeRange,
   type ProgramDay,
 } from "@common/utils/time";
 import {
@@ -84,17 +84,15 @@ function aggregateEntries(
 
   const helpEntries = helping.map((entry) => {
     if (entry.kind === "ERKLAERBAER") {
-      const dateTime: PlainDateTimeDuration = {
-        startDate: {
-          ...defaultPlainDates[entry.slot.day],
+      const dateTime: PlainDateTimeRange = {
+        startDate: defaultPlainDates[entry.slot.day].toPlainDateTime({
           hour: entry.slot.from,
           minute: 0,
-        },
-        endDate: {
-          ...defaultPlainDates[entry.slot.day],
+        }),
+        endDate: defaultPlainDates[entry.slot.day].toPlainDateTime({
           hour: entry.slot.to,
           minute: 0,
-        },
+        }),
       };
       return {
         ...entry,
@@ -155,13 +153,9 @@ function aggregateEntries(
       `Date '${JSON.stringify(first.meta.dateTime.startDate)}' is not a valid event date.`,
     );
 
-    const range: PlainTimeDuration = {
-      startTime: {
-        ...first.meta.dateTime.startDate,
-      },
-      endTime: {
-        ...first.meta.dateTime.endDate,
-      },
+    const range: PlainTimeRange = {
+      startTime: first.meta.dateTime.startDate.toPlainTime(),
+      endTime: first.meta.dateTime.endDate.toPlainTime(),
     };
     const path =
       first.kind === "ERKLAERBAER"
@@ -213,7 +207,7 @@ type TimeviewKind = "master-draft" | "master" | "play" | "help";
 
 function TimeviewEntry(props: {
   title: string;
-  range: PlainTimeDuration;
+  range: PlainTimeRange;
   kind: TimeviewKind;
   path: string;
   link: (path: string) => string;

@@ -6,7 +6,7 @@ import {
   type Resource,
 } from "solid-js";
 import { Icon } from "@common/components/Icon";
-import type { PerDay, PlainTimeDuration, ProgramDay } from "@common/utils/time";
+import type { PerDay, PlainTimeRange, ProgramDay } from "@common/utils/time";
 import {
   WeekendTimetable,
   type ProgramEntryTimetableView,
@@ -37,6 +37,7 @@ import { BoxLink } from "@common/components/BoxLink";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { getDay } from "@lst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
+import { Temporal } from "@js-temporal/polyfill";
 
 export function Helfen(props: {
   store: Store<Save>;
@@ -191,21 +192,21 @@ function aggregateEntries(props: {
       return cls.join(" ");
     };
 
-    const range: PlainTimeDuration = {
-      startTime: {
+    const range: PlainTimeRange = {
+      startTime: Temporal.PlainTime.from({
         hour: entry.dateTime.startDate.hour,
         minute: entry.dateTime.startDate.minute,
-      },
+      }),
       endTime:
         entry.dateTime.startDate.day !== entry.dateTime.endDate.day
-          ? {
+          ? Temporal.PlainTime.from({
               hour: entry.dateTime.endDate.hour + 24, // Quick solution to handle midnight for now
               minute: entry.dateTime.endDate.minute,
-            }
-          : {
+            })
+          : Temporal.PlainTime.from({
               hour: entry.dateTime.endDate.hour,
               minute: entry.dateTime.endDate.minute,
-            },
+            }),
     };
 
     if (emptySeats() === 0) {
