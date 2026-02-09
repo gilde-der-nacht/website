@@ -1,5 +1,6 @@
 import type { PerDay } from "@common/utils/time";
 import type { PublishState } from "@common/utils/shared";
+import { ExitSpa } from "@common/components/ExitSpa";
 
 const registrationDeadline = "Donnerstag, 21. August 2025";
 
@@ -24,8 +25,9 @@ const error = {
     <p>
       Leider ist ein unerwarteter Fehler passiert. Versuche deine Anmeldung
       erneut zu laden. Wiederholt sich dieser Fehler, bitte kontaktiere uns
-      sobald als möglich über das <a href="/kontakt">Kontaktformular</a>, da
-      dies nicht passieren sollte.
+      sobald als möglich über das{" "}
+      <ExitSpa href="/kontakt">Kontaktformular</ExitSpa>, da dies nicht
+      passieren sollte.
     </p>
   ),
   secretError: (
@@ -34,10 +36,11 @@ const error = {
       begonnen hast, solltest du den korrekten Link per E-Mail erhalten haben.
       <br />
       <br /> Falls du noch keine Anmeldung begonnen hast, kannst du{" "}
-      <a href="/anmeldung">hier</a> deine persönliche Anmeldung beginnen. <br />
+      <ExitSpa href="/anmeldung">hier</ExitSpa> deine persönliche Anmeldung
+      beginnen. <br />
       <br />
       Für generelle Fragen oder Probleme, schreibe uns doch bitte über unser{" "}
-      <a href="/kontatk">Kontaktformular</a>.
+      <ExitSpa href="/kontakt">Kontaktformular</ExitSpa>.
     </p>
   ),
   gameroundUuidError: (
@@ -53,36 +56,36 @@ const error = {
     <p>
       Leider ist ein unerwarteter Fehler passiert. Vermutlich liegt es an uns.
       Bitte kontaktiere uns sobald als möglich über das{" "}
-      <a href="/kontakt">Kontaktformular</a>.
+      <ExitSpa href="/kontakt">Kontaktformular</ExitSpa>.
     </p>
   ),
   program: (
     <p>
       Leider ist ein unerwarteter Fehler passiert beim Laden des Programmes.
       Vermutlich liegt es an uns. Bitte kontaktiere uns sobald als möglich über
-      das <a href="/kontakt">Kontaktformular</a>.
+      das <ExitSpa href="/kontakt">Kontaktformular</ExitSpa>.
     </p>
   ),
   help: (
     <p>
       Leider ist ein unerwarteter Fehler passiert beim Laden von Daten.
       Vermutlich liegt es an uns. Bitte kontaktiere uns sobald als möglich über
-      das <a href="/kontakt">Kontaktformular</a>.
+      das <ExitSpa href="/kontakt">Kontaktformular</ExitSpa>.
     </p>
   ),
   siteNotFound: (
     <p>
       Leider ist das keine gültige Seite. Versuche deine Anmeldung erneut zu
       laden. Wiederholt sich dieser Fehler, bitte kontaktiere uns sobald als
-      möglich über das <a href="/kontakt">Kontaktformular</a>, da dies nicht
-      passieren sollte.
+      möglich über das <ExitSpa href="/kontakt">Kontaktformular</ExitSpa>, da
+      dies nicht passieren sollte.
     </p>
   ),
   noAccess: (
     <p>
       Leider hast du keinen Zugriff auf diese Seite. Sollte dies ein Fehler
       sein, dann kontaktiere uns sobald als möglich über das{" "}
-      <a href="/kontakt">Kontaktformular</a>.
+      <ExitSpa href="/kontakt">Kontaktformular</ExitSpa>.
     </p>
   ),
 };

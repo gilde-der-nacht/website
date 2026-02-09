@@ -18,7 +18,7 @@ import { TXT } from "@common/utils/texts";
 import { Erklaerbaer } from "@lst/components/anmeldung/pages/Erklaerbaer";
 import { Programm } from "@lst/components/anmeldung/pages/Programm";
 import { Erstellen } from "@lst/components/anmeldung/pages/Erstellen";
-import { loadPublic } from "../api/public";
+import { loadPublic } from "@lst/components/anmeldung/api/public";
 
 export function Router(props: {
   initState: LoadSave;
@@ -213,18 +213,20 @@ export function Router(props: {
         },
         {
           path: "*",
-          component: () => (
-            <Layout
-              title="Seite nicht gefunden"
-              roles={store.meta.roles}
-              link={link}
-              saveState={store.meta.saveState}
-              lastSaved={store.meta.lastSaved}
-              showQuickmenu={true}
-            >
-              <Box type="danger">{TXT.error.siteNotFound}</Box>
-            </Layout>
-          ),
+          component: () => {
+            return (
+              <Layout
+                title="Seite nicht gefunden"
+                roles={store.meta.roles}
+                link={link}
+                saveState={store.meta.saveState}
+                lastSaved={store.meta.lastSaved}
+                showQuickmenu={true}
+              >
+                <Box type="danger">{TXT.error.siteNotFound}</Box>
+              </Layout>
+            );
+          },
         },
       ]}
     </HashRouter>
