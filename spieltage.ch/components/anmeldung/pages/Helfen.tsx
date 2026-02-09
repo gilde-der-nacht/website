@@ -268,8 +268,7 @@ function aggregateEntries(props: {
             </h5>
             <p class="duration">
               <span>
-                von
-                {range.startTime.hour}&nbsp;bis {range.endTime.hour}
+                von {range.startTime.hour}&nbsp;bis {range.endTime.hour}
                 &nbsp;Uhr |{" "}
               </span>
               <em>
