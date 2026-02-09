@@ -21,7 +21,11 @@ import {
   type PlainTimeDuration,
   type ProgramDay,
 } from "@common/utils/time";
-import { helpTimes, openingHoursHelping } from "../constant/helping";
+import {
+  helpTimes,
+  helpTypes,
+  openingHoursHelping,
+} from "@lst/components/anmeldung/constant/helping";
 import { assert } from "@common/components/utils";
 import type { IconType } from "@common/components/Icon";
 import { Chip } from "@common/components/Chip";
@@ -122,14 +126,28 @@ function aggregateEntries(
       return;
     }
 
-    const title = entries
-      .map((e) => {
-        if (e.kind === "ERKLAERBAER" || e.kind === "SELF") {
-          return save.contact.name;
-        }
-        return e.name;
-      })
-      .join(", ");
+    let onlyMe = true;
+    const jobsAndNames = entries.map((e): [string, string] => {
+      if (e.kind === "ERKLAERBAER") {
+        return ["Erklärbär", "ME"];
+      }
+      if (e.kind === "SELF") {
+        return [helpTypes[e.meta.kind].title, "ME"];
+      }
+      onlyMe = false;
+      return [helpTypes[e.meta.kind].title, e.name];
+    });
+
+    const title = onlyMe
+      ? jobsAndNames.map(([job]) => job).join(", ")
+      : jobsAndNames
+          .map(([job, name]) => {
+            if (name === "ME") {
+              return job;
+            }
+            return `${job} (${name})`;
+          })
+          .join("; ");
 
     const day = getDay(first.meta.dateTime.startDate);
     assert(
@@ -154,7 +172,7 @@ function aggregateEntries(
       range,
       component: () => (
         <TimeviewEntry
-          title={`Helfen: ${title}`}
+          title={title}
           range={range}
           kind="help"
           path={path}
