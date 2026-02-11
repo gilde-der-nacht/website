@@ -1,8 +1,8 @@
 import type { Temporal } from "@js-temporal/polyfill";
 import { z } from "astro/zod";
 
-export const serverSchemaDay = z.enum(["FRIDAY", "SATURDAY", "SUNDAY"]);
-export type ProgramDay = z.infer<typeof serverSchemaDay>;
+export const daySchema = z.enum(["FRIDAY", "SATURDAY", "SUNDAY"]);
+export type ProgramDay = z.infer<typeof daySchema>;
 
 export type PerDay<T> = {
   [Day in ProgramDay]: T;
@@ -15,7 +15,7 @@ const hourRangeSchema = z.object({
 export type HourRange = z.infer<typeof hourRangeSchema>;
 
 export const dateTimeWindowSchema = hourRangeSchema.extend({
-  day: serverSchemaDay,
+  day: daySchema,
 });
 
 export type DateTimeWindow = z.infer<typeof dateTimeWindowSchema>;

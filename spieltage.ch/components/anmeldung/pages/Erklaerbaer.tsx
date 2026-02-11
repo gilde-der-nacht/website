@@ -1,8 +1,8 @@
 import { Heading } from "@common/components/Heading";
 import { For, Match, Show, Switch, type JSX } from "solid-js";
-import { createStore, type Store } from "solid-js/store";
 import type {
   ErklaerbaerReservation,
+  HelpingReservation,
   Save,
 } from "@lst/components/anmeldung/api/save";
 import { BoxLink } from "@common/components/BoxLink";
@@ -13,9 +13,10 @@ import { InputInteger } from "@common/components/Input";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
 import { openingHours } from "@lst/components/anmeldung/constant/time";
 import { ExitSpa } from "@common/components/ExitSpa";
+import { arr, obj, type Reactive } from "@common/utils/reactivity";
 
 export function Erklaerbaer(props: {
-  store: Store<Save>;
+  save$: Reactive<Save>;
   roles: Roles;
   isEditable: boolean;
 }): JSX.Element {
@@ -32,7 +33,7 @@ export function Erklaerbaer(props: {
       <div class="dynamic-columns">
         <div>
           <ErklaerbaerJobs
-            store={props.store}
+            reservations$={props.save$.pipe(obj.sub("helping"))}
             roles={props.roles}
             isEditable={props.isEditable}
           />
@@ -93,14 +94,14 @@ export function Erklaerbaer(props: {
 }
 
 function ErklaerbaerJobs(props: {
-  store: Store<Save>;
+  reservations$: Reactive<HelpingReservation[]>;
   roles: Roles;
   isEditable: boolean;
 }): JSX.Element {
-  const [store, setStore] = createStore(props.store.helping);
-
   function getErklaerbaerJobs(): ErklaerbaerReservation[] {
-    return store.filter((entry) => entry.kind === "ERKLAERBAER");
+    return props.reservations$
+      .get()
+      .filter((entry) => entry.kind === "ERKLAERBAER");
   }
 
   return (
@@ -128,17 +129,17 @@ function ErklaerbaerJobs(props: {
                 <JobEntry
                   job={job}
                   updateJob={(j) => {
-                    setStore(
-                      store.map((entry) => {
-                        if (entry.uuid === job.uuid) {
-                          return j;
-                        }
-                        return entry;
-                      }),
+                    arr.update(
+                      props.reservations$,
+                      (entry) => entry.uuid === job.uuid,
+                      j,
                     );
                   }}
                   removeJob={() => {
-                    setStore(store.filter((entry) => entry.uuid !== job.uuid));
+                    arr.remove(
+                      props.reservations$,
+                      (entry) => entry.uuid !== job.uuid,
+                    );
                   }}
                   isEditable={props.isEditable}
                 />
@@ -149,7 +150,7 @@ function ErklaerbaerJobs(props: {
                 icon="grid-2-plus"
                 type="success"
                 onClick={() => {
-                  setStore(store.length, {
+                  arr.push(props.reservations$, {
                     kind: "ERKLAERBAER",
                     uuid: crypto.randomUUID(),
                     slot: {

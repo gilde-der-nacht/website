@@ -8,7 +8,7 @@ import {
 } from "@lst/components/anmeldung/api/save";
 import { Helfen } from "@lst/components/anmeldung/pages/Helfen";
 import { Zusammenfassung } from "@lst/components/anmeldung/pages/Zusammenfassung";
-import { createStore, unwrap } from "solid-js/store";
+import { unwrap } from "solid-js/store";
 import { toast } from "@common/components/Toast";
 import type { Roles, SaveState } from "@lst/components/anmeldung/api/meta";
 import { Layout } from "@lst/components/anmeldung/components/Layout";
@@ -19,6 +19,8 @@ import { Erklaerbaer } from "@lst/components/anmeldung/pages/Erklaerbaer";
 import { Programm } from "@lst/components/anmeldung/pages/Programm";
 import { Erstellen } from "@lst/components/anmeldung/pages/Erstellen";
 import { loadPublic } from "@lst/components/anmeldung/api/public";
+import { ErstellenDetail } from "@lst/components/anmeldung/pages/ErstellenDetail";
+import { createReactive, obj } from "@common/utils/reactivity";
 
 export function Router(props: {
   initState: LoadSave;
@@ -26,7 +28,7 @@ export function Router(props: {
 }): JSX.Element {
   const [publicResource] = createResource(loadPublic);
 
-  const [store, setStore] = createStore<{
+  const store$ = createReactive<{
     meta: {
       saveState: SaveState;
       lastSaved: Date;
@@ -46,7 +48,7 @@ export function Router(props: {
   // hacky solution to not save on first load when nothing has changed yet.
   const [run, setRun] = createSignal(false);
   createResource(
-    () => JSON.stringify(store.save),
+    () => JSON.stringify(store$.get().save),
     async () => {
       if (!run()) {
         setRun(true);
@@ -61,22 +63,25 @@ export function Router(props: {
         return;
       }
 
-      const newState = unwrap(store.save);
+      const newState = unwrap(store$.get().save);
 
       try {
         const saveResult = await debouncedSaveState(
-          store.meta,
+          store$.get().meta,
           newState,
           props.secret,
         );
         if (saveResult.kind === "FAILURE") {
           console.error(saveResult);
         } else {
-          setStore("meta", "lastSaved", saveResult.data);
+          store$
+            .pipe(obj.sub("meta"))
+            .pipe(obj.sub("lastSaved"))
+            .set(saveResult.data);
         }
       } catch (e) {
         console.error(e);
-        setStore("meta", "saveState", "ERROR");
+        store$.pipe(obj.sub("meta")).pipe(obj.sub("saveState")).set("ERROR");
       }
     },
   );
@@ -93,12 +98,12 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Wo möchtest du starten?"
-              roles={store.meta.roles}
+              roles={store$.get().meta.roles}
               link={link}
-              saveState={store.meta.saveState}
-              lastSaved={store.meta.lastSaved}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
             >
-              <Root roles={store.meta.roles} link={link} />
+              <Root roles={store$.get().meta.roles} link={link} />
             </Layout>
           ),
         },
@@ -107,10 +112,10 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Programm"
-              roles={store.meta.roles}
+              roles={store$.get().meta.roles}
               link={link}
-              saveState={store.meta.saveState}
-              lastSaved={store.meta.lastSaved}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
             >
               <Programm />
             </Layout>
@@ -121,12 +126,43 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Programmpunkte erstellen und editieren"
-              roles={store.meta.roles}
+              roles={store$.get().meta.roles}
               link={link}
-              saveState={store.meta.saveState}
-              lastSaved={store.meta.lastSaved}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
             >
-              <Erstellen />
+              <Erstellen
+                programEntries$={store$
+                  .pipe(obj.sub("save"))
+                  .pipe(obj.sub("program"))
+                  .pipe(obj.sub("organising"))}
+                publicResource={publicResource}
+                link={link}
+                isEditable={props.initState.status === "published"}
+              />
+            </Layout>
+          ),
+        },
+
+        {
+          path: "/erstellen/:uuid",
+          component: () => (
+            <Layout
+              roles={store$.get().meta.roles}
+              link={link}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
+              parentPath="/erstellen"
+            >
+              <ErstellenDetail
+                programEntries$={store$
+                  .pipe(obj.sub("save"))
+                  .pipe(obj.sub("program"))
+                  .pipe(obj.sub("organising"))}
+                publicResource={publicResource}
+                link={link}
+                isEditable={props.initState.status === "published"}
+              />
             </Layout>
           ),
         },
@@ -135,18 +171,20 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Helfen"
-              roles={store.meta.roles}
+              roles={store$.get().meta.roles}
               link={link}
-              saveState={store.meta.saveState}
-              lastSaved={store.meta.lastSaved}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
               showQuickmenu={true}
             >
               <Helfen
-                store={store.save}
+                reservations$={store$
+                  .pipe(obj.sub("save"))
+                  .pipe(obj.sub("helping"))}
                 publicResource={publicResource}
                 isEditable={props.initState.status === "published"}
                 link={link}
-                roles={store.meta.roles}
+                roles={store$.get().meta.roles}
               />
             </Layout>
           ),
@@ -156,14 +194,16 @@ export function Router(props: {
           component: () => (
             <Layout
               link={link}
-              roles={store.meta.roles}
-              saveState={store.meta.saveState}
-              lastSaved={store.meta.lastSaved}
+              roles={store$.get().meta.roles}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
               showQuickmenu={true}
               parentPath="/helfen"
             >
               <HelfenDetail
-                store={store.save}
+                reservations$={store$
+                  .pipe(obj.sub("save"))
+                  .pipe(obj.sub("helping"))}
                 publicResource={publicResource}
                 link={link}
                 isEditable={props.initState.status === "published"}
@@ -176,16 +216,16 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Helfen: Erklärbären"
-              roles={store.meta.roles}
+              roles={store$.get().meta.roles}
               link={link}
-              saveState={store.meta.saveState}
-              lastSaved={store.meta.lastSaved}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
               showQuickmenu={true}
               parentPath="/helfen"
             >
               <Erklaerbaer
-                store={store.save}
-                roles={store.meta.roles}
+                save$={store$.pipe(obj.sub("save"))}
+                roles={store$.get().meta.roles}
                 isEditable={props.initState.status === "published"}
               />
             </Layout>
@@ -196,14 +236,14 @@ export function Router(props: {
           component: () => (
             <Layout
               title="Zusammenfassung"
-              roles={store.meta.roles}
+              roles={store$.get().meta.roles}
               link={link}
-              saveState={store.meta.saveState}
-              lastSaved={store.meta.lastSaved}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
               showQuickmenu={true}
             >
               <Zusammenfassung
-                store={store.save}
+                save$={store$.pipe(obj.sub("save"))}
                 publicResource={publicResource}
                 link={link}
                 isEditable={props.initState.status === "published"}
@@ -217,10 +257,10 @@ export function Router(props: {
             return (
               <Layout
                 title="Seite nicht gefunden"
-                roles={store.meta.roles}
+                roles={store$.get().meta.roles}
                 link={link}
-                saveState={store.meta.saveState}
-                lastSaved={store.meta.lastSaved}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
                 showQuickmenu={true}
               >
                 <Box type="danger">{TXT.error.siteNotFound}</Box>

@@ -20,11 +20,7 @@ import {
 import { IconOnlyButton } from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
 import { A, useNavigate } from "@solidjs/router";
-import type {
-  HelpingReservation,
-  Save,
-} from "@lst/components/anmeldung/api/save";
-import { type Store } from "solid-js/store";
+import type { HelpingReservation } from "@lst/components/anmeldung/api/save";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import {
@@ -38,9 +34,10 @@ import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { getDay } from "@lst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import { Temporal } from "@js-temporal/polyfill";
+import type { Reactive } from "@common/utils/reactivity";
 
 export function Helfen(props: {
-  store: Store<Save>;
+  reservations$: Reactive<HelpingReservation[]>;
   publicResource: Resource<Result<Public>>;
   isEditable: boolean;
   link: (path: string) => string;
@@ -98,7 +95,7 @@ export function Helfen(props: {
               }
             >
               <HelpingContent
-                myHelpReservations={props.store.helping}
+                myHelpReservations={props.reservations$.get()}
                 allReservations={
                   (publicData() as { data: Public }).data.reservations
                 }

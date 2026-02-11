@@ -14,29 +14,31 @@ import type { Contact, Save } from "@lst/components/anmeldung/api/save";
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { useSearchParams } from "@solidjs/router";
-import { Checkbox } from "@common/components/Checkbox";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import type { Public } from "@lst/components/anmeldung/api/public";
 import { Timeview } from "@lst/components/anmeldung/components/Timeview";
+import { obj, type Reactive } from "@common/utils/reactivity";
+import { Checkbox } from "@common/components/newForm/Checkbox";
 
 export function Zusammenfassung(props: {
-  store: Store<Save>;
+  save$: Reactive<Save>;
   publicResource: Resource<Result<Public>>;
   link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
-  const [store, setStore] = createStore(props.store);
   return (
     <div style="display: grid; gap: 1rem;">
-      <Contact store={props.store.contact} isEditable={props.isEditable} />
+      <Contact
+        contact$={props.save$.pipe(obj.sub("contact"))}
+        isEditable={props.isEditable}
+      />
       <Checkbox
         label="Schickt mir bitte E-Mails, wenn neue Programmpunkte veröffentlicht werden."
-        checked={store.config.wantsUpdates}
+        checked$={props.save$
+          .pipe(obj.sub("config"))
+          .pipe(obj.sub("wantsUpdates"))}
         name="wantsUpdates"
         value="wantsUpdates"
-        onValueUpdate={(checked) => {
-          setStore("config", "wantsUpdates", checked);
-        }}
       />
 
       <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
@@ -50,7 +52,7 @@ export function Zusammenfassung(props: {
               fallback={<Box type="danger">{TXT.loading.program}</Box>}
             >
               <Timeview
-                save={props.store}
+                save={props.save$.get()}
                 publicState={(publicData() as { data: Public }).data}
                 link={props.link}
               />
@@ -63,11 +65,11 @@ export function Zusammenfassung(props: {
 }
 
 function Contact(props: {
-  store: Store<Contact>;
+  contact$: Reactive<Contact>;
   isEditable: boolean;
 }): JSX.Element {
-  const [_, setStore] = createStore(props.store);
   const [dialogStore, setDialogStore] = createStore(initDialogStore());
+  const { name, email, mobile } = props.contact$.get();
 
   return (
     <Box>
@@ -76,21 +78,20 @@ function Contact(props: {
       }
       <Show when={dialogStore.open}>
         <ContactEditDialog
+          contact$={props.contact$}
           dialogStore={dialogStore}
-          currentState={props.store}
-          updateCurrentState={setStore}
         />
       </Show>
       <div style="display: grid; gap: 1rem;">
         <h3>Meine Kontaktdaten</h3>
         <p>
-          <strong>Name:</strong> {props.store.name}
+          <strong>Name:</strong> {name}
         </p>
         <p>
-          <strong>E-Mail:</strong> {props.store.email}
+          <strong>E-Mail:</strong> {email}
         </p>
         <p>
-          <strong>Handynummer:</strong> {props.store.mobile}
+          <strong>Handynummer:</strong> {mobile}
         </p>
 
         <Show when={props.isEditable}>
@@ -117,16 +118,15 @@ type EmailDuplicateStore =
     };
 
 function ContactEditDialog(props: {
+  contact$: Reactive<Contact>;
   dialogStore: Store<DialogStore>;
-  currentState: Contact;
-  updateCurrentState: (newState: Contact) => void;
 }): JSX.Element {
   const [searchParams] = useSearchParams();
 
   const [formStore] = createStore({
-    name: initTextInput(props.currentState.name),
-    email: initTextInput(props.currentState.email),
-    mobile: initTextInput(props.currentState.mobile),
+    name: initTextInput(props.contact$.get().name),
+    email: initTextInput(props.contact$.get().email),
+    mobile: initTextInput(props.contact$.get().mobile),
   });
 
   const [emailIsDuplicate, setEmailIsDuplicate] =
@@ -223,7 +223,7 @@ function ContactEditDialog(props: {
 
               setEmailIsDuplicate({ kind: "IDLE", isDuplicate: false });
 
-              props.updateCurrentState({
+              props.contact$.set({
                 name: formStore.name.value,
                 email: formStore.email.value,
                 mobile: formStore.mobile.value,

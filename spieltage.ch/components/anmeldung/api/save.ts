@@ -12,7 +12,7 @@ import {
   rolesSchema,
   type SaveState,
 } from "@lst/components/anmeldung/api/meta";
-import { dateTimeWindowSchema } from "@common/utils/time";
+import { dateTimeWindowSchema, daySchema } from "@common/utils/time";
 
 const contactSchema = z.object({
   name: z.string(),
@@ -45,13 +45,37 @@ const helpingReservationSchema = z.union([
   }),
   erklaerbaerReservationSchema,
 ]);
+
 export type HelpingReservation = z.infer<typeof helpingReservationSchema>;
 
-const programEntrySchema = z.object({});
+const slotSchema = z.object({
+  start: z.object({
+    day: daySchema,
+    time: z.string(),
+  }),
+  end: z.object({
+    day: daySchema,
+    time: z.string(),
+  }),
+});
+
+const programEntrySchema = z.object({
+  uuid: z.string().uuid(),
+  status: publishStateSchema,
+  title: z.string(),
+  shortDescription: z.string(),
+  longDescription: z.string(),
+  slots: z.array(slotSchema),
+  playerMax: z.number(),
+  tagNames: z.array(z.string()),
+});
+
+export type ProgramEntry = z.infer<typeof programEntrySchema>;
+
 const reservationEntrySchema = z.object({});
 
 const saveSchema = z.object({
-  version: z.literal(5),
+  version: z.literal(7),
   contact: contactSchema,
   config: z.object({
     wantsUpdates: z.boolean(),

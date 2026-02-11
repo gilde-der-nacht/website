@@ -17,12 +17,8 @@ import { InputButton } from "@common/components/InputButton";
 import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { Box, SimpleBox } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
-import type {
-  HelpingReservation,
-  Save,
-} from "@lst/components/anmeldung/api/save";
+import type { HelpingReservation } from "@lst/components/anmeldung/api/save";
 import { A, useParams } from "@solidjs/router";
-import { createStore, type Store } from "solid-js/store";
 import {
   type Public,
   type Reservations,
@@ -30,14 +26,14 @@ import {
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { getDay } from "@lst/components/anmeldung/constant/time";
 import { assert } from "@common/components/utils";
+import { arr, type Reactive } from "@common/utils/reactivity";
 
 export function HelfenDetail(props: {
-  store: Store<Save>;
+  reservations$: Reactive<HelpingReservation[]>;
   publicResource: Resource<Result<Public>>;
   link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
-  const [store, setStore] = createStore(props.store);
   const uuid = useParams().uuid ?? "no-uuid-found";
   const entry = findHelpEntryByUuid(uuid);
 
@@ -63,21 +59,21 @@ export function HelfenDetail(props: {
               {(e) => (
                 <HelfenDetailContent
                   entry={e()}
-                  myHelpReservations={props.store.helping}
+                  myHelpReservations={props.reservations$.get()}
                   allReservations={
                     (publicData() as { data: Public }).data.reservations
                   }
                   isEditable={props.isEditable}
                   addReservation={(reservation) =>
-                    setStore("helping", store.helping.length, {
+                    arr.push(props.reservations$, {
                       ...reservation,
                       uuid: crypto.randomUUID(),
                     })
                   }
                   removeReservation={(reservationUuid) => {
-                    setStore(
-                      "helping",
-                      store.helping.filter((r) => r.uuid !== reservationUuid),
+                    arr.remove(
+                      props.reservations$,
+                      (r) => r.uuid !== reservationUuid,
                     );
                   }}
                   link={props.link}
