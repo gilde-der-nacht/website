@@ -49,6 +49,7 @@ const helpingReservationSchema = z.union([
 export type HelpingReservation = z.infer<typeof helpingReservationSchema>;
 
 const slotSchema = z.object({
+  uuid: z.string(),
   start: z.object({
     day: daySchema,
     time: z.string(),

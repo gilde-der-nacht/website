@@ -110,7 +110,7 @@ export function toTemporal(eventDateTime: EventDateTime): EventTemporal {
   };
 }
 
-type PlainDateParseResult =
+export type PlainDateOrTimeParseResult =
   | {
       kind: "ERROR";
       message: string;
@@ -124,7 +124,9 @@ type PlainDateParseResult =
       value: Temporal.PlainDateTime;
     };
 
-function parsePlainDateOrTime(input: string): PlainDateParseResult {
+export function parsePlainDateOrTime(
+  input: string,
+): PlainDateOrTimeParseResult {
   const [date, time] = input.split("T");
   if (date === undefined) {
     return { kind: "ERROR", message: "Empty string" };
@@ -195,6 +197,169 @@ function parsePlainDateOrTime(input: string): PlainDateParseResult {
   };
 }
 
+export type PlainDateTimeParseResult =
+  | {
+      kind: "ERROR";
+      message: string;
+    }
+  | {
+      kind: "DATETIME";
+      value: Temporal.PlainDateTime;
+    };
+
+export function parsePlainDateTime(input: string): PlainDateTimeParseResult {
+  const [date, time] = input.split("T");
+  if (date === undefined) {
+    return { kind: "ERROR", message: "Empty string" };
+  }
+  if (time === undefined) {
+    return { kind: "ERROR", message: "Missing time" };
+  }
+
+  const [yearStr, monthStr, dayStr] = date.split("-");
+
+  if (yearStr === undefined || yearStr.length !== 4) {
+    return {
+      kind: "ERROR",
+      message: `Invalid year '${yearStr}' in '${input}'`,
+    };
+  }
+
+  if (monthStr === undefined || monthStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid month '${monthStr}' in '${input}'`,
+    };
+  }
+
+  if (dayStr === undefined || dayStr.length !== 2) {
+    return { kind: "ERROR", message: `Invalid day '${dayStr}' in '${input}'` };
+  }
+
+  const [year, month, day] = [
+    Number.parseInt(yearStr),
+    Number.parseInt(monthStr),
+    Number.parseInt(dayStr),
+  ];
+
+  const [hourStr, minuteStr, _secondStr] = time.split(":");
+  if (hourStr === undefined || hourStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid hour '${hourStr}' in '${input}'`,
+    };
+  }
+
+  if (minuteStr === undefined || minuteStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid minute '${minuteStr}' in '${input}'`,
+    };
+  }
+
+  const [hour, minute] = [Number.parseInt(hourStr), Number.parseInt(minuteStr)];
+
+  return {
+    kind: "DATETIME",
+    value: Temporal.PlainDateTime.from({
+      year,
+      month,
+      day,
+      hour,
+      minute,
+    }),
+  };
+}
+
+export type PlainDateParseResult =
+  | {
+      kind: "ERROR";
+      message: string;
+    }
+  | {
+      kind: "DATE";
+      value: Temporal.PlainDate;
+    };
+
+export function parsePlainDate(input: string): PlainDateParseResult {
+  const [yearStr, monthStr, dayStr, ...rest] = input.split("-");
+  if (rest.length > 0) {
+    return {
+      kind: "ERROR",
+      message: "Invalid date",
+    };
+  }
+
+  if (yearStr === undefined || yearStr.length !== 4) {
+    return {
+      kind: "ERROR",
+      message: `Invalid year '${yearStr}' in '${input}'`,
+    };
+  }
+
+  if (monthStr === undefined || monthStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid month '${monthStr}' in '${input}'`,
+    };
+  }
+
+  if (dayStr === undefined || dayStr.length !== 2) {
+    return { kind: "ERROR", message: `Invalid day '${dayStr}' in '${input}'` };
+  }
+
+  const [year, month, day] = [
+    Number.parseInt(yearStr),
+    Number.parseInt(monthStr),
+    Number.parseInt(dayStr),
+  ];
+
+  return {
+    kind: "DATE",
+    value: Temporal.PlainDate.from({
+      year,
+      month,
+      day,
+    }),
+  };
+}
+
+export type PlainTimeParseResult =
+  | {
+      kind: "ERROR";
+      message: string;
+    }
+  | {
+      kind: "TIME";
+      value: Temporal.PlainTime;
+    };
+
+export function parsePlainTime(input: string): PlainTimeParseResult {
+  const [hourStr, minuteStr, _secondStr] = input.split(":");
+  if (hourStr === undefined || hourStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid hour '${hourStr}' in '${input}'`,
+    };
+  }
+
+  if (minuteStr === undefined || minuteStr.length !== 2) {
+    return {
+      kind: "ERROR",
+      message: `Invalid minute '${minuteStr}' in '${input}'`,
+    };
+  }
+
+  const [hour, minute] = [Number.parseInt(hourStr), Number.parseInt(minuteStr)];
+
+  return {
+    kind: "TIME",
+    value: Temporal.PlainTime.from({
+      hour,
+      minute,
+    }),
+  };
+}
 const eventSchema = z.object({
   uuid: z.string().uuid(),
   title: z.string(),

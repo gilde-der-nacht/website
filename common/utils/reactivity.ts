@@ -82,9 +82,7 @@ export const arr = {
     ensureExactlyOne(reactive.get(), predicate);
 
     return createReactiveImpl(
-      () => {
-        return ensureExactlyOne(reactive.get(), predicate);
-      },
+      () => ensureExactlyOne(reactive.get(), predicate),
       (updateFn) => {
         const element = ensureExactlyOne(reactive.get(), predicate);
         arr.update(reactive, predicate, updateFn(element));

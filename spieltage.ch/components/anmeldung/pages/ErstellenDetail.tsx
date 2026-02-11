@@ -10,11 +10,22 @@ import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type { ProgramEntry } from "@lst/components/anmeldung/api/save";
 import { useParams } from "@solidjs/router";
-import { type Public } from "@lst/components/anmeldung/api/public";
+import {
+  type Public,
+  type PublicProgramEntry,
+} from "@lst/components/anmeldung/api/public";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { Chip } from "@common/components/Chip";
 import { Icon } from "@common/components/Icon";
-import { arr, type Reactive } from "@common/utils/reactivity";
+import { arr, obj, type Reactive } from "@common/utils/reactivity";
+import { TextInputField } from "@common/components/newForm/Input";
+import {
+  getErrors,
+  type Errors,
+} from "@lst/components/anmeldung/constant/validation";
+import { Entry } from "@lst/components/anmeldung/components/Entry";
+import { parsePlainTime } from "@common/components/events";
+import { defaultPlainDates } from "../constant/time";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -63,42 +74,68 @@ function ErstellenDetailContent(props: {
   isEditable: boolean;
   link: (path: string) => string;
 }): JSX.Element {
-  const errors = getErrors(props.entry$.get());
+  const errors = () => getErrors(props.entry$.get());
 
   return (
     <>
-      <Chip kind={errors.length > 0 ? "danger" : "special"}>
-        Status: {TXT.publishingSteps[props.entry$.get().status]}
-        {errors.length > 0 ? (
-          <span>
-            {" "}
-            mit Fehlern <Icon icon="triangle-exclamation" />
-          </span>
-        ) : (
-          ""
-        )}
-      </Chip>
-      <br />
-      <br />
-      <form novalidate>
-        <ErrorSummary errors={errors} />
-      </form>
+      <h2>{props.entry$.get().title}</h2>
+      <div class="dynamic-columns">
+        <div>
+          <form novalidate>
+            <Show when={props.entry$.get().status === "published"}>
+              <ErrorSummary errors={errors()} />
+            </Show>
+
+            <TextInputField
+              value$={props.entry$.pipe(obj.sub("title"))}
+              label="Titel"
+              name="title"
+              showErrors={
+                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
+              }
+              errors={errors().byField.title ?? []}
+              disabled={!props.isEditable}
+            />
+          </form>
+        </div>
+        <div>
+          <h3>Vorschau</h3>
+          <br />
+          <Chip kind={errors().hasErrors ? "danger" : "special"}>
+            Status: {TXT.publishingSteps[props.entry$.get().status]}
+            {errors().hasErrors ? (
+              <span>
+                {" "}
+                mit Fehlern <Icon icon="triangle-exclamation" />
+              </span>
+            ) : (
+              ""
+            )}
+          </Chip>
+          <br />
+          <br />
+          <For
+            each={toSlots(props.entry$.get())}
+            fallback={<em>Keine (gültigen) Zeitslots gefunden</em>}
+          >
+            {(entry) => (
+              <Entry
+                entry={entry}
+                basePath="/programm"
+                link={props.link}
+                reservations={0}
+              />
+            )}
+          </For>
+        </div>
+      </div>
     </>
   );
 }
 
-function getErrors(entry: ProgramEntry): string[] {
-  const errors: string[] = [];
-
-  if (entry.title.trim().length === 0) {
-    errors.push("Titel ist ein Pflichtfeld");
-  }
-  return errors;
-}
-
-function ErrorSummary(props: { errors: string[] }): JSX.Element {
+function ErrorSummary(props: { errors: Errors }): JSX.Element {
   return (
-    <Show when={props.errors.length > 0}>
+    <Show when={props.errors.hasErrors}>
       <Box type="danger">
         <h4>Spielrunde inkomplett</h4>
         <p>
@@ -106,9 +143,41 @@ function ErrorSummary(props: { errors: string[] }): JSX.Element {
           Spielrunde:
         </p>
         <ul>
-          <For each={props.errors}>{(error) => <li>{error}</li>}</For>
+          <For each={props.errors.allErrors}>{(error) => <li>{error}</li>}</For>
         </ul>
       </Box>
     </Show>
   );
+}
+
+function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
+  const entries: PublicProgramEntry[] = [];
+  entry.slots.forEach((slot) => {
+    const parsedStartTime = parsePlainTime(slot.start.time);
+    const parsedEndTime = parsePlainTime(slot.end.time);
+    if (parsedStartTime.kind === "ERROR" || parsedEndTime.kind === "ERROR") {
+      return;
+    }
+
+    entries.push({
+      uuid: slot.uuid,
+      title: entry.title,
+      organizer: "",
+      slot: {
+        startDate: defaultPlainDates[slot.start.day].toPlainDateTime({
+          hour: parsedStartTime.value.hour,
+          minute: parsedStartTime.value.minute,
+        }),
+        endDate: defaultPlainDates[slot.end.day].toPlainDateTime({
+          hour: parsedEndTime.value.hour,
+          minute: parsedEndTime.value.minute,
+        }),
+      },
+      shortDescription: entry.shortDescription,
+      longDescription: entry.longDescription,
+      playerMax: entry.playerMax,
+      tagNames: entry.tagNames,
+    });
+  });
+  return entries;
 }
