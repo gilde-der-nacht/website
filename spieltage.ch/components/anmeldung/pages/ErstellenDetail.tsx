@@ -26,6 +26,7 @@ import {
 import { Entry } from "@lst/components/anmeldung/components/Entry";
 import { parsePlainTime } from "@common/components/events";
 import { defaultPlainDates } from "../constant/time";
+import { TextareaField } from "@common/components/newForm/Textarea";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -94,6 +95,29 @@ function ErstellenDetailContent(props: {
                 props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
               }
               errors={errors().byField.title ?? []}
+              disabled={!props.isEditable}
+            />
+
+            <TextareaField
+              value$={props.entry$.pipe(obj.sub("shortDescription"))}
+              label="kurze Beschreibung"
+              name="descriptionShort"
+              size="small"
+              showErrors={
+                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
+              }
+              errors={errors().byField.shortDescription ?? []}
+              disabled={!props.isEditable}
+            />
+
+            <TextareaField
+              value$={props.entry$.pipe(obj.sub("longDescription"))}
+              label="lange Beschreibung (optional)"
+              name="descriptionLong"
+              showErrors={
+                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
+              }
+              errors={errors().byField.longDescription ?? []}
               disabled={!props.isEditable}
             />
           </form>
