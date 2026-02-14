@@ -120,7 +120,7 @@ export const helpTimes: HelpEntry[] = [
   },
   {
     uuid: "804c379d-c747-4d7c-9f0c-a53f8548216e",
-    count: 2,
+    count: 1,
     kind: "kitchen",
     dateTime: {
       startDate: SATURDAY.toPlainDateTime({
@@ -150,7 +150,7 @@ export const helpTimes: HelpEntry[] = [
   },
   {
     uuid: "8db23dfd-616e-4f1d-9a07-deb6e519d35a",
-    count: 2,
+    count: 1,
     kind: "kitchen",
     dateTime: {
       startDate: SATURDAY.toPlainDateTime({
@@ -212,7 +212,7 @@ export const helpTimes: HelpEntry[] = [
   },
   {
     uuid: "c9f79536-225a-41ee-93e6-ef1741b511f7",
-    count: 2,
+    count: 1,
     kind: "kitchen",
     dateTime: {
       startDate: SATURDAY.toPlainDateTime({
@@ -242,7 +242,7 @@ export const helpTimes: HelpEntry[] = [
   },
   {
     uuid: "9748b1e6-1712-449b-8dda-eb44f172071e",
-    count: 2,
+    count: 1,
     kind: "kitchen",
     dateTime: {
       startDate: SATURDAY.toPlainDateTime({
@@ -350,7 +350,7 @@ export const helpTimes: HelpEntry[] = [
   },
   {
     uuid: "873a1308-57bc-46bc-bdfc-a82213364c77",
-    count: 2,
+    count: 1,
     kind: "kitchen",
     dateTime: {
       startDate: SUNDAY.toPlainDateTime({
@@ -380,7 +380,7 @@ export const helpTimes: HelpEntry[] = [
   },
   {
     uuid: "caef5fea-8458-4b65-b699-9c4e5ee6589d",
-    count: 2,
+    count: 1,
     kind: "kitchen",
     dateTime: {
       startDate: SUNDAY.toPlainDateTime({
