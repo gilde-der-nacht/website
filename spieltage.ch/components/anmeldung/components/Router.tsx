@@ -91,7 +91,7 @@ export function Router(props: {
   }
 
   return (
-    <HashRouter>
+    <HashRouter explicitLinks={true}>
       {[
         {
           path: "/",
