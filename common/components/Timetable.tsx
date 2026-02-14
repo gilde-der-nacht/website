@@ -236,7 +236,7 @@ function rangeToGridRow(
 ): string {
   const { startTime, endTime } = range;
   const startRow = startTime.hour - offset;
-  const endRow = endTime.hour - offset;
+  const endRow = endTime.hour === 0 ? 24 - offset : endTime.hour - offset; // Hack for midnight
   const closingHour = openingHoursOfDay.open.to;
 
   assert(

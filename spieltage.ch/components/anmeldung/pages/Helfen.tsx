@@ -197,7 +197,7 @@ function aggregateEntries(props: {
       endTime:
         entry.dateTime.startDate.day !== entry.dateTime.endDate.day
           ? Temporal.PlainTime.from({
-              hour: entry.dateTime.endDate.hour + 24, // Quick solution to handle midnight for now
+              hour: entry.dateTime.endDate.hour,
               minute: entry.dateTime.endDate.minute,
             })
           : Temporal.PlainTime.from({

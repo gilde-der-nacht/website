@@ -1,4 +1,4 @@
-import type { Temporal } from "@js-temporal/polyfill";
+import { Temporal } from "@js-temporal/polyfill";
 import { z } from "astro/zod";
 
 export const daySchema = z.enum(["FRIDAY", "SATURDAY", "SUNDAY"]);
@@ -24,7 +24,7 @@ export function isWithin(
   time: Temporal.PlainTime,
   range: PlainTimeRange,
 ): boolean {
-  const { startTime, endTime } = range;
+  const { startTime, endTime } = handleMidnight(range);
   if (startTime.hour > time.hour) {
     return false;
   }
@@ -39,6 +39,21 @@ export function isWithin(
   }
 
   return true;
+}
+
+function handleMidnight(range: PlainTimeRange): PlainTimeRange {
+  const { startTime, endTime } = range;
+
+  return {
+    startTime:
+      startTime.hour === 0 && startTime.minute === 0
+        ? Temporal.PlainTime.from({ hour: 23, minute: 59 })
+        : startTime,
+    endTime:
+      endTime.hour === 0 && endTime.minute === 0
+        ? Temporal.PlainTime.from({ hour: 23, minute: 59 })
+        : endTime,
+  };
 }
 
 export function isOverlapping(
