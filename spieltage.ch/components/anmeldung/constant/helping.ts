@@ -31,7 +31,7 @@ export const helpTypes = {
       "Hilf uns beim Auf- oder Abbau des Flohmarkt und der Annahme oder Abgabe von Spielen.",
   },
   checkout: {
-    title: "Kiosk / Flohmarkt",
+    title: "Kiosk oder Flohmarkt",
     description:
       "Am Kiosk Getränke und Snacks verkaufen oder am Flohmarkt die Kasse bedienen.",
   },
@@ -56,6 +56,7 @@ export type HelpEntry = {
 };
 
 export const helpTimes: HelpEntry[] = [
+  /* start FRIDAY */
   {
     uuid: "eb443040-0674-429c-a3ad-48634a323b76",
     count: 4,
@@ -86,21 +87,7 @@ export const helpTimes: HelpEntry[] = [
       }),
     },
   },
-  {
-    uuid: "6303bd52-cd10-4dd0-b760-b71ab971ad3b",
-    count: 4,
-    kind: "flohmarkt",
-    dateTime: {
-      startDate: SATURDAY.toPlainDateTime({
-        hour: 9,
-        minute: 0,
-      }),
-      endDate: SATURDAY.toPlainDateTime({
-        hour: 11,
-        minute: 0,
-      }),
-    },
-  },
+  /* start SATURDAY */
   {
     uuid: "9ebca7e9-f44a-4cc9-8961-73539f17d5d6",
     count: 2,
@@ -117,9 +104,24 @@ export const helpTimes: HelpEntry[] = [
     },
   },
   {
+    uuid: "6303bd52-cd10-4dd0-b760-b71ab971ad3b",
+    count: 4,
+    kind: "flohmarkt",
+    dateTime: {
+      startDate: SATURDAY.toPlainDateTime({
+        hour: 9,
+        minute: 0,
+      }),
+      endDate: SATURDAY.toPlainDateTime({
+        hour: 11,
+        minute: 0,
+      }),
+    },
+  },
+  {
     uuid: "804c379d-c747-4d7c-9f0c-a53f8548216e",
     count: 2,
-    kind: "checkout",
+    kind: "kitchen",
     dateTime: {
       startDate: SATURDAY.toPlainDateTime({
         hour: 11,
@@ -149,7 +151,7 @@ export const helpTimes: HelpEntry[] = [
   {
     uuid: "8db23dfd-616e-4f1d-9a07-deb6e519d35a",
     count: 2,
-    kind: "checkout",
+    kind: "kitchen",
     dateTime: {
       startDate: SATURDAY.toPlainDateTime({
         hour: 13,
@@ -176,6 +178,7 @@ export const helpTimes: HelpEntry[] = [
       }),
     },
   },
+  /*
   {
     uuid: "516de07b-bc06-45b5-94f6-be5de186d4d5b",
     count: 2,
@@ -191,6 +194,7 @@ export const helpTimes: HelpEntry[] = [
       }),
     },
   },
+  */
   {
     uuid: "490c799f-ced5-461e-a483-ad6a90df221b",
     count: 2,
@@ -209,7 +213,7 @@ export const helpTimes: HelpEntry[] = [
   {
     uuid: "c9f79536-225a-41ee-93e6-ef1741b511f7",
     count: 2,
-    kind: "checkout",
+    kind: "kitchen",
     dateTime: {
       startDate: SATURDAY.toPlainDateTime({
         hour: 17,
@@ -239,7 +243,7 @@ export const helpTimes: HelpEntry[] = [
   {
     uuid: "9748b1e6-1712-449b-8dda-eb44f172071e",
     count: 2,
-    kind: "checkout",
+    kind: "kitchen",
     dateTime: {
       startDate: SATURDAY.toPlainDateTime({
         hour: 19,
@@ -250,7 +254,7 @@ export const helpTimes: HelpEntry[] = [
         minute: 0,
       }),
     },
-  },
+  } /*
   {
     uuid: "04f724ea-4a78-4363-ba0a-75a71ab22598",
     count: 2,
@@ -310,7 +314,9 @@ export const helpTimes: HelpEntry[] = [
         minute: 0,
       }),
     },
-  },
+  }, */,
+  /* start SUNDAY */
+  /*
   {
     uuid: "d30340e1-e49f-44aa-bf1b-d90839b0f1aa",
     count: 2,
@@ -326,6 +332,7 @@ export const helpTimes: HelpEntry[] = [
       }),
     },
   },
+  */
   {
     uuid: "e1a9b252-628c-4c01-b8e1-e1964b51e646",
     count: 2,
@@ -344,7 +351,7 @@ export const helpTimes: HelpEntry[] = [
   {
     uuid: "873a1308-57bc-46bc-bdfc-a82213364c77",
     count: 2,
-    kind: "checkout",
+    kind: "kitchen",
     dateTime: {
       startDate: SUNDAY.toPlainDateTime({
         hour: 11,
@@ -374,7 +381,7 @@ export const helpTimes: HelpEntry[] = [
   {
     uuid: "caef5fea-8458-4b65-b699-9c4e5ee6589d",
     count: 2,
-    kind: "checkout",
+    kind: "kitchen",
     dateTime: {
       startDate: SUNDAY.toPlainDateTime({
         hour: 13,
@@ -401,6 +408,7 @@ export const helpTimes: HelpEntry[] = [
       }),
     },
   },
+  /*
   {
     uuid: "6c0430dd-9968-456d-bf68-d893040f73fa",
     count: 2,
@@ -416,6 +424,7 @@ export const helpTimes: HelpEntry[] = [
       }),
     },
   },
+  */
   {
     uuid: "40eaef18-d6a0-46e8-b3e5-a98be09cef57",
     count: 2,
@@ -431,6 +440,7 @@ export const helpTimes: HelpEntry[] = [
       }),
     },
   },
+  /*
   {
     uuid: "3c6468ad-fdb8-432d-92ce-a52fae471206",
     count: 2,
@@ -446,6 +456,7 @@ export const helpTimes: HelpEntry[] = [
       }),
     },
   },
+  */
   {
     uuid: "b9da7047-c359-49fa-b558-53207ac5255a",
     count: 2,
