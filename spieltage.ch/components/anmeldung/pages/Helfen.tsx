@@ -35,6 +35,7 @@ import { getDay } from "@lst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import { Temporal } from "@js-temporal/polyfill";
 import type { Reactive } from "@common/utils/reactivity";
+import { ExitSpa } from "@common/components/ExitSpa";
 
 export function Helfen(props: {
   reservations$: Reactive<HelpingReservation[]>;
@@ -52,6 +53,13 @@ export function Helfen(props: {
         Hände gebrauchen. Wenn du bereit bist zu helfen, klicke in der
         jeweiligen Stunde auf das Handsymbol <Icon icon="hand-heart" />.
       </p>
+      <br />
+
+      <Box type="special">
+        Melde bitte 15 Minuten vor Schichtbeginn bei einem OK-Mitglied, beim{" "}
+        <ExitSpa href="/adresse">Eingang zum Würzenbachsaal.</ExitSpa>
+      </Box>
+
       <br />
       <Heading level={3} title="Erklärbären" />
       <br />

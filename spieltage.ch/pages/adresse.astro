@@ -1,4 +1,5 @@
 ---
+import { Heading } from "@common/components/Heading";
 import { Icon } from "@common/components/Icon";
 import Layout from "@lst/layouts/Layout.astro";
 
@@ -64,12 +65,12 @@ export const frontmatter = {
     </ul>
   </div>
   <div id="map-big" class="full-width map" style="height: 60svh;"></div>
-  <h2 id="anreise">Anreise</h2>
+  <Heading level={2} title="Anreise" />
   <div class="dynamic-columns">
     <div class="content">
-      <h3>Öffentlicher Verkehr</h3>
+      <Heading level={3} title="Öffentlicher Verkehr" />
       <p>Vom Bahnhof Luzern hast du viele Möglichkeiten zu uns zu gelangen:</p>
-      <h4>Bus</h4>
+      <Heading level={4} title="Bus" />
       <ul>
         <li>
           <strong>Bus 14 bis Schlösslihalde</strong> (Richtung Brüelstrasse)
@@ -84,7 +85,7 @@ export const frontmatter = {
           <strong>Bus 6 bis Giseli</strong> (Richtung Büttenenhalde)
         </li>
       </ul>
-      <h4>Zug</h4>
+      <Heading level={4} title="Zug" />
       <ul>
         <li>
           <strong>Bahnhof: Luzern Verkehrshaus</strong><br />
@@ -93,14 +94,14 @@ export const frontmatter = {
       </ul>
     </div>
     <div class="content">
-      <h3>Auto</h3>
+      <Heading level={3} title="Auto" />
       <p>
         Es hat <strong>wenige und gebührenpflichtige Parkplätze</strong> in der Nähe.
         Wir können nicht garantieren, dass diese frei sind. Deshalb empfehlen wir
         grundsätzlich mit dem öffentlichen Verkehr anzureisen.
       </p>
 
-      <h4>Adresse</h4>
+      <Heading level={4} title="Adresse" />
       <a
         href="https://osm.org/go/0Cb8_hd9R?m=&way=586412904"
         style="border: none; padding: 0;"
@@ -115,12 +116,12 @@ export const frontmatter = {
     </div>
   </div>
   <div id="map-small" class="full-width map" style="height: 70svh;"></div>
-  <h2 id="raumaufteilung">Raumaufteilung</h2>
+  <Heading level={2} title="Raumaufteilung" />
   <p>Die Luzerner Spieltage finden in zwei Räumen statt.</p>
 
   <div class="dynamic-columns">
     <div class="content">
-      <h3>Würzenbachsaal (oben)</h3>
+      <Heading level={3} title="Würzenbachsaal (oben)" />
       <p>
         Der grössere der beiden Räume. Hier findest du den Hauptteil unseres
         Programms:
@@ -130,7 +131,7 @@ export const frontmatter = {
       </p>
     </div>
     <div class="content">
-      <h3>Unterkirche (unten)</h3>
+      <Heading level={3} title="Unterkirche (unten)" />
       <p>
         Hier findest du den <a href="/flohmarkt">Flohmarkt</a>,
         <a href="/programm/spieldesigner">Schweizer Spieldesigner</a>,
