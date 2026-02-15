@@ -1,3 +1,4 @@
+import { parsePlainTime } from "@common/components/events";
 import { TXT } from "@common/utils/texts";
 import type { ProgramEntry } from "@lst/components/anmeldung/api/save";
 
@@ -20,6 +21,13 @@ export function getErrors(entry: ProgramEntry): Errors {
     ];
   }
 
+  if (entry.organizer.trim().length === 0) {
+    byField["organizer"] = [
+      ...(byField["organizer"] ?? []),
+      "'Organisiert durch' ist ein Pflichtfeld",
+    ];
+  }
+
   if (entry.shortDescription.trim().length === 0) {
     byField["shortDescription"] = [
       ...(byField["shortDescription"] ?? []),
@@ -39,6 +47,35 @@ export function getErrors(entry: ProgramEntry): Errors {
       ...(byField["longDescription"] ?? []),
       TXT.charLimitBy.replace("{}", String(DESCR_LONG_MAX_CHAR)),
     ];
+  }
+
+  if (entry.timeSlots.length === 0) {
+    byField["timeSlots"] = [...(byField["timeSlots"] ?? []), TXT.missingSlot];
+  } else {
+    entry.timeSlots.forEach((slot) => {
+      const parsedStartTime = parsePlainTime(slot.start.time);
+      if (parsedStartTime.kind === "ERROR") {
+        byField["timeSlots"] = [
+          ...(byField["timeSlots"] ?? []),
+          "Fehler im Zeitslot, 'Start'",
+        ];
+      }
+      const parsedEndTime = parsePlainTime(slot.end.time);
+      if (parsedEndTime.kind === "ERROR") {
+        byField["timeSlots"] = [
+          ...(byField["timeSlots"] ?? []),
+          "Fehler im Zeitslot, 'Ende'",
+        ];
+      }
+      if (parsedStartTime.kind === "TIME" && parsedEndTime.kind === "TIME") {
+        if (parsedEndTime.value.since(parsedStartTime.value).hours < 0) {
+          byField["timeSlots"] = [
+            ...(byField["timeSlots"] ?? []),
+            "Zeitfenster fehlerhaft ('Ende' vor 'Start')",
+          ];
+        }
+      }
+    });
   }
 
   const allErrors = Object.values(byField).flat();

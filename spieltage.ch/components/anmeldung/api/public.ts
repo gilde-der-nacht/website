@@ -66,7 +66,7 @@ const publicProgramEntrySchema = z.object({
     z.object({ kind: z.literal("NONE"), maxSeats: z.number() }),
     z.object({ kind: z.literal("LIMITED"), maxSeats: z.number() }),
   ]),
-  tagNames: z.array(z.string()),
+  tagNames: z.string(),
 });
 export type PublicProgramEntry = z.infer<typeof publicProgramEntrySchema>;
 

@@ -59,11 +59,12 @@ export function Erstellen(props: {
               uuid,
               status: "draft",
               title: "",
+              organizer: "",
               shortDescription: "",
               longDescription: "",
               participating: { kind: "LIMITED", maxSeats: 6 },
               timeSlots: [],
-              tagNames: [],
+              tagNames: "",
             } satisfies ProgramEntry);
             navigate(props.link(`/erstellen/${uuid}`));
           }}

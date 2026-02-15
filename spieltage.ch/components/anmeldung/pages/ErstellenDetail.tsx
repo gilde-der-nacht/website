@@ -11,6 +11,7 @@ import { TXT } from "@common/utils/texts";
 import type {
   Participating,
   ProgramEntry,
+  Slot,
 } from "@lst/components/anmeldung/api/save";
 import { useParams } from "@solidjs/router";
 import {
@@ -34,6 +35,8 @@ import { parsePlainTime } from "@common/components/events";
 import { defaultPlainDates } from "../constant/time";
 import { TextareaField } from "@common/components/newForm/Textarea";
 import { SwitchCheckbox } from "@common/components/newForm/SwitchCheckbox";
+import { Button } from "@common/components/Button";
+import { BoxLink } from "@common/components/BoxLink";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -90,10 +93,6 @@ function ErstellenDetailContent(props: {
       <div class="dynamic-columns">
         <div>
           <form novalidate>
-            <Show when={props.entry$.get().status === "published"}>
-              <ErrorSummary errors={errors()} />
-            </Show>
-
             <TextInputField
               value$={props.entry$.pipe(obj.sub("title"))}
               label="Titel"
@@ -102,6 +101,17 @@ function ErstellenDetailContent(props: {
                 props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
               }
               errors={errors().byField.title ?? []}
+              disabled={!props.isEditable}
+            />
+
+            <TextInputField
+              value$={props.entry$.pipe(obj.sub("organizer"))}
+              label="Organisiert durch"
+              name="organizer"
+              showErrors={
+                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
+              }
+              errors={errors().byField.organizer ?? []}
               disabled={!props.isEditable}
             />
 
@@ -131,37 +141,77 @@ function ErstellenDetailContent(props: {
             <ParticipationInput
               value$={props.entry$.pipe(obj.sub("participating"))}
             />
+
+            <TimeSlotInput slots$={props.entry$.pipe(obj.sub("timeSlots"))} />
+
+            <TextInputField
+              value$={props.entry$.pipe(obj.sub("tagNames"))}
+              label="Tags"
+              name="tags"
+              showErrors={
+                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
+              }
+              errors={errors().byField.tags ?? []}
+              disabled={!props.isEditable}
+            />
           </form>
         </div>
         <div>
           <h3>Vorschau</h3>
           <br />
-          <Chip kind={errors().hasErrors ? "danger" : "special"}>
-            Status: {TXT.publishingSteps[props.entry$.get().status]}
-            {errors().hasErrors ? (
-              <span>
-                {" "}
-                mit Fehlern <Icon icon="triangle-exclamation" />
-              </span>
-            ) : (
-              ""
-            )}
-          </Chip>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+            <Chip kind={errors().hasErrors ? "danger" : "special"}>
+              Status: {TXT.publishingSteps[props.entry$.get().status]}
+              {errors().hasErrors ? (
+                <span>
+                  {" "}
+                  mit Fehlern <Icon icon="triangle-exclamation" />
+                </span>
+              ) : (
+                ""
+              )}
+            </Chip>
+            <SwitchCheckbox
+              value$={
+                props.entry$.pipe(obj.sub("status")) as Reactive<
+                  "draft" | "published"
+                >
+              }
+              options={{
+                left: {
+                  label: "Entwurf",
+                  value: "draft",
+                },
+                right: {
+                  label: "Veröffentlicht",
+                  value: "published",
+                },
+              }}
+              name="status"
+            />
+          </div>
           <br />
+
+          <Show when={props.entry$.get().status === "published"}>
+            <ErrorSummary errors={errors()} />
+          </Show>
           <br />
-          <For
-            each={toSlots(props.entry$.get())}
-            fallback={<em>Keine (gültigen) Zeitslots gefunden</em>}
-          >
-            {(entry) => (
-              <Entry
-                entry={entry}
-                basePath="/programm"
-                link={props.link}
-                reservations={0}
-              />
-            )}
-          </For>
+
+          <ul role="list" class="link-list">
+            <For
+              each={toSlots(props.entry$.get())}
+              fallback={<em>Keine (gültigen) Zeitslots gefunden</em>}
+            >
+              {(entry) => (
+                <Entry
+                  entry={entry}
+                  basePath="/programm"
+                  link={props.link}
+                  reservations={0}
+                />
+              )}
+            </For>
+          </ul>
         </div>
       </div>
     </>
@@ -197,7 +247,7 @@ function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
     entries.push({
       uuid: slot.uuid,
       title: entry.title,
-      organizer: "",
+      organizer: entry.organizer,
       timeSlot: {
         startDate: defaultPlainDates[slot.start.day].toPlainDateTime({
           hour: parsedStartTime.value.hour,
@@ -240,6 +290,108 @@ function ParticipationInput(props: {
           name="maxSeats"
         />
       </Show>
+    </>
+  );
+}
+
+function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
+  return (
+    <>
+      <label>Zeitfenster</label>
+      <ul role="list" class="link-list">
+        <For each={props.slots$.get()}>
+          {(slot) => {
+            const el$ = arr.findExact(
+              props.slots$,
+              (s) => s.uuid === slot.uuid,
+            );
+            return (
+              <li>
+                <Box
+                  onClose={() =>
+                    arr.remove(props.slots$, (s) => s.uuid !== slot.uuid)
+                  }
+                >
+                  <div style="display: grid; gap: 1rem;">
+                    <div>
+                      <label>Tag</label>
+                      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <Button
+                          label="Samstag"
+                          kind={
+                            slot.start.day === "SATURDAY" ? "success" : "gray"
+                          }
+                          onClick={() => {
+                            arr
+                              .findExact(
+                                props.slots$,
+                                (s) => s.uuid === slot.uuid,
+                              )
+                              .update((s) => ({
+                                ...s,
+                                start: { ...s.start, day: "SATURDAY" },
+                                end: { ...s.end, day: "SATURDAY" },
+                              }));
+                          }}
+                        />
+                        <Button
+                          label="Sonntag"
+                          kind={
+                            slot.start.day === "SUNDAY" ? "success" : "gray"
+                          }
+                          onClick={() => {
+                            arr
+                              .findExact(
+                                props.slots$,
+                                (s) => s.uuid === slot.uuid,
+                              )
+                              .update((s) => ({
+                                ...s,
+                                start: { ...s.start, day: "SUNDAY" },
+                                end: { ...s.end, day: "SUNDAY" },
+                              }));
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <TextInputField
+                      value$={el$.pipe(obj.sub("start")).pipe(obj.sub("time"))}
+                      label="Start"
+                      name="start"
+                    />
+                    <TextInputField
+                      value$={el$.pipe(obj.sub("end")).pipe(obj.sub("time"))}
+                      label="Ende"
+                      name="end"
+                    />
+                  </div>
+                </Box>
+              </li>
+            );
+          }}
+        </For>
+        <li>
+          <BoxLink
+            icon="circle-plus"
+            type="success"
+            onClick={() =>
+              arr.push(props.slots$, {
+                uuid: crypto.randomUUID(),
+                start: {
+                  day: "SATURDAY",
+                  time: "10:00",
+                },
+                end: {
+                  day: "SATURDAY",
+                  time: "12:00",
+                },
+              })
+            }
+          >
+            <h3>Neues Zeitfenster</h3>
+          </BoxLink>
+        </li>
+      </ul>
     </>
   );
 }

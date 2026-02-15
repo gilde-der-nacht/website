@@ -60,6 +60,8 @@ const slotSchema = z.object({
   }),
 });
 
+export type Slot = z.infer<typeof slotSchema>;
+
 const participatingSchema = z.union([
   z.object({ kind: z.literal("NONE"), maxSeats: z.number() }),
   z.object({ kind: z.literal("LIMITED"), maxSeats: z.number() }),
@@ -71,11 +73,12 @@ const programEntrySchema = z.object({
   uuid: z.string().uuid(),
   status: publishStateSchema,
   title: z.string(),
+  organizer: z.string(),
   shortDescription: z.string(),
   longDescription: z.string(),
   participating: participatingSchema,
   timeSlots: z.array(slotSchema),
-  tagNames: z.array(z.string()),
+  tagNames: z.string(),
 });
 
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
@@ -83,7 +86,7 @@ export type ProgramEntry = z.infer<typeof programEntrySchema>;
 const reservationEntrySchema = z.object({});
 
 const saveSchema = z.object({
-  version: z.literal(8),
+  version: z.literal(9),
   contact: contactSchema,
   config: z.object({
     wantsUpdates: z.boolean(),

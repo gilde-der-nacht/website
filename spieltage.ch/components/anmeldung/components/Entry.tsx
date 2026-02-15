@@ -25,7 +25,7 @@ export function Entry(props: {
           <strong>Tag, Zeit:</strong>
           <span>
             {TXT.days[getDay(props.entry.timeSlot.startDate) ?? "FRIDAY"]},{" "}
-            {formatTime(props.entry.timeSlot.startDate.toPlainTime())}: -{" "}
+            {formatTime(props.entry.timeSlot.startDate.toPlainTime())} -{" "}
             {formatTime(props.entry.timeSlot.endDate.toPlainTime())} Uhr
           </span>
         </div>
@@ -45,8 +45,12 @@ export function Entry(props: {
         </div>
         <div class="event-tags">
           <strong>Kategorien:</strong>{" "}
-          {props.entry.tagNames.length > 0 ? (
-            props.entry.tagNames.join(", ")
+          {props.entry.tagNames.trim().length > 0 ? (
+            props.entry.tagNames
+              .split(",")
+              .map((e) => e.trim())
+              .filter((e) => e.length > 0)
+              .join(", ")
           ) : (
             <em>keine Kategorien</em>
           )}
