@@ -1,5 +1,5 @@
 import { Heading } from "@common/components/Heading";
-import { For, Match, Show, Switch, type JSX } from "solid-js";
+import { For, Match, Show, Switch, type JSX, type Resource } from "solid-js";
 import type {
   ErklaerbaerReservation,
   HelpingReservation,
@@ -14,9 +14,16 @@ import type { Roles } from "@lst/components/anmeldung/api/meta";
 import { openingHours } from "@lst/components/anmeldung/constant/time";
 import { ExitSpa } from "@common/components/ExitSpa";
 import { arr, obj, type Reactive } from "@common/utils/reactivity";
+import type { Result } from "@lst/components/anmeldung/api/elysium";
+import type {
+  ErklaerbaerAdminEntry,
+  PublicAdmin,
+} from "@lst/components/anmeldung/api/admin";
+import type { PerDay } from "@common/utils/time";
 
 export function Erklaerbaer(props: {
   save$: Reactive<Save>;
+  adminResource: Resource<Result<PublicAdmin>>;
   roles: Roles;
   isEditable: boolean;
 }): JSX.Element {
@@ -89,6 +96,9 @@ export function Erklaerbaer(props: {
           </ul>
         </div>
       </div>
+      <Show when={props.adminResource()}>
+        {(resource) => <ErklaerbaerOverview adminResource={resource()} />}
+      </Show>
     </>
   );
 }
@@ -266,4 +276,88 @@ function JobEntry(props: {
       </Box>
     </>
   );
+}
+
+function ErklaerbaerOverview(props: {
+  adminResource: Result<PublicAdmin>;
+}): JSX.Element | null {
+  if (props.adminResource.kind === "FAILURE") {
+    return null;
+  }
+  if (props.adminResource.data.erklaerbaer === null) {
+    return null;
+  }
+
+  const byDay = groupByDay(props.adminResource.data.erklaerbaer.entries);
+
+  return (
+    <>
+      <h4>Übersicht über alle Erklärbären</h4>
+      <div class="dynamic-columns">
+        <div>
+          <h5>Samstag</h5>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Zeit</th>
+            </tr>
+            <tbody>
+              <For each={byDay.SATURDAY}>
+                {(entry) => (
+                  <tr>
+                    <td>{entry.name}</td>
+                    <td>
+                      {entry.slot.from} - {entry.slot.to} Uhr
+                    </td>
+                  </tr>
+                )}
+              </For>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h5>Sonntag</h5>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Zeit</th>
+            </tr>
+            <tbody>
+              <For each={byDay.SUNDAY}>
+                {(entry) => (
+                  <tr>
+                    <td>{entry.name}</td>
+                    <td>
+                      {entry.slot.from} - {entry.slot.to} Uhr
+                    </td>
+                  </tr>
+                )}
+              </For>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function groupByDay(
+  entries: ErklaerbaerAdminEntry[],
+): PerDay<ErklaerbaerAdminEntry[]> {
+  const { FRIDAY, SATURDAY, SUNDAY } = Object.groupBy(
+    entries,
+    (entry) => entry.slot.day,
+  );
+
+  return {
+    FRIDAY: (FRIDAY ?? []).toSorted(
+      (a, b) => a.slot.from - b.slot.from || a.slot.to - b.slot.to,
+    ),
+    SATURDAY: (SATURDAY ?? []).toSorted(
+      (a, b) => a.slot.from - b.slot.from || a.slot.to - b.slot.to,
+    ),
+    SUNDAY: (SUNDAY ?? []).toSorted(
+      (a, b) => a.slot.from - b.slot.from || a.slot.to - b.slot.to,
+    ),
+  };
 }

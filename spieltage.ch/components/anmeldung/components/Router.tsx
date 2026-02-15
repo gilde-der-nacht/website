@@ -21,12 +21,14 @@ import { Erstellen } from "@lst/components/anmeldung/pages/Erstellen";
 import { loadPublic } from "@lst/components/anmeldung/api/public";
 import { ErstellenDetail } from "@lst/components/anmeldung/pages/ErstellenDetail";
 import { createReactive, obj } from "@common/utils/reactivity";
+import { loadAdmin } from "@lst/components/anmeldung/api/admin";
 
 export function Router(props: {
   initState: LoadSave;
   secret: string;
 }): JSX.Element {
   const [publicResource] = createResource(loadPublic);
+  const [adminResource] = createResource(() => loadAdmin(props.secret));
 
   const store$ = createReactive<{
     meta: {
@@ -136,7 +138,6 @@ export function Router(props: {
                   .pipe(obj.sub("save"))
                   .pipe(obj.sub("program"))
                   .pipe(obj.sub("organising"))}
-                publicResource={publicResource}
                 link={link}
                 isEditable={props.initState.status === "published"}
               />
@@ -225,6 +226,7 @@ export function Router(props: {
             >
               <Erklaerbaer
                 save$={store$.pipe(obj.sub("save"))}
+                adminResource={adminResource}
                 roles={store$.get().meta.roles}
                 isEditable={props.initState.status === "published"}
               />

@@ -1,7 +1,5 @@
-import { For, Show, type JSX, type Resource } from "solid-js";
+import { For, Show, type JSX } from "solid-js";
 import type { ProgramEntry } from "@lst/components/anmeldung/api/save";
-import type { Public } from "@lst/components/anmeldung/api/public";
-import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { BoxLink } from "@common/components/BoxLink";
 import { TXT } from "@common/utils/texts";
 import { A, useNavigate } from "@solidjs/router";
@@ -11,7 +9,6 @@ import { getErrors } from "@lst/components/anmeldung/constant/validation";
 
 export function Erstellen(props: {
   programEntries$: Reactive<ProgramEntry[]>;
-  publicResource: Resource<Result<Public>>;
   link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
