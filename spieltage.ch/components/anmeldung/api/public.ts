@@ -59,10 +59,13 @@ const publicProgramEntrySchema = z.object({
   uuid: z.string(),
   title: z.string(),
   organizer: z.string(),
-  slot: dateTimeRangeSchema,
+  timeSlot: dateTimeRangeSchema,
   shortDescription: z.string(),
   longDescription: z.string(),
-  playerMax: z.number(),
+  participating: z.union([
+    z.object({ kind: z.literal("NONE"), maxSeats: z.number() }),
+    z.object({ kind: z.literal("LIMITED"), maxSeats: z.number() }),
+  ]),
   tagNames: z.array(z.string()),
 });
 export type PublicProgramEntry = z.infer<typeof publicProgramEntrySchema>;

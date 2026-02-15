@@ -176,7 +176,7 @@ function ErrorSummary(props: { errors: Errors }): JSX.Element {
 
 function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
   const entries: PublicProgramEntry[] = [];
-  entry.slots.forEach((slot) => {
+  entry.timeSlots.forEach((slot) => {
     const parsedStartTime = parsePlainTime(slot.start.time);
     const parsedEndTime = parsePlainTime(slot.end.time);
     if (parsedStartTime.kind === "ERROR" || parsedEndTime.kind === "ERROR") {
@@ -187,7 +187,7 @@ function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
       uuid: slot.uuid,
       title: entry.title,
       organizer: "",
-      slot: {
+      timeSlot: {
         startDate: defaultPlainDates[slot.start.day].toPlainDateTime({
           hour: parsedStartTime.value.hour,
           minute: parsedStartTime.value.minute,
@@ -199,7 +199,7 @@ function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
       },
       shortDescription: entry.shortDescription,
       longDescription: entry.longDescription,
-      playerMax: entry.playerMax,
+      participating: entry.participating,
       tagNames: entry.tagNames,
     });
   });

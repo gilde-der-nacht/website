@@ -24,16 +24,25 @@ export function Entry(props: {
         <div class="event-tags">
           <strong>Tag, Zeit:</strong>
           <span>
-            {TXT.days[getDay(props.entry.slot.startDate) ?? "FRIDAY"]},{" "}
-            {formatTime(props.entry.slot.startDate.toPlainTime())}: -{" "}
-            {formatTime(props.entry.slot.endDate.toPlainTime())} Uhr
+            {TXT.days[getDay(props.entry.timeSlot.startDate) ?? "FRIDAY"]},{" "}
+            {formatTime(props.entry.timeSlot.startDate.toPlainTime())}: -{" "}
+            {formatTime(props.entry.timeSlot.endDate.toPlainTime())} Uhr
           </span>
         </div>
         <div class="event-tags">
-          <strong>Freie Plätze:</strong>{" "}
-          {Math.max(props.entry.playerMax - props.reservations, 0)} (von{" "}
-          {props.entry.playerMax})
-        </div>{" "}
+          {props.entry.participating.kind === "NONE" ? (
+            <em>Teilnahme ohne Anmeldung möglich.</em>
+          ) : (
+            <>
+              <strong>Freie Plätze:</strong>{" "}
+              {Math.max(
+                props.entry.participating.maxSeats - props.reservations,
+                0,
+              )}{" "}
+              (von {props.entry.participating.maxSeats})
+            </>
+          )}
+        </div>
         <div class="event-tags">
           <strong>Kategorien:</strong>{" "}
           {props.entry.tagNames.length > 0 ? (
