@@ -67,3 +67,29 @@ export function Checkbox<T extends string>(
     </label>
   );
 }
+
+export function SwitchCheckbox(props: {
+  checked: boolean;
+  value: string;
+  onChange: (value: boolean) => void;
+  labels: { left: string; right: string };
+  name: string;
+  onBlur?: () => void;
+  disabled: boolean;
+}): JSX.Element {
+  return (
+    <label class="input-checkbox">
+      {props.labels.left}
+      <input
+        type="checkbox"
+        name={props.name}
+        value={props.value}
+        checked={props.checked}
+        onChange={(e) => props.onChange(e.target.checked)}
+        onBlur={props.onBlur}
+        disabled={props.disabled}
+      />
+      {props.labels.right}
+    </label>
+  );
+}

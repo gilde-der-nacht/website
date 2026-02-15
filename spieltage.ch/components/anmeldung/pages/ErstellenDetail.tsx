@@ -8,7 +8,10 @@ import {
 } from "solid-js";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
-import type { ProgramEntry } from "@lst/components/anmeldung/api/save";
+import type {
+  Participating,
+  ProgramEntry,
+} from "@lst/components/anmeldung/api/save";
 import { useParams } from "@solidjs/router";
 import {
   type Public,
@@ -18,7 +21,10 @@ import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { Chip } from "@common/components/Chip";
 import { Icon } from "@common/components/Icon";
 import { arr, obj, type Reactive } from "@common/utils/reactivity";
-import { TextInputField } from "@common/components/newForm/Input";
+import {
+  NumberInputField,
+  TextInputField,
+} from "@common/components/newForm/Input";
 import {
   getErrors,
   type Errors,
@@ -27,6 +33,7 @@ import { Entry } from "@lst/components/anmeldung/components/Entry";
 import { parsePlainTime } from "@common/components/events";
 import { defaultPlainDates } from "../constant/time";
 import { TextareaField } from "@common/components/newForm/Textarea";
+import { SwitchCheckbox } from "@common/components/newForm/SwitchCheckbox";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -120,6 +127,10 @@ function ErstellenDetailContent(props: {
               errors={errors().byField.longDescription ?? []}
               disabled={!props.isEditable}
             />
+
+            <ParticipationInput
+              value$={props.entry$.pipe(obj.sub("participating"))}
+            />
           </form>
         </div>
         <div>
@@ -204,4 +215,31 @@ function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
     });
   });
   return entries;
+}
+
+function ParticipationInput(props: {
+  value$: Reactive<Participating>;
+}): JSX.Element {
+  const options = {
+    left: { label: "Keine Anmeldung", value: "NONE" as const },
+    right: { label: "Limitierte Plätze", value: "LIMITED" as const },
+  };
+
+  return (
+    <>
+      <SwitchCheckbox
+        value$={props.value$.pipe(obj.sub("kind"))}
+        options={options}
+        name="participating"
+      />
+
+      <Show when={props.value$.get().kind === "LIMITED"}>
+        <NumberInputField
+          value$={props.value$.pipe(obj.sub("maxSeats"))}
+          label="Maximale Plätze"
+          name="maxSeats"
+        />
+      </Show>
+    </>
+  );
 }
