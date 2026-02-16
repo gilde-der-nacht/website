@@ -22,6 +22,7 @@ import { loadPublic } from "@lst/components/anmeldung/api/public";
 import { ErstellenDetail } from "@lst/components/anmeldung/pages/ErstellenDetail";
 import { createReactive, obj } from "@common/utils/reactivity";
 import { loadAdmin } from "@lst/components/anmeldung/api/admin";
+import { HelfenOverview } from "@lst/components/anmeldung/pages/HelfenOverview";
 
 export function Router(props: {
   initState: LoadSave;
@@ -229,6 +230,29 @@ export function Router(props: {
                 adminResource={adminResource}
                 roles={store$.get().meta.roles}
                 isEditable={props.initState.status === "published"}
+              />
+            </Layout>
+          ),
+        },
+        {
+          path: "/helfen/admin",
+          component: () => (
+            <Layout
+              title="Helfer-Übersicht"
+              roles={store$.get().meta.roles}
+              link={link}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
+              showQuickmenu={true}
+              parentPath="/helfen"
+            >
+              <HelfenOverview
+                reservations$={store$
+                  .pipe(obj.sub("save"))
+                  .pipe(obj.sub("helping"))}
+                adminResource={adminResource}
+                link={link}
+                roles={store$.get().meta.roles}
               />
             </Layout>
           ),

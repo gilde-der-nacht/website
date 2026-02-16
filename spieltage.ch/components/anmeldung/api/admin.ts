@@ -18,9 +18,39 @@ const erklaerbaerEntrySchema = z.object({
   }),
 });
 
+const adminHelpEntryBaseSchema = z.object({
+  uuid: z.string().uuid(),
+  name: z.string(),
+});
+
+const adminHelpEntryASchema = adminHelpEntryBaseSchema.extend({
+  helpType: z.string(),
+  slot: z.object({
+    start: z.object({
+      day: daySchema,
+      time: z.string(),
+    }),
+    end: z.object({
+      day: daySchema,
+      time: z.string(),
+    }),
+  }),
+});
+
+const adminHelpEntryBSchema = adminHelpEntryBaseSchema.extend({
+  ref: z.string().uuid(),
+});
+
+const adminHelpEntrySchema = z.union([
+  adminHelpEntryASchema,
+  adminHelpEntryBSchema,
+]);
+
 export type ErklaerbaerAdminEntry = z.infer<typeof erklaerbaerEntrySchema>;
 
-const adminSchema = z.null();
+const adminSchema = z.object({
+  help: z.array(adminHelpEntrySchema),
+});
 const erklaerbaerSchema = z.object({
   entries: z.array(erklaerbaerEntrySchema),
 });
@@ -28,7 +58,7 @@ const erklaerbaerSchema = z.object({
 export type ErklaerbaerAdmin = z.infer<typeof erklaerbaerSchema>;
 
 const publicAdminSchema = z.object({
-  admin: adminSchema,
+  admin: z.nullable(adminSchema),
   erklaerbaer: z.nullable(erklaerbaerSchema),
 });
 

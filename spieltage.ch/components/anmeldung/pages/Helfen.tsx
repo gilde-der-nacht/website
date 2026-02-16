@@ -48,11 +48,24 @@ export function Helfen(props: {
 
   return (
     <>
-      <p>
-        Beim Kiosk und der Essensausgabe können wir immer ein paar helfende
-        Hände gebrauchen. Wenn du bereit bist zu helfen, klicke in der
-        jeweiligen Stunde auf das Handsymbol <Icon icon="hand-heart" />.
-      </p>
+      <div class="dynamic-columns">
+        <p>
+          Beim Kiosk und der Essensausgabe können wir immer ein paar helfende
+          Hände gebrauchen. Wenn du bereit bist zu helfen, klicke in der
+          jeweiligen Stunde auf das Handsymbol <Icon icon="hand-heart" />.
+        </p>
+        <Show when={props.roles.includes("admin")}>
+          <A
+            href={props.link("/helfen/admin")}
+            class="button-link"
+            style="margin-block-end: 1rem; padding: 0;"
+          >
+            <BoxLink icon="forward" type="danger">
+              <h4>Helfer-Übersicht (Admin)</h4>
+            </BoxLink>
+          </A>
+        </Show>
+      </div>
       <br />
 
       <Box type="special">
