@@ -30,6 +30,26 @@ const erklaerbaerReservationSchema = z.object({
 export type ErklaerbaerReservation = z.infer<
   typeof erklaerbaerReservationSchema
 >;
+const freeformTimeSlotSchema = z.object({
+  start: z.object({
+    day: daySchema,
+    time: z.string(),
+  }),
+  end: z.object({
+    day: daySchema,
+    time: z.string(),
+  }),
+});
+
+const freeformReservationSchema = z.object({
+  kind: z.literal("FREEFORM"),
+  uuid: z.string().uuid(),
+  tag: z.string(),
+  name: z.string(),
+  slot: freeformTimeSlotSchema,
+});
+
+export type FreeformReservation = z.infer<typeof freeformReservationSchema>;
 
 const helpingReservationSchema = z.union([
   z.object({
