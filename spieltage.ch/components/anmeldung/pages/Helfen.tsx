@@ -214,77 +214,41 @@ function aggregateEntries(props: {
             }),
     };
 
-    if (emptySeats() === 0) {
-      timetableView.push({
-        range,
-        component: () => (
-          <div
-            class={classes()}
-            onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
+    timetableView.push({
+      range,
+      component: () => (
+        <div
+          class={classes()}
+          onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
+        >
+          <Chip
+            title="Helfer:innen gesucht"
+            inverted={helpingMyself()}
+            size="small"
           >
-            <Chip
-              title="Helfer:innen gesucht"
-              inverted={helpingMyself()}
-              size="small"
-            >
-              HL
-            </Chip>
-            <Show when={helpingMyself()}>
-              <IconOnlyButton
-                icon="hand-heart"
-                kind="ghost"
-                onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
-                title="Helfen"
-              />
-            </Show>
-            <h5 title={helpTypes[entry.kind].title}>
-              {helpTypes[entry.kind].title}
-            </h5>
-            <p class="duration">
-              <em>
-                {emptySeats()} / {entry.count}
-              </em>
-            </p>
-          </div>
-        ),
-      });
-    } else {
-      timetableView.push({
-        range,
-        component: () => (
-          <div
-            class={classes()}
+            HL
+          </Chip>
+          <IconOnlyButton
+            icon="hand-heart"
+            kind="ghost"
             onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
-          >
-            <Chip
-              title="Helfer:innen gesucht"
-              inverted={helpingMyself()}
-              size="small"
-            >
-              HL
-            </Chip>
-            <IconOnlyButton
-              icon="hand-heart"
-              kind="ghost"
-              onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
-              title="Helfen"
-            />
-            <h5 title={helpTypes[entry.kind].title}>
-              {helpTypes[entry.kind].title}
-            </h5>
-            <p class="duration">
-              <span>
-                {range.startTime.hour}-{range.endTime.hour}
-                &nbsp;Uhr |{" "}
-              </span>
-              <em>
-                {entry.count - emptySeats()}&nbsp;/&nbsp;{entry.count}
-              </em>
-            </p>
-          </div>
-        ),
-      });
-    }
+            title="Helfen"
+          />
+          <h5 title={helpTypes[entry.kind].title}>
+            {helpTypes[entry.kind].title}
+          </h5>
+          <p class="duration">
+            <span>
+              {range.startTime.hour}-{range.endTime.hour}
+              &nbsp;Uhr |{" "}
+            </span>
+            <em>
+              {entry.count - emptySeats()}&nbsp;/&nbsp;{entry.count}
+            </em>
+          </p>
+        </div>
+      ),
+    });
   });
 
   return timetableView;
