@@ -25,19 +25,18 @@ export function isWithin(
   range: PlainTimeRange,
 ): boolean {
   const { startTime, endTime } = handleMidnight(range);
-  if (startTime.hour > time.hour) {
+  if (startTime.hour >= time.hour) {
     return false;
   }
   if (startTime.hour === time.hour && startTime.minute > time.minute) {
     return false;
   }
-  if (endTime.hour < time.hour) {
+  if (endTime.hour <= time.hour) {
     return false;
   }
   if (endTime.hour === time.hour && endTime.minute < time.minute) {
     return false;
   }
-
   return true;
 }
 
