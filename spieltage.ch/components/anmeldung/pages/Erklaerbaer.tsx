@@ -297,10 +297,12 @@ function ErklaerbaerOverview(props: {
         <div>
           <h5>Samstag</h5>
           <table>
-            <tr>
-              <th>Name</th>
-              <th>Zeit</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Zeit</th>
+              </tr>
+            </thead>
             <tbody>
               <For each={byDay.SATURDAY}>
                 {(entry) => (
@@ -318,10 +320,12 @@ function ErklaerbaerOverview(props: {
         <div>
           <h5>Sonntag</h5>
           <table>
-            <tr>
-              <th>Name</th>
-              <th>Zeit</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Zeit</th>
+              </tr>
+            </thead>
             <tbody>
               <For each={byDay.SUNDAY}>
                 {(entry) => (
