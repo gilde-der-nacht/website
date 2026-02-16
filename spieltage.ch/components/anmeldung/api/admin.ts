@@ -18,6 +18,8 @@ const erklaerbaerEntrySchema = z.object({
   }),
 });
 
+export type ErklaerbaerAdminEntry = z.infer<typeof erklaerbaerEntrySchema>;
+
 const adminHelpEntryBaseSchema = z.object({
   uuid: z.string().uuid(),
   name: z.string(),
@@ -37,6 +39,7 @@ const adminHelpEntryASchema = adminHelpEntryBaseSchema.extend({
   }),
 });
 
+export type AdminHelpEntryA = z.infer<typeof adminHelpEntryASchema>;
 const adminHelpEntryBSchema = adminHelpEntryBaseSchema.extend({
   ref: z.string().uuid(),
 });
@@ -46,7 +49,7 @@ const adminHelpEntrySchema = z.union([
   adminHelpEntryBSchema,
 ]);
 
-export type ErklaerbaerAdminEntry = z.infer<typeof erklaerbaerEntrySchema>;
+export type AdminHelpEntry = z.infer<typeof adminHelpEntrySchema>;
 
 const adminSchema = z.object({
   help: z.array(adminHelpEntrySchema),
