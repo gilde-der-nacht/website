@@ -1729,12 +1729,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^25.2.3":
-  version: 25.2.3
-  resolution: "@types/node@npm:25.2.3"
+"@types/node@npm:^25.3.0":
+  version: 25.3.0
+  resolution: "@types/node@npm:25.3.0"
   dependencies:
-    undici-types: "npm:~7.16.0"
-  checksum: 10/46962e3c1c0205da5b637c2e924f4eb03ce16f384af686b69afeb5fd4f8274d9a570375f8a24de2750633b69cb7ac33f0e458d9c3f20a66e12eb3a569499062d
+    undici-types: "npm:~7.18.0"
+  checksum: 10/061b00c8de070a606a052afaa4c45dca5f8d6a8e7e39c0c3e196bb650ee37e986bbb161991ea39076a05aada102f36b13c974528448a09efd8d36bdfee75de4b
   languageName: node
   linkType: hard
 
@@ -1985,9 +1985,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.17.2":
-  version: 5.17.2
-  resolution: "astro@npm:5.17.2"
+"astro@npm:5.17.3":
+  version: 5.17.3
+  resolution: "astro@npm:5.17.3"
   dependencies:
     "@astrojs/compiler": "npm:^2.13.0"
     "@astrojs/internal-helpers": "npm:0.7.5"
@@ -2012,7 +2012,7 @@ __metadata:
     dlv: "npm:^1.1.3"
     dset: "npm:^3.1.4"
     es-module-lexer: "npm:^1.7.0"
-    esbuild: "npm:^0.27.0"
+    esbuild: "npm:^0.27.3"
     estree-walker: "npm:^3.0.3"
     flattie: "npm:^1.1.1"
     fontace: "npm:~0.4.0"
@@ -2058,7 +2058,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/29cbb3f9e5dc8d67e1222e4c47ae93aae045d0d242e7f8ef157f52b439302d8570098de4671d5d6e2d0908ac8928dcf38aa86d9bdc5d05fec260786c6f7fb0e6
+  checksum: 10/37a02b133966f324585eb76a56bae641caad1dfc2c22badb5f9077ea739e7ad8ea6604b2324c781eb984912ef732f97b48c21c71bf797f1a27eb4560edf4226e
   languageName: node
   linkType: hard
 
@@ -2443,8 +2443,8 @@ __metadata:
     "@solidjs/router": "npm:^0.15.4"
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.7.1"
-    "@types/node": "npm:^25.2.3"
-    astro: "npm:5.17.2"
+    "@types/node": "npm:^25.3.0"
+    astro: "npm:5.17.3"
     luxon: "npm:^3.7.2"
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
@@ -2779,7 +2779,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.27.0, esbuild@npm:~0.27.0":
+"esbuild@npm:^0.27.0, esbuild@npm:^0.27.3, esbuild@npm:~0.27.0":
   version: 0.27.3
   resolution: "esbuild@npm:0.27.3"
   dependencies:
@@ -5793,10 +5793,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~7.16.0":
-  version: 7.16.0
-  resolution: "undici-types@npm:7.16.0"
-  checksum: 10/db43439f69c2d94cc29f75cbfe9de86df87061d6b0c577ebe9bb3255f49b22c50162a7d7eb413b0458b6510b8ca299ac7cff38c3a29fbd31af9f504bcf7fbc0d
+"undici-types@npm:~7.18.0":
+  version: 7.18.2
+  resolution: "undici-types@npm:7.18.2"
+  checksum: 10/e61a5918f624d68420c3ca9d301e9f15b61cba6e97be39fe2ce266dd6151e4afe424d679372638826cb506be33952774e0424141200111a9857e464216c009af
   languageName: node
   linkType: hard
 
