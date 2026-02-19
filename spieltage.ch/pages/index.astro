@@ -1,6 +1,5 @@
 ---
 import { Icon } from "@common/components/Icon";
-import { Box } from "@common/components/Box";
 import Layout from "@lst/layouts/Layout.astro";
 import { Picture } from "astro:assets";
 import lst202401 from "@lst/images/2024-spieltage-01.jpg";
@@ -10,6 +9,7 @@ import lst201810 from "@lst/images/2018-spieltage-10.jpg";
 import lst202206 from "@lst/images/2022-spieltage-06.jpg";
 import lst202208 from "@lst/images/2022-spieltage-08.jpg";
 import { Heading } from "@common/components/Heading";
+import ReferenceGilde from "@common/components/ReferenceGilde.astro";
 ---
 
 <Layout>
@@ -225,16 +225,7 @@ import { Heading } from "@common/components/Heading";
     <em>Speisen und Getränke können Bar oder per Twint bezahlt werden.</em>
   </p>
 
-  <Box
-    type="success"
-    link="https://gildedernacht.ch/"
-    linkLabel="Zur Gilde der Nacht"
-  >
-    Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein,
-    den Organisatoren der Luzerner Spieltage.
-    <!-- <br />Und merk dir unbedingt das -->
-    <!-- Datum fürs nächste Jahr: <strong>14. + 15. März 2026</strong>. -->
-  </Box>
+  <ReferenceGilde event="LST" />
 
   <style>
     .cluster {

@@ -1,0 +1,40 @@
+---
+import { Box } from "@common/components/Box.tsx";
+
+export interface Props {
+  event: "LST" | "RST";
+}
+
+const { event } = Astro.props;
+
+const VARS = {
+  LST: {
+    eventName: "Luzerner Spieltage",
+    date: "13. und 14. März 2027",
+  },
+  RST: {
+    eventName: "Luzerner Rollenspieltage",
+    /* date: "22. und 23. August 2026", */
+  },
+} as const;
+
+const vars = VARS[event];
+---
+
+<Box
+  type="success"
+  link="https://gildedernacht.ch/"
+  linkLabel="Zur Gilde der Nacht"
+>
+  Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein,
+  den Organisatoren der {vars.eventName}.
+  {
+    "date" in vars ? (
+      <>
+        <br />
+        Und merk dir unbedingt das Datum fürs nächste Jahr:{" "}
+        <strong>{vars.date}</strong>.
+      </>
+    ) : null
+  }
+</Box>

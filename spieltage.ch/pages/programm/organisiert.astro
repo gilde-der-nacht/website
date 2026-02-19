@@ -5,6 +5,8 @@ import { getProgramGroupedByStarthour } from "@lst/components/program/data.ts";
 import EventList from "@lst/components/program/EventList.astro";
 import { Heading } from "@common/components/Heading";
 import Outdated from "@common/components/Outdated.astro";
+import ReferenceGilde from "@common/components/ReferenceGilde.astro";
+
 const program = await getProgramGroupedByStarthour();
 const saturday = Object.entries(program.SATURDAY);
 const sunday = Object.entries(program.SUNDAY);
@@ -87,4 +89,5 @@ export const frontmatter = {
       </>
     ))
   }
+  <ReferenceGilde event="LST" />
 </Layout>
