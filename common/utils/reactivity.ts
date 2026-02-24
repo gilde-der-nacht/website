@@ -12,6 +12,8 @@ export type ReactiveObj<T extends object> = Reactive<T>;
 
 export type ReactiveArr<T> = Reactive<Array<T>>;
 
+export type ReactiveArrEl<T> = Reactive<T> & { remove: () => void };
+
 function createReactiveImpl<T>(
   get: () => T,
   update: (updateFn: (oldValue: T) => T) => void,
@@ -21,6 +23,22 @@ function createReactiveImpl<T>(
     set: (newValue) => update(() => newValue),
     update,
     pipe: (fn) => fn(reactive),
+  };
+
+  return reactive;
+}
+
+function createReactiveArrEl<T>(
+  get: () => T,
+  update: (updateFn: (oldValue: T) => T) => void,
+  remove: () => void,
+): ReactiveArrEl<T> {
+  const reactive: ReactiveArrEl<T> = {
+    get,
+    set: (newValue) => update(() => newValue),
+    update,
+    pipe: (fn) => fn(reactive),
+    remove,
   };
 
   return reactive;
@@ -88,6 +106,25 @@ export const arr = {
         arr.update(reactive, predicate, updateFn(element));
       },
     );
+  },
+  unpack: <T,>(reactive: ReactiveArr<T>): ReactiveArrEl<T>[] => {
+    return reactive.get().map((value, index) => {
+      return createReactiveArrEl<T>(
+        () => value,
+        (updateFn) => {
+          reactive.update((oldValue) => {
+            const newValue = [...oldValue];
+            newValue[index] = updateFn(value);
+            return newValue;
+          });
+        },
+        () => {
+          reactive.update((oldValue) =>
+            oldValue.slice(0, index).concat(oldValue.slice(index + 1)),
+          );
+        },
+      );
+    });
   },
 };
 
