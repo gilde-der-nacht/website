@@ -89,6 +89,11 @@ const participatingSchema = z.union([
 
 export type Participating = z.infer<typeof participatingSchema>;
 
+const programLinkSchema = z.object({
+  label: z.string(),
+  link: z.string(),
+});
+
 const programEntrySchema = z.object({
   uuid: z.string().uuid(),
   status: publishStateSchema,
@@ -99,6 +104,8 @@ const programEntrySchema = z.object({
   participating: participatingSchema,
   timeSlots: z.array(slotSchema),
   tagNames: z.string(),
+  materialLanguage: z.string(),
+  links: z.array(programLinkSchema),
 });
 
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
@@ -106,7 +113,7 @@ export type ProgramEntry = z.infer<typeof programEntrySchema>;
 const reservationEntrySchema = z.object({});
 
 const saveSchema = z.object({
-  version: z.literal(9),
+  version: z.literal(10),
   contact: contactSchema,
   config: z.object({
     wantsUpdates: z.boolean(),

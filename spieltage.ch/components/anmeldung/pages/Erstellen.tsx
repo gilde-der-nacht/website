@@ -65,6 +65,8 @@ export function Erstellen(props: {
               participating: { kind: "LIMITED", maxSeats: 6 },
               timeSlots: [],
               tagNames: "",
+              materialLanguage: "",
+              links: [],
             } satisfies ProgramEntry);
             navigate(props.link(`/erstellen/${uuid}`));
           }}

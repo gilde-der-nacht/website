@@ -156,6 +156,17 @@ function ErstellenDetailContent(props: {
               errors={errors().byField.tags ?? []}
               disabled={!props.isEditable}
             />
+
+            <TextInputField
+              value$={props.entry$.pipe(obj.sub("materialLanguage"))}
+              label="Sprache Spielmaterial"
+              name="materialLanguage"
+              showErrors={
+                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
+              }
+              errors={errors().byField.materialLanguage ?? []}
+              disabled={!props.isEditable}
+            />
           </form>
         </div>
         <div>
