@@ -78,6 +78,22 @@ export function getErrors(entry: ProgramEntry): Errors {
     });
   }
 
+  entry.links.forEach((link) => {
+    if (link.label.trim().length === 0) {
+      byField["links"] = [
+        ...(byField["links"] ?? []),
+        "Link ohne Label gefunden",
+      ];
+    }
+
+    if (!link.link.startsWith("https://")) {
+      byField["links"] = [
+        ...(byField["links"] ?? []),
+        "Alle Links müssen mit 'https://' starten",
+      ];
+    }
+  });
+
   const allErrors = Object.values(byField).flat();
 
   return {

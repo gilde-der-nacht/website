@@ -10,6 +10,7 @@ import {
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type {
+  Link,
   Participating,
   ProgramEntry,
   Slot,
@@ -167,6 +168,8 @@ function ErstellenDetailContent(props: {
               errors={errors().byField.materialLanguage ?? []}
               disabled={!props.isEditable}
             />
+
+            <LinkInput links$={props.entry$.pipe(obj.sub("links"))} />
           </form>
         </div>
         <div>
@@ -192,7 +195,7 @@ function ErstellenDetailContent(props: {
               }
               options={{
                 left: {
-                  label: "Entwurf",
+                  label: "Entwurf / Archiviert",
                   value: "draft",
                 },
                 right: {
@@ -320,19 +323,11 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
     <>
       <label>Zeitfenster</label>
       <ul role="list" class="link-list">
-        <Index each={props.slots$.get()}>
+        <Index each={arr.unpack(props.slots$)}>
           {(slot) => {
-            const el$ = arr.findExact(
-              props.slots$,
-              (s) => s.uuid === slot().uuid,
-            );
             return (
               <li>
-                <Box
-                  onClose={() =>
-                    arr.remove(props.slots$, (s) => s.uuid !== slot().uuid)
-                  }
-                >
+                <Box onClose={slot().remove}>
                   <div style="display: grid; gap: 1rem;">
                     <div>
                       <label>Tag</label>
@@ -340,48 +335,44 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
                         <Button
                           label="Samstag"
                           kind={
-                            slot().start.day === "SATURDAY" ? "success" : "gray"
+                            slot().get().start.day === "SATURDAY"
+                              ? "success"
+                              : "gray"
                           }
                           onClick={() => {
-                            arr
-                              .findExact(
-                                props.slots$,
-                                (s) => s.uuid === slot().uuid,
-                              )
-                              .update((s) => ({
-                                ...s,
-                                start: { ...s.start, day: "SATURDAY" },
-                                end: { ...s.end, day: "SATURDAY" },
-                              }));
+                            slot().update((s) => ({
+                              ...s,
+                              start: { ...s.start, day: "SATURDAY" },
+                              end: { ...s.end, day: "SATURDAY" },
+                            }));
                           }}
                         />
                         <Button
                           label="Sonntag"
                           kind={
-                            slot().start.day === "SUNDAY" ? "success" : "gray"
+                            slot().get().start.day === "SUNDAY"
+                              ? "success"
+                              : "gray"
                           }
                           onClick={() => {
-                            arr
-                              .findExact(
-                                props.slots$,
-                                (s) => s.uuid === slot().uuid,
-                              )
-                              .update((s) => ({
-                                ...s,
-                                start: { ...s.start, day: "SUNDAY" },
-                                end: { ...s.end, day: "SUNDAY" },
-                              }));
+                            slot().update((s) => ({
+                              ...s,
+                              start: { ...s.start, day: "SUNDAY" },
+                              end: { ...s.end, day: "SUNDAY" },
+                            }));
                           }}
                         />
                       </div>
                     </div>
                     <TextInputField
-                      value$={el$.pipe(obj.sub("start")).pipe(obj.sub("time"))}
+                      value$={slot()
+                        .pipe(obj.sub("start"))
+                        .pipe(obj.sub("time"))}
                       label="Start"
                       name="start"
                     />
                     <TextInputField
-                      value$={el$.pipe(obj.sub("end")).pipe(obj.sub("time"))}
+                      value$={slot().pipe(obj.sub("end")).pipe(obj.sub("time"))}
                       label="Ende"
                       name="end"
                     />
@@ -410,6 +401,52 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
             }
           >
             <h3>Neues Zeitfenster</h3>
+          </BoxLink>
+        </li>
+      </ul>
+    </>
+  );
+}
+
+function LinkInput(props: { links$: Reactive<Link[]> }): JSX.Element {
+  return (
+    <>
+      <label>Links</label>
+      <ul role="list" class="link-list">
+        <Index each={arr.unpack(props.links$)}>
+          {(link) => {
+            return (
+              <li>
+                <Box onClose={link().remove}>
+                  <div style="display: grid; gap: 1rem;">
+                    <TextInputField
+                      value$={link().pipe(obj.sub("label"))}
+                      label="Label"
+                      name="label"
+                    />
+                    <TextInputField
+                      value$={link().pipe(obj.sub("link"))}
+                      label="Link"
+                      name="link"
+                    />
+                  </div>
+                </Box>
+              </li>
+            );
+          }}
+        </Index>
+        <li>
+          <BoxLink
+            icon="circle-plus"
+            type="success"
+            onClick={() =>
+              arr.push(props.links$, {
+                label: "",
+                link: "",
+              })
+            }
+          >
+            <h3>Neuer Link</h3>
           </BoxLink>
         </li>
       </ul>

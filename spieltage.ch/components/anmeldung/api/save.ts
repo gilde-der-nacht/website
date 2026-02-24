@@ -94,6 +94,8 @@ const programLinkSchema = z.object({
   link: z.string(),
 });
 
+export type Link = z.infer<typeof programLinkSchema>;
+
 const programEntrySchema = z.object({
   uuid: z.string().uuid(),
   status: publishStateSchema,
