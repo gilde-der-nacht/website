@@ -1,6 +1,7 @@
 import {
   ErrorBoundary,
   For,
+  Index,
   Show,
   Suspense,
   type JSX,
@@ -299,17 +300,17 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
     <>
       <label>Zeitfenster</label>
       <ul role="list" class="link-list">
-        <For each={props.slots$.get()}>
+        <Index each={props.slots$.get()}>
           {(slot) => {
             const el$ = arr.findExact(
               props.slots$,
-              (s) => s.uuid === slot.uuid,
+              (s) => s.uuid === slot().uuid,
             );
             return (
               <li>
                 <Box
                   onClose={() =>
-                    arr.remove(props.slots$, (s) => s.uuid !== slot.uuid)
+                    arr.remove(props.slots$, (s) => s.uuid !== slot().uuid)
                   }
                 >
                   <div style="display: grid; gap: 1rem;">
@@ -319,13 +320,13 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
                         <Button
                           label="Samstag"
                           kind={
-                            slot.start.day === "SATURDAY" ? "success" : "gray"
+                            slot().start.day === "SATURDAY" ? "success" : "gray"
                           }
                           onClick={() => {
                             arr
                               .findExact(
                                 props.slots$,
-                                (s) => s.uuid === slot.uuid,
+                                (s) => s.uuid === slot().uuid,
                               )
                               .update((s) => ({
                                 ...s,
@@ -337,13 +338,13 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
                         <Button
                           label="Sonntag"
                           kind={
-                            slot.start.day === "SUNDAY" ? "success" : "gray"
+                            slot().start.day === "SUNDAY" ? "success" : "gray"
                           }
                           onClick={() => {
                             arr
                               .findExact(
                                 props.slots$,
-                                (s) => s.uuid === slot.uuid,
+                                (s) => s.uuid === slot().uuid,
                               )
                               .update((s) => ({
                                 ...s,
@@ -369,7 +370,7 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
               </li>
             );
           }}
-        </For>
+        </Index>
         <li>
           <BoxLink
             icon="circle-plus"
