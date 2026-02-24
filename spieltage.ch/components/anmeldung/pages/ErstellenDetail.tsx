@@ -38,6 +38,7 @@ import { TextareaField } from "@common/components/newForm/Textarea";
 import { SwitchCheckbox } from "@common/components/newForm/SwitchCheckbox";
 import { Button } from "@common/components/Button";
 import { BoxLink } from "@common/components/BoxLink";
+import { Temporal } from "@js-temporal/polyfill";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -265,7 +266,15 @@ function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
       tagNames: entry.tagNames,
     });
   });
-  return entries;
+
+  return entries.toSorted(
+    (a, b) =>
+      Temporal.PlainDateTime.compare(
+        a.timeSlot.startDate,
+        b.timeSlot.startDate,
+      ) ||
+      Temporal.PlainDateTime.compare(a.timeSlot.endDate, b.timeSlot.endDate),
+  );
 }
 
 function ParticipationInput(props: {
