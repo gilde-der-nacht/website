@@ -11,7 +11,9 @@ export type Errors = {
   byField: Record<string, string[]>;
 };
 
-export function getErrors(entry: ProgramEntry): Errors {
+export function getErrors(
+  entry: Omit<ProgramEntry, "uuid" | "status">,
+): Errors {
   const byField: Record<string, string[]> = {};
 
   if (entry.title.trim().length === 0) {

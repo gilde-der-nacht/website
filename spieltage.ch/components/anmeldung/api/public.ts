@@ -3,82 +3,70 @@ import {
   elysiumLoadPublic,
   type Result,
 } from "@lst/components/anmeldung/api/elysium";
-import type { PlainDateTimeRange } from "@common/utils/time";
-import { Temporal } from "@js-temporal/polyfill";
-import { parsePlainDateTime } from "@common/components/events";
+import { daySchema } from "@common/utils/time";
+import type { Temporal } from "@js-temporal/polyfill";
+import { defaultPlainDates } from "@lst/components/anmeldung/constant/time";
+import { parsePlainTime } from "@common/components/events";
+import { getErrors } from "@lst/components/anmeldung/constant/validation";
 
 /*
  * Types
  */
 
-const dateTimeRangeSchema = z
-  .object({
-    start: z.string(),
-    end: z.string(),
-  })
-  .transform((value, ctx): PlainDateTimeRange => {
-    const { start, end } = value;
-    const parsedStart = parsePlainDateTime(start);
-    const parsedEnd = parsePlainDateTime(end);
+const dateTimeRangeSchema = z.object({
+  start: z.object({
+    day: daySchema,
+    time: z.string(),
+  }),
+  end: z.object({
+    day: daySchema,
+    time: z.string(),
+  }),
+});
 
-    if (parsedStart.kind === "ERROR") {
-      ctx.addIssue({
-        code: "custom",
-        message: parsedStart.message,
-      });
-      return z.NEVER;
-    }
-
-    if (parsedEnd.kind === "ERROR") {
-      ctx.addIssue({
-        code: "custom",
-        message: parsedEnd.message,
-      });
-      return z.NEVER;
-    }
-
-    return {
-      startDate: Temporal.PlainDateTime.from({
-        year: parsedStart.value.year,
-        month: parsedStart.value.month,
-        day: parsedStart.value.day,
-        hour: parsedStart.value.hour,
-        minute: parsedStart.value.minute,
-      }),
-      endDate: Temporal.PlainDateTime.from({
-        year: parsedEnd.value.year,
-        month: parsedEnd.value.month,
-        day: parsedEnd.value.day,
-        hour: parsedEnd.value.hour,
-        minute: parsedEnd.value.minute,
-      }),
-    };
-  });
-
-const publicProgramEntrySchema = z.object({
+const publicProgramEntryRawSchema = z.object({
   uuid: z.string(),
   title: z.string(),
   organizer: z.string(),
-  timeSlot: dateTimeRangeSchema,
+  dateTimeRange: dateTimeRangeSchema,
   shortDescription: z.string(),
   longDescription: z.string(),
   participating: z.union([
     z.object({ kind: z.literal("NONE"), maxSeats: z.number() }),
-    z.object({ kind: z.literal("LIMITED"), maxSeats: z.number() }),
+    z.object({
+      kind: z.literal("LIMITED"),
+      maxSeats: z.number(),
+      reserved: z.array(z.string()),
+    }),
   ]),
   tagNames: z.string(),
+  materialLanguage: z.string(),
+  links: z.array(z.object({ label: z.string(), link: z.string() })),
 });
-export type PublicProgramEntry = z.infer<typeof publicProgramEntrySchema>;
+export type PublicProgramEntryRaw = z.infer<typeof publicProgramEntryRawSchema>;
+export type PublicProgramEntry = Omit<
+  PublicProgramEntryRaw,
+  "dateTimeRange"
+> & {
+  slot: {
+    day: Temporal.PlainDate;
+    start: Temporal.PlainTime;
+    end: Temporal.PlainTime;
+  };
+};
 
 const reservationsSchema = z.record(z.string(), z.number());
 export type Reservations = z.infer<typeof reservationsSchema>;
 
-const publicSchema = z.object({
-  programEntries: z.array(publicProgramEntrySchema),
+const publicRawSchema = z.object({
+  programEntries: z.array(publicProgramEntryRawSchema),
   reservations: reservationsSchema,
 });
 
-export type Public = z.infer<typeof publicSchema>;
+export type Public = {
+  programEntries: PublicProgramEntry[];
+  reservations: z.infer<typeof reservationsSchema>;
+};
 
 /*
  * Methods
@@ -94,9 +82,10 @@ export async function loadPublic(): Promise<Result<Public>> {
     };
   }
 
-  const parseResult = publicSchema.safeParse(program.data);
+  const parseResult = publicRawSchema.safeParse(program.data);
 
   if (!parseResult.success) {
+    console.error(parseResult.error);
     return {
       kind: "FAILURE",
     };
@@ -104,6 +93,53 @@ export async function loadPublic(): Promise<Result<Public>> {
 
   return {
     kind: "SUCCESS",
-    data: parseResult.data,
+    data: {
+      programEntries: parseResult.data.programEntries
+        .map(toPublic)
+        .filter((entry) => entry !== null),
+      reservations: parseResult.data.reservations,
+    },
   };
+}
+
+export function toPublic(
+  entry: PublicProgramEntryRaw,
+): PublicProgramEntry | null {
+  const {
+    dateTimeRange: { start, end },
+  } = entry;
+
+  const day = defaultPlainDates[start.day];
+  const parsedStartTime = parsePlainTime(start.time);
+  const parsedEndTime = parsePlainTime(end.time);
+
+  if (parsedStartTime.kind === "ERROR" || parsedEndTime.kind === "ERROR") {
+    return null;
+  }
+
+  const transformedEntry = {
+    ...entry,
+    slot: {
+      day,
+      start: parsedStartTime.value,
+      end: parsedEndTime.value,
+    },
+  } satisfies PublicProgramEntry;
+
+  const errors = getErrors({
+    ...transformedEntry,
+    timeSlots: [
+      {
+        uuid: entry.uuid,
+        start,
+        end,
+      },
+    ],
+  });
+
+  if (errors.hasErrors) {
+    return null;
+  }
+
+  return transformedEntry;
 }

@@ -17,6 +17,7 @@ import type {
 } from "@lst/components/anmeldung/api/save";
 import { useParams } from "@solidjs/router";
 import {
+  toPublic,
   type Public,
   type PublicProgramEntry,
 } from "@lst/components/anmeldung/api/public";
@@ -33,8 +34,6 @@ import {
   type Errors,
 } from "@lst/components/anmeldung/constant/validation";
 import { Entry } from "@lst/components/anmeldung/components/Entry";
-import { parsePlainTime } from "@common/components/events";
-import { defaultPlainDates } from "../constant/time";
 import { TextareaField } from "@common/components/newForm/Textarea";
 import { SwitchCheckbox } from "@common/components/newForm/SwitchCheckbox";
 import { Button } from "@common/components/Button";
@@ -58,7 +57,7 @@ export function ErstellenDetail(props: {
         {(publicData) => (
           <Show
             when={publicData().kind === "SUCCESS"}
-            fallback={<Box type="danger">{TXT.loading.program}</Box>}
+            fallback={<Box type="danger">{TXT.error.program}</Box>}
           >
             <ErrorBoundary
               fallback={
@@ -216,15 +215,16 @@ function ErstellenDetailContent(props: {
           <ul role="list" class="link-list">
             <For
               each={toSlots(props.entry$.get())}
-              fallback={<em>Keine (gültigen) Zeitslots gefunden</em>}
+              fallback={
+                <em>
+                  {errors().hasErrors
+                    ? "Korrigiere die Fehler, um eine Vorschau zu erhalten."
+                    : "Keine (gültigen) Zeitslots gefunden."}
+                </em>
+              }
             >
               {(entry) => (
-                <Entry
-                  entry={entry}
-                  basePath="/programm"
-                  link={props.link}
-                  reservations={0}
-                />
+                <Entry entry={entry} basePath="/programm" link={props.link} />
               )}
             </For>
           </ul>
@@ -254,40 +254,36 @@ function ErrorSummary(props: { errors: Errors }): JSX.Element {
 function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
   const entries: PublicProgramEntry[] = [];
   entry.timeSlots.forEach((slot) => {
-    const parsedStartTime = parsePlainTime(slot.start.time);
-    const parsedEndTime = parsePlainTime(slot.end.time);
-    if (parsedStartTime.kind === "ERROR" || parsedEndTime.kind === "ERROR") {
-      return;
-    }
-
-    entries.push({
+    const transformedPublic = toPublic({
       uuid: slot.uuid,
       title: entry.title,
       organizer: entry.organizer,
-      timeSlot: {
-        startDate: defaultPlainDates[slot.start.day].toPlainDateTime({
-          hour: parsedStartTime.value.hour,
-          minute: parsedStartTime.value.minute,
-        }),
-        endDate: defaultPlainDates[slot.end.day].toPlainDateTime({
-          hour: parsedEndTime.value.hour,
-          minute: parsedEndTime.value.minute,
-        }),
-      },
+      dateTimeRange: slot,
       shortDescription: entry.shortDescription,
       longDescription: entry.longDescription,
-      participating: entry.participating,
+      participating:
+        entry.participating.kind === "NONE"
+          ? entry.participating
+          : {
+              kind: "LIMITED",
+              maxSeats: entry.participating.maxSeats,
+              reserved: [],
+            },
       tagNames: entry.tagNames,
+      materialLanguage: entry.materialLanguage,
+      links: entry.links,
     });
+
+    if (transformedPublic !== null) {
+      entries.push(transformedPublic);
+    }
   });
 
   return entries.toSorted(
     (a, b) =>
-      Temporal.PlainDateTime.compare(
-        a.timeSlot.startDate,
-        b.timeSlot.startDate,
-      ) ||
-      Temporal.PlainDateTime.compare(a.timeSlot.endDate, b.timeSlot.endDate),
+      Temporal.PlainDate.compare(a.slot.day, b.slot.day) ||
+      Temporal.PlainTime.compare(a.slot.start, b.slot.start) ||
+      Temporal.PlainTime.compare(a.slot.end, b.slot.end),
   );
 }
 

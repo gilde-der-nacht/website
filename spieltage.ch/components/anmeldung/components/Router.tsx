@@ -120,7 +120,11 @@ export function Router(props: {
               saveState={store$.get().meta.saveState}
               lastSaved={store$.get().meta.lastSaved}
             >
-              <Programm />
+              <Programm
+                save$={store$.pipe(obj.sub("save"))}
+                publicResource={publicResource}
+                link={link}
+              />
             </Layout>
           ),
         },

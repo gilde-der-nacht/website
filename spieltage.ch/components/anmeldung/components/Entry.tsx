@@ -9,7 +9,6 @@ import { A } from "@solidjs/router";
 
 export function Entry(props: {
   entry: PublicProgramEntry;
-  reservations: number;
   basePath: string;
   link: (path: string) => string;
 }): JSX.Element {
@@ -24,9 +23,9 @@ export function Entry(props: {
         <div class="event-tags">
           <strong>Tag, Zeit:</strong>
           <span>
-            {TXT.days[getDay(props.entry.timeSlot.startDate) ?? "FRIDAY"]},{" "}
-            {formatTime(props.entry.timeSlot.startDate.toPlainTime())} -{" "}
-            {formatTime(props.entry.timeSlot.endDate.toPlainTime())} Uhr
+            {TXT.days[getDay(props.entry.slot.day) ?? "FRIDAY"]},{" "}
+            {formatTime(props.entry.slot.start)} -{" "}
+            {formatTime(props.entry.slot.end)} Uhr
           </span>
         </div>
         <div class="event-tags">
@@ -36,7 +35,8 @@ export function Entry(props: {
             <>
               <strong>Freie Plätze:</strong>{" "}
               {Math.max(
-                props.entry.participating.maxSeats - props.reservations,
+                props.entry.participating.maxSeats -
+                  props.entry.participating.reserved.length,
                 0,
               )}{" "}
               (von {props.entry.participating.maxSeats})

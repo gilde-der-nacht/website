@@ -49,7 +49,7 @@ export function Zusammenfassung(props: {
           {(publicData) => (
             <Show
               when={publicData().kind === "SUCCESS"}
-              fallback={<Box type="danger">{TXT.loading.program}</Box>}
+              fallback={<Box type="danger">{TXT.error.program}</Box>}
             >
               <Timeview
                 save={props.save$.get()}
