@@ -11,7 +11,6 @@ export function Layout(
     title?: string;
     showQuickmenu?: boolean;
     roles: Roles;
-    link: (path: string) => string;
     saveState: SaveState;
     lastSaved: Date;
     parentPath?: string;
@@ -22,7 +21,6 @@ export function Layout(
       {props.showQuickmenu !== false ? (
         <QuickMenu
           roles={props.roles}
-          link={props.link}
           saveState={props.saveState}
           lastSaved={props.lastSaved}
           parentPath={props.parentPath ?? "/"}
@@ -41,7 +39,6 @@ export function Layout(
         <div class="extended-wrapper" style="margin-block-start: 1rem;">
           <QuickMenuExtended
             roles={props.roles}
-            link={props.link}
             saveState={props.saveState}
             lastSaved={props.lastSaved}
             parentPath={props.parentPath ?? "/"}

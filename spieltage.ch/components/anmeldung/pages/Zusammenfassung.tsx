@@ -23,7 +23,6 @@ import { Checkbox } from "@common/components/newForm/Checkbox";
 export function Zusammenfassung(props: {
   save$: Reactive<Save>;
   publicResource: Resource<Result<Public>>;
-  link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
   return (
@@ -54,7 +53,6 @@ export function Zusammenfassung(props: {
               <Timeview
                 save={props.save$.get()}
                 publicState={(publicData() as { data: Public }).data}
-                link={props.link}
               />
             </Show>
           )}

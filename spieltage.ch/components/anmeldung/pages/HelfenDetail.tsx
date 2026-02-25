@@ -18,7 +18,7 @@ import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { Box, SimpleBox } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type { HelpingReservation } from "@lst/components/anmeldung/api/save";
-import { A, useParams } from "@solidjs/router";
+import { useParams } from "@solidjs/router";
 import {
   type Public,
   type Reservations,
@@ -27,11 +27,11 @@ import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { getDay } from "@lst/components/anmeldung/constant/time";
 import { assert } from "@common/components/utils";
 import { arr, type Reactive } from "@common/utils/reactivity";
+import { Link } from "@common/components/Link";
 
 export function HelfenDetail(props: {
   reservations$: Reactive<HelpingReservation[]>;
   publicResource: Resource<Result<Public>>;
-  link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
@@ -76,7 +76,6 @@ export function HelfenDetail(props: {
                       (r) => r.uuid !== reservationUuid,
                     );
                   }}
-                  link={props.link}
                 />
               )}
             </Show>
@@ -94,7 +93,6 @@ function HelfenDetailContent(props: {
   isEditable: boolean;
   addReservation: (reservation: HelpingReservation) => void;
   removeReservation: (reservationUuid: string) => void;
-  link: (path: string) => string;
 }): JSX.Element {
   const { dateTime, kind } = props.entry;
   const helpType = helpTypes[kind];
@@ -133,9 +131,9 @@ function HelfenDetailContent(props: {
     <>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between;">
         <h3>{helpType.title}</h3>
-        <A href={props.link("/helfen")} class="button-link">
+        <Link href="/helfen" class="button-link">
           <ButtonWithIcon icon="backward" label="Zurück zur Helfer-Übersicht" />
-        </A>
+        </Link>
       </div>
       <div class="game-dialog">
         <ul role="list" style="display: grid; gap: 0.5rem;">

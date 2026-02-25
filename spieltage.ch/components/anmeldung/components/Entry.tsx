@@ -5,12 +5,11 @@ import { ellipsis } from "@common/components/utils";
 import { getDay } from "@lst/components/anmeldung/constant/time";
 import { formatTime } from "@common/utils/time";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
-import { A } from "@solidjs/router";
+import { Link } from "@common/components/Link";
 
 export function Entry(props: {
   entry: PublicProgramEntry;
   basePath: string;
-  link: (path: string) => string;
 }): JSX.Element {
   return (
     <li class="event-entry">
@@ -65,14 +64,14 @@ export function Entry(props: {
       </div>
       <ul role="list" class="event-links">
         <li>
-          <A
-            href={props.link(`${props.basePath}/${props.entry.uuid}`)}
+          <Link
+            href={`${props.basePath}/${props.entry.uuid}`}
             class="button-link"
           >
             <button class="event-link">
               <span>Details & Teilnahme</span>
             </button>
-          </A>
+          </Link>
         </li>
       </ul>
     </li>

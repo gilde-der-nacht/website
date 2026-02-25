@@ -43,7 +43,6 @@ import { Temporal } from "@js-temporal/polyfill";
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
   publicResource: Resource<Result<Public>>;
-  link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
@@ -72,7 +71,6 @@ export function ErstellenDetail(props: {
                   (e) => e.uuid === uuid,
                 )}
                 isEditable={props.isEditable}
-                link={props.link}
               />
             </ErrorBoundary>
           </Show>
@@ -85,7 +83,6 @@ export function ErstellenDetail(props: {
 function ErstellenDetailContent(props: {
   entry$: Reactive<ProgramEntry>;
   isEditable: boolean;
-  link: (path: string) => string;
 }): JSX.Element {
   const errors = () => getErrors(props.entry$.get());
 
@@ -223,9 +220,7 @@ function ErstellenDetailContent(props: {
                 </em>
               }
             >
-              {(entry) => (
-                <Entry entry={entry} basePath="/programm" link={props.link} />
-              )}
+              {(entry) => <Entry entry={entry} basePath="/programm" />}
             </For>
           </ul>
         </div>

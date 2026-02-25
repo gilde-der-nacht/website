@@ -19,7 +19,6 @@ import {
 } from "@lst/components/anmeldung/constant/helping";
 import { IconOnlyButton } from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
-import { A, useNavigate } from "@solidjs/router";
 import type { HelpingReservation } from "@lst/components/anmeldung/api/save";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
@@ -35,12 +34,12 @@ import { getDay } from "@lst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import { Temporal } from "@js-temporal/polyfill";
 import type { Reactive } from "@common/utils/reactivity";
+import { Link } from "@common/components/Link";
 
 export function Helfen(props: {
   reservations$: Reactive<HelpingReservation[]>;
   publicResource: Resource<Result<Public>>;
   isEditable: boolean;
-  link: (path: string) => string;
   roles: Roles;
 }): JSX.Element {
   const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
@@ -54,15 +53,15 @@ export function Helfen(props: {
           jeweiligen Stunde auf das Handsymbol <Icon icon="hand-heart" />.
         </p>
         <Show when={props.roles.includes("admin")}>
-          <A
-            href={props.link("/helfen/admin")}
+          <Link
+            href="/helfen/admin"
             class="button-link"
             style="margin-block-end: 1rem; padding: 0;"
           >
             <BoxLink icon="forward" type="danger">
               <h4>Helfer-Übersicht (Admin)</h4>
             </BoxLink>
-          </A>
+          </Link>
         </Show>
       </div>
       <br />
@@ -83,15 +82,15 @@ export function Helfen(props: {
           bekannten Spiele aus der Spiele-Bibliothek. Diese Erklärbären sind
           durch ihr rotes T-Shirt erkennbar.
         </p>
-        <A
-          href={props.link("/erklaerbaer")}
+        <Link
+          href="/erklaerbaer"
           class="button-link"
           style="margin-block-end: 1rem; padding: 0;"
         >
           <BoxLink icon="forward" type="success">
             <h4>Zur Anmeldung für Erklärbären</h4>
           </BoxLink>
-        </A>
+        </Link>
       </div>
 
       <br />
@@ -120,7 +119,6 @@ export function Helfen(props: {
                   (publicData() as { data: Public }).data.reservations
                 }
                 isEditable={props.isEditable}
-                link={props.link}
                 dayFilter={dayFilter()}
               />
             </Show>
@@ -135,7 +133,6 @@ function HelpingContent(props: {
   myHelpReservations: HelpingReservation[];
   allReservations: Reservations;
   isEditable: boolean;
-  link: (path: string) => string;
   dayFilter: ProgramDay | null;
 }): JSX.Element {
   const alreadyReservedUuids = (): string[] => {
@@ -149,21 +146,18 @@ function HelpingContent(props: {
         entries: helpTimes,
         alreadyReservedUuids: alreadyReservedUuids(),
         myReservations: props.myHelpReservations,
-        link: props.link,
       }),
       SATURDAY: aggregateEntries({
         day: "SATURDAY",
         entries: helpTimes,
         alreadyReservedUuids: alreadyReservedUuids(),
         myReservations: props.myHelpReservations,
-        link: props.link,
       }),
       SUNDAY: aggregateEntries({
         day: "SUNDAY",
         entries: helpTimes,
         alreadyReservedUuids: alreadyReservedUuids(),
         myReservations: props.myHelpReservations,
-        link: props.link,
       }),
     }) satisfies PerDay<ProgramEntryTimetableView[]>;
 
@@ -183,9 +177,7 @@ function aggregateEntries(props: {
   entries: HelpEntry[];
   alreadyReservedUuids: string[];
   myReservations: HelpingReservation[];
-  link: (path: string) => string;
 }): ProgramEntryTimetableView[] {
-  const navigate = useNavigate();
   const timetableView: ProgramEntryTimetableView[] = [];
   const frequencies = uuidFrequencies(props.alreadyReservedUuids);
 
@@ -229,36 +221,30 @@ function aggregateEntries(props: {
     timetableView.push({
       range,
       component: () => (
-        <div
-          class={classes()}
-          onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
-        >
-          <Chip
-            title="Helfer:innen gesucht"
-            inverted={helpingMyself()}
-            size="small"
-          >
-            HL
-          </Chip>
-          <IconOnlyButton
-            icon="hand-heart"
-            kind="ghost"
-            onClick={() => navigate(props.link(`/helfen/${entry.uuid}`))}
-            title="Helfen"
-          />
-          <h5 title={helpTypes[entry.kind].title}>
-            {helpTypes[entry.kind].title}
-          </h5>
-          <p class="duration">
-            <span>
-              {range.startTime.hour}-{range.endTime.hour}
-              &nbsp;Uhr |{" "}
-            </span>
-            <em>
-              {entry.count - emptySeats()}&nbsp;/&nbsp;{entry.count}
-            </em>
-          </p>
-        </div>
+        <Link href={`/helfen/${entry.uuid}`}>
+          <div class={classes()}>
+            <Chip
+              title="Helfer:innen gesucht"
+              inverted={helpingMyself()}
+              size="small"
+            >
+              HL
+            </Chip>
+            <IconOnlyButton icon="hand-heart" kind="ghost" title="Helfen" />
+            <h5 title={helpTypes[entry.kind].title}>
+              {helpTypes[entry.kind].title}
+            </h5>
+            <p class="duration">
+              <span>
+                {range.startTime.hour}-{range.endTime.hour}
+                &nbsp;Uhr |{" "}
+              </span>
+              <em>
+                {entry.count - emptySeats()}&nbsp;/&nbsp;{entry.count}
+              </em>
+            </p>
+          </div>
+        </Link>
       ),
     });
   });

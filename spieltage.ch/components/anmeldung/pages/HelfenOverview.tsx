@@ -21,7 +21,6 @@ import { getDay } from "@lst/components/anmeldung/constant/time";
 export function HelfenOverview(props: {
   reservations$: Reactive<HelpingReservation[]>;
   adminResource: Resource<Result<PublicAdmin>>;
-  link: (path: string) => string;
   roles: Roles;
 }): JSX.Element {
   return (

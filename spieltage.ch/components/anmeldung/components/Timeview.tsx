@@ -30,19 +30,14 @@ import { assert } from "@common/components/utils";
 import type { IconType } from "@common/components/Icon";
 import { Chip } from "@common/components/Chip";
 import { IconOnlyButton } from "@common/components/Button";
-import { A } from "@solidjs/router";
+import { Link } from "@common/components/Link";
 
 export function Timeview(props: {
   save: Save;
   publicState: Public;
-  link: (path: string) => string;
 }): JSX.Element {
   const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
-  const personalProgram = aggregateEntries(
-    props.save,
-    props.publicState,
-    props.link,
-  );
+  const personalProgram = aggregateEntries(props.save, props.publicState);
 
   const excludedDays = getExcludedDays(personalProgram);
   const hours = getOpeningHours(personalProgram);
@@ -72,7 +67,6 @@ export function Timeview(props: {
 function aggregateEntries(
   save: Save,
   _publicState: Public,
-  link: (path: string) => string,
 ): PerDay<ProgramEntryTimetableView[]> {
   const { helping } = save;
 
@@ -165,13 +159,7 @@ function aggregateEntries(
     aggregation[day].push({
       range,
       component: () => (
-        <TimeviewEntry
-          title={title}
-          range={range}
-          kind="help"
-          path={path}
-          link={link}
-        />
+        <TimeviewEntry title={title} range={range} kind="help" path={path} />
       ),
     });
   });
@@ -210,7 +198,6 @@ function TimeviewEntry(props: {
   range: PlainTimeRange;
   kind: TimeviewKind;
   path: string;
-  link: (path: string) => string;
 }): JSX.Element {
   const labels = (
     {
@@ -279,11 +266,7 @@ function TimeviewEntry(props: {
 
   return (
     <div class={classes()}>
-      <A
-        href={props.link(props.path)}
-        class={`button-link`}
-        style="display: contents;"
-      >
+      <Link href={props.path} class={`button-link`} style="display: contents;">
         <Chip title={labels.help} inverted={props.kind !== "help"} size="small">
           {labels.label}
         </Chip>
@@ -302,7 +285,7 @@ function TimeviewEntry(props: {
             </small>
           </em>
         </p>
-      </A>
+      </Link>
     </div>
   );
 }

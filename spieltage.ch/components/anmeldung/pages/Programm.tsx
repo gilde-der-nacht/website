@@ -10,7 +10,6 @@ import { Entry } from "@lst/components/anmeldung/components/Entry";
 export function Programm(props: {
   save$: Reactive<Save>;
   publicResource: Resource<Result<Public>>;
-  link: (path: string) => string;
 }): JSX.Element {
   return (
     <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
@@ -26,7 +25,6 @@ export function Programm(props: {
             <ProgramView
               save={props.save$.get()}
               publicState={(publicData() as { data: Public }).data}
-              link={props.link}
             />
           </Show>
         )}
@@ -35,17 +33,11 @@ export function Programm(props: {
   );
 }
 
-function ProgramView(props: {
-  save: Save;
-  publicState: Public;
-  link: (path: string) => string;
-}): JSX.Element {
+function ProgramView(props: { save: Save; publicState: Public }): JSX.Element {
   return (
     <ul role="list" class="event-list">
       <For each={props.publicState.programEntries}>
-        {(entry) => (
-          <Entry entry={entry} basePath="/programm" link={props.link} />
-        )}
+        {(entry) => <Entry entry={entry} basePath="/programm" />}
       </For>
     </ul>
   );

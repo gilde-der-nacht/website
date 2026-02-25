@@ -2,17 +2,16 @@ import { For, Show, type JSX } from "solid-js";
 import type { ProgramEntry } from "@lst/components/anmeldung/api/save";
 import { BoxLink } from "@common/components/BoxLink";
 import { TXT } from "@common/utils/texts";
-import { A, useNavigate } from "@solidjs/router";
 import { arr, type Reactive } from "@common/utils/reactivity";
 import { Chip } from "@common/components/Chip";
 import { getErrors } from "@lst/components/anmeldung/constant/validation";
+import { Link, useLink } from "@common/components/Link";
 
 export function Erstellen(props: {
   programEntries$: Reactive<ProgramEntry[]>;
-  link: (path: string) => string;
   isEditable: boolean;
 }): JSX.Element {
-  const navigate = useNavigate();
+  const navigate = useLink();
 
   return (
     <>
@@ -22,10 +21,7 @@ export function Erstellen(props: {
             const errors = getErrors(entry);
             return (
               <li>
-                <A
-                  href={props.link(`/erstellen/${entry.uuid}`)}
-                  class="button-link"
-                >
+                <Link href={`/erstellen/${entry.uuid}`} class="button-link">
                   <BoxLink
                     icon={
                       errors.hasErrors ? "triangle-exclamation" : "arrow-right"
@@ -42,7 +38,7 @@ export function Erstellen(props: {
                       {errors.hasErrors ? <span> mit Fehlern</span> : ""}
                     </Chip>
                   </BoxLink>
-                </A>
+                </Link>
               </li>
             );
           }}
@@ -68,7 +64,8 @@ export function Erstellen(props: {
               materialLanguage: "",
               links: [],
             } satisfies ProgramEntry);
-            navigate(props.link(`/erstellen/${uuid}`));
+
+            navigate(`/erstellen/${uuid}`);
           }}
         >
           <h3>{TXT.createNewGameRound}</h3>
