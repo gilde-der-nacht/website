@@ -5,7 +5,6 @@ import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";
-import { ExitSpa } from "@common/components/ExitSpa";
 
 type Store = {
   form: { name: string; email: string; mobile: string };
@@ -159,7 +158,7 @@ export function Anmeldung(): JSX.Element {
             Diese E-Mail wird bereits verwendet. Du solltest einen persönlichen
             Link erhalten haben, um deine fortzusetzen. Benötigst du Hilfe, dann
             kontaktiere uns bitte über das{" "}
-            <ExitSpa href="/kontakt">Kontaktformular</ExitSpa> oder unseren{" "}
+            <a href="/kontakt">Kontaktformular</a> oder unseren{" "}
             <a href="/chat">Chat</a>.
           </Box>
         </Show>
@@ -186,8 +185,7 @@ export function Anmeldung(): JSX.Element {
         <div style="margin-block-start: 1rem;">
           <Box type="danger">
             Es gab ein Problem, das wir nicht erwartet haben. Bitte versuche es
-            erneut oder{" "}
-            <ExitSpa href="/kontakt">kontaktiere uns direkt</ExitSpa>.
+            erneut oder <a href="/kontakt">kontaktiere uns direkt</a>.
           </Box>
         </div>
       </Show>

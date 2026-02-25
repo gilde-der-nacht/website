@@ -35,7 +35,6 @@ import { getDay } from "@lst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import { Temporal } from "@js-temporal/polyfill";
 import type { Reactive } from "@common/utils/reactivity";
-import { ExitSpa } from "@common/components/ExitSpa";
 
 export function Helfen(props: {
   reservations$: Reactive<HelpingReservation[]>;
@@ -70,7 +69,7 @@ export function Helfen(props: {
 
       <Box type="special">
         Melde bitte 15 Minuten vor Schichtbeginn bei einem OK-Mitglied, beim{" "}
-        <ExitSpa href="/adresse">Eingang zum Würzenbachsaal.</ExitSpa>
+        <a href="/adresse">Eingang zum Würzenbachsaal.</a>
       </Box>
 
       <br />

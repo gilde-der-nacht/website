@@ -12,7 +12,6 @@ import { RadioGroup } from "@common/components/Radio";
 import { InputInteger } from "@common/components/Input";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
 import { openingHours } from "@lst/components/anmeldung/constant/time";
-import { ExitSpa } from "@common/components/ExitSpa";
 import { arr, obj, type Reactive } from "@common/utils/reactivity";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import type {
@@ -122,9 +121,9 @@ function ErklaerbaerJobs(props: {
         fallback={
           <Box>
             <p>
-              Bitte nimm mit uns <ExitSpa href="/kontakt">Kontakt</ExitSpa> auf,
-              damit wir uns kurz mit dir absprechen und dir diesen Bereich
-              freischalten können.
+              Bitte nimm mit uns <a href="/kontakt">Kontakt</a> auf, damit wir
+              uns kurz mit dir absprechen und dir diesen Bereich freischalten
+              können.
             </p>
           </Box>
         }
