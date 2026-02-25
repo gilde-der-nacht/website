@@ -5,7 +5,7 @@ import type { Save } from "@lst/components/anmeldung/api/save";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import type { Public } from "@lst/components/anmeldung/api/public";
 import { TXT } from "@common/utils/texts";
-import { Entry } from "../components/Entry";
+import { Entry } from "@lst/components/anmeldung/components/Entry";
 
 export function Programm(props: {
   save$: Reactive<Save>;

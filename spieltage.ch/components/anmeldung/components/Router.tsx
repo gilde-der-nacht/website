@@ -23,6 +23,7 @@ import { ErstellenDetail } from "@lst/components/anmeldung/pages/ErstellenDetail
 import { createReactive, obj } from "@common/utils/reactivity";
 import { loadAdmin } from "@lst/components/anmeldung/api/admin";
 import { HelfenOverview } from "@lst/components/anmeldung/pages/HelfenOverview";
+import { ProgrammDetail } from "@lst/components/anmeldung/pages/ProgrammDetail";
 
 export function Router(props: {
   initState: LoadSave;
@@ -124,6 +125,28 @@ export function Router(props: {
                 save$={store$.pipe(obj.sub("save"))}
                 publicResource={publicResource}
                 link={link}
+              />
+            </Layout>
+          ),
+        },
+        {
+          path: "/programm/:uuid",
+          component: () => (
+            <Layout
+              link={link}
+              roles={store$.get().meta.roles}
+              saveState={store$.get().meta.saveState}
+              lastSaved={store$.get().meta.lastSaved}
+              showQuickmenu={true}
+              parentPath="/programm"
+            >
+              <ProgrammDetail
+                reservations$={store$
+                  .pipe(obj.sub("save"))
+                  .pipe(obj.sub("helping"))}
+                publicResource={publicResource}
+                link={link}
+                isEditable={props.initState.status === "published"}
               />
             </Layout>
           ),

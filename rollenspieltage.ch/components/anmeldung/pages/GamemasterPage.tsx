@@ -13,7 +13,7 @@ import { gameTags } from "@rst/components/anmeldung/constant/tags";
 import { ellipsis } from "@common/components/utils";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/forms/validation";
 import { Checkbox } from "@common/components/Checkbox";
-import { sortByDateTimeWindow } from "../utils/time";
+import { sortByDateTimeWindow } from "@rst/components/anmeldung/utils/time";
 
 export function GamemasterPage(props: {
   store: Store<MasterClient>;
