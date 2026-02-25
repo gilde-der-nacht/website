@@ -129,9 +129,13 @@ function HelfenDetailContent(props: {
 
   return (
     <>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between;">
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
         <h3>{helpType.title}</h3>
-        <Link href="/helfen" class="button-link">
+        <Link
+          href="/helfen"
+          class="button-link"
+          style="margin-inline-start: auto;"
+        >
           <ButtonWithIcon icon="backward" label="Zurück zur Helfer-Übersicht" />
         </Link>
       </div>

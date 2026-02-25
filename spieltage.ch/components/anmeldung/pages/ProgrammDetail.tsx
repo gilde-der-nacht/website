@@ -7,35 +7,26 @@ import {
   type JSX,
   type Resource,
 } from "solid-js";
-import {
-  findHelpEntryByUuid,
-  helpTypes,
-  type HelpEntry,
-} from "@lst/components/anmeldung/constant/helping";
-import { formatTime, toRange } from "@common/utils/time";
-import { InputButton } from "@common/components/InputButton";
-import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { Box, SimpleBox } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
-import type { HelpingReservation } from "@lst/components/anmeldung/api/save";
 import { useParams } from "@solidjs/router";
 import {
   type Public,
-  type Reservations,
+  type PublicProgramEntry,
 } from "@lst/components/anmeldung/api/public";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
-import { getDay } from "@lst/components/anmeldung/constant/time";
-import { assert } from "@common/components/utils";
-import { arr, type Reactive } from "@common/utils/reactivity";
 import { Link } from "@common/components/Link";
+import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
+import { formatTime } from "@common/utils/time";
+import { getDay } from "@lst/components/anmeldung/constant/time";
+import type { HelpingReservation } from "../api/save";
+import { InputButton } from "@common/components/InputButton";
 
 export function ProgrammDetail(props: {
-  reservations$: Reactive<HelpingReservation[]>;
   publicResource: Resource<Result<Public>>;
   isEditable: boolean;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
-  const entry = findHelpEntryByUuid(uuid);
 
   return (
     <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
@@ -49,33 +40,15 @@ export function ProgrammDetail(props: {
             fallback={<Box type="danger">{TXT.loading.program}</Box>}
           >
             <Show
-              when={entry}
-              fallback={
-                <Box type="danger">
-                  <p>Details konnten nicht geladen werden.</p>
-                </Box>
-              }
+              when={(publicData() as { data: Public }).data.programEntries.find(
+                (e) => e.uuid === uuid,
+              )}
+              fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
             >
-              {(e) => (
-                <HelfenDetailContent
-                  entry={e()}
-                  myHelpReservations={props.reservations$.get()}
-                  allReservations={
-                    (publicData() as { data: Public }).data.reservations
-                  }
+              {(entry) => (
+                <ProgramDetailContent
+                  entry={entry()}
                   isEditable={props.isEditable}
-                  addReservation={(reservation) =>
-                    arr.push(props.reservations$, {
-                      ...reservation,
-                      uuid: crypto.randomUUID(),
-                    })
-                  }
-                  removeReservation={(reservationUuid) => {
-                    arr.remove(
-                      props.reservations$,
-                      (r) => r.uuid !== reservationUuid,
-                    );
-                  }}
                 />
               )}
             </Show>
@@ -86,53 +59,49 @@ export function ProgrammDetail(props: {
   );
 }
 
-function HelfenDetailContent(props: {
-  entry: HelpEntry;
-  myHelpReservations: HelpingReservation[];
-  allReservations: Reservations;
+function ProgramDetailContent(props: {
+  entry: PublicProgramEntry;
   isEditable: boolean;
-  addReservation: (reservation: HelpingReservation) => void;
-  removeReservation: (reservationUuid: string) => void;
 }): JSX.Element {
-  const { dateTime, kind } = props.entry;
-  const helpType = helpTypes[kind];
-  const day = getDay(dateTime.startDate);
-  assert(
-    day !== null,
-    `Date '${JSON.stringify(dateTime.startDate)}' is not a valid event date.`,
-  );
+  const day = getDay(props.entry.slot.day) ?? "FRIDAY";
 
-  const myHelpReservations = () =>
-    props.myHelpReservations.filter(
-      (r) => "helpEntryUuid" in r && r.helpEntryUuid === props.entry.uuid,
-    );
+  // TODO
+  // const range = () =>
+  // props.entry.participating.kind === "NONE"
+  // ? null
+  // : toRange(props.entry.participating.maxSeats).map((i) => {
+  // const myReservation = myHelpReservations()[i];
+  // if (myReservation !== undefined) {
+  // return myReservation;
+  // }
+  // if (props.entry.count - externalReserved <= i) {
+  // return { kind: "RESERVED_OTHER" } as const;
+  // }
+  // return { kind: "FREE" } as const;
+  // });
+  const range = (): (
+    | HelpingReservation
+    | { kind: "RESERVED_OTHER" | "FREE" }
+  )[] => [];
 
-  const externalReserved =
-    (props.allReservations[props.entry.uuid] ?? 0) -
-    myHelpReservations().length;
-
-  const range = () =>
-    toRange(props.entry.count).map((i) => {
-      const myReservation = myHelpReservations()[i];
-      if (myReservation !== undefined) {
-        return myReservation;
-      }
-      if (props.entry.count - externalReserved <= i) {
-        return { kind: "RESERVED_OTHER" } as const;
-      }
-      return { kind: "FREE" } as const;
-    });
-
-  const hasReservedForThemselves = (): boolean => {
-    return myHelpReservations().find((r) => r.kind === "SELF") !== undefined;
-  };
+  //TODO
+  // const hasReservedForThemselves = (): boolean => {
+  // return myHelpReservations().find((r) => r.kind === "SELF") !== undefined;
+  const hasReservedForThemselves = () => false;
 
   return (
     <>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between;">
-        <h3>{helpType.title}</h3>
-        <Link href="/helfen" class="button-link">
-          <ButtonWithIcon icon="backward" label="Zurück zur Helfer-Übersicht" />
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+        <h3>{props.entry.title}</h3>{" "}
+        <Link
+          href="/programm"
+          class="button-link"
+          style="margin-inline-start: auto;"
+        >
+          <ButtonWithIcon
+            icon="backward"
+            label="Zurück zur Programm-Übersicht"
+          />
         </Link>
       </div>
       <div class="game-dialog">
@@ -141,17 +110,27 @@ function HelfenDetailContent(props: {
             <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
             <br />
             {TXT.days[day]},{" "}
-            {formatTime(dateTime.startDate.toPlainTime(), { minutes: false })} -{" "}
-            {formatTime(dateTime.endDate.toPlainTime(), { minutes: false })} Uhr
+            {formatTime(props.entry.slot.start, { minutes: false })} -{" "}
+            {formatTime(props.entry.slot.end, { minutes: false })} Uhr
           </li>
           <li>
-            <strong style="color: var(--clr-accent-1);">Beschreibung:</strong>{" "}
+            <strong style="color: var(--clr-accent-1);">
+              Kurze Beschreibung:
+            </strong>{" "}
             <br />
-            {helpType.description}
+            {props.entry.shortDescription}
+          </li>
+          <li>
+            <strong style="color: var(--clr-accent-1);">
+              Lange Beschreibung:
+            </strong>{" "}
+            <br />
+            {props.entry.longDescription}
           </li>
         </ul>
         <div class="reservations">
           <h5 style="margin-block-start: 0">Plätze reservieren</h5>
+          <code>TODO</code>
           <div class="reservation-table">
             <For each={range()}>
               {(seat, i) => (
@@ -170,13 +149,13 @@ function HelfenDetailContent(props: {
                           <p>Reserviert für mich </p>
                           <IconOnlyButton
                             icon="trash"
-                            onClick={() =>
-                              props.removeReservation(
-                                seat.kind === "SELF"
-                                  ? seat.uuid
-                                  : "should not happen",
-                              )
-                            }
+                            onClick={() => {
+                              // props.removeReservation(
+                              //   seat.kind === "SELF"
+                              //     ? seat.uuid
+                              //     : "should not happen",
+                              // )
+                            }}
                           />
                         </div>
                       </SimpleBox>
@@ -193,12 +172,13 @@ function HelfenDetailContent(props: {
                           </p>
                           <IconOnlyButton
                             icon="trash"
-                            onClick={() =>
-                              props.removeReservation(
-                                seat.kind === "FRIEND"
-                                  ? seat.uuid
-                                  : "should not happen",
-                              )
+                            onClick={
+                              () => {}
+                              // props.removeReservation(
+                              //   seat.kind === "FRIEND"
+                              //     ? seat.uuid
+                              //     : "should not happen",
+                              // )
                             }
                           />
                         </div>
@@ -213,35 +193,38 @@ function HelfenDetailContent(props: {
                               icon="person-to-portal"
                               label="Mich anmelden"
                               kind="success"
-                              onClick={() =>
-                                props.addReservation({
-                                  kind: "SELF",
-                                  helpEntryUuid: props.entry.uuid,
-                                  uuid: crypto.randomUUID(),
-                                })
+                              onClick={
+                                () => {}
+                                // props.addReservation({
+                                //   kind: "SELF",
+                                //   helpEntryUuid: props.entry.uuid,
+                                //   uuid: crypto.randomUUID(),
+                                // })
                               }
                             />
                             <InputButton
-                              addFriend={(name) =>
-                                props.addReservation({
-                                  kind: "FRIEND",
-                                  helpEntryUuid: props.entry.uuid,
-                                  name,
-                                  uuid: crypto.randomUUID(),
-                                })
+                              addFriend={
+                                (_name) => {}
+                                // props.addReservation({
+                                //   kind: "FRIEND",
+                                //   helpEntryUuid: props.entry.uuid,
+                                //   name,
+                                //   uuid: crypto.randomUUID(),
+                                // })
                               }
                             />
                           </div>
                         }
                       >
                         <InputButton
-                          addFriend={(name) =>
-                            props.addReservation({
-                              kind: "FRIEND",
-                              helpEntryUuid: props.entry.uuid,
-                              name,
-                              uuid: crypto.randomUUID(),
-                            })
+                          addFriend={
+                            (_name) => {}
+                            // props.addReservation({
+                            //   kind: "FRIEND",
+                            //   helpEntryUuid: props.entry.uuid,
+                            //   name,
+                            //   uuid: crypto.randomUUID(),
+                            // })
                           }
                         />
                       </Show>

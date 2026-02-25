@@ -133,9 +133,6 @@ export function Router(props: {
               parentPath="/programm"
             >
               <ProgrammDetail
-                reservations$={store$
-                  .pipe(obj.sub("save"))
-                  .pipe(obj.sub("helping"))}
                 publicResource={publicResource}
                 isEditable={props.initState.status === "published"}
               />
