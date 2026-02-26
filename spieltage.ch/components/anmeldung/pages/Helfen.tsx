@@ -135,28 +135,24 @@ function HelpingContent(props: {
   isEditable: boolean;
   dayFilter: ProgramDay | null;
 }): JSX.Element {
-  const alreadyReservedUuids = (): string[] => {
-    return Object.keys(props.allReservations);
-  };
-
   const entries = () =>
     ({
       FRIDAY: aggregateEntries({
         day: "FRIDAY",
         entries: helpTimes,
-        alreadyReservedUuids: alreadyReservedUuids(),
+        allReservations: props.allReservations,
         myReservations: props.myHelpReservations,
       }),
       SATURDAY: aggregateEntries({
         day: "SATURDAY",
         entries: helpTimes,
-        alreadyReservedUuids: alreadyReservedUuids(),
+        allReservations: props.allReservations,
         myReservations: props.myHelpReservations,
       }),
       SUNDAY: aggregateEntries({
         day: "SUNDAY",
         entries: helpTimes,
-        alreadyReservedUuids: alreadyReservedUuids(),
+        allReservations: props.allReservations,
         myReservations: props.myHelpReservations,
       }),
     }) satisfies PerDay<ProgramEntryTimetableView[]>;
@@ -175,11 +171,10 @@ function HelpingContent(props: {
 function aggregateEntries(props: {
   day: ProgramDay;
   entries: HelpEntry[];
-  alreadyReservedUuids: string[];
+  allReservations: Reservations;
   myReservations: HelpingReservation[];
 }): ProgramEntryTimetableView[] {
   const timetableView: ProgramEntryTimetableView[] = [];
-  const frequencies = uuidFrequencies(props.alreadyReservedUuids);
 
   const byDay = Object.groupBy(
     props.entries,
@@ -187,7 +182,9 @@ function aggregateEntries(props: {
   );
 
   byDay[props.day]?.forEach((entry) => {
-    const emptySeats = () => entry.count - (frequencies[entry.uuid] ?? 0);
+    const emptySeats = () =>
+      entry.count - (props.allReservations[entry.uuid] ?? 0);
+
     const helpingMyself = () =>
       props.myReservations.filter(
         (r) => "helpEntryUuid" in r && r.helpEntryUuid === entry.uuid,
@@ -197,6 +194,8 @@ function aggregateEntries(props: {
       const cls = ["box-simple", "timeview-entry"];
       if (helpingMyself()) {
         cls.push("success");
+      } else if (emptySeats() === 0) {
+        cls.push("gray");
       }
       return cls.join(" ");
     };
@@ -221,11 +220,14 @@ function aggregateEntries(props: {
     timetableView.push({
       range,
       component: () => (
-        <Link href={`/helfen/${entry.uuid}`}>
-          <div class={classes()}>
+        <Link
+          href={`/helfen/${entry.uuid}`}
+          style="display: block; border: none;"
+        >
+          <div class={classes()} style="height: 100%;">
             <Chip
               title="Helfer:innen gesucht"
-              inverted={helpingMyself()}
+              inverted={helpingMyself() || emptySeats() === 0}
               size="small"
             >
               HL
@@ -250,13 +252,4 @@ function aggregateEntries(props: {
   });
 
   return timetableView;
-}
-
-function uuidFrequencies(uuids: string[]): Record<string, number> {
-  const grouped = Object.groupBy(uuids, (id) => id);
-  const frequencies: Record<string, number> = {};
-  for (const uuid of uuids) {
-    frequencies[uuid] = grouped[uuid]?.length ?? 0;
-  }
-  return frequencies;
 }
