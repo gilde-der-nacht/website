@@ -1713,12 +1713,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^25.3.0":
-  version: 25.3.0
-  resolution: "@types/node@npm:25.3.0"
+"@types/node@npm:^25.3.1":
+  version: 25.3.1
+  resolution: "@types/node@npm:25.3.1"
   dependencies:
     undici-types: "npm:~7.18.0"
-  checksum: 10/061b00c8de070a606a052afaa4c45dca5f8d6a8e7e39c0c3e196bb650ee37e986bbb161991ea39076a05aada102f36b13c974528448a09efd8d36bdfee75de4b
+  checksum: 10/7f999e88e7ff3d2e2ee4efbf1de60d9375577d1ad3e1bee01455ec9d8257da2fb1f83dce4cb8fdf9c05dde9fec9e54f61fc9b1731393b53fc74f254712de9f6e
   languageName: node
   linkType: hard
 
@@ -1969,9 +1969,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.17.3":
-  version: 5.17.3
-  resolution: "astro@npm:5.17.3"
+"astro@npm:5.18.0":
+  version: 5.18.0
+  resolution: "astro@npm:5.18.0"
   dependencies:
     "@astrojs/compiler": "npm:^2.13.0"
     "@astrojs/internal-helpers": "npm:0.7.5"
@@ -2042,7 +2042,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/37a02b133966f324585eb76a56bae641caad1dfc2c22badb5f9077ea739e7ad8ea6604b2324c781eb984912ef732f97b48c21c71bf797f1a27eb4560edf4226e
+  checksum: 10/f9a5b04328e69eba04647ebfc866b947c515b7ce47d21dce5c31d634da7a1685fdafb373a0c90bbd52d7eba453fd299a5ccb4da8f9eca07ca51736ee4fcbbc6a
   languageName: node
   linkType: hard
 
@@ -2443,8 +2443,8 @@ __metadata:
     "@solidjs/router": "npm:^0.15.4"
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.7.1"
-    "@types/node": "npm:^25.3.0"
-    astro: "npm:5.17.3"
+    "@types/node": "npm:^25.3.1"
+    astro: "npm:5.18.0"
     luxon: "npm:^3.7.2"
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
