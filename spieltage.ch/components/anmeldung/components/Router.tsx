@@ -9,7 +9,7 @@ import {
 import { Helfen } from "@lst/components/anmeldung/pages/Helfen";
 import { Zusammenfassung } from "@lst/components/anmeldung/pages/Zusammenfassung";
 import { unwrap } from "solid-js/store";
-import { toast } from "@common/components/Toast";
+import { toast, ToastContainer } from "@common/components/Toast";
 import type { Roles, SaveState } from "@lst/components/anmeldung/api/meta";
 import { Layout } from "@lst/components/anmeldung/components/Layout";
 import { HelfenDetail } from "@lst/components/anmeldung/pages/HelfenDetail";
@@ -91,211 +91,214 @@ export function Router(props: {
   );
 
   return (
-    <HashRouter explicitLinks={true}>
-      {[
-        {
-          path: "/",
-          component: () => (
-            <Layout
-              title="Wo möchtest du starten?"
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-            >
-              <Root roles={store$.get().meta.roles} />
-            </Layout>
-          ),
-        },
-        {
-          path: "/programm",
-          component: () => (
-            <Layout
-              title="Programm"
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-            >
-              <Programm
-                save$={store$.pipe(obj.sub("save"))}
-                publicResource={publicResource}
-              />
-            </Layout>
-          ),
-        },
-        {
-          path: "/programm/:uuid",
-          component: () => (
-            <Layout
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-              showQuickmenu={true}
-              parentPath="/programm"
-            >
-              <ProgrammDetail
-                publicResource={publicResource}
-                isEditable={props.initState.status === "published"}
-              />
-            </Layout>
-          ),
-        },
-        {
-          path: "/erstellen",
-          component: () => (
-            <Layout
-              title="Programmpunkte erstellen und editieren"
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-            >
-              <Erstellen
-                programEntries$={store$
-                  .pipe(obj.sub("save"))
-                  .pipe(obj.sub("program"))
-                  .pipe(obj.sub("organising"))}
-                isEditable={props.initState.status === "published"}
-              />
-            </Layout>
-          ),
-        },
-
-        {
-          path: "/erstellen/:uuid",
-          component: () => (
-            <Layout
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-              parentPath="/erstellen"
-            >
-              <ErstellenDetail
-                programEntries$={store$
-                  .pipe(obj.sub("save"))
-                  .pipe(obj.sub("program"))
-                  .pipe(obj.sub("organising"))}
-                publicResource={publicResource}
-                isEditable={props.initState.status === "published"}
-              />
-            </Layout>
-          ),
-        },
-        {
-          path: "/helfen",
-          component: () => (
-            <Layout
-              title="Helfen"
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-              showQuickmenu={true}
-            >
-              <Helfen
-                reservations$={store$
-                  .pipe(obj.sub("save"))
-                  .pipe(obj.sub("helping"))}
-                publicResource={publicResource}
-                isEditable={props.initState.status === "published"}
-                roles={store$.get().meta.roles}
-              />
-            </Layout>
-          ),
-        },
-        {
-          path: "/helfen/:uuid",
-          component: () => (
-            <Layout
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-              showQuickmenu={true}
-              parentPath="/helfen"
-            >
-              <HelfenDetail
-                reservations$={store$
-                  .pipe(obj.sub("save"))
-                  .pipe(obj.sub("helping"))}
-                publicResource={publicResource}
-                isEditable={props.initState.status === "published"}
-              />
-            </Layout>
-          ),
-        },
-        {
-          path: "/erklaerbaer",
-          component: () => (
-            <Layout
-              title="Helfen: Erklärbären"
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-              showQuickmenu={true}
-              parentPath="/helfen"
-            >
-              <Erklaerbaer
-                save$={store$.pipe(obj.sub("save"))}
-                adminResource={adminResource}
-                roles={store$.get().meta.roles}
-                isEditable={props.initState.status === "published"}
-              />
-            </Layout>
-          ),
-        },
-        {
-          path: "/helfen/admin",
-          component: () => (
-            <Layout
-              title="Helfer-Übersicht"
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-              showQuickmenu={true}
-              parentPath="/helfen"
-            >
-              <HelfenOverview
-                reservations$={store$
-                  .pipe(obj.sub("save"))
-                  .pipe(obj.sub("helping"))}
-                adminResource={adminResource}
-                roles={store$.get().meta.roles}
-              />
-            </Layout>
-          ),
-        },
-        {
-          path: "/zusammenfassung",
-          component: () => (
-            <Layout
-              title="Zusammenfassung"
-              roles={store$.get().meta.roles}
-              saveState={store$.get().meta.saveState}
-              lastSaved={store$.get().meta.lastSaved}
-              showQuickmenu={true}
-            >
-              <Zusammenfassung
-                save$={store$.pipe(obj.sub("save"))}
-                publicResource={publicResource}
-                isEditable={props.initState.status === "published"}
-              />
-            </Layout>
-          ),
-        },
-        {
-          path: "*",
-          component: () => {
-            return (
+    <>
+      <HashRouter explicitLinks={true}>
+        {[
+          {
+            path: "/",
+            component: () => (
               <Layout
-                title="Seite nicht gefunden"
+                title="Wo möchtest du starten?"
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+              >
+                <Root roles={store$.get().meta.roles} />
+              </Layout>
+            ),
+          },
+          {
+            path: "/programm",
+            component: () => (
+              <Layout
+                title="Programm"
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+              >
+                <Programm
+                  save$={store$.pipe(obj.sub("save"))}
+                  publicResource={publicResource}
+                />
+              </Layout>
+            ),
+          },
+          {
+            path: "/programm/:uuid",
+            component: () => (
+              <Layout
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+                showQuickmenu={true}
+                parentPath="/programm"
+              >
+                <ProgrammDetail
+                  publicResource={publicResource}
+                  isEditable={props.initState.status === "published"}
+                />
+              </Layout>
+            ),
+          },
+          {
+            path: "/erstellen",
+            component: () => (
+              <Layout
+                title="Programmpunkte erstellen und editieren"
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+              >
+                <Erstellen
+                  programEntries$={store$
+                    .pipe(obj.sub("save"))
+                    .pipe(obj.sub("program"))
+                    .pipe(obj.sub("organising"))}
+                  isEditable={props.initState.status === "published"}
+                />
+              </Layout>
+            ),
+          },
+
+          {
+            path: "/erstellen/:uuid",
+            component: () => (
+              <Layout
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+                parentPath="/erstellen"
+              >
+                <ErstellenDetail
+                  programEntries$={store$
+                    .pipe(obj.sub("save"))
+                    .pipe(obj.sub("program"))
+                    .pipe(obj.sub("organising"))}
+                  publicResource={publicResource}
+                  isEditable={props.initState.status === "published"}
+                />
+              </Layout>
+            ),
+          },
+          {
+            path: "/helfen",
+            component: () => (
+              <Layout
+                title="Helfen"
                 roles={store$.get().meta.roles}
                 saveState={store$.get().meta.saveState}
                 lastSaved={store$.get().meta.lastSaved}
                 showQuickmenu={true}
               >
-                <Box type="danger">{TXT.error.siteNotFound}</Box>
+                <Helfen
+                  reservations$={store$
+                    .pipe(obj.sub("save"))
+                    .pipe(obj.sub("helping"))}
+                  publicResource={publicResource}
+                  isEditable={props.initState.status === "published"}
+                  roles={store$.get().meta.roles}
+                />
               </Layout>
-            );
+            ),
           },
-        },
-      ]}
-    </HashRouter>
+          {
+            path: "/helfen/:uuid",
+            component: () => (
+              <Layout
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+                showQuickmenu={true}
+                parentPath="/helfen"
+              >
+                <HelfenDetail
+                  reservations$={store$
+                    .pipe(obj.sub("save"))
+                    .pipe(obj.sub("helping"))}
+                  publicResource={publicResource}
+                  isEditable={props.initState.status === "published"}
+                />
+              </Layout>
+            ),
+          },
+          {
+            path: "/erklaerbaer",
+            component: () => (
+              <Layout
+                title="Helfen: Erklärbären"
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+                showQuickmenu={true}
+                parentPath="/helfen"
+              >
+                <Erklaerbaer
+                  save$={store$.pipe(obj.sub("save"))}
+                  adminResource={adminResource}
+                  roles={store$.get().meta.roles}
+                  isEditable={props.initState.status === "published"}
+                />
+              </Layout>
+            ),
+          },
+          {
+            path: "/helfen/admin",
+            component: () => (
+              <Layout
+                title="Helfer-Übersicht"
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+                showQuickmenu={true}
+                parentPath="/helfen"
+              >
+                <HelfenOverview
+                  reservations$={store$
+                    .pipe(obj.sub("save"))
+                    .pipe(obj.sub("helping"))}
+                  adminResource={adminResource}
+                  roles={store$.get().meta.roles}
+                />
+              </Layout>
+            ),
+          },
+          {
+            path: "/zusammenfassung",
+            component: () => (
+              <Layout
+                title="Zusammenfassung"
+                roles={store$.get().meta.roles}
+                saveState={store$.get().meta.saveState}
+                lastSaved={store$.get().meta.lastSaved}
+                showQuickmenu={true}
+              >
+                <Zusammenfassung
+                  save$={store$.pipe(obj.sub("save"))}
+                  publicResource={publicResource}
+                  isEditable={props.initState.status === "published"}
+                />
+              </Layout>
+            ),
+          },
+          {
+            path: "*",
+            component: () => {
+              return (
+                <Layout
+                  title="Seite nicht gefunden"
+                  roles={store$.get().meta.roles}
+                  saveState={store$.get().meta.saveState}
+                  lastSaved={store$.get().meta.lastSaved}
+                  showQuickmenu={true}
+                >
+                  <Box type="danger">{TXT.error.siteNotFound}</Box>
+                </Layout>
+              );
+            },
+          },
+        ]}
+      </HashRouter>
+      <ToastContainer />
+    </>
   );
 }
