@@ -120,6 +120,38 @@ function aggregateEntries(
     });
   });
 
+  participating.forEach((entry) => {
+    const programmEntry = publicState.programEntries.find(
+      (p) => p.uuid === entry.entryUuid,
+    );
+    if (programmEntry === undefined) {
+      return;
+    }
+
+    const range: PlainTimeRange = {
+      startTime: programmEntry.slot.start,
+      endTime: programmEntry.slot.end,
+    };
+    const path = `/programm/${programmEntry.uuid}`;
+
+    const day = getDay(programmEntry.slot.day);
+    if (day === null) {
+      return;
+    }
+
+    aggregation[day].push({
+      range,
+      component: () => (
+        <TimeviewEntry
+          title={programmEntry.title}
+          range={range}
+          kind="play"
+          path={path}
+        />
+      ),
+    });
+  });
+
   const helpEntries = helping.map((entry) => {
     if (entry.kind === "ERKLAERBAER") {
       const dateTime: PlainDateTimeRange = {
