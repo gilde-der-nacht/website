@@ -91,7 +91,11 @@ export function Entry(props: {
             class="button-link"
           >
             <button class="event-link">
-              <span>Details & Teilnahme</span>
+              {props.entry.participating.kind === "LIMITED" ? (
+                <span>Details & Teilnahme</span>
+              ) : (
+                <span>Details</span>
+              )}
             </button>
           </Link>
         </li>

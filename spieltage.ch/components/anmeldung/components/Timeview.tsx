@@ -31,6 +31,8 @@ import type { IconType } from "@common/components/Icon";
 import { Chip } from "@common/components/Chip";
 import { IconOnlyButton } from "@common/components/Button";
 import { Link } from "@common/components/Link";
+import { parsePlainTime } from "@common/components/events";
+import { getErrors } from "../constant/validation";
 
 export function Timeview(props: {
   save: Save;
@@ -66,15 +68,57 @@ export function Timeview(props: {
 
 function aggregateEntries(
   save: Save,
-  _publicState: Public,
+  publicState: Public,
 ): PerDay<ProgramEntryTimetableView[]> {
-  const { helping } = save;
+  const {
+    helping,
+    program: { organising, participating },
+  } = save;
 
   const aggregation: PerDay<ProgramEntryTimetableView[]> = {
     FRIDAY: [],
     SATURDAY: [],
     SUNDAY: [],
   };
+
+  organising.forEach((entry) => {
+    if (entry.status !== "published") {
+      return;
+    }
+    const errors = getErrors(entry);
+    if (errors.hasErrors) {
+      return;
+    }
+
+    entry.timeSlots.forEach((slot) => {
+      const parsedStartTime = parsePlainTime(slot.start.time);
+      if (parsedStartTime.kind === "ERROR") {
+        return;
+      }
+      const parsedEndTime = parsePlainTime(slot.end.time);
+      if (parsedEndTime.kind === "ERROR") {
+        return;
+      }
+
+      const range: PlainTimeRange = {
+        startTime: parsedStartTime.value,
+        endTime: parsedEndTime.value,
+      };
+      const path = `/erstellen/${entry.uuid}`;
+
+      aggregation[slot.start.day].push({
+        range,
+        component: () => (
+          <TimeviewEntry
+            title={entry.title}
+            range={range}
+            kind="master"
+            path={path}
+          />
+        ),
+      });
+    });
+  });
 
   const helpEntries = helping.map((entry) => {
     if (entry.kind === "ERKLAERBAER") {
@@ -263,7 +307,7 @@ function TimeviewEntry(props: {
 
   return (
     <div class={classes()}>
-      <Link href={props.path} class={`button-link`} style="display: contents;">
+      <Link href={props.path} class="button-link" style="display: contents;">
         <Chip title={labels.help} inverted={props.kind !== "help"} size="small">
           {labels.label}
         </Chip>

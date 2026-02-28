@@ -34,8 +34,12 @@ export function Erstellen(props: {
                         : entry.title}
                     </h3>
                     <Chip kind={errors.hasErrors ? "danger" : "special"}>
-                      Status: {TXT.publishingSteps[entry.status]}
-                      {errors.hasErrors ? <span> mit Fehlern</span> : ""}
+                      Status:{" "}
+                      {errors.hasErrors && entry.status === "published"
+                        ? "Noch nicht "
+                        : ""}
+                      {TXT.publishingSteps[entry.status]}
+                      {errors.hasErrors ? <span>, hat Fehler</span> : ""}
                     </Chip>
                   </BoxLink>
                 </Link>

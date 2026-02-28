@@ -107,6 +107,10 @@
   gap: 0 0.5rem;
   --box-background-color: hsl(from var(--clr-7) h s l / .2);
 
+  a {
+    color: var(--box-color);
+  }
+
   &:hover {
     cursor: pointer;
   }

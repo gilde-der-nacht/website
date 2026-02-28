@@ -173,11 +173,14 @@ function ErstellenDetailContent(props: {
           <br />
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
             <Chip kind={errors().hasErrors ? "danger" : "special"}>
-              Status: {TXT.publishingSteps[props.entry$.get().status]}
+              Status:{" "}
+              {errors().hasErrors && props.entry$.get().status === "published"
+                ? "noch nicht "
+                : ""}
+              {TXT.publishingSteps[props.entry$.get().status]}
               {errors().hasErrors ? (
                 <span>
-                  {" "}
-                  mit Fehlern <Icon icon="triangle-exclamation" />
+                  , hat Fehler <Icon icon="triangle-exclamation" />
                 </span>
               ) : (
                 ""
