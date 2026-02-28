@@ -61,7 +61,7 @@ function ProgramView(props: { save: Save; publicState: Public }): JSX.Element {
   return (
     <>
       <Filters
-        $filters={$filters}
+        filters$={$filters}
         tags={[...tags].toSorted().map((tag) => ({ label: tag, name: tag }))}
       />
       <br />

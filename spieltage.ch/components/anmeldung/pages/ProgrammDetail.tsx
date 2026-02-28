@@ -17,12 +17,15 @@ import {
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { Link } from "@common/components/Link";
 import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
-import { formatTime } from "@common/utils/time";
+import { formatTime, toRange } from "@common/utils/time";
 import { getDay } from "@lst/components/anmeldung/constant/time";
-import type { HelpingReservation } from "../api/save";
+import type { Reservation } from "@lst/components/anmeldung/api/save";
 import { InputButton } from "@common/components/InputButton";
+import { ButtonLink } from "@common/components/ButtonLink";
+import { arr, type Reactive } from "@common/utils/reactivity";
 
 export function ProgrammDetail(props: {
+  reservations$: Reactive<Reservation[]>;
   publicResource: Resource<Result<Public>>;
   isEditable: boolean;
 }): JSX.Element {
@@ -48,7 +51,20 @@ export function ProgrammDetail(props: {
               {(entry) => (
                 <ProgramDetailContent
                   entry={entry()}
+                  myReservations={props.reservations$.get()}
                   isEditable={props.isEditable}
+                  addReservation={(reservation) =>
+                    arr.push(props.reservations$, {
+                      ...reservation,
+                      uuid: crypto.randomUUID(),
+                    })
+                  }
+                  removeReservation={(reservationUuid) => {
+                    arr.remove(
+                      props.reservations$,
+                      (r) => r.uuid !== reservationUuid,
+                    );
+                  }}
                 />
               )}
             </Show>
@@ -61,33 +77,38 @@ export function ProgrammDetail(props: {
 
 function ProgramDetailContent(props: {
   entry: PublicProgramEntry;
+  myReservations: Reservation[];
+  addReservation: (reservation: Reservation) => void;
+  removeReservation: (reservationUuid: string) => void;
   isEditable: boolean;
 }): JSX.Element {
   const day = getDay(props.entry.slot.day) ?? "FRIDAY";
 
-  // TODO
-  // const range = () =>
-  // props.entry.participating.kind === "NONE"
-  // ? null
-  // : toRange(props.entry.participating.maxSeats).map((i) => {
-  // const myReservation = myHelpReservations()[i];
-  // if (myReservation !== undefined) {
-  // return myReservation;
-  // }
-  // if (props.entry.count - externalReserved <= i) {
-  // return { kind: "RESERVED_OTHER" } as const;
-  // }
-  // return { kind: "FREE" } as const;
-  // });
-  const range = (): (
-    | HelpingReservation
-    | { kind: "RESERVED_OTHER" | "FREE" }
-  )[] => [];
+  const myReservations = () =>
+    props.myReservations.filter((r) => r.entryUuid === props.entry.uuid);
 
-  //TODO
-  // const hasReservedForThemselves = (): boolean => {
-  // return myHelpReservations().find((r) => r.kind === "SELF") !== undefined;
-  const hasReservedForThemselves = () => false;
+  const range = () =>
+    props.entry.participating.kind === "NONE"
+      ? []
+      : toRange(props.entry.participating.maxSeats).map((i) => {
+          const myReservation = myReservations()[i];
+          if (myReservation !== undefined) {
+            return myReservation;
+          }
+          const externalReserved =
+            props.entry.participating.kind === "LIMITED"
+              ? props.entry.participating.reserved.length
+              : 0;
+
+          if (props.entry.participating.maxSeats - externalReserved <= i) {
+            return { kind: "RESERVED_OTHER" } as const;
+          }
+          return { kind: "FREE" } as const;
+        });
+
+  const hasReservedForThemselves = (): boolean => {
+    return myReservations().find((r) => r.kind === "SELF") !== undefined;
+  };
 
   return (
     <>
@@ -114,6 +135,41 @@ function ProgramDetailContent(props: {
             {formatTime(props.entry.slot.end, { minutes: false })} Uhr
           </li>
           <li>
+            <strong style="color: var(--clr-accent-1);">Kategorien:</strong>{" "}
+            <br />
+            {props.entry.tagNames.trim().length > 0 ? (
+              props.entry.tagNames
+                .split(",")
+                .map((e) => e.trim())
+                .filter((e) => e.length > 0)
+                .join(", ")
+            ) : (
+              <em>keine Kategorien</em>
+            )}
+          </li>
+          <Show when={props.entry.materialLanguage.trim()}>
+            {(lang) => (
+              <li>
+                <strong style="color: var(--clr-accent-1);">
+                  Sprache Spielmaterial:
+                </strong>{" "}
+                <br />
+                {lang()}
+              </li>
+            )}
+          </Show>
+          <Show when={props.entry.links.length > 0}>
+            <li>
+              <strong style="color: var(--clr-accent-1);">Links:</strong>{" "}
+              <ul role="list">
+                <For each={props.entry.links}>
+                  {(link) => <ButtonLink label={link.label} link={link.link} />}
+                </For>
+              </ul>
+              <br />
+            </li>
+          </Show>
+          <li>
             <strong style="color: var(--clr-accent-1);">
               Kurze Beschreibung:
             </strong>{" "}
@@ -130,9 +186,11 @@ function ProgramDetailContent(props: {
         </ul>
         <div class="reservations">
           <h5 style="margin-block-start: 0">Plätze reservieren</h5>
-          <code>TODO</code>
           <div class="reservation-table">
-            <For each={range()}>
+            <For
+              each={range()}
+              fallback={<em>Teilnahme ohne Anmeldung möglich.</em>}
+            >
               {(seat, i) => (
                 <>
                   <div class="count">{i() + 1}</div>
@@ -150,11 +208,11 @@ function ProgramDetailContent(props: {
                           <IconOnlyButton
                             icon="trash"
                             onClick={() => {
-                              // props.removeReservation(
-                              //   seat.kind === "SELF"
-                              //     ? seat.uuid
-                              //     : "should not happen",
-                              // )
+                              props.removeReservation(
+                                seat.kind === "SELF"
+                                  ? seat.uuid
+                                  : "should not happen",
+                              );
                             }}
                           />
                         </div>
@@ -172,14 +230,13 @@ function ProgramDetailContent(props: {
                           </p>
                           <IconOnlyButton
                             icon="trash"
-                            onClick={
-                              () => {}
-                              // props.removeReservation(
-                              //   seat.kind === "FRIEND"
-                              //     ? seat.uuid
-                              //     : "should not happen",
-                              // )
-                            }
+                            onClick={() => {
+                              props.removeReservation(
+                                seat.kind === "FRIEND"
+                                  ? seat.uuid
+                                  : "should not happen",
+                              );
+                            }}
                           />
                         </div>
                       </SimpleBox>
@@ -193,39 +250,36 @@ function ProgramDetailContent(props: {
                               icon="person-to-portal"
                               label="Mich anmelden"
                               kind="success"
-                              onClick={
-                                () => {}
-                                // props.addReservation({
-                                //   kind: "SELF",
-                                //   helpEntryUuid: props.entry.uuid,
-                                //   uuid: crypto.randomUUID(),
-                                // })
-                              }
+                              onClick={() => {
+                                props.addReservation({
+                                  kind: "SELF",
+                                  entryUuid: props.entry.uuid,
+                                  uuid: crypto.randomUUID(),
+                                });
+                              }}
                             />
                             <InputButton
-                              addFriend={
-                                (_name) => {}
-                                // props.addReservation({
-                                //   kind: "FRIEND",
-                                //   helpEntryUuid: props.entry.uuid,
-                                //   name,
-                                //   uuid: crypto.randomUUID(),
-                                // })
-                              }
+                              addFriend={(name) => {
+                                props.addReservation({
+                                  kind: "FRIEND",
+                                  entryUuid: props.entry.uuid,
+                                  name,
+                                  uuid: crypto.randomUUID(),
+                                });
+                              }}
                             />
                           </div>
                         }
                       >
                         <InputButton
-                          addFriend={
-                            (_name) => {}
-                            // props.addReservation({
-                            //   kind: "FRIEND",
-                            //   helpEntryUuid: props.entry.uuid,
-                            //   name,
-                            //   uuid: crypto.randomUUID(),
-                            // })
-                          }
+                          addFriend={(name) => {
+                            props.addReservation({
+                              kind: "FRIEND",
+                              entryUuid: props.entry.uuid,
+                              name,
+                              uuid: crypto.randomUUID(),
+                            });
+                          }}
                         />
                       </Show>
                     </Match>

@@ -51,18 +51,24 @@ const freeformReservationSchema = z.object({
 
 export type FreeformReservation = z.infer<typeof freeformReservationSchema>;
 
-const helpingReservationSchema = z.union([
+const baseReservationSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
-    helpEntryUuid: z.string().uuid(),
+    entryUuid: z.string().uuid(),
     uuid: z.string().uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
-    helpEntryUuid: z.string().uuid(),
+    entryUuid: z.string().uuid(),
     name: z.string(),
     uuid: z.string().uuid(),
   }),
+]);
+
+export type Reservation = z.infer<typeof baseReservationSchema>;
+
+const helpingReservationSchema = z.union([
+  baseReservationSchema,
   erklaerbaerReservationSchema,
 ]);
 
@@ -112,8 +118,6 @@ const programEntrySchema = z.object({
 
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
 
-const reservationEntrySchema = z.object({});
-
 const saveSchema = z.object({
   version: z.literal(10),
   contact: contactSchema,
@@ -123,7 +127,7 @@ const saveSchema = z.object({
   helping: z.array(helpingReservationSchema),
   program: z.object({
     organising: z.array(programEntrySchema),
-    participating: z.array(reservationEntrySchema),
+    participating: z.array(baseReservationSchema),
   }),
 });
 

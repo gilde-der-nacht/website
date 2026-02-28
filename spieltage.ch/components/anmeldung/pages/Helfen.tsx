@@ -187,7 +187,7 @@ function aggregateEntries(props: {
 
     const helpingMyself = () =>
       props.myReservations.filter(
-        (r) => "helpEntryUuid" in r && r.helpEntryUuid === entry.uuid,
+        (r) => "entryUuid" in r && r.entryUuid === entry.uuid,
       ).length > 0;
 
     const classes = () => {

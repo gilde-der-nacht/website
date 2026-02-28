@@ -95,11 +95,8 @@ function aggregateEntries(
         },
       };
     }
-    const meta = helpTimes.find((h) => h.uuid === entry.helpEntryUuid);
-    assert(
-      meta !== undefined,
-      `Help UUID is invalid: '${entry.helpEntryUuid}'`,
-    );
+    const meta = helpTimes.find((h) => h.uuid === entry.entryUuid);
+    assert(meta !== undefined, `Help UUID is invalid: '${entry.entryUuid}'`);
     return { ...entry, meta };
   });
 
@@ -154,7 +151,7 @@ function aggregateEntries(
     const path =
       first.kind === "ERKLAERBAER"
         ? "/erklaerbaer"
-        : `/helfen/${first.helpEntryUuid}`;
+        : `/helfen/${first.entryUuid}`;
 
     aggregation[day].push({
       range,

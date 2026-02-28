@@ -104,7 +104,7 @@ function HelfenDetailContent(props: {
 
   const myHelpReservations = () =>
     props.myHelpReservations.filter(
-      (r) => "helpEntryUuid" in r && r.helpEntryUuid === props.entry.uuid,
+      (r) => "entryUuid" in r && r.entryUuid === props.entry.uuid,
     );
 
   const externalReserved =
@@ -220,7 +220,7 @@ function HelfenDetailContent(props: {
                               onClick={() =>
                                 props.addReservation({
                                   kind: "SELF",
-                                  helpEntryUuid: props.entry.uuid,
+                                  entryUuid: props.entry.uuid,
                                   uuid: crypto.randomUUID(),
                                 })
                               }
@@ -229,7 +229,7 @@ function HelfenDetailContent(props: {
                               addFriend={(name) =>
                                 props.addReservation({
                                   kind: "FRIEND",
-                                  helpEntryUuid: props.entry.uuid,
+                                  entryUuid: props.entry.uuid,
                                   name,
                                   uuid: crypto.randomUUID(),
                                 })
@@ -242,7 +242,7 @@ function HelfenDetailContent(props: {
                           addFriend={(name) =>
                             props.addReservation({
                               kind: "FRIEND",
-                              helpEntryUuid: props.entry.uuid,
+                              entryUuid: props.entry.uuid,
                               name,
                               uuid: crypto.randomUUID(),
                             })
