@@ -13,6 +13,7 @@ import { toRange, type PerDay, type ProgramDay } from "@common/utils/time";
 import { Filters, type ActiveFilter } from "@common/components/Filter";
 import { getDay } from "../constant/time";
 import { Heading } from "@common/components/Heading";
+import { Temporal } from "@js-temporal/polyfill";
 
 export function Programm(props: {
   save$: Reactive<Save>;
@@ -130,7 +131,24 @@ function filterSortGroupProgram(
     }
   });
 
-  return days;
+  return {
+    FRIDAY: sort(days.FRIDAY),
+    SATURDAY: sort(days.SATURDAY),
+    SUNDAY: sort(days.SUNDAY),
+  };
+}
+
+function sort(programm: HourProgram[]): HourProgram[] {
+  return programm
+    .map((hour) => ({
+      hour: hour.hour,
+      entries: hour.entries.toSorted(
+        (a, b) =>
+          Temporal.PlainTime.compare(a.slot.start, b.slot.start) ||
+          Temporal.PlainTime.compare(a.slot.end, b.slot.end),
+      ),
+    }))
+    .toSorted((a, b) => a.hour - b.hour);
 }
 
 export function DayProgram(props: {
