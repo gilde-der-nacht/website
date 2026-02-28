@@ -119,7 +119,7 @@ const programEntrySchema = z.object({
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
 
 const saveSchema = z.object({
-  version: z.literal(10),
+  version: z.literal(11),
   contact: contactSchema,
   config: z.object({
     wantsUpdates: z.boolean(),

@@ -87,6 +87,11 @@ function ProgramDetailContent(props: {
   const myReservations = () =>
     props.myReservations.filter((r) => r.entryUuid === props.entry.uuid);
 
+  const externalReservations = (): number =>
+    props.entry.participating.kind === "NONE"
+      ? 0
+      : props.entry.participating.reserved.length;
+
   const range = () =>
     props.entry.participating.kind === "NONE"
       ? []
@@ -95,12 +100,11 @@ function ProgramDetailContent(props: {
           if (myReservation !== undefined) {
             return myReservation;
           }
-          const externalReserved =
-            props.entry.participating.kind === "LIMITED"
-              ? props.entry.participating.reserved.length
-              : 0;
 
-          if (props.entry.participating.maxSeats - externalReserved <= i) {
+          if (
+            props.entry.participating.maxSeats - externalReservations() <=
+            i
+          ) {
             return { kind: "RESERVED_OTHER" } as const;
           }
           return { kind: "FREE" } as const;

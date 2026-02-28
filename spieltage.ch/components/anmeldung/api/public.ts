@@ -72,8 +72,8 @@ export type Public = {
  * Methods
  */
 
-export async function loadPublic(): Promise<Result<Public>> {
-  const program = await elysiumLoadPublic();
+export async function loadPublic(secret: string): Promise<Result<Public>> {
+  const program = await elysiumLoadPublic(secret);
 
   if (program.kind === "FAILURE") {
     console.error("Unexpected error. Maybe network, maybe server error.");

@@ -51,9 +51,12 @@ export async function elysiumSaveState(
   }
 }
 
-export async function elysiumLoadPublic(): Promise<Result<unknown>> {
+export async function elysiumLoadPublic(
+  secret: string,
+): Promise<Result<unknown>> {
   try {
     const url = new URL(elysium("/lst26/public"));
+    url.searchParams.append("secret", secret);
     const result = await fetch(url, {
       headers: {
         "Content-Type": "application/json",

@@ -183,7 +183,11 @@ function aggregateEntries(props: {
 
   byDay[props.day]?.forEach((entry) => {
     const emptySeats = () =>
-      entry.count - (props.allReservations[entry.uuid] ?? 0);
+      entry.count -
+      (props.allReservations[entry.uuid] ?? 0) -
+      props.myReservations.filter(
+        (r) => "entryUuid" in r && r.entryUuid === entry.uuid,
+      ).length;
 
     const helpingMyself = () =>
       props.myReservations.filter(

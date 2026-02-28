@@ -1,7 +1,7 @@
 import { Box } from "@common/components/Box";
 import { createReactive, type Reactive } from "@common/utils/reactivity";
 import { For, Show, Suspense, type JSX, type Resource } from "solid-js";
-import type { Save } from "@lst/components/anmeldung/api/save";
+import type { Reservation, Save } from "@lst/components/anmeldung/api/save";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import type {
   Public,
@@ -69,14 +69,22 @@ function ProgramView(props: { save: Save; publicState: Public }): JSX.Element {
         when={$filters.get().day === "SATURDAY" || $filters.get().day === null}
       >
         <Heading level={3} title="Samstag" />
-        <DayProgram day="SATURDAY" program={program().SATURDAY} />
+        <DayProgram
+          day="SATURDAY"
+          program={program().SATURDAY}
+          myReservations={props.save.program.participating}
+        />
         <br />
       </Show>
       <Show
         when={$filters.get().day === "SUNDAY" || $filters.get().day === null}
       >
         <Heading level={3} title="Sonntag" />
-        <DayProgram day="SUNDAY" program={program().SUNDAY} />
+        <DayProgram
+          day="SUNDAY"
+          program={program().SUNDAY}
+          myReservations={props.save.program.participating}
+        />
       </Show>
     </>
   );
@@ -128,6 +136,7 @@ function filterSortGroupProgram(
 export function DayProgram(props: {
   day: ProgramDay;
   program: HourProgram[];
+  myReservations: Reservation[];
 }): JSX.Element {
   return (
     <Show
@@ -152,7 +161,15 @@ export function DayProgram(props: {
                 </h4>
                 <ul role="list" class="event-list">
                   <For each={hourProgram().entries}>
-                    {(entry) => <Entry entry={entry} basePath="/programm" />}
+                    {(entry) => (
+                      <Entry
+                        entry={entry}
+                        basePath="/programm"
+                        additionalReservations={props.myReservations.filter(
+                          (r) => r.entryUuid === entry.uuid,
+                        )}
+                      />
+                    )}
                   </For>
                 </ul>
               </>

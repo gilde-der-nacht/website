@@ -107,9 +107,7 @@ function HelfenDetailContent(props: {
       (r) => "entryUuid" in r && r.entryUuid === props.entry.uuid,
     );
 
-  const externalReserved =
-    (props.allReservations[props.entry.uuid] ?? 0) -
-    myHelpReservations().length;
+  const externalReserved = props.allReservations[props.entry.uuid] ?? 0;
 
   const range = () =>
     toRange(props.entry.count).map((i) => {

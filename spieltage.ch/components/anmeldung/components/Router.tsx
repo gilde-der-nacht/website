@@ -29,7 +29,7 @@ export function Router(props: {
   initState: LoadSave;
   secret: string;
 }): JSX.Element {
-  const [publicResource] = createResource(loadPublic);
+  const [publicResource] = createResource(() => loadPublic(props.secret));
   const [adminResource] = createResource(() => loadAdmin(props.secret));
 
   const store$ = createReactive<{
