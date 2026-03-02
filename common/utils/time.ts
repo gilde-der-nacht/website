@@ -25,19 +25,12 @@ export function isWithin(
   range: PlainTimeRange,
 ): boolean {
   const { startTime, endTime } = handleMidnight(range);
-  if (startTime.hour >= time.hour) {
-    return false;
-  }
-  if (startTime.hour === time.hour && startTime.minute > time.minute) {
-    return false;
-  }
-  if (endTime.hour <= time.hour) {
-    return false;
-  }
-  if (endTime.hour === time.hour && endTime.minute < time.minute) {
-    return false;
-  }
-  return true;
+
+  const isAfterStart = Temporal.PlainTime.compare(time, startTime) === 1;
+
+  const isBeforeEnd = Temporal.PlainTime.compare(endTime, time) === 1;
+
+  return isAfterStart && isBeforeEnd;
 }
 
 function handleMidnight(range: PlainTimeRange): PlainTimeRange {
@@ -157,5 +150,5 @@ export function formatTimeDuration(
   if (diffHours === 0) {
     return `${diffMinutes} ${diffMinutes === 1 ? "Minute" : "Minuten"}`;
   }
-  return `${diffHours},${diffMinutes} Stunden`;
+  return `${diffHours} Stunden, ${diffMinutes} Minuten`;
 }

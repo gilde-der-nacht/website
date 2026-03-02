@@ -33,6 +33,7 @@ import { IconOnlyButton } from "@common/components/Button";
 import { Link } from "@common/components/Link";
 import { parsePlainTime } from "@common/components/events";
 import { getErrors } from "../constant/validation";
+import { Temporal } from "@js-temporal/polyfill";
 
 export function Timeview(props: {
   save: Save;
@@ -261,7 +262,21 @@ function aggregateEntries(
     }
   });
 
-  return aggregation;
+  return {
+    FRIDAY: sort(aggregation.FRIDAY),
+    SATURDAY: sort(aggregation.SATURDAY),
+    SUNDAY: sort(aggregation.SUNDAY),
+  };
+}
+
+function sort(
+  entries: ProgramEntryTimetableView[],
+): ProgramEntryTimetableView[] {
+  return entries.toSorted(
+    (a, b) =>
+      Temporal.PlainTime.compare(a.range.startTime, b.range.startTime) ||
+      Temporal.PlainTime.compare(a.range.endTime, b.range.endTime),
+  );
 }
 
 type TimeviewKind = "master-draft" | "master" | "play" | "help";
