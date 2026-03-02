@@ -1,0 +1,290 @@
+---
+import { Heading } from "@common/components/Heading";
+import { Icon } from "@common/components/Icon";
+import Layout from "@gdn/layouts/Layout.astro";
+
+export const frontmatter = {
+  navigation: {
+    group: "secondary",
+    label: "Anreise",
+    order: 7,
+  },
+};
+---
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+<script
+  is:inline
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+
+<link
+  rel="stylesheet"
+  href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
+  integrity="sha256-LhJiGL8zdnwmqQgxK45GXouxZnYhMrDdor4wyLxKxSg="
+  crossorigin=""
+/>
+<script
+  is:inline
+  src="//unpkg.com/leaflet-gesture-handling"
+  integrity="sha256-Z27Vo2NYi3eklYwgKkhgysoiRMJNOaBP+o4eF586vZ8="
+  crossorigin=""></script>
+
+<Layout title="Adresse" metaTitle="Adresse">
+  <div class="content">
+    <p>
+      Die meisten unserer Anlässe &ndash; vor allem die <strong
+        >Spieltreffen</strong
+      > &ndash; finden in den Räumlichkeiten der
+      <a
+        href="https://www.kathluzern.ch/meine-kirche/pfarreien-standorte/st-johannes"
+      >
+        Pfarrei St. Johannes, Luzern
+      </a>
+      statt. Die Lokalität ist in 10-15 Minuten bequem vom Luzerner Stadtzentrum
+      mit <strong>öffentlichen Verkehrsmitteln</strong> zu erreichen.
+    </p>
+
+    <ul class="cluster" role="list">
+      <li class="tag inverted">
+        <a href="#anreise">
+          Anreise
+          <Icon icon="chevrons-right" />
+        </a>
+      </li>
+      <li class="tag inverted">
+        <a href="#räume">
+          Räume
+          <Icon icon="chevrons-right" />
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div id="map-big" class="full-width map" style="height: 60svh;"></div>
+  <Heading level={2} title="Anreise" />
+  <div class="dynamic-columns">
+    <div class="content">
+      <Heading level={3} title="Öffentlicher Verkehr" />
+      <p>Vom Bahnhof Luzern hast du viele Möglichkeiten zu uns zu gelangen:</p>
+      <Heading level={4} title="Bus" />
+      <ul>
+        <li>
+          <strong>Bus 14 bis Schlösslihalde</strong> (Richtung Brüelstrasse)
+        </li>
+        <li>
+          <strong>Bus 73 bis Schlösslihalde</strong> (Richtung Adligenswil)
+        </li>
+        <li>
+          <strong>Bus 8 bis Würzenbachmatte</strong> (Richtung Würzenbach)
+        </li>
+        <li>
+          <strong>Bus 6 bis Giseli</strong> (Richtung Büttenenhalde)
+        </li>
+      </ul>
+      <Heading level={4} title="Zug" />
+      <ul>
+        <li>
+          <strong>Bahnhof: Luzern Verkehrshaus</strong><br />
+          Danach ca. 15 Minuten zu Fuss oder mit Bus 6 oder 8 zwei Haltestellen.
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <Heading level={3} title="Auto" />
+      <p>
+        Es hat <strong>wenige und gebührenpflichtige Parkplätze</strong> in der Nähe.
+        Wir können nicht garantieren, dass diese frei sind. Deshalb empfehlen wir
+        grundsätzlich mit dem öffentlichen Verkehr anzureisen.
+      </p>
+
+      <Heading level={4} title="Adresse" />
+      <a
+        href="https://osm.org/go/0Cb8_hd9R?m=&way=586412904"
+        style="border: none; padding: 0;"
+        class="cluster"
+      >
+        <Icon icon="location-dot" style="font-size: 2em; align-self: center;" />
+        <address>
+          Schädrütistrasse 26<br />
+          6006 Luzern
+        </address>
+      </a>
+    </div>
+  </div>
+  <div id="map-small" class="full-width map" style="height: 70svh;"></div>
+  <Heading level={2} title="Räume" />
+  <p>Meist sind wir in einem der folgenden Räume anzutreffen:</p>
+
+  <div class="dynamic-columns">
+    <div class="content">
+      <Heading level={3} title="Würzenbachsaal (oben)" />
+      <p>Der grössere der beiden Räume.</p>
+      <p>
+        <em>Foto folgt</em>
+      </p>
+    </div>
+    <div class="content">
+      <Heading level={3} title="Unterkirche (unten)" />
+      <p>
+        <em>Foto folgt</em>
+      </p>
+    </div>
+  </div>
+
+  <style>
+    .map {
+      border-block: 0.5rem solid var(--clr-8);
+    }
+
+    .leaflet-container {
+      img {
+        border: initial;
+        display: initial;
+        background-color: initial;
+      }
+      a {
+        border: initial;
+      }
+    }
+
+    .cluster {
+      li {
+        font-size: 1.1em;
+      }
+
+      a {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        color: unset;
+        text-decoration: none;
+        border: none;
+
+        > :last-child {
+          transition: all 0.5s;
+          opacity: 0.4;
+        }
+
+        &:hover,
+        &:active {
+          > :last-child {
+            transform: translateX(0.5rem);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  </style>
+
+  <script is:inline type="module">
+    // Big
+
+    const colorTiles = new L.TileLayer(
+      "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg",
+      {
+        attribution: '<a href="https://map.geo.admin.ch">geo.admin.ch</a>',
+      },
+    );
+
+    const mapBig = new L.Map("map-big", {
+      center: [47.05042, 8.32674],
+      zoom: 15,
+      gestureHandling: true,
+      layers: [colorTiles],
+    });
+
+    const markerBig = new L.Marker([47.055781, 8.344615]).addTo(mapBig);
+    markerBig
+      .bindPopup("<b>Pfarrei St. Johannes</b><br>Schädrütistrasse 26, Luzern")
+      .openPopup();
+
+    // Small
+
+    const grayTiles = new L.TileLayer(
+      "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-grau/default/current/3857/{z}/{x}/{y}.jpeg",
+      {
+        attribution: '<a href="https://map.geo.admin.ch">geo.admin.ch</a>',
+      },
+    );
+    const transportTiles = new L.TileLayer(
+      "https://wmts.geo.admin.ch/1.0.0/ch.bav.haltestellen-oev/default/current/3857/{z}/{x}/{y}.png",
+    );
+
+    const mapSmall = new L.Map("map-small", {
+      center: [47.055098, 8.344566],
+      zoom: 18,
+      gestureHandling: true,
+      layers: [grayTiles, transportTiles],
+    });
+
+    const grayIcon = new L.Icon({
+      iconUrl:
+        "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png",
+      shadowUrl:
+        "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    });
+    new L.Marker([47.055781, 8.344615], {
+      icon: grayIcon,
+    })
+      .addTo(mapSmall)
+      .bindPopup("<b>Würzenbachsaal</b>", {
+        closeOnClick: false,
+        autoClose: false,
+      })
+      .openPopup();
+
+    new L.Marker([47.055321, 8.345031], {
+      icon: grayIcon,
+    })
+      .addTo(mapSmall)
+      .bindPopup("<b>Unterkirche</b>", {
+        closeOnClick: false,
+        autoClose: false,
+      })
+      .openPopup();
+
+    const schloesslihalde = new L.Marker([47.056089, 8.344255])
+      .addTo(mapSmall)
+      .bindPopup(
+        "<b>Luzern, Schlösslihalde</b><br>Bus 14, Richtung <em>Brüelstrasse</em><br>Bus 73, Richtung <em>Adligenswil</em>",
+        {
+          closeOnClick: false,
+          autoClose: false,
+        },
+      )
+      .openPopup();
+
+    const wuerzenbachmatte = new L.Marker([47.054777, 8.344067])
+      .addTo(mapSmall)
+      .bindPopup(
+        "<b>Luzern, Würzenbachmatte</b><br>Bus 8, Richtung <em>Würzenbach</em>",
+        {
+          closeOnClick: false,
+          autoClose: false,
+        },
+      )
+      .openPopup();
+
+    const giseli = new L.Marker([47.053649, 8.344588])
+      .addTo(mapSmall)
+      .bindPopup(
+        "<b>Luzern, Giseli</b><br>Bus 6, Richtung <em>Büttenenhalde</em>",
+        {
+          closeOnClick: false,
+          autoClose: false,
+        },
+      )
+      .openPopup();
+  </script>
+</Layout>

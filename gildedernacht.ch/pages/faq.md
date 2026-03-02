@@ -222,17 +222,20 @@ navigation:
 
 ### Lokalität
 
-<details open="" hidden>
+<details open="">
   <summary>Gibt es einen festen Treffpunkt für die Events, oder wechseln die Veranstaltungsorte?</summary>
 
-  Die Spieltreffen finden in den Räumlichkeiten der Pfarrei St. Johannes Luzern statt ([link]). Jedoch nicht immer im selben Raum. Meist sind wir im Würzenbachsaal (oben) oder in der Unterkirche (unten).
+  Die Spieltreffen finden in den Räumlichkeiten der [Pfarrei St. Johannes Luzern](/adresse)
+  statt. Jedoch nicht immer im selben Raum. Meist sind wir im Würzenbachsaal (oben) oder in der Unterkirche (unten).
+
+  [Mehr Infos zu den Räumen](/adresse#räume)
 
 </details>
 
-<details open="" hidden>
+<details open="" >
   <summary>Gibt es Parkmöglichkeiten in der Nähe der Veranstaltungsorte?</summary>
 
-   Es hat wenige, gebührenpflichtige Parkplätze in der Nähe. Wir können nicht garantieren, dass diese immer frei sind. Deshalb empfehlen wir grundsätzlich mit dem öffentlichen Verkehr anzureisen ([link]).
+   Es hat wenige, gebührenpflichtige Parkplätze in der Nähe. Wir können nicht garantieren, dass diese immer frei sind. Deshalb empfehlen wir grundsätzlich mit dem öffentlichen Verkehr anzureisen ([Mehr Infos zur Anreise](/adresse#anreise)).
 
 </details>
 
