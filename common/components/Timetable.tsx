@@ -252,7 +252,11 @@ function rangeToGridRow(
     `[${JSON.stringify(range)}] Entry can't end at '${endTime.hour}'. Closing hour set to '${closingHour}' on day '${day}'`,
   );
 
-  return `grid-row: ${startRow} / ${endRow};`;
+  const durationHours = endRow - startRow;
+  const startMinutePercent = startTime.minute / 60;
+  const endMinutePercent = endTime.minute / 60;
+
+  return `grid-row: ${startRow} / ${endRow}; --offset-start: ${(startMinutePercent / durationHours) * 100}%; --offset-end: ${(endMinutePercent / durationHours) * 100}%;`;
 }
 
 type Conflicts = [ProgramEntryTimetableView, ProgramEntryTimetableView][];

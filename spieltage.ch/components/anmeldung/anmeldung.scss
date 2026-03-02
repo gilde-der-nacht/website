@@ -249,6 +249,9 @@
     .entry {
       padding: 0.5rem;
       grid-column: 1 / 2;
+      position: relative;
+      inset-block-start: var(--offset-start, 0);
+      block-size: calc(100% - var(--offset-start, 0) + var(--offset-end, 0));
 
       >* {
         height: 100%;
