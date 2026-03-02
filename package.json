@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/html-escaper": "^3.0.4",
     "@types/luxon": "^3.7.1",
-    "@types/node": "^25.3.2",
+    "@types/node": "^25.3.3",
     "luxon": "^3.7.2",
     "prettier-plugin-astro": "^0.14.1"
   }
