@@ -1,4 +1,3 @@
-import { Heading } from "@common/components/Heading";
 import {
   WeekendTimetable,
   type ProgramEntryTimetableView,
@@ -47,7 +46,7 @@ export function Timeview(props: {
 
   return (
     <div>
-      <Heading level={3} title="Mein Programm" />
+      <h3>Mein Programm</h3>
       <br />
       <DayFilter
         dayFilter={dayFilter}

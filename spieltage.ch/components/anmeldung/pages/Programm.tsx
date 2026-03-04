@@ -12,7 +12,6 @@ import { Entry } from "@lst/components/anmeldung/components/Entry";
 import { toRange, type PerDay, type ProgramDay } from "@common/utils/time";
 import { Filters, type ActiveFilter } from "@common/components/Filter";
 import { getDay } from "../constant/time";
-import { Heading } from "@common/components/Heading";
 import { Temporal } from "@js-temporal/polyfill";
 
 export function Programm(props: {
@@ -69,7 +68,7 @@ function ProgramView(props: { save: Save; publicState: Public }): JSX.Element {
       <Show
         when={$filters.get().day === "SATURDAY" || $filters.get().day === null}
       >
-        <Heading level={3} title="Samstag" />
+        <h3>Samstag</h3>
         <DayProgram
           day="SATURDAY"
           program={program().SATURDAY}
@@ -80,7 +79,7 @@ function ProgramView(props: { save: Save; publicState: Public }): JSX.Element {
       <Show
         when={$filters.get().day === "SUNDAY" || $filters.get().day === null}
       >
-        <Heading level={3} title="Sonntag" />
+        <h3>Sonntag</h3>
         <DayProgram
           day="SUNDAY"
           program={program().SUNDAY}

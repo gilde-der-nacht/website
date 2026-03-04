@@ -27,7 +27,6 @@ import {
   type Reservations,
 } from "@lst/components/anmeldung/api/public";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
-import { Heading } from "@common/components/Heading";
 import { BoxLink } from "@common/components/BoxLink";
 import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { getDay } from "@lst/components/anmeldung/constant/time";
@@ -72,7 +71,7 @@ export function Helfen(props: {
       </Box>
 
       <br />
-      <Heading level={3} title="Erklärbären" />
+      <h3>Erklärbären</h3>
       <br />
       <div class="dynamic-columns">
         <p>

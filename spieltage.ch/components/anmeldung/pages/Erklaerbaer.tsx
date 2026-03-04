@@ -1,4 +1,3 @@
-import { Heading } from "@common/components/Heading";
 import { For, Match, Show, Switch, type JSX, type Resource } from "solid-js";
 import type {
   ErklaerbaerReservation,
@@ -45,7 +44,7 @@ export function Erklaerbaer(props: {
           />
         </div>
         <div>
-          <Heading level={3} title="Was machen die Erklärbären" />
+          <h3>Was machen die Erklärbären</h3>
           <ul>
             <li>Sie müssen nicht alle Spiele der Spiele-Bibliothek kennen!</li>
             <li>
@@ -115,7 +114,7 @@ function ErklaerbaerJobs(props: {
 
   return (
     <>
-      <Heading level={3} title="Meine Einsätze" />
+      <h3>Meine Einsätze</h3>
       <br />
       <Switch
         fallback={

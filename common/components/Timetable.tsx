@@ -11,7 +11,6 @@ import { assert } from "@common/components/utils";
 import { Box } from "@common/components/Box";
 import { Icon } from "@common/components/Icon";
 import { TXT } from "@common/utils/texts";
-import { Heading } from "@common/components/Heading";
 import { Temporal } from "@js-temporal/polyfill";
 
 export type WeekendOpeningHours = PerDay<{
@@ -99,7 +98,7 @@ function TimetableOfDay(props: {
   return (
     <div>
       <div style="margin-block-end: 1.5rem;">
-        <Heading level={4} title={TXT.days[props.day]} />
+        <h4>{TXT.days[props.day]}</h4>
       </div>
       <Switch
         fallback={
