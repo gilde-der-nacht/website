@@ -74,6 +74,7 @@
 
 .event-details {
   display: grid;
+  align-content: start;
   gap: 0.125rem;
 
   svg {
