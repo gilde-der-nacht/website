@@ -1,9 +1,9 @@
 ---
-import type { ProgramList } from '@lst/components/program/data.ts';
+import type { PublicProgramEntry } from "@lst/components/anmeldung/api/public";
 
 export type Props = {
   hour: string;
-  entries: ProgramList;
+  entries: PublicProgramEntry[];
   showQuestion: boolean;
 }
 
@@ -21,27 +21,21 @@ const colorsOfHour: Record<string, string> = {
 {
   entries.map((entry) => (
     <li class=`event-entry ${colorsOfHour[hour]}`>
-      <h1 class="event-title">{entry.title}</h1>
+      <h3 class="event-title">{entry.title}</h3>
       <div class="event-details"> 
-        <div class="event-tags"><strong>Zeit:</strong> {entry.slot.start} - {entry.slot.end} Uhr</div> 
-        <div class="event-tags"><strong>Spielleitung:</strong> {entry.master_name}</div> 
-        {
-          entry.external_link === null ? null : (
-            <div class="event-tags"><strong>Link:</strong> <a href={entry.external_link.link} style="border: none;">{entry.external_link.label}</a></div>
-          )
-        }
-        <div class="event-tags"><strong>Spielende:</strong> {entry.playercount.max > 50 ? (
+        <div class="event-tags"><strong>Zeit:</strong> {entry.slot.start.hour}.{String(entry.slot.start.minute).padStart(2, "0")} - {entry.slot.end.hour}.{String(entry.slot.end.minute).padStart(2, "0")} Uhr</div> 
+        <div class="event-tags"><strong>Organisiert durch:</strong> {entry.organizer}</div> 
+        <div class="event-tags"><strong>Spielende:</strong> {entry.participating.kind === "NONE" ? (
         <em>unbegrenzt</em>
         ) : (
-        `${entry.playercount.min} - ${entry.playercount.max}`
+        `bis ${entry.participating.maxSeats}`
         )}
         </div> 
       </div>
-      {
-        entry.description !== null && entry.description.trim().length > 0 ? (
-          <div class="event-description content"><p><strong>Beschreibung:</strong><br/>{entry.description}</p> </div>
-        ) : null
-      }
+        <div class="event-description content"><p><strong>Beschreibung:</strong><br/>{entry.shortDescription}</p> </div>
+        <ul role="list" class="event-links">
+        <li><a href="/anmeldung" style="border: none; display: block; padding: 0;" ><button class="event-link"><span>Details &amp; Teilnahme</span></button></a></li>
+        </ul>
     </li>
   ))
 }

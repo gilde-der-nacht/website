@@ -134,9 +134,14 @@ function ProgramDetailContent(props: {
           <li>
             <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
             <br />
-            {TXT.days[day]},{" "}
-            {formatTime(props.entry.slot.start, { minutes: false })} -{" "}
-            {formatTime(props.entry.slot.end, { minutes: false })} Uhr
+            {TXT.days[day]}, {formatTime(props.entry.slot.start)} -{" "}
+            {formatTime(props.entry.slot.end)} Uhr
+          </li>
+          <li>
+            <strong style="color: var(--clr-accent-1);">Treffpunkt:</strong>{" "}
+            <br />
+            Bei der Spielbibliothek im{" "}
+            <a href="/adresse#raumaufteilung">Würzenbachsaal</a>.
           </li>
           <li>
             <strong style="color: var(--clr-accent-1);">Kategorien:</strong>{" "}

@@ -1,54 +1,36 @@
-import { elysium } from "@common/components/utils";
-import { z } from "astro/zod";
+import { assert } from "@common/components/utils";
+import type { ProgramDay } from "@common/utils/time";
+import {
+  loadPublic,
+  type PublicProgramEntry,
+} from "@lst/components/anmeldung/api/public";
+import { getDay } from "@lst/components/anmeldung/constant/time";
 
-const serverSchemaDay = z.enum(["SATURDAY", "SUNDAY"]);
-type ProgramDay = z.infer<typeof serverSchemaDay>;
-const serverSchemaProgram = z.array(
-  z.object({
-    uuid: z.string(),
-    description: z.nullable(z.string()),
-    title: z.nullable(z.string()),
-    master_name: z.string(),
-    playercount: z.object({
-      min: z.number(),
-      max: z.number(),
-    }),
-    slot: z.object({
-      day: serverSchemaDay,
-      start: z.number(),
-      end: z.number(),
-    }),
-    external_link: z.nullable(
-      z.object({
-        label: z.string(),
-        link: z.string(),
-      }),
-    ),
-  }),
-);
-export type ProgramList = z.infer<typeof serverSchemaProgram>;
-
-export async function getProgram(): Promise<ProgramList> {
-  const response = await fetch(elysium("/lst25/program"));
-  const json = (await response.json()) as unknown;
-  return serverSchemaProgram.parse(json);
-}
-
-type GroupedByStarthour = Record<ProgramDay, Record<number, ProgramList>>;
+type GroupedByStarthour = Record<
+  ProgramDay,
+  Record<number, PublicProgramEntry[]>
+>;
 
 export async function getProgramGroupedByStarthour(): Promise<GroupedByStarthour> {
-  const program = await getProgram();
+  const program = await loadPublic("");
+
+  assert(program.kind === "SUCCESS", "Could not load public program");
 
   const grouped: GroupedByStarthour = {
+    FRIDAY: {},
     SATURDAY: {},
     SUNDAY: {},
   };
 
-  for (const entry of program) {
+  for (const entry of program.data.programEntries) {
     const { day, start } = entry.slot;
-    const list = grouped[day][start] ?? [];
+    const dayStr = getDay(day);
+    if (dayStr === null) {
+      continue;
+    }
+    const list = grouped[dayStr][start.hour] ?? [];
     list.push(entry);
-    grouped[day][start] = list;
+    grouped[dayStr][start.hour] = list;
   }
 
   return grouped;

@@ -6,14 +6,14 @@ import { Link } from "@common/components/Link";
 export function Root(props: { roles: Roles }): JSX.Element {
   return (
     <div>
+      <Link href="/programm" class="button-link">
+        <BoxLink icon="dice-d20">
+          <h3>Programm ansehen</h3>
+          <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
+        </BoxLink>
+      </Link>
+      <br />
       <Show when={props.roles.includes("admin")}>
-        <Link href="/programm" class="button-link">
-          <BoxLink icon="dice-d20">
-            <h3>Programm ansehen</h3>
-            <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
-          </BoxLink>
-        </Link>
-        <br />
         <Link href="/erstellen" class="button-link">
           <BoxLink icon="grid-2-plus">
             <h3>Programmpunkte erstellen</h3>
