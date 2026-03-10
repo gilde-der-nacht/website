@@ -155,7 +155,7 @@ function aggregateEntries(props: {
   byDay[props.day]?.forEach((entry) => {
     const emptySeats = () =>
       entry.count -
-      (props.allReservations[entry.uuid] ?? 0) -
+      (props.allReservations[entry.uuid]?.length ?? 0) -
       props.myReservations.filter(
         (r) => "entryUuid" in r && r.entryUuid === entry.uuid,
       ).length;

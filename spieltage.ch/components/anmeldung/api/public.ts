@@ -55,7 +55,7 @@ export type PublicProgramEntry = Omit<
   };
 };
 
-const reservationsSchema = z.record(z.string(), z.number());
+const reservationsSchema = z.record(z.string(), z.array(z.string()));
 export type Reservations = z.infer<typeof reservationsSchema>;
 
 const publicRawSchema = z.object({

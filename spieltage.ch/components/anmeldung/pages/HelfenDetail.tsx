@@ -54,6 +54,7 @@ export function HelfenDetail(props: {
           removeReservation={(reservationUuid) => {
             arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid);
           }}
+          adminData={props.adminData}
         />
       )}
     </Show>
@@ -67,6 +68,7 @@ function HelfenDetailContent(props: {
   isEditable: boolean;
   addReservation: (reservation: HelpingReservation) => void;
   removeReservation: (reservationUuid: string) => void;
+  adminData: PublicAdmin;
 }): JSX.Element {
   const { dateTime, kind } = props.entry;
   const helpType = helpTypes[kind];
@@ -81,7 +83,7 @@ function HelfenDetailContent(props: {
       (r) => "entryUuid" in r && r.entryUuid === props.entry.uuid,
     );
 
-  const externalReserved = props.allReservations[props.entry.uuid] ?? 0;
+  const externalReserved = props.allReservations[props.entry.uuid]?.length ?? 0;
 
   const range = () =>
     toRange(props.entry.count).map((i) => {
