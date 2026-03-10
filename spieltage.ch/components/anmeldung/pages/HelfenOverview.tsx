@@ -1,7 +1,6 @@
-import { createSignal, For, Show, type JSX, type Resource } from "solid-js";
+import { createSignal, For, Show, type JSX } from "solid-js";
 import type { HelpingReservation } from "@lst/components/anmeldung/api/save";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
-import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import type { Reactive } from "@common/utils/reactivity";
 import { Box } from "@common/components/Box";
@@ -20,7 +19,7 @@ import { getDay } from "@lst/components/anmeldung/constant/time";
 
 export function HelfenOverview(props: {
   reservations$: Reactive<HelpingReservation[]>;
-  adminResource: Resource<Result<PublicAdmin>>;
+  adminData: PublicAdmin;
   roles: Roles;
 }): JSX.Element {
   return (
@@ -31,22 +30,16 @@ export function HelfenOverview(props: {
           <Box type="danger">Du hast keinen Zugriff auf diesen Bereich.</Box>
         }
       >
-        <Show when={props.adminResource()}>
-          {(resource) => <Content adminResource={resource()} />}
-        </Show>
+        <Content adminData={props.adminData} />
       </Show>
     </>
   );
 }
 
-function Content(props: { adminResource: Result<PublicAdmin> }): JSX.Element {
+function Content(props: { adminData: PublicAdmin }): JSX.Element {
   const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
 
-  if (props.adminResource.kind === "FAILURE") {
-    return null;
-  }
-
-  const { admin } = props.adminResource.data;
+  const { admin } = props.adminData;
 
   if (admin === null) {
     return null;

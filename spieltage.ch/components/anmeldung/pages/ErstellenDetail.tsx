@@ -1,12 +1,4 @@
-import {
-  ErrorBoundary,
-  For,
-  Index,
-  Show,
-  Suspense,
-  type JSX,
-  type Resource,
-} from "solid-js";
+import { ErrorBoundary, For, Index, Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type {
@@ -18,10 +10,8 @@ import type {
 import { useParams } from "@solidjs/router";
 import {
   toPublic,
-  type Public,
   type PublicProgramEntry,
 } from "@lst/components/anmeldung/api/public";
-import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { Chip } from "@common/components/Chip";
 import { Icon } from "@common/components/Icon";
 import { arr, obj, type Reactive } from "@common/utils/reactivity";
@@ -42,41 +32,23 @@ import { Temporal } from "@js-temporal/polyfill";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
-  publicResource: Resource<Result<Public>>;
   isEditable: boolean;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
 
   return (
-    <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-      <Show
-        when={props.publicResource()}
-        fallback={<Box type="danger">{TXT.error.help}</Box>}
-      >
-        {(publicData) => (
-          <Show
-            when={publicData().kind === "SUCCESS"}
-            fallback={<Box type="danger">{TXT.error.program}</Box>}
-          >
-            <ErrorBoundary
-              fallback={
-                <Box type="danger">
-                  <p>Details konnten nicht geladen werden.</p>
-                </Box>
-              }
-            >
-              <ErstellenDetailContent
-                entry$={arr.findExact(
-                  props.programEntries$,
-                  (e) => e.uuid === uuid,
-                )}
-                isEditable={props.isEditable}
-              />
-            </ErrorBoundary>
-          </Show>
-        )}
-      </Show>
-    </Suspense>
+    <ErrorBoundary
+      fallback={
+        <Box type="danger">
+          <p>Details konnten nicht geladen werden.</p>
+        </Box>
+      }
+    >
+      <ErstellenDetailContent
+        entry$={arr.findExact(props.programEntries$, (e) => e.uuid === uuid)}
+        isEditable={props.isEditable}
+      />
+    </ErrorBoundary>
   );
 }
 

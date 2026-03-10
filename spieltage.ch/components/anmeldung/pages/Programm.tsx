@@ -1,8 +1,7 @@
 import { Box } from "@common/components/Box";
 import { createReactive, type Reactive } from "@common/utils/reactivity";
-import { For, Show, Suspense, type JSX, type Resource } from "solid-js";
+import { For, Show, type JSX } from "solid-js";
 import type { Reservation, Save } from "@lst/components/anmeldung/api/save";
-import type { Result } from "@lst/components/anmeldung/api/elysium";
 import type {
   Public,
   PublicProgramEntry,
@@ -16,27 +15,10 @@ import { Temporal } from "@js-temporal/polyfill";
 
 export function Programm(props: {
   save$: Reactive<Save>;
-  publicResource: Resource<Result<Public>>;
+  publicData: Public;
 }): JSX.Element {
   return (
-    <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-      <Show
-        when={props.publicResource()}
-        fallback={<Box type="danger">{TXT.error.help}</Box>}
-      >
-        {(publicData) => (
-          <Show
-            when={publicData().kind === "SUCCESS"}
-            fallback={<Box type="danger">{TXT.error.program}</Box>}
-          >
-            <ProgramView
-              save={props.save$.get()}
-              publicState={(publicData() as { data: Public }).data}
-            />
-          </Show>
-        )}
-      </Show>
-    </Suspense>
+    <ProgramView save={props.save$.get()} publicState={props.publicData} />
   );
 }
 

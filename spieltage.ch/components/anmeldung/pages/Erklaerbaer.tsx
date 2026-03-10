@@ -1,4 +1,4 @@
-import { For, Match, Show, Switch, type JSX, type Resource } from "solid-js";
+import { For, Match, Show, Switch, type JSX } from "solid-js";
 import type {
   ErklaerbaerReservation,
   HelpingReservation,
@@ -12,7 +12,6 @@ import { InputInteger } from "@common/components/Input";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
 import { openingHours } from "@lst/components/anmeldung/constant/time";
 import { arr, obj, type Reactive } from "@common/utils/reactivity";
-import type { Result } from "@lst/components/anmeldung/api/elysium";
 import type {
   ErklaerbaerAdminEntry,
   PublicAdmin,
@@ -21,7 +20,7 @@ import type { PerDay } from "@common/utils/time";
 
 export function Erklaerbaer(props: {
   save$: Reactive<Save>;
-  adminResource: Resource<Result<PublicAdmin>>;
+  adminData: PublicAdmin;
   roles: Roles;
   isEditable: boolean;
 }): JSX.Element {
@@ -94,9 +93,7 @@ export function Erklaerbaer(props: {
           </ul>
         </div>
       </div>
-      <Show when={props.adminResource()}>
-        {(resource) => <ErklaerbaerOverview adminResource={resource()} />}
-      </Show>
+      <ErklaerbaerOverview adminData={props.adminData} />
     </>
   );
 }
@@ -277,16 +274,13 @@ function JobEntry(props: {
 }
 
 function ErklaerbaerOverview(props: {
-  adminResource: Result<PublicAdmin>;
+  adminData: PublicAdmin;
 }): JSX.Element | null {
-  if (props.adminResource.kind === "FAILURE") {
-    return null;
-  }
-  if (props.adminResource.data.erklaerbaer === null) {
+  if (props.adminData.erklaerbaer === null) {
     return null;
   }
 
-  const byDay = groupByDay(props.adminResource.data.erklaerbaer.entries);
+  const byDay = groupByDay(props.adminData.erklaerbaer.entries);
 
   return (
     <>

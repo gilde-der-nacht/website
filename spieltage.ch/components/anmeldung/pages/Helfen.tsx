@@ -1,10 +1,4 @@
-import {
-  createSignal,
-  Show,
-  Suspense,
-  type JSX,
-  type Resource,
-} from "solid-js";
+import { createSignal, Show, type JSX } from "solid-js";
 import { Icon } from "@common/components/Icon";
 import type { PerDay, PlainTimeRange, ProgramDay } from "@common/utils/time";
 import {
@@ -21,14 +15,12 @@ import { IconOnlyButton } from "@common/components/Button";
 import { Chip } from "@common/components/Chip";
 import type { HelpingReservation } from "@lst/components/anmeldung/api/save";
 import { Box } from "@common/components/Box";
-import { TXT } from "@common/utils/texts";
 import {
   type Public,
   type Reservations,
 } from "@lst/components/anmeldung/api/public";
 import type { Roles } from "@lst/components/anmeldung/api/meta";
 import { BoxLink } from "@common/components/BoxLink";
-import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { getDay } from "@lst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import { Temporal } from "@js-temporal/polyfill";
@@ -37,7 +29,7 @@ import { Link } from "@common/components/Link";
 
 export function Helfen(props: {
   reservations$: Reactive<HelpingReservation[]>;
-  publicResource: Resource<Result<Public>>;
+  publicData: Public;
   isEditable: boolean;
   roles: Roles;
 }): JSX.Element {
@@ -98,32 +90,12 @@ export function Helfen(props: {
 
       <br />
 
-      <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-        <Show
-          when={props.publicResource()}
-          fallback={<Box type="danger">{TXT.error.help}</Box>}
-        >
-          {(publicData) => (
-            <Show
-              when={publicData().kind === "SUCCESS"}
-              fallback={
-                <Box type="danger">
-                  <p>Plan konnte nicht geladen werden.</p>
-                </Box>
-              }
-            >
-              <HelpingContent
-                myHelpReservations={props.reservations$.get()}
-                allReservations={
-                  (publicData() as { data: Public }).data.reservations
-                }
-                isEditable={props.isEditable}
-                dayFilter={dayFilter()}
-              />
-            </Show>
-          )}
-        </Show>
-      </Suspense>
+      <HelpingContent
+        myHelpReservations={props.reservations$.get()}
+        allReservations={props.publicData.reservations}
+        isEditable={props.isEditable}
+        dayFilter={dayFilter()}
+      />
     </>
   );
 }

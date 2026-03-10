@@ -1,12 +1,4 @@
-import {
-  For,
-  Match,
-  Show,
-  Suspense,
-  Switch,
-  type JSX,
-  type Resource,
-} from "solid-js";
+import { For, Match, Show, Switch, type JSX } from "solid-js";
 import { Box, SimpleBox } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import { useParams } from "@solidjs/router";
@@ -14,7 +6,6 @@ import {
   type Public,
   type PublicProgramEntry,
 } from "@lst/components/anmeldung/api/public";
-import type { Result } from "@lst/components/anmeldung/api/elysium";
 import { Link } from "@common/components/Link";
 import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { formatTime, toRange } from "@common/utils/time";
@@ -26,52 +17,33 @@ import { arr, type Reactive } from "@common/utils/reactivity";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<Reservation[]>;
-  publicResource: Resource<Result<Public>>;
+  publicData: Public;
   isEditable: boolean;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
 
   return (
-    <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-      <Show
-        when={props.publicResource()}
-        fallback={<Box type="danger">{TXT.error.help}</Box>}
-      >
-        {(publicData) => (
-          <Show
-            when={publicData().kind === "SUCCESS"}
-            fallback={<Box type="danger">{TXT.loading.program}</Box>}
-          >
-            <Show
-              when={(publicData() as { data: Public }).data.programEntries.find(
-                (e) => e.uuid === uuid,
-              )}
-              fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
-            >
-              {(entry) => (
-                <ProgramDetailContent
-                  entry={entry()}
-                  myReservations={props.reservations$.get()}
-                  isEditable={props.isEditable}
-                  addReservation={(reservation) =>
-                    arr.push(props.reservations$, {
-                      ...reservation,
-                      uuid: crypto.randomUUID(),
-                    })
-                  }
-                  removeReservation={(reservationUuid) => {
-                    arr.remove(
-                      props.reservations$,
-                      (r) => r.uuid !== reservationUuid,
-                    );
-                  }}
-                />
-              )}
-            </Show>
-          </Show>
-        )}
-      </Show>
-    </Suspense>
+    <Show
+      when={props.publicData.programEntries.find((e) => e.uuid === uuid)}
+      fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
+    >
+      {(entry) => (
+        <ProgramDetailContent
+          entry={entry()}
+          myReservations={props.reservations$.get()}
+          isEditable={props.isEditable}
+          addReservation={(reservation) =>
+            arr.push(props.reservations$, {
+              ...reservation,
+              uuid: crypto.randomUUID(),
+            })
+          }
+          removeReservation={(reservationUuid) => {
+            arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid);
+          }}
+        />
+      )}
+    </Show>
   );
 }
 

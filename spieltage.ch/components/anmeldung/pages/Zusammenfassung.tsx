@@ -1,4 +1,4 @@
-import { createMemo, Show, Suspense, type JSX, type Resource } from "solid-js";
+import { createMemo, Show, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import { Box } from "@common/components/Box";
 import {
@@ -14,7 +14,6 @@ import type { Contact, Save } from "@lst/components/anmeldung/api/save";
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { useSearchParams } from "@solidjs/router";
-import type { Result } from "@lst/components/anmeldung/api/elysium";
 import type { Public } from "@lst/components/anmeldung/api/public";
 import { Timeview } from "@lst/components/anmeldung/components/Timeview";
 import { obj, type Reactive } from "@common/utils/reactivity";
@@ -22,7 +21,7 @@ import { Checkbox } from "@common/components/newForm/Checkbox";
 
 export function Zusammenfassung(props: {
   save$: Reactive<Save>;
-  publicResource: Resource<Result<Public>>;
+  publicData: Public;
   isEditable: boolean;
 }): JSX.Element {
   return (
@@ -40,24 +39,7 @@ export function Zusammenfassung(props: {
         value="wantsUpdates"
       />
 
-      <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-        <Show
-          when={props.publicResource()}
-          fallback={<Box type="danger">{TXT.error.help}</Box>}
-        >
-          {(publicData) => (
-            <Show
-              when={publicData().kind === "SUCCESS"}
-              fallback={<Box type="danger">{TXT.error.program}</Box>}
-            >
-              <Timeview
-                save={props.save$.get()}
-                publicState={(publicData() as { data: Public }).data}
-              />
-            </Show>
-          )}
-        </Show>
-      </Suspense>
+      <Timeview save={props.save$.get()} publicData={props.publicData} />
     </div>
   );
 }

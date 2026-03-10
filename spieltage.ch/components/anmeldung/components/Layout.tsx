@@ -1,21 +1,32 @@
-import type { WithChildren } from "@common/components/utils";
-import type { JSX } from "solid-js";
+import { Suspense, type JSX, type Resource } from "solid-js";
 import {
   QuickMenu,
   QuickMenuExtended,
 } from "@lst/components/anmeldung/components/QuickMenu";
 import type { Roles, SaveState } from "@lst/components/anmeldung/api/meta";
+import type { PublicAdmin } from "@lst/components/anmeldung/api/admin";
+import type { Public } from "@lst/components/anmeldung/api/public";
+import type { Result } from "@lst/components/anmeldung/api/elysium";
+import {
+  ShowAdminData,
+  ShowPublicData,
+} from "@lst/components/anmeldung/components/Loader";
+import { Box } from "@common/components/Box";
+import { TXT } from "@common/utils/texts";
 
-export function Layout(
-  props: WithChildren<{
-    title?: string;
-    showQuickmenu?: boolean;
-    roles: Roles;
-    saveState: SaveState;
-    lastSaved: Date;
-    parentPath?: string;
-  }>,
-): JSX.Element {
+export function Layout(props: {
+  title?: string;
+  showQuickmenu?: boolean;
+  roles: Roles;
+  saveState: SaveState;
+  lastSaved: Date;
+  parentPath?: string;
+  publicResource: Resource<Result<Public>>;
+  adminResource: Resource<Result<PublicAdmin>>;
+  children:
+    | JSX.Element
+    | ((data: { publicData: Public; adminData: PublicAdmin }) => JSX.Element);
+}): JSX.Element {
   return (
     <div class="page">
       {props.showQuickmenu !== false ? (
@@ -33,7 +44,19 @@ export function Layout(
             <br />
           </>
         )}
-        {props.children}
+        <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
+          <ShowPublicData publicResource={props.publicResource}>
+            {(publicData) => (
+              <ShowAdminData adminResource={props.adminResource}>
+                {(adminData) =>
+                  typeof props.children === "function"
+                    ? props.children({ publicData, adminData })
+                    : props.children
+                }
+              </ShowAdminData>
+            )}
+          </ShowPublicData>
+        </Suspense>
       </div>
       {props.showQuickmenu !== false ? (
         <div class="extended-wrapper" style="margin-block-start: 1rem;">

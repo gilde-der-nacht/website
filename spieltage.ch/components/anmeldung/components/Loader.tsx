@@ -22,7 +22,6 @@ export function ShowPublicData(props: {
           {typeof props.children === "function"
             ? props.children((result() as { data: Public }).data)
             : props.children}
-          <h1>Loaded</h1>
         </Show>
       )}
     </Show>
@@ -46,7 +45,6 @@ export function ShowAdminData(props: {
           {typeof props.children === "function"
             ? props.children((result() as { data: PublicAdmin }).data)
             : props.children}
-          <h1>Loaded</h1>
         </Show>
       )}
     </Show>

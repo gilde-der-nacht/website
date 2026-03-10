@@ -36,10 +36,10 @@ import { Temporal } from "@js-temporal/polyfill";
 
 export function Timeview(props: {
   save: Save;
-  publicState: Public;
+  publicData: Public;
 }): JSX.Element {
   const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
-  const personalProgram = aggregateEntries(props.save, props.publicState);
+  const personalProgram = aggregateEntries(props.save, props.publicData);
 
   const excludedDays = getExcludedDays(personalProgram);
   const hours = getOpeningHours(personalProgram);
