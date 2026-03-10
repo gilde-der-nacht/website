@@ -23,7 +23,7 @@ export type Contact = z.infer<typeof contactSchema>;
 
 const erklaerbaerReservationSchema = z.object({
   kind: z.literal("ERKLAERBAER"),
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   slot: dateTimeWindowSchema,
 });
 
@@ -43,7 +43,7 @@ const freeformTimeSlotSchema = z.object({
 
 const freeformReservationSchema = z.object({
   kind: z.literal("FREEFORM"),
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   tag: z.string(),
   name: z.string(),
   slot: freeformTimeSlotSchema,
@@ -54,14 +54,14 @@ export type FreeformReservation = z.infer<typeof freeformReservationSchema>;
 const baseReservationSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
-    entryUuid: z.string().uuid(),
-    uuid: z.string().uuid(),
+    entryUuid: z.uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
-    entryUuid: z.string().uuid(),
+    entryUuid: z.uuid(),
     name: z.string(),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
 ]);
 
@@ -103,7 +103,7 @@ const programLinkSchema = z.object({
 export type Link = z.infer<typeof programLinkSchema>;
 
 const programEntrySchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   status: publishStateSchema,
   title: z.string(),
   organizer: z.string(),

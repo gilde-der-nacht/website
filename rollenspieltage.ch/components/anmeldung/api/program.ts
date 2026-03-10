@@ -11,7 +11,7 @@ import { openingHours } from "@rst/components/anmeldung/constant/hours";
  */
 
 const programEntryServerSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   title: z.string(),
   system: z.string(),
   gamemaster: z.string(),
@@ -37,7 +37,7 @@ const programServerSchema = z.array(programEntryServerSchema);
 export type ProgramServer = z.infer<typeof programServerSchema>;
 
 const programEntryClientSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   title: z.string(),
   system: z.string(),
   gamemaster: z.string(),

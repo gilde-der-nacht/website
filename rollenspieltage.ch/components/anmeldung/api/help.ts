@@ -6,11 +6,11 @@ import { elysiumLoadHelp } from "@rst/components/anmeldung/api/elysium";
  * Types
  */
 
-const helpServerSchema = z.array(z.string().uuid());
+const helpServerSchema = z.array(z.uuid());
 
 type HelpServer = z.infer<typeof helpServerSchema>;
 
-const helpClientSchema = z.array(z.string().uuid());
+const helpClientSchema = z.array(z.uuid());
 
 export type HelpClient = z.infer<typeof helpClientSchema>;
 

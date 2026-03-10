@@ -48,14 +48,14 @@ export type ContactClient = z.infer<typeof contactClientSchema>;
 const reservationServerSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
-    gameRound: z.string().uuid(),
-    uuid: z.string().uuid(),
+    gameRound: z.uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
-    gameRound: z.string().uuid(),
+    gameRound: z.uuid(),
     name: z.string(),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
 ]);
 
@@ -67,14 +67,14 @@ export const playingServerSchema = z.object({
 const reservationClientSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
-    gameRound: z.string().uuid(),
-    uuid: z.string().uuid(),
+    gameRound: z.uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
-    gameRound: z.string().uuid(),
+    gameRound: z.uuid(),
     name: z.string(),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
 ]);
 export type ReservationClient = z.infer<typeof reservationClientSchema>;
@@ -82,11 +82,11 @@ export type ReservationClient = z.infer<typeof reservationClientSchema>;
 const reservationCreateClientSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
-    gameRound: z.string().uuid(),
+    gameRound: z.uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
-    gameRound: z.string().uuid(),
+    gameRound: z.uuid(),
     name: z.string(),
   }),
 ]);
@@ -123,14 +123,14 @@ export type MasterClient = z.infer<typeof masterClientSchema>;
 const helpReservationServerSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
-    helpEntryUuid: z.string().uuid(),
-    uuid: z.string().uuid(),
+    helpEntryUuid: z.uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
-    helpEntryUuid: z.string().uuid(),
+    helpEntryUuid: z.uuid(),
     name: z.string(),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
 ]);
 
@@ -139,14 +139,14 @@ export const helpingServerSchema = z.array(helpReservationServerSchema);
 const helpReservationClientSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
-    helpEntryUuid: z.string().uuid(),
-    uuid: z.string().uuid(),
+    helpEntryUuid: z.uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
-    helpEntryUuid: z.string().uuid(),
+    helpEntryUuid: z.uuid(),
     name: z.string(),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
 ]);
 export type HelpReservationClient = z.infer<typeof helpReservationClientSchema>;
@@ -157,11 +157,11 @@ export type HelpingClient = z.infer<typeof helpingClientSchema>;
 const helpReservationCreateClientSchema = z.union([
   z.object({
     kind: z.literal("SELF"),
-    helpEntryUuid: z.string().uuid(),
+    helpEntryUuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("FRIEND"),
-    helpEntryUuid: z.string().uuid(),
+    helpEntryUuid: z.uuid(),
     name: z.string(),
   }),
 ]);

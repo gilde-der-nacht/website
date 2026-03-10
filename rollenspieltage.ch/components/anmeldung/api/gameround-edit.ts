@@ -15,7 +15,7 @@ import type { ParseResult } from "@rst/components/anmeldung/api/utils";
  */
 
 export const gameroundEditServerSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   kind: publishStateSchema,
   title: z.string(),
   system: z.string(),
@@ -38,7 +38,7 @@ export const gameroundEditServerSchema = z.object({
 export type GameroundEditServer = z.infer<typeof gameroundEditServerSchema>;
 
 export const gameroundEditClientSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   kind: publishStateSchema,
   title: textInputSchema,
   system: textInputSchema,

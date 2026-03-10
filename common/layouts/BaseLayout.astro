@@ -6,7 +6,7 @@ import ToC from "@common/components/toc/ToC.astro";
 import type { NavigationEntry } from "@common/layouts/types.ts";
 import type { TocConfig, AstroHeading } from "@common/components/toc/utils";
 import type { Language } from "@common/components/utils";
-import { z } from "astro:content";
+import { z } from "astro/zod";
 
 type Props = {
   locale?: Language;

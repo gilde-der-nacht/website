@@ -8,7 +8,7 @@ import { elysiumLoadReservations } from "@rst/components/anmeldung/api/elysium";
  */
 
 const reservationServerSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   name: z.string(),
 });
 

@@ -21,7 +21,7 @@ const erklaerbaerEntrySchema = z.object({
 export type ErklaerbaerAdminEntry = z.infer<typeof erklaerbaerEntrySchema>;
 
 const adminHelpEntryBaseSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   name: z.string(),
 });
 
@@ -41,7 +41,7 @@ const adminHelpEntryASchema = adminHelpEntryBaseSchema.extend({
 
 export type AdminHelpEntryA = z.infer<typeof adminHelpEntryASchema>;
 const adminHelpEntryBSchema = adminHelpEntryBaseSchema.extend({
-  ref: z.string().uuid(),
+  ref: z.uuid(),
 });
 
 const adminHelpEntrySchema = z.union([

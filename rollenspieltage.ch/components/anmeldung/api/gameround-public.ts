@@ -7,7 +7,7 @@ import { sortTwoNumbers } from "@common/components/utils";
  */
 
 export const gameroundPublicServerSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   gamemaster: z.string(),
   title: z.string(),
   system: z.string(),

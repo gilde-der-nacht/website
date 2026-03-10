@@ -15,7 +15,7 @@ const pageClientSchema = z.discriminatedUnion("kind", [
   }),
   z.object({
     kind: z.literal("GAME"),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("GAMEMASTER"),
@@ -27,7 +27,7 @@ const pageClientSchema = z.discriminatedUnion("kind", [
   }),
   z.object({
     kind: z.literal("HELPING-SLOT"),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("SUMMARY"),
@@ -35,7 +35,7 @@ const pageClientSchema = z.discriminatedUnion("kind", [
   }),
   z.object({
     kind: z.literal("EDIT_GAMEROUND"),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
 ]);
 export type PageClient = z.infer<typeof pageClientSchema>;
@@ -48,7 +48,7 @@ const pageClientSimplifiedSchema = z.discriminatedUnion("kind", [
   }),
   z.object({
     kind: z.literal("GAME"),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("GAMEMASTER"),
@@ -58,14 +58,14 @@ const pageClientSimplifiedSchema = z.discriminatedUnion("kind", [
   }),
   z.object({
     kind: z.literal("HELPING-SLOT"),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
   z.object({
     kind: z.literal("SUMMARY"),
   }),
   z.object({
     kind: z.literal("EDIT_GAMEROUND"),
-    uuid: z.string().uuid(),
+    uuid: z.uuid(),
   }),
 ]);
 export type PageClientSimplified = z.infer<typeof pageClientSimplifiedSchema>;

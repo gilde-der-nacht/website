@@ -7,7 +7,7 @@ const locationSchema = z.object({
   label: z.string(),
   labelLong: z.nullable(z.string()),
   virtual: z.boolean(),
-  url: z.nullable(z.string().url()),
+  url: z.nullable(z.url()),
   comment: z.nullable(z.string()),
 });
 
@@ -361,11 +361,11 @@ export function parsePlainTime(input: string): PlainTimeParseResult {
   };
 }
 const eventSchema = z.object({
-  uuid: z.string().uuid(),
+  uuid: z.uuid(),
   title: z.string(),
   description: z.nullable(z.string()),
   tags: z.array(z.string()),
-  links: z.array(z.object({ label: z.string(), url: z.string().url() })),
+  links: z.array(z.object({ label: z.string(), url: z.url() })),
   type: z.string(),
   location: locationSchema,
   organizer: organizerSchema,

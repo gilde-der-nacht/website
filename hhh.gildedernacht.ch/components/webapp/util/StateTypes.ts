@@ -6,7 +6,6 @@ import type {
   RestaurantBase,
 } from "@hhh/components/webapp/util/BasicTypes";
 import { z } from "astro/zod";
-import type { ZodTypeAny } from "astro:schema";
 import { DateTime } from "luxon";
 
 /* SERVER SIDE TYPES */
@@ -33,7 +32,7 @@ const restaurantUpdate = restaurantCreate.extend({
 });
 export type RestaurantUpdate = z.infer<typeof restaurantUpdate>;
 
-export const restaurantParser = restaurantUpdate.merge(metaDataParser);
+export const restaurantParser = restaurantUpdate.extend(metaDataParser.shape);
 export type Restaurant = z.infer<typeof restaurantParser>;
 
 /* ORDERS */
@@ -51,7 +50,7 @@ const orderUpdate = orderCreate.extend({
 });
 export type OrderUpdate = z.infer<typeof orderUpdate>;
 
-export const orderParser = orderUpdate.merge(metaDataParser);
+export const orderParser = orderUpdate.extend(metaDataParser.shape);
 export type Order = z.infer<typeof orderParser>;
 
 /* ENTRIES */
@@ -69,10 +68,10 @@ const entryUpdate = entryCreate.extend({
 });
 export type EntryUpdate = z.infer<typeof entryUpdate>;
 
-export const entryParser = entryUpdate.merge(metaDataParser);
+export const entryParser = entryUpdate.extend(metaDataParser.shape);
 export type Entry = z.infer<typeof entryParser>;
 
-export function getOlympParser<P extends ZodTypeAny>(parser: P) {
+export function getOlympParser<P extends z.ZodType>(parser: P) {
   return {
     safeParse: (data: unknown) => {
       const parsed = z.object({ data: z.array(parser) }).safeParse(data);
