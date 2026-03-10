@@ -220,6 +220,7 @@ export function Router(props: {
                     .pipe(obj.sub("save"))
                     .pipe(obj.sub("helping"))}
                   publicResource={publicResource}
+                  adminResource={adminResource}
                   isEditable={props.initState.status === "published"}
                 />
               </Layout>

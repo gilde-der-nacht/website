@@ -28,10 +28,16 @@ import { getDay } from "@lst/components/anmeldung/constant/time";
 import { assert } from "@common/components/utils";
 import { arr, type Reactive } from "@common/utils/reactivity";
 import { Link } from "@common/components/Link";
+import type { PublicAdmin } from "@lst/components/anmeldung/api/admin";
+import {
+  ShowAdminData,
+  ShowPublicData,
+} from "@lst/components/anmeldung/components/Loader";
 
 export function HelfenDetail(props: {
   reservations$: Reactive<HelpingReservation[]>;
   publicResource: Resource<Result<Public>>;
+  adminResource: Resource<Result<PublicAdmin>>;
   isEditable: boolean;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
@@ -39,49 +45,43 @@ export function HelfenDetail(props: {
 
   return (
     <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-      <Show
-        when={props.publicResource()}
-        fallback={<Box type="danger">{TXT.error.help}</Box>}
-      >
+      <ShowPublicData publicResource={props.publicResource}>
         {(publicData) => (
-          <Show
-            when={publicData().kind === "SUCCESS"}
-            fallback={<Box type="danger">{TXT.loading.program}</Box>}
-          >
-            <Show
-              when={entry}
-              fallback={
-                <Box type="danger">
-                  <p>Details konnten nicht geladen werden.</p>
-                </Box>
-              }
-            >
-              {(e) => (
-                <HelfenDetailContent
-                  entry={e()}
-                  myHelpReservations={props.reservations$.get()}
-                  allReservations={
-                    (publicData() as { data: Public }).data.reservations
-                  }
-                  isEditable={props.isEditable}
-                  addReservation={(reservation) =>
-                    arr.push(props.reservations$, {
-                      ...reservation,
-                      uuid: crypto.randomUUID(),
-                    })
-                  }
-                  removeReservation={(reservationUuid) => {
-                    arr.remove(
-                      props.reservations$,
-                      (r) => r.uuid !== reservationUuid,
-                    );
-                  }}
-                />
-              )}
-            </Show>
-          </Show>
+          <ShowAdminData adminResource={props.adminResource}>
+            {(_adminData) => (
+              <Show
+                when={entry}
+                fallback={
+                  <Box type="danger">
+                    <p>Details konnten nicht geladen werden.</p>
+                  </Box>
+                }
+              >
+                {(e) => (
+                  <HelfenDetailContent
+                    entry={e()}
+                    myHelpReservations={props.reservations$.get()}
+                    allReservations={publicData.reservations}
+                    isEditable={props.isEditable}
+                    addReservation={(reservation) =>
+                      arr.push(props.reservations$, {
+                        ...reservation,
+                        uuid: crypto.randomUUID(),
+                      })
+                    }
+                    removeReservation={(reservationUuid) => {
+                      arr.remove(
+                        props.reservations$,
+                        (r) => r.uuid !== reservationUuid,
+                      );
+                    }}
+                  />
+                )}
+              </Show>
+            )}
+          </ShowAdminData>
         )}
-      </Show>
+      </ShowPublicData>
     </Suspense>
   );
 }
