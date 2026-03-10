@@ -83,23 +83,35 @@ function HelfenDetailContent(props: {
       (r) => "entryUuid" in r && r.entryUuid === props.entry.uuid,
     );
 
-  const externalReserved = props.allReservations[props.entry.uuid]?.length ?? 0;
-
   const range = () =>
     toRange(props.entry.count).map((i) => {
       const myReservation = myHelpReservations()[i];
       if (myReservation !== undefined) {
         return myReservation;
       }
-      if (props.entry.count - externalReserved <= i) {
-        return { kind: "RESERVED_OTHER" } as const;
+
+      const externalReservations =
+        props.allReservations[props.entry.uuid] ?? [];
+
+      const negativeOffset = props.entry.count - externalReservations.length;
+      const externalReservation =
+        props.allReservations[props.entry.uuid]?.[i - negativeOffset];
+
+      if (externalReservation !== undefined) {
+        return { kind: "RESERVED_OTHER", uuid: externalReservation } as const;
       }
+
       return { kind: "FREE" } as const;
     });
 
   const hasReservedForThemselves = (): boolean => {
     return myHelpReservations().find((r) => r.kind === "SELF") !== undefined;
   };
+
+  function getExternalName(uuid?: string): string {
+    const name = props.adminData.admin?.help.find((e) => e.uuid === uuid)?.name;
+    return name === undefined ? "" : `(${name})`;
+  }
 
   return (
     <>
@@ -137,7 +149,7 @@ function HelfenDetailContent(props: {
                   <div class="count">{i() + 1}</div>
                   <Switch>
                     <Match when={seat.kind === "RESERVED_OTHER"}>
-                      <Box>Bereits reserviert</Box>
+                      <Box>Bereits reserviert {getExternalName(seat.uuid)}</Box>
                     </Match>
                     <Match when={!props.isEditable}>
                       <Box>Freier Platz</Box>

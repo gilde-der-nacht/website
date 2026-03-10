@@ -49,11 +49,15 @@ const adminHelpEntrySchema = z.union([
   adminHelpEntryBSchema,
 ]);
 
+const adminReservationSchema = z.object({ uuid: z.uuid(), name: z.string() });
+
 export type AdminHelpEntry = z.infer<typeof adminHelpEntrySchema>;
 
 const adminSchema = z.object({
   help: z.array(adminHelpEntrySchema),
+  programReservation: z.array(adminReservationSchema),
 });
+
 const erklaerbaerSchema = z.object({
   entries: z.array(erklaerbaerEntrySchema),
 });

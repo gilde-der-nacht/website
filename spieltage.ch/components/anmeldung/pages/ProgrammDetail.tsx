@@ -14,10 +14,12 @@ import type { Reservation } from "@lst/components/anmeldung/api/save";
 import { InputButton } from "@common/components/InputButton";
 import { ButtonLink } from "@common/components/ButtonLink";
 import { arr, type Reactive } from "@common/utils/reactivity";
+import type { PublicAdmin } from "@lst/components/anmeldung/api/admin";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<Reservation[]>;
   publicData: Public;
+  adminData: PublicAdmin;
   isEditable: boolean;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
@@ -41,6 +43,7 @@ export function ProgrammDetail(props: {
           removeReservation={(reservationUuid) => {
             arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid);
           }}
+          adminData={props.adminData}
         />
       )}
     </Show>
@@ -53,16 +56,12 @@ function ProgramDetailContent(props: {
   addReservation: (reservation: Reservation) => void;
   removeReservation: (reservationUuid: string) => void;
   isEditable: boolean;
+  adminData: PublicAdmin;
 }): JSX.Element {
   const day = getDay(props.entry.slot.day) ?? "FRIDAY";
 
   const myReservations = () =>
     props.myReservations.filter((r) => r.entryUuid === props.entry.uuid);
-
-  const externalReservations = (): number =>
-    props.entry.participating.kind === "NONE"
-      ? 0
-      : props.entry.participating.reserved.length;
 
   const range = () =>
     props.entry.participating.kind === "NONE"
@@ -73,11 +72,20 @@ function ProgramDetailContent(props: {
             return myReservation;
           }
 
-          if (
-            props.entry.participating.maxSeats - externalReservations() <=
-            i
-          ) {
-            return { kind: "RESERVED_OTHER" } as const;
+          const externalReservations =
+            props.entry.participating.kind === "LIMITED"
+              ? props.entry.participating.reserved
+              : [];
+          const negativeOffset =
+            props.entry.participating.maxSeats - externalReservations.length;
+
+          const externalReservation = externalReservations[i - negativeOffset];
+
+          if (externalReservation !== undefined) {
+            return {
+              kind: "RESERVED_OTHER",
+              uuid: externalReservation,
+            } as const;
           }
           return { kind: "FREE" } as const;
         });
@@ -85,6 +93,13 @@ function ProgramDetailContent(props: {
   const hasReservedForThemselves = (): boolean => {
     return myReservations().find((r) => r.kind === "SELF") !== undefined;
   };
+
+  function getExternalName(uuid?: string): string {
+    const name = props.adminData.admin?.programReservation.find(
+      (e) => e.uuid === uuid,
+    )?.name;
+    return name === undefined ? "" : `(${name})`;
+  }
 
   return (
     <>
@@ -177,7 +192,7 @@ function ProgramDetailContent(props: {
                   <div class="count">{i() + 1}</div>
                   <Switch>
                     <Match when={seat.kind === "RESERVED_OTHER"}>
-                      <Box>Bereits reserviert</Box>
+                      <Box>Bereits reserviert {getExternalName(seat.uuid)}</Box>
                     </Match>
                     <Match when={!props.isEditable}>
                       <Box>Freier Platz</Box>

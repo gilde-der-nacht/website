@@ -141,13 +141,14 @@ export function Router(props: {
                 publicResource={publicResource}
                 adminResource={adminResource}
               >
-                {({ publicData }) => (
+                {({ publicData, adminData }) => (
                   <ProgrammDetail
                     reservations$={store$
                       .pipe(obj.sub("save"))
                       .pipe(obj.sub("program"))
                       .pipe(obj.sub("participating"))}
                     publicData={publicData}
+                    adminData={adminData}
                     isEditable={props.initState.status === "published"}
                   />
                 )}
