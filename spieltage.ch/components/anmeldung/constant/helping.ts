@@ -527,10 +527,10 @@ export function findHelpEntryByUuid(uuid: string | null): HelpEntry | null {
 
 export const openingHoursHelping = {
   FRIDAY: {
-    open: { from: 16, to: 22 },
+    open: { from: 12, to: 22 },
     breaks: [
       {
-        from: 16,
+        from: 12,
         to: 22,
       },
     ],
