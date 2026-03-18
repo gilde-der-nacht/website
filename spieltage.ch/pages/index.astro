@@ -1,5 +1,4 @@
 ---
-import { Icon } from "@common/components/Icon";
 import Layout from "@lst/layouts/Layout.astro";
 import { Picture } from "astro:assets";
 import lst202401 from "@lst/images/2024-spieltage-01.jpg";
@@ -10,253 +9,106 @@ import lst202206 from "@lst/images/2022-spieltage-06.jpg";
 import lst202208 from "@lst/images/2022-spieltage-08.jpg";
 import { Heading } from "@common/components/Heading";
 import ReferenceGilde from "@common/components/ReferenceGilde.astro";
+import { Icon } from "@common/components/Icon";
 ---
 
 <Layout>
   <div class="hero">
-    <ul class="cluster" role="list">
-      <li class="tag inverted">
-        <a href="#öffnungszeiten">
-          <Icon icon="calendar-days" />
-          14. + 15. März 2026
-          <Icon icon="chevrons-right" />
-        </a>
-      </li>
-      <li class="tag inverted">
-        <a href="#eintritt-anmeldung">
-          <Icon icon="ticket" /> Eintritt kostenfrei
-          <Icon icon="chevrons-right" />
-        </a>
-      </li>
-      <li class="tag inverted">
-        <a href="/adresse">
-          <Icon icon="location-smile" /> Schädrütistrasse 26, Luzern
-          <Icon icon="chevrons-right" />
-        </a>
-      </li>
-    </ul>
     <ul class="big-grid" role="list">
       <li>
-        <a href="/programm/freies-spielen">
-          <Picture
-            src={lst202401}
-            formats={["avif", "webp", "jpg"]}
-            alt="2024, Luzerner Spieltage"
-          />
-          <span class="tag">
-            Freies Spielen
-            <Icon icon="chevrons-right" />
-          </span>
-        </a>
+        <Picture
+          src={lst202401}
+          formats={["avif", "webp", "jpg"]}
+          alt="2024, Luzerner Spieltage"
+        />
+        <span class="tag"> Freies Spielen </span>
       </li>
       <li>
-        <a href="/programm/organisiert">
-          <Picture
-            src={lst202203}
-            formats={["avif", "webp", "jpg"]}
-            alt="2022, Luzerner Spieltage"
-          />
-          <span class="tag">
-            Organisierte Spiele
-            <Icon icon="chevrons-right" />
-          </span>
-        </a>
+        <Picture
+          src={lst202203}
+          formats={["avif", "webp", "jpg"]}
+          alt="2022, Luzerner Spieltage"
+        />
+        <span class="tag"> Organisierte Spiele </span>
       </li>
       <li>
-        <a href="/flohmarkt">
-          <Picture
-            src={lst201908}
-            formats={["avif", "webp", "jpg"]}
-            alt="2019, Luzerner Spieltage"
-          />
-          <span class="tag">
-            Flohmarkt
-            <Icon icon="chevrons-right" />
-          </span>
-        </a>
+        <Picture
+          src={lst201908}
+          formats={["avif", "webp", "jpg"]}
+          alt="2019, Luzerner Spieltage"
+        />
+        <span class="tag"> Flohmarkt </span>
       </li>
       <li>
-        <a href="#verpflegung">
-          <Picture
-            src={lst201810}
-            formats={["avif", "webp", "jpg"]}
-            alt="2018, Luzerner Spieltage"
-          />
-          <span class="tag">
-            Verpflegung
-            <Icon icon="chevrons-right" />
-          </span>
-        </a>
+        <Picture
+          src={lst201810}
+          formats={["avif", "webp", "jpg"]}
+          alt="2018, Luzerner Spieltage"
+        />
+        <span class="tag"> Verpflegung </span>
       </li>
       <li>
-        <a href="/programm/familien">
-          <Picture
-            src={lst202206}
-            formats={["avif", "webp", "jpg"]}
-            alt="2022, Luzerner Spieltage"
-          />
-          <span class="tag">
-            Familiensonntag
-            <Icon icon="chevrons-right" />
-          </span>
-        </a>
+        <Picture
+          src={lst202206}
+          formats={["avif", "webp", "jpg"]}
+          alt="2022, Luzerner Spieltage"
+        />
+        <span class="tag"> Familiensonntag </span>
       </li>
       <li>
-        <a href="/programm/spieldesigner">
-          <Picture
-            src={lst202208}
-            formats={["avif", "webp", "jpg"]}
-            alt="2022, Luzerner Spieltage"
-          />
-          <span class="tag">
-            Spieldesigner
-            <Icon icon="chevrons-right" />
-          </span>
-        </a>
-      </li>
-    </ul>
-    <ul class="cluster" role="list">
-      <li class="tag inverted">
-        <a href="/programm">
-          <Icon icon="list-radio" /> Programm entdecken
-          <Icon icon="chevrons-right" />
-        </a>
-      </li>
-      <li class="tag inverted">
-        <a href="/helfen">
-          <Icon icon="hand-heart" /> Hilf mit
-          <Icon icon="chevrons-right" />
-        </a>
-      </li>
-      <li class="tag inverted">
-        <a href="/kontakt">
-          <Icon icon="mailbox" /> Schreib uns eine Nachricht
-          <Icon icon="chevrons-right" />
-        </a>
+        <Picture
+          src={lst202208}
+          formats={["avif", "webp", "jpg"]}
+          alt="2022, Luzerner Spieltage"
+        />
+        <span class="tag"> Spieldesigner </span>
       </li>
     </ul>
   </div>
 
   <Heading level={1} id="herzlich-willkommen">
     Herzlich willkommen <br />
-    an den Luzerner Spieltage 2026
+    an den Luzerner Spieltage 2027
   </Heading>
 
   <p>
     Am
-    <strong> Samstag, 14. und Sonntag, 15. März 2026 </strong>
+    <strong> Samstag, 13. und Sonntag, 14. März 2027 </strong>
     verwandeln wir den <a href="/adresse">Würzenbachsaal</a>
     in eine Oase für Spielerinnen und Spieler. Ob jung oder alt, ob Stratege oder
     Teamplayer, ob Bastler oder Geniesser, wir haben für jeden was auf dem Speiseplan.
     Apropos Speiseplan: für dein kulinarisches Wohl ist auch gesorgt.
   </p>
   <p>
-    Falls du Fragen hast oder an den Spieltagen <a href="/helfen"
-      ><strong>mithelfen</strong></a
-    >
+    Falls du Fragen hast oder an den Spieltagen <strong>mithelfen</strong>
     möchtest, zögere nicht, uns über das <a href="/kontakt">Kontaktformular</a>
     anzuschreiben. Wir freuen uns auf deine Nachricht.
   </p>
 
-  <Heading
-    level={2}
-    title="Die wichtigsten Informationen auf einen Blick"
-    id="wichtige-infos"
-  />
-
-  <Heading level={3} title="Öffnungszeiten" />
+  <Heading level={3} title="Programm" />
 
   <p>
-    <code>
-      Samstag, 14. März 2026, 10 bis 24 Uhr <br />
-      Sonntag, 15. März 2026, 10 bis 18 Uhr<sup>*</sup>
-    </code>
-  </p>
-
-  <p>
-    <em>*Der Flohmarkt schliesst am Sonntag bereits um 17 Uhr.</em>
-  </p>
-
-  <Heading level={3} title="Eintritt & Anmeldung" />
-
-  <p>
-    Der Eintritt ist kostenfrei und eine Anmeldung ist nicht nötig. Bei gewissem
-    Spezialprogramm hat es begrenzte Plätze, für die du dich im Vorfeld anmelden
-    kannst.
+    Das Programm für die Luzerner Spieltage 2027 steht aktuell noch nicht fest.
   </p>
 
   <ul class="cluster" role="list">
     <li class="tag inverted">
-      <a href="/programm">
-        zum Programm
+      <a href="/newsletter">
+        Erinnerungs-Newsletter
         <Icon icon="chevrons-right" />
       </a>
     </li>
-  </ul>
-
-  <Heading level={3} title="Anreise" />
-
-  <p>Die Adresse lautet: Schädrütistrasse 26 6006 Luzern.</p>
-
-  <ul class="cluster" role="list">
     <li class="tag inverted">
-      <a href="/adresse">
-        alle Informationen zur Lokalität und Anreise
+      <a href="/archiv">
+        Zum Programm vergangener Spieltage
         <Icon icon="chevrons-right" />
       </a>
     </li>
   </ul>
-
-  <Heading level={3} title="Verpflegung" />
-
-  <p>
-    Ein Kiosk mit Getränken und Snacks steht während den Öffnungszeiten zur
-    Verfügung und am Mittag und am Abend kochen wir etwas Leckeres für euch,
-    inkl. Optionen für Veganer.
-  </p>
-
-  <p>
-    Wir kochen auf <strong>Vorbestellungen</strong>, welche wir vor Ort
-    aufnehmen werden. Gib bitte für das Mittagessen bis 11 Uhr und für das
-    Nachtessen (am Samstag) bis 17 Uhr an der Kasse deine Bestellung auf.
-  </p>
-
-  <p>
-    <em>Speisen und Getränke können Bar oder per Twint bezahlt werden.</em>
-  </p>
 
   <ReferenceGilde event="LST" />
 
   <style>
-    .cluster {
-      li {
-        font-size: 1.1em;
-      }
-
-      a {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        justify-content: space-between;
-        color: unset;
-        text-decoration: none;
-        border: none;
-
-        > :last-child {
-          transition: all 0.5s;
-          opacity: 0.4;
-        }
-
-        &:hover,
-        &:active {
-          > :last-child {
-            transform: translateX(0.5rem);
-            opacity: 1;
-          }
-        }
-      }
-    }
-
     .hero {
       display: grid;
       gap: 1rem;
