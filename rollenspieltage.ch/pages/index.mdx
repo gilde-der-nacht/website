@@ -10,8 +10,10 @@ import { Box } from "@common/components/Box.tsx";
 import { BoxGrid } from "@common/components/BoxGrid.tsx";
 import { ButtonLink } from "@common/components/ButtonLink.tsx";
 import { Slider } from "@common/components/Slider.tsx";
-import Outdated from "@common/components/Outdated.astro";
 import { Picture } from "astro:assets";
+import { Heading } from "@common/components/Heading";
+import ReferenceGilde from "@common/components/ReferenceGilde.astro";
+import { Icon } from "@common/components/Icon";
 
 import rst202401 from "../images/2024-rollenspieltage-01.jpg";
 import rst202303 from "../images/2023-rollenspieltage-03.jpg";
@@ -27,18 +29,9 @@ import rst201903 from "../images/2019-rollenspieltage-03.jpg";
 import rst201901 from "../images/2019-rollenspieltage-01.jpg";
 import rst201804 from "../images/2018-rollenspieltage-04.jpg";
 
-<Box type="success" link="/en" linkLabel="take me to the English summary">
-  Looking for a short and sweet overview in English?
-</Box>
-
 # Herzlich willkommen
 
-<Outdated event="RST" language="DE" />
-
-Am **23. und 24. August 2025** werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
-
-<ButtonLink link="/programm" label="zum Programm" /> 
-<ButtonLink link="/anmeldung" label="jetzt Anmelden" kind="success" />  
+Am **22. und 23. August 2026** werden ganz unterschiedliche Rollenspielrunden angeboten – für alle, die einmal in die Welt der Rollenspiele reinschnuppern möchten aber auch für erfahrene Spieler:innen, die Neues ausprobieren möchten.
 
 <br/>
 <br/>
@@ -131,36 +124,27 @@ Am **23. und 24. August 2025** werden ganz unterschiedliche Rollenspielrunden an
 
 </BoxGrid>
 
-## Die wichtigsten Informationen auf einen Blick
 
-### Öffnungszeiten
+  <Heading level={3} title="Programm" />
 
-Samstag, 10 bis 24 Uhr \
-Sonntag, 10 bis 18 Uhr
+  <p>
+    Das Programm für die Luzerner Rollenspieltage 2026 steht aktuell noch nicht fest.
+  </p>
 
-## Eintritt & Anmeldung
+  <ul class="cluster" role="list">
+    <li class="tag inverted">
+      <a href="/newsletter">
+        Erinnerungs-Newsletter
+        <Icon icon="chevrons-right" />
+      </a>
+    </li>
+    <li class="tag inverted">
+      <a href="/archiv">
+        Zum Programm vergangener Rollenspieltage
+        <Icon icon="chevrons-right" />
+      </a>
+    </li>
+  </ul>
 
-Der Eintritt ist kostenfrei. 
+  <ReferenceGilde event="RST" />
 
-<ButtonLink link="/anmeldung" label="Zur Anmeldung" kind="success" />  
-
-<br/>
-<br/>
-
-Für spontane Spieler:innen werden wir einige freie Plätze zur Verfügung haben. 
-
-## Anreise
-
-Die Adresse lautet: [Pfarrei St. Johannes, Schädrütistrasse 26, 6006 Luzern](https://www.google.com/maps/place/Katholische+Pfarrei+St.+Johannes+Luzern+-+W%C3%BCrzenbach/@47.0557335,8.3467125,18z/data=!4m5!3m4!1s0x478ffbe4a1717e11:0x63ba1cf90c4e4c46!8m2!3d47.055803!4d8.3448403)
-
-Vom Bahnhof Luzern sind die Räumlichkeiten bequem in 15 Minuten erreichbar per **Bus 8** (Aussteigen an der _Würzenbachmatte_ Haltestelle) oder **Bus 14** (Aussteigen an der _Schlösslihalde_ Haltestelle).
-
-Eine (kostenpflichtige) Parkgarage befindet sich 5 Gehminuten entfernt. Gehört zur Migros an der Adresse [Würzenbachstrasse 19, Luzern](https://www.google.com/maps/place/Migros+Supermarkt/@47.0548083,8.3433408,18.5z/data=!4m5!3m4!1s0x478ffb4e3b438fcf:0x44bae0889972cca5!8m2!3d47.0550141!4d8.3437071).
-
-## Verpflegung
-
-Ein Kiosk steht während den Öffnungszeiten zur Verfügung und am Mittag und am Abend kochen wir. _Das Menü wird zu einem späteren Zeitpunkt kommuniziert._
-
-{/*
-  Pilzrisotto (vegi / vegan), Penne All'Arrabbiata und Penne Pesto (vegi / vegan) für euch. _(Preis pro Menü: ca. 15 CHF)_ 
-*/}
