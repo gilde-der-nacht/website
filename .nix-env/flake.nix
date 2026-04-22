@@ -23,10 +23,10 @@
             emmet-ls
             marksman
             markdown-oxide
-            nodePackages.typescript
-            nodePackages.typescript-language-server
-            nodePackages."@astrojs/language-server"
-            nodePackages.prettier
+            typescript
+            typescript-language-server
+            astro-language-server
+            prettier
             vscode-langservers-extracted
           ];
         };
