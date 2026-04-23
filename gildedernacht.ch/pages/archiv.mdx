@@ -8,6 +8,15 @@ navigation:
 ---
 
 import { Box } from "@common/components/Box.tsx";
+import { Slider } from "@common/components/Slider.tsx";
+import { Picture } from "astro:assets";
+
+import gdn2013 from "../images/2013-06-25-gildedernacht.png"
+import gdn2014 from "../images/2014-10-18-gildedernacht.png"
+import gdn2015 from "../images/2015-08-01-gildedernacht.png"
+import gdn2016 from "../images/2016-03-08-gildedernacht.png"
+import lst2016 from "../images/2016-03-25-spieltage.png"
+import ssl2016 from "../images/2016-06-18-spielstadt.png"
 
 # Archiv
 
@@ -34,3 +43,40 @@ import { Box } from "@common/components/Box.tsx";
 <Box link="https://2020.gildedernacht.ch" linkLabel="Betrete die Zeitmaschine">
   "Gilde der Nacht"-Webseite per Ende 2020
 </Box>
+
+## Noch ältere Seiten
+
+<Slider>
+
+  <figure aria-labelledby="caption-ssl-2016">
+    <Picture src={ssl2016} formats={['avif', 'webp', 'jpg']} alt="2016, Spielstadt Luzern, Webseite" />
+    <figcaption id="caption-ssl-2016">2016, Spielstadt Luzern, Webseite</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-lst-2016">
+    <Picture src={lst2016} formats={['avif', 'webp', 'jpg']} alt="2016, Luzerner Spieltage, Webseite" />
+    <figcaption id="caption-lst-2016">2016, Luzerner Spieltage, Webseite</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-gdn-2016">
+    <Picture src={gdn2016} formats={['avif', 'webp', 'jpg']} alt="2016, Gilde der Nacht, Webseite" />
+    <figcaption id="caption-gdn-2016">2016, Gilde der Nacht, Webseite</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-gdn-2015">
+    <Picture src={gdn2015} formats={['avif', 'webp', 'jpg']} alt="2015, Gilde der Nacht, Webseite" />
+    <figcaption id="caption-gdn-2015">2015, Gilde der Nacht, Webseite</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-gdn-2014">
+    <Picture src={gdn2014} formats={['avif', 'webp', 'jpg']} alt="2014, Gilde der Nacht, Webseite" />
+    <figcaption id="caption-gdn-2014">2014, Gilde der Nacht, Webseite</figcaption>
+  </figure>
+
+  <figure aria-labelledby="caption-gdn-2013">
+    <Picture src={gdn2013} formats={['avif', 'webp', 'jpg']} alt="2013, Gilde der Nacht, Webseite" />
+    <figcaption id="caption-gdn-2013">2013, Gilde der Nacht, Webseite</figcaption>
+  </figure>
+
+</Slider>
+
