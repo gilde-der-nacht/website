@@ -1,6 +1,7 @@
 import type { JSX } from "solid-js";
 
 const ICONS = [
+  "arrow-down",
   "arrow-right",
   "arrow-turn-down-right",
   "backward",

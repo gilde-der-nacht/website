@@ -1,8 +1,32 @@
 ---
 import Layout from "@gdn/layouts/Layout.astro";
 import { EventKalendar } from "@common/components/EventKalendar.tsx";
+import { Box } from "@common/components/Box.tsx";
+import { Heading } from "@common/components/Heading.tsx";
 ---
 
 <Layout title="Kalender" metaTitle="Kalender">
   <EventKalendar client:load />
+  <div style="margin-block-start: 2.5rem;">
+    <Box>
+      <div class="content">
+        <Heading level={4} title="Kalender abonnieren" />
+        <p>
+          Um unseren Kalender zu abonnieren, kannst du folgende Adresse in dein
+          Kalender-Programm hinzufügen:
+        </p>
+        <p>
+          <code>https://gildedernacht.ch/gilden-kalender.ics</code>
+        </p>
+        <p>
+          Das funktioniert mit jedem Kalenderprogramm ein bisschen anderst.
+          Brauchst du Hilfe,
+          <br />
+          <a href="/kontakt">
+            schreibe uns eine Nachricht über unser Kontaktformular.
+          </a>
+        </p>
+      </div>
+    </Box>
+  </div>
 </Layout>

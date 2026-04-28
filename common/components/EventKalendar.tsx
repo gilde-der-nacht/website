@@ -2,7 +2,8 @@ import { Show, type JSX } from "solid-js";
 import { loadPublishedEvents, toView } from "@common/components/events";
 import { HydrationHelper } from "@common/components/HydrationHelper";
 import { EventListImpl } from "@common/components/EventListImpl";
-import { EventListFilters } from "./EventListFilters";
+import { EventListFilters } from "@common/components/EventListFilters";
+import { ButtonWithIcon } from "@common/components/Button";
 
 export function EventKalendar(): JSX.Element {
   return (
@@ -16,7 +17,12 @@ export function EventKalendar(): JSX.Element {
     >
       {(events, FeedbackBox) => (
         <>
-          <EventListFilters events={events.map(toView)} />
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-block-end: 1rem;">
+            <EventListFilters events={events.map(toView)} />
+            <a href="#kalender-abonnieren" class="button-link">
+              <ButtonWithIcon icon="arrow-down" label="Kalender abonnieren" />
+            </a>
+          </div>
           <Show when={FeedbackBox !== null}>
             <div style="margin-block-end: 1rem; max-width: max-content;">
               <FeedbackBox />

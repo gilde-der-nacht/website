@@ -1,7 +1,6 @@
 @use "../globals/colors" as c;
 
 .event-filters {
-  margin-block-end: 1.5rem;
   display: grid;
   grid-template-columns: max-content 1fr;
   gap: 0 1rem;

@@ -322,3 +322,13 @@ legend {
     display: block;
   }
 }
+
+.button-link {
+  border: none;
+  display: block;
+  padding: 0;
+
+  button {
+    cursor: pointer;
+  }
+}
