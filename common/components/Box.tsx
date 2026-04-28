@@ -1,7 +1,7 @@
 import { Show, type JSX } from "solid-js";
 import type { WithChildren } from "@common/components/utils";
-import { Icon } from "./Icon";
-import { IconOnlyButton } from "./Button";
+import { Icon, type IconType } from "@common/components/Icon";
+import { IconOnlyButton } from "@common/components/Button";
 
 export type BoxType = "success" | "danger" | "special" | "gray";
 
@@ -11,6 +11,8 @@ type Props = WithChildren & {
   linkLabel?: string;
   onClick?: (() => void) | undefined;
   onClose?: (() => void) | undefined;
+  icon?: IconType;
+  iconRotating?: boolean;
 };
 
 export function Box(props: Props): JSX.Element {
@@ -22,6 +24,11 @@ export function Box(props: Props): JSX.Element {
       <Show when={props.onClose}>
         {(cb) => (
           <IconOnlyButton onClick={cb()} icon="circle-xmark" kind="gray" />
+        )}
+      </Show>
+      <Show when={props.icon}>
+        {(icon) => (
+          <Icon icon={icon()} rotating={props.iconRotating === true} />
         )}
       </Show>
       <span>{props.children}</span>

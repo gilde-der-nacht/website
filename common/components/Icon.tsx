@@ -28,6 +28,7 @@ const ICONS = [
   "pencil",
   "person-to-portal",
   "sun-bright",
+  "spinner",
   "square-check",
   "tags",
   "ticket",
@@ -40,6 +41,7 @@ export type IconType = (typeof ICONS)[number];
 
 export function Icon(props: {
   icon: IconType;
+  rotating?: boolean;
   classes?: string[];
   style?: string;
 }): JSX.Element {
@@ -47,5 +49,8 @@ export function Icon(props: {
     "fa-duotone",
     `fa-${props.icon}`,
   ]);
+  if (props.rotating === true) {
+    classes.push("rotating");
+  }
   return <i class={classes.join(" ")} style={props.style}></i>;
 }

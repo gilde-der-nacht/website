@@ -5,3 +5,17 @@
 .overflow-hidden {
   overflow: hidden;
 }
+
+@keyframes rotating {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+.rotating {
+  animation: rotating 2.5s linear infinite;
+}
