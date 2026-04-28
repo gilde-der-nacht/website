@@ -3,7 +3,6 @@ import {
   createSignal,
   Match,
   onMount,
-  Show,
   Switch,
   type JSX,
 } from "solid-js";
@@ -24,7 +23,8 @@ export function HydrationHelper<T>(props: {
 }): JSX.Element {
   const [outdatedData, setOutdatedData] = createSignal(false);
   const [clientLoadingDone, setClientLoadingDone] = createSignal(false);
-  const [data, { mutate }] = createResource(() => props.fetcher());
+  const [serverData] = createResource(() => props.fetcher());
+  const [clientData, setClientData] = createSignal<T | null>(null);
 
   onMount(async () => {
     if (props.strategy.kind === "SSR_ONLY") {
@@ -33,7 +33,7 @@ export function HydrationHelper<T>(props: {
 
     try {
       const data = await props.fetcher();
-      mutate(() => data);
+      setClientData(() => data);
     } catch (e) {
       console.error(e);
       if (props.strategy.showOutdatedData) {
@@ -79,6 +79,13 @@ export function HydrationHelper<T>(props: {
   }
 
   return (
-    <Show when={data()}>{(data) => props.children(data(), FeedbackBox)}</Show>
+    <Switch>
+      <Match when={clientData()}>
+        {(data) => props.children(data(), FeedbackBox)}
+      </Match>
+      <Match when={serverData()}>
+        {(data) => props.children(data(), FeedbackBox)}
+      </Match>
+    </Switch>
   );
 }

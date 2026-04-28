@@ -296,7 +296,7 @@ export function EventListOverview(props: EventListProps): JSX.Element {
                   <a
                     href="/kalender"
                     class="button-link"
-                    style="grid-row: 1 / -1;"
+                    style="grid-row: 1 / -1; grid-row: span 8;"
                   >
                     <div
                       class="event-background-icon"
@@ -321,7 +321,7 @@ export function EventListOverview(props: EventListProps): JSX.Element {
             ))}
             <li
               class="event-entry gray"
-              style="grid-column: 1 / -1; min-height: 12.5rem;"
+              style="grid-column: 1 / -1; grid-row: span 8;"
             >
               <a href="/kalender" class="button-link" style="grid-row: 1 / -1;">
                 <div class="event-background-icon" style="right: 5rem; top: 0;">
