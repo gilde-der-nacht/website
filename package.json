@@ -15,13 +15,13 @@
     "build-ics": "tsx ./gildedernacht.ch/build.ts"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/mdx": "5.0.4",
     "@astrojs/solid-js": "6.0.1",
     "@astrojs/ts-plugin": "^1.10.7",
     "@js-temporal/polyfill": "^0.5.1",
     "@solidjs/router": "^0.16.1",
-    "astro": "6.1.9",
+    "astro": "6.1.10",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",

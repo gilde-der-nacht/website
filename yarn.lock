@@ -5,19 +5,19 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@astrojs/check@npm:^0.9.8":
-  version: 0.9.8
-  resolution: "@astrojs/check@npm:0.9.8"
+"@astrojs/check@npm:^0.9.9":
+  version: 0.9.9
+  resolution: "@astrojs/check@npm:0.9.9"
   dependencies:
-    "@astrojs/language-server": "npm:^2.16.5"
+    "@astrojs/language-server": "npm:^2.16.7"
     chokidar: "npm:^4.0.3"
     kleur: "npm:^4.1.5"
     yargs: "npm:^17.7.2"
   peerDependencies:
-    typescript: ^5.0.0
+    typescript: ^5.0.0 || ^6.0.0
   bin:
     astro-check: bin/astro-check.js
-  checksum: 10/a5abfaf5af84d039a1e7668296466defe6bdfef798a70bb0c6e8d2ad3eaf3f3df8c1cb4429a218a25d1722b2486c0c0f4de464dd27f4a99f2f999d3eac2a61cc
+  checksum: 10/9c0d223d51896ff0f667098b34e62add1c5b93c54486f9686804d9dde3eabdf45b89de530857aa584215d1efb10e245357f7d55c7b936ff6ba7a8f3de2b47f44
   languageName: node
   linkType: hard
 
@@ -44,9 +44,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/language-server@npm:^2.16.5":
-  version: 2.16.5
-  resolution: "@astrojs/language-server@npm:2.16.5"
+"@astrojs/language-server@npm:^2.16.7":
+  version: 2.16.7
+  resolution: "@astrojs/language-server@npm:2.16.7"
   dependencies:
     "@astrojs/compiler": "npm:^2.13.1"
     "@astrojs/yaml2ts": "npm:^0.2.3"
@@ -56,7 +56,7 @@ __metadata:
     "@volar/language-server": "npm:~2.4.28"
     "@volar/language-service": "npm:~2.4.28"
     muggle-string: "npm:^0.4.1"
-    tinyglobby: "npm:^0.2.15"
+    tinyglobby: "npm:^0.2.16"
     volar-service-css: "npm:0.0.70"
     volar-service-emmet: "npm:0.0.70"
     volar-service-html: "npm:0.0.70"
@@ -76,7 +76,7 @@ __metadata:
       optional: true
   bin:
     astro-ls: bin/nodeServer.js
-  checksum: 10/f208382d558ff541ca93d8d7a96d019ad20c2a0ddd74dc462385f6594fff47591eb7b2b6fe26863ce4e101c048ffcc69091ca1ea6b898c1cc23df85569018c6d
+  checksum: 10/da5fd4c52fffec92e524ad5da4cb217845dd2b0c5632ca6c6c15fcbb5a9013d6b34070002eb81dafbe78c3ed15c111c8133dd9d4fdddc5f16be3672a42abbe59
   languageName: node
   linkType: hard
 
@@ -1815,9 +1815,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:6.1.9":
-  version: 6.1.9
-  resolution: "astro@npm:6.1.9"
+"astro@npm:6.1.10":
+  version: 6.1.10
+  resolution: "astro@npm:6.1.10"
   dependencies:
     "@astrojs/compiler": "npm:^3.0.1"
     "@astrojs/internal-helpers": "npm:0.9.0"
@@ -1879,7 +1879,7 @@ __metadata:
       optional: true
   bin:
     astro: bin/astro.mjs
-  checksum: 10/19bf6bb9018ace59cd8703a3f244bbe3e744245b748799384c1e8ac5b9ec9bd7c69580d9e34127f61a1d0cb232855b9bd7e1796e41a3ea33503cdffe4fc8a1df
+  checksum: 10/fc0b7059a3f4523ec2158cd80ad347ba688fe0e02fbbad9647827318b6e1295648399a7279c09f0bdb3c30226695bb7903a644a2610abee4e4c237cfd7eba5cc
   languageName: node
   linkType: hard
 
@@ -2219,7 +2219,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dandelion@workspace:."
   dependencies:
-    "@astrojs/check": "npm:^0.9.8"
+    "@astrojs/check": "npm:^0.9.9"
     "@astrojs/mdx": "npm:5.0.4"
     "@astrojs/solid-js": "npm:6.0.1"
     "@astrojs/ts-plugin": "npm:^1.10.7"
@@ -2228,7 +2228,7 @@ __metadata:
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.7.1"
     "@types/node": "npm:^25.6.0"
-    astro: "npm:6.1.9"
+    astro: "npm:6.1.10"
     luxon: "npm:^3.7.2"
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
@@ -5358,6 +5358,16 @@ __metadata:
     fdir: "npm:^6.5.0"
     picomatch: "npm:^4.0.3"
   checksum: 10/d72bd826a8b0fa5fa3929e7fe5ba48fceb2ae495df3a231b6c5408cd7d8c00b58ab5a9c2a76ba56a62ee9b5e083626f1f33599734bed1ffc4b792406408f0ca2
+  languageName: node
+  linkType: hard
+
+"tinyglobby@npm:^0.2.16":
+  version: 0.2.16
+  resolution: "tinyglobby@npm:0.2.16"
+  dependencies:
+    fdir: "npm:^6.5.0"
+    picomatch: "npm:^4.0.4"
+  checksum: 10/5c2c41b572ada38449e7c86a5fe034f204a1dbba577225a761a14f29f48dc3f2fc0d81a6c56fcc67c5a742cc3aa9fb5e2ca18dbf22b610b0bc0e549b34d5a0f8
   languageName: node
   linkType: hard
 
