@@ -1,7 +1,7 @@
 import type { JSX } from "solid-js";
 import type { OlympEventView } from "@common/components/events";
 import type { Language } from "@common/components/utils";
-import { Icon } from "./Icon";
+import { Icon } from "@common/components/Icon";
 
 type Props = {
   events: OlympEventView[];

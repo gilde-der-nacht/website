@@ -71,7 +71,7 @@ export function HydrationHelper<T>(props: {
         </Match>
         <Match when={showLoadingBlock()}>
           <Box type="gray" icon="spinner" iconRotating>
-            Inhalte werden aktualisiert...
+            Inhalte werden aktualisiert ...
           </Box>
         </Match>
       </Switch>
