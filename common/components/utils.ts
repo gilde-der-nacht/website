@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js";
-import { toTemporal, type EventDateTime } from "./events";
+import { toTemporal, type EventDateTimeView } from "./events";
 import { Intl as IntlP } from "@js-temporal/polyfill";
 
 export type Language = "de" | "en";
@@ -22,7 +22,7 @@ export function formatDate(date: Date): string {
   return dateFormat.format(date);
 }
 
-export function formatSimpleDate(date: EventDateTime): string {
+export function formatSimpleDate(date: EventDateTimeView): string {
   return dateFormat.format(toTemporal(date).startDate);
 }
 
@@ -36,7 +36,7 @@ export function formatDateTime(date: Date): string {
   return dateTimeFormat.format(date);
 }
 
-export function formatSimpleDateTime(date: EventDateTime): string {
+export function formatSimpleDateTime(date: EventDateTimeView): string {
   return dateTimeFormat.format(toTemporal(date).startDate);
 }
 
@@ -70,7 +70,7 @@ export function formatDateRange(from: Date, to: Date): string {
   return `${startFormatter.format(from)} bis ${endFormatter.format(to)}`;
 }
 
-export function formatEventDateTime(date: EventDateTime): string {
+export function formatEventDateTime(date: EventDateTimeView): string {
   const sameYear =
     date.endDate === null || date.startDate.year === date.endDate.year;
   const sameMonth =

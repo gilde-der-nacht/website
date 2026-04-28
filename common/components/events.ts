@@ -16,7 +16,7 @@ const organizerSchema = z.object({
   url: z.nullable(z.string()),
 });
 
-const eventDateTimeSchema = z
+const eventDateTimeSchemaView = z
   .object({
     startDate: z.string(),
     endDate: z.string(),
@@ -64,9 +64,14 @@ const eventDateTimeSchema = z
     return z.NEVER;
   });
 
-export type EventDateTime = z.infer<typeof eventDateTimeSchema>;
+const eventDateTimeSchema = z.object({
+  startDate: z.string(),
+  endDate: z.string(),
+});
 
-type EventTemporal =
+export type EventDateTimeView = z.infer<typeof eventDateTimeSchemaView>;
+
+type EventTemporalView =
   | {
       startDate: Temporal.PlainDate;
       endDate: Temporal.PlainDate;
@@ -76,7 +81,9 @@ type EventTemporal =
       endDate: Temporal.PlainDateTime;
     };
 
-export function toTemporal(eventDateTime: EventDateTime): EventTemporal {
+export function toTemporal(
+  eventDateTime: EventDateTimeView,
+): EventTemporalView {
   const { startDate, endDate } = eventDateTime;
   if ("hour" in startDate && "hour" in endDate) {
     return {
@@ -360,6 +367,18 @@ export function parsePlainTime(input: string): PlainTimeParseResult {
     }),
   };
 }
+const eventSchemaView = z.object({
+  uuid: z.uuid(),
+  title: z.string(),
+  description: z.nullable(z.string()),
+  tags: z.array(z.string()),
+  links: z.array(z.object({ label: z.string(), url: z.url() })),
+  type: z.string(),
+  location: locationSchema,
+  organizer: organizerSchema,
+  date: eventDateTimeSchemaView,
+});
+
 const eventSchema = z.object({
   uuid: z.uuid(),
   title: z.string(),
@@ -372,6 +391,16 @@ const eventSchema = z.object({
   date: eventDateTimeSchema,
 });
 
+export type OlympEventView = z.infer<typeof eventSchemaView>;
+
+// TODO: Delete
+export async function loadPublishedEventsView(): Promise<OlympEventView[]> {
+  const response = await fetch(elysium("/calendar"));
+  const json = (await response.json()) as unknown;
+
+  return z.array(eventSchemaView).parse(json);
+}
+
 export type OlympEvent = z.infer<typeof eventSchema>;
 
 export async function loadPublishedEvents(): Promise<OlympEvent[]> {
@@ -379,4 +408,8 @@ export async function loadPublishedEvents(): Promise<OlympEvent[]> {
   const json = (await response.json()) as unknown;
 
   return z.array(eventSchema).parse(json);
+}
+
+export function toView(event: OlympEvent): OlympEventView {
+  return eventSchemaView.parse(event);
 }

@@ -1,10 +1,10 @@
 import type { JSX } from "solid-js";
-import type { OlympEvent } from "@common/components/events";
+import type { OlympEventView } from "@common/components/events";
 import type { Language } from "@common/components/utils";
 import { Icon } from "./Icon";
 
 type Props = {
-  events: OlympEvent[];
+  events: OlympEventView[];
   language?: Language;
 };
 export function EventListFilters(props: Props): JSX.Element {

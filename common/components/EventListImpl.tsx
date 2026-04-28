@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js";
-import type { OlympEvent } from "@common/components/events";
+import type { OlympEventView } from "@common/components/events";
 import {
   formatSimpleDate,
   formatEventDateTime,
@@ -39,7 +39,7 @@ function getTheme(eventType: string): { theme: string; icon: string } | null {
   }
 }
 
-function renderBackgroundIcon(event: OlympEvent): JSX.Element {
+function renderBackgroundIcon(event: OlympEventView): JSX.Element {
   const entry = getTheme(event.type);
   if (entry === null || !entry.icon) {
     return "";
@@ -52,11 +52,11 @@ function renderBackgroundIcon(event: OlympEvent): JSX.Element {
   );
 }
 
-function isFullDay(event: OlympEvent): boolean {
+function isFullDay(event: OlympEventView): boolean {
   return !("hour" in event.date.startDate);
 }
 
-function isMultipleDays(event: OlympEvent): boolean {
+function isMultipleDays(event: OlympEventView): boolean {
   const { startDate, endDate } = event.date;
   if (endDate === null) {
     return false;
@@ -68,7 +68,7 @@ function isMultipleDays(event: OlympEvent): boolean {
   );
 }
 
-function renderDate(event: OlympEvent): JSX.Element {
+function renderDate(event: OlympEventView): JSX.Element {
   const icon = (
     <div class="event-icon">
       <Icon icon="calendar-range" />
@@ -105,7 +105,7 @@ function renderDate(event: OlympEvent): JSX.Element {
   }
 }
 
-function renderLocation(event: OlympEvent): JSX.Element {
+function renderLocation(event: OlympEventView): JSX.Element {
   if (!event.location === null) {
     return "";
   }
@@ -119,7 +119,7 @@ function renderLocation(event: OlympEvent): JSX.Element {
     </div>
   );
 }
-function renderTags(event: OlympEvent): JSX.Element {
+function renderTags(event: OlympEventView): JSX.Element {
   function renderTag(tag: string) {
     return (
       <li>
@@ -143,7 +143,7 @@ function renderTags(event: OlympEvent): JSX.Element {
   );
 }
 
-function renderLinks(event: OlympEvent): JSX.Element {
+function renderLinks(event: OlympEventView): JSX.Element {
   function renderLink(link: { url: string; label: string }) {
     return (
       <li>
@@ -167,7 +167,7 @@ function renderLinks(event: OlympEvent): JSX.Element {
 }
 
 type EventEntryProps = {
-  event: OlympEvent;
+  event: OlympEventView;
 };
 
 function EventEntry(props: EventEntryProps): JSX.Element {
@@ -189,9 +189,9 @@ function EventEntry(props: EventEntryProps): JSX.Element {
   );
 }
 
-type EventListProps = { events: OlympEvent[] };
+type EventListProps = { events: OlympEventView[] };
 
-function sortByStartDate(a: OlympEvent, b: OlympEvent) {
+function sortByStartDate(a: OlympEventView, b: OlympEventView) {
   const {
     date: { startDate: startDateA },
   } = a;
