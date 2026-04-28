@@ -1,11 +1,13 @@
-import type { JSX } from "solid-js";
+import { Match, Show, Switch, type JSX } from "solid-js";
 import type { OlympEventView } from "@common/components/events";
 import {
   formatSimpleDate,
   formatEventDateTime,
   formatSimpleDateTime,
 } from "@common/components/utils";
-import { Icon } from "./Icon";
+import { Icon } from "@common/components/Icon";
+import { Heading } from "@common/components/Heading";
+import { Box } from "@common/components/Box";
 
 function getTheme(eventType: string): { theme: string; icon: string } | null {
   switch (eventType) {
@@ -223,10 +225,114 @@ function sortByStartDate(a: OlympEventView, b: OlympEventView) {
 
 export function EventListImpl(props: EventListProps): JSX.Element {
   return (
-    <ul class="event-list" role="list">
-      {props.events.toSorted(sortByStartDate).map((event) => (
-        <EventEntry event={event} />
-      ))}
-    </ul>
+    <Show
+      when={props.events.length > 0}
+      fallback={<Box type="special">Keine Einträge gefunden.</Box>}
+    >
+      <ul class="event-list" role="list">
+        {props.events.toSorted(sortByStartDate).map((event) => (
+          <EventEntry event={event} />
+        ))}
+      </ul>
+    </Show>
+  );
+}
+
+type Overview = {
+  nextEvent: OlympEventView | undefined;
+  preview: OlympEventView[];
+};
+function getOverviewItems(events: OlympEventView[]): Overview {
+  const sortedByDate = events.toSorted(sortByStartDate);
+  const [nextEvent, ...rest] = sortedByDate;
+
+  let spieltreffenFound = false;
+  let otherFound = false;
+
+  const preview = rest.filter((event) => {
+    switch (event.type) {
+      case "Spieltreffen": {
+        if (!spieltreffenFound) {
+          spieltreffenFound = true;
+          return true;
+        }
+        return false;
+      }
+      case "Luzerner Spieltage": {
+        return true;
+      }
+      case "Luzerner Rollenspieltage": {
+        return true;
+      }
+      default: {
+        if (!otherFound) {
+          otherFound = true;
+          return true;
+        }
+        return false;
+      }
+    }
+  });
+
+  return {
+    nextEvent,
+    preview,
+  };
+}
+
+export function EventListOverview(props: EventListProps): JSX.Element {
+  const { nextEvent, preview } = getOverviewItems(props.events);
+
+  return (
+    <>
+      <Switch fallback={<Box type="special">Keine Einträge gefunden.</Box>}>
+        <Match when={nextEvent}>
+          {(next) => (
+            <>
+              <Heading level={3} title="Nächster Event" />
+              <ul class="event-list" role="list">
+                <EventEntry event={next()} />
+                <li class="event-entry gray">
+                  <a
+                    href="/kalender"
+                    class="button-link"
+                    style="grid-row: 1 / -1;"
+                  >
+                    <div
+                      class="event-background-icon"
+                      style="right: 5rem; top: 0;"
+                    >
+                      <Icon icon="arrow-right" />
+                    </div>
+                    <h3 class="event-title">Zu allen Events</h3>
+                  </a>
+                </li>
+              </ul>
+            </>
+          )}
+        </Match>
+      </Switch>
+      <Show when={preview.length > 0}>
+        <>
+          <Heading level={3} title="Ausblick" />
+          <ul class="event-list" role="list">
+            {preview.map((event) => (
+              <EventEntry event={event} />
+            ))}
+            <li
+              class="event-entry gray"
+              style="grid-column: 1 / -1; min-height: 12.5rem;"
+            >
+              <a href="/kalender" class="button-link" style="grid-row: 1 / -1;">
+                <div class="event-background-icon" style="right: 5rem; top: 0;">
+                  <Icon icon="arrow-right" />
+                </div>
+                <h3 class="event-title">Zu allen Events</h3>
+              </a>
+            </li>
+          </ul>
+        </>
+      </Show>
+    </>
   );
 }

@@ -3,6 +3,14 @@ import Layout from "@gdn/layouts/Layout.astro";
 import { EventKalendar } from "@common/components/EventKalendar.tsx";
 import { Box } from "@common/components/Box.tsx";
 import { Heading } from "@common/components/Heading.tsx";
+
+export const frontmatter = {
+  navigation: {
+    group: "main",
+    label: "Kalender",
+    order: 2,
+  },
+};
 ---
 
 <Layout title="Kalender" metaTitle="Kalender">

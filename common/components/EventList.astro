@@ -1,11 +1,8 @@
 ---
-import { EventListImpl } from "@common/components/EventListImpl.tsx";
-import { EventListFilters } from "@common/components/EventListFilters.tsx";
+import { EventListOverview } from "@common/components/EventListImpl.tsx";
 import { loadPublishedEventsView } from "@common/components/events.ts";
 
 const events = await loadPublishedEventsView();
 ---
 
-<EventListFilters events={events} />
-
-<EventListImpl events={events} />
+<EventListOverview events={events} />
