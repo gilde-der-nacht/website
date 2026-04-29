@@ -264,6 +264,9 @@ function getOverviewItems(events: OlympEventView[]): Overview {
       case "Luzerner Rollenspieltage": {
         return true;
       }
+      case "Spielweekend": {
+        return true;
+      }
       default: {
         if (!otherFound) {
           otherFound = true;
@@ -319,18 +322,10 @@ export function EventListOverview(props: EventListProps): JSX.Element {
             {preview.map((event) => (
               <EventEntry event={event} />
             ))}
-            <li
-              class="event-entry gray"
-              style="grid-column: 1 / -1; grid-row: span 8;"
-            >
-              <a href="/kalender" class="button-link" style="grid-row: 1 / -1;">
-                <div class="event-background-icon" style="right: 5rem; top: 0;">
-                  <Icon icon="arrow-right" />
-                </div>
-                <h3 class="event-title">Zu allen Events</h3>
-              </a>
-            </li>
           </ul>
+          <Box link="/kalender" linkLabel="Kalender">
+            Zu allen Events
+          </Box>
         </>
       </Show>
     </>
