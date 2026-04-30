@@ -292,24 +292,17 @@ export function EventListOverview(props: EventListProps): JSX.Element {
         <Match when={nextEvent}>
           {(next) => (
             <>
-              <Heading level={3} title="Nächster Event" />
+              <Heading
+                level={3}
+                title="Nächster Event"
+                moreLink={{
+                  label: "Alle Events",
+                  link: "/kalender",
+                  icon: "arrow-right",
+                }}
+              />
               <ul class="event-list" role="list">
                 <EventEntry event={next()} />
-                <li class="event-entry gray">
-                  <a
-                    href="/kalender"
-                    class="button-link"
-                    style="grid-row: 1 / -1; grid-row: span 8;"
-                  >
-                    <div
-                      class="event-background-icon"
-                      style="right: 5rem; top: 0;"
-                    >
-                      <Icon icon="arrow-right" />
-                    </div>
-                    <h3 class="event-title">Zu allen Events</h3>
-                  </a>
-                </li>
               </ul>
             </>
           )}

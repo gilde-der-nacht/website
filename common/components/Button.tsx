@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js";
-import { Icon, type IconType } from "./Icon";
+import { Icon, type IconType } from "@common/components/Icon";
 
 type Props = {
   type?: "submit" | "button" | "reset";
