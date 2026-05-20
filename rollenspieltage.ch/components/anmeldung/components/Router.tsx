@@ -159,7 +159,7 @@ export function Router(props: {
             path: "/erstellen",
             component: () => (
               <Layout
-                title="Programmpunkte erstellen und editieren"
+                title="Spielrunden erstellen und editieren"
                 roles={store$.get().meta.roles}
                 saveState={store$.get().meta.saveState}
                 lastSaved={store$.get().meta.lastSaved}

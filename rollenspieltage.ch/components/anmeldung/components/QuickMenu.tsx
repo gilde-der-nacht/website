@@ -22,23 +22,27 @@ export function QuickMenu(props: {
             <Button label={<Icon icon="backward" />} />
           </Link>
         </Tooltip>
-        <Tooltip tooltip="Zum Programm">
-          <Link href="/programm" class="button-link">
-            <Button label={<Icon icon="dice-d20" />} />
-          </Link>
-        </Tooltip>
-        <Show when={props.roles.includes("admin")}>
-          <Tooltip tooltip="Zu deinen Programmpunkten">
+        <Show when={false}>
+          <Tooltip tooltip="Zum Programm">
+            <Link href="/programm" class="button-link">
+              <Button label={<Icon icon="dice-d20" />} />
+            </Link>
+          </Tooltip>
+        </Show>
+        <Show when={props.roles.includes("editor")}>
+          <Tooltip tooltip="Zu deinen Spielrunden">
             <Link href="/erstellen" class="button-link">
               <Button label={<Icon icon="grid-2-plus" />} />
             </Link>
           </Tooltip>
         </Show>
-        <Tooltip tooltip="Zum Helferplan">
-          <Link href="/helfen" class="button-link">
-            <Button label={<Icon icon="hand-heart" />} />
-          </Link>
-        </Tooltip>
+        <Show when={false}>
+          <Tooltip tooltip="Zum Helferplan">
+            <Link href="/helfen" class="button-link">
+              <Button label={<Icon icon="hand-heart" />} />
+            </Link>
+          </Tooltip>
+        </Show>
         <Tooltip tooltip="Zur Zusammenfassung">
           <Link href="/zusammenfassung" class="button-link">
             <Button label={<Icon icon="list" />} />
@@ -62,20 +66,25 @@ export function QuickMenuExtended(props: {
           <Link href={props.parentPath} class="button-link">
             <ButtonWithIcon icon="backward" label="Zur Übersicht" />
           </Link>
-          <Link href="/programm" class="button-link">
-            <ButtonWithIcon icon="dice-d20" label="Zum Programm" />
-          </Link>
-          <Show when={props.roles.includes("admin")}>
+          <Show when={false}>
+            <Link href="/programm" class="button-link">
+              <ButtonWithIcon icon="dice-d20" label="Zum Programm" />
+            </Link>
+          </Show>
+          <Show when={props.roles.includes("editor")}>
             <Link href="/erstellen" class="button-link">
               <ButtonWithIcon
                 icon="grid-2-plus"
-                label="Zu deinen Programmpunkten"
+                label="Zu deinen Spielrunden"
               />
             </Link>
           </Show>
-          <Link href="/helfen" class="button-link">
-            <ButtonWithIcon icon="hand-heart" label="Zum Helferplan" />
-          </Link>
+
+          <Show when={false}>
+            <Link href="/helfen" class="button-link">
+              <ButtonWithIcon icon="hand-heart" label="Zum Helferplan" />
+            </Link>
+          </Show>
           <Link href="/zusammenfassung" class="button-link">
             <ButtonWithIcon icon="list" label="Zur Zusammenfassung" />
           </Link>
