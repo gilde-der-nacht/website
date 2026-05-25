@@ -88,7 +88,7 @@ function ErstellenDetailContent(props: {
 
             <TextareaField
               value$={props.entry$.pipe(obj.sub("shortDescription"))}
-              label="kurze Beschreibung"
+              label="kurze Beschreibung (max. 200 Zeichen)"
               name="descriptionShort"
               size="small"
               showErrors={
@@ -125,10 +125,31 @@ function ErstellenDetailContent(props: {
               errors={errors().byField.tags ?? []}
               disabled={!props.isEditable}
             />
+            <p>
+              Mögliche Tags:
+              <ul>
+                <li>Ab 6 Jahren</li>
+                <li>Ab 9 Jahren</li>
+                <li>Ab 12 Jahren</li>
+                <li>Ab 18 Jahren</li>
+                <li>Fantasy</li>
+                <li>Science Fiction</li>
+                <li>Postapokalyptisch</li>
+                <li>Horror</li>
+                <li>Science Fiction</li>
+                <li>Postapokalyptisch</li>
+                <li>Horror</li>
+                <li>Modern</li>
+                <li>Historisch</li>
+                <li>Offene Welt</li>
+                <li>Gemeinsame Spielleitung</li>
+                <li>Regelleicht</li>
+              </ul>
+            </p>
 
             <TextInputField
               value$={props.entry$.pipe(obj.sub("materialLanguage"))}
-              label="Sprache Spielmaterial"
+              label="Sprache"
               name="materialLanguage"
               showErrors={
                 props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
@@ -354,7 +375,7 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
             type="success"
             onClick={() =>
               arr.push(props.slots$, {
-                uuid: crypto.randomUUID(),
+                uuid: "",
                 start: {
                   day: "SATURDAY",
                   time: "10:00",
