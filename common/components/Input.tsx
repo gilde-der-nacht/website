@@ -12,7 +12,7 @@ type InputProps = {
   disabled?: boolean | undefined;
 };
 
-export function Input(props: InputProps): JSX.Element {
+export function Checkbox(props: InputProps): JSX.Element {
   const propsWithDefaults = mergeProps(
     { type: "text", required: true, isHoneypot: false },
     props,
@@ -28,6 +28,64 @@ export function Input(props: InputProps): JSX.Element {
         required={propsWithDefaults.required}
         value={propsWithDefaults.value}
         onInput={(e) => propsWithDefaults.onValueUpdate(e.target.value)}
+        onBlur={props.onBlur}
+        disabled={props.disabled === true}
+      />
+    </label>
+  );
+}
+
+export function Input(props: InputProps): JSX.Element {
+  const propsWithDefaults = mergeProps(
+    { type: "text", required: true, isHoneypot: false },
+    props,
+  );
+
+  return (
+    <label class={propsWithDefaults.isHoneypot ? "honey" : ""}>
+      {propsWithDefaults.label}
+      <input
+        type={propsWithDefaults.type}
+        name={propsWithDefaults.name}
+        placeholder={propsWithDefaults.label}
+        required={propsWithDefaults.required}
+        value={propsWithDefaults.value}
+        onInput={(e) => {
+          propsWithDefaults.onValueUpdate(e.target.value);
+        }}
+        onBlur={props.onBlur}
+        disabled={props.disabled === true}
+      />
+    </label>
+  );
+}
+
+export function CheckboxInput(props: {
+  value: boolean;
+  onValueUpdate: (value: boolean) => void;
+  onBlur?: () => void;
+  label: JSX.Element;
+  name: string;
+  required?: boolean | undefined;
+  isHoneypot?: boolean | undefined;
+  disabled?: boolean | undefined;
+}): JSX.Element {
+  const propsWithDefaults = mergeProps(
+    { type: "text", required: true, isHoneypot: false },
+    props,
+  );
+
+  return (
+    <label class={propsWithDefaults.isHoneypot ? "honey" : ""}>
+      {propsWithDefaults.label}
+      <input
+        type="checkbox"
+        name={propsWithDefaults.name}
+        required={propsWithDefaults.required}
+        checked={propsWithDefaults.value}
+        onInput={(e) => {
+          propsWithDefaults.onValueUpdate(e.target.checked);
+        }}
         onBlur={props.onBlur}
         disabled={props.disabled === true}
       />

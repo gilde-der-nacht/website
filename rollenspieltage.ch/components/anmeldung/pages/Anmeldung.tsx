@@ -1,4 +1,8 @@
-import { Input, InputWithRef } from "common/components/Input.tsx";
+import {
+  Input,
+  InputWithRef,
+  CheckboxInput,
+} from "common/components/Input.tsx";
 import { createStore } from "solid-js/store";
 import { Button } from "@common/components/Button";
 import { Show, type JSX } from "solid-js";
@@ -7,12 +11,13 @@ import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";
 
 type Store = {
-  form: { name: string; email: string; mobile: string };
+  form: { name: string; email: string; mobile: string; kodex: boolean };
   showErrors: {
     nameMissing: boolean;
     emailMissing: boolean;
     emailInvalid: boolean;
     emailDuplicate: boolean;
+    kodexIsMissing: boolean;
     general: boolean;
   };
   state: "IDLE" | "LOADING";
@@ -22,6 +27,7 @@ type StartData = {
   name: string;
   email: string;
   mobile: string;
+  kodex: boolean;
 };
 
 export function Anmeldung(): JSX.Element {
@@ -30,12 +36,14 @@ export function Anmeldung(): JSX.Element {
       name: "",
       email: "",
       mobile: "",
+      kodex: false,
     },
     showErrors: {
       nameMissing: false,
       emailMissing: false,
       emailInvalid: false,
       emailDuplicate: false,
+      kodexIsMissing: false,
       general: false,
     },
     state: "IDLE",
@@ -51,13 +59,17 @@ export function Anmeldung(): JSX.Element {
     const emailIsMissing = store.form.email.trim().length === 0;
     setStore("showErrors", "emailMissing", emailIsMissing);
 
+    const kodexIsMissing = store.form.kodex === false;
+    setStore("showErrors", "kodexIsMissing", kodexIsMissing);
+
     const emailIsInvalid = emailField.validity.typeMismatch;
     setStore("showErrors", "emailInvalid", emailIsInvalid);
 
     if (
       store.showErrors.nameMissing ||
       store.showErrors.emailMissing ||
-      store.showErrors.emailInvalid
+      store.showErrors.emailInvalid ||
+      store.showErrors.kodexIsMissing
     ) {
       // Show errors, do not continue
       return;
@@ -70,6 +82,7 @@ export function Anmeldung(): JSX.Element {
         name: store.form.name,
         email: store.form.email,
         mobile: store.form.mobile,
+        kodex: store.form.kodex,
       };
       const response = await fetch(elysium("/rst26/start"), {
         method: "post",
@@ -170,6 +183,27 @@ export function Anmeldung(): JSX.Element {
           required={false}
           onValueUpdate={(newValue) => setStore("form", "mobile", newValue)}
         />
+        <CheckboxInput
+          label={
+            <>
+              Ich haben den{" "}
+              <a href="/verhaltenskodex" target="_blank">
+                Verhaltenskodex
+              </a>{" "}
+              gelesen und bin damit einverstanden
+            </>
+          }
+          name="kodex"
+          value={store.form.kodex}
+          required={true}
+          onValueUpdate={(newValue) => {
+            setStore("form", "kodex", newValue);
+            setStore("showErrors", "kodexIsMissing", false);
+          }}
+        />
+        <Show when={store.showErrors.kodexIsMissing}>
+          <Box type="danger">Dies ist ein Pflichtfeld.</Box>
+        </Show>
         <Button
           type="submit"
           kind={store.state === "IDLE" ? "success" : "gray"}
