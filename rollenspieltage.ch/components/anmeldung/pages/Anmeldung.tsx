@@ -186,7 +186,7 @@ export function Anmeldung(): JSX.Element {
         <CheckboxInput
           label={
             <>
-              Ich haben den{" "}
+              Ich habe den{" "}
               <a href="/verhaltenskodex" target="_blank">
                 Verhaltenskodex
               </a>{" "}
