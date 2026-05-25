@@ -126,25 +126,10 @@ function ErstellenDetailContent(props: {
               disabled={!props.isEditable}
             />
             <p>
-              Mögliche Tags:
-              <ul>
-                <li>Ab 6 Jahren</li>
-                <li>Ab 9 Jahren</li>
-                <li>Ab 12 Jahren</li>
-                <li>Ab 18 Jahren</li>
-                <li>Fantasy</li>
-                <li>Science Fiction</li>
-                <li>Postapokalyptisch</li>
-                <li>Horror</li>
-                <li>Science Fiction</li>
-                <li>Postapokalyptisch</li>
-                <li>Horror</li>
-                <li>Modern</li>
-                <li>Historisch</li>
-                <li>Offene Welt</li>
-                <li>Gemeinsame Spielleitung</li>
-                <li>Regelleicht</li>
-              </ul>
+              Vorschläge für Tags: Ab 6 Jahren, Ab 9 Jahren, Ab 12 Jahren, Ab 18
+              Jahren, Fantasy, Science Fiction, Postapokalyptisch, Horror,
+              Science Fiction, Postapokalyptisch, Horror, Modern, Historisch,
+              Offene Welt, Gemeinsame Spielleitung, Regelleicht
             </p>
 
             <TextInputField
