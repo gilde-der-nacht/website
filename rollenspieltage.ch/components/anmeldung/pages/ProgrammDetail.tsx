@@ -146,9 +146,7 @@ function ProgramDetailContent(props: {
           <Show when={props.entry.materialLanguage.trim()}>
             {(lang) => (
               <li>
-                <strong style="color: var(--clr-accent-1);">
-                  Sprache Spielmaterial:
-                </strong>{" "}
+                <strong style="color: var(--clr-accent-1);">Sprache:</strong>{" "}
                 <br />
                 {lang()}
               </li>
