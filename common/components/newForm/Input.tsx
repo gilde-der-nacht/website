@@ -12,6 +12,8 @@ export function TextInputField(props: {
   showErrors?: "ALWAYS" | "ON_BLUR";
   errors?: string[];
   disabled?: boolean;
+  afterUpdate?: () => void;
+  ref?: HTMLInputElement;
 }): JSX.Element {
   const [isDirty, setDirty] = createSignal(false);
   const alwaysShowErrors = props.showErrors === "ALWAYS";
@@ -23,11 +25,15 @@ export function TextInputField(props: {
         label={props.label}
         name={props.name}
         value={props.value$.get()}
-        onValueUpdate={(newValue) => props.value$.set(newValue)}
+        onValueUpdate={(newValue) => {
+          props.value$.set(newValue);
+          props.afterUpdate?.();
+        }}
         onBlur={() => setDirty(true)}
         type={props.type}
         required={props.required}
         disabled={props.disabled}
+        ref={props.ref}
       />
       <Show when={errors().length > 0}>
         <Box type="danger">

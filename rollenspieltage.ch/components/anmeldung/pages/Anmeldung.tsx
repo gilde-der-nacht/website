@@ -1,14 +1,11 @@
-import {
-  Input,
-  InputWithRef,
-  CheckboxInput,
-} from "common/components/Input.tsx";
-import { createStore } from "solid-js/store";
 import { Button } from "@common/components/Button";
 import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";
+import { createReactive, obj } from "@common/utils/reactivity";
+import { TextInputField } from "@common/components/newForm/Input";
+import { Checkbox } from "@common/components/newForm/Checkbox";
 
 type Store = {
   form: { name: string; email: string; mobile: string; kodex: boolean };
@@ -31,7 +28,7 @@ type StartData = {
 };
 
 export function Anmeldung(): JSX.Element {
-  const [store, setStore] = createStore<Store>({
+  const store$ = createReactive<Store>({
     form: {
       name: "",
       email: "",
@@ -53,36 +50,48 @@ export function Anmeldung(): JSX.Element {
 
   async function onSubmit(e: SubmitEvent): Promise<void> {
     e.preventDefault();
-    const nameIsMissing = store.form.name.trim().length === 0;
-    setStore("showErrors", "nameMissing", nameIsMissing);
+    const nameIsMissing = store$.get().form.name.trim().length === 0;
+    store$
+      .pipe(obj.sub("showErrors"))
+      .pipe(obj.sub("nameMissing"))
+      .set(nameIsMissing);
 
-    const emailIsMissing = store.form.email.trim().length === 0;
-    setStore("showErrors", "emailMissing", emailIsMissing);
+    const emailIsMissing = store$.get().form.email.trim().length === 0;
+    store$
+      .pipe(obj.sub("showErrors"))
+      .pipe(obj.sub("emailMissing"))
+      .set(emailIsMissing);
 
-    const kodexIsMissing = store.form.kodex === false;
-    setStore("showErrors", "kodexIsMissing", kodexIsMissing);
+    const kodexIsMissing = store$.get().form.kodex === false;
+    store$
+      .pipe(obj.sub("showErrors"))
+      .pipe(obj.sub("kodexIsMissing"))
+      .set(kodexIsMissing);
 
     const emailIsInvalid = emailField.validity.typeMismatch;
-    setStore("showErrors", "emailInvalid", emailIsInvalid);
+    store$
+      .pipe(obj.sub("showErrors"))
+      .pipe(obj.sub("emailInvalid"))
+      .set(emailIsInvalid);
 
     if (
-      store.showErrors.nameMissing ||
-      store.showErrors.emailMissing ||
-      store.showErrors.emailInvalid ||
-      store.showErrors.kodexIsMissing
+      store$.get().showErrors.nameMissing ||
+      store$.get().showErrors.emailMissing ||
+      store$.get().showErrors.emailInvalid ||
+      store$.get().showErrors.kodexIsMissing
     ) {
       // Show errors, do not continue
       return;
     }
 
-    setStore("state", "LOADING");
+    store$.pipe(obj.sub("state")).set("LOADING");
 
     try {
       const data: StartData = {
-        name: store.form.name,
-        email: store.form.email,
-        mobile: store.form.mobile,
-        kodex: store.form.kodex,
+        name: store$.get().form.name,
+        email: store$.get().form.email,
+        mobile: store$.get().form.mobile,
+        kodex: store$.get().form.kodex,
       };
       const response = await fetch(elysium("/rst26/start"), {
         method: "post",
@@ -93,7 +102,7 @@ export function Anmeldung(): JSX.Element {
       });
 
       if (!response.ok) {
-        setStore("showErrors", "general", true);
+        store$.pipe(obj.sub("showErrors")).pipe(obj.sub("general")).set(true);
       } else {
         const json = await response.json();
         const schema = z.union([
@@ -110,11 +119,10 @@ export function Anmeldung(): JSX.Element {
         ]);
         const data = schema.parse(json);
 
-        setStore(
-          "showErrors",
-          "emailDuplicate",
-          data.kind === "FAILURE" && data.reason === "DUPLICATE_EMAIL",
-        );
+        store$
+          .pipe(obj.sub("showErrors"))
+          .pipe(obj.sub("emailDuplicate"))
+          .set(data.kind === "FAILURE" && data.reason === "DUPLICATE_EMAIL");
 
         if (data.kind === "SUCCESS") {
           const redirect = new URL(location.origin + "/meine-anmeldung");
@@ -125,48 +133,55 @@ export function Anmeldung(): JSX.Element {
       }
     } catch (e: unknown) {
       console.error(e);
-      setStore("showErrors", "general", true);
+      store$.pipe(obj.sub("showErrors")).pipe(obj.sub("general")).set(true);
     } finally {
-      setStore("state", "IDLE");
+      store$.pipe(obj.sub("state")).set("IDLE");
     }
   }
 
   return (
     <>
       <form onSubmit={onSubmit} novalidate>
-        <Input
+        <TextInputField
           label="Name"
           name="name"
-          value={store.form.name}
-          onValueUpdate={(newValue) => {
-            setStore("form", "name", newValue);
-            setStore("showErrors", "nameMissing", false);
-          }}
+          value$={store$.pipe(obj.sub("form")).pipe(obj.sub("name"))}
+          afterUpdate={() =>
+            store$
+              .pipe(obj.sub("showErrors"))
+              .pipe(obj.sub("nameMissing"))
+              .set(false)
+          }
         />
-        <Show when={store.showErrors.nameMissing}>
+        <Show when={store$.get().showErrors.nameMissing}>
           <Box type="danger">Dies ist ein Pflichtfeld.</Box>
         </Show>
-        <InputWithRef
+        <TextInputField
           label="E-Mail"
           name="email"
           type="email"
-          value={store.form.email}
-          onValueUpdate={(newValue) => {
-            setStore("form", "email", newValue);
-            setStore("showErrors", "emailMissing", false);
-            setStore("showErrors", "emailInvalid", false);
+          value$={store$.pipe(obj.sub("form")).pipe(obj.sub("email"))}
+          afterUpdate={() => {
+            store$
+              .pipe(obj.sub("showErrors"))
+              .pipe(obj.sub("emailMissing"))
+              .set(false);
+            store$
+              .pipe(obj.sub("showErrors"))
+              .pipe(obj.sub("emailInvalid"))
+              .set(false);
           }}
           ref={emailField}
         />
-        <Show when={store.showErrors.emailMissing}>
+        <Show when={store$.get().showErrors.emailMissing}>
           <Box type="danger">Dies ist ein Pflichtfeld.</Box>
         </Show>
-        <Show when={store.showErrors.emailInvalid}>
+        <Show when={store$.get().showErrors.emailInvalid}>
           <Box type="danger">
             Die Eingabe scheint keine gültige E-Mail-Adresse zu sein.
           </Box>
         </Show>
-        <Show when={store.showErrors.emailDuplicate}>
+        <Show when={store$.get().showErrors.emailDuplicate}>
           <Box type="danger">
             Diese E-Mail wird bereits verwendet. Du solltest einen persönlichen
             Link erhalten haben, um deine fortzusetzen. Benötigst du Hilfe, dann
@@ -175,15 +190,14 @@ export function Anmeldung(): JSX.Element {
             <a href="/chat">Chat</a>.
           </Box>
         </Show>
-        <Input
+        <TextInputField
           label="Handynummer (optional)"
           name="mobile"
           type="tel"
-          value={store.form.mobile}
+          value$={store$.pipe(obj.sub("form")).pipe(obj.sub("mobile"))}
           required={false}
-          onValueUpdate={(newValue) => setStore("form", "mobile", newValue)}
         />
-        <CheckboxInput
+        <Checkbox
           label={
             <>
               Ich habe den{" "}
@@ -194,28 +208,30 @@ export function Anmeldung(): JSX.Element {
             </>
           }
           name="kodex"
-          value={store.form.kodex}
-          required={true}
-          onValueUpdate={(newValue) => {
-            setStore("form", "kodex", newValue);
-            setStore("showErrors", "kodexIsMissing", false);
+          value="kodex"
+          checked$={store$.pipe(obj.sub("form")).pipe(obj.sub("kodex"))}
+          afterUpdate={() => {
+            store$
+              .pipe(obj.sub("showErrors"))
+              .pipe(obj.sub("kodexIsMissing"))
+              .set(false);
           }}
         />
-        <Show when={store.showErrors.kodexIsMissing}>
+        <Show when={store$.get().showErrors.kodexIsMissing}>
           <Box type="danger">Dies ist ein Pflichtfeld.</Box>
         </Show>
         <Button
           type="submit"
-          kind={store.state === "IDLE" ? "success" : "gray"}
+          kind={store$.get().state === "IDLE" ? "success" : "gray"}
           label={
-            store.state === "IDLE"
+            store$.get().state === "IDLE"
               ? "Anmeldung starten"
               : "Anmeldung wird gestartet"
           }
-          disabled={store.state === "LOADING"}
+          disabled={store$.get().state === "LOADING"}
         />
       </form>
-      <Show when={store.showErrors.general}>
+      <Show when={store$.get().showErrors.general}>
         <div style="margin-block-start: 1rem;">
           <Box type="danger">
             Es gab ein Problem, das wir nicht erwartet haben. Bitte versuche es

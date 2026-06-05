@@ -10,6 +10,7 @@ type InputProps = {
   required?: boolean | undefined;
   isHoneypot?: boolean | undefined;
   disabled?: boolean | undefined;
+  ref?: HTMLInputElement | undefined;
 };
 
 export function Checkbox(props: InputProps): JSX.Element {
@@ -55,6 +56,7 @@ export function Input(props: InputProps): JSX.Element {
         }}
         onBlur={props.onBlur}
         disabled={props.disabled === true}
+        ref={props.ref}
       />
     </label>
   );
