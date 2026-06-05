@@ -16,20 +16,20 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/mdx": "5.0.6",
+    "@astrojs/mdx": "6.0.2",
     "@astrojs/solid-js": "6.0.1",
     "@astrojs/ts-plugin": "^1.10.9",
     "@js-temporal/polyfill": "^0.5.1",
     "@solidjs/router": "^0.16.1",
-    "astro": "6.3.6",
+    "astro": "6.4.4",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
-    "sass": "^1.99.0",
+    "sass": "^1.100.0",
     "solid-js": "^1.9.13",
-    "tsx": "^4.22.3",
+    "tsx": "^4.22.4",
     "typescript": "^6.0.3",
-    "vite": "8.0.13"
+    "vite": "8.0.16"
   },
   "devDependencies": {
     "@types/html-escaper": "^3.0.4",
