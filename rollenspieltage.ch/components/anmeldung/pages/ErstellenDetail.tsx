@@ -360,7 +360,7 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
             type="success"
             onClick={() =>
               arr.push(props.slots$, {
-                uuid: "",
+                uuid: crypto.randomUUID(),
                 start: {
                   day: "SATURDAY",
                   time: "10:00",
