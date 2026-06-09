@@ -4,6 +4,7 @@ import type { AstroUserConfig, RemarkPlugins } from "astro";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import remarkSmartypants from "remark-smartypants";
+import { unified } from "@astrojs/markdown-remark";
 
 const remarkSmartyPants = [
   [
@@ -33,14 +34,16 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
       enabled: false,
     },
     markdown: {
-      remarkPlugins: [...remarkSmartyPants],
-      rehypePlugins: [
-        rehypeSlug,
-        [
-          rehypeAutolinkHeadings,
-          { behavior: "wrap", properties: { class: "header-anchor" } },
+      processor: unified({
+        remarkPlugins: [...remarkSmartyPants],
+        rehypePlugins: [
+          rehypeSlug,
+          [
+            rehypeAutolinkHeadings,
+            { behavior: "wrap", properties: { class: "header-anchor" } },
+          ],
         ],
-      ],
+      }),
     },
     integrations: [solidJs(), mdx()],
   } satisfies AstroUserConfig;
