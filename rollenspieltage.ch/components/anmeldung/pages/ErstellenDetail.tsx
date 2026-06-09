@@ -33,6 +33,7 @@ import {
 import { Button } from "@common/components/Button";
 import { BoxLink } from "@common/components/BoxLink";
 import { Temporal } from "@js-temporal/polyfill";
+import { parseInt } from "@common/utils/parsing";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -328,10 +329,10 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
       <label>Zeitfenster</label>
       <ul role="list" class="link-list">
         <Index each={arr.unpack(props.slots$)}>
-          {(slot) => {
+          {(slot$) => {
             return (
               <li>
-                <Box onClose={slot().remove}>
+                <Box onClose={slot$().remove}>
                   <div style="display: grid; gap: 1rem;">
                     <div>
                       <label>Tag</label>
@@ -339,12 +340,12 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
                         <Button
                           label="Samstag"
                           kind={
-                            slot().get().start.day === "SATURDAY"
+                            slot$().get().start.day === "SATURDAY"
                               ? "success"
                               : "gray"
                           }
                           onClick={() => {
-                            slot().update((s) => ({
+                            slot$().update((s) => ({
                               ...s,
                               start: { ...s.start, day: "SATURDAY" },
                               end: { ...s.end, day: "SATURDAY" },
@@ -354,12 +355,12 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
                         <Button
                           label="Sonntag"
                           kind={
-                            slot().get().start.day === "SUNDAY"
+                            slot$().get().start.day === "SUNDAY"
                               ? "success"
                               : "gray"
                           }
                           onClick={() => {
-                            slot().update((s) => ({
+                            slot$().update((s) => ({
                               ...s,
                               start: { ...s.start, day: "SUNDAY" },
                               end: { ...s.end, day: "SUNDAY" },
@@ -369,14 +370,46 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
                       </div>
                     </div>
                     <TextInputField
-                      value$={slot()
+                      value$={slot$()
                         .pipe(obj.sub("start"))
                         .pipe(obj.sub("time"))}
+                      onBlur={() => {
+                        const startTime$ = slot$()
+                          .pipe(obj.sub("start"))
+                          .pipe(obj.sub("time"));
+                        const startTime = startTime$.get();
+                        const [hour, minute] = startTime.split(".");
+                        const parsed = parseInt(hour ?? "");
+                        if (parsed !== null) {
+                          startTime$.set(
+                            String(parsed).length === 1
+                              ? `0${parsed}:${minute ?? "00"}`
+                              : `${parsed}:${minute ?? "00"}`,
+                          );
+                        }
+                      }}
                       label="Start"
                       name="start"
                     />
                     <TextInputField
-                      value$={slot().pipe(obj.sub("end")).pipe(obj.sub("time"))}
+                      value$={slot$()
+                        .pipe(obj.sub("end"))
+                        .pipe(obj.sub("time"))}
+                      onBlur={() => {
+                        const endTime$ = slot$()
+                          .pipe(obj.sub("end"))
+                          .pipe(obj.sub("time"));
+                        const startTime = endTime$.get();
+                        const [hour, minute] = startTime.split(".");
+                        const parsed = parseInt(hour ?? "");
+                        if (parsed !== null) {
+                          endTime$.set(
+                            String(parsed).length === 1
+                              ? `0${parsed}:${minute ?? "00"}`
+                              : `${parsed}:${minute ?? "00"}`,
+                          );
+                        }
+                      }}
                       label="Ende"
                       name="end"
                     />

@@ -13,6 +13,7 @@ export function TextInputField(props: {
   errors?: string[];
   disabled?: boolean;
   afterUpdate?: () => void;
+  onBlur?: () => void;
   ref?: HTMLInputElement;
 }): JSX.Element {
   const [isDirty, setDirty] = createSignal(false);
@@ -29,7 +30,10 @@ export function TextInputField(props: {
           props.value$.set(newValue);
           props.afterUpdate?.();
         }}
-        onBlur={() => setDirty(true)}
+        onBlur={() => {
+          setDirty(true);
+          props.onBlur?.();
+        }}
         type={props.type}
         required={props.required}
         disabled={props.disabled}
