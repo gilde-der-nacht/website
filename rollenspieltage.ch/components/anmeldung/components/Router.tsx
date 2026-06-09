@@ -150,6 +150,7 @@ export function Router(props: {
                     publicData={publicData}
                     adminData={adminData}
                     isEditable={props.initState.status === "published"}
+                    roles={store$.get().meta.roles}
                   />
                 )}
               </Layout>
