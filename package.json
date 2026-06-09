@@ -16,12 +16,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/mdx": "6.0.2",
+    "@astrojs/mdx": "6.0.3",
     "@astrojs/solid-js": "6.0.1",
     "@astrojs/ts-plugin": "^1.10.9",
     "@js-temporal/polyfill": "^0.5.1",
     "@solidjs/router": "^0.16.1",
-    "astro": "6.4.4",
+    "astro": "6.4.5",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/html-escaper": "^3.0.4",
     "@types/luxon": "^3.7.1",
-    "@types/node": "^25.9.1",
+    "@types/node": "^25.9.2",
     "luxon": "^3.7.2",
     "prettier-plugin-astro": "^0.14.1"
   }
