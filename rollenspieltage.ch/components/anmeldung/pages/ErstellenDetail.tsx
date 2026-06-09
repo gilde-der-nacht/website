@@ -128,8 +128,8 @@ function ErstellenDetailContent(props: {
             <p>
               Vorschläge für Tags: Ab 6 Jahren, Ab 9 Jahren, Ab 12 Jahren, Ab 18
               Jahren, Fantasy, Science Fiction, Postapokalyptisch, Horror,
-              Science Fiction, Postapokalyptisch, Horror, Modern, Historisch,
-              Offene Welt, Gemeinsame Spielleitung, Regelleicht
+              Modern, Historisch, Offene Welt, Gemeinsame Spielleitung,
+              Regelleicht
             </p>
 
             <TextInputField
