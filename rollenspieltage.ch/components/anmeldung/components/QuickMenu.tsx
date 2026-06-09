@@ -22,13 +22,11 @@ export function QuickMenu(props: {
             <Button label={<Icon icon="backward" />} />
           </Link>
         </Tooltip>
-        <Show when={false}>
-          <Tooltip tooltip="Zum Programm">
-            <Link href="/programm" class="button-link">
-              <Button label={<Icon icon="dice-d20" />} />
-            </Link>
-          </Tooltip>
-        </Show>
+        <Tooltip tooltip="Zum Programm">
+          <Link href="/programm" class="button-link">
+            <Button label={<Icon icon="dice-d20" />} />
+          </Link>
+        </Tooltip>
         <Show when={props.roles.includes("editor")}>
           <Tooltip tooltip="Zu deinen Spielrunden">
             <Link href="/erstellen" class="button-link">
@@ -66,11 +64,9 @@ export function QuickMenuExtended(props: {
           <Link href={props.parentPath} class="button-link">
             <ButtonWithIcon icon="backward" label="Zur Übersicht" />
           </Link>
-          <Show when={false}>
-            <Link href="/programm" class="button-link">
-              <ButtonWithIcon icon="dice-d20" label="Zum Programm" />
-            </Link>
-          </Show>
+          <Link href="/programm" class="button-link">
+            <ButtonWithIcon icon="dice-d20" label="Zum Programm" />
+          </Link>
           <Show when={props.roles.includes("editor")}>
             <Link href="/erstellen" class="button-link">
               <ButtonWithIcon

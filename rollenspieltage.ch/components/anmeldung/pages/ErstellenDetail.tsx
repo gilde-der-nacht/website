@@ -2,6 +2,7 @@ import { ErrorBoundary, For, Index, Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type {
+  Contact,
   Link,
   Participating,
   ProgramEntry,
@@ -25,13 +26,17 @@ import {
 } from "@rst/components/anmeldung/constant/validation";
 import { Entry } from "@rst/components/anmeldung/components/Entry";
 import { TextareaField } from "@common/components/newForm/Textarea";
-import { SwitchCheckbox } from "@common/components/newForm/SwitchCheckbox";
+import {
+  SwitchCheckbox,
+  SwitchCheckboxLegacy,
+} from "@common/components/newForm/SwitchCheckbox";
 import { Button } from "@common/components/Button";
 import { BoxLink } from "@common/components/BoxLink";
 import { Temporal } from "@js-temporal/polyfill";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
+  contact$: Reactive<Contact>;
   isEditable: boolean;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
@@ -46,6 +51,7 @@ export function ErstellenDetail(props: {
     >
       <ErstellenDetailContent
         entry$={arr.findExact(props.programEntries$, (e) => e.uuid === uuid)}
+        contact$={props.contact$}
         isEditable={props.isEditable}
       />
     </ErrorBoundary>
@@ -54,6 +60,7 @@ export function ErstellenDetail(props: {
 
 function ErstellenDetailContent(props: {
   entry$: Reactive<ProgramEntry>;
+  contact$: Reactive<Contact>;
   isEditable: boolean;
 }): JSX.Element {
   const errors = () => getErrors(props.entry$.get());
@@ -76,14 +83,10 @@ function ErstellenDetailContent(props: {
             />
 
             <TextInputField
-              value$={props.entry$.pipe(obj.sub("organizer"))}
-              label="Organisiert durch"
-              name="organizer"
-              showErrors={
-                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
-              }
-              errors={errors().byField.organizer ?? []}
-              disabled={!props.isEditable}
+              value$={props.contact$.pipe(obj.sub("name"))}
+              label="Spielleitung"
+              name="gamemaster"
+              disabled
             />
 
             <TextareaField
@@ -91,9 +94,7 @@ function ErstellenDetailContent(props: {
               label="kurze Beschreibung (max. 200 Zeichen)"
               name="descriptionShort"
               size="small"
-              showErrors={
-                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
-              }
+              showErrors="ALWAYS"
               errors={errors().byField.shortDescription ?? []}
               disabled={!props.isEditable}
             />
@@ -102,9 +103,7 @@ function ErstellenDetailContent(props: {
               value$={props.entry$.pipe(obj.sub("longDescription"))}
               label="lange Beschreibung (optional)"
               name="descriptionLong"
-              showErrors={
-                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
-              }
+              showErrors="ALWAYS"
               errors={errors().byField.longDescription ?? []}
               disabled={!props.isEditable}
             />
@@ -125,23 +124,46 @@ function ErstellenDetailContent(props: {
               errors={errors().byField.tags ?? []}
               disabled={!props.isEditable}
             />
-            <p>
-              Vorschläge für Tags: Ab 6 Jahren, Ab 9 Jahren, Ab 12 Jahren, Ab 18
-              Jahren, Fantasy, Science Fiction, Postapokalyptisch, Horror,
-              Modern, Historisch, Offene Welt, Gemeinsame Spielleitung,
-              Regelleicht
+            <p style="background: white;">
+              <em>
+                Vorschläge für Tags: <br />
+                <span style="display: flex; flex-wrap: wrap; column-gap: 0.5ch;">
+                  <span>Ab 6 Jahren,</span>
+                  <span>Ab 9 Jahren,</span>
+                  <span>Ab 12 Jahren,</span>
+                  <span>Ab 18 Jahren,</span>
+                  <span>Fantasy,</span>
+                  <span>Science Fiction,</span>
+                  <span>Postapokalyptisch,</span>
+                  <span>Horror,</span>
+                  <span>Modern,</span>
+                  <span>Historisch,</span>
+                  <span>Offene Welt,</span>
+                  <span>Gemeinsame Spielleitung,</span>
+                  <span>Regelleicht</span>
+                </span>
+              </em>
             </p>
 
-            <TextInputField
-              value$={props.entry$.pipe(obj.sub("materialLanguage"))}
-              label="Sprache"
-              name="materialLanguage"
-              showErrors={
-                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
-              }
-              errors={errors().byField.materialLanguage ?? []}
-              disabled={!props.isEditable}
-            />
+            <div style="display: flex; gap: 1rem; align-items: baseline;">
+              <legend style="margin: 0; padding: 0;">Sprache:</legend>
+              <SwitchCheckboxLegacy
+                value={
+                  props.entry$.pipe(obj.sub("materialLanguage")).get() ===
+                  "Englisch"
+                    ? "Englisch"
+                    : "Deutsch"
+                }
+                onChange={(newValue) =>
+                  props.entry$.pipe(obj.sub("materialLanguage")).set(newValue)
+                }
+                options={{
+                  left: { label: "Englisch", value: "Englisch" },
+                  right: { label: "Deutsch", value: "Deutsch" },
+                }}
+                name="participating"
+              />
+            </div>
 
             <LinkInput links$={props.entry$.pipe(obj.sub("links"))} />
           </form>
@@ -185,9 +207,7 @@ function ErstellenDetailContent(props: {
           </div>
           <br />
 
-          <Show when={props.entry$.get().status === "published"}>
-            <ErrorSummary errors={errors()} />
-          </Show>
+          <ErrorSummary errors={errors()} />
           <br />
 
           <ul role="list" class="link-list">
@@ -220,7 +240,19 @@ function ErrorSummary(props: { errors: Errors }): JSX.Element {
           Spielrunde:
         </p>
         <ul>
-          <For each={props.errors.allErrors}>{(error) => <li>{error}</li>}</For>
+          <For
+            each={props.errors.allErrors.map((error) => {
+              if (error.includes("200")) {
+                return "Die kurze Beschreibung ist auf 200 Zeichen limitiert.";
+              }
+              if (error.includes("500")) {
+                return "Die lange Beschreibung ist auf 500 Zeichen limitiert.";
+              }
+              return error;
+            })}
+          >
+            {(error) => <li>{error}</li>}
+          </For>
         </ul>
       </Box>
     </Show>

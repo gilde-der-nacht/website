@@ -123,6 +123,11 @@ function ProgramDetailContent(props: {
       <div class="game-dialog">
         <ul role="list" style="display: grid; gap: 0.5rem;">
           <li>
+            <strong style="color: var(--clr-accent-1);">Spielleitung:</strong>{" "}
+            <br />
+            {props.entry.organizer}
+          </li>
+          <li>
             <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
             <br />
             {TXT.days[day]}, {formatTime(props.entry.slot.start)} -{" "}

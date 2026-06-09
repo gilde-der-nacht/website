@@ -194,6 +194,9 @@ export function Router(props: {
                     .pipe(obj.sub("save"))
                     .pipe(obj.sub("program"))
                     .pipe(obj.sub("organising"))}
+                  contact$={store$
+                    .pipe(obj.sub("save"))
+                    .pipe(obj.sub("contact"))}
                   isEditable={props.initState.status === "published"}
                 />
               </Layout>

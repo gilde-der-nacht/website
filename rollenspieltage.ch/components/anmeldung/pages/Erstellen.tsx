@@ -65,7 +65,7 @@ export function Erstellen(props: {
               participating: { kind: "LIMITED", maxSeats: 6 },
               timeSlots: [],
               tagNames: "",
-              materialLanguage: "",
+              materialLanguage: "Deutsch",
               links: [],
             } satisfies ProgramEntry);
 
