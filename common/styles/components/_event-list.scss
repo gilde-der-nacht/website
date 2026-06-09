@@ -27,7 +27,7 @@
   grid-template-rows: subgrid;
   gap: 0.5rem;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
 
   &.gray {
     --event-color: #{c.getGray("text-low-contrast")};
