@@ -23,13 +23,6 @@ export function getErrors(
     ];
   }
 
-  if (entry.organizer.trim().length === 0) {
-    byField["organizer"] = [
-      ...(byField["organizer"] ?? []),
-      "'Organisiert durch' ist ein Pflichtfeld",
-    ];
-  }
-
   if (entry.shortDescription.trim().length === 0) {
     byField["shortDescription"] = [
       ...(byField["shortDescription"] ?? []),
