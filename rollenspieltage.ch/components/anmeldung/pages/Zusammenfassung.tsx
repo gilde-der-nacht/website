@@ -14,14 +14,14 @@ import type { Contact, Save } from "@rst/components/anmeldung/api/save";
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { useSearchParams } from "@solidjs/router";
-import type { Public } from "@rst/components/anmeldung/api/public";
+import type { Program } from "@rst/components/anmeldung/api/program";
 import { Timeview } from "@rst/components/anmeldung/components/Timeview";
 import { obj, type Reactive } from "@common/utils/reactivity";
 import { Checkbox } from "@common/components/newForm/Checkbox";
 
 export function Zusammenfassung(props: {
   save$: Reactive<Save>;
-  publicData: Public;
+  programData: Program;
   isEditable: boolean;
 }): JSX.Element {
   return (
@@ -39,7 +39,7 @@ export function Zusammenfassung(props: {
         value="wantsUpdates"
       />
 
-      <Timeview save={props.save$.get()} publicData={props.publicData} />
+      <Timeview save={props.save$.get()} programData={props.programData} />
     </div>
   );
 }

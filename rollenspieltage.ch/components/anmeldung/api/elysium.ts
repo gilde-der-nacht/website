@@ -51,36 +51,14 @@ export async function elysiumSaveState(
   }
 }
 
-export async function elysiumLoadPublic(
-  secret: string,
+export async function elysiumLoadProgram(
+  secret: string | null,
 ): Promise<Result<unknown>> {
   try {
-    const url = new URL(elysium("/rst26/public"));
-    url.searchParams.append("secret", secret);
-    const result = await fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!result.ok) {
-      console.error(await result.text());
-      return { kind: "FAILURE" };
+    const url = new URL(elysium("/rst26/program"));
+    if (secret !== null) {
+      url.searchParams.append("secret", secret);
     }
-    const data = (await result.json()) as unknown;
-
-    return { kind: "SUCCESS", data };
-  } catch (e) {
-    console.error(e);
-    return { kind: "FAILURE" };
-  }
-}
-
-export async function elysiumLoadAdmin(
-  secret: string,
-): Promise<Result<unknown>> {
-  try {
-    const url = new URL(elysium("/rst26/public/admin"));
-    url.searchParams.append("secret", secret);
     const result = await fetch(url, {
       headers: {
         "Content-Type": "application/json",

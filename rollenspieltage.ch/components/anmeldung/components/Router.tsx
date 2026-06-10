@@ -6,31 +6,25 @@ import {
   type LoadSave,
   type Save,
 } from "@rst/components/anmeldung/api/save";
-import { Helfen } from "@rst/components/anmeldung/pages/Helfen";
 import { Zusammenfassung } from "@rst/components/anmeldung/pages/Zusammenfassung";
 import { unwrap } from "solid-js/store";
 import { toast, ToastContainer } from "@common/components/Toast";
 import type { Roles, SaveState } from "@rst/components/anmeldung/api/meta";
 import { Layout } from "@rst/components/anmeldung/components/Layout";
-import { HelfenDetail } from "@rst/components/anmeldung/pages/HelfenDetail";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
-import { Erklaerbaer } from "@rst/components/anmeldung/pages/Erklaerbaer";
 import { Programm } from "@rst/components/anmeldung/pages/Programm";
 import { Erstellen } from "@rst/components/anmeldung/pages/Erstellen";
-import { loadPublic } from "@rst/components/anmeldung/api/public";
 import { ErstellenDetail } from "@rst/components/anmeldung/pages/ErstellenDetail";
 import { createReactive, obj } from "@common/utils/reactivity";
-import { loadAdmin } from "@rst/components/anmeldung/api/admin";
-import { HelfenOverview } from "@rst/components/anmeldung/pages/HelfenOverview";
 import { ProgrammDetail } from "@rst/components/anmeldung/pages/ProgrammDetail";
+import { loadProgram } from "../api/program";
 
 export function Router(props: {
   initState: LoadSave;
   secret: string;
 }): JSX.Element {
-  const [publicResource] = createResource(() => loadPublic(props.secret));
-  const [adminResource] = createResource(() => loadAdmin(props.secret));
+  const [programResource] = createResource(() => loadProgram(props.secret));
 
   const store$ = createReactive<{
     meta: {
@@ -102,8 +96,7 @@ export function Router(props: {
                 roles={store$.get().meta.roles}
                 saveState={store$.get().meta.saveState}
                 lastSaved={store$.get().meta.lastSaved}
-                publicResource={publicResource}
-                adminResource={adminResource}
+                programResource={programResource}
               >
                 <Root roles={store$.get().meta.roles} />
               </Layout>
@@ -117,13 +110,12 @@ export function Router(props: {
                 roles={store$.get().meta.roles}
                 saveState={store$.get().meta.saveState}
                 lastSaved={store$.get().meta.lastSaved}
-                publicResource={publicResource}
-                adminResource={adminResource}
+                programResource={programResource}
               >
-                {({ publicData }) => (
+                {({ programData }) => (
                   <Programm
                     save$={store$.pipe(obj.sub("save"))}
-                    publicData={publicData}
+                    programData={programData}
                   />
                 )}
               </Layout>
@@ -138,17 +130,15 @@ export function Router(props: {
                 lastSaved={store$.get().meta.lastSaved}
                 showQuickmenu={true}
                 parentPath="/programm"
-                publicResource={publicResource}
-                adminResource={adminResource}
+                programResource={programResource}
               >
-                {({ publicData, adminData }) => (
+                {({ programData }) => (
                   <ProgrammDetail
                     reservations$={store$
                       .pipe(obj.sub("save"))
                       .pipe(obj.sub("program"))
-                      .pipe(obj.sub("participating"))}
-                    publicData={publicData}
-                    adminData={adminData}
+                      .pipe(obj.sub("reserved"))}
+                    programData={programData}
                     isEditable={props.initState.status === "published"}
                     roles={store$.get().meta.roles}
                   />
@@ -164,8 +154,7 @@ export function Router(props: {
                 roles={store$.get().meta.roles}
                 saveState={store$.get().meta.saveState}
                 lastSaved={store$.get().meta.lastSaved}
-                publicResource={publicResource}
-                adminResource={adminResource}
+                programResource={programResource}
               >
                 <Erstellen
                   programEntries$={store$
@@ -186,8 +175,7 @@ export function Router(props: {
                 saveState={store$.get().meta.saveState}
                 lastSaved={store$.get().meta.lastSaved}
                 parentPath="/erstellen"
-                publicResource={publicResource}
-                adminResource={adminResource}
+                programResource={programResource}
               >
                 <ErstellenDetail
                   programEntries$={store$
@@ -203,105 +191,6 @@ export function Router(props: {
             ),
           },
           {
-            path: "/helfen",
-            component: () => (
-              <Layout
-                title="Helfen"
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
-                showQuickmenu={true}
-                publicResource={publicResource}
-                adminResource={adminResource}
-              >
-                {({ publicData }) => (
-                  <Helfen
-                    reservations$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("helping"))}
-                    publicData={publicData}
-                    isEditable={props.initState.status === "published"}
-                    roles={store$.get().meta.roles}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "/helfen/:uuid",
-            component: () => (
-              <Layout
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
-                showQuickmenu={true}
-                parentPath="/helfen"
-                publicResource={publicResource}
-                adminResource={adminResource}
-              >
-                {({ publicData, adminData }) => (
-                  <HelfenDetail
-                    reservations$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("helping"))}
-                    publicData={publicData}
-                    adminData={adminData}
-                    isEditable={props.initState.status === "published"}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "/erklaerbaer",
-            component: () => (
-              <Layout
-                title="Helfen: Erklärbären"
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
-                showQuickmenu={true}
-                parentPath="/helfen"
-                publicResource={publicResource}
-                adminResource={adminResource}
-              >
-                {({ adminData }) => (
-                  <Erklaerbaer
-                    save$={store$.pipe(obj.sub("save"))}
-                    adminData={adminData}
-                    roles={store$.get().meta.roles}
-                    isEditable={props.initState.status === "published"}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "/helfen/admin",
-            component: () => (
-              <Layout
-                title="Helfer-Übersicht"
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
-                showQuickmenu={true}
-                parentPath="/helfen"
-                publicResource={publicResource}
-                adminResource={adminResource}
-              >
-                {({ adminData }) => (
-                  <HelfenOverview
-                    reservations$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("helping"))}
-                    adminData={adminData}
-                    roles={store$.get().meta.roles}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
             path: "/zusammenfassung",
             component: () => (
               <Layout
@@ -310,13 +199,12 @@ export function Router(props: {
                 saveState={store$.get().meta.saveState}
                 lastSaved={store$.get().meta.lastSaved}
                 showQuickmenu={true}
-                publicResource={publicResource}
-                adminResource={adminResource}
+                programResource={programResource}
               >
-                {({ publicData }) => (
+                {({ programData }) => (
                   <Zusammenfassung
                     save$={store$.pipe(obj.sub("save"))}
-                    publicData={publicData}
+                    programData={programData}
                     isEditable={props.initState.status === "published"}
                   />
                 )}
@@ -333,8 +221,7 @@ export function Router(props: {
                   saveState={store$.get().meta.saveState}
                   lastSaved={store$.get().meta.lastSaved}
                   showQuickmenu={true}
-                  publicResource={publicResource}
-                  adminResource={adminResource}
+                  programResource={programResource}
                 >
                   <Box type="danger">{TXT.error.siteNotFound}</Box>
                 </Layout>

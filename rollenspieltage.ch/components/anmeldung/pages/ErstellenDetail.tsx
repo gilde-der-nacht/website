@@ -4,15 +4,10 @@ import { TXT } from "@common/utils/texts";
 import type {
   Contact,
   Link,
-  Participating,
   ProgramEntry,
-  Slot,
+  TimeSlotEdit,
 } from "@rst/components/anmeldung/api/save";
 import { useParams } from "@solidjs/router";
-import {
-  toPublic,
-  type PublicProgramEntry,
-} from "@rst/components/anmeldung/api/public";
 import { Chip } from "@common/components/Chip";
 import { Icon } from "@common/components/Icon";
 import { arr, obj, type Reactive } from "@common/utils/reactivity";
@@ -32,8 +27,9 @@ import {
 } from "@common/components/newForm/SwitchCheckbox";
 import { Button } from "@common/components/Button";
 import { BoxLink } from "@common/components/BoxLink";
-import { Temporal } from "@js-temporal/polyfill";
 import { parseInt } from "@common/utils/parsing";
+import { entryEditToPublic } from "@rst/components/anmeldung/utils/convert";
+import { SATURDAY, SUNDAY } from "@rst/components/anmeldung/constant/time";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -109,9 +105,7 @@ function ErstellenDetailContent(props: {
               disabled={!props.isEditable}
             />
 
-            <ParticipationInput
-              value$={props.entry$.pipe(obj.sub("participating"))}
-            />
+            <ParticipationInput value$={props.entry$.pipe(obj.sub("seats"))} />
 
             <TimeSlotInput slots$={props.entry$.pipe(obj.sub("timeSlots"))} />
 
@@ -150,13 +144,12 @@ function ErstellenDetailContent(props: {
               <legend style="margin: 0; padding: 0;">Sprache:</legend>
               <SwitchCheckboxLegacy
                 value={
-                  props.entry$.pipe(obj.sub("materialLanguage")).get() ===
-                  "Englisch"
+                  props.entry$.pipe(obj.sub("language")).get() === "Englisch"
                     ? "Englisch"
                     : "Deutsch"
                 }
                 onChange={(newValue) =>
-                  props.entry$.pipe(obj.sub("materialLanguage")).set(newValue)
+                  props.entry$.pipe(obj.sub("language")).set(newValue)
                 }
                 options={{
                   left: { label: "Englisch", value: "Englisch" },
@@ -213,7 +206,10 @@ function ErstellenDetailContent(props: {
 
           <ul role="list" class="link-list">
             <For
-              each={toSlots(props.entry$.get())}
+              each={entryEditToPublic(
+                props.entry$.get(),
+                props.contact$.get().name,
+              )}
               fallback={
                 <em>
                   {errors().hasErrors
@@ -260,48 +256,12 @@ function ErrorSummary(props: { errors: Errors }): JSX.Element {
   );
 }
 
-function toSlots(entry: ProgramEntry): PublicProgramEntry[] {
-  const entries: PublicProgramEntry[] = [];
-  entry.timeSlots.forEach((slot) => {
-    const transformedPublic = toPublic({
-      uuid: slot.uuid,
-      title: entry.title,
-      organizer: entry.organizer,
-      dateTimeRange: slot,
-      shortDescription: entry.shortDescription,
-      longDescription: entry.longDescription,
-      participating:
-        entry.participating.kind === "NONE"
-          ? entry.participating
-          : {
-              kind: "LIMITED",
-              maxSeats: entry.participating.maxSeats,
-              reserved: [],
-            },
-      tagNames: entry.tagNames,
-      materialLanguage: entry.materialLanguage,
-      links: entry.links,
-    });
-
-    if (transformedPublic !== null) {
-      entries.push(transformedPublic);
-    }
-  });
-
-  return entries.toSorted(
-    (a, b) =>
-      Temporal.PlainDate.compare(a.slot.day, b.slot.day) ||
-      Temporal.PlainTime.compare(a.slot.start, b.slot.start) ||
-      Temporal.PlainTime.compare(a.slot.end, b.slot.end),
-  );
-}
-
 function ParticipationInput(props: {
-  value$: Reactive<Participating>;
+  value$: Reactive<ProgramEntry["seats"]>;
 }): JSX.Element {
   const options = {
-    left: { label: "Keine Anmeldung", value: "NONE" as const },
-    right: { label: "Limitierte Plätze", value: "LIMITED" as const },
+    left: { label: "Keine Anmeldung", value: "NO_LIMIT" as const },
+    right: { label: "Limitierte Plätze", value: "WITH_LIMIT" as const },
   };
 
   return (
@@ -312,9 +272,9 @@ function ParticipationInput(props: {
         name="participating"
       />
 
-      <Show when={props.value$.get().kind === "LIMITED"}>
+      <Show when={props.value$.get().kind === "NO_LIMIT"}>
         <NumberInputField
-          value$={props.value$.pipe(obj.sub("maxSeats"))}
+          value$={props.value$.pipe(obj.sub("max"))}
           label="Maximale Plätze"
           name="maxSeats"
         />
@@ -323,7 +283,9 @@ function ParticipationInput(props: {
   );
 }
 
-function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
+function TimeSlotInput(props: {
+  slots$: Reactive<TimeSlotEdit[]>;
+}): JSX.Element {
   return (
     <>
       <label>Zeitfenster</label>
@@ -340,41 +302,45 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
                         <Button
                           label="Samstag"
                           kind={
-                            slot$().get().start.day === "SATURDAY"
+                            slot$().get().slot.start.day === SATURDAY.toJSON()
                               ? "success"
                               : "gray"
                           }
                           onClick={() => {
-                            slot$().update((s) => ({
-                              ...s,
-                              start: { ...s.start, day: "SATURDAY" },
-                              end: { ...s.end, day: "SATURDAY" },
-                            }));
+                            slot$()
+                              .pipe(obj.sub("slot"))
+                              .update((s) => ({
+                                ...s,
+                                start: { ...s.start, day: SATURDAY.toJSON() },
+                              }));
                           }}
                         />
                         <Button
                           label="Sonntag"
                           kind={
-                            slot$().get().start.day === "SUNDAY"
+                            slot$().get().slot.start.day === SUNDAY.toJSON()
                               ? "success"
                               : "gray"
                           }
                           onClick={() => {
-                            slot$().update((s) => ({
-                              ...s,
-                              start: { ...s.start, day: "SUNDAY" },
-                              end: { ...s.end, day: "SUNDAY" },
-                            }));
+                            slot$()
+                              .pipe(obj.sub("slot"))
+                              .update((s) => ({
+                                ...s,
+                                start: { ...s.start, day: SUNDAY.toJSON() },
+                              }));
                           }}
                         />
                       </div>
                     </div>
                     <TextInputField
                       value$={slot$()
+                        .pipe(obj.sub("slot"))
                         .pipe(obj.sub("start"))
                         .pipe(obj.sub("time"))}
                       onBlur={() => {
                         const startTime$ = slot$()
+                          .pipe(obj.sub("slot"))
                           .pipe(obj.sub("start"))
                           .pipe(obj.sub("time"));
                         const startTime = startTime$.get();
@@ -393,10 +359,12 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
                     />
                     <TextInputField
                       value$={slot$()
+                        .pipe(obj.sub("slot"))
                         .pipe(obj.sub("end"))
                         .pipe(obj.sub("time"))}
                       onBlur={() => {
                         const endTime$ = slot$()
+                          .pipe(obj.sub("slot"))
                           .pipe(obj.sub("end"))
                           .pipe(obj.sub("time"));
                         const startTime = endTime$.get();
@@ -426,13 +394,14 @@ function TimeSlotInput(props: { slots$: Reactive<Slot[]> }): JSX.Element {
             onClick={() =>
               arr.push(props.slots$, {
                 uuid: crypto.randomUUID(),
-                start: {
-                  day: "SATURDAY",
-                  time: "10:00",
-                },
-                end: {
-                  day: "SATURDAY",
-                  time: "12:00",
+                slot: {
+                  start: {
+                    day: SATURDAY.toJSON(),
+                    time: "10:00",
+                  },
+                  end: {
+                    time: "12:00",
+                  },
                 },
               })
             }

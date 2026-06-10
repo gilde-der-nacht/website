@@ -22,19 +22,6 @@ export function Root(props: { roles: Roles }): JSX.Element {
         </Link>
         <br />
       </Show>
-      <Show when={false}>
-        <Link href="/helfen" class="button-link">
-          <BoxLink icon="hand-heart">
-            <h3>Helfen</h3>
-            <p>
-              Beim Kiosk und der Essensausgabe können wir immer ein paar
-              helfende Hände gebrauchen.
-            </p>
-          </BoxLink>
-        </Link>
-
-        <br />
-      </Show>
       <Link href="/zusammenfassung" class="button-link">
         <BoxLink icon="list">
           <h3>Zusammenfassung</h3>

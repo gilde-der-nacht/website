@@ -2,25 +2,26 @@ import { For, Match, Show, Switch, type JSX } from "solid-js";
 import { Box, SimpleBox } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import { useParams } from "@solidjs/router";
-import {
-  type Public,
-  type PublicProgramEntry,
-} from "@rst/components/anmeldung/api/public";
+import type {
+  Program,
+  ProgramPublicEntry,
+} from "@rst/components/anmeldung/api/program";
 import { Link } from "@common/components/Link";
 import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { formatTime, toRange } from "@common/utils/time";
 import { getDay } from "@rst/components/anmeldung/constant/time";
-import type { Reservation } from "@rst/components/anmeldung/api/save";
+import type { Participating } from "@rst/components/anmeldung/api/save";
 import { InputButton } from "@common/components/InputButton";
 import { ButtonLink } from "@common/components/ButtonLink";
 import { arr, type Reactive } from "@common/utils/reactivity";
-import type { PublicAdmin } from "@rst/components/anmeldung/api/admin";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
+import { getCurrentTimestamp } from "@common/utils/shared";
+import { Temporal } from "@js-temporal/polyfill";
+import { assert } from "@common/components/utils";
 
 export function ProgrammDetail(props: {
-  reservations$: Reactive<Reservation[]>;
-  publicData: Public;
-  adminData: PublicAdmin;
+  reservations$: Reactive<Participating[]>;
+  programData: Program;
   isEditable: boolean;
   roles: Roles;
 }): JSX.Element {
@@ -28,7 +29,7 @@ export function ProgrammDetail(props: {
 
   return (
     <Show
-      when={props.publicData.programEntries.find((e) => e.uuid === uuid)}
+      when={props.programData.publicEntries.find((e) => e.uuid === uuid)}
       fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
     >
       {(entry) => (
@@ -37,15 +38,12 @@ export function ProgrammDetail(props: {
           myReservations={props.reservations$.get()}
           isEditable={props.isEditable}
           addReservation={(reservation) =>
-            arr.push(props.reservations$, {
-              ...reservation,
-              uuid: crypto.randomUUID(),
-            })
+            arr.push(props.reservations$, reservation)
           }
           removeReservation={(reservationUuid) => {
             arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid);
           }}
-          adminData={props.adminData}
+          programData={props.programData}
           roles={props.roles}
         />
       )}
@@ -54,56 +52,85 @@ export function ProgrammDetail(props: {
 }
 
 function ProgramDetailContent(props: {
-  entry: PublicProgramEntry;
-  myReservations: Reservation[];
-  addReservation: (reservation: Reservation) => void;
+  entry: ProgramPublicEntry;
+  myReservations: Participating[];
+  addReservation: (reservation: Participating) => void;
   removeReservation: (reservationUuid: string) => void;
   isEditable: boolean;
-  adminData: PublicAdmin;
+  programData: Program;
   roles: Roles;
 }): JSX.Element {
-  const day = getDay(props.entry.slot.day) ?? "FRIDAY";
+  const day =
+    getDay(Temporal.PlainDate.from(props.entry.timeSlot.slot.start.day)) ??
+    "FRIDAY";
 
   const myReservations = () =>
     props.myReservations.filter((r) => r.entryUuid === props.entry.uuid);
 
-  const range = () =>
-    props.entry.participating.kind === "NONE"
-      ? []
-      : toRange(props.entry.participating.maxSeats).map((i) => {
-          const myReservation = myReservations()[i];
-          if (myReservation !== undefined) {
-            return myReservation;
-          }
+  const range = () => {
+    if (props.entry.participation.seats.kind === "NO_LIMIT") {
+      return [];
+    }
+    return toRange(props.entry.participation.seats.max).map((i) => {
+      assert(props.entry.participation.seats.kind !== "NO_LIMIT", "");
 
-          const externalReservations =
-            props.entry.participating.kind === "LIMITED"
-              ? props.entry.participating.reserved
-              : [];
-          const negativeOffset =
-            props.entry.participating.maxSeats - externalReservations.length;
+      const myReservation = myReservations()[i];
+      if (myReservation !== undefined) {
+        if (myReservation.name.kind === "SELF") {
+          return {
+            kind: "SELF",
+            uuid: myReservation.uuid,
+          } as const;
+        } else {
+          return {
+            kind: "FRIEND",
+            uuid: myReservation.uuid,
+            name: myReservation.name.friendsName,
+          } as const;
+        }
+      }
 
-          const externalReservation = externalReservations[i - negativeOffset];
+      const allReservations = props.entry.participation.reserved;
 
-          if (externalReservation !== undefined) {
-            return {
-              kind: "RESERVED_OTHER",
-              uuid: externalReservation,
-            } as const;
-          }
+      if (typeof allReservations === "number") {
+        if (allReservations > i) {
+          return {
+            kind: "RESERVED_OTHER",
+          } as const;
+        } else {
           return { kind: "FREE" } as const;
-        });
-
-  const hasReservedForThemselves = (): boolean => {
-    return myReservations().find((r) => r.kind === "SELF") !== undefined;
+        }
+      } else {
+        const myReservationUuids = myReservations().map(
+          (reservation) => reservation.uuid,
+        );
+        const externalReservations = allReservations.filter(
+          (reservation) => !myReservationUuids.includes(reservation.uuid),
+        );
+        const currentExternalReservation =
+          externalReservations[i - myReservations().length];
+        if (currentExternalReservation !== undefined) {
+          return {
+            kind: "RESERVED_OTHER_WITH_NAME",
+            name: currentExternalReservation.name,
+          } as const;
+        } else {
+          return { kind: "FREE" } as const;
+        }
+      }
+    });
   };
 
-  function getExternalName(uuid?: string): string {
-    const name = props.adminData.admin?.programReservation.find(
-      (e) => e.uuid === uuid,
-    )?.name;
-    return name === undefined ? "" : `(${name})`;
-  }
+  const hasReservedForThemselves = (): boolean => {
+    return myReservations().find((r) => r.name.kind === "SELF") !== undefined;
+  };
+
+  const startTime = Temporal.PlainTime.from(
+    props.entry.timeSlot.slot.start.time,
+  );
+  const endTime = startTime.add({
+    hours: props.entry.timeSlot.slot.duration.hours,
+  });
 
   return (
     <>
@@ -130,23 +157,18 @@ function ProgramDetailContent(props: {
           <li>
             <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
             <br />
-            {TXT.days[day]}, {formatTime(props.entry.slot.start)} -{" "}
-            {formatTime(props.entry.slot.end)} Uhr
+            {TXT.days[day]}, {formatTime(startTime)} - {formatTime(endTime)} Uhr
           </li>
           <li>
             <strong style="color: var(--clr-accent-1);">Kategorien:</strong>{" "}
             <br />
-            {props.entry.tagNames.trim().length > 0 ? (
-              props.entry.tagNames
-                .split(",")
-                .map((e) => e.trim())
-                .filter((e) => e.length > 0)
-                .join(", ")
+            {props.entry.tagNames.length > 0 ? (
+              props.entry.tagNames.join(", ")
             ) : (
               <em>keine Kategorien</em>
             )}
           </li>
-          <Show when={props.entry.materialLanguage.trim()}>
+          <Show when={props.entry.language.trim()}>
             {(lang) => (
               <li>
                 <strong style="color: var(--clr-accent-1);">Sprache:</strong>{" "}
@@ -201,9 +223,12 @@ function ProgramDetailContent(props: {
                         <div class="count">{i() + 1}</div>
                         <Switch>
                           <Match when={seat.kind === "RESERVED_OTHER"}>
-                            <Box>
-                              Bereits reserviert {getExternalName(seat.uuid)}
-                            </Box>
+                            <Box>Bereits reserviert</Box>
+                          </Match>
+                          <Match
+                            when={seat.kind === "RESERVED_OTHER_WITH_NAME"}
+                          >
+                            <Box>Bereits reserviert ({seat.name})</Box>
                           </Match>
                           <Match when={!props.isEditable}>
                             <Box>Freier Platz</Box>
@@ -259,18 +284,24 @@ function ProgramDetailContent(props: {
                                     kind="success"
                                     onClick={() => {
                                       props.addReservation({
-                                        kind: "SELF",
                                         entryUuid: props.entry.uuid,
                                         uuid: crypto.randomUUID(),
+                                        timestamp: getCurrentTimestamp(),
+                                        name: {
+                                          kind: "SELF",
+                                        },
                                       });
                                     }}
                                   />
                                   <InputButton
                                     addFriend={(name) => {
                                       props.addReservation({
-                                        kind: "FRIEND",
                                         entryUuid: props.entry.uuid,
-                                        name,
+                                        timestamp: getCurrentTimestamp(),
+                                        name: {
+                                          kind: "FRIEND",
+                                          friendsName: name,
+                                        },
                                         uuid: crypto.randomUUID(),
                                       });
                                     }}
@@ -281,9 +312,12 @@ function ProgramDetailContent(props: {
                               <InputButton
                                 addFriend={(name) => {
                                   props.addReservation({
-                                    kind: "FRIEND",
                                     entryUuid: props.entry.uuid,
-                                    name,
+                                    timestamp: getCurrentTimestamp(),
+                                    name: {
+                                      kind: "FRIEND",
+                                      friendsName: name,
+                                    },
                                     uuid: crypto.randomUUID(),
                                   });
                                 }}

@@ -1,42 +1,37 @@
 import { Box } from "@common/components/Box";
 import { createReactive, type Reactive } from "@common/utils/reactivity";
 import { For, Show, type JSX } from "solid-js";
-import type { Reservation, Save } from "@rst/components/anmeldung/api/save";
+import type { Participating, Save } from "@rst/components/anmeldung/api/save";
 import type {
-  Public,
-  PublicProgramEntry,
-} from "@rst/components/anmeldung/api/public";
+  Program,
+  ProgramPublicEntry,
+} from "@rst/components/anmeldung/api/program";
 import { TXT } from "@common/utils/texts";
 import { Entry } from "@rst/components/anmeldung/components/Entry";
 import { toRange, type PerDay, type ProgramDay } from "@common/utils/time";
 import { Filters, type ActiveFilter } from "@common/components/Filter";
-import { getDay } from "../constant/time";
+import { getDay } from "@rst/components/anmeldung/constant/time";
 import { Temporal } from "@js-temporal/polyfill";
 
 export function Programm(props: {
   save$: Reactive<Save>;
-  publicData: Public;
+  programData: Program;
 }): JSX.Element {
-  return (
-    <ProgramView save={props.save$.get()} publicState={props.publicData} />
-  );
+  return <ProgramView save={props.save$.get()} program={props.programData} />;
 }
 
-function ProgramView(props: { save: Save; publicState: Public }): JSX.Element {
+function ProgramView(props: { save: Save; program: Program }): JSX.Element {
   const $filters = createReactive<ActiveFilter>({
     day: null,
     tags: [],
   });
 
   const program = () =>
-    filterSortGroupProgram(props.publicState.programEntries, $filters);
+    filterSortGroupProgram(props.program.publicEntries, $filters);
 
   const tags = new Set(
-    props.publicState.programEntries.flatMap((entry) =>
-      entry.tagNames
-        .split(",")
-        .map((s) => s.trim())
-        .filter((s) => s.length !== 0),
+    props.program.publicEntries.flatMap((entry) =>
+      entry.tagNames.map((s) => s.trim()).filter((s) => s.length !== 0),
     ),
   );
 
@@ -54,7 +49,7 @@ function ProgramView(props: { save: Save; publicState: Public }): JSX.Element {
         <DayProgram
           day="SATURDAY"
           program={program().SATURDAY}
-          myReservations={props.save.program.participating}
+          myReservations={props.save.program.reserved}
         />
         <br />
       </Show>
@@ -65,17 +60,17 @@ function ProgramView(props: { save: Save; publicState: Public }): JSX.Element {
         <DayProgram
           day="SUNDAY"
           program={program().SUNDAY}
-          myReservations={props.save.program.participating}
+          myReservations={props.save.program.reserved}
         />
       </Show>
     </>
   );
 }
 
-type HourProgram = { hour: number; entries: PublicProgramEntry[] };
+type HourProgram = { hour: number; entries: ProgramPublicEntry[] };
 
 function filterSortGroupProgram(
-  entries: PublicProgramEntry[],
+  entries: ProgramPublicEntry[],
   $filters: Reactive<ActiveFilter>,
 ): PerDay<HourProgram[]> {
   const filters = $filters.get();
@@ -89,17 +84,19 @@ function filterSortGroupProgram(
     if (
       filters.tags.length !== 0 &&
       !new Set(filters.tags).isSubsetOf(
-        new Set(entry.tagNames.split(",").map((s) => s.trim())),
+        new Set(entry.tagNames.map((s) => s.trim())),
       )
     ) {
       return;
     }
 
-    const day = getDay(entry.slot.day);
+    const day = getDay(entry.timeSlot.slot.start.day);
     if (day === null) {
       return;
     }
-    const startHour = entry.slot.start.hour;
+    const startHour = Temporal.PlainTime.from(
+      entry.timeSlot.slot.start.time,
+    ).hour;
 
     const found = days[day].find((hour) => hour.hour === startHour);
     if (found === undefined) {
@@ -125,8 +122,10 @@ function sort(programm: HourProgram[]): HourProgram[] {
       hour: hour.hour,
       entries: hour.entries.toSorted(
         (a, b) =>
-          Temporal.PlainTime.compare(a.slot.start, b.slot.start) ||
-          Temporal.PlainTime.compare(a.slot.end, b.slot.end),
+          Temporal.PlainTime.compare(
+            a.timeSlot.slot.start.time,
+            b.timeSlot.slot.start.time,
+          ) || a.timeSlot.slot.duration.hours - b.timeSlot.slot.duration.hours,
       ),
     }))
     .toSorted((a, b) => a.hour - b.hour);
@@ -135,7 +134,7 @@ function sort(programm: HourProgram[]): HourProgram[] {
 export function DayProgram(props: {
   day: ProgramDay;
   program: HourProgram[];
-  myReservations: Reservation[];
+  myReservations: Participating[];
 }): JSX.Element {
   return (
     <Show

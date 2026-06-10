@@ -48,14 +48,14 @@ export function getErrors(
     byField["timeSlots"] = [...(byField["timeSlots"] ?? []), TXT.missingSlot];
   } else {
     entry.timeSlots.forEach((slot) => {
-      const parsedStartTime = parsePlainTime(slot.start.time);
+      const parsedStartTime = parsePlainTime(slot.slot.start.time);
       if (parsedStartTime.kind === "ERROR") {
         byField["timeSlots"] = [
           ...(byField["timeSlots"] ?? []),
           "Fehler im Zeitslot, 'Start'",
         ];
       }
-      const parsedEndTime = parsePlainTime(slot.end.time);
+      const parsedEndTime = parsePlainTime(slot.slot.end.time);
       if (parsedEndTime.kind === "ERROR") {
         byField["timeSlots"] = [
           ...(byField["timeSlots"] ?? []),

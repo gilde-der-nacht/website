@@ -34,13 +34,6 @@ export function QuickMenu(props: {
             </Link>
           </Tooltip>
         </Show>
-        <Show when={false}>
-          <Tooltip tooltip="Zum Helferplan">
-            <Link href="/helfen" class="button-link">
-              <Button label={<Icon icon="hand-heart" />} />
-            </Link>
-          </Tooltip>
-        </Show>
         <Tooltip tooltip="Zur Zusammenfassung">
           <Link href="/zusammenfassung" class="button-link">
             <Button label={<Icon icon="list" />} />
@@ -73,12 +66,6 @@ export function QuickMenuExtended(props: {
                 icon="grid-2-plus"
                 label="Zu deinen Spielrunden"
               />
-            </Link>
-          </Show>
-
-          <Show when={false}>
-            <Link href="/helfen" class="button-link">
-              <ButtonWithIcon icon="hand-heart" label="Zum Helferplan" />
             </Link>
           </Show>
           <Link href="/zusammenfassung" class="button-link">

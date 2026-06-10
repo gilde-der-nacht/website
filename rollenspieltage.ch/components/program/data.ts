@@ -1,18 +1,18 @@
 import { assert } from "@common/components/utils";
 import type { ProgramDay } from "@common/utils/time";
-import {
-  loadPublic,
-  type PublicProgramEntry,
-} from "@rst/components/anmeldung/api/public";
 import { getDay } from "@rst/components/anmeldung/constant/time";
+import {
+  loadProgram,
+  type ProgramPublicEntry,
+} from "@rst/components/anmeldung/api/program";
 
 type GroupedByStarthour = Record<
   ProgramDay,
-  Record<number, PublicProgramEntry[]>
+  Record<number, ProgramPublicEntry[]>
 >;
 
 export async function getProgramGroupedByStarthour(): Promise<GroupedByStarthour> {
-  const program = await loadPublic("");
+  const program = await loadProgram("");
 
   assert(program.kind === "SUCCESS", "Could not load public program");
 
@@ -22,15 +22,16 @@ export async function getProgramGroupedByStarthour(): Promise<GroupedByStarthour
     SUNDAY: {},
   };
 
-  for (const entry of program.data.programEntries) {
-    const { day, start } = entry.slot;
-    const dayStr = getDay(day);
+  for (const entry of program.data.publicEntries) {
+    const { start } = entry.timeSlot.slot;
+    const dayStr = getDay(start.day);
     if (dayStr === null) {
       continue;
     }
-    const list = grouped[dayStr][start.hour] ?? [];
+    const hour = Temporal.PlainTime.from(start.time).hour;
+    const list = grouped[dayStr][hour] ?? [];
     list.push(entry);
-    grouped[dayStr][start.hour] = list;
+    grouped[dayStr][hour] = list;
   }
 
   return grouped;

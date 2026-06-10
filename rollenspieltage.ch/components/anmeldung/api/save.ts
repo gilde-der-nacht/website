@@ -1,6 +1,10 @@
 import { toast, updateToast } from "@common/components/Toast";
 import { debounce, formatDateTime } from "@common/components/utils";
-import { publishStateSchema } from "@common/utils/shared";
+import {
+  durationEditSchema,
+  publishStateSchema,
+  timestampSchema,
+} from "@common/utils/shared";
 import {
   elysiumLoadSave,
   elysiumSaveState,
@@ -12,88 +16,6 @@ import {
   rolesSchema,
   type SaveState,
 } from "@rst/components/anmeldung/api/meta";
-import { dateTimeWindowSchema, daySchema } from "@common/utils/time";
-
-const contactSchema = z.object({
-  name: z.string(),
-  email: z.string(),
-  mobile: z.string(),
-});
-export type Contact = z.infer<typeof contactSchema>;
-
-const erklaerbaerReservationSchema = z.object({
-  kind: z.literal("ERKLAERBAER"),
-  uuid: z.uuid(),
-  slot: dateTimeWindowSchema,
-});
-
-export type ErklaerbaerReservation = z.infer<
-  typeof erklaerbaerReservationSchema
->;
-const freeformTimeSlotSchema = z.object({
-  start: z.object({
-    day: daySchema,
-    time: z.string(),
-  }),
-  end: z.object({
-    day: daySchema,
-    time: z.string(),
-  }),
-});
-
-const freeformReservationSchema = z.object({
-  kind: z.literal("FREEFORM"),
-  uuid: z.uuid(),
-  tag: z.string(),
-  name: z.string(),
-  slot: freeformTimeSlotSchema,
-});
-
-export type FreeformReservation = z.infer<typeof freeformReservationSchema>;
-
-const baseReservationSchema = z.union([
-  z.object({
-    kind: z.literal("SELF"),
-    entryUuid: z.uuid(),
-    uuid: z.uuid(),
-  }),
-  z.object({
-    kind: z.literal("FRIEND"),
-    entryUuid: z.uuid(),
-    name: z.string(),
-    uuid: z.uuid(),
-  }),
-]);
-
-export type Reservation = z.infer<typeof baseReservationSchema>;
-
-const helpingReservationSchema = z.union([
-  baseReservationSchema,
-  erklaerbaerReservationSchema,
-]);
-
-export type HelpingReservation = z.infer<typeof helpingReservationSchema>;
-
-const slotSchema = z.object({
-  uuid: z.string(),
-  start: z.object({
-    day: daySchema,
-    time: z.string(),
-  }),
-  end: z.object({
-    day: daySchema,
-    time: z.string(),
-  }),
-});
-
-export type Slot = z.infer<typeof slotSchema>;
-
-const participatingSchema = z.union([
-  z.object({ kind: z.literal("NONE"), maxSeats: z.number() }),
-  z.object({ kind: z.literal("LIMITED"), maxSeats: z.number() }),
-]);
-
-export type Participating = z.infer<typeof participatingSchema>;
 
 const programLinkSchema = z.object({
   label: z.string(),
@@ -102,33 +24,110 @@ const programLinkSchema = z.object({
 
 export type Link = z.infer<typeof programLinkSchema>;
 
+const toastId = crypto.randomUUID();
+
+async function saveState(
+  store: Store<{ saveState: SaveState }>,
+  save: Save,
+  secret: string,
+): Promise<Result<Date>> {
+  const [_, setStore] = createStore(store);
+  setStore("saveState", "SAVING");
+  toast("Am Speichern...", { uuid: toastId, dismissable: false });
+  const now = new Date();
+  try {
+    const result = await elysiumSaveState(save, secret);
+    if (result.kind === "FAILURE") {
+      throw Error("");
+    }
+  } catch (e) {
+    setStore("saveState", "ERROR");
+    console.error(e);
+    updateToast(toastId, "Speichern war nicht möglich!", {
+      kind: "danger",
+      duration: 10_000,
+      dismissable: true,
+    });
+    return {
+      kind: "FAILURE",
+    };
+  }
+  updateToast(toastId, `Zuletzt gespeichert um: ${formatDateTime(now)} Uhr`, {
+    kind: "success",
+    dismissable: true,
+  });
+  setStore("saveState", "IDLE");
+  return {
+    kind: "SUCCESS",
+    data: now,
+  };
+}
+
+export const debouncedSaveState = debounce(saveState, 1_000);
+
+const contactSchema = z.object({
+  name: z.string(),
+  email: z.string(),
+  mobile: z.string(),
+});
+
+export type Contact = z.infer<typeof contactSchema>;
+
+const configSchema = z.object({
+  wantsUpdates: z.boolean(),
+});
+
+const participatingSchema = z.object({
+  entryUuid: z.string(),
+  uuid: z.string(),
+  timestamp: timestampSchema,
+  name: z.union([
+    z.object({ kind: z.literal("SELF") }),
+    z.object({
+      kind: z.literal("FRIEND"),
+      friendsName: z.string(),
+    }),
+  ]),
+});
+
+export type Participating = z.infer<typeof participatingSchema>;
+
+const timeSlotEditSchema = z.object({
+  uuid: z.string(),
+  slot: durationEditSchema,
+});
+
+export type TimeSlotEdit = z.infer<typeof timeSlotEditSchema>;
+
 const programEntrySchema = z.object({
-  uuid: z.uuid(),
+  uuid: z.string(),
   status: publishStateSchema,
   title: z.string(),
-  organizer: z.string(),
   shortDescription: z.string(),
   longDescription: z.string(),
-  participating: participatingSchema,
-  timeSlots: z.array(slotSchema),
+  seats: z.object({
+    kind: z.union([z.literal("NO_LIMIT"), z.literal("WITH_LIMIT")]),
+    max: z.number(),
+  }),
+  timeSlots: z.array(timeSlotEditSchema),
   tagNames: z.string(),
-  materialLanguage: z.string(),
+  language: z.union([z.literal("Deutsch"), z.literal("Englisch")]),
   links: z.array(programLinkSchema),
 });
 
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
 
-const saveSchema = z.object({
-  version: z.literal(1),
+const programSchema = z.object({
+  organising: z.array(programEntrySchema),
+  reserved: z.array(participatingSchema),
+  waiting: z.array(participatingSchema),
+});
+
+export const saveSchema = z.object({
+  version: z.literal(2),
   contact: contactSchema,
-  config: z.object({
-    wantsUpdates: z.boolean(),
-  }),
-  helping: z.array(helpingReservationSchema),
-  program: z.object({
-    organising: z.array(programEntrySchema),
-    participating: z.array(baseReservationSchema),
-  }),
+  config: configSchema,
+  program: programSchema,
 });
 
 export type Save = z.infer<typeof saveSchema>;
@@ -181,43 +180,3 @@ export async function loadSave(secret: string): Promise<LoadSaveResult> {
     data: parseResult.data,
   };
 }
-
-const toastId = crypto.randomUUID();
-async function saveState(
-  store: Store<{ saveState: SaveState }>,
-  save: Save,
-  secret: string,
-): Promise<Result<Date>> {
-  const [_, setStore] = createStore(store);
-  setStore("saveState", "SAVING");
-  toast("Am Speichern...", { uuid: toastId, dismissable: false });
-  const now = new Date();
-  try {
-    const result = await elysiumSaveState(save, secret);
-    if (result.kind === "FAILURE") {
-      throw Error("");
-    }
-  } catch (e) {
-    setStore("saveState", "ERROR");
-    console.error(e);
-    updateToast(toastId, "Speichern war nicht möglich!", {
-      kind: "danger",
-      duration: 10_000,
-      dismissable: true,
-    });
-    return {
-      kind: "FAILURE",
-    };
-  }
-  updateToast(toastId, `Zuletzt gespeichert um: ${formatDateTime(now)} Uhr`, {
-    kind: "success",
-    dismissable: true,
-  });
-  setStore("saveState", "IDLE");
-  return {
-    kind: "SUCCESS",
-    data: now,
-  };
-}
-
-export const debouncedSaveState = debounce(saveState, 1_000);

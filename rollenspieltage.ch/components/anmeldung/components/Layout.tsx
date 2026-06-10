@@ -4,15 +4,11 @@ import {
   QuickMenuExtended,
 } from "@rst/components/anmeldung/components/QuickMenu";
 import type { Roles, SaveState } from "@rst/components/anmeldung/api/meta";
-import type { PublicAdmin } from "@rst/components/anmeldung/api/admin";
-import type { Public } from "@rst/components/anmeldung/api/public";
 import type { Result } from "@rst/components/anmeldung/api/elysium";
-import {
-  ShowAdminData,
-  ShowPublicData,
-} from "@rst/components/anmeldung/components/Loader";
+import { ShowProgramData } from "@rst/components/anmeldung/components/Loader";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
+import type { Program } from "@rst/components/anmeldung/api/program";
 
 export function Layout(props: {
   title?: string;
@@ -21,11 +17,8 @@ export function Layout(props: {
   saveState: SaveState;
   lastSaved: Date;
   parentPath?: string;
-  publicResource: Resource<Result<Public>>;
-  adminResource: Resource<Result<PublicAdmin>>;
-  children:
-    | JSX.Element
-    | ((data: { publicData: Public; adminData: PublicAdmin }) => JSX.Element);
+  programResource: Resource<Result<Program>>;
+  children: JSX.Element | ((data: { programData: Program }) => JSX.Element);
 }): JSX.Element {
   return (
     <div class="page">
@@ -45,17 +38,13 @@ export function Layout(props: {
           </>
         )}
         <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-          <ShowPublicData publicResource={props.publicResource}>
-            {(publicData) => (
-              <ShowAdminData adminResource={props.adminResource}>
-                {(adminData) =>
-                  typeof props.children === "function"
-                    ? props.children({ publicData, adminData })
-                    : props.children
-                }
-              </ShowAdminData>
-            )}
-          </ShowPublicData>
+          <ShowProgramData programResource={props.programResource}>
+            {(programData) =>
+              typeof props.children === "function"
+                ? props.children({ programData })
+                : props.children
+            }
+          </ShowProgramData>
         </Suspense>
       </div>
       {props.showQuickmenu !== false ? (

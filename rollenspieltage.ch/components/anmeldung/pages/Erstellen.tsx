@@ -59,13 +59,15 @@ export function Erstellen(props: {
               uuid,
               status: "draft",
               title: "",
-              organizer: "",
               shortDescription: "",
               longDescription: "",
-              participating: { kind: "LIMITED", maxSeats: 6 },
+              seats: {
+                kind: "WITH_LIMIT",
+                max: 6,
+              },
               timeSlots: [],
               tagNames: "",
-              materialLanguage: "Deutsch",
+              language: "Deutsch",
               links: [],
             } satisfies ProgramEntry);
 

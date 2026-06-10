@@ -1,48 +1,36 @@
 import {
   WeekendTimetable,
   type ProgramEntryTimetableView,
-  type WeekendOpeningHours,
 } from "@common/components/Timetable";
 import { createSignal, type JSX } from "solid-js";
-import {
-  defaultPlainDates,
-  getDay,
-  openingHours,
-} from "@rst/components/anmeldung/constant/time";
+import { getDay, openingHours } from "@rst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
-import type { Public } from "@rst/components/anmeldung/api/public";
 import type { Save } from "@rst/components/anmeldung/api/save";
 import {
   formatTime,
   formatTimeDuration,
   type PerDay,
-  type PlainDateTimeRange,
   type PlainTimeRange,
   type ProgramDay,
 } from "@common/utils/time";
-import {
-  helpTimes,
-  helpTypes,
-  openingHoursHelping,
-} from "@rst/components/anmeldung/constant/helping";
-import { assert } from "@common/components/utils";
 import type { IconType } from "@common/components/Icon";
 import { Chip } from "@common/components/Chip";
 import { IconOnlyButton } from "@common/components/Button";
 import { Link } from "@common/components/Link";
 import { parsePlainTime } from "@common/components/events";
-import { getErrors } from "../constant/validation";
+import { getErrors } from "@rst/components/anmeldung/constant/validation";
 import { Temporal } from "@js-temporal/polyfill";
+import type { Program } from "@rst/components/anmeldung/api/program";
 
 export function Timeview(props: {
   save: Save;
-  publicData: Public;
+  programData: Program;
 }): JSX.Element {
   const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
-  const personalProgram = aggregateEntries(props.save, props.publicData);
+  const personalProgram = aggregateEntries(props.save, props.programData);
 
   const excludedDays = getExcludedDays(personalProgram);
-  const hours = getOpeningHours(personalProgram);
+  const hours = openingHours;
 
   return (
     <div>
@@ -68,11 +56,10 @@ export function Timeview(props: {
 
 function aggregateEntries(
   save: Save,
-  publicState: Public,
+  programState: Program,
 ): PerDay<ProgramEntryTimetableView[]> {
   const {
-    helping,
-    program: { organising, participating },
+    program: { organising, reserved },
   } = save;
 
   const aggregation: PerDay<ProgramEntryTimetableView[]> = {
@@ -91,11 +78,11 @@ function aggregateEntries(
     }
 
     entry.timeSlots.forEach((slot) => {
-      const parsedStartTime = parsePlainTime(slot.start.time);
+      const parsedStartTime = parsePlainTime(slot.slot.start.time);
       if (parsedStartTime.kind === "ERROR") {
         return;
       }
-      const parsedEndTime = parsePlainTime(slot.end.time);
+      const parsedEndTime = parsePlainTime(slot.slot.end.time);
       if (parsedEndTime.kind === "ERROR") {
         return;
       }
@@ -106,7 +93,7 @@ function aggregateEntries(
       };
       const path = `/erstellen/${entry.uuid}`;
 
-      aggregation[slot.start.day].push({
+      aggregation[getDay(slot.slot.start.day) ?? "FRIDAY"].push({
         range,
         component: () => (
           <TimeviewEntry
@@ -120,21 +107,28 @@ function aggregateEntries(
     });
   });
 
-  participating.forEach((entry) => {
-    const programmEntry = publicState.programEntries.find(
+  reserved.forEach((entry) => {
+    const programmEntry = programState.publicEntries.find(
       (p) => p.uuid === entry.entryUuid,
     );
     if (programmEntry === undefined) {
       return;
     }
 
+    const startTime = Temporal.PlainTime.from(
+      programmEntry.timeSlot.slot.start.time,
+    );
+    const endTime = startTime.add(
+      Temporal.Duration.from(programmEntry.timeSlot.slot.duration),
+    );
+
     const range: PlainTimeRange = {
-      startTime: programmEntry.slot.start,
-      endTime: programmEntry.slot.end,
+      startTime,
+      endTime,
     };
     const path = `/programm/${programmEntry.uuid}`;
 
-    const day = getDay(programmEntry.slot.day);
+    const day = getDay(programmEntry.timeSlot.slot.start.day);
     if (day === null) {
       return;
     }
@@ -150,115 +144,6 @@ function aggregateEntries(
         />
       ),
     });
-  });
-
-  const helpEntries = helping.map((entry) => {
-    if (entry.kind === "ERKLAERBAER") {
-      const dateTime: PlainDateTimeRange = {
-        startDate: defaultPlainDates[entry.slot.day].toPlainDateTime({
-          hour: entry.slot.from,
-          minute: 0,
-        }),
-        endDate: defaultPlainDates[entry.slot.day].toPlainDateTime({
-          hour: entry.slot.to,
-          minute: 0,
-        }),
-      };
-      return {
-        ...entry,
-        meta: {
-          dateTime,
-        },
-      };
-    }
-    const meta = helpTimes.find((h) => h.uuid === entry.entryUuid);
-    assert(meta !== undefined, `Help UUID is invalid: '${entry.entryUuid}'`);
-    return { ...entry, meta };
-  });
-
-  const groupedHelpEntries = Object.groupBy(helpEntries, (e) => {
-    const { startDate, endDate } = e.meta.dateTime;
-    return `${startDate.year}-${startDate.month}-${startDate.day}-${startDate.hour}-${startDate.minute}--${endDate.year}-${endDate.month}-${endDate.day}-${endDate.hour}-${endDate.minute}`;
-  });
-
-  Object.values(groupedHelpEntries).forEach((entries) => {
-    if (entries === undefined) {
-      return;
-    }
-
-    const first = entries[0];
-    if (first === undefined) {
-      return;
-    }
-
-    let onlyMe = true;
-    const jobsAndNames = entries.map((e): [string, string] => {
-      if (e.kind === "ERKLAERBAER") {
-        return ["Erklärbär", "ME"];
-      }
-      if (e.kind === "SELF") {
-        return [helpTypes[e.meta.kind].title, "ME"];
-      }
-      onlyMe = false;
-      return [helpTypes[e.meta.kind].title, e.name];
-    });
-
-    const title = onlyMe
-      ? jobsAndNames.map(([job]) => job).join(", ")
-      : jobsAndNames
-          .map(([job, name]) => {
-            if (name === "ME") {
-              return job;
-            }
-            return `${job} (${name})`;
-          })
-          .join("; ");
-
-    const day = getDay(first.meta.dateTime.startDate);
-    assert(
-      day !== null,
-      `Date '${JSON.stringify(first.meta.dateTime.startDate)}' is not a valid event date.`,
-    );
-
-    const range: PlainTimeRange = {
-      startTime: first.meta.dateTime.startDate.toPlainTime(),
-      endTime: first.meta.dateTime.endDate.toPlainTime(),
-    };
-    const path =
-      first.kind === "ERKLAERBAER"
-        ? "/erklaerbaer"
-        : `/helfen/${first.entryUuid}`;
-
-    aggregation[day].push({
-      range,
-      component: () => (
-        <TimeviewEntry title={title} range={range} kind="help" path={path} />
-      ),
-    });
-  });
-
-  helpEntries.forEach((entry) => {
-    switch (entry.kind) {
-      case "SELF": {
-        const day = getDay(entry.meta.dateTime.startDate);
-        assert(
-          day !== null,
-          `Date '${JSON.stringify(entry.meta.dateTime.startDate)}' is not a valid event date.`,
-        );
-        break;
-      }
-      case "FRIEND": {
-        const day = getDay(entry.meta.dateTime.startDate);
-        assert(
-          day !== null,
-          `Date '${JSON.stringify(entry.meta.dateTime.startDate)}' is not a valid event date.`,
-        );
-        break;
-      }
-      case "ERKLAERBAER": {
-        break;
-      }
-    }
   });
 
   return {
@@ -398,46 +283,4 @@ function getExcludedDays(
   }
 
   return exludeDays;
-}
-
-function getOpeningHours(
-  personalProgram: PerDay<ProgramEntryTimetableView[]>,
-): WeekendOpeningHours {
-  const hours: WeekendOpeningHours = openingHours;
-
-  if (personalProgram.FRIDAY.length > 0) {
-    hours.FRIDAY = openingHoursHelping.FRIDAY;
-  }
-
-  let saturdayOverflow = false;
-
-  personalProgram.SATURDAY.forEach((e) => {
-    if (e.range.startTime.hour < hours.SATURDAY.open.from) {
-      saturdayOverflow = true;
-    }
-    if (e.range.endTime.hour > hours.SATURDAY.open.to) {
-      saturdayOverflow = true;
-    }
-  });
-
-  if (saturdayOverflow) {
-    hours.SATURDAY = openingHoursHelping.SATURDAY;
-  }
-
-  let sundayOverflow = false;
-
-  personalProgram.SUNDAY.forEach((e) => {
-    if (e.range.startTime.hour < hours.SUNDAY.open.from) {
-      sundayOverflow = true;
-    }
-    if (e.range.endTime.hour > hours.SUNDAY.open.to) {
-      sundayOverflow = true;
-    }
-  });
-
-  if (sundayOverflow) {
-    hours.SUNDAY = openingHoursHelping.SUNDAY;
-  }
-
-  return hours;
 }

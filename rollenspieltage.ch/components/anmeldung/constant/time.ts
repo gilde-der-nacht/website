@@ -4,20 +4,20 @@ import { Temporal } from "@js-temporal/polyfill";
 
 export const FRIDAY = Temporal.PlainDate.from({
   year: 2026,
-  month: 3,
-  day: 13,
+  month: 8,
+  day: 21,
 });
 
 export const SATURDAY = Temporal.PlainDate.from({
   year: 2026,
-  month: 3,
-  day: 14,
+  month: 8,
+  day: 22,
 });
 
 export const SUNDAY = Temporal.PlainDate.from({
   year: 2026,
-  month: 3,
-  day: 15,
+  month: 8,
+  day: 23,
 });
 
 export const defaultPlainDates = {
@@ -27,9 +27,10 @@ export const defaultPlainDates = {
 };
 
 export function getDay(
-  date: Temporal.PlainDate | Temporal.PlainDateTime,
+  date: Temporal.PlainDate | Temporal.PlainDateTime | string,
 ): ProgramDay | null {
-  const { year, month, day } = date;
+  const { year, month, day } =
+    typeof date === "string" ? Temporal.PlainDate.from(date) : date;
   if (FRIDAY.year === year && FRIDAY.month === month && FRIDAY.day === day) {
     return "FRIDAY";
   }
