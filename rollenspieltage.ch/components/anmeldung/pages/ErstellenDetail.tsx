@@ -265,20 +265,9 @@ function ErrorSummary(props: { errors: Errors }): JSX.Element {
 function ParticipationInput(props: {
   value$: Reactive<ProgramEntry["seats"]>;
 }): JSX.Element {
-  const options = {
-    left: { label: "Keine Anmeldung", value: "NO_LIMIT" as const },
-    right: { label: "Limitierte Plätze", value: "WITH_LIMIT" as const },
-  };
-
   return (
     <>
-      <SwitchCheckbox
-        value$={props.value$.pipe(obj.sub("kind"))}
-        options={options}
-        name="participating"
-      />
-
-      <Show when={props.value$.get().kind === "NO_LIMIT"}>
+      <Show when={props.value$.get().kind === "WITH_LIMIT"}>
         <NumberInputField
           value$={props.value$.pipe(obj.sub("max"))}
           label="Maximale Plätze"
