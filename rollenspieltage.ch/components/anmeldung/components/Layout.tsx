@@ -9,13 +9,19 @@ import { ShowProgramData } from "@rst/components/anmeldung/components/Loader";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type { Program } from "@rst/components/anmeldung/api/program";
+import type { Save } from "@rst/components/anmeldung/api/save";
 
 export function Layout(props: {
   title?: string;
   showQuickmenu?: boolean;
-  roles: Roles;
-  saveState: SaveState;
-  lastSaved: Date;
+  store: {
+    save: Save;
+    meta: {
+      roles: Roles;
+      saveState: SaveState;
+      lastSaved: Date;
+    };
+  };
   parentPath?: string;
   programResource: Resource<Result<Program>>;
   children: JSX.Element | ((data: { programData: Program }) => JSX.Element);
@@ -24,9 +30,9 @@ export function Layout(props: {
     <div class="page">
       {props.showQuickmenu !== false ? (
         <QuickMenu
-          roles={props.roles}
-          saveState={props.saveState}
-          lastSaved={props.lastSaved}
+          roles={props.store.meta.roles}
+          saveState={props.store.meta.saveState}
+          lastSaved={props.store.meta.lastSaved}
           parentPath={props.parentPath ?? "/"}
         />
       ) : null}
@@ -50,9 +56,9 @@ export function Layout(props: {
       {props.showQuickmenu !== false ? (
         <div class="extended-wrapper" style="margin-block-start: 1rem;">
           <QuickMenuExtended
-            roles={props.roles}
-            saveState={props.saveState}
-            lastSaved={props.lastSaved}
+            roles={props.store.meta.roles}
+            saveState={props.store.meta.saveState}
+            lastSaved={props.store.meta.lastSaved}
             parentPath={props.parentPath ?? "/"}
           />
         </div>

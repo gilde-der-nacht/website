@@ -93,9 +93,7 @@ export function Router(props: {
             component: () => (
               <Layout
                 title="Wo möchtest du starten?"
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
+                store={store$.get()}
                 programResource={programResource}
               >
                 <Root roles={store$.get().meta.roles} />
@@ -107,9 +105,7 @@ export function Router(props: {
             component: () => (
               <Layout
                 title="Programm"
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
+                store={store$.get()}
                 programResource={programResource}
               >
                 {({ programData }) => (
@@ -126,9 +122,7 @@ export function Router(props: {
             path: "/programm/:uuid",
             component: () => (
               <Layout
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
+                store={store$.get()}
                 showQuickmenu={true}
                 parentPath="/programm"
                 programResource={programResource}
@@ -152,9 +146,7 @@ export function Router(props: {
             component: () => (
               <Layout
                 title="Spielrunden erstellen und editieren"
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
+                store={store$.get()}
                 programResource={programResource}
               >
                 <Erstellen
@@ -172,9 +164,7 @@ export function Router(props: {
             path: "/erstellen/:uuid",
             component: () => (
               <Layout
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
+                store={store$.get()}
                 parentPath="/erstellen"
                 programResource={programResource}
               >
@@ -197,9 +187,7 @@ export function Router(props: {
             component: () => (
               <Layout
                 title="Zusammenfassung"
-                roles={store$.get().meta.roles}
-                saveState={store$.get().meta.saveState}
-                lastSaved={store$.get().meta.lastSaved}
+                store={store$.get()}
                 showQuickmenu={true}
                 programResource={programResource}
               >
@@ -219,9 +207,7 @@ export function Router(props: {
               return (
                 <Layout
                   title="Seite nicht gefunden"
-                  roles={store$.get().meta.roles}
-                  saveState={store$.get().meta.saveState}
-                  lastSaved={store$.get().meta.lastSaved}
+                  store={store$.get()}
                   showQuickmenu={true}
                   programResource={programResource}
                 >
