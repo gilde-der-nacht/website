@@ -258,7 +258,10 @@ function rangeToGridRow(
   return `grid-row: ${startRow} / ${endRow}; --offset-start: ${(startMinutePercent / durationHours) * 100}%; --offset-end: ${(endMinutePercent / durationHours) * 100}%;`;
 }
 
-type Conflicts = [ProgramEntryTimetableView, ProgramEntryTimetableView][];
+export type Conflicts = [
+  ProgramEntryTimetableView,
+  ProgramEntryTimetableView,
+][];
 
 export function findConflicts(entries: ProgramEntryTimetableView[]): Conflicts {
   const conflicts: Conflicts = [];

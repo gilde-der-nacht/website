@@ -24,7 +24,9 @@ export function Router(props: {
   initState: LoadSave;
   secret: string;
 }): JSX.Element {
-  const [programResource] = createResource(() => loadProgram(props.secret));
+  const [programResource, { mutate }] = createResource(() =>
+    loadProgram(props.secret),
+  );
 
   const store$ = createReactive<{
     meta: {
@@ -63,6 +65,7 @@ export function Router(props: {
 
       const newState = unwrap(store$.get().save);
 
+      let successful = false;
       try {
         const saveResult = await debouncedSaveState(
           store$.get().meta,
@@ -72,6 +75,7 @@ export function Router(props: {
         if (saveResult.kind === "FAILURE") {
           console.error(saveResult);
         } else {
+          successful = true;
           store$
             .pipe(obj.sub("meta"))
             .pipe(obj.sub("lastSaved"))
@@ -80,6 +84,11 @@ export function Router(props: {
       } catch (e) {
         console.error(e);
         store$.pipe(obj.sub("meta")).pipe(obj.sub("saveState")).set("ERROR");
+      }
+
+      if (successful) {
+        const program = await loadProgram(props.secret);
+        mutate(program);
       }
     },
   );

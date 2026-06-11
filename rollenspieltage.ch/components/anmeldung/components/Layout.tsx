@@ -10,10 +10,7 @@ import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type { Program } from "@rst/components/anmeldung/api/program";
 import type { Save } from "@rst/components/anmeldung/api/save";
-import {
-  findConflicts,
-  type ProgramEntryTimetableView,
-} from "@common/components/Timetable";
+import { findConflicts, type Conflicts } from "@common/components/Timetable";
 import { Icon } from "@common/components/Icon";
 import { aggregateEntries } from "@rst/components/anmeldung/components/Timeview";
 
@@ -84,22 +81,30 @@ function AllConflicts(props: {
   programData: Program;
 }): JSX.Element {
   const personalProgram = aggregateEntries(props.save, props.programData);
+  const conflictingEntriesSaturday = findConflicts(personalProgram.SATURDAY);
+  const conflictingEntriesSunday = findConflicts(personalProgram.SUNDAY);
+
   return (
-    <>
-      <ConflictsOfDay programEntries={personalProgram.SATURDAY} day="Samstag" />
-      <ConflictsOfDay programEntries={personalProgram.SUNDAY} day="Sonntag" />
-    </>
+    <Show
+      when={
+        conflictingEntriesSaturday.length > 0 ||
+        conflictingEntriesSunday.length > 0
+      }
+    >
+      <div style="position: sticky; top: 0; background: #ffffffcc; padding-block: 1rem; z-index: 1;">
+        <ConflictsOfDay conflicts={conflictingEntriesSaturday} day="Samstag" />
+        <ConflictsOfDay conflicts={conflictingEntriesSunday} day="Sonntag" />
+      </div>
+    </Show>
   );
 }
 
 function ConflictsOfDay(props: {
-  programEntries: ProgramEntryTimetableView[];
+  conflicts: Conflicts;
   day: string;
 }): JSX.Element {
-  const conflictingEntries = findConflicts(props.programEntries);
-
   return (
-    <Show when={conflictingEntries.length > 0}>
+    <Show when={props.conflicts.length > 0}>
       <Box type="danger">
         <p>
           Konflikte am <strong>{props.day}</strong> gefunden! Bitte stelle
@@ -107,7 +112,7 @@ function ConflictsOfDay(props: {
           hast:
         </p>
       </Box>
-      <For each={conflictingEntries}>
+      <For each={props.conflicts}>
         {([a, b]) => (
           <div style="display: grid; grid-template-columns: 1fr max-content 1fr; gap: 1rem; margin-block: 0.5rem;">
             {a.component()}
@@ -118,7 +123,6 @@ function ConflictsOfDay(props: {
           </div>
         )}
       </For>
-      <br />
     </Show>
   );
 }
