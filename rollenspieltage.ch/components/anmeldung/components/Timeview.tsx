@@ -54,7 +54,7 @@ export function Timeview(props: {
   );
 }
 
-function aggregateEntries(
+export function aggregateEntries(
   save: Save,
   programState: Program,
 ): PerDay<ProgramEntryTimetableView[]> {
@@ -109,7 +109,7 @@ function aggregateEntries(
 
   reserved.forEach((entry) => {
     const programmEntry = programState.publicEntries.find(
-      (p) => p.uuid === entry.entryUuid,
+      (p) => p.timeSlot.uuid === entry.entryUuid,
     );
     if (programmEntry === undefined) {
       return;
@@ -126,7 +126,7 @@ function aggregateEntries(
       startTime,
       endTime,
     };
-    const path = `/programm/${programmEntry.uuid}`;
+    const path = `/programm/${programmEntry.timeSlot.uuid}`;
 
     const day = getDay(programmEntry.timeSlot.slot.start.day);
     if (day === null) {

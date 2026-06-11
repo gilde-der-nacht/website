@@ -36,6 +36,8 @@ export function Entry(props: {
     const cls: string[] = ["event-entry"];
     if (props.additionalReservations?.length ?? 0 > 0) {
       cls.push("success");
+    } else if (props.entry.myEntry) {
+      cls.push("success");
     } else if (
       freeSeats() === 0 &&
       props.entry.participation.seats.kind === "WITH_LIMIT"

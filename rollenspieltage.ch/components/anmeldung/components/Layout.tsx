@@ -1,4 +1,4 @@
-import { Suspense, type JSX, type Resource } from "solid-js";
+import { For, Show, Suspense, type JSX, type Resource } from "solid-js";
 import {
   QuickMenu,
   QuickMenuExtended,
@@ -10,6 +10,12 @@ import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type { Program } from "@rst/components/anmeldung/api/program";
 import type { Save } from "@rst/components/anmeldung/api/save";
+import {
+  findConflicts,
+  type ProgramEntryTimetableView,
+} from "@common/components/Timetable";
+import { Icon } from "@common/components/Icon";
+import { aggregateEntries } from "@rst/components/anmeldung/components/Timeview";
 
 export function Layout(props: {
   title?: string;
@@ -45,11 +51,17 @@ export function Layout(props: {
         )}
         <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
           <ShowProgramData programResource={props.programResource}>
-            {(programData) =>
-              typeof props.children === "function"
-                ? props.children({ programData })
-                : props.children
-            }
+            {(programData) => (
+              <>
+                <AllConflicts
+                  save={props.store.save}
+                  programData={programData}
+                />
+                {typeof props.children === "function"
+                  ? props.children({ programData })
+                  : props.children}
+              </>
+            )}
           </ShowProgramData>
         </Suspense>
       </div>
@@ -64,5 +76,49 @@ export function Layout(props: {
         </div>
       ) : null}
     </div>
+  );
+}
+
+function AllConflicts(props: {
+  save: Save;
+  programData: Program;
+}): JSX.Element {
+  const personalProgram = aggregateEntries(props.save, props.programData);
+  return (
+    <>
+      <ConflictsOfDay programEntries={personalProgram.SATURDAY} day="Samstag" />
+      <ConflictsOfDay programEntries={personalProgram.SUNDAY} day="Sonntag" />
+    </>
+  );
+}
+
+function ConflictsOfDay(props: {
+  programEntries: ProgramEntryTimetableView[];
+  day: string;
+}): JSX.Element {
+  const conflictingEntries = findConflicts(props.programEntries);
+
+  return (
+    <Show when={conflictingEntries.length > 0}>
+      <Box type="danger">
+        <p>
+          Konflikte am <strong>{props.day}</strong> gefunden! Bitte stelle
+          sicher, dass du nicht zeitlich überlappende Spielrunden eingetragen
+          hast:
+        </p>
+      </Box>
+      <For each={conflictingEntries}>
+        {([a, b]) => (
+          <div style="display: grid; grid-template-columns: 1fr max-content 1fr; gap: 1rem; margin-block: 0.5rem;">
+            {a.component()}
+            <span style="color: var(--clr-warning-10); align-self: center; font-size: 2rem;">
+              <Icon icon="triangle-exclamation" />
+            </span>
+            {b.component()}
+          </div>
+        )}
+      </For>
+      <br />
+    </Show>
   );
 }

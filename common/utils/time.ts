@@ -59,7 +59,7 @@ export function isOverlapping(
     isWithin(endTimeA, rangeB) ||
     isWithin(startTimeB, rangeA) ||
     isWithin(endTimeB, rangeA) ||
-    (startTimeA === startTimeB && endTimeA === endTimeB)
+    (startTimeA.hour === startTimeB.hour && endTimeA.hour === endTimeB.hour)
   );
 }
 

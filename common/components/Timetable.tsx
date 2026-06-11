@@ -260,7 +260,7 @@ function rangeToGridRow(
 
 type Conflicts = [ProgramEntryTimetableView, ProgramEntryTimetableView][];
 
-function findConflicts(entries: ProgramEntryTimetableView[]): Conflicts {
+export function findConflicts(entries: ProgramEntryTimetableView[]): Conflicts {
   const conflicts: Conflicts = [];
 
   entries.forEach((a, i) => {
