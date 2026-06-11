@@ -93,7 +93,7 @@ export function Entry(props: {
       <ul role="list" class="event-links">
         <li>
           <Link
-            href={`${props.basePath}/${props.entry.uuid}`}
+            href={`${props.basePath}/${props.entry.timeSlot.uuid}`}
             class="button-link"
           >
             <button class="event-link">

@@ -29,7 +29,9 @@ export function ProgrammDetail(props: {
 
   return (
     <Show
-      when={props.programData.publicEntries.find((e) => e.uuid === uuid)}
+      when={props.programData.publicEntries.find(
+        (e) => e.timeSlot.uuid === uuid,
+      )}
       fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
     >
       {(entry) => (
@@ -65,7 +67,9 @@ function ProgramDetailContent(props: {
     "FRIDAY";
 
   const myReservations = () =>
-    props.myReservations.filter((r) => r.entryUuid === props.entry.uuid);
+    props.myReservations.filter(
+      (r) => r.entryUuid === props.entry.timeSlot.uuid,
+    );
 
   const range = () => {
     if (props.entry.participation.seats.kind === "NO_LIMIT") {
@@ -284,7 +288,7 @@ function ProgramDetailContent(props: {
                                     kind="success"
                                     onClick={() => {
                                       props.addReservation({
-                                        entryUuid: props.entry.uuid,
+                                        entryUuid: props.entry.timeSlot.uuid,
                                         uuid: crypto.randomUUID(),
                                         timestamp: getCurrentTimestamp(),
                                         name: {

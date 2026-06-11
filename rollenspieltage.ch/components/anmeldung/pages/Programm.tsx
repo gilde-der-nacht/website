@@ -164,7 +164,7 @@ export function DayProgram(props: {
                         entry={entry}
                         basePath="/programm"
                         additionalReservations={props.myReservations.filter(
-                          (r) => r.entryUuid === entry.uuid,
+                          (r) => r.entryUuid === entry.timeSlot.uuid,
                         )}
                       />
                     )}
