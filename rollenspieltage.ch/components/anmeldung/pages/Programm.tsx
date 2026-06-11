@@ -1,6 +1,6 @@
 import { Box } from "@common/components/Box";
 import { createReactive, type Reactive } from "@common/utils/reactivity";
-import { For, Show, type JSX } from "solid-js";
+import { For, Match, Show, Switch, type JSX } from "solid-js";
 import type { Participating, Save } from "@rst/components/anmeldung/api/save";
 import type {
   Program,
@@ -10,12 +10,13 @@ import { TXT } from "@common/utils/texts";
 import { Entry } from "@rst/components/anmeldung/components/Entry";
 import { toRange, type PerDay, type ProgramDay } from "@common/utils/time";
 import { Filters, type ActiveFilter } from "@common/components/Filter";
-import { getDay } from "@rst/components/anmeldung/constant/time";
+import { getDay, openingHours } from "@rst/components/anmeldung/constant/time";
 import { Temporal } from "@js-temporal/polyfill";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { UNAUTHORIZED } from "@common/utils/shared";
 import { BoxLink } from "@common/components/BoxLink";
 import { Chip } from "@common/components/Chip";
+import { MealBreak } from "../components/MealBreak";
 
 export function Programm(props: {
   save$: Reactive<Save>;
@@ -220,29 +221,43 @@ export function DayProgram(props: {
     >
       <For each={toRange(24)}>
         {(hour) => (
-          <Show when={props.program.find((h) => h.hour === hour)}>
-            {(hourProgram) => (
-              <>
-                <h4 style="margin-block-start: 2rem; margin-block-end: 1rem;">
-                  Start: {hour} Uhr
-                </h4>
-                <ul role="list" class="event-list">
-                  <For each={hourProgram().entries}>
-                    {(entry) => (
-                      <Entry
-                        entry={entry}
-                        basePath="/programm"
-                        additionalReservations={props.myReservations.filter(
-                          (r) => r.entryUuid === entry.timeSlot.uuid,
-                        )}
-                        roles={props.roles}
-                      />
-                    )}
-                  </For>
-                </ul>
-              </>
-            )}
-          </Show>
+          <Switch>
+            <Match
+              when={openingHours[props.day].breaks.find(
+                ({ from }) => from === hour,
+              )}
+            >
+              <br />
+              <MealBreak
+                from={hour}
+                to={hour + 1}
+                title={hour === 13 ? "Mittagessen" : "Nachtessen"}
+              />
+            </Match>
+            <Match when={props.program.find((h) => h.hour === hour)}>
+              {(hourProgram) => (
+                <>
+                  <h4 style="margin-block-start: 2rem; margin-block-end: 1rem;">
+                    Start: {hour} Uhr
+                  </h4>
+                  <ul role="list" class="event-list">
+                    <For each={hourProgram().entries}>
+                      {(entry) => (
+                        <Entry
+                          entry={entry}
+                          basePath="/programm"
+                          additionalReservations={props.myReservations.filter(
+                            (r) => r.entryUuid === entry.timeSlot.uuid,
+                          )}
+                          roles={props.roles}
+                        />
+                      )}
+                    </For>
+                  </ul>
+                </>
+              )}
+            </Match>
+          </Switch>
         )}
       </For>
     </Show>

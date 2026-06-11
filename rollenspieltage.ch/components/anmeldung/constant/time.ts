@@ -54,10 +54,24 @@ export const openingHours = {
   },
   SATURDAY: {
     open: { from: 10, to: 24 },
-    breaks: [],
+    breaks: [
+      {
+        from: 13,
+        to: 14,
+      },
+      {
+        from: 18,
+        to: 19,
+      },
+    ],
   },
   SUNDAY: {
     open: { from: 10, to: 18 },
-    breaks: [],
+    breaks: [
+      {
+        from: 13,
+        to: 14,
+      },
+    ],
   },
 } satisfies WeekendOpeningHours;
