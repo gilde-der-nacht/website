@@ -12,15 +12,27 @@ import { toRange, type PerDay, type ProgramDay } from "@common/utils/time";
 import { Filters, type ActiveFilter } from "@common/components/Filter";
 import { getDay } from "@rst/components/anmeldung/constant/time";
 import { Temporal } from "@js-temporal/polyfill";
+import type { Roles } from "@rst/components/anmeldung/api/meta";
 
 export function Programm(props: {
   save$: Reactive<Save>;
   programData: Program;
+  roles: Roles;
 }): JSX.Element {
-  return <ProgramView save={props.save$.get()} program={props.programData} />;
+  return (
+    <ProgramView
+      save={props.save$.get()}
+      program={props.programData}
+      roles={props.roles}
+    />
+  );
 }
 
-function ProgramView(props: { save: Save; program: Program }): JSX.Element {
+function ProgramView(props: {
+  save: Save;
+  program: Program;
+  roles: Roles;
+}): JSX.Element {
   const $filters = createReactive<ActiveFilter>({
     day: null,
     tags: [],
@@ -50,6 +62,7 @@ function ProgramView(props: { save: Save; program: Program }): JSX.Element {
           day="SATURDAY"
           program={program().SATURDAY}
           myReservations={props.save.program.reserved}
+          roles={props.roles}
         />
         <br />
       </Show>
@@ -61,6 +74,7 @@ function ProgramView(props: { save: Save; program: Program }): JSX.Element {
           day="SUNDAY"
           program={program().SUNDAY}
           myReservations={props.save.program.reserved}
+          roles={props.roles}
         />
       </Show>
     </>
@@ -135,6 +149,7 @@ export function DayProgram(props: {
   day: ProgramDay;
   program: HourProgram[];
   myReservations: Participating[];
+  roles: Roles;
 }): JSX.Element {
   return (
     <Show
@@ -166,6 +181,7 @@ export function DayProgram(props: {
                         additionalReservations={props.myReservations.filter(
                           (r) => r.entryUuid === entry.timeSlot.uuid,
                         )}
+                        roles={props.roles}
                       />
                     )}
                   </For>

@@ -116,6 +116,7 @@ export function Router(props: {
                   <Programm
                     save$={store$.pipe(obj.sub("save"))}
                     programData={programData}
+                    roles={store$.get().meta.roles}
                   />
                 )}
               </Layout>
@@ -186,6 +187,7 @@ export function Router(props: {
                     .pipe(obj.sub("save"))
                     .pipe(obj.sub("contact"))}
                   isEditable={props.initState.status === "published"}
+                  roles={store$.get().meta.roles}
                 />
               </Layout>
             ),

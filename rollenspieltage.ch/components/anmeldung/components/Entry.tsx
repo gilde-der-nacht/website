@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js";
+import { Show, type JSX } from "solid-js";
 import { TXT } from "@common/utils/texts";
 import { ellipsis } from "@common/components/utils";
 import { getDay } from "@rst/components/anmeldung/constant/time";
@@ -8,11 +8,15 @@ import type { Participating } from "@rst/components/anmeldung/api/save";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/constant/validation";
 import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
 import { Temporal } from "@js-temporal/polyfill";
+import type { Roles } from "@rst/components/anmeldung/api/meta";
+import { UNAUTHORIZED } from "@common/utils/shared";
+import { Icon } from "@common/components/Icon";
 
 export function Entry(props: {
   entry: ProgramPublicEntry;
   basePath: string;
   additionalReservations?: Participating[];
+  roles: Roles;
 }): JSX.Element {
   function freeSeats(): number {
     if (props.entry.participation.seats.kind === "NO_LIMIT") {
@@ -91,6 +95,24 @@ export function Entry(props: {
         </p>
       </div>
       <ul role="list" class="event-links">
+        <Show
+          when={
+            props.roles.includes("admin") &&
+            props.entry.secretForEditing !== UNAUTHORIZED
+          }
+        >
+          <li>
+            <a
+              href={`/meine-anmeldung/#/erstellen/${props.entry.uuid}?secret=${props.entry.secretForEditing}`}
+              target="_blank"
+              class="event-link"
+            >
+              <span>
+                <Icon icon="pencil" /> Editieren
+              </span>
+            </a>
+          </li>
+        </Show>
         <li>
           <Link
             href={`${props.basePath}/${props.entry.timeSlot.uuid}`}

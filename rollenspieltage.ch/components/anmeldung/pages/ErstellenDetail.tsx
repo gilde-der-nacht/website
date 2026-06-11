@@ -30,11 +30,13 @@ import { BoxLink } from "@common/components/BoxLink";
 import { parseInt } from "@common/utils/parsing";
 import { entryEditToPublic } from "@rst/components/anmeldung/utils/convert";
 import { SATURDAY, SUNDAY } from "@rst/components/anmeldung/constant/time";
+import type { Roles } from "@rst/components/anmeldung/api/meta";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
   contact$: Reactive<Contact>;
   isEditable: boolean;
+  roles: Roles;
 }): JSX.Element {
   const uuid = useParams().uuid ?? "no-uuid-found";
 
@@ -50,6 +52,7 @@ export function ErstellenDetail(props: {
         entry$={arr.findExact(props.programEntries$, (e) => e.uuid === uuid)}
         contact$={props.contact$}
         isEditable={props.isEditable}
+        roles={props.roles}
       />
     </ErrorBoundary>
   );
@@ -59,6 +62,7 @@ function ErstellenDetailContent(props: {
   entry$: Reactive<ProgramEntry>;
   contact$: Reactive<Contact>;
   isEditable: boolean;
+  roles: Roles;
 }): JSX.Element {
   const errors = () => getErrors(props.entry$.get());
 
@@ -218,7 +222,9 @@ function ErstellenDetailContent(props: {
                 </em>
               }
             >
-              {(entry) => <Entry entry={entry} basePath="/programm" />}
+              {(entry) => (
+                <Entry entry={entry} basePath="/programm" roles={props.roles} />
+              )}
             </For>
           </ul>
         </div>
