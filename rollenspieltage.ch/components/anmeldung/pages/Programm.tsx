@@ -13,6 +13,9 @@ import { Filters, type ActiveFilter } from "@common/components/Filter";
 import { getDay } from "@rst/components/anmeldung/constant/time";
 import { Temporal } from "@js-temporal/polyfill";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
+import { UNAUTHORIZED } from "@common/utils/shared";
+import { BoxLink } from "@common/components/BoxLink";
+import { Chip } from "@common/components/Chip";
 
 export function Programm(props: {
   save$: Reactive<Save>;
@@ -76,6 +79,50 @@ function ProgramView(props: {
           myReservations={props.save.program.reserved}
           roles={props.roles}
         />
+      </Show>
+      <Show when={props.roles.includes("admin")}>
+        <br />
+        <h3>Entwürfe / Veröffentlicht mit Fehlern</h3>
+        <br />
+        <ul class="link-list" role="list">
+          <For
+            each={
+              props.program.hiddenEntries !== UNAUTHORIZED
+                ? props.program.hiddenEntries
+                : []
+            }
+          >
+            {(entry) => (
+              <li>
+                <a
+                  href={`/meine-anmeldung/#/erstellen/${entry.uuid}?secret=${entry.secretForEditing}`}
+                  target="_blank"
+                  class="button-link"
+                >
+                  <BoxLink
+                    icon="arrow-right"
+                    type={entry.status === "published" ? "danger" : "special"}
+                  >
+                    <h3>
+                      {entry.title.trim().length === 0
+                        ? "[Titel fehlt noch]"
+                        : entry.title}
+                    </h3>
+                    <span style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                      <Chip kind={"special"}>
+                        Spielleitung: {entry.organizer}
+                      </Chip>
+                      <Chip kind={"special"}>
+                        Status: {TXT.publishingSteps[entry.status]}{" "}
+                        {entry.status === "published" ? "(mit Fehlern)" : ""}
+                      </Chip>
+                    </span>
+                  </BoxLink>
+                </a>
+              </li>
+            )}
+          </For>
+        </ul>
       </Show>
     </>
   );
