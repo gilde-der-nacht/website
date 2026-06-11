@@ -39,6 +39,7 @@ function ProgramView(props: {
   const $filters = createReactive<ActiveFilter>({
     day: null,
     tags: [],
+    language: null,
   });
 
   const program = () =>
@@ -149,6 +150,12 @@ function filterSortGroupProgram(
       )
     ) {
       return;
+    }
+
+    if (filters.language !== null) {
+      if (filters.language !== entry.language) {
+        return;
+      }
     }
 
     const day = getDay(entry.timeSlot.slot.start.day);

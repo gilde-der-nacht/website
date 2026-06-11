@@ -53,12 +53,14 @@ export function DayFilter(props: {
 export type ActiveFilter = {
   tags: string[];
   day: DayFilterState;
+  language: "Deutsch" | "Englisch" | null;
 };
 
 type FilterUpdater = {
   toggleDay: (day: DayFilterState) => void;
   toggleTag: (tag: string) => void;
   toggleAllTags: () => void;
+  toggleLanguage: (language: "Deutsch" | "Englisch" | null) => void;
 };
 
 function createFilterUpdater(filters$: Reactive<ActiveFilter>): FilterUpdater {
@@ -83,6 +85,14 @@ function createFilterUpdater(filters$: Reactive<ActiveFilter>): FilterUpdater {
     },
     toggleAllTags: () => {
       filters$.pipe(obj.sub("tags")).set([]);
+    },
+    toggleLanguage: (language) => {
+      const isActive = filters$.get().language === language;
+      if (isActive) {
+        filters$.pipe(obj.sub("language")).set(null);
+      } else {
+        filters$.pipe(obj.sub("language")).set(language);
+      }
     },
   };
 }
@@ -145,6 +155,28 @@ export function Filters(props: {
             />
           )}
         </For>
+      </div>
+      <h6 style="margin-block: 0.5rem;">Sprache</h6>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        <Button
+          label="Alle Sprachen"
+          kind={props.filters$.get().language === null ? "success" : "gray"}
+          onClick={() => updater.toggleLanguage(null)}
+        />
+        <Button
+          label="Deutsch"
+          kind={
+            props.filters$.get().language !== "Englisch" ? "success" : "gray"
+          }
+          onClick={() => updater.toggleLanguage("Deutsch")}
+        />
+        <Button
+          label="Englisch"
+          kind={
+            props.filters$.get().language !== "Deutsch" ? "success" : "gray"
+          }
+          onClick={() => updater.toggleLanguage("Englisch")}
+        />
       </div>
       {}
     </Box>

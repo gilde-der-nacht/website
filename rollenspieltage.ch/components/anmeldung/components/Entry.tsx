@@ -86,6 +86,10 @@ export function Entry(props: {
             <em>keine Kategorien</em>
           )}
         </div>
+        <div class="event-tags">
+          <strong>Sprache:</strong>
+          {props.entry.language}
+        </div>
       </div>
       <div class="event-description content">
         <p>
