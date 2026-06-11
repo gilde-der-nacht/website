@@ -1,7 +1,6 @@
 import type { Reactive } from "@common/utils/reactivity";
 import { createSignal, For, Show, type JSX } from "solid-js";
 import { Textarea } from "@common/components/Textarea";
-import { Box } from "@common/components/Box";
 
 export function TextareaField(props: {
   value$: Reactive<string>;
@@ -30,9 +29,9 @@ export function TextareaField(props: {
         disabled={props.disabled}
       />
       <Show when={errors().length > 0}>
-        <Box type="danger">
+        <div style="color: var(--clr-danger-11); font-weight: bold; background-color: white;">
           <For each={errors()}>{(error) => <p>{error}</p>}</For>
-        </Box>
+        </div>
       </Show>
     </>
   );

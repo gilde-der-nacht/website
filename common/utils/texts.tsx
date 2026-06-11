@@ -100,6 +100,7 @@ const invalidEmail =
   "Die Eingabe scheint keine gültige E-Mail-Adresse zu sein.";
 const mandatoryField = "Dies ist ein Pflichtfeld.";
 const charLimitBy = "Dieses Feld ist auf {} Zeichen limitiert.";
+const minSeats = "Mindestens 1 Platz muss verfügbar sein.";
 const tagIdeas =
   "Findest du, es gäbe noch weitere hilfreiche Kategorien? Schreibe uns deinen Vorschlag per Kontaktformular.";
 
@@ -134,6 +135,7 @@ export const TXT = {
   invalidEmail,
   mandatoryField,
   charLimitBy,
+  minSeats,
   tagIdeas,
   days,
   publishingSteps,

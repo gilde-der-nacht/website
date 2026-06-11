@@ -1,6 +1,5 @@
 import { Input, InputInteger } from "@common/components/Input";
 import { createSignal, For, Show, type JSX } from "solid-js";
-import { Box } from "@common/components/Box";
 import type { Reactive } from "@common/utils/reactivity";
 
 export function TextInputField(props: {
@@ -40,9 +39,9 @@ export function TextInputField(props: {
         ref={props.ref}
       />
       <Show when={errors().length > 0}>
-        <Box type="danger">
+        <div style="color: var(--clr-danger-11); font-weight: bold; background-color: white;">
           <For each={errors()}>{(error) => <p>{error}</p>}</For>
-        </Box>
+        </div>
       </Show>
     </>
   );
@@ -78,9 +77,9 @@ export function NumberInputField(props: {
         disabled={props.disabled}
       />
       <Show when={errors().length > 0}>
-        <Box type="danger">
+        <div style="color: var(--clr-danger-11); font-weight: bold; background-color: white;">
           <For each={errors()}>{(error) => <p>{error}</p>}</For>
-        </Box>
+        </div>
       </Show>
     </>
   );

@@ -27,7 +27,7 @@ import {
 } from "@common/components/newForm/SwitchCheckbox";
 import { Button } from "@common/components/Button";
 import { BoxLink } from "@common/components/BoxLink";
-import { parseInt } from "@common/utils/parsing";
+import { parseIntSafe } from "@common/utils/parsing";
 import { entryEditToPublic } from "@rst/components/anmeldung/utils/convert";
 import { SATURDAY, SUNDAY } from "@rst/components/anmeldung/constant/time";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
@@ -109,9 +109,21 @@ function ErstellenDetailContent(props: {
               disabled={!props.isEditable}
             />
 
-            <ParticipationInput value$={props.entry$.pipe(obj.sub("seats"))} />
+            <Show when={props.entry$.get().seats.kind === "WITH_LIMIT"}>
+              <NumberInputField
+                value$={props.entry$
+                  .pipe(obj.sub("seats"))
+                  .pipe(obj.sub("max"))}
+                label="Maximale Plätze"
+                name="maxSeats"
+                errors={errors().byField.seats ?? []}
+              />
+            </Show>
 
-            <TimeSlotInput slots$={props.entry$.pipe(obj.sub("timeSlots"))} />
+            <TimeSlotInput
+              slots$={props.entry$.pipe(obj.sub("timeSlots"))}
+              byFieldUuid={errors().byFieldUuid}
+            />
 
             <TextInputField
               value$={props.entry$.pipe(obj.sub("tagNames"))}
@@ -262,24 +274,9 @@ function ErrorSummary(props: { errors: Errors }): JSX.Element {
   );
 }
 
-function ParticipationInput(props: {
-  value$: Reactive<ProgramEntry["seats"]>;
-}): JSX.Element {
-  return (
-    <>
-      <Show when={props.value$.get().kind === "WITH_LIMIT"}>
-        <NumberInputField
-          value$={props.value$.pipe(obj.sub("max"))}
-          label="Maximale Plätze"
-          name="maxSeats"
-        />
-      </Show>
-    </>
-  );
-}
-
 function TimeSlotInput(props: {
   slots$: Reactive<TimeSlotEdit[]>;
+  byFieldUuid: Record<string, string[]>;
 }): JSX.Element {
   return (
     <>
@@ -287,6 +284,8 @@ function TimeSlotInput(props: {
       <ul role="list" class="link-list">
         <Index each={arr.unpack(props.slots$)}>
           {(slot$) => {
+            const errors = () => props.byFieldUuid[slot$().get().uuid] ?? [];
+
             return (
               <li>
                 <Box onClose={slot$().remove}>
@@ -340,7 +339,7 @@ function TimeSlotInput(props: {
                           .pipe(obj.sub("time"));
                         const startTime = startTime$.get();
                         const [hour, minute] = startTime.split(".");
-                        const parsed = parseInt(hour ?? "");
+                        const parsed = parseIntSafe(hour ?? "");
                         if (parsed !== null) {
                           startTime$.set(
                             String(parsed).length === 1
@@ -364,7 +363,7 @@ function TimeSlotInput(props: {
                           .pipe(obj.sub("time"));
                         const startTime = endTime$.get();
                         const [hour, minute] = startTime.split(".");
-                        const parsed = parseInt(hour ?? "");
+                        const parsed = parseIntSafe(hour ?? "");
                         if (parsed !== null) {
                           endTime$.set(
                             String(parsed).length === 1
@@ -373,6 +372,8 @@ function TimeSlotInput(props: {
                           );
                         }
                       }}
+                      errors={errors()}
+                      showErrors="ALWAYS"
                       label="Ende"
                       name="end"
                     />
