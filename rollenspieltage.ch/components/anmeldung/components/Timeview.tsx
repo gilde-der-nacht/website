@@ -1,5 +1,6 @@
 import {
   WeekendTimetable,
+  type ProgramEntryTimetablePreView,
   type ProgramEntryTimetableView,
 } from "@common/components/Timetable";
 import { createSignal, type Accessor, type JSX } from "solid-js";
@@ -21,15 +22,19 @@ import { parsePlainTime } from "@common/components/events";
 import { getErrors } from "@rst/components/anmeldung/constant/validation";
 import { Temporal } from "@js-temporal/polyfill";
 import type { Program } from "@rst/components/anmeldung/api/program";
+import type { Reactive } from "@common/utils/reactivity";
+import { mapGroupBy } from "@common/utils/group";
+import { assert } from "@common/components/utils";
 
 export function Timeview(props: {
-  save: Save;
+  save$: Reactive<Save>;
   programData: Accessor<Program>;
 }): JSX.Element {
   const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
-  const personalProgram = aggregateEntries(props.save, props.programData);
+  const personalProgram = () =>
+    aggregateEntries(props.save$, props.programData);
 
-  const excludedDays = getExcludedDays(personalProgram);
+  const excludedDays = () => getExcludedDays(personalProgram());
   const hours = openingHours;
 
   return (
@@ -39,30 +44,31 @@ export function Timeview(props: {
       <DayFilter
         dayFilter={dayFilter}
         setDayFilter={setDayFilter}
-        exclude={excludedDays}
+        exclude={excludedDays()}
       />
       <br />
       <WeekendTimetable
         dayFilter={dayFilter()}
-        programEntries={personalProgram}
+        programEntries={personalProgram()}
         openingHours={hours}
         conflictsAllowed={false}
         columns={1}
-        exclude={excludedDays}
+        exclude={excludedDays()}
       />
     </div>
   );
 }
 
 export function aggregateEntries(
-  save: Save,
+  save$: Reactive<Save>,
   programState: Accessor<Program>,
 ): PerDay<ProgramEntryTimetableView[]> {
   const {
+    contact: { name },
     program: { organising, reserved },
-  } = save;
+  } = save$.get();
 
-  const aggregation: PerDay<ProgramEntryTimetableView[]> = {
+  const aggregation: PerDay<ProgramEntryTimetablePreView[]> = {
     FRIDAY: [],
     SATURDAY: [],
     SUNDAY: [],
@@ -94,15 +100,12 @@ export function aggregateEntries(
       const path = `/erstellen/${entry.uuid}`;
 
       aggregation[getDay(slot.slot.start.day) ?? "FRIDAY"].push({
+        name: name,
+        timeSlotUuid: slot.uuid,
         range,
-        component: () => (
-          <TimeviewEntry
-            title={entry.title}
-            range={range}
-            kind="master"
-            path={path}
-          />
-        ),
+        title: entry.title,
+        kind: "master",
+        path: path,
       });
     });
   });
@@ -134,22 +137,49 @@ export function aggregateEntries(
     }
 
     aggregation[day].push({
+      name: entry.name.kind === "SELF" ? name : entry.name.friendsName,
+      timeSlotUuid: programmEntry.timeSlot.uuid,
       range,
-      component: () => (
-        <TimeviewEntry
-          title={programmEntry.title}
-          range={range}
-          kind="play"
-          path={path}
-        />
-      ),
+      title: programmEntry.title,
+      kind: "play",
+      path: path,
     });
   });
 
+  function combineNames(
+    entries: ProgramEntryTimetablePreView[],
+  ): ProgramEntryTimetableView[] {
+    return Object.values(
+      mapGroupBy(
+        entries,
+        (entry) => entry.timeSlotUuid,
+        (entries): ProgramEntryTimetableView => {
+          const first = entries[0];
+          assert(first !== undefined, "");
+          const names = entries.map((entry) => entry.name);
+          return {
+            names: names,
+            timeSlotUuid: first.timeSlotUuid,
+            range: first.range,
+            component: () => (
+              <TimeviewEntry
+                kind={first.kind}
+                path={first.path}
+                range={first.range}
+                title={first.title}
+                names={names}
+              />
+            ),
+          } satisfies ProgramEntryTimetableView;
+        },
+      ),
+    );
+  }
+
   return {
-    FRIDAY: sort(aggregation.FRIDAY),
-    SATURDAY: sort(aggregation.SATURDAY),
-    SUNDAY: sort(aggregation.SUNDAY),
+    FRIDAY: sort(combineNames(aggregation.FRIDAY)),
+    SATURDAY: sort(combineNames(aggregation.SATURDAY)),
+    SUNDAY: sort(combineNames(aggregation.SUNDAY)),
   };
 }
 
@@ -163,13 +193,14 @@ function sort(
   );
 }
 
-type TimeviewKind = "master-draft" | "master" | "play" | "help";
+export type TimeviewKind = "master-draft" | "master" | "play" | "help";
 
 function TimeviewEntry(props: {
   title: string;
   range: PlainTimeRange;
   kind: TimeviewKind;
   path: string;
+  names: string[];
 }): JSX.Element {
   const labels = (
     {
@@ -249,7 +280,8 @@ function TimeviewEntry(props: {
         />
         <h5 title={props.title}>{props.title}</h5>
         <p class="duration">
-          von {formatTime(props.range.startTime)} bis{" "}
+          <span>{props.names.join(", ")}</span> | von{" "}
+          {formatTime(props.range.startTime)} bis{" "}
           {formatTime(props.range.endTime)} Uhr{" "}
           <em>
             <small>

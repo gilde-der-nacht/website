@@ -7,11 +7,12 @@ import { Match, Show, Switch } from "solid-js";
 import { Box } from "@common/components/Box";
 import { formatDateTime } from "@common/components/utils";
 import { Link } from "@common/components/Link";
+import type { Reactive } from "@common/utils/reactivity";
 
 export function QuickMenu(props: {
-  roles: Roles;
-  saveState: SaveState;
-  lastSaved: Date;
+  roles$: Reactive<Roles>;
+  saveState$: Reactive<SaveState>;
+  lastSaved$: Reactive<Date>;
   parentPath: string;
 }): JSX.Element {
   return (
@@ -27,7 +28,7 @@ export function QuickMenu(props: {
             <Button label={<Icon icon="dice-d20" />} />
           </Link>
         </Tooltip>
-        <Show when={props.roles.includes("editor")}>
+        <Show when={props.roles$.get().includes("editor")}>
           <Tooltip tooltip="Zu deinen Spielrunden">
             <Link href="/erstellen" class="button-link">
               <Button label={<Icon icon="grid-2-plus" />} />
@@ -45,9 +46,9 @@ export function QuickMenu(props: {
 }
 
 export function QuickMenuExtended(props: {
-  roles: Roles;
-  saveState: SaveState;
-  lastSaved: Date;
+  roles$: Reactive<Roles>;
+  saveState$: Reactive<SaveState>;
+  lastSaved$: Reactive<Date>;
   parentPath: string;
 }): JSX.Element {
   return (
@@ -60,7 +61,7 @@ export function QuickMenuExtended(props: {
           <Link href="/programm" class="button-link">
             <ButtonWithIcon icon="dice-d20" label="Zum Programm" />
           </Link>
-          <Show when={props.roles.includes("editor")}>
+          <Show when={props.roles$.get().includes("editor")}>
             <Link href="/erstellen" class="button-link">
               <ButtonWithIcon
                 icon="grid-2-plus"
@@ -74,32 +75,34 @@ export function QuickMenuExtended(props: {
         </div>
       </Box>
       <SaveStateDisplay
-        saveState={props.saveState}
-        lastSaved={props.lastSaved}
+        saveState$={props.saveState$}
+        lastSaved$={props.lastSaved$}
       />
     </>
   );
 }
 
 function SaveStateDisplay(props: {
-  saveState: SaveState;
-  lastSaved: Date;
+  saveState$: Reactive<SaveState>;
+  lastSaved$: Reactive<Date>;
 }): JSX.Element {
   return (
     <Switch>
-      <Match when={props.saveState === "IDLE"}>
+      <Match when={props.saveState$.get() === "IDLE"}>
         <div style="margin-block-start: 1rem; display: flex; gap: 0.5rem; align-items: center;">
           <Icon icon="circle-check" />
-          <em>Zuletzt gespeichert um: {formatDateTime(props.lastSaved)} Uhr</em>
+          <em>
+            Zuletzt gespeichert um: {formatDateTime(props.lastSaved$.get())} Uhr
+          </em>
         </div>
       </Match>
-      <Match when={props.saveState === "SAVING"}>
+      <Match when={props.saveState$.get() === "SAVING"}>
         <div style="margin-block-start: 1rem; display: flex; gap: 0.5rem; align-items: center;">
           <Icon icon="floppy-disk-circle-arrow-right" />
           <em>Am Speichern...</em>
         </div>
       </Match>
-      <Match when={props.saveState === "ERROR"}>
+      <Match when={props.saveState$.get() === "ERROR"}>
         <div style="margin-block-start: 1rem; display: flex; gap: 0.5rem; align-items: center;">
           <Icon icon="triangle-exclamation" />
           <em>Speichern war nicht möglich!</em>

@@ -12,18 +12,19 @@ import type { Save } from "@rst/components/anmeldung/api/save";
 import { findConflicts, type Conflicts } from "@common/components/Timetable";
 import { Icon } from "@common/components/Icon";
 import { aggregateEntries } from "@rst/components/anmeldung/components/Timeview";
+import { obj, type Reactive } from "@common/utils/reactivity";
 
 export function Layout(props: {
   title?: string;
   showQuickmenu?: boolean;
-  store: {
+  store$: Reactive<{
     save: Save;
     meta: {
       roles: Roles;
       saveState: SaveState;
       lastSaved: Date;
     };
-  };
+  }>;
   parentPath?: string;
   programResource: Resource<Result<Program>>;
   children: (data: { programData: Accessor<Program> }) => JSX.Element;
@@ -32,9 +33,13 @@ export function Layout(props: {
     <div class="page">
       {props.showQuickmenu !== false ? (
         <QuickMenu
-          roles={props.store.meta.roles}
-          saveState={props.store.meta.saveState}
-          lastSaved={props.store.meta.lastSaved}
+          roles$={props.store$.pipe(obj.sub("meta")).pipe(obj.sub("roles"))}
+          saveState$={props.store$
+            .pipe(obj.sub("meta"))
+            .pipe(obj.sub("saveState"))}
+          lastSaved$={props.store$
+            .pipe(obj.sub("meta"))
+            .pipe(obj.sub("lastSaved"))}
           parentPath={props.parentPath ?? "/"}
         />
       ) : null}
@@ -45,7 +50,10 @@ export function Layout(props: {
         <ShowProgramData programResource={props.programResource}>
           {(programData) => (
             <>
-              <AllConflicts save={props.store.save} programData={programData} />
+              <AllConflicts
+                save$={props.store$.pipe(obj.sub("save"))}
+                programData={programData}
+              />
               {props.children({ programData })}
             </>
           )}
@@ -54,9 +62,13 @@ export function Layout(props: {
       {props.showQuickmenu !== false ? (
         <div class="extended-wrapper" style="margin-block-start: 1rem;">
           <QuickMenuExtended
-            roles={props.store.meta.roles}
-            saveState={props.store.meta.saveState}
-            lastSaved={props.store.meta.lastSaved}
+            roles$={props.store$.pipe(obj.sub("meta")).pipe(obj.sub("roles"))}
+            saveState$={props.store$
+              .pipe(obj.sub("meta"))
+              .pipe(obj.sub("saveState"))}
+            lastSaved$={props.store$
+              .pipe(obj.sub("meta"))
+              .pipe(obj.sub("lastSaved"))}
             parentPath={props.parentPath ?? "/"}
           />
         </div>
@@ -66,23 +78,29 @@ export function Layout(props: {
 }
 
 function AllConflicts(props: {
-  save: Save;
+  save$: Reactive<Save>;
   programData: Accessor<Program>;
 }): JSX.Element {
-  const personalProgram = aggregateEntries(props.save, props.programData);
-  const conflictingEntriesSaturday = findConflicts(personalProgram.SATURDAY);
-  const conflictingEntriesSunday = findConflicts(personalProgram.SUNDAY);
+  const personalProgram = () =>
+    aggregateEntries(props.save$, props.programData);
+  const conflictingEntriesSaturday = () =>
+    findConflicts(personalProgram().SATURDAY);
+  const conflictingEntriesSunday = () =>
+    findConflicts(personalProgram().SUNDAY);
 
   return (
     <Show
       when={
-        conflictingEntriesSaturday.length > 0 ||
-        conflictingEntriesSunday.length > 0
+        conflictingEntriesSaturday().length > 0 ||
+        conflictingEntriesSunday().length > 0
       }
     >
       <div style="position: sticky; top: 0; background: #ffffffcc; padding-block: 1rem; z-index: 1;">
-        <ConflictsOfDay conflicts={conflictingEntriesSaturday} day="Samstag" />
-        <ConflictsOfDay conflicts={conflictingEntriesSunday} day="Sonntag" />
+        <ConflictsOfDay
+          conflicts={conflictingEntriesSaturday()}
+          day="Samstag"
+        />
+        <ConflictsOfDay conflicts={conflictingEntriesSunday()} day="Sonntag" />
       </div>
     </Show>
   );

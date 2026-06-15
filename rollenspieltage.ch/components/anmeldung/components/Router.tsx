@@ -101,7 +101,7 @@ export function Router(props: {
             component: () => (
               <Layout
                 title="Wo möchtest du starten?"
-                store={store$.get()}
+                store$={store$}
                 programResource={programResource}
               >
                 {() => <Root roles={store$.get().meta.roles} />}
@@ -113,7 +113,7 @@ export function Router(props: {
             component: () => (
               <Layout
                 title="Programm"
-                store={store$.get()}
+                store$={store$}
                 programResource={programResource}
               >
                 {({ programData }) => (
@@ -130,7 +130,7 @@ export function Router(props: {
             path: "/programm/:uuid",
             component: () => (
               <Layout
-                store={store$.get()}
+                store$={store$}
                 showQuickmenu={true}
                 parentPath="/programm"
                 programResource={programResource}
@@ -154,7 +154,7 @@ export function Router(props: {
             component: () => (
               <Layout
                 title="Spielrunden erstellen und editieren"
-                store={store$.get()}
+                store$={store$}
                 programResource={programResource}
               >
                 {() => (
@@ -174,7 +174,7 @@ export function Router(props: {
             path: "/erstellen/:uuid",
             component: () => (
               <Layout
-                store={store$.get()}
+                store$={store$}
                 parentPath="/erstellen"
                 programResource={programResource}
               >
@@ -199,7 +199,7 @@ export function Router(props: {
             component: () => (
               <Layout
                 title="Zusammenfassung"
-                store={store$.get()}
+                store$={store$}
                 showQuickmenu={true}
                 programResource={programResource}
               >
@@ -219,7 +219,7 @@ export function Router(props: {
               return (
                 <Layout
                   title="Seite nicht gefunden"
-                  store={store$.get()}
+                  store$={store$}
                   showQuickmenu={true}
                   programResource={programResource}
                 >

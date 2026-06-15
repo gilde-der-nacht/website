@@ -300,7 +300,7 @@ function ProgramDetailContent(props: {
                                   <InputButton
                                     addFriend={(name) => {
                                       props.addReservation({
-                                        entryUuid: props.entry.uuid,
+                                        entryUuid: props.entry.timeSlot.uuid,
                                         timestamp: getCurrentTimestamp(),
                                         name: {
                                           kind: "FRIEND",
@@ -316,7 +316,7 @@ function ProgramDetailContent(props: {
                               <InputButton
                                 addFriend={(name) => {
                                   props.addReservation({
-                                    entryUuid: props.entry.uuid,
+                                    entryUuid: props.entry.timeSlot.uuid,
                                     timestamp: getCurrentTimestamp(),
                                     name: {
                                       kind: "FRIEND",

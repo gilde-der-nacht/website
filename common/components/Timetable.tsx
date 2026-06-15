@@ -12,6 +12,7 @@ import { Box } from "@common/components/Box";
 import { Icon } from "@common/components/Icon";
 import { TXT } from "@common/utils/texts";
 import { Temporal } from "@js-temporal/polyfill";
+import type { TimeviewKind } from "@rst/components/anmeldung/components/Timeview";
 
 export type WeekendOpeningHours = PerDay<{
   open: HourRange;
@@ -91,9 +92,8 @@ function TimetableOfDay(props: {
   conflictsAllowed: boolean;
   columns: 1 | 2 | 4;
 }): JSX.Element {
-  const conflictingEntries = props.conflictsAllowed
-    ? []
-    : findConflicts(props.programEntries);
+  const conflictingEntries = () =>
+    props.conflictsAllowed ? [] : findConflicts(props.programEntries);
 
   return (
     <div>
@@ -109,7 +109,7 @@ function TimetableOfDay(props: {
                 überlappende Spielrunden eingetragen hast:
               </p>
             </Box>
-            <For each={conflictingEntries}>
+            <For each={conflictingEntries()}>
               {([a, b]) => (
                 <div style="display: grid; grid-template-columns: 1fr max-content 1fr; gap: 1rem; margin-block: 0.5rem;">
                   {a.component()}
@@ -137,7 +137,18 @@ function TimetableOfDay(props: {
   );
 }
 
+export type ProgramEntryTimetablePreView = {
+  name: string;
+  timeSlotUuid: string;
+  range: PlainTimeRange;
+  title: string;
+  kind: TimeviewKind;
+  path: string;
+};
+
 export type ProgramEntryTimetableView = {
+  names: string[];
+  timeSlotUuid: string;
   range: PlainTimeRange;
   component: () => JSX.Element;
 };

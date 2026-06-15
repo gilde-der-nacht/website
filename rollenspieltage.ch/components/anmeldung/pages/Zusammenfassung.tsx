@@ -26,6 +26,7 @@ export function Zusammenfassung(props: {
 }): JSX.Element {
   return (
     <div style="display: grid; gap: 1rem;">
+      <br />
       <Contact
         contact$={props.save$.pipe(obj.sub("contact"))}
         isEditable={props.isEditable}
@@ -39,7 +40,7 @@ export function Zusammenfassung(props: {
         value="wantsUpdates"
       />
 
-      <Timeview save={props.save$.get()} programData={props.programData} />
+      <Timeview save$={props.save$} programData={props.programData} />
     </div>
   );
 }
