@@ -16,7 +16,7 @@ import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { UNAUTHORIZED } from "@common/utils/shared";
 import { BoxLink } from "@common/components/BoxLink";
 import { Chip } from "@common/components/Chip";
-import { MealBreak } from "../components/MealBreak";
+import { MealBreak } from "@rst/components/anmeldung/components/MealBreak";
 
 export function Programm(props: {
   save$: Reactive<Save>;

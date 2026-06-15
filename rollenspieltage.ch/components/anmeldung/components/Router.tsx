@@ -18,7 +18,10 @@ import { Erstellen } from "@rst/components/anmeldung/pages/Erstellen";
 import { ErstellenDetail } from "@rst/components/anmeldung/pages/ErstellenDetail";
 import { createReactive, obj } from "@common/utils/reactivity";
 import { ProgrammDetail } from "@rst/components/anmeldung/pages/ProgrammDetail";
-import { loadProgram } from "../api/program";
+import {
+  debouncedLoadProgram,
+  loadProgram,
+} from "@rst/components/anmeldung/api/program";
 
 export function Router(props: {
   initState: LoadSave;
@@ -87,7 +90,7 @@ export function Router(props: {
       }
 
       if (successful) {
-        const program = await loadProgram(props.secret);
+        const program = await debouncedLoadProgram(props.secret);
         mutate(program);
       }
     },

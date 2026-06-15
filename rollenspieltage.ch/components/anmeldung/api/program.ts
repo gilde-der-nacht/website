@@ -9,6 +9,7 @@ import {
   timestampSchema,
   unauthorizedSchema,
 } from "@common/utils/shared";
+import { debounce } from "@common/components/utils";
 
 /*
  * Types
@@ -112,3 +113,5 @@ export async function loadProgram(
     data: parseResult.data,
   };
 }
+
+export const debouncedLoadProgram = debounce(loadProgram, 30_000);
