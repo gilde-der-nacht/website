@@ -5,7 +5,6 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import remarkSmartypants from "remark-smartypants";
 import { unified } from "@astrojs/markdown-remark";
-import mkcert from "vite-plugin-mkcert";
 
 const remarkSmartyPants = [
   [
@@ -47,8 +46,5 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
       }),
     },
     integrations: [solidJs(), mdx()],
-    vite: {
-      plugins: [mkcert()],
-    },
   } satisfies AstroUserConfig;
 }
