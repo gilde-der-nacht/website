@@ -2185,9 +2185,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:6.4.6":
-  version: 6.4.6
-  resolution: "astro@npm:6.4.6"
+"astro@npm:6.4.7":
+  version: 6.4.7
+  resolution: "astro@npm:6.4.7"
   dependencies:
     "@astrojs/compiler": "npm:^4.0.0"
     "@astrojs/internal-helpers": "npm:0.10.0"
@@ -2250,7 +2250,7 @@ __metadata:
       optional: true
   bin:
     astro: ./bin/astro.mjs
-  checksum: 10/dcccd88f1f88caae38e0d44b2b0c8028c2f832254797409b0ade0b71564c775aaaa6152e886f3ea92a289791a802165bc989df05e97b15911a6f82663739b1f1
+  checksum: 10/4268db0d4b14799bc1447bacbe095616bd6bd5d583fae1355d742f9befd8371b860b8376740b2888111dbdd79645876b494e3620ec64495bc9d605b3da6f5ac6
   languageName: node
   linkType: hard
 
@@ -2599,7 +2599,7 @@ __metadata:
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.7.1"
     "@types/node": "npm:^25.9.3"
-    astro: "npm:6.4.6"
+    astro: "npm:6.4.7"
     luxon: "npm:^3.7.2"
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
