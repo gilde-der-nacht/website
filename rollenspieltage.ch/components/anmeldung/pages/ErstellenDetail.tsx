@@ -1,4 +1,11 @@
-import { ErrorBoundary, For, Index, Show, type JSX } from "solid-js";
+import {
+  createEffect,
+  ErrorBoundary,
+  For,
+  Index,
+  Show,
+  type JSX,
+} from "solid-js";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type {

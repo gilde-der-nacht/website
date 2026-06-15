@@ -2,7 +2,6 @@ import { Box } from "@common/components/Box";
 import {
   ErrorBoundary,
   Match,
-  Suspense,
   Switch,
   createResource,
   type JSX,
@@ -29,23 +28,21 @@ export function MeineAnmeldungWrapper(): JSX.Element {
         return <Box type="danger">{TXT.error.general}</Box>;
       }}
     >
-      <Suspense fallback={<Loading />}>
-        <Switch>
-          <Match when={saveResource()}>
-            {(state) => {
-              const { kind, value } = unpackUnion(state());
-              if (kind === "FAILURE") {
-                if (value.reason === "SECRET_INVALID") {
-                  return <Box type="danger">{TXT.error.secretError}</Box>;
-                }
-                console.error(value);
-                return <Box type="danger">{TXT.error.ourMistake}</Box>;
+      <Switch fallback={<Loading />}>
+        <Match when={saveResource()}>
+          {(state) => {
+            const { kind, value } = unpackUnion(state());
+            if (kind === "FAILURE") {
+              if (value.reason === "SECRET_INVALID") {
+                return <Box type="danger">{TXT.error.secretError}</Box>;
               }
-              return <Router initState={value.data} secret={secret} />;
-            }}
-          </Match>
-        </Switch>
-      </Suspense>
+              console.error(value);
+              return <Box type="danger">{TXT.error.ourMistake}</Box>;
+            }
+            return <Router initState={value.data} secret={secret} />;
+          }}
+        </Match>
+      </Switch>
     </ErrorBoundary>
   );
 }

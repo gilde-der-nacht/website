@@ -1,9 +1,10 @@
 import { Box } from "@common/components/Box";
 import { createReactive, type Reactive } from "@common/utils/reactivity";
-import { For, Match, Show, Switch, type JSX } from "solid-js";
+import { For, Match, Show, Switch, type Accessor, type JSX } from "solid-js";
 import type { Participating, Save } from "@rst/components/anmeldung/api/save";
 import type {
   Program,
+  ProgramHiddenEntry,
   ProgramPublicEntry,
 } from "@rst/components/anmeldung/api/program";
 import { TXT } from "@common/utils/texts";
@@ -20,7 +21,7 @@ import { MealBreak } from "@rst/components/anmeldung/components/MealBreak";
 
 export function Programm(props: {
   save$: Reactive<Save>;
-  programData: Program;
+  programData: Accessor<Program>;
   roles: Roles;
 }): JSX.Element {
   return (
@@ -34,7 +35,7 @@ export function Programm(props: {
 
 function ProgramView(props: {
   save: Save;
-  program: Program;
+  program: Accessor<Program>;
   roles: Roles;
 }): JSX.Element {
   const $filters = createReactive<ActiveFilter>({
@@ -44,13 +45,20 @@ function ProgramView(props: {
   });
 
   const program = () =>
-    filterSortGroupProgram(props.program.publicEntries, $filters);
+    filterSortGroupProgram(props.program().publicEntries, $filters);
 
   const tags = new Set(
-    props.program.publicEntries.flatMap((entry) =>
-      entry.tagNames.map((s) => s.trim()).filter((s) => s.length !== 0),
-    ),
+    props
+      .program()
+      .publicEntries.flatMap((entry) =>
+        entry.tagNames.map((s) => s.trim()).filter((s) => s.length !== 0),
+      ),
   );
+
+  function getHiddenEntriesEmptyIfUnauthorized(): ProgramHiddenEntry[] {
+    const { hiddenEntries } = props.program();
+    return hiddenEntries === UNAUTHORIZED ? [] : hiddenEntries;
+  }
 
   return (
     <>
@@ -87,13 +95,7 @@ function ProgramView(props: {
         <h3>Entwürfe / Veröffentlicht mit Fehlern</h3>
         <br />
         <ul class="link-list" role="list">
-          <For
-            each={
-              props.program.hiddenEntries !== UNAUTHORIZED
-                ? props.program.hiddenEntries
-                : []
-            }
-          >
+          <For each={getHiddenEntriesEmptyIfUnauthorized()}>
             {(entry) => (
               <li>
                 <a

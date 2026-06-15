@@ -1,4 +1,4 @@
-import { For, Show, Suspense, type JSX, type Resource } from "solid-js";
+import { For, Show, type Accessor, type JSX, type Resource } from "solid-js";
 import {
   QuickMenu,
   QuickMenuExtended,
@@ -7,7 +7,6 @@ import type { Roles, SaveState } from "@rst/components/anmeldung/api/meta";
 import type { Result } from "@rst/components/anmeldung/api/elysium";
 import { ShowProgramData } from "@rst/components/anmeldung/components/Loader";
 import { Box } from "@common/components/Box";
-import { TXT } from "@common/utils/texts";
 import type { Program } from "@rst/components/anmeldung/api/program";
 import type { Save } from "@rst/components/anmeldung/api/save";
 import { findConflicts, type Conflicts } from "@common/components/Timetable";
@@ -27,7 +26,7 @@ export function Layout(props: {
   };
   parentPath?: string;
   programResource: Resource<Result<Program>>;
-  children: JSX.Element | ((data: { programData: Program }) => JSX.Element);
+  children: (data: { programData: Accessor<Program> }) => JSX.Element;
 }): JSX.Element {
   return (
     <div class="page">
@@ -40,27 +39,17 @@ export function Layout(props: {
         />
       ) : null}
       <div class="page-content">
-        {props.title === undefined ? null : (
-          <>
-            <h2>{props.title}</h2>
-            <br />
-          </>
-        )}
-        <Suspense fallback={<Box>{TXT.loading.program}</Box>}>
-          <ShowProgramData programResource={props.programResource}>
-            {(programData) => (
-              <>
-                <AllConflicts
-                  save={props.store.save}
-                  programData={programData}
-                />
-                {typeof props.children === "function"
-                  ? props.children({ programData })
-                  : props.children}
-              </>
-            )}
-          </ShowProgramData>
-        </Suspense>
+        <Show when={props.title !== undefined && props.title.trim().length > 0}>
+          <h2>{props.title}</h2>
+        </Show>
+        <ShowProgramData programResource={props.programResource}>
+          {(programData) => (
+            <>
+              <AllConflicts save={props.store.save} programData={programData} />
+              {props.children({ programData })}
+            </>
+          )}
+        </ShowProgramData>
       </div>
       {props.showQuickmenu !== false ? (
         <div class="extended-wrapper" style="margin-block-start: 1rem;">
@@ -78,7 +67,7 @@ export function Layout(props: {
 
 function AllConflicts(props: {
   save: Save;
-  programData: Program;
+  programData: Accessor<Program>;
 }): JSX.Element {
   const personalProgram = aggregateEntries(props.save, props.programData);
   const conflictingEntriesSaturday = findConflicts(personalProgram.SATURDAY);

@@ -1,4 +1,4 @@
-import { For, Match, Show, Switch, type JSX } from "solid-js";
+import { For, Match, Show, Switch, type Accessor, type JSX } from "solid-js";
 import { Box, SimpleBox } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import { useParams } from "@solidjs/router";
@@ -21,7 +21,7 @@ import { assert } from "@common/components/utils";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<Participating[]>;
-  programData: Program;
+  programData: Accessor<Program>;
   isEditable: boolean;
   roles: Roles;
 }): JSX.Element {
@@ -29,9 +29,9 @@ export function ProgrammDetail(props: {
 
   return (
     <Show
-      when={props.programData.publicEntries.find(
-        (e) => e.timeSlot.uuid === uuid,
-      )}
+      when={props
+        .programData()
+        .publicEntries.find((e) => e.timeSlot.uuid === uuid)}
       fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
     >
       {(entry) => (
@@ -59,7 +59,7 @@ function ProgramDetailContent(props: {
   addReservation: (reservation: Participating) => void;
   removeReservation: (reservationUuid: string) => void;
   isEditable: boolean;
-  programData: Program;
+  programData: Accessor<Program>;
   roles: Roles;
 }): JSX.Element {
   const day =

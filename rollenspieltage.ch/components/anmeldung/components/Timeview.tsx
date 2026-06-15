@@ -2,7 +2,7 @@ import {
   WeekendTimetable,
   type ProgramEntryTimetableView,
 } from "@common/components/Timetable";
-import { createSignal, type JSX } from "solid-js";
+import { createSignal, type Accessor, type JSX } from "solid-js";
 import { getDay, openingHours } from "@rst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import type { Save } from "@rst/components/anmeldung/api/save";
@@ -24,7 +24,7 @@ import type { Program } from "@rst/components/anmeldung/api/program";
 
 export function Timeview(props: {
   save: Save;
-  programData: Program;
+  programData: Accessor<Program>;
 }): JSX.Element {
   const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
   const personalProgram = aggregateEntries(props.save, props.programData);
@@ -56,7 +56,7 @@ export function Timeview(props: {
 
 export function aggregateEntries(
   save: Save,
-  programState: Program,
+  programState: Accessor<Program>,
 ): PerDay<ProgramEntryTimetableView[]> {
   const {
     program: { organising, reserved },
@@ -108,7 +108,7 @@ export function aggregateEntries(
   });
 
   reserved.forEach((entry) => {
-    const programmEntry = programState.publicEntries.find(
+    const programmEntry = programState().publicEntries.find(
       (p) => p.timeSlot.uuid === entry.entryUuid,
     );
     if (programmEntry === undefined) {

@@ -18,16 +18,13 @@ import { Erstellen } from "@rst/components/anmeldung/pages/Erstellen";
 import { ErstellenDetail } from "@rst/components/anmeldung/pages/ErstellenDetail";
 import { createReactive, obj } from "@common/utils/reactivity";
 import { ProgrammDetail } from "@rst/components/anmeldung/pages/ProgrammDetail";
-import {
-  debouncedLoadProgram,
-  loadProgram,
-} from "@rst/components/anmeldung/api/program";
+import { loadProgram } from "@rst/components/anmeldung/api/program";
 
 export function Router(props: {
   initState: LoadSave;
   secret: string;
 }): JSX.Element {
-  const [programResource, { mutate }] = createResource(() =>
+  const [programResource, { refetch }] = createResource(() =>
     loadProgram(props.secret),
   );
 
@@ -90,8 +87,7 @@ export function Router(props: {
       }
 
       if (successful) {
-        const program = await debouncedLoadProgram(props.secret);
-        mutate(program);
+        await refetch();
       }
     },
   );
@@ -108,7 +104,7 @@ export function Router(props: {
                 store={store$.get()}
                 programResource={programResource}
               >
-                <Root roles={store$.get().meta.roles} />
+                {() => <Root roles={store$.get().meta.roles} />}
               </Layout>
             ),
           },
@@ -161,13 +157,15 @@ export function Router(props: {
                 store={store$.get()}
                 programResource={programResource}
               >
-                <Erstellen
-                  programEntries$={store$
-                    .pipe(obj.sub("save"))
-                    .pipe(obj.sub("program"))
-                    .pipe(obj.sub("organising"))}
-                  isEditable={props.initState.status === "published"}
-                />
+                {() => (
+                  <Erstellen
+                    programEntries$={store$
+                      .pipe(obj.sub("save"))
+                      .pipe(obj.sub("program"))
+                      .pipe(obj.sub("organising"))}
+                    isEditable={props.initState.status === "published"}
+                  />
+                )}
               </Layout>
             ),
           },
@@ -180,17 +178,19 @@ export function Router(props: {
                 parentPath="/erstellen"
                 programResource={programResource}
               >
-                <ErstellenDetail
-                  programEntries$={store$
-                    .pipe(obj.sub("save"))
-                    .pipe(obj.sub("program"))
-                    .pipe(obj.sub("organising"))}
-                  contact$={store$
-                    .pipe(obj.sub("save"))
-                    .pipe(obj.sub("contact"))}
-                  isEditable={props.initState.status === "published"}
-                  roles={store$.get().meta.roles}
-                />
+                {() => (
+                  <ErstellenDetail
+                    programEntries$={store$
+                      .pipe(obj.sub("save"))
+                      .pipe(obj.sub("program"))
+                      .pipe(obj.sub("organising"))}
+                    contact$={store$
+                      .pipe(obj.sub("save"))
+                      .pipe(obj.sub("contact"))}
+                    isEditable={props.initState.status === "published"}
+                    roles={store$.get().meta.roles}
+                  />
+                )}
               </Layout>
             ),
           },
@@ -223,7 +223,7 @@ export function Router(props: {
                   showQuickmenu={true}
                   programResource={programResource}
                 >
-                  <Box type="danger">{TXT.error.siteNotFound}</Box>
+                  {() => <Box type="danger">{TXT.error.siteNotFound}</Box>}
                 </Layout>
               );
             },

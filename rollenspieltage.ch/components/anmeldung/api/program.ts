@@ -114,4 +114,4 @@ export async function loadProgram(
   };
 }
 
-export const debouncedLoadProgram = debounce(loadProgram, 30_000);
+export const debouncedLoadProgram = debounce(loadProgram, 1_000);

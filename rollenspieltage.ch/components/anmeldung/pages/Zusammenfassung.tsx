@@ -1,4 +1,4 @@
-import { createMemo, Show, type JSX } from "solid-js";
+import { createMemo, Show, type Accessor, type JSX } from "solid-js";
 import { createStore, type Store } from "solid-js/store";
 import { Box } from "@common/components/Box";
 import {
@@ -21,7 +21,7 @@ import { Checkbox } from "@common/components/newForm/Checkbox";
 
 export function Zusammenfassung(props: {
   save$: Reactive<Save>;
-  programData: Program;
+  programData: Accessor<Program>;
   isEditable: boolean;
 }): JSX.Element {
   return (
