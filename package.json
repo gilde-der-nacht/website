@@ -36,6 +36,7 @@
     "@types/luxon": "^3.7.1",
     "@types/node": "^25.9.3",
     "luxon": "^3.7.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "vite-plugin-mkcert": "^2.1.0"
   }
 }
