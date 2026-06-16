@@ -108,84 +108,78 @@ export function Filters(props: {
         <h5 style="margin: 0;">Filter</h5>
       </div>
       <h6 style="margin-block: 0.5rem;">Tage</h6>
-      <div style="display: grid; grid-template-columns: max-content 1fr; gap: 1.5rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
         <Button
           label={"Alle Tage".toLocaleUpperCase()}
           kind={props.filters$.get().day === null ? "success" : "gray"}
           onClick={() => updater.toggleDay(null)}
-          style="align-self: start;"
+          style="margin-inline-end: 1rem;"
         />
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <Button
-            label="Samstag"
-            kind={props.filters$.get().day !== "SUNDAY" ? "success" : "gray"}
-            onClick={() => updater.toggleDay("SATURDAY")}
-          />
-          <Button
-            label="Sonntag"
-            kind={props.filters$.get().day !== "SATURDAY" ? "success" : "gray"}
-            onClick={() => updater.toggleDay("SUNDAY")}
-          />
-        </div>
+        <Button
+          label="Samstag"
+          kind={props.filters$.get().day !== "SUNDAY" ? "success" : "gray"}
+          onClick={() => updater.toggleDay("SATURDAY")}
+        />
+        <Button
+          label="Sonntag"
+          kind={props.filters$.get().day !== "SATURDAY" ? "success" : "gray"}
+          onClick={() => updater.toggleDay("SUNDAY")}
+        />
       </div>
       <h6 style="margin-block: 0.5rem;">Kategorien </h6>
-      <div style="display: grid; grid-template-columns: max-content 1fr; gap: 1.5rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
         <Button
           label={"Alle Kategorien".toLocaleUpperCase()}
           kind={props.filters$.get().tags.length === 0 ? "success" : "gray"}
           onClick={() => updater.toggleAllTags()}
-          style="align-self: start;"
+          style="margin-inline-end: 1rem;"
         />
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <For each={props.tags}>
-            {(categories) => (
-              <Button
-                label={categories.label}
-                kind={
-                  props.filters$.get().tags.length === 0 ||
-                  props.filters$.get().tags.includes(categories.name)
-                    ? "success"
-                    : "gray"
+        <For each={props.tags}>
+          {(categories) => (
+            <Button
+              label={categories.label}
+              kind={
+                props.filters$.get().tags.length === 0 ||
+                props.filters$.get().tags.includes(categories.name)
+                  ? "success"
+                  : "gray"
+              }
+              onClick={() => {
+                const newTagFilter = new Set(
+                  props.filters$.get().tags.concat(categories.name),
+                );
+                if (newTagFilter.size === props.tags.length) {
+                  updater.toggleAllTags();
+                } else {
+                  updater.toggleTag(categories.name);
                 }
-                onClick={() => {
-                  const newTagFilter = new Set(
-                    props.filters$.get().tags.concat(categories.name),
-                  );
-                  if (newTagFilter.size === props.tags.length) {
-                    updater.toggleAllTags();
-                  } else {
-                    updater.toggleTag(categories.name);
-                  }
-                }}
-              />
-            )}
-          </For>
-        </div>
+              }}
+            />
+          )}
+        </For>
       </div>
       <h6 style="margin-block: 0.5rem;">Sprache</h6>
-      <div style="display: grid; grid-template-columns: max-content 1fr; gap: 1.5rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
         <Button
           label={"Alle Sprachen".toLocaleUpperCase()}
           kind={props.filters$.get().language === null ? "success" : "gray"}
           onClick={() => updater.toggleLanguage(null)}
-          style="align-self: start;"
+          style="margin-inline-end: 1rem;"
         />
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <Button
-            label="Deutsch"
-            kind={
-              props.filters$.get().language !== "Englisch" ? "success" : "gray"
-            }
-            onClick={() => updater.toggleLanguage("Deutsch")}
-          />
-          <Button
-            label="Englisch"
-            kind={
-              props.filters$.get().language !== "Deutsch" ? "success" : "gray"
-            }
-            onClick={() => updater.toggleLanguage("Englisch")}
-          />
-        </div>
+        <Button
+          label="Deutsch"
+          kind={
+            props.filters$.get().language !== "Englisch" ? "success" : "gray"
+          }
+          onClick={() => updater.toggleLanguage("Deutsch")}
+        />
+        <Button
+          label="Englisch"
+          kind={
+            props.filters$.get().language !== "Deutsch" ? "success" : "gray"
+          }
+          onClick={() => updater.toggleLanguage("Englisch")}
+        />
       </div>
     </Box>
   );
