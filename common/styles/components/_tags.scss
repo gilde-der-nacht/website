@@ -14,12 +14,17 @@
   font-size: var(--step--1);
   color: white;
 
-  &.special-case {
+  &:hover, &:active {
+    * {
+      color: inherit;
+    }
+  }
+
+    &.special-case {
     background-color: c.get("background");
     border-color: c.get("accent");
     color: c.get("text-high-contrast");
   }
-
 
   &.inverted {
     background-color: c.get("background");
