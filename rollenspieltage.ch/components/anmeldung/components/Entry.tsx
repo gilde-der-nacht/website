@@ -3,7 +3,6 @@ import { TXT } from "@common/utils/texts";
 import { ellipsis } from "@common/components/utils";
 import { getDay } from "@rst/components/anmeldung/constant/time";
 import { formatTime } from "@common/utils/time";
-import { Link } from "@common/components/Link";
 import type { Participating } from "@rst/components/anmeldung/api/save";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/constant/validation";
 import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
@@ -11,16 +10,17 @@ import { Temporal } from "@js-temporal/polyfill";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { UNAUTHORIZED } from "@common/utils/shared";
 import { Icon } from "@common/components/Icon";
+import { Dynamic } from "solid-js/web";
+import type { LinkComponent } from "@common/components/Link";
 
 export function Entry(props: {
   entry: ProgramPublicEntry;
   basePath: string;
   additionalReservations?: Participating[];
   roles: Roles;
-  isPublicSite?: boolean;
+  isPublicSite: boolean;
+  link: LinkComponent;
 }): JSX.Element {
-  const isPublicSite = props.isPublicSite === true;
-
   function freeSeats(): number {
     if (props.entry.participation.seats.kind === "NO_LIMIT") {
       return 0;
@@ -122,37 +122,25 @@ export function Entry(props: {
             </a>
           </li>
         </Show>
-        <Show
-          when={!isPublicSite}
-          fallback={
-            <li>
-              <a href={`/anmeldung`} class="button-link">
-                <button class="event-link">
-                  {props.entry.participation.seats.kind === "WITH_LIMIT" ? (
-                    <span>Details & Teilnahme</span>
-                  ) : (
-                    <span>Details</span>
-                  )}
-                </button>
-              </a>
-            </li>
-          }
-        >
-          <li>
-            <Link
-              href={`${props.basePath}/${props.entry.timeSlot.uuid}`}
-              class="button-link"
-            >
-              <button class="event-link">
-                {props.entry.participation.seats.kind === "WITH_LIMIT" ? (
-                  <span>Details & Teilnahme</span>
-                ) : (
-                  <span>Details</span>
-                )}
-              </button>
-            </Link>
-          </li>
-        </Show>
+        <li>
+          <Dynamic
+            component={props.link}
+            href={
+              props.isPublicSite
+                ? "/anmeldung"
+                : `${props.basePath}/${props.entry.timeSlot.uuid}`
+            }
+            class="button-link"
+          >
+            <button class="event-link">
+              {props.entry.participation.seats.kind === "WITH_LIMIT" ? (
+                <span>Details & Teilnahme</span>
+              ) : (
+                <span>Details</span>
+              )}
+            </button>
+          </Dynamic>
+        </li>
       </ul>
     </li>
   );

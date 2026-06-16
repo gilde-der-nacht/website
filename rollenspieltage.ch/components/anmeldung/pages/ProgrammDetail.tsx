@@ -6,7 +6,7 @@ import type {
   Program,
   ProgramPublicEntry,
 } from "@rst/components/anmeldung/api/program";
-import { Link } from "@common/components/Link";
+import { RouterLink } from "@common/components/Link";
 import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { formatTime, toRange } from "@common/utils/time";
 import { getDay } from "@rst/components/anmeldung/constant/time";
@@ -140,7 +140,7 @@ function ProgramDetailContent(props: {
     <>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap">
         <h3>{props.entry.title}</h3>{" "}
-        <Link
+        <RouterLink
           href="/programm"
           class="button-link"
           style="margin-inline-start: auto;"
@@ -149,7 +149,7 @@ function ProgramDetailContent(props: {
             icon="backward"
             label="Zurück zur Programm-Übersicht"
           />
-        </Link>
+        </RouterLink>
       </div>
       <div class="game-dialog">
         <ul role="list" style="display: grid; gap: 0.5rem;">

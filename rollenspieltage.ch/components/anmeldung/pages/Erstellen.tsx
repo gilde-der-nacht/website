@@ -5,7 +5,7 @@ import { TXT } from "@common/utils/texts";
 import { arr, type Reactive } from "@common/utils/reactivity";
 import { Chip } from "@common/components/Chip";
 import { getErrors } from "@rst/components/anmeldung/constant/validation";
-import { Link, useLink } from "@common/components/Link";
+import { RouterLink, useLink } from "@common/components/Link";
 
 export function Erstellen(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -21,7 +21,10 @@ export function Erstellen(props: {
             const errors = getErrors(entry);
             return (
               <li>
-                <Link href={`/erstellen/${entry.uuid}`} class="button-link">
+                <RouterLink
+                  href={`/erstellen/${entry.uuid}`}
+                  class="button-link"
+                >
                   <BoxLink
                     icon={
                       errors.hasErrors ? "triangle-exclamation" : "arrow-right"
@@ -42,7 +45,7 @@ export function Erstellen(props: {
                       {errors.hasErrors ? <span>, hat Fehler</span> : ""}
                     </Chip>
                   </BoxLink>
-                </Link>
+                </RouterLink>
               </li>
             );
           }}

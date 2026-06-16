@@ -17,7 +17,7 @@ import {
 import type { IconType } from "@common/components/Icon";
 import { Chip } from "@common/components/Chip";
 import { IconOnlyButton } from "@common/components/Button";
-import { Link } from "@common/components/Link";
+import { RouterLink } from "@common/components/Link";
 import { parsePlainTime } from "@common/components/events";
 import { getErrors } from "@rst/components/anmeldung/constant/validation";
 import { Temporal } from "@js-temporal/polyfill";
@@ -267,7 +267,11 @@ function TimeviewEntry(props: {
 
   return (
     <div class={classes()}>
-      <Link href={props.path} class="button-link" style="display: contents;">
+      <RouterLink
+        href={props.path}
+        class="button-link"
+        style="display: contents;"
+      >
         <Chip title={labels.help} inverted={props.kind !== "help"} size="small">
           {labels.label}
         </Chip>
@@ -287,7 +291,7 @@ function TimeviewEntry(props: {
             </small>
           </em>
         </p>
-      </Link>
+      </RouterLink>
     </div>
   );
 }

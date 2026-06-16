@@ -18,6 +18,11 @@ import { UNAUTHORIZED } from "@common/utils/shared";
 import { BoxLink } from "@common/components/BoxLink";
 import { Chip } from "@common/components/Chip";
 import { MealBreak } from "@rst/components/anmeldung/components/MealBreak";
+import {
+  BrowserLink,
+  RouterLink,
+  type LinkComponent,
+} from "@common/components/Link";
 
 export function Programm(props: {
   save$: Reactive<Save>;
@@ -29,6 +34,8 @@ export function Programm(props: {
       save$={props.save$}
       program={props.programData}
       roles={props.roles}
+      isPublicSite={false}
+      link={RouterLink}
     />
   );
 }
@@ -36,13 +43,23 @@ export function Programm(props: {
 export function PublicProgramm(props: {
   programData: Accessor<Program>;
 }): JSX.Element {
-  return <ProgramView save$={null} program={props.programData} roles={[]} />;
+  return (
+    <ProgramView
+      save$={null}
+      program={props.programData}
+      roles={[]}
+      isPublicSite={true}
+      link={BrowserLink}
+    />
+  );
 }
 
 function ProgramView(props: {
   save$: Reactive<Save> | null;
   program: Accessor<Program>;
   roles: Roles;
+  isPublicSite: boolean;
+  link: LinkComponent;
 }): JSX.Element {
   const filters$ = createReactive<ActiveFilter>({
     day: null,
@@ -81,7 +98,8 @@ function ProgramView(props: {
           program={program().SATURDAY}
           myReservations={props.save$?.get().program.reserved ?? []}
           roles={props.roles}
-          isPublicSite={props.save$ === null}
+          isPublicSite={props.isPublicSite}
+          link={props.link}
         />
       </Show>
       <Show
@@ -93,7 +111,8 @@ function ProgramView(props: {
           program={program().SUNDAY}
           myReservations={props.save$?.get().program.reserved ?? []}
           roles={props.roles}
-          isPublicSite={props.save$ === null}
+          isPublicSite={props.isPublicSite}
+          link={props.link}
         />
       </Show>
       <Show when={props.roles.includes("admin")}>
@@ -212,6 +231,7 @@ export function DayProgram(props: {
   myReservations: Participating[];
   roles: Roles;
   isPublicSite: boolean;
+  link: LinkComponent;
 }): JSX.Element {
   return (
     <Show
@@ -254,6 +274,7 @@ export function DayProgram(props: {
                           )}
                           roles={props.roles}
                           isPublicSite={props.isPublicSite}
+                          link={props.link}
                         />
                       )}
                     </For>

@@ -31,6 +31,7 @@ import { parseIntSafe } from "@common/utils/parsing";
 import { entryEditToPublic } from "@rst/components/anmeldung/utils/convert";
 import { SATURDAY, SUNDAY } from "@rst/components/anmeldung/constant/time";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
+import { RouterLink } from "@common/components/Link";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -232,7 +233,13 @@ function ErstellenDetailContent(props: {
               }
             >
               {(entry) => (
-                <Entry entry={entry} basePath="/programm" roles={props.roles} />
+                <Entry
+                  entry={entry}
+                  basePath="/programm"
+                  roles={props.roles}
+                  isPublicSite={false}
+                  link={RouterLink}
+                />
               )}
             </For>
           </ul>

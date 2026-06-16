@@ -2,7 +2,7 @@ import type { JSX } from "solid-js";
 import type { WithChildren } from "@common/components/utils";
 import { A, useNavigate } from "@solidjs/router";
 
-export function Link(
+export function RouterLink(
   props: WithChildren<{ href: string; class?: string; style?: string }>,
 ): JSX.Element {
   return (
@@ -11,6 +11,18 @@ export function Link(
     </A>
   );
 }
+
+export function BrowserLink(
+  props: WithChildren<{ href: string; class?: string; style?: string }>,
+): JSX.Element {
+  return (
+    <a href={props.href} class={props.class} style={props.style}>
+      {props.children}
+    </a>
+  );
+}
+
+export type LinkComponent = typeof RouterLink | typeof BrowserLink;
 
 export function useLink(): (path: string) => void {
   const navigate = useNavigate();

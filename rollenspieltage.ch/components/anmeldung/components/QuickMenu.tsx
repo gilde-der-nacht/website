@@ -6,7 +6,7 @@ import type { Roles, SaveState } from "@rst/components/anmeldung/api/meta";
 import { Match, Show, Switch } from "solid-js";
 import { Box } from "@common/components/Box";
 import { formatDateTime } from "@common/components/utils";
-import { Link } from "@common/components/Link";
+import { RouterLink } from "@common/components/Link";
 import type { Reactive } from "@common/utils/reactivity";
 
 export function QuickMenu(props: {
@@ -19,26 +19,26 @@ export function QuickMenu(props: {
     <div class="quickmenu-wrapper">
       <div class="quickmenu">
         <Tooltip tooltip="Zur Übersicht">
-          <Link href={props.parentPath} class="button-link">
+          <RouterLink href={props.parentPath} class="button-link">
             <Button label={<Icon icon="backward" />} />
-          </Link>
+          </RouterLink>
         </Tooltip>
         <Tooltip tooltip="Zum Programm">
-          <Link href="/programm" class="button-link">
+          <RouterLink href="/programm" class="button-link">
             <Button label={<Icon icon="dice-d20" />} />
-          </Link>
+          </RouterLink>
         </Tooltip>
         <Show when={props.roles$.get().includes("editor")}>
           <Tooltip tooltip="Zu deinen Spielrunden">
-            <Link href="/erstellen" class="button-link">
+            <RouterLink href="/erstellen" class="button-link">
               <Button label={<Icon icon="grid-2-plus" />} />
-            </Link>
+            </RouterLink>
           </Tooltip>
         </Show>
         <Tooltip tooltip="Zur Zusammenfassung">
-          <Link href="/zusammenfassung" class="button-link">
+          <RouterLink href="/zusammenfassung" class="button-link">
             <Button label={<Icon icon="list" />} />
-          </Link>
+          </RouterLink>
         </Tooltip>
       </div>
     </div>
@@ -55,23 +55,23 @@ export function QuickMenuExtended(props: {
     <>
       <Box type="gray">
         <div class="quickmenu extended">
-          <Link href={props.parentPath} class="button-link">
+          <RouterLink href={props.parentPath} class="button-link">
             <ButtonWithIcon icon="backward" label="Zur Übersicht" />
-          </Link>
-          <Link href="/programm" class="button-link">
+          </RouterLink>
+          <RouterLink href="/programm" class="button-link">
             <ButtonWithIcon icon="dice-d20" label="Zum Programm" />
-          </Link>
+          </RouterLink>
           <Show when={props.roles$.get().includes("editor")}>
-            <Link href="/erstellen" class="button-link">
+            <RouterLink href="/erstellen" class="button-link">
               <ButtonWithIcon
                 icon="grid-2-plus"
                 label="Zu deinen Spielrunden"
               />
-            </Link>
+            </RouterLink>
           </Show>
-          <Link href="/zusammenfassung" class="button-link">
+          <RouterLink href="/zusammenfassung" class="button-link">
             <ButtonWithIcon icon="list" label="Zur Zusammenfassung" />
-          </Link>
+          </RouterLink>
         </div>
       </Box>
       <SaveStateDisplay
