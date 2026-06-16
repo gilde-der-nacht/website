@@ -46,6 +46,7 @@ export function Button(
       disabled={props.disabled === true}
       onClick={(e) => props.onClick?.(e)}
       title={props.title}
+      style={props.style}
     >
       {props.label}
     </button>

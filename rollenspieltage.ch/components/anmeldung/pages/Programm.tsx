@@ -70,13 +70,15 @@ function ProgramView(props: {
   const program = () =>
     filterSortGroupProgram(props.program().publicEntries, filters$);
 
-  const tags = new Set(
-    props
-      .program()
-      .publicEntries.flatMap((entry) =>
-        entry.tagNames.map((s) => s.trim()).filter((s) => s.length !== 0),
-      ),
-  );
+  const tags = [
+    ...new Set(
+      props
+        .program()
+        .publicEntries.flatMap((entry) =>
+          entry.tagNames.map((s) => s.trim()).filter((s) => s.length !== 0),
+        ),
+    ),
+  ].toSorted((a, b) => a.localeCompare(b));
 
   function getHiddenEntriesEmptyIfUnauthorized(): ProgramHiddenEntry[] {
     const { hiddenEntries } = props.program();
@@ -87,7 +89,7 @@ function ProgramView(props: {
     <div style="display: flex; flex-direction: column; gap: 1rem;">
       <Filters
         filters$={filters$}
-        tags={[...tags].toSorted().map((tag) => ({ label: tag, name: tag }))}
+        tags={tags.map((tag) => ({ label: tag, name: tag }))}
       />
       <Show
         when={filters$.get().day === "SATURDAY" || filters$.get().day === null}
