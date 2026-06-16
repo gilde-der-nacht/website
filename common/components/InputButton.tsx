@@ -2,6 +2,7 @@ import { createSignal, type JSX } from "solid-js";
 import { ButtonWithIcon } from "@common/components/Button";
 
 export function InputButton(props: {
+  label: string;
   addFriend: (name: string) => void;
 }): JSX.Element {
   const [name, setName] = createSignal("");
@@ -27,7 +28,7 @@ export function InputButton(props: {
       <ButtonWithIcon
         icon="arrow-right"
         type="submit"
-        label="Begleitperson anmelden"
+        label={props.label}
         kind="special"
       />
     </form>

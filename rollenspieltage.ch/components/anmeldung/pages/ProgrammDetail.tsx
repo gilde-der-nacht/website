@@ -309,6 +309,7 @@ function ProgramDetailContent(props: {
                           </Match>
                           <Match when={seat.kind === "FREE_FRIEND"}>
                             <InputButton
+                              label="Begleitperson anmelden"
                               addFriend={(name) => {
                                 props.addReservation({
                                   entryUuid: props.entry.timeSlot.uuid,

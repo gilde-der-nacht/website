@@ -19,7 +19,7 @@ import { ErstellenDetail } from "@rst/components/anmeldung/pages/ErstellenDetail
 import { createReactive, obj } from "@common/utils/reactivity";
 import { ProgrammDetail } from "@rst/components/anmeldung/pages/ProgrammDetail";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
-import { WartelisteDetail } from "../pages/WartelisteDetail";
+import { WartelisteDetail } from "@rst/components/anmeldung/pages/WartelisteDetail";
 
 export function Router(props: {
   initState: LoadSave;
@@ -161,6 +161,10 @@ export function Router(props: {
               >
                 {({ programData }) => (
                   <WartelisteDetail
+                    waitingEntries$={store$
+                      .pipe(obj.sub("save"))
+                      .pipe(obj.sub("program"))
+                      .pipe(obj.sub("waiting"))}
                     programData={programData}
                     isEditable={props.initState.status === "published"}
                     roles={store$.get().meta.roles}
