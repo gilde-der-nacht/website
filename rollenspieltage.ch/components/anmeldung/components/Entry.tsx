@@ -25,13 +25,14 @@ export function Entry(props: {
     if (props.entry.participation.seats.kind === "NO_LIMIT") {
       return 0;
     }
-    return Math.max(
-      props.entry.participation.seats.max -
-        (typeof props.entry.participation.reserved === "number"
-          ? props.entry.participation.reserved
-          : props.entry.participation.reserved.length) -
-        (props.additionalReservations?.length ?? 0),
-      0,
+    return (
+      Math.max(
+        props.entry.participation.seats.max -
+          (typeof props.entry.participation.reserved === "number"
+            ? props.entry.participation.reserved
+            : props.entry.participation.reserved.length),
+        0,
+      ) - 1
     );
   }
 

@@ -98,6 +98,12 @@ function ProgramDetailContent(props: {
         }
       }
 
+      if (i === props.entry.participation.seats.max - 1) {
+        return {
+          kind: "RESERVED_LOCAL",
+        } as const;
+      }
+
       const allReservations = props.entry.participation.reserved;
 
       if (typeof allReservations === "number") {
@@ -322,6 +328,11 @@ function ProgramDetailContent(props: {
                                 });
                               }}
                             />
+                          </Match>
+                          <Match when={seat.kind === "RESERVED_LOCAL"}>
+                            <Box>
+                              <em>Reserviert für Spontane</em>
+                            </Box>
                           </Match>
                         </Switch>
                       </>
