@@ -125,7 +125,31 @@ function WartelisteDetailContent(props: {
         </RouterLink>
       </div>
 
-      <Box type="danger">[Beschreibung der Wartelisten-Funktion fehlt]</Box>
+      <div style="margin-block-end: 1rem;">
+        <Box type="danger">[Beschreibung der Wartelisten-Funktion fehlt]</Box>
+      </div>
+
+      <Show when={props.entry.myEntry || props.roles.includes("admin")}>
+        <Box>
+          <h4>Auf der Warteliste</h4>
+          <em>Diese Box sehen nur Admins und die Spielleitung.</em>
+          <ol>
+            {typeof props.entry.participation.waiting === "number" ? (
+              <li>
+                <strong>
+                  [Fehler passiert, bitte melde dich umgehend bei uns.]
+                </strong>
+              </li>
+            ) : props.entry.participation.waiting.length === 0 ? (
+              <li>
+                <em>Liste ist noch leer.</em>
+              </li>
+            ) : (
+              props.entry.participation.waiting.map((w) => <li>{w.name}</li>)
+            )}
+          </ol>
+        </Box>
+      </Show>
 
       <div class="reservations" style="margin-block-start: 1rem;">
         <div class="reservation-table">
@@ -137,11 +161,6 @@ function WartelisteDetailContent(props: {
               <>
                 <div class="count">{i() + 1}</div>
                 <Switch>
-                  {/*
-                  <Match when={seat.kind === "RESERVED_OTHER_WITH_NAME"}>
-                    <Box>Bereits eingetragen ({seat.name})</Box>
-                  </Match>
-                  */}
                   <Match when={!props.isEditable}>
                     <Box>Freier Platz</Box>
                   </Match>
