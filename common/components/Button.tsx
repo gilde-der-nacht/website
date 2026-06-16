@@ -14,6 +14,7 @@ type Props = {
   disabled?: boolean;
   onClick?: ((e: Event) => void) | undefined;
   title?: string;
+  style?: string;
 };
 
 export function Button(
@@ -80,6 +81,7 @@ export function ButtonWithIcon(
       disabled={props.disabled === true}
       onClick={(e) => props.onClick?.(e)}
       title={props.title}
+      style={props.style}
     >
       <span style="display: flex; gap: 0.5rem; align-items: center;">
         <Icon icon={props.icon} />

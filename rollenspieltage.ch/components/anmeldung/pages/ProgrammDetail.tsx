@@ -17,7 +17,7 @@ import { arr, type Reactive } from "@common/utils/reactivity";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { getCurrentTimestamp } from "@common/utils/shared";
 import { Temporal } from "@js-temporal/polyfill";
-import { assert } from "@common/components/utils";
+import { assert, ellipsis } from "@common/components/utils";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<Participating[]>;
@@ -71,6 +71,10 @@ function ProgramDetailContent(props: {
       (r) => r.entryUuid === props.entry.timeSlot.uuid,
     );
 
+  const hasReservedForThemselves = (): boolean => {
+    return myReservations().some((r) => r.name.kind === "SELF");
+  };
+
   const range = () => {
     if (props.entry.participation.seats.kind === "NO_LIMIT") {
       return [];
@@ -101,8 +105,13 @@ function ProgramDetailContent(props: {
           return {
             kind: "RESERVED_OTHER",
           } as const;
+        } else if (
+          (allReservations === i || i === 0) &&
+          !hasReservedForThemselves()
+        ) {
+          return { kind: "FREE_SELF" } as const;
         } else {
-          return { kind: "FREE" } as const;
+          return { kind: "FREE_FRIEND" } as const;
         }
       } else {
         const myReservationUuids = myReservations().map(
@@ -118,15 +127,16 @@ function ProgramDetailContent(props: {
             kind: "RESERVED_OTHER_WITH_NAME",
             name: currentExternalReservation.name,
           } as const;
+        } else if (
+          allReservations.length === i &&
+          !hasReservedForThemselves()
+        ) {
+          return { kind: "FREE_SELF" } as const;
         } else {
-          return { kind: "FREE" } as const;
+          return { kind: "FREE_FRIEND" } as const;
         }
       }
     });
-  };
-
-  const hasReservedForThemselves = (): boolean => {
-    return myReservations().find((r) => r.name.kind === "SELF") !== undefined;
   };
 
   const startTime = Temporal.PlainTime.from(
@@ -139,7 +149,7 @@ function ProgramDetailContent(props: {
   return (
     <>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap">
-        <h3>{props.entry.title}</h3>{" "}
+        <h3>{props.entry.title}</h3>
         <RouterLink
           href="/programm"
           class="button-link"
@@ -280,56 +290,37 @@ function ProgramDetailContent(props: {
                               </div>
                             </SimpleBox>
                           </Match>
-                          <Match when={seat.kind === "FREE"}>
-                            <Show
-                              when={hasReservedForThemselves()}
-                              fallback={
-                                <div style="display:grid; gap: 1rem; grid-template-columns: max-content 1fr;">
-                                  <ButtonWithIcon
-                                    icon="person-to-portal"
-                                    label="Mich anmelden"
-                                    kind="success"
-                                    onClick={() => {
-                                      props.addReservation({
-                                        entryUuid: props.entry.timeSlot.uuid,
-                                        uuid: crypto.randomUUID(),
-                                        timestamp: getCurrentTimestamp(),
-                                        name: {
-                                          kind: "SELF",
-                                        },
-                                      });
-                                    }}
-                                  />
-                                  <InputButton
-                                    addFriend={(name) => {
-                                      props.addReservation({
-                                        entryUuid: props.entry.timeSlot.uuid,
-                                        timestamp: getCurrentTimestamp(),
-                                        name: {
-                                          kind: "FRIEND",
-                                          friendsName: name,
-                                        },
-                                        uuid: crypto.randomUUID(),
-                                      });
-                                    }}
-                                  />
-                                </div>
-                              }
-                            >
-                              <InputButton
-                                addFriend={(name) => {
-                                  props.addReservation({
-                                    entryUuid: props.entry.timeSlot.uuid,
-                                    timestamp: getCurrentTimestamp(),
-                                    name: {
-                                      kind: "FRIEND",
-                                      friendsName: name,
-                                    },
-                                    uuid: crypto.randomUUID(),
-                                  });
-                                }}
-                              />
-                            </Show>
+                          <Match when={seat.kind === "FREE_SELF"}>
+                            <ButtonWithIcon
+                              icon="person-to-portal"
+                              label="Mich anmelden"
+                              kind="success"
+                              onClick={() => {
+                                props.addReservation({
+                                  entryUuid: props.entry.timeSlot.uuid,
+                                  uuid: crypto.randomUUID(),
+                                  timestamp: getCurrentTimestamp(),
+                                  name: {
+                                    kind: "SELF",
+                                  },
+                                });
+                              }}
+                            />
+                          </Match>
+                          <Match when={seat.kind === "FREE_FRIEND"}>
+                            <InputButton
+                              addFriend={(name) => {
+                                props.addReservation({
+                                  entryUuid: props.entry.timeSlot.uuid,
+                                  timestamp: getCurrentTimestamp(),
+                                  name: {
+                                    kind: "FRIEND",
+                                    friendsName: name,
+                                  },
+                                  uuid: crypto.randomUUID(),
+                                });
+                              }}
+                            />
                           </Match>
                         </Switch>
                       </>
@@ -337,6 +328,17 @@ function ProgramDetailContent(props: {
                   </For>
                 </div>
               </div>
+              <RouterLink
+                href={`/warteliste/${props.entry.timeSlot.uuid}`}
+                class="button-link"
+                style="inline-size: 100%;"
+              >
+                <ButtonWithIcon
+                  icon="money-check-pen"
+                  label={`Zur Warteliste von '${ellipsis(props.entry.title, 20)}'`}
+                  style="inline-size: 100%;"
+                />
+              </RouterLink>
             </Match>
           </Switch>
         </div>
