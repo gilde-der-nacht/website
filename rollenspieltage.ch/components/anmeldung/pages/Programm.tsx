@@ -78,7 +78,19 @@ function ProgramView(props: {
           entry.tagNames.map((s) => s.trim()).filter((s) => s.length !== 0),
         ),
     ),
-  ].toSorted((a, b) => a.localeCompare(b));
+  ].toSorted((a, b) => {
+    const ageRegex = /^([^\d]+)\s(\d+?)[^\d]*$/;
+    const aExec = ageRegex.exec(a);
+    const bExec = ageRegex.exec(b);
+    if (aExec !== null && bExec !== null) {
+      const aNum = Number(aExec[2]);
+      const bNum = Number(bExec[2]);
+      if (!isNaN(aNum) && !isNaN(bNum)) {
+        return aNum - bNum;
+      }
+    }
+    return a.localeCompare(b);
+  });
 
   function getHiddenEntriesEmptyIfUnauthorized(): ProgramHiddenEntry[] {
     const { hiddenEntries } = props.program();
