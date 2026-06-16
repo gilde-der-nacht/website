@@ -26,26 +26,32 @@ export function Programm(props: {
 }): JSX.Element {
   return (
     <ProgramView
-      save={props.save$.get()}
+      save$={props.save$}
       program={props.programData}
       roles={props.roles}
     />
   );
 }
 
+export function PublicProgramm(props: {
+  programData: Accessor<Program>;
+}): JSX.Element {
+  return <ProgramView save$={null} program={props.programData} roles={[]} />;
+}
+
 function ProgramView(props: {
-  save: Save;
+  save$: Reactive<Save> | null;
   program: Accessor<Program>;
   roles: Roles;
 }): JSX.Element {
-  const $filters = createReactive<ActiveFilter>({
+  const filters$ = createReactive<ActiveFilter>({
     day: null,
     tags: [],
     language: null,
   });
 
   const program = () =>
-    filterSortGroupProgram(props.program().publicEntries, $filters);
+    filterSortGroupProgram(props.program().publicEntries, filters$);
 
   const tags = new Set(
     props
@@ -63,31 +69,33 @@ function ProgramView(props: {
   return (
     <>
       <Filters
-        filters$={$filters}
+        filters$={filters$}
         tags={[...tags].toSorted().map((tag) => ({ label: tag, name: tag }))}
       />
       <br />
       <Show
-        when={$filters.get().day === "SATURDAY" || $filters.get().day === null}
+        when={filters$.get().day === "SATURDAY" || filters$.get().day === null}
       >
         <h3>Samstag</h3>
         <DayProgram
           day="SATURDAY"
           program={program().SATURDAY}
-          myReservations={props.save.program.reserved}
+          myReservations={props.save$?.get().program.reserved ?? []}
           roles={props.roles}
+          isPublicSite={props.save$ === null}
         />
         <br />
       </Show>
       <Show
-        when={$filters.get().day === "SUNDAY" || $filters.get().day === null}
+        when={filters$.get().day === "SUNDAY" || filters$.get().day === null}
       >
         <h3>Sonntag</h3>
         <DayProgram
           day="SUNDAY"
           program={program().SUNDAY}
-          myReservations={props.save.program.reserved}
+          myReservations={props.save$?.get().program.reserved ?? []}
           roles={props.roles}
+          isPublicSite={props.save$ === null}
         />
       </Show>
       <Show when={props.roles.includes("admin")}>
@@ -136,9 +144,9 @@ type HourProgram = { hour: number; entries: ProgramPublicEntry[] };
 
 function filterSortGroupProgram(
   entries: ProgramPublicEntry[],
-  $filters: Reactive<ActiveFilter>,
+  filters$: Reactive<ActiveFilter>,
 ): PerDay<HourProgram[]> {
-  const filters = $filters.get();
+  const filters = filters$.get();
   const days: PerDay<HourProgram[]> = {
     FRIDAY: [],
     SATURDAY: [],
@@ -207,6 +215,7 @@ export function DayProgram(props: {
   program: HourProgram[];
   myReservations: Participating[];
   roles: Roles;
+  isPublicSite: boolean;
 }): JSX.Element {
   return (
     <Show
@@ -252,6 +261,7 @@ export function DayProgram(props: {
                             (r) => r.entryUuid === entry.timeSlot.uuid,
                           )}
                           roles={props.roles}
+                          isPublicSite={props.isPublicSite}
                         />
                       )}
                     </For>

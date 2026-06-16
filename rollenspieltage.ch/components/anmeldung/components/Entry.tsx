@@ -1,4 +1,4 @@
-import { Show, type JSX } from "solid-js";
+import { Show, Switch, type JSX } from "solid-js";
 import { TXT } from "@common/utils/texts";
 import { ellipsis } from "@common/components/utils";
 import { getDay } from "@rst/components/anmeldung/constant/time";
@@ -17,7 +17,10 @@ export function Entry(props: {
   basePath: string;
   additionalReservations?: Participating[];
   roles: Roles;
+  isPublicSite?: boolean;
 }): JSX.Element {
+  const isPublicSite = props.isPublicSite === true;
+
   function freeSeats(): number {
     if (props.entry.participation.seats.kind === "NO_LIMIT") {
       return 0;
@@ -119,20 +122,37 @@ export function Entry(props: {
             </a>
           </li>
         </Show>
-        <li>
-          <Link
-            href={`${props.basePath}/${props.entry.timeSlot.uuid}`}
-            class="button-link"
-          >
-            <button class="event-link">
-              {props.entry.participation.seats.kind === "WITH_LIMIT" ? (
-                <span>Details & Teilnahme</span>
-              ) : (
-                <span>Details</span>
-              )}
-            </button>
-          </Link>
-        </li>
+        <Show
+          when={!isPublicSite}
+          fallback={
+            <li>
+              <a href={`/anmeldung`} class="button-link">
+                <button class="event-link">
+                  {props.entry.participation.seats.kind === "WITH_LIMIT" ? (
+                    <span>Details & Teilnahme</span>
+                  ) : (
+                    <span>Details</span>
+                  )}
+                </button>
+              </a>
+            </li>
+          }
+        >
+          <li>
+            <Link
+              href={`${props.basePath}/${props.entry.timeSlot.uuid}`}
+              class="button-link"
+            >
+              <button class="event-link">
+                {props.entry.participation.seats.kind === "WITH_LIMIT" ? (
+                  <span>Details & Teilnahme</span>
+                ) : (
+                  <span>Details</span>
+                )}
+              </button>
+            </Link>
+          </li>
+        </Show>
       </ul>
     </li>
   );
