@@ -14,7 +14,7 @@ export function Erstellen(props: {
   const navigate = useLink();
 
   return (
-    <>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
       <ul class="link-list" role="list">
         <For each={props.programEntries$.get()}>
           {(entry) => {
@@ -48,7 +48,6 @@ export function Erstellen(props: {
           }}
         </For>
       </ul>
-      <br />
       <Show when={props.isEditable}>
         <BoxLink
           icon="grid-2-plus"
@@ -77,6 +76,6 @@ export function Erstellen(props: {
           <h3>{TXT.createNewGameRound}</h3>
         </BoxLink>
       </Show>
-    </>
+    </div>
   );
 }

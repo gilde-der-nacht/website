@@ -5,14 +5,13 @@ import { Link } from "@common/components/Link";
 
 export function Root(props: { roles: Roles }): JSX.Element {
   return (
-    <div>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
       <Link href="/programm" class="button-link">
         <BoxLink icon="dice-d20">
           <h3>Programm ansehen</h3>
           <p>Melde dich (und deine Freunde) für diverse Spielrunden an.</p>
         </BoxLink>
       </Link>
-      <br />
       <Show when={props.roles.includes("editor")}>
         <Link href="/erstellen" class="button-link">
           <BoxLink icon="grid-2-plus">
@@ -20,7 +19,6 @@ export function Root(props: { roles: Roles }): JSX.Element {
             <p>Erstelle und editiere deine Spielrunden.</p>
           </BoxLink>
         </Link>
-        <br />
       </Show>
       <Link href="/zusammenfassung" class="button-link">
         <BoxLink icon="list">

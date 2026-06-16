@@ -180,8 +180,7 @@ function ErstellenDetailContent(props: {
         </div>
         <div>
           <h3>Vorschau</h3>
-          <br />
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-block-start: 1rem;">
             <Chip kind={errors().hasErrors ? "danger" : "special"}>
               Status:{" "}
               {errors().hasErrors && props.entry$.get().status === "published"
@@ -215,10 +214,8 @@ function ErstellenDetailContent(props: {
               name="status"
             />
           </div>
-          <br />
 
           <ErrorSummary errors={errors()} />
-          <br />
 
           <ul role="list" class="link-list">
             <For

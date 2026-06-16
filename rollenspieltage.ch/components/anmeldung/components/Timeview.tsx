@@ -38,15 +38,13 @@ export function Timeview(props: {
   const hours = openingHours;
 
   return (
-    <div>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
       <h3>Mein Programm</h3>
-      <br />
       <DayFilter
         dayFilter={dayFilter}
         setDayFilter={setDayFilter}
         exclude={excludedDays()}
       />
-      <br />
       <WeekendTimetable
         dayFilter={dayFilter()}
         programEntries={personalProgram()}

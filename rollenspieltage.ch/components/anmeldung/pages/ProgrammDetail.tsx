@@ -154,67 +154,70 @@ function ProgramDetailContent(props: {
       <div class="game-dialog">
         <ul role="list" style="display: grid; gap: 0.5rem;">
           <li>
-            <strong style="color: var(--clr-accent-1);">Spielleitung:</strong>{" "}
-            <br />
-            {props.entry.organizer}
+            <strong style="color: var(--clr-accent-1);">Spielleitung:</strong>
+            <div>{props.entry.organizer}</div>
           </li>
           <li>
-            <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>{" "}
-            <br />
-            {TXT.days[day]}, {formatTime(startTime)} - {formatTime(endTime)} Uhr
+            <strong style="color: var(--clr-accent-1);">Tag, Zeit:</strong>
+            <div>
+              {TXT.days[day]}, {formatTime(startTime)} - {formatTime(endTime)}{" "}
+              Uhr
+            </div>
           </li>
           <li>
-            <strong style="color: var(--clr-accent-1);">Kategorien:</strong>{" "}
-            <br />
-            {props.entry.tagNames.length > 0 ? (
-              props.entry.tagNames.join(", ")
-            ) : (
-              <em>keine Kategorien</em>
-            )}
+            <strong style="color: var(--clr-accent-1);">Kategorien:</strong>
+            <div>
+              {props.entry.tagNames.length > 0 ? (
+                props.entry.tagNames.join(", ")
+              ) : (
+                <em>keine Kategorien</em>
+              )}
+            </div>
           </li>
           <Show when={props.entry.language.trim()}>
             {(lang) => (
               <li>
-                <strong style="color: var(--clr-accent-1);">Sprache:</strong>{" "}
-                <br />
-                {lang()}
+                <strong style="color: var(--clr-accent-1);">Sprache:</strong>
+                <div>{lang()}</div>
               </li>
             )}
           </Show>
           <Show when={props.entry.links.length > 0}>
             <li>
-              <strong style="color: var(--clr-accent-1);">Links:</strong>{" "}
+              <strong style="color: var(--clr-accent-1);">Links:</strong>
               <ul role="list">
                 <For each={props.entry.links}>
                   {(link) => <ButtonLink label={link.label} link={link.link} />}
                 </For>
               </ul>
-              <br />
             </li>
           </Show>
           <li>
             <strong style="color: var(--clr-accent-1);">
               Kurze Beschreibung:
-            </strong>{" "}
-            <br />
-            {props.entry.shortDescription}
+            </strong>
+            <div>{props.entry.shortDescription}</div>
           </li>
           <li>
             <strong style="color: var(--clr-accent-1);">
               Lange Beschreibung:
-            </strong>{" "}
-            <br />
-            {props.entry.longDescription}
+            </strong>
+            <div>
+              {props.entry.longDescription.trim().length > 0 ? (
+                props.entry.longDescription
+              ) : (
+                <em>Keine lange Beschreibung...</em>
+              )}
+            </div>
           </li>
         </ul>
-        <div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
           <Box type="special">
             Wir schicken dir eine E-Mail, sobald du dich für Spielrunden
             anmelden kannst.
           </Box>
           <Switch>
             <Match when={props.roles.includes("admin")}>
-              <br />
               <div class="reservations">
                 <h5 style="margin-block-start: 0">Plätze reservieren</h5>
                 <div class="reservation-table">

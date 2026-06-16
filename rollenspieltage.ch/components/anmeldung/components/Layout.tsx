@@ -45,7 +45,7 @@ export function Layout(props: {
       ) : null}
       <div class="page-content">
         <Show when={props.title !== undefined && props.title.trim().length > 0}>
-          <h2>{props.title}</h2>
+          <h2 style="margin-block-end: 1rem;">{props.title}</h2>
         </Show>
         <ShowProgramData programResource={props.programResource}>
           {(programData) => (

@@ -1,4 +1,4 @@
-import { Show, Switch, type JSX } from "solid-js";
+import { Show, type JSX } from "solid-js";
 import { TXT } from "@common/utils/texts";
 import { ellipsis } from "@common/components/utils";
 import { getDay } from "@rst/components/anmeldung/constant/time";

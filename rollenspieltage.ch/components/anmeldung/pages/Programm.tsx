@@ -67,12 +67,11 @@ function ProgramView(props: {
   }
 
   return (
-    <>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
       <Filters
         filters$={filters$}
         tags={[...tags].toSorted().map((tag) => ({ label: tag, name: tag }))}
       />
-      <br />
       <Show
         when={filters$.get().day === "SATURDAY" || filters$.get().day === null}
       >
@@ -84,7 +83,6 @@ function ProgramView(props: {
           roles={props.roles}
           isPublicSite={props.save$ === null}
         />
-        <br />
       </Show>
       <Show
         when={filters$.get().day === "SUNDAY" || filters$.get().day === null}
@@ -99,9 +97,7 @@ function ProgramView(props: {
         />
       </Show>
       <Show when={props.roles.includes("admin")}>
-        <br />
         <h3>Entwürfe / Veröffentlicht mit Fehlern</h3>
-        <br />
         <ul class="link-list" role="list">
           <For each={getHiddenEntriesEmptyIfUnauthorized()}>
             {(entry) => (
@@ -136,7 +132,7 @@ function ProgramView(props: {
           </For>
         </ul>
       </Show>
-    </>
+    </div>
   );
 }
 
@@ -222,7 +218,6 @@ export function DayProgram(props: {
       when={props.program.length > 0}
       fallback={
         <>
-          <br />
           <Box>
             Keine Spielrunden mit den ausgewählten Filtern am{" "}
             {TXT.days[props.day]} gefunden.
@@ -238,7 +233,6 @@ export function DayProgram(props: {
                 ({ from }) => from === hour,
               )}
             >
-              <br />
               <MealBreak
                 from={hour}
                 to={hour + 1}
@@ -248,9 +242,7 @@ export function DayProgram(props: {
             <Match when={props.program.find((h) => h.hour === hour)}>
               {(hourProgram) => (
                 <>
-                  <h4 style="margin-block-start: 2rem; margin-block-end: 1rem;">
-                    Start: {hour} Uhr
-                  </h4>
+                  <h4>Start: {hour} Uhr</h4>
                   <ul role="list" class="event-list">
                     <For each={hourProgram().entries}>
                       {(entry) => (
