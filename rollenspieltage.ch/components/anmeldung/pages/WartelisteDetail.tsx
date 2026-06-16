@@ -11,7 +11,6 @@ import { getDay } from "@rst/components/anmeldung/constant/time";
 import { formatTime, toRange } from "@common/utils/time";
 import { Temporal } from "@js-temporal/polyfill";
 import { RouterLink } from "@common/components/Link";
-import { BoxLink } from "@common/components/BoxLink";
 import { arr, type Reactive } from "@common/utils/reactivity";
 import type { Participating } from "@rst/components/anmeldung/api/save";
 import { InputButton } from "@common/components/InputButton";
@@ -70,8 +69,8 @@ function WartelisteDetailContent(props: {
 
   const range = () => {
     const numberOfLines = hasEntryOfThemself()
-      ? myEntries().length + 1
-      : myEntries().length + 2;
+      ? myEntries().length + 2
+      : myEntries().length + 3;
     return toRange(numberOfLines).map((i) => {
       const myEntry = myEntries()[i];
       if (myEntry !== undefined) {
@@ -88,8 +87,11 @@ function WartelisteDetailContent(props: {
           } as const;
         }
       }
-      if (i + 1 === numberOfLines) {
+      if (i === numberOfLines - 2) {
         return { kind: "FREE_FRIEND" } as const;
+      }
+      if (i === numberOfLines - 1) {
+        return { kind: "FREE_FRIEND_PREVIEW" } as const;
       }
       return { kind: "FREE_SELF" } as const;
     });
@@ -105,20 +107,22 @@ function WartelisteDetailContent(props: {
 
   return (
     <>
-      <h2>Warteliste</h2>
-      <RouterLink
-        href={`/programm/${props.entry.timeSlot.uuid}`}
-        class="button-link"
-      >
-        <BoxLink icon="backward">
-          <h6 style="margin: 0;">Zurück zur Spielrunde</h6>
+      <div style="margin-block-end: 1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
+        <div>
+          <h2>Warteliste für</h2>
           <h4>{props.entry.title}</h4>
           <h5 style="margin: 0;">
             {TXT.days[getDay(day()) ?? "FRIDAY"]}, {formatTime(startTime())} -{" "}
             {formatTime(endTime())} Uhr
           </h5>
-        </BoxLink>
-      </RouterLink>
+        </div>
+        <RouterLink
+          href={`/programm/${props.entry.timeSlot.uuid}`}
+          class="button-link"
+        >
+          <ButtonWithIcon icon="backward" label="Zurück zur Spielrunde" />
+        </RouterLink>
+      </div>
 
       <div class="reservations" style="margin-block-start: 1rem;">
         <div class="reservation-table">
@@ -210,6 +214,25 @@ function WartelisteDetailContent(props: {
                         });
                       }}
                     />
+                  </Match>
+                  <Match when={seat.kind === "FREE_FRIEND_PREVIEW"}>
+                    <div style="opacity: .3;">
+                      <InputButton
+                        label="Begleitperson eintragen"
+                        disabled={true}
+                        addFriend={(name) => {
+                          addReservation({
+                            entryUuid: props.entry.timeSlot.uuid,
+                            timestamp: getCurrentTimestamp(),
+                            name: {
+                              kind: "FRIEND",
+                              friendsName: name,
+                            },
+                            uuid: crypto.randomUUID(),
+                          });
+                        }}
+                      />
+                    </div>
                   </Match>
                 </Switch>
               </>

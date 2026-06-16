@@ -4,6 +4,7 @@ import { ButtonWithIcon } from "@common/components/Button";
 export function InputButton(props: {
   label: string;
   addFriend: (name: string) => void;
+  disabled?: boolean;
 }): JSX.Element {
   const [name, setName] = createSignal("");
   return (
@@ -24,12 +25,14 @@ export function InputButton(props: {
         style="border-color: var(--clr-special-9);"
         value={name()}
         onInput={(e) => setName(e.target.value)}
+        disabled={props.disabled === true}
       />
       <ButtonWithIcon
         icon="arrow-right"
         type="submit"
         label={props.label}
         kind="special"
+        disabled={props.disabled === true}
       />
     </form>
   );
