@@ -71,6 +71,7 @@ function WartelisteDetailContent(props: {
     const numberOfLines = hasEntryOfThemself()
       ? myEntries().length + 2
       : myEntries().length + 3;
+
     return toRange(numberOfLines).map((i) => {
       const myEntry = myEntries()[i];
       if (myEntry !== undefined) {
@@ -123,6 +124,8 @@ function WartelisteDetailContent(props: {
           <ButtonWithIcon icon="backward" label="Zurück zur Spielrunde" />
         </RouterLink>
       </div>
+
+      <Box type="danger">[Beschreibung der Wartelisten-Funktion fehlt]</Box>
 
       <div class="reservations" style="margin-block-start: 1rem;">
         <div class="reservation-table">
