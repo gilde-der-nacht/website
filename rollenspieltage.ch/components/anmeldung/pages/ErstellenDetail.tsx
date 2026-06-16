@@ -179,9 +179,9 @@ function ErstellenDetailContent(props: {
             <LinkInput links$={props.entry$.pipe(obj.sub("links"))} />
           </form>
         </div>
-        <div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
           <h3>Vorschau</h3>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-block-start: 1rem;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
             <Chip kind={errors().hasErrors ? "danger" : "special"}>
               Status:{" "}
               {errors().hasErrors && props.entry$.get().status === "published"
