@@ -20,10 +20,11 @@ import { createReactive, obj } from "@common/utils/reactivity";
 import { ProgrammDetail } from "@rst/components/anmeldung/pages/ProgrammDetail";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { WartelisteDetail } from "@rst/components/anmeldung/pages/WartelisteDetail";
+import { unsafeToToastUuid, type RegistrationUuid } from "@common/utils/ids";
 
 export function Router(props: {
   initState: LoadSave;
-  secret: string;
+  secret: RegistrationUuid;
 }): JSX.Element {
   const [programResource, { refetch }] = createResource(() =>
     loadProgram(props.secret),
@@ -45,7 +46,7 @@ export function Router(props: {
     save: props.initState.data,
   });
 
-  const deactivateToastUuid = crypto.randomUUID();
+  const deactivateToastUuid = unsafeToToastUuid(crypto.randomUUID());
   // hacky solution to not save on first load when nothing has changed yet.
   const [run, setRun] = createSignal(false);
   createResource(

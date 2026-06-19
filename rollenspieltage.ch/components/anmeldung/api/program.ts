@@ -10,13 +10,19 @@ import {
   unauthorizedSchema,
 } from "@common/utils/shared";
 import { debounce } from "@common/components/utils";
+import {
+  unsafeToGameUuid,
+  unsafeToReservationUuid,
+  unsafeToTimeslotUuid,
+  type RegistrationUuid,
+} from "@common/utils/ids";
 
 /*
  * Types
  */
 
 const programPublicEntrySchema = z.object({
-  uuid: z.string(),
+  uuid: z.string().transform(unsafeToGameUuid),
   status: publishStateSchema,
   myEntry: z.boolean(),
   title: z.string(),
@@ -33,7 +39,7 @@ const programPublicEntrySchema = z.object({
       z.array(
         z.object({
           name: z.string(),
-          uuid: z.string(),
+          uuid: z.string().transform(unsafeToReservationUuid),
           timestamp: timestampSchema,
         }),
       ),
@@ -43,13 +49,16 @@ const programPublicEntrySchema = z.object({
       z.array(
         z.object({
           name: z.string(),
-          uuid: z.string(),
+          uuid: z.string().transform(unsafeToReservationUuid),
           timestamp: timestampSchema,
         }),
       ),
     ]),
   }),
-  timeSlot: z.object({ uuid: z.string(), slot: durationSchema }),
+  timeSlot: z.object({
+    uuid: z.string().transform(unsafeToTimeslotUuid),
+    slot: durationSchema,
+  }),
   tagNames: z.array(z.string()),
   language: z.union([z.literal("Deutsch"), z.literal("Englisch")]),
   links: z.array(
@@ -64,7 +73,7 @@ const programPublicEntrySchema = z.object({
 export type ProgramPublicEntry = z.infer<typeof programPublicEntrySchema>;
 
 const programHiddenEntrySchema = z.object({
-  uuid: z.string(),
+  uuid: z.string().transform(unsafeToGameUuid),
   status: publishStateSchema,
   title: z.string(),
   organizer: z.string(),
@@ -88,7 +97,7 @@ export type Program = z.infer<typeof programSchema>;
  */
 
 export async function loadProgram(
-  secret: string | null,
+  secret: RegistrationUuid | null,
 ): Promise<Result<Program>> {
   const program = await elysiumLoadProgram(secret);
 

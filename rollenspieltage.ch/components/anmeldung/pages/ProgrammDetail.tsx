@@ -18,6 +18,10 @@ import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { getCurrentTimestamp } from "@common/utils/shared";
 import { Temporal } from "@js-temporal/polyfill";
 import { assert, ellipsis } from "@common/components/utils";
+import {
+  unsafeToReservationUuid,
+  type ReservationUuid,
+} from "@common/utils/ids";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<Participating[]>;
@@ -57,7 +61,7 @@ function ProgramDetailContent(props: {
   entry: ProgramPublicEntry;
   myReservations: Participating[];
   addReservation: (reservation: Participating) => void;
-  removeReservation: (reservationUuid: string) => void;
+  removeReservation: (reservationUuid: ReservationUuid) => void;
   isEditable: boolean;
   programData: Accessor<Program>;
   roles: Roles;
@@ -266,7 +270,9 @@ function ProgramDetailContent(props: {
                                     props.removeReservation(
                                       seat.kind === "SELF"
                                         ? seat.uuid
-                                        : "should not happen",
+                                        : unsafeToReservationUuid(
+                                            "should not happen",
+                                          ),
                                     );
                                   }}
                                 />
@@ -289,7 +295,9 @@ function ProgramDetailContent(props: {
                                     props.removeReservation(
                                       seat.kind === "FRIEND"
                                         ? seat.uuid
-                                        : "should not happen",
+                                        : unsafeToReservationUuid(
+                                            "should not happen",
+                                          ),
                                     );
                                   }}
                                 />
@@ -304,7 +312,9 @@ function ProgramDetailContent(props: {
                               onClick={() => {
                                 props.addReservation({
                                   entryUuid: props.entry.timeSlot.uuid,
-                                  uuid: crypto.randomUUID(),
+                                  uuid: unsafeToReservationUuid(
+                                    crypto.randomUUID(),
+                                  ),
                                   timestamp: getCurrentTimestamp(),
                                   name: {
                                     kind: "SELF",
@@ -324,7 +334,9 @@ function ProgramDetailContent(props: {
                                     kind: "FRIEND",
                                     friendsName: name,
                                   },
-                                  uuid: crypto.randomUUID(),
+                                  uuid: unsafeToReservationUuid(
+                                    crypto.randomUUID(),
+                                  ),
                                 });
                               }}
                             />

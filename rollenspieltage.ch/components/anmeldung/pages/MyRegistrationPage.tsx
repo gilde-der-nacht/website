@@ -11,6 +11,7 @@ import { loadSave } from "@rst/components/anmeldung/api/save";
 import { TXT } from "@common/utils/texts";
 import { unpackUnion } from "@common/components/utils";
 import { Router } from "@rst/components/anmeldung/components/Router";
+import { unsafeToRegistrationUuid } from "@common/utils/ids";
 
 function Loading(): JSX.Element {
   return <Box>{TXT.loading.registration}</Box>;
@@ -18,7 +19,9 @@ function Loading(): JSX.Element {
 
 export function MeineAnmeldungWrapper(): JSX.Element {
   const url = URL.parse(location.toString().replace("#/", "")); // bit hacky to work with Solid Router
-  const secret = url?.searchParams.get("secret") ?? "no-secret-found";
+  const secret = unsafeToRegistrationUuid(
+    url?.searchParams.get("secret") ?? "no-secret-found",
+  );
   const [saveResource] = createResource(() => loadSave(secret));
 
   return (

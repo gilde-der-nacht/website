@@ -2,9 +2,10 @@ import { For, Show, type JSX } from "solid-js";
 import { createStore } from "solid-js/store";
 import { Icon } from "@common/components/Icon";
 import { Button } from "@common/components/Button";
+import { unsafeToToastUuid, type ToastUuid } from "@common/utils/ids";
 
 export type Toast = {
-  uuid: string;
+  uuid: ToastUuid;
   kind: "special" | "gray" | "success" | "danger" | "warning";
   message: string;
   duration: number;
@@ -50,7 +51,7 @@ export function Toast(props: {
 }
 
 export function ToastContainer(): JSX.Element {
-  function dismiss(uuid: string): void {
+  function dismiss(uuid: ToastUuid): void {
     store.find((toast) => toast.uuid === uuid)?.cleanup();
     setStore(store.filter((toast) => toast.uuid !== uuid));
   }
@@ -73,7 +74,7 @@ export function toast(message: string, opts?: ToastOptions): string {
   ) {
     return updateToast(opts.uuid, message, opts);
   }
-  const uuid = opts?.uuid ?? crypto.randomUUID();
+  const uuid = opts?.uuid ?? unsafeToToastUuid(crypto.randomUUID());
   const duration = opts?.duration ?? 5_000;
   const kind = opts?.kind ?? "gray";
   const dismissable = opts?.dismissable ?? true;
@@ -95,7 +96,7 @@ export function toast(message: string, opts?: ToastOptions): string {
 }
 
 export function updateToast(
-  uuid: string,
+  uuid: ToastUuid,
   message: string,
   opts: ToastOptions,
 ): string {

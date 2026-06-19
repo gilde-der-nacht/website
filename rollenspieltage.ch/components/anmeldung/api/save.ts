@@ -16,6 +16,13 @@ import {
   rolesSchema,
   type SaveState,
 } from "@rst/components/anmeldung/api/meta";
+import {
+  unsafeToGameUuid,
+  unsafeToReservationUuid,
+  unsafeToTimeslotUuid,
+  unsafeToToastUuid,
+  type RegistrationUuid,
+} from "@common/utils/ids";
 
 const programLinkSchema = z.object({
   label: z.string(),
@@ -24,7 +31,7 @@ const programLinkSchema = z.object({
 
 export type Link = z.infer<typeof programLinkSchema>;
 
-const toastId = crypto.randomUUID();
+const toastId = unsafeToToastUuid(crypto.randomUUID());
 
 async function saveState(
   store: Store<{ saveState: SaveState }>,
@@ -78,8 +85,8 @@ const configSchema = z.object({
 });
 
 const participatingSchema = z.object({
-  entryUuid: z.string(),
-  uuid: z.string(),
+  entryUuid: z.string().transform(unsafeToTimeslotUuid),
+  uuid: z.string().transform(unsafeToReservationUuid),
   timestamp: timestampSchema,
   name: z.union([
     z.object({ kind: z.literal("SELF") }),
@@ -93,14 +100,14 @@ const participatingSchema = z.object({
 export type Participating = z.infer<typeof participatingSchema>;
 
 const timeSlotEditSchema = z.object({
-  uuid: z.string(),
+  uuid: z.string().transform(unsafeToTimeslotUuid),
   slot: durationEditSchema,
 });
 
 export type TimeSlotEdit = z.infer<typeof timeSlotEditSchema>;
 
 const programEntrySchema = z.object({
-  uuid: z.string(),
+  uuid: z.string().transform(unsafeToGameUuid),
   status: publishStateSchema,
   title: z.string(),
   shortDescription: z.string(),
@@ -151,7 +158,9 @@ type LoadSaveResult =
       reason: "SECRET_INVALID" | "PARSE_ERROR" | "GENERAL";
     };
 
-export async function loadSave(secret: string): Promise<LoadSaveResult> {
+export async function loadSave(
+  secret: RegistrationUuid,
+): Promise<LoadSaveResult> {
   if (secret.length !== 36 && secret.length !== "demo".length) {
     return { kind: "FAILURE", reason: "SECRET_INVALID" };
   }

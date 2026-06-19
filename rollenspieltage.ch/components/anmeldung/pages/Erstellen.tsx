@@ -6,6 +6,7 @@ import { arr, type Reactive } from "@common/utils/reactivity";
 import { Chip } from "@common/components/Chip";
 import { getErrors } from "@rst/components/anmeldung/constant/validation";
 import { RouterLink, useLink } from "@common/components/Link";
+import { unsafeToGameUuid } from "@common/utils/ids";
 
 export function Erstellen(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -56,7 +57,7 @@ export function Erstellen(props: {
           icon="grid-2-plus"
           type="success"
           onClick={() => {
-            const uuid = crypto.randomUUID();
+            const uuid = unsafeToGameUuid(crypto.randomUUID());
             arr.push(props.programEntries$, {
               uuid,
               status: "draft",

@@ -1,5 +1,6 @@
 import { elysium } from "@common/components/utils";
 import type { Save } from "@rst/components/anmeldung/api/save";
+import type { RegistrationUuid } from "@common/utils/ids";
 
 export type Result<T> =
   | {
@@ -52,7 +53,7 @@ export async function elysiumSaveState(
 }
 
 export async function elysiumLoadProgram(
-  secret: string | null,
+  secret: RegistrationUuid | null,
 ): Promise<Result<unknown>> {
   try {
     const url = new URL(elysium("/rst26/program"));

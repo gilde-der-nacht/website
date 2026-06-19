@@ -16,6 +16,10 @@ import type { Participating } from "@rst/components/anmeldung/api/save";
 import { InputButton } from "@common/components/InputButton";
 import { ButtonWithIcon, IconOnlyButton } from "@common/components/Button";
 import { getCurrentTimestamp } from "@common/utils/shared";
+import {
+  unsafeToReservationUuid,
+  type ReservationUuid,
+} from "@common/utils/ids";
 
 export function WartelisteDetail(props: {
   waitingEntries$: Reactive<Participating[]>;
@@ -102,7 +106,7 @@ function WartelisteDetailContent(props: {
     arr.push(props.waitingEntries$, reservation);
   }
 
-  function removeReservation(reservationUuid: string): void {
+  function removeReservation(reservationUuid: ReservationUuid): void {
     arr.remove(props.waitingEntries$, (r) => r.uuid !== reservationUuid);
   }
 
@@ -174,7 +178,7 @@ function WartelisteDetailContent(props: {
                             removeReservation(
                               seat.kind === "SELF"
                                 ? seat.uuid
-                                : "should not happen",
+                                : unsafeToReservationUuid("should not happen"),
                             );
                           }}
                         />
@@ -197,7 +201,7 @@ function WartelisteDetailContent(props: {
                             removeReservation(
                               seat.kind === "FRIEND"
                                 ? seat.uuid
-                                : "should not happen",
+                                : unsafeToReservationUuid("should not happen"),
                             );
                           }}
                         />
@@ -212,7 +216,7 @@ function WartelisteDetailContent(props: {
                       onClick={() => {
                         addReservation({
                           entryUuid: props.entry.timeSlot.uuid,
-                          uuid: crypto.randomUUID(),
+                          uuid: unsafeToReservationUuid(crypto.randomUUID()),
                           timestamp: getCurrentTimestamp(),
                           name: {
                             kind: "SELF",
@@ -232,7 +236,7 @@ function WartelisteDetailContent(props: {
                             kind: "FRIEND",
                             friendsName: name,
                           },
-                          uuid: crypto.randomUUID(),
+                          uuid: unsafeToReservationUuid(crypto.randomUUID()),
                         });
                       }}
                     />
@@ -250,7 +254,7 @@ function WartelisteDetailContent(props: {
                               kind: "FRIEND",
                               friendsName: name,
                             },
-                            uuid: crypto.randomUUID(),
+                            uuid: unsafeToReservationUuid(crypto.randomUUID()),
                           });
                         }}
                       />

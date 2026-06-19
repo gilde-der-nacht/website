@@ -13,6 +13,7 @@ import { Icon } from "@common/components/Icon";
 import { TXT } from "@common/utils/texts";
 import { Temporal } from "@js-temporal/polyfill";
 import type { TimeviewKind } from "@rst/components/anmeldung/components/Timeview";
+import type { TimeslotUuid } from "@common/utils/ids";
 
 export type WeekendOpeningHours = PerDay<{
   open: HourRange;
@@ -139,7 +140,7 @@ function TimetableOfDay(props: {
 
 export type ProgramEntryTimetablePreView = {
   name: string;
-  timeSlotUuid: string;
+  timeSlotUuid: TimeslotUuid;
   range: PlainTimeRange;
   title: string;
   kind: TimeviewKind;
@@ -148,7 +149,7 @@ export type ProgramEntryTimetablePreView = {
 
 export type ProgramEntryTimetableView = {
   names: string[];
-  timeSlotUuid: string;
+  timeSlotUuid: TimeslotUuid;
   range: PlainTimeRange;
   component: () => JSX.Element;
 };

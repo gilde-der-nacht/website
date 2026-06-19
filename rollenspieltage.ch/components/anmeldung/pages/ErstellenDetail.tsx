@@ -32,6 +32,7 @@ import { entryEditToPublic } from "@rst/components/anmeldung/utils/convert";
 import { SATURDAY, SUNDAY } from "@rst/components/anmeldung/constant/time";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { RouterLink } from "@common/components/Link";
+import { unsafeToTimeslotUuid } from "@common/utils/ids";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
@@ -393,7 +394,7 @@ function TimeSlotInput(props: {
             type="success"
             onClick={() =>
               arr.push(props.slots$, {
-                uuid: crypto.randomUUID(),
+                uuid: unsafeToTimeslotUuid(crypto.randomUUID()),
                 slot: {
                   start: {
                     day: SATURDAY.toJSON(),
