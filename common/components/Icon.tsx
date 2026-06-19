@@ -11,6 +11,7 @@ const ICONS = [
   "circle-max",
   "circle-plus",
   "circle-question",
+  "circle-minus",
   "circle-xmark",
   "chevrons-right",
   "dice-d20",

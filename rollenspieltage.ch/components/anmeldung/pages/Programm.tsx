@@ -70,27 +70,31 @@ function ProgramView(props: {
   const program = () =>
     filterSortGroupProgram(props.program().publicEntries, filters$);
 
-  const tags = [
-    ...new Set(
-      props
-        .program()
-        .publicEntries.flatMap((entry) =>
-          entry.tagNames.map((s) => s.trim()).filter((s) => s.length !== 0),
-        ),
+  const tags = Object.entries(
+    Object.groupBy(
+      props.program().publicEntries.flatMap((e) => e.tagNames),
+      (e) => e,
     ),
-  ].toSorted((a, b) => {
-    const ageRegex = /^([^\d]+)\s(\d+?)[^\d]*$/;
-    const aExec = ageRegex.exec(a);
-    const bExec = ageRegex.exec(b);
-    if (aExec !== null && bExec !== null) {
-      const aNum = Number(aExec[2]);
-      const bNum = Number(bExec[2]);
-      if (!isNaN(aNum) && !isNaN(bNum)) {
-        return aNum - bNum;
+  )
+    .filter(([tag, list]) => list !== undefined && tag.trim().length > 0)
+    .map(([tag, list]) => ({
+      label: tag,
+      name: tag,
+      count: list?.length ?? 0,
+    }))
+    .toSorted((a, b) => {
+      const ageRegex = /^([^\d]+)\s(\d+?)[^\d]*$/;
+      const aExec = ageRegex.exec(a.name);
+      const bExec = ageRegex.exec(b.name);
+      if (aExec !== null && bExec !== null) {
+        const aNum = Number(aExec[2]);
+        const bNum = Number(bExec[2]);
+        if (!isNaN(aNum) && !isNaN(bNum)) {
+          return aNum - bNum;
+        }
       }
-    }
-    return a.localeCompare(b);
-  });
+      return a.name.localeCompare(b.name);
+    });
 
   function getHiddenEntriesEmptyIfUnauthorized(): ProgramHiddenEntry[] {
     const { hiddenEntries } = props.program();
@@ -99,10 +103,7 @@ function ProgramView(props: {
 
   return (
     <div style="display: flex; flex-direction: column; gap: 1rem;">
-      <Filters
-        filters$={filters$}
-        tags={tags.map((tag) => ({ label: tag, name: tag }))}
-      />
+      <Filters filters$={filters$} tags={tags} />
       <Show
         when={filters$.get().day === "SATURDAY" || filters$.get().day === null}
       >

@@ -1,6 +1,11 @@
 import { Box } from "@common/components/Box";
-import { Button } from "@common/components/Button";
-import { arr, obj, type Reactive } from "@common/utils/reactivity";
+import { Button, ButtonWithIcon } from "@common/components/Button";
+import {
+  arr,
+  createReactive,
+  obj,
+  type Reactive,
+} from "@common/utils/reactivity";
 import type { ProgramDay } from "@common/utils/time";
 import { For, Show, type Accessor, type JSX, type Setter } from "solid-js";
 
@@ -99,9 +104,19 @@ function createFilterUpdater(filters$: Reactive<ActiveFilter>): FilterUpdater {
 
 export function Filters(props: {
   filters$: Reactive<ActiveFilter>;
-  tags: { label: string; name: string }[];
+  tags: { label: string; name: string; count: number }[];
 }): JSX.Element {
   const updater = createFilterUpdater(props.filters$);
+  const expandTags$ = createReactive(false);
+
+  function getMostUsedTags(): string[] {
+    return props.tags
+      .toSorted((a, b) => b.count - a.count)
+      .slice(0, 6)
+      .map((tag) => tag.name)
+      .filter((tag) => !["Frei Verfügbares Rollenspiel"].includes(tag));
+  }
+
   return (
     <Box>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
@@ -136,27 +151,40 @@ export function Filters(props: {
         />
         <For each={props.tags}>
           {(categories) => (
-            <Button
-              label={categories.label}
-              kind={
-                props.filters$.get().tags.length === 0 ||
-                props.filters$.get().tags.includes(categories.name)
-                  ? "success"
-                  : "gray"
+            <Show
+              when={
+                expandTags$.get() || getMostUsedTags().includes(categories.name)
               }
-              onClick={() => {
-                const newTagFilter = new Set(
-                  props.filters$.get().tags.concat(categories.name),
-                );
-                if (newTagFilter.size === props.tags.length) {
-                  updater.toggleAllTags();
-                } else {
-                  updater.toggleTag(categories.name);
+            >
+              <Button
+                label={categories.label}
+                kind={
+                  props.filters$.get().tags.length === 0 ||
+                  props.filters$.get().tags.includes(categories.name)
+                    ? "success"
+                    : "gray"
                 }
-              }}
-            />
+                onClick={() => {
+                  const newTagFilter = new Set(
+                    props.filters$.get().tags.concat(categories.name),
+                  );
+                  if (newTagFilter.size === props.tags.length) {
+                    updater.toggleAllTags();
+                  } else {
+                    updater.toggleTag(categories.name);
+                  }
+                }}
+              />
+            </Show>
           )}
         </For>
+        <ButtonWithIcon
+          icon={expandTags$.get() ? "circle-minus" : "circle-plus"}
+          label={
+            expandTags$.get() ? "weniger Anzeigen" : "alle Kategorien anzeigen"
+          }
+          onClick={() => expandTags$.set(!expandTags$.get())}
+        />
       </div>
       <h6 style="margin-block: 0.5rem;">Sprache</h6>
       <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
