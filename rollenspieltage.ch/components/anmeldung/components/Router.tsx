@@ -102,7 +102,7 @@ export function Router(props: {
             path: "/",
             component: () => (
               <Layout
-                title="Wo möchtest du starten?"
+                title={`Wo möchtest du starten, ${store$.get().save.contact.name}?`}
                 store$={store$}
                 programResource={programResource}
               >

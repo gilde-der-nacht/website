@@ -29,6 +29,7 @@ const ICONS = [
   "paper-plane",
   "pencil",
   "person-to-portal",
+  "rotate-left",
   "sun-bright",
   "spinner",
   "square-check",
