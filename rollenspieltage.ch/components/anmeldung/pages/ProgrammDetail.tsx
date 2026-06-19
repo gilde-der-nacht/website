@@ -22,6 +22,8 @@ import {
   unsafeToReservationUuid,
   type ReservationUuid,
 } from "@common/utils/ids";
+import { Reservation } from "@rst/components/anmeldung/components/Reservation";
+import { orderReservations } from "../utils/waitinglist";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<Participating[]>;
@@ -39,19 +41,25 @@ export function ProgrammDetail(props: {
       fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
     >
       {(entry) => (
-        <ProgramDetailContent
-          entry={entry()}
-          myReservations={props.reservations$.get()}
-          isEditable={props.isEditable}
-          addReservation={(reservation) =>
-            arr.push(props.reservations$, reservation)
-          }
-          removeReservation={(reservationUuid) => {
-            arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid);
-          }}
-          programData={props.programData}
-          roles={props.roles}
-        />
+        <>
+          <Reservation
+            reservations$={props.reservations$}
+            timeslotUuid={entry().timeSlot.uuid}
+          />
+          <ProgramDetailContent
+            entry={entry()}
+            myReservations={props.reservations$.get()}
+            isEditable={props.isEditable}
+            addReservation={(reservation) =>
+              arr.push(props.reservations$, reservation)
+            }
+            removeReservation={(reservationUuid) =>
+              arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid)
+            }
+            programData={props.programData}
+            roles={props.roles}
+          />
+        </>
       )}
     </Show>
   );
@@ -66,6 +74,8 @@ function ProgramDetailContent(props: {
   programData: Accessor<Program>;
   roles: Roles;
 }): JSX.Element {
+  console.log(orderReservations(props.entry));
+
   const day =
     getDay(Temporal.PlainDate.from(props.entry.timeSlot.slot.start.day)) ??
     "FRIDAY";

@@ -14,12 +14,12 @@ export const timeSlotSchema = z
   });
 export type TimeSlot = z.infer<typeof timeSlotSchema>;
 
-export const tagz = z.object({
+export const tagSchema = z.object({
   name: z.string(),
   label: z.string(),
   description: z.string(),
 });
-export type Tag = z.infer<typeof tagz>;
+export type Tag = z.infer<typeof tagSchema>;
 
 export const publishStateSchema = z.enum(["draft", "published", "archived"]);
 export type PublishState = z.infer<typeof publishStateSchema>;
@@ -63,6 +63,10 @@ export const timestampSchema = z.object({
 });
 
 export type Timestamp = z.infer<typeof timestampSchema>;
+
+export function toPlainDateTime(ts: Timestamp): Temporal.PlainDateTime {
+  return Temporal.PlainDateTime.from(`${ts.day} ${ts.time}`);
+}
 
 export function getCurrentTimestamp(): Timestamp {
   const day = Temporal.Now.plainDateISO();
