@@ -124,7 +124,7 @@ function TimetableOfDay(props: {
           </>
         }
       >
-        <Match when={conflictingEntries.length === 0}>
+        <Match when={conflictingEntries().length === 0}>
           <Timetable
             programEntries={props.programEntries}
             openingHoursOfDay={props.openingHoursOfDay}
