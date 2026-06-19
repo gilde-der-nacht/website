@@ -22,9 +22,6 @@ export function Entry(props: {
   link: LinkComponent;
 }): JSX.Element {
   function freeSeats(): number {
-    if (props.entry.participation.seats.kind === "NO_LIMIT") {
-      return 0;
-    }
     return (
       Math.max(
         props.entry.participation.seats.max -
@@ -42,10 +39,7 @@ export function Entry(props: {
       cls.push("success");
     } else if (props.entry.myEntry) {
       cls.push("success");
-    } else if (
-      freeSeats() === 0 &&
-      props.entry.participation.seats.kind === "WITH_LIMIT"
-    ) {
+    } else if (freeSeats() === 0) {
       cls.push("gray");
     }
     return cls.join(" ");
@@ -75,14 +69,8 @@ export function Entry(props: {
           </span>
         </div>
         <div class="event-tags">
-          {props.entry.participation.seats.kind === "NO_LIMIT" ? (
-            <em>Teilnahme ohne Anmeldung möglich.</em>
-          ) : (
-            <>
-              <strong>Freie Plätze:</strong> {freeSeats()} (von{" "}
-              {props.entry.participation.seats.max})
-            </>
-          )}
+          <strong>Freie Plätze:</strong> {freeSeats()} (von{" "}
+          {props.entry.participation.seats.max})
         </div>
         <div class="event-tags">
           <strong>Kategorien:</strong>{" "}
@@ -134,11 +122,7 @@ export function Entry(props: {
             class="button-link"
           >
             <button class="event-link">
-              {props.entry.participation.seats.kind === "WITH_LIMIT" ? (
-                <span>Details & Teilnahme</span>
-              ) : (
-                <span>Details</span>
-              )}
+              <span>Details & Teilnahme</span>
             </button>
           </Dynamic>
         </li>

@@ -17,7 +17,7 @@ import { arr, type Reactive } from "@common/utils/reactivity";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { getCurrentTimestamp } from "@common/utils/shared";
 import { Temporal } from "@js-temporal/polyfill";
-import { assert, ellipsis } from "@common/components/utils";
+import { ellipsis } from "@common/components/utils";
 import {
   unsafeToReservationUuid,
   type ReservationUuid,
@@ -80,12 +80,7 @@ function ProgramDetailContent(props: {
   };
 
   const range = () => {
-    if (props.entry.participation.seats.kind === "NO_LIMIT") {
-      return [];
-    }
     return toRange(props.entry.participation.seats.max).map((i) => {
-      assert(props.entry.participation.seats.kind !== "NO_LIMIT", "");
-
       const myReservation = myReservations()[i];
       if (myReservation !== undefined) {
         if (myReservation.name.kind === "SELF") {
@@ -205,7 +200,7 @@ function ProgramDetailContent(props: {
           <Show when={props.entry.links.length > 0}>
             <li>
               <strong style="color: var(--clr-accent-1);">Links:</strong>
-              <ul role="list">
+              <ul role="list" style="display: flex; gap: 0.5rem;">
                 <For each={props.entry.links}>
                   {(link) => <ButtonLink label={link.label} link={link.link} />}
                 </For>

@@ -65,7 +65,6 @@ export function Erstellen(props: {
               shortDescription: "",
               longDescription: "",
               seats: {
-                kind: "WITH_LIMIT",
                 max: 6,
               },
               timeSlots: [],

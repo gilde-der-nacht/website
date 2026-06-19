@@ -1,6 +1,6 @@
 import { unsafeToReservationUuid, type TimeslotUuid } from "@common/utils/ids";
 import { Show, type JSX } from "solid-js";
-import type { Participating } from "../api/save";
+import type { Participating } from "@rst/components/anmeldung/api/save";
 import { arr, createReactive, type Reactive } from "@common/utils/reactivity";
 import { SimpleBox } from "@common/components/Box";
 import {

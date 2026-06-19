@@ -64,8 +64,7 @@ export function entryEditToPublic(
         longDescription,
         participation: {
           seats,
-          reserved: 0,
-          waiting: 0,
+          reserved: [],
         },
         timeSlot: { uuid: timeSlot.uuid, slot: parsed },
         tagNames: tagNames

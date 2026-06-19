@@ -12,6 +12,7 @@ import {
 import { debounce } from "@common/components/utils";
 import {
   unsafeToGameUuid,
+  unsafeToGroupUuid,
   unsafeToReservationUuid,
   unsafeToTimeslotUuid,
   type RegistrationUuid,
@@ -31,29 +32,16 @@ const programPublicEntrySchema = z.object({
   longDescription: z.string(),
   participation: z.object({
     seats: z.object({
-      kind: z.union([z.literal("NO_LIMIT"), z.literal("WITH_LIMIT")]),
       max: z.number(),
     }),
-    reserved: z.union([
-      z.number(),
-      z.array(
-        z.object({
-          name: z.string(),
-          uuid: z.string().transform(unsafeToReservationUuid),
-          timestamp: timestampSchema,
-        }),
-      ),
-    ]),
-    waiting: z.union([
-      z.number(),
-      z.array(
-        z.object({
-          name: z.string(),
-          uuid: z.string().transform(unsafeToReservationUuid),
-          timestamp: timestampSchema,
-        }),
-      ),
-    ]),
+    reserved: z.array(
+      z.object({
+        name: z.string().nullable(),
+        uuid: z.string().transform(unsafeToReservationUuid),
+        timestamp: timestampSchema,
+        groupId: z.string().transform(unsafeToGroupUuid),
+      }),
+    ),
   }),
   timeSlot: z.object({
     uuid: z.string().transform(unsafeToTimeslotUuid),

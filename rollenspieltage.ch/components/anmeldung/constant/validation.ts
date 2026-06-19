@@ -52,10 +52,7 @@ export function getErrors(
     ];
   }
 
-  if (
-    (entry.seats.kind === "WITH_LIMIT" && entry.seats.max < 1) ||
-    isNaN(entry.seats.max)
-  ) {
+  if (entry.seats.max < 1 || isNaN(entry.seats.max)) {
     byField["seats"] = [...(byField["seats"] ?? []), TXT.minSeats];
   }
 

@@ -113,7 +113,6 @@ const programEntrySchema = z.object({
   shortDescription: z.string(),
   longDescription: z.string(),
   seats: z.object({
-    kind: z.union([z.literal("NO_LIMIT"), z.literal("WITH_LIMIT")]),
     max: z.number(),
   }),
   timeSlots: z.array(timeSlotEditSchema),
@@ -127,11 +126,10 @@ export type ProgramEntry = z.infer<typeof programEntrySchema>;
 const programSchema = z.object({
   organising: z.array(programEntrySchema),
   reserved: z.array(participatingSchema),
-  waiting: z.array(participatingSchema),
 });
 
 export const saveSchema = z.object({
-  version: z.literal(2),
+  version: z.literal(3),
   contact: contactSchema,
   config: configSchema,
   program: programSchema,

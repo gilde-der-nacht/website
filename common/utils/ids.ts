@@ -38,6 +38,12 @@ export type ReservationUuid = Branded<string, typeof brandReservationUuid>;
 export function unsafeToReservationUuid(str: string): ReservationUuid {
   return createBranded<string, typeof brandReservationUuid>(str);
 }
+declare const brandGroupUuid: unique symbol;
+export type GroupUuid = Branded<string, typeof brandGroupUuid>;
+
+export function unsafeToGroupUuid(str: string): GroupUuid {
+  return createBranded<string, typeof brandGroupUuid>(str);
+}
 
 declare const brandToastUuid: unique symbol;
 export type ToastUuid = Branded<string, typeof brandToastUuid>;

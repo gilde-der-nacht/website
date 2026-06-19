@@ -19,7 +19,6 @@ import { ErstellenDetail } from "@rst/components/anmeldung/pages/ErstellenDetail
 import { createReactive, obj } from "@common/utils/reactivity";
 import { ProgrammDetail } from "@rst/components/anmeldung/pages/ProgrammDetail";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
-import { WartelisteDetail } from "@rst/components/anmeldung/pages/WartelisteDetail";
 import { unsafeToToastUuid, type RegistrationUuid } from "@common/utils/ids";
 
 export function Router(props: {
@@ -143,29 +142,6 @@ export function Router(props: {
                       .pipe(obj.sub("save"))
                       .pipe(obj.sub("program"))
                       .pipe(obj.sub("reserved"))}
-                    programData={programData}
-                    isEditable={props.initState.status === "published"}
-                    roles={store$.get().meta.roles}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "/warteliste/:uuid",
-            component: () => (
-              <Layout
-                store$={store$}
-                showQuickmenu={true}
-                parentPath="/programm"
-                programResource={programResource}
-              >
-                {({ programData }) => (
-                  <WartelisteDetail
-                    waitingEntries$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("program"))
-                      .pipe(obj.sub("waiting"))}
                     programData={programData}
                     isEditable={props.initState.status === "published"}
                     roles={store$.get().meta.roles}

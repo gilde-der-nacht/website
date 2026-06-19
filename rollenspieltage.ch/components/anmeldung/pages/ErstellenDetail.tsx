@@ -111,16 +111,12 @@ function ErstellenDetailContent(props: {
               disabled={!props.isEditable}
             />
 
-            <Show when={props.entry$.get().seats.kind === "WITH_LIMIT"}>
-              <NumberInputField
-                value$={props.entry$
-                  .pipe(obj.sub("seats"))
-                  .pipe(obj.sub("max"))}
-                label="Maximale Plätze"
-                name="maxSeats"
-                errors={errors().byField.seats ?? []}
-              />
-            </Show>
+            <NumberInputField
+              value$={props.entry$.pipe(obj.sub("seats")).pipe(obj.sub("max"))}
+              label="Maximale Plätze"
+              name="maxSeats"
+              errors={errors().byField.seats ?? []}
+            />
 
             <TimeSlotInput
               slots$={props.entry$.pipe(obj.sub("timeSlots"))}
