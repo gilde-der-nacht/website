@@ -17,7 +17,6 @@ import { arr, type Reactive } from "@common/utils/reactivity";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { getCurrentTimestamp } from "@common/utils/shared";
 import { Temporal } from "@js-temporal/polyfill";
-import { ellipsis } from "@common/components/utils";
 import {
   unsafeToReservationUuid,
   type ReservationUuid,
@@ -41,31 +40,27 @@ export function ProgrammDetail(props: {
       fallback={<Box type="danger">{TXT.error.gameroundUuidError}</Box>}
     >
       {(entry) => (
-        <>
-          <Reservation
-            reservations$={props.reservations$}
-            timeslotUuid={entry().timeSlot.uuid}
-          />
-          <ProgramDetailContent
-            entry={entry()}
-            myReservations={props.reservations$.get()}
-            isEditable={props.isEditable}
-            addReservation={(reservation) =>
-              arr.push(props.reservations$, reservation)
-            }
-            removeReservation={(reservationUuid) =>
-              arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid)
-            }
-            programData={props.programData}
-            roles={props.roles}
-          />
-        </>
+        <ProgramDetailContent
+          reservations$={props.reservations$}
+          entry={entry()}
+          myReservations={props.reservations$.get()}
+          isEditable={props.isEditable}
+          addReservation={(reservation) =>
+            arr.push(props.reservations$, reservation)
+          }
+          removeReservation={(reservationUuid) =>
+            arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid)
+          }
+          programData={props.programData}
+          roles={props.roles}
+        />
       )}
     </Show>
   );
 }
 
 function ProgramDetailContent(props: {
+  reservations$: Reactive<Participating[]>;
   entry: ProgramPublicEntry;
   myReservations: Participating[];
   addReservation: (reservation: Participating) => void;
@@ -243,6 +238,10 @@ function ProgramDetailContent(props: {
           </Box>
           <Switch>
             <Match when={props.roles.includes("admin")}>
+              <Reservation
+                reservations$={props.reservations$}
+                timeslotUuid={props.entry.timeSlot.uuid}
+              />
               <div class="reservations">
                 <h5 style="margin-block-start: 0">Plätze reservieren</h5>
                 <div class="reservation-table">
@@ -357,17 +356,6 @@ function ProgramDetailContent(props: {
                   </For>
                 </div>
               </div>
-              <RouterLink
-                href={`/warteliste/${props.entry.timeSlot.uuid}`}
-                class="button-link"
-                style="inline-size: 100%;"
-              >
-                <ButtonWithIcon
-                  icon="money-check-pen"
-                  label={`Zur Warteliste von '${ellipsis(props.entry.title, 20)}'`}
-                  style="inline-size: 100%;"
-                />
-              </RouterLink>
             </Match>
           </Switch>
         </div>
