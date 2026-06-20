@@ -1732,10 +1732,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:^3.7.1":
-  version: 3.7.1
-  resolution: "@types/luxon@npm:3.7.1"
-  checksum: 10/c7bc164c278393ea0be938f986c74b4cddfab9013b1aff4495b016f771ded1d5b7b7b4825b2c7f0b8799edce19c5f531c28ff434ab3dedf994ac2d99a20fd4c4
+"@types/luxon@npm:^3.7.2":
+  version: 3.7.2
+  resolution: "@types/luxon@npm:3.7.2"
+  checksum: 10/6634ebaceeec84d39cbb456d4db358481bc2ba7d05df47890a4f2d235100c29a52f621e1401f016747093093fa86c117bef01446199e0b1af3bcdcee47a57b1f
   languageName: node
   linkType: hard
 
@@ -2425,7 +2425,7 @@ __metadata:
     "@js-temporal/polyfill": "npm:^0.5.1"
     "@solidjs/router": "npm:^0.16.1"
     "@types/html-escaper": "npm:^3.0.4"
-    "@types/luxon": "npm:^3.7.1"
+    "@types/luxon": "npm:^3.7.2"
     "@types/node": "npm:^26.0.0"
     astro: "npm:6.4.8"
     luxon: "npm:^3.7.2"
