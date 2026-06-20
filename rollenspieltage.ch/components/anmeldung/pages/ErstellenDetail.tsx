@@ -40,7 +40,7 @@ export function ErstellenDetail(props: {
   isEditable: boolean;
   roles: Roles;
 }): JSX.Element {
-  const uuid = useParams().uuid ?? "no-uuid-found";
+  const params = useParams();
 
   return (
     <ErrorBoundary
@@ -51,7 +51,10 @@ export function ErstellenDetail(props: {
       }
     >
       <ErstellenDetailContent
-        entry$={arr.findExact(props.programEntries$, (e) => e.uuid === uuid)}
+        entry$={arr.findExact(
+          props.programEntries$,
+          (e) => e.uuid === params.uuid,
+        )}
         contact$={props.contact$}
         isEditable={props.isEditable}
         roles={props.roles}
