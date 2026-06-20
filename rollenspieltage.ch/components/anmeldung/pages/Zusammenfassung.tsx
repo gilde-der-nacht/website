@@ -49,7 +49,6 @@ function Contact(props: {
   isEditable: boolean;
 }): JSX.Element {
   const [dialogStore, setDialogStore] = createStore(initDialogStore());
-  const { name, email, mobile } = props.contact$.get();
 
   return (
     <Box>
@@ -65,13 +64,13 @@ function Contact(props: {
       <div style="display: grid; gap: 1rem;">
         <h3>Meine Kontaktdaten</h3>
         <p>
-          <strong>Name:</strong> {name}
+          <strong>Name:</strong> {props.contact$.get().name}
         </p>
         <p>
-          <strong>E-Mail:</strong> {email}
+          <strong>E-Mail:</strong> {props.contact$.get().email}
         </p>
         <p>
-          <strong>Handynummer:</strong> {mobile}
+          <strong>Handynummer:</strong> {props.contact$.get().mobile}
         </p>
 
         <Show when={props.isEditable}>
