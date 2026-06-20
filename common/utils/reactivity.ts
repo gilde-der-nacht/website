@@ -90,7 +90,7 @@ export const arr = {
     predicate: (el: T) => boolean,
   ): void => {
     reactive.update((oldValue) => {
-      return oldValue.filter(predicate);
+      return oldValue.filter((el) => !predicate(el));
     });
   },
   findExact: <T,>(

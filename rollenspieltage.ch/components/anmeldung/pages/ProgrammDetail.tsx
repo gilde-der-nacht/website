@@ -17,7 +17,6 @@ import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { Temporal } from "@js-temporal/polyfill";
 import { type ReservationUuid } from "@common/utils/ids";
 import { Reservation } from "@rst/components/anmeldung/components/Reservation";
-import { orderReservations } from "@rst/components/anmeldung/utils/waitinglist";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<Participating[]>;
@@ -48,7 +47,7 @@ export function ProgrammDetail(props: {
             arr.push(props.reservations$, reservation)
           }
           removeReservation={(reservationUuid) =>
-            arr.remove(props.reservations$, (r) => r.uuid !== reservationUuid)
+            arr.remove(props.reservations$, (r) => r.uuid === reservationUuid)
           }
           programData={props.programData}
           roles={props.roles}
@@ -68,8 +67,6 @@ function ProgramDetailContent(props: {
   programData: Accessor<Program>;
   roles: Roles;
 }): JSX.Element {
-  console.log(orderReservations(props.entry));
-
   const day =
     getDay(Temporal.PlainDate.from(props.entry.timeSlot.slot.start.day)) ??
     "FRIDAY";
@@ -169,6 +166,7 @@ function ProgramDetailContent(props: {
                 addReservation={props.addReservation}
                 removeReservation={props.removeReservation}
                 myReservations={props.myReservations}
+                roles={props.roles}
                 isEditable={props.isEditable}
               />
             </Match>

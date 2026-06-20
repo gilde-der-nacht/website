@@ -14,9 +14,11 @@ import {
 } from "@common/components/Button";
 import { join } from "@common/utils/strings";
 import { getCurrentTimestamp } from "@common/utils/shared";
-import type { ProgramPublicEntry } from "../api/program";
+import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
 import { toRange } from "@common/utils/time";
 import { InputButton } from "@common/components/InputButton";
+import { orderReservations } from "@rst/components/anmeldung/utils/waitinglist";
+import type { Roles } from "@rst/components/anmeldung/api/meta";
 
 export function ReservationForm(props: {
   timeslotUuid: TimeslotUuid;
@@ -108,9 +110,9 @@ export function ReservationForm(props: {
   }
 
   function removeReservation(): void {
-    reservations().forEach((reservation) =>
-      arr.remove(props.reservations$, (r) => r.uuid === reservation.uuid),
-    );
+    reservations().forEach((reservation) => {
+      arr.remove(props.reservations$, (r) => r.uuid === reservation.uuid);
+    });
     names$.set("");
     editable$.set(false);
   }
@@ -230,8 +232,12 @@ export function Reservation(props: {
   myReservations: Participating[];
   addReservation: (reservation: Participating) => void;
   removeReservation: (reservationUuid: ReservationUuid) => void;
+  roles: Roles;
   isEditable: boolean;
 }): JSX.Element {
+  const view = prepareRegistrationView(props.entry, props.roles);
+  console.log(view);
+
   const myReservations = () =>
     props.myReservations.filter(
       (r) => r.entryUuid === props.entry.timeSlot.uuid,
@@ -418,4 +424,30 @@ export function Reservation(props: {
       </div>
     </>
   );
+}
+
+type ReservationView = { waitingList?: boolean } & (
+  | {
+      kind: "RESERVED_OTHER";
+      names: string[] | null;
+    }
+  | {
+      kind: "OVERFLOW";
+    }
+  | {
+      kind: "NOT_RESERVED";
+    }
+  | { kind: "RESERVATION_FORM" }
+  | { kind: "RESERVED_SPONTANIOUS" }
+);
+
+function prepareRegistrationView(
+  programEntry: ProgramPublicEntry,
+  roles: Roles,
+): ReservationView[] {
+  const allowedDetails = roles.includes("admin") || programEntry.myEntry;
+
+  const ordered = orderReservations(programEntry);
+  console.log(ordered);
+  return [];
 }
