@@ -1,5 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { z } from "astro/zod";
+import type { Duration } from "@common/utils/shared";
 
 export const daySchema = z.enum(["FRIDAY", "SATURDAY", "SUNDAY"]);
 export type ProgramDay = z.infer<typeof daySchema>;
@@ -151,4 +152,16 @@ export function formatTimeDuration(
     return `${diffMinutes} ${diffMinutes === 1 ? "Minute" : "Minuten"}`;
   }
   return `${diffHours} Stunden, ${diffMinutes} Minuten`;
+}
+
+export function durationToTemporal(duration: Duration): {
+  day: Temporal.PlainDate;
+  startTime: Temporal.PlainTime;
+  endTime: Temporal.PlainTime;
+} {
+  const day = Temporal.PlainDate.from(duration.start.day);
+  const startTime = Temporal.PlainTime.from(duration.start.time);
+  const endTime = startTime.add(Temporal.Duration.from(duration.duration));
+
+  return { day, startTime, endTime };
 }

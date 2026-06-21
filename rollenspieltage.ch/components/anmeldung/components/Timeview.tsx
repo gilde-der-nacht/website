@@ -8,6 +8,7 @@ import { getDay, openingHours } from "@rst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import type { Save } from "@rst/components/anmeldung/api/save";
 import {
+  durationToTemporal,
   formatTime,
   formatTimeDuration,
   type PerDay,
@@ -18,21 +19,25 @@ import type { IconType } from "@common/components/Icon";
 import { Chip } from "@common/components/Chip";
 import { IconOnlyButton } from "@common/components/Button";
 import { RouterLink } from "@common/components/Link";
-import { parsePlainTime } from "@common/components/events";
-import { getErrors } from "@rst/components/anmeldung/constant/validation";
 import { Temporal } from "@js-temporal/polyfill";
 import type { Program } from "@rst/components/anmeldung/api/program";
 import type { Reactive } from "@common/utils/reactivity";
 import { mapGroupBy } from "@common/utils/group";
 import { assert } from "@common/components/utils";
+import type { RegistrationUuid } from "@common/utils/ids";
 
 export function Timeview(props: {
   save$: Reactive<Save>;
   programData: Accessor<Program>;
+  secret: RegistrationUuid;
 }): JSX.Element {
   const [dayFilter, setDayFilter] = createSignal<DayFilterState>(null);
   const personalProgram = () =>
-    aggregateEntries(props.save$, props.programData);
+    aggregateEntries({
+      save$: props.save$,
+      programData: props.programData,
+      secret: props.secret,
+    });
 
   const excludedDays = () => getExcludedDays(personalProgram());
   const hours = openingHours;
@@ -57,14 +62,14 @@ export function Timeview(props: {
   );
 }
 
-export function aggregateEntries(
-  save$: Reactive<Save>,
-  programState: Accessor<Program>,
-): PerDay<ProgramEntryTimetableView[]> {
+export function aggregateEntries(props: {
+  save$: Reactive<Save>;
+  programData: Accessor<Program>;
+  secret: RegistrationUuid;
+}): PerDay<ProgramEntryTimetableView[]> {
   const {
     contact: { name },
-    program: { organising, reserved },
-  } = save$.get();
+  } = props.save$.get();
 
   const aggregation: PerDay<ProgramEntryTimetablePreView[]> = {
     FRIDAY: [],
@@ -72,76 +77,83 @@ export function aggregateEntries(
     SUNDAY: [],
   };
 
-  organising.forEach((entry) => {
-    if (entry.status !== "published") {
-      return;
-    }
-    const errors = getErrors(entry);
-    if (errors.hasErrors) {
-      return;
-    }
-
-    entry.timeSlots.forEach((slot) => {
-      const parsedStartTime = parsePlainTime(slot.slot.start.time);
-      if (parsedStartTime.kind === "ERROR") {
-        return;
-      }
-      const parsedEndTime = parsePlainTime(slot.slot.end.time);
-      if (parsedEndTime.kind === "ERROR") {
+  props
+    .programData()
+    .publicEntries.filter((entry) => entry.myEntry)
+    .forEach((entry) => {
+      if (entry.status !== "published") {
         return;
       }
 
+      const { startTime, endTime } = durationToTemporal(entry.timeSlot.slot);
       const range: PlainTimeRange = {
-        startTime: parsedStartTime.value,
-        endTime: parsedEndTime.value,
+        startTime,
+        endTime,
       };
       const path = `/erstellen/${entry.uuid}`;
 
-      aggregation[getDay(slot.slot.start.day) ?? "FRIDAY"].push({
+      aggregation[getDay(entry.timeSlot.slot.start.day) ?? "FRIDAY"].push({
         name: name,
-        timeSlotUuid: slot.uuid,
+        timeSlotUuid: entry.timeSlot.uuid,
         range,
         title: entry.title,
         kind: "master",
         path: path,
       });
     });
-  });
 
-  reserved.forEach((entry) => {
-    const programmEntry = programState().publicEntries.find(
-      (p) => p.timeSlot.uuid === entry.entryUuid,
-    );
-    if (programmEntry === undefined) {
-      return;
-    }
+  props.programData().publicEntries.forEach((programEntry) => {
+    const { reserved, waiting } = programEntry.participation;
 
-    const startTime = Temporal.PlainTime.from(
-      programmEntry.timeSlot.slot.start.time,
-    );
-    const endTime = startTime.add(
-      Temporal.Duration.from(programmEntry.timeSlot.slot.duration),
+    const { startTime, endTime } = durationToTemporal(
+      programEntry.timeSlot.slot,
     );
 
     const range: PlainTimeRange = {
       startTime,
       endTime,
     };
-    const path = `/programm/${programmEntry.timeSlot.uuid}`;
 
-    const day = getDay(programmEntry.timeSlot.slot.start.day);
+    const path = `/programm/${programEntry.timeSlot.uuid}`;
+
+    const day = getDay(programEntry.timeSlot.slot.start.day);
     if (day === null) {
       return;
     }
 
-    aggregation[day].push({
-      name: entry.name.kind === "SELF" ? name : entry.name.friendsName,
-      timeSlotUuid: programmEntry.timeSlot.uuid,
-      range,
-      title: programmEntry.title,
-      kind: "play",
-      path: path,
-    });
+    reserved
+      .filter((entry) => props.secret.startsWith(entry.groupId))
+      .forEach((reservedEntry) => {
+        assert(
+          reservedEntry.name !== null,
+          "Should have names of all owned entries!",
+        );
+        aggregation[day].push({
+          name: reservedEntry.name,
+          timeSlotUuid: programEntry.timeSlot.uuid,
+          range,
+          title: programEntry.title,
+          kind: "play",
+          path: path,
+        });
+      });
+
+    waiting
+      .filter((entry) => props.secret.startsWith(entry.groupId))
+      .forEach((reservedEntry) => {
+        assert(
+          reservedEntry.name !== null,
+          "Should have names of all owned entries!",
+        );
+        aggregation[day].push({
+          name: reservedEntry.name,
+          timeSlotUuid: programEntry.timeSlot.uuid,
+          range,
+          title: programEntry.title,
+          kind: "waiting",
+          path: path,
+        });
+      });
   });
 
   function combineNames(
@@ -191,7 +203,12 @@ function sort(
   );
 }
 
-export type TimeviewKind = "master-draft" | "master" | "play" | "help";
+export type TimeviewKind =
+  | "master-draft"
+  | "master"
+  | "play"
+  | "help"
+  | "waiting";
 
 function TimeviewEntry(props: {
   title: string;
@@ -229,6 +246,14 @@ function TimeviewEntry(props: {
       help: {
         label: "HL",
         help: "Helfen",
+        link: {
+          icon: "link",
+          label: "Zum Eintrag",
+        },
+      },
+      waiting: {
+        label: "WL",
+        help: "Warteliste",
         link: {
           icon: "link",
           label: "Zum Eintrag",

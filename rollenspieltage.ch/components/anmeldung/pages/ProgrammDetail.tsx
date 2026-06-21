@@ -10,7 +10,7 @@ import { RouterLink } from "@common/components/Link";
 import { ButtonWithIcon } from "@common/components/Button";
 import { formatTime } from "@common/utils/time";
 import { getDay } from "@rst/components/anmeldung/constant/time";
-import type { Participating } from "@rst/components/anmeldung/api/save";
+import type { ReserveAction } from "@rst/components/anmeldung/api/save";
 import { ButtonLink } from "@common/components/ButtonLink";
 import { arr, type Reactive } from "@common/utils/reactivity";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
@@ -19,7 +19,7 @@ import { type RegistrationUuid, type ReservationUuid } from "@common/utils/ids";
 import { Reservation } from "@rst/components/anmeldung/components/Reservation";
 
 export function ProgrammDetail(props: {
-  reservations$: Reactive<Participating[]>;
+  reservations$: Reactive<ReserveAction[]>;
   programData: Accessor<Program>;
   isEditable: boolean;
   secret: RegistrationUuid;
@@ -60,10 +60,10 @@ export function ProgrammDetail(props: {
 }
 
 function ProgramDetailContent(props: {
-  reservations$: Reactive<Participating[]>;
+  reservations$: Reactive<ReserveAction[]>;
   entry: ProgramPublicEntry;
-  myReservations: Participating[];
-  addReservation: (reservation: Participating) => void;
+  myReservations: ReserveAction[];
+  addReservation: (reservation: ReserveAction) => void;
   removeReservation: (reservationUuid: ReservationUuid) => void;
   isEditable: boolean;
   programData: Accessor<Program>;

@@ -5,7 +5,7 @@ import {
   type TimeslotUuid,
 } from "@common/utils/ids";
 import { For, Match, Show, Switch, type JSX } from "solid-js";
-import type { Participating } from "@rst/components/anmeldung/api/save";
+import type { ReserveAction } from "@rst/components/anmeldung/api/save";
 import { arr, createReactive, type Reactive } from "@common/utils/reactivity";
 import { Box, SimpleBox } from "@common/components/Box";
 import {
@@ -26,7 +26,7 @@ import type { Roles } from "@rst/components/anmeldung/api/meta";
 
 export function ReservationForm(props: {
   timeslotUuid: TimeslotUuid;
-  reservations$: Reactive<Participating[]>;
+  reservations$: Reactive<ReserveAction[]>;
   rows: number;
 }): JSX.Element {
   const reservations = () =>
@@ -43,12 +43,10 @@ export function ReservationForm(props: {
   const editable$ = createReactive(false);
 
   function updateReservation(names: string[]): void {
-    // everytime the reservation gets expanded, we need to update the timestamp to now, so that the reservation gets moved back to the queue
-    const hasMoreEntries = names.length + 1 > reservations().length;
-
     if (reservations().length === 0) {
       // new reservation
       arr.push(props.reservations$, {
+        kind: "ADD",
         entryUuid: props.timeslotUuid,
         uuid: unsafeToReservationUuid(crypto.randomUUID()),
         timestamp: getCurrentTimestamp(),
@@ -58,6 +56,7 @@ export function ReservationForm(props: {
       });
       names.forEach((name) => {
         arr.push(props.reservations$, {
+          kind: "ADD",
           entryUuid: props.timeslotUuid,
           timestamp: getCurrentTimestamp(),
           name: {
@@ -72,6 +71,7 @@ export function ReservationForm(props: {
         if (i + 2 > reservations().length) {
           // added more friends
           arr.push(props.reservations$, {
+            kind: "ADD",
             entryUuid: props.timeslotUuid,
             timestamp: getCurrentTimestamp(),
             name: {
@@ -86,35 +86,32 @@ export function ReservationForm(props: {
       // update reservation
       reservations().forEach((reservation, i) => {
         if (i === 0) {
-          arr.update(props.reservations$, (r) => r.uuid === reservation.uuid, {
-            ...reservation,
-            timestamp: hasMoreEntries
-              ? getCurrentTimestamp()
-              : reservation.timestamp,
-            name: {
-              kind: "SELF",
-            },
+          arr.push(props.reservations$, {
+            kind: "UPDATE",
+            entryUuid: reservation.entryUuid,
+            uuid: reservation.uuid,
+            name: { kind: "SELF" },
+            timestamp: getCurrentTimestamp(),
           });
         } else {
           const friendsName = names[i - 1];
           if (friendsName !== undefined) {
-            arr.update(
-              props.reservations$,
-              (r) => r.uuid === reservation.uuid,
-              {
-                ...reservation,
-                timestamp: hasMoreEntries
-                  ? getCurrentTimestamp()
-                  : reservation.timestamp,
-                name: {
-                  kind: "FRIEND",
-                  friendsName,
-                },
-              },
-            );
+            arr.push(props.reservations$, {
+              kind: "UPDATE",
+              entryUuid: reservation.entryUuid,
+              uuid: reservation.uuid,
+              name: { kind: "FRIEND", friendsName },
+              timestamp: getCurrentTimestamp(),
+            });
           } else {
             // removed friends
-            arr.remove(props.reservations$, (r) => r.uuid === reservation.uuid);
+            arr.push(props.reservations$, {
+              kind: "REMOVE",
+              entryUuid: reservation.entryUuid,
+              uuid: reservation.uuid,
+              name: reservation.name,
+              timestamp: getCurrentTimestamp(),
+            });
           }
         }
       });
@@ -125,7 +122,13 @@ export function ReservationForm(props: {
 
   function removeReservation(): void {
     reservations().forEach((reservation) => {
-      arr.remove(props.reservations$, (r) => r.uuid === reservation.uuid);
+      arr.push(props.reservations$, {
+        kind: "REMOVE",
+        entryUuid: reservation.entryUuid,
+        uuid: reservation.uuid,
+        name: reservation.name,
+        timestamp: getCurrentTimestamp(),
+      });
     });
     names$.set("");
     editable$.set(false);
@@ -241,10 +244,10 @@ export function ReservationForm(props: {
 }
 
 export function Reservation(props: {
-  reservations$: Reactive<Participating[]>;
+  reservations$: Reactive<ReserveAction[]>;
   entry: ProgramPublicEntry;
-  myReservations: Participating[];
-  addReservation: (reservation: Participating) => void;
+  myReservations: ReserveAction[];
+  addReservation: (reservation: ReserveAction) => void;
   removeReservation: (reservationUuid: ReservationUuid) => void;
   roles: Roles;
   secret: RegistrationUuid;
@@ -467,6 +470,7 @@ export function Reservation(props: {
                         kind="success"
                         onClick={() => {
                           props.addReservation({
+                            kind: "ADD",
                             entryUuid: props.entry.timeSlot.uuid,
                             uuid: unsafeToReservationUuid(crypto.randomUUID()),
                             timestamp: getCurrentTimestamp(),
@@ -482,6 +486,7 @@ export function Reservation(props: {
                         label="Begleitperson anmelden"
                         addFriend={(name) => {
                           props.addReservation({
+                            kind: "ADD",
                             entryUuid: props.entry.timeSlot.uuid,
                             timestamp: getCurrentTimestamp(),
                             name: {

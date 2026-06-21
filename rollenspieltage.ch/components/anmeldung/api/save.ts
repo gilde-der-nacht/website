@@ -84,21 +84,6 @@ const configSchema = z.object({
   wantsUpdates: z.boolean(),
 });
 
-const participatingSchema = z.object({
-  entryUuid: z.string().transform(unsafeToTimeslotUuid),
-  uuid: z.string().transform(unsafeToReservationUuid),
-  timestamp: timestampSchema,
-  name: z.union([
-    z.object({ kind: z.literal("SELF") }),
-    z.object({
-      kind: z.literal("FRIEND"),
-      friendsName: z.string(),
-    }),
-  ]),
-});
-
-export type Participating = z.infer<typeof participatingSchema>;
-
 const timeSlotEditSchema = z.object({
   uuid: z.string().transform(unsafeToTimeslotUuid),
   slot: durationEditSchema,
@@ -123,13 +108,29 @@ const programEntrySchema = z.object({
 
 export type ProgramEntry = z.infer<typeof programEntrySchema>;
 
+const reserveActionSchema = z.object({
+  kind: z.union([z.literal("ADD"), z.literal("REMOVE"), z.literal("UPDATE")]),
+  entryUuid: z.string().transform(unsafeToTimeslotUuid),
+  uuid: z.string().transform(unsafeToReservationUuid),
+  timestamp: timestampSchema,
+  name: z.union([
+    z.object({ kind: z.literal("SELF") }),
+    z.object({
+      kind: z.literal("FRIEND"),
+      friendsName: z.string(),
+    }),
+  ]),
+});
+
+export type ReserveAction = z.infer<typeof reserveActionSchema>;
+
 const programSchema = z.object({
   organising: z.array(programEntrySchema),
-  reserved: z.array(participatingSchema),
+  reserveActions: z.array(reserveActionSchema),
 });
 
 export const saveSchema = z.object({
-  version: z.literal(3),
+  version: z.literal(4),
   contact: contactSchema,
   config: configSchema,
   program: programSchema,

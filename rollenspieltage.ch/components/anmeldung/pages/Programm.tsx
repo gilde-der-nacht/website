@@ -1,7 +1,7 @@
 import { Box } from "@common/components/Box";
 import { createReactive, type Reactive } from "@common/utils/reactivity";
 import { For, Match, Show, Switch, type Accessor, type JSX } from "solid-js";
-import type { Participating, Save } from "@rst/components/anmeldung/api/save";
+import type { ReserveAction, Save } from "@rst/components/anmeldung/api/save";
 import type {
   Program,
   ProgramHiddenEntry,
@@ -111,7 +111,7 @@ function ProgramView(props: {
         <DayProgram
           day="SATURDAY"
           program={program().SATURDAY}
-          myReservations={props.save$?.get().program.reserved ?? []}
+          myReservationActions={props.save$?.get().program.reserveActions ?? []}
           roles={props.roles}
           isPublicSite={props.isPublicSite}
           link={props.link}
@@ -124,7 +124,7 @@ function ProgramView(props: {
         <DayProgram
           day="SUNDAY"
           program={program().SUNDAY}
-          myReservations={props.save$?.get().program.reserved ?? []}
+          myReservationActions={props.save$?.get().program.reserveActions ?? []}
           roles={props.roles}
           isPublicSite={props.isPublicSite}
           link={props.link}
@@ -243,7 +243,7 @@ function sort(programm: HourProgram[]): HourProgram[] {
 export function DayProgram(props: {
   day: ProgramDay;
   program: HourProgram[];
-  myReservations: Participating[];
+  myReservationActions: ReserveAction[];
   roles: Roles;
   isPublicSite: boolean;
   link: LinkComponent;
@@ -284,7 +284,7 @@ export function DayProgram(props: {
                         <Entry
                           entry={entry}
                           basePath="/programm"
-                          additionalReservations={props.myReservations.filter(
+                          additionalReservations={props.myReservationActions.filter(
                             (r) => r.entryUuid === entry.timeSlot.uuid,
                           )}
                           roles={props.roles}

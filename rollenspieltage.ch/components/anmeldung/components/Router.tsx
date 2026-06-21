@@ -104,6 +104,7 @@ export function Router(props: {
                 title={`Wo möchtest du starten, ${store$.get().save.contact.name}?`}
                 store$={store$}
                 programResource={programResource}
+                secret={props.secret}
               >
                 {() => <Root roles={store$.get().meta.roles} />}
               </Layout>
@@ -116,6 +117,7 @@ export function Router(props: {
                 title="Programm"
                 store$={store$}
                 programResource={programResource}
+                secret={props.secret}
               >
                 {({ programData }) => (
                   <Programm
@@ -134,6 +136,7 @@ export function Router(props: {
                 store$={store$}
                 showQuickmenu={true}
                 parentPath="/programm"
+                secret={props.secret}
                 programResource={programResource}
               >
                 {({ programData }) => (
@@ -141,7 +144,7 @@ export function Router(props: {
                     reservations$={store$
                       .pipe(obj.sub("save"))
                       .pipe(obj.sub("program"))
-                      .pipe(obj.sub("reserved"))}
+                      .pipe(obj.sub("reserveActions"))}
                     programData={programData}
                     isEditable={props.initState.status === "published"}
                     secret={props.secret}
@@ -158,6 +161,7 @@ export function Router(props: {
                 title="Spielrunden erstellen und editieren"
                 store$={store$}
                 programResource={programResource}
+                secret={props.secret}
               >
                 {() => (
                   <Erstellen
@@ -179,6 +183,7 @@ export function Router(props: {
                 store$={store$}
                 parentPath="/erstellen"
                 programResource={programResource}
+                secret={props.secret}
               >
                 {() => (
                   <ErstellenDetail
@@ -203,12 +208,14 @@ export function Router(props: {
                 title="Zusammenfassung"
                 store$={store$}
                 showQuickmenu={true}
+                secret={props.secret}
                 programResource={programResource}
               >
                 {({ programData }) => (
                   <Zusammenfassung
                     save$={store$.pipe(obj.sub("save"))}
                     programData={programData}
+                    secret={props.secret}
                     isEditable={props.initState.status === "published"}
                   />
                 )}
@@ -223,6 +230,7 @@ export function Router(props: {
                   title="Seite nicht gefunden"
                   store$={store$}
                   showQuickmenu={true}
+                  secret={props.secret}
                   programResource={programResource}
                 >
                   {() => <Box type="danger">{TXT.error.siteNotFound}</Box>}

@@ -18,10 +18,12 @@ import type { Program } from "@rst/components/anmeldung/api/program";
 import { Timeview } from "@rst/components/anmeldung/components/Timeview";
 import { obj, type Reactive } from "@common/utils/reactivity";
 import { Checkbox } from "@common/components/newForm/Checkbox";
+import type { RegistrationUuid } from "@common/utils/ids";
 
 export function Zusammenfassung(props: {
   save$: Reactive<Save>;
   programData: Accessor<Program>;
+  secret: RegistrationUuid;
   isEditable: boolean;
 }): JSX.Element {
   return (
@@ -39,7 +41,11 @@ export function Zusammenfassung(props: {
         value="wantsUpdates"
       />
 
-      <Timeview save$={props.save$} programData={props.programData} />
+      <Timeview
+        save$={props.save$}
+        programData={props.programData}
+        secret={props.secret}
+      />
     </div>
   );
 }

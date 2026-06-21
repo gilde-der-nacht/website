@@ -13,6 +13,7 @@ import { findConflicts, type Conflicts } from "@common/components/Timetable";
 import { Icon } from "@common/components/Icon";
 import { aggregateEntries } from "@rst/components/anmeldung/components/Timeview";
 import { obj, type Reactive } from "@common/utils/reactivity";
+import type { RegistrationUuid } from "@common/utils/ids";
 
 export function Layout(props: {
   title?: string;
@@ -25,6 +26,7 @@ export function Layout(props: {
       lastSaved: Date;
     };
   }>;
+  secret: RegistrationUuid;
   parentPath?: string;
   programResource: Resource<Result<Program>>;
   children: (data: { programData: Accessor<Program> }) => JSX.Element;
@@ -53,6 +55,7 @@ export function Layout(props: {
               <AllConflicts
                 save$={props.store$.pipe(obj.sub("save"))}
                 programData={programData}
+                secret={props.secret}
               />
               {props.children({ programData })}
             </>
@@ -80,9 +83,14 @@ export function Layout(props: {
 function AllConflicts(props: {
   save$: Reactive<Save>;
   programData: Accessor<Program>;
+  secret: RegistrationUuid;
 }): JSX.Element {
   const personalProgram = () =>
-    aggregateEntries(props.save$, props.programData);
+    aggregateEntries({
+      save$: props.save$,
+      programData: props.programData,
+      secret: props.secret,
+    });
   const conflictingEntriesSaturday = () =>
     findConflicts(personalProgram().SATURDAY);
   const conflictingEntriesSunday = () =>

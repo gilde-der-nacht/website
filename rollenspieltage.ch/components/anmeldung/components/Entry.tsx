@@ -2,11 +2,10 @@ import { Show, type JSX } from "solid-js";
 import { TXT } from "@common/utils/texts";
 import { ellipsis } from "@common/components/utils";
 import { getDay } from "@rst/components/anmeldung/constant/time";
-import { formatTime } from "@common/utils/time";
-import type { Participating } from "@rst/components/anmeldung/api/save";
+import { durationToTemporal, formatTime } from "@common/utils/time";
+import type { ReserveAction } from "@rst/components/anmeldung/api/save";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/constant/validation";
 import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
-import { Temporal } from "@js-temporal/polyfill";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { UNAUTHORIZED } from "@common/utils/shared";
 import { Icon } from "@common/components/Icon";
@@ -16,7 +15,7 @@ import type { LinkComponent } from "@common/components/Link";
 export function Entry(props: {
   entry: ProgramPublicEntry;
   basePath: string;
-  additionalReservations?: Participating[];
+  additionalReservations?: ReserveAction[];
   roles: Roles;
   isPublicSite: boolean;
   link: LinkComponent;
@@ -45,12 +44,8 @@ export function Entry(props: {
     return cls.join(" ");
   }
 
-  const day = Temporal.PlainDate.from(props.entry.timeSlot.slot.start.day);
-  const startTime = Temporal.PlainTime.from(
-    props.entry.timeSlot.slot.start.time,
-  );
-  const endTime = startTime.add(
-    Temporal.Duration.from(props.entry.timeSlot.slot.duration),
+  const { day, startTime, endTime } = durationToTemporal(
+    props.entry.timeSlot.slot,
   );
 
   return (
