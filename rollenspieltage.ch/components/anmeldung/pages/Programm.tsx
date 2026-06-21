@@ -28,6 +28,7 @@ export function Programm(props: {
   save$: Reactive<Save>;
   programData: Accessor<Program>;
   roles: Roles;
+  secret: string;
 }): JSX.Element {
   return (
     <ProgramView
@@ -36,6 +37,7 @@ export function Programm(props: {
       roles={props.roles}
       isPublicSite={false}
       link={RouterLink}
+      secret={props.secret}
     />
   );
 }
@@ -50,6 +52,7 @@ export function PublicProgramm(props: {
       roles={[]}
       isPublicSite={true}
       link={BrowserLink}
+      secret=""
     />
   );
 }
@@ -60,6 +63,7 @@ function ProgramView(props: {
   roles: Roles;
   isPublicSite: boolean;
   link: LinkComponent;
+  secret: string;
 }): JSX.Element {
   const filters$ = createReactive<ActiveFilter>({
     day: null,
@@ -115,6 +119,7 @@ function ProgramView(props: {
           roles={props.roles}
           isPublicSite={props.isPublicSite}
           link={props.link}
+          secret={props.secret}
         />
       </Show>
       <Show
@@ -128,6 +133,7 @@ function ProgramView(props: {
           roles={props.roles}
           isPublicSite={props.isPublicSite}
           link={props.link}
+          secret={props.secret}
         />
       </Show>
       <Show when={props.roles.includes("admin")}>
@@ -247,6 +253,7 @@ export function DayProgram(props: {
   roles: Roles;
   isPublicSite: boolean;
   link: LinkComponent;
+  secret: string;
 }): JSX.Element {
   return (
     <Show
@@ -284,12 +291,10 @@ export function DayProgram(props: {
                         <Entry
                           entry={entry}
                           basePath="/programm"
-                          additionalReservations={props.myReservationActions.filter(
-                            (r) => r.entryUuid === entry.timeSlot.uuid,
-                          )}
                           roles={props.roles}
                           isPublicSite={props.isPublicSite}
                           link={props.link}
+                          secret={props.secret}
                         />
                       )}
                     </For>

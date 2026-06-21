@@ -124,6 +124,7 @@ export function Router(props: {
                     save$={store$.pipe(obj.sub("save"))}
                     programData={programData}
                     roles={store$.get().meta.roles}
+                    secret={props.secret}
                   />
                 )}
               </Layout>

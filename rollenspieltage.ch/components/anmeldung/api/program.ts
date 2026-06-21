@@ -31,6 +31,18 @@ const reservationEntrySchema = z.object({
 
 export type ReservationEntry = z.infer<typeof reservationEntrySchema>;
 
+const reservationHistoryActionEntrySchema = z.object({
+  kind: z.union([z.literal("ADD"), z.literal("REMOVE"), z.literal("UPDATE")]),
+  name: z.union([z.string(), z.null()]),
+  timestamp: timestampSchema,
+  uuid: z.string().transform(unsafeToReservationUuid),
+  groupId: z.string().transform(unsafeToGroupId),
+});
+
+export type ReservationHistoryActionEntry = z.infer<
+  typeof reservationHistoryActionEntrySchema
+>;
+
 const programPublicEntrySchema = z.object({
   uuid: z.string().transform(unsafeToGameUuid),
   status: publishStateSchema,
@@ -43,35 +55,9 @@ const programPublicEntrySchema = z.object({
     seats: z.object({
       max: z.number(),
     }),
-    reserved: z.array(
-      z.object({
-        name: z.union([z.string(), z.null()]),
-        timestamp: timestampSchema,
-        uuid: z.string().transform(unsafeToReservationUuid),
-        groupId: z.string().transform(unsafeToGroupId),
-      }),
-    ),
-    waiting: z.array(
-      z.object({
-        name: z.union([z.string(), z.null()]),
-        timestamp: timestampSchema,
-        uuid: z.string().transform(unsafeToReservationUuid),
-        groupId: z.string().transform(unsafeToGroupId),
-      }),
-    ),
-    history: z.array(
-      z.object({
-        kind: z.union([
-          z.literal("ADD"),
-          z.literal("REMOVE"),
-          z.literal("UPDATE"),
-        ]),
-        name: z.union([z.string(), z.null()]),
-        timestamp: timestampSchema,
-        uuid: z.string().transform(unsafeToReservationUuid),
-        groupId: z.string().transform(unsafeToGroupId),
-      }),
-    ),
+    reserved: z.array(reservationEntrySchema),
+    waiting: z.array(reservationEntrySchema),
+    history: z.array(reservationHistoryActionEntrySchema),
   }),
   timeSlot: z.object({
     uuid: z.string().transform(unsafeToTimeslotUuid),

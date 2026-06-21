@@ -2,7 +2,6 @@ import {
   unsafeToReservationUuid,
   type RegistrationUuid,
   type ReservationUuid,
-  type TimeslotUuid,
 } from "@common/utils/ids";
 import { For, Match, Show, Switch, type JSX } from "solid-js";
 import type { ReserveAction } from "@rst/components/anmeldung/api/save";
@@ -17,47 +16,90 @@ import { join } from "@common/utils/strings";
 import { getCurrentTimestamp } from "@common/utils/shared";
 import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
 import { toRange } from "@common/utils/time";
-import { InputButton } from "@common/components/InputButton";
 import {
   orderReservations,
   type GroupedReservation,
 } from "@rst/components/anmeldung/utils/waitinglist";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
+import { assert } from "@common/components/utils";
 
 export function ReservationForm(props: {
-  timeslotUuid: TimeslotUuid;
-  reservations$: Reactive<ReserveAction[]>;
+  entry: ProgramPublicEntry;
+  addReservationAction: (action: ReserveAction) => void;
   rows: number;
+  selfReservationUuid: ReservationUuid | null;
+  secret: string;
+  waitingList: boolean;
 }): JSX.Element {
+  const list = () =>
+    props.waitingList
+      ? props.entry.participation.waiting
+      : props.entry.participation.reserved;
+
   const reservations = () =>
-    props.reservations$.get().filter((r) => r.entryUuid === props.timeslotUuid);
+    list()
+      .filter((entry) => props.secret.startsWith(entry.groupId))
+      .map((entry) => {
+        assert(entry.name !== null, "Should have names of all owned entries!");
+        return {
+          ...entry,
+          name: entry.name,
+        };
+      });
 
   function getFriendNames(): string {
     return reservations()
-      .map((r) => (r.name.kind === "FRIEND" ? r.name.friendsName : null))
+      .filter((r) => r.uuid !== props.selfReservationUuid)
+      .map((r) => r.name)
       .filter((r) => r !== null)
       .join(", ");
   }
 
+  const emptySeatsIgnoringSelfGroup = () =>
+    props.entry.participation.seats.max -
+    props.entry.participation.reserved.filter(
+      (entry) => !props.secret.startsWith(entry.groupId),
+    ).length -
+    1;
+
   const names$ = createReactive(getFriendNames());
   const editable$ = createReactive(false);
+
+  function registrationLabel(): string {
+    if (names$.get().trim().length === 0) {
+      // without friends
+      return emptySeatsIgnoringSelfGroup() > 0
+        ? "Mich anmelden"
+        : "Mich in Warteliste eintragen";
+    } else {
+      // with friends
+      const friendsCount = names$
+        .get()
+        .split(",")
+        .filter((s) => s.trim().length > 0).length;
+      return emptySeatsIgnoringSelfGroup() > friendsCount
+        ? `Uns (${friendsCount + 1}) anmelden`
+        : `Uns (${friendsCount + 1}) in Warteliste eintragen`;
+    }
+  }
 
   function updateReservation(names: string[]): void {
     if (reservations().length === 0) {
       // new reservation
-      arr.push(props.reservations$, {
+      props.addReservationAction({
         kind: "ADD",
-        entryUuid: props.timeslotUuid,
+        entryUuid: props.entry.timeSlot.uuid,
         uuid: unsafeToReservationUuid(crypto.randomUUID()),
         timestamp: getCurrentTimestamp(),
         name: {
           kind: "SELF",
         },
       });
+
       names.forEach((name) => {
-        arr.push(props.reservations$, {
+        props.addReservationAction({
           kind: "ADD",
-          entryUuid: props.timeslotUuid,
+          entryUuid: props.entry.timeSlot.uuid,
           timestamp: getCurrentTimestamp(),
           name: {
             kind: "FRIEND",
@@ -70,9 +112,9 @@ export function ReservationForm(props: {
       names.forEach((name, i) => {
         if (i + 2 > reservations().length) {
           // added more friends
-          arr.push(props.reservations$, {
+          props.addReservationAction({
             kind: "ADD",
-            entryUuid: props.timeslotUuid,
+            entryUuid: props.entry.timeSlot.uuid,
             timestamp: getCurrentTimestamp(),
             name: {
               kind: "FRIEND",
@@ -86,30 +128,24 @@ export function ReservationForm(props: {
       // update reservation
       reservations().forEach((reservation, i) => {
         if (i === 0) {
-          arr.push(props.reservations$, {
-            kind: "UPDATE",
-            entryUuid: reservation.entryUuid,
-            uuid: reservation.uuid,
-            name: { kind: "SELF" },
-            timestamp: getCurrentTimestamp(),
-          });
+          // skip
         } else {
           const friendsName = names[i - 1];
           if (friendsName !== undefined) {
-            arr.push(props.reservations$, {
+            props.addReservationAction({
               kind: "UPDATE",
-              entryUuid: reservation.entryUuid,
+              entryUuid: props.entry.timeSlot.uuid,
               uuid: reservation.uuid,
               name: { kind: "FRIEND", friendsName },
               timestamp: getCurrentTimestamp(),
             });
           } else {
             // removed friends
-            arr.push(props.reservations$, {
+            props.addReservationAction({
               kind: "REMOVE",
-              entryUuid: reservation.entryUuid,
+              entryUuid: props.entry.timeSlot.uuid,
               uuid: reservation.uuid,
-              name: reservation.name,
+              name: { kind: "FRIEND", friendsName: "---removed---" },
               timestamp: getCurrentTimestamp(),
             });
           }
@@ -122,11 +158,11 @@ export function ReservationForm(props: {
 
   function removeReservation(): void {
     reservations().forEach((reservation) => {
-      arr.push(props.reservations$, {
+      props.addReservationAction({
         kind: "REMOVE",
-        entryUuid: reservation.entryUuid,
+        entryUuid: props.entry.timeSlot.uuid,
         uuid: reservation.uuid,
-        name: reservation.name,
+        name: { kind: "FRIEND", friendsName: "---removed---" },
         timestamp: getCurrentTimestamp(),
       });
     });
@@ -157,7 +193,7 @@ export function ReservationForm(props: {
                 style="display: grid; grid-template-columns: max-content 1fr; gap: 0;"
                 class="input-button reservation-table"
               >
-                <Button label="Mich, " kind="special" />
+                <Button label="Ich, " kind="special" />
                 <input
                   type="text"
                   style="border-color: var(--clr-special-9);"
@@ -176,22 +212,16 @@ export function ReservationForm(props: {
                 />
                 <ButtonWithIcon
                   icon="rotate-left"
-                  label="Änderungen verwerfen"
+                  label="Abbrechen"
                   kind="special"
-                  onClick={() => names$.set(getFriendNames())}
+                  onClick={() => {
+                    names$.set(getFriendNames());
+                    editable$.set(false);
+                  }}
                 />
                 <ButtonWithIcon
                   icon="floppy-disk-circle-arrow-right"
-                  label={
-                    names$.get().trim().length === 0
-                      ? "Mich anmelden"
-                      : `Uns (${
-                          names$
-                            .get()
-                            .split(",")
-                            .filter((s) => s.trim().length > 0).length + 1
-                        }) anmelden`
-                  }
+                  label={registrationLabel()}
                   kind="success"
                   type="submit"
                 />
@@ -205,7 +235,11 @@ export function ReservationForm(props: {
           fallback={
             <ButtonWithIcon
               icon="person-to-portal"
-              label="Plätze reservieren"
+              label={
+                props.waitingList
+                  ? "In Warteliste eintragen"
+                  : "Plätze reservieren"
+              }
               kind="success"
               onClick={() => editable$.set(true)}
             />
@@ -214,16 +248,14 @@ export function ReservationForm(props: {
           <SimpleBox type="success" style={`grid-row: span ${props.rows}`}>
             <div class="reservation-table-entry">
               <p>
-                Reserviert für{" "}
+                {props.waitingList ? "Auf der Warteliste: " : "Reserviert für "}
                 {join(
-                  [
-                    "mich",
+                  [props.waitingList ? "Ich" : "mich"].concat(
                     getFriendNames()
                       .split(",")
-                      .map((s) => s.trim()),
-                  ]
-                    .flat()
-                    .filter((n) => n.trim().length > 0),
+                      .map((s) => s.trim())
+                      .filter((n) => n.trim().length > 0),
+                  ),
                   ", ",
                   " und ",
                 )}
@@ -259,81 +291,6 @@ export function Reservation(props: {
       roles: props.roles,
       secret: props.secret,
     });
-  console.log(view());
-
-  const myReservations = () =>
-    props.myReservations.filter(
-      (r) => r.entryUuid === props.entry.timeSlot.uuid,
-    );
-
-  const hasReservedForThemselves = (): boolean => {
-    return myReservations().some((r) => r.name.kind === "SELF");
-  };
-
-  const range = () => {
-    return toRange(props.entry.participation.seats.max).map((i) => {
-      const myReservation = myReservations()[i];
-      if (myReservation !== undefined) {
-        if (myReservation.name.kind === "SELF") {
-          return {
-            kind: "SELF",
-            uuid: myReservation.uuid,
-          } as const;
-        } else {
-          return {
-            kind: "FRIEND",
-            uuid: myReservation.uuid,
-            name: myReservation.name.friendsName,
-          } as const;
-        }
-      }
-
-      if (i === props.entry.participation.seats.max - 1) {
-        return {
-          kind: "RESERVED_LOCAL",
-        } as const;
-      }
-
-      const allReservations = props.entry.participation.reserved;
-
-      if (typeof allReservations === "number") {
-        if (allReservations > i) {
-          return {
-            kind: "RESERVED_OTHER",
-          } as const;
-        } else if (
-          (allReservations === i || i === 0) &&
-          !hasReservedForThemselves()
-        ) {
-          return { kind: "FREE_SELF" } as const;
-        } else {
-          return { kind: "FREE_FRIEND" } as const;
-        }
-      } else {
-        const myReservationUuids = myReservations().map(
-          (reservation) => reservation.uuid,
-        );
-        const externalReservations = allReservations.filter(
-          (reservation) => !myReservationUuids.includes(reservation.uuid),
-        );
-        const currentExternalReservation =
-          externalReservations[i - myReservations().length];
-        if (currentExternalReservation !== undefined) {
-          return {
-            kind: "RESERVED_OTHER_WITH_NAME",
-            name: currentExternalReservation.name,
-          } as const;
-        } else if (
-          allReservations.length === i &&
-          !hasReservedForThemselves()
-        ) {
-          return { kind: "FREE_SELF" } as const;
-        } else {
-          return { kind: "FREE_FRIEND" } as const;
-        }
-      }
-    });
-  };
 
   return (
     <>
@@ -352,9 +309,22 @@ export function Reservation(props: {
               <Switch fallback={<code>NOT IMPLEMENTED YET {seat.kind}</code>}>
                 <Match when={seat.kind === "RESERVATION_FORM"}>
                   <ReservationForm
-                    reservations$={props.reservations$}
-                    timeslotUuid={props.entry.timeSlot.uuid}
+                    entry={props.entry}
+                    addReservationAction={(reservationAction) =>
+                      arr.push(props.reservations$, reservationAction)
+                    }
+                    selfReservationUuid={
+                      props.reservations$
+                        .get()
+                        .findLast(
+                          (entry) =>
+                            entry.name.kind === "SELF" &&
+                            entry.entryUuid === props.entry.timeSlot.uuid,
+                        )?.uuid ?? null
+                    }
                     rows={seat.rows}
+                    secret={props.secret}
+                    waitingList={seat.waitingList}
                   />
                 </Match>
                 <Match when={seat.kind === "OVERFLOW"}>
@@ -363,7 +333,7 @@ export function Reservation(props: {
                 <Match
                   when={seat.kind === "RESERVED_OTHER" && !seat.waitingList}
                 >
-                  <Box style={`grid-row: span ${seat.rows}`}>
+                  <Box style={`grid-row: span ${seat.rows}; opacity: 0.5;`}>
                     Bereits reserviert{" "}
                     {"names" in seat && seat.names !== null
                       ? `(${seat.names.join(", ")})`
@@ -398,127 +368,18 @@ export function Reservation(props: {
           )}
         </For>
       </div>
-      <Show when={false}>
-        <div class="reservations">
-          <h5 style="margin-block-start: 0">Plätze reservieren</h5>
-          <div class="reservation-table">
-            <For
-              each={range()}
-              fallback={<em>Teilnahme ohne Anmeldung möglich.</em>}
-            >
-              {(seat, i) => (
-                <>
-                  <div class="count">{i() + 1}</div>
-                  <Switch>
-                    <Match when={seat.kind === "RESERVED_OTHER"}>
-                      <Box>Bereits reserviert</Box>
-                    </Match>
-                    <Match when={seat.kind === "RESERVED_OTHER_WITH_NAME"}>
-                      <Box>Bereits reserviert ({seat.name})</Box>
-                    </Match>
-                    <Match when={!props.isEditable}>
-                      <Box>Freier Platz</Box>
-                    </Match>
-                    <Match when={seat.kind === "SELF"}>
-                      <SimpleBox type="success">
-                        <div class="reservation-table-entry">
-                          <p>Reserviert für mich </p>
-                          <IconOnlyButton
-                            icon="trash"
-                            onClick={() => {
-                              props.removeReservation(
-                                seat.kind === "SELF"
-                                  ? seat.uuid
-                                  : unsafeToReservationUuid(
-                                      "should not happen",
-                                    ),
-                              );
-                            }}
-                          />
-                        </div>
-                      </SimpleBox>
-                    </Match>
-                    <Match when={seat.kind === "FRIEND"}>
-                      <SimpleBox type="success">
-                        <div class="reservation-table-entry">
-                          <p>
-                            Reserviert für "
-                            {seat.kind === "FRIEND"
-                              ? seat.name
-                              : "[Fehler beim Laden]"}
-                            "
-                          </p>
-                          <IconOnlyButton
-                            icon="trash"
-                            onClick={() => {
-                              props.removeReservation(
-                                seat.kind === "FRIEND"
-                                  ? seat.uuid
-                                  : unsafeToReservationUuid(
-                                      "should not happen",
-                                    ),
-                              );
-                            }}
-                          />
-                        </div>
-                      </SimpleBox>
-                    </Match>
-                    <Match when={seat.kind === "FREE_SELF"}>
-                      <ButtonWithIcon
-                        icon="person-to-portal"
-                        label="Mich anmelden"
-                        kind="success"
-                        onClick={() => {
-                          props.addReservation({
-                            kind: "ADD",
-                            entryUuid: props.entry.timeSlot.uuid,
-                            uuid: unsafeToReservationUuid(crypto.randomUUID()),
-                            timestamp: getCurrentTimestamp(),
-                            name: {
-                              kind: "SELF",
-                            },
-                          });
-                        }}
-                      />
-                    </Match>
-                    <Match when={seat.kind === "FREE_FRIEND"}>
-                      <InputButton
-                        label="Begleitperson anmelden"
-                        addFriend={(name) => {
-                          props.addReservation({
-                            kind: "ADD",
-                            entryUuid: props.entry.timeSlot.uuid,
-                            timestamp: getCurrentTimestamp(),
-                            name: {
-                              kind: "FRIEND",
-                              friendsName: name,
-                            },
-                            uuid: unsafeToReservationUuid(crypto.randomUUID()),
-                          });
-                        }}
-                      />
-                    </Match>
-                    <Match when={seat.kind === "RESERVED_LOCAL"}>
-                      <Box>
-                        <em>Reserviert für Spontane</em>
-                      </Box>
-                    </Match>
-                  </Switch>
-                </>
-              )}
-            </For>
-          </div>
-        </div>
-      </Show>
     </>
   );
 }
 
-type ReservationView = { seatNumber: number | null; rows: number } & (
+type ReservationView = {
+  seatNumber: number | null;
+  rows: number;
+  waitingList: boolean;
+} & (
   | {
       kind: "RESERVED_OTHER";
       names: string[] | null;
-      waitingList: boolean;
     }
   | {
       kind: "OVERFLOW";
@@ -543,10 +404,9 @@ function prepareRegistrationView(props: {
   const allowedDetails =
     props.roles.includes("admin") || props.programEntry.myEntry;
 
-  const ordered = orderReservations(props.programEntry);
-  console.log(ordered);
+  const { reserved, waiting } = orderReservations(props.programEntry);
 
-  const alreadyReserved = ordered.some((entry) =>
+  const alreadyReserved = [...reserved, ...waiting].some((entry) =>
     props.secret.startsWith(entry.groupId),
   );
 
@@ -562,6 +422,7 @@ function prepareRegistrationView(props: {
                 kind: "RESERVATION_FORM",
                 rows: group.seats,
                 seatNumber: seatNumberCounter++,
+                waitingList,
               });
             } else {
               view.push({
@@ -577,6 +438,7 @@ function prepareRegistrationView(props: {
               kind: "OVERFLOW",
               rows: 1,
               seatNumber: seatNumberCounter++,
+              waitingList,
             });
           }
         } else {
@@ -586,12 +448,14 @@ function prepareRegistrationView(props: {
                 kind: "RESERVATION_FORM",
                 rows: group.seats,
                 seatNumber: seatNumberCounter++,
+                waitingList,
               });
             } else {
               view.push({
                 kind: "OVERFLOW",
                 rows: 1,
                 seatNumber: seatNumberCounter++,
+                waitingList,
               });
             }
           } else {
@@ -608,10 +472,7 @@ function prepareRegistrationView(props: {
     });
   }
 
-  addViews(
-    ordered.filter((group) => !group.waitinglist),
-    false,
-  );
+  addViews(reserved, false);
 
   const emptySeats = Math.max(
     0,
@@ -624,32 +485,50 @@ function prepareRegistrationView(props: {
         kind: "RESERVED_SPONTANIOUS",
         rows: 1,
         seatNumber: seatNumberCounter++,
+        waitingList: false,
       });
     } else if (i === 0 && !alreadyReserved) {
       view.push({
         kind: "RESERVATION_FORM",
         rows: 1,
         seatNumber: seatNumberCounter++,
+        waitingList: false,
       });
     } else {
       view.push({
         kind: "NOT_RESERVED",
         rows: 1,
         seatNumber: seatNumberCounter++,
+        waitingList: false,
       });
     }
   });
 
-  view.push({
-    kind: "WAITING_LIST_START",
-    rows: 1,
-    seatNumber: null,
-  });
+  if (waiting.length > 0) {
+    view.push({
+      kind: "WAITING_LIST_START",
+      rows: 1,
+      seatNumber: null,
+      waitingList: true,
+    });
 
-  addViews(
-    ordered.filter((group) => group.waitinglist),
-    true,
-  );
+    addViews(waiting, true);
+  }
+
+  if (!view.some((e) => e.kind === "RESERVATION_FORM")) {
+    view.push({
+      kind: "WAITING_LIST_START",
+      rows: 1,
+      seatNumber: null,
+      waitingList: true,
+    });
+    view.push({
+      kind: "RESERVATION_FORM",
+      rows: 1,
+      seatNumber: seatNumberCounter++,
+      waitingList: true,
+    });
+  }
 
   return view;
 }

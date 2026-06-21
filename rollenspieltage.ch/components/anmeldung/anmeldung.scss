@@ -136,6 +136,10 @@
   .duration {
     grid-area: duration;
   }
+
+  &.waiting {
+    border-style: dashed;
+  }
 }
 
 .page-content {

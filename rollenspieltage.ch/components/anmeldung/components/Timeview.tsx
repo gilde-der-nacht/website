@@ -287,6 +287,11 @@ function TimeviewEntry(props: {
       cls.push("danger");
     }
 
+    if (props.kind === "waiting") {
+      cls.push("gray");
+      cls.push("waiting");
+    }
+
     return cls.join(" ");
   };
 
@@ -305,7 +310,10 @@ function TimeviewEntry(props: {
           kind="ghost"
           title={labels.link.label}
         />
-        <h5 title={props.title}>{props.title}</h5>
+        <h5 title={props.title}>
+          {props.kind === "waiting" ? "[Auf der Warteliste für] " : ""}
+          {props.title}
+        </h5>
         <p class="duration">
           <span>{props.names.join(", ")}</span> | von{" "}
           {formatTime(props.range.startTime)} bis{" "}

@@ -3,7 +3,6 @@ import { TXT } from "@common/utils/texts";
 import { ellipsis } from "@common/components/utils";
 import { getDay } from "@rst/components/anmeldung/constant/time";
 import { durationToTemporal, formatTime } from "@common/utils/time";
-import type { ReserveAction } from "@rst/components/anmeldung/api/save";
 import { DESCR_SHORT_MAX_CHAR } from "@rst/components/anmeldung/constant/validation";
 import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
@@ -15,10 +14,10 @@ import type { LinkComponent } from "@common/components/Link";
 export function Entry(props: {
   entry: ProgramPublicEntry;
   basePath: string;
-  additionalReservations?: ReserveAction[];
   roles: Roles;
   isPublicSite: boolean;
   link: LinkComponent;
+  secret: string;
 }): JSX.Element {
   function freeSeats(): number {
     return (
@@ -34,7 +33,12 @@ export function Entry(props: {
 
   function classes(): string {
     const cls: string[] = ["event-entry"];
-    if (props.additionalReservations?.length ?? 0 > 0) {
+    if (
+      [
+        ...props.entry.participation.reserved,
+        ...props.entry.participation.waiting,
+      ].some((entry) => props.secret.startsWith(entry.groupId))
+    ) {
       cls.push("success");
     } else if (props.entry.myEntry) {
       cls.push("success");
