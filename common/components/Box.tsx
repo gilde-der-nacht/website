@@ -13,13 +13,16 @@ type Props = WithChildren & {
   onClose?: (() => void) | undefined;
   icon?: IconType;
   iconRotating?: boolean;
+  class?: string;
+  style?: string;
 };
 
 export function Box(props: Props): JSX.Element {
   return (
     <div
-      class={`box-${props.type ?? "gray"} ${props.onClose !== undefined ? "box-with-close" : ""}`}
+      class={`box-${props.type ?? "gray"} ${props.onClose !== undefined ? "box-with-close" : ""} ${props.class}`}
       onClick={props.onClick}
+      style={props.style}
     >
       <Show when={props.onClose}>
         {(cb) => (
@@ -49,7 +52,10 @@ export function SimpleBox(
   props: Omit<Props, "link" | "linkLabel">,
 ): JSX.Element {
   return (
-    <div class={`box-${props.type ?? "gray"}`} style="display: block;">
+    <div
+      class={`box-${props.type ?? "gray"} ${props.class}`}
+      style={`display: block; ${props.style}`}
+    >
       {props.children}
     </div>
   );

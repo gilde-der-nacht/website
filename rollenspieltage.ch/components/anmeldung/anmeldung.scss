@@ -292,7 +292,10 @@
   display: grid;
   gap: 1rem 0.5rem;
   grid-template-columns: max-content 1fr;
-  grid-auto-rows: var(--height);
+
+  > * {
+    min-block-size: var(--height);
+  }
 
   button,
   input {

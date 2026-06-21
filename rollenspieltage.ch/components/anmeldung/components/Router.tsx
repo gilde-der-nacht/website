@@ -144,6 +144,7 @@ export function Router(props: {
                       .pipe(obj.sub("reserved"))}
                     programData={programData}
                     isEditable={props.initState.status === "published"}
+                    secret={props.secret}
                     roles={store$.get().meta.roles}
                   />
                 )}

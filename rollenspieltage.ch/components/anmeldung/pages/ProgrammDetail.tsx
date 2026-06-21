@@ -15,13 +15,14 @@ import { ButtonLink } from "@common/components/ButtonLink";
 import { arr, type Reactive } from "@common/utils/reactivity";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { Temporal } from "@js-temporal/polyfill";
-import { type ReservationUuid } from "@common/utils/ids";
+import { type RegistrationUuid, type ReservationUuid } from "@common/utils/ids";
 import { Reservation } from "@rst/components/anmeldung/components/Reservation";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<Participating[]>;
   programData: Accessor<Program>;
   isEditable: boolean;
+  secret: RegistrationUuid;
   roles: Roles;
 }): JSX.Element {
   const params = useParams();
@@ -50,6 +51,7 @@ export function ProgrammDetail(props: {
             arr.remove(props.reservations$, (r) => r.uuid === reservationUuid)
           }
           programData={props.programData}
+          secret={props.secret}
           roles={props.roles}
         />
       )}
@@ -65,6 +67,7 @@ function ProgramDetailContent(props: {
   removeReservation: (reservationUuid: ReservationUuid) => void;
   isEditable: boolean;
   programData: Accessor<Program>;
+  secret: RegistrationUuid;
   roles: Roles;
 }): JSX.Element {
   const day =
@@ -159,7 +162,7 @@ function ProgramDetailContent(props: {
             anmelden kannst.
           </Box>
           <Switch>
-            <Match when={props.roles.includes("admin")}>
+            <Match when={props.roles.includes("admin") || true}>
               <Reservation
                 reservations$={props.reservations$}
                 entry={props.entry}
@@ -167,6 +170,7 @@ function ProgramDetailContent(props: {
                 removeReservation={props.removeReservation}
                 myReservations={props.myReservations}
                 roles={props.roles}
+                secret={props.secret}
                 isEditable={props.isEditable}
               />
             </Match>

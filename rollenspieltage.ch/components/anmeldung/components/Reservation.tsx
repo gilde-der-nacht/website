@@ -1,5 +1,6 @@
 import {
   unsafeToReservationUuid,
+  type RegistrationUuid,
   type ReservationUuid,
   type TimeslotUuid,
 } from "@common/utils/ids";
@@ -17,12 +18,16 @@ import { getCurrentTimestamp } from "@common/utils/shared";
 import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
 import { toRange } from "@common/utils/time";
 import { InputButton } from "@common/components/InputButton";
-import { orderReservations } from "@rst/components/anmeldung/utils/waitinglist";
+import {
+  orderReservations,
+  type GroupedReservation,
+} from "@rst/components/anmeldung/utils/waitinglist";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 
 export function ReservationForm(props: {
   timeslotUuid: TimeslotUuid;
   reservations$: Reactive<Participating[]>;
+  rows: number;
 }): JSX.Element {
   const reservations = () =>
     props.reservations$.get().filter((r) => r.entryUuid === props.timeslotUuid);
@@ -38,6 +43,9 @@ export function ReservationForm(props: {
   const editable$ = createReactive(false);
 
   function updateReservation(names: string[]): void {
+    // everytime the reservation gets expanded, we need to update the timestamp to now, so that the reservation gets moved back to the queue
+    const hasMoreEntries = names.length + 1 > reservations().length;
+
     if (reservations().length === 0) {
       // new reservation
       arr.push(props.reservations$, {
@@ -80,6 +88,9 @@ export function ReservationForm(props: {
         if (i === 0) {
           arr.update(props.reservations$, (r) => r.uuid === reservation.uuid, {
             ...reservation,
+            timestamp: hasMoreEntries
+              ? getCurrentTimestamp()
+              : reservation.timestamp,
             name: {
               kind: "SELF",
             },
@@ -92,6 +103,9 @@ export function ReservationForm(props: {
               (r) => r.uuid === reservation.uuid,
               {
                 ...reservation,
+                timestamp: hasMoreEntries
+                  ? getCurrentTimestamp()
+                  : reservation.timestamp,
                 name: {
                   kind: "FRIEND",
                   friendsName,
@@ -120,7 +134,7 @@ export function ReservationForm(props: {
   return (
     <>
       {editable$.get() ? (
-        <SimpleBox type="success">
+        <SimpleBox type="success" style={`grid-row: span ${props.rows}`}>
           <div style="display: flex; flex-direction: column; gap: 0.5rem;">
             <h5>Meine Reservation</h5>
             <form
@@ -194,7 +208,7 @@ export function ReservationForm(props: {
             />
           }
         >
-          <SimpleBox type="success">
+          <SimpleBox type="success" style={`grid-row: span ${props.rows}`}>
             <div class="reservation-table-entry">
               <p>
                 Reserviert für{" "}
@@ -233,10 +247,16 @@ export function Reservation(props: {
   addReservation: (reservation: Participating) => void;
   removeReservation: (reservationUuid: ReservationUuid) => void;
   roles: Roles;
+  secret: RegistrationUuid;
   isEditable: boolean;
 }): JSX.Element {
-  const view = prepareRegistrationView(props.entry, props.roles);
-  console.log(view);
+  const view = () =>
+    prepareRegistrationView({
+      programEntry: props.entry,
+      roles: props.roles,
+      secret: props.secret,
+    });
+  console.log(view());
 
   const myReservations = () =>
     props.myReservations.filter(
@@ -314,122 +334,186 @@ export function Reservation(props: {
 
   return (
     <>
-      <ReservationForm
-        reservations$={props.reservations$}
-        timeslotUuid={props.entry.timeSlot.uuid}
-      />
-      <div class="reservations">
-        <h5 style="margin-block-start: 0">Plätze reservieren</h5>
-        <div class="reservation-table">
-          <For
-            each={range()}
-            fallback={<em>Teilnahme ohne Anmeldung möglich.</em>}
-          >
-            {(seat, i) => (
-              <>
-                <div class="count">{i() + 1}</div>
-                <Switch>
-                  <Match when={seat.kind === "RESERVED_OTHER"}>
-                    <Box>Bereits reserviert</Box>
-                  </Match>
-                  <Match when={seat.kind === "RESERVED_OTHER_WITH_NAME"}>
-                    <Box>Bereits reserviert ({seat.name})</Box>
-                  </Match>
-                  <Match when={!props.isEditable}>
-                    <Box>Freier Platz</Box>
-                  </Match>
-                  <Match when={seat.kind === "SELF"}>
-                    <SimpleBox type="success">
-                      <div class="reservation-table-entry">
-                        <p>Reserviert für mich </p>
-                        <IconOnlyButton
-                          icon="trash"
-                          onClick={() => {
-                            props.removeReservation(
-                              seat.kind === "SELF"
-                                ? seat.uuid
-                                : unsafeToReservationUuid("should not happen"),
-                            );
-                          }}
-                        />
-                      </div>
-                    </SimpleBox>
-                  </Match>
-                  <Match when={seat.kind === "FRIEND"}>
-                    <SimpleBox type="success">
-                      <div class="reservation-table-entry">
-                        <p>
-                          Reserviert für "
-                          {seat.kind === "FRIEND"
-                            ? seat.name
-                            : "[Fehler beim Laden]"}
-                          "
-                        </p>
-                        <IconOnlyButton
-                          icon="trash"
-                          onClick={() => {
-                            props.removeReservation(
-                              seat.kind === "FRIEND"
-                                ? seat.uuid
-                                : unsafeToReservationUuid("should not happen"),
-                            );
-                          }}
-                        />
-                      </div>
-                    </SimpleBox>
-                  </Match>
-                  <Match when={seat.kind === "FREE_SELF"}>
-                    <ButtonWithIcon
-                      icon="person-to-portal"
-                      label="Mich anmelden"
-                      kind="success"
-                      onClick={() => {
-                        props.addReservation({
-                          entryUuid: props.entry.timeSlot.uuid,
-                          uuid: unsafeToReservationUuid(crypto.randomUUID()),
-                          timestamp: getCurrentTimestamp(),
-                          name: {
-                            kind: "SELF",
-                          },
-                        });
-                      }}
-                    />
-                  </Match>
-                  <Match when={seat.kind === "FREE_FRIEND"}>
-                    <InputButton
-                      label="Begleitperson anmelden"
-                      addFriend={(name) => {
-                        props.addReservation({
-                          entryUuid: props.entry.timeSlot.uuid,
-                          timestamp: getCurrentTimestamp(),
-                          name: {
-                            kind: "FRIEND",
-                            friendsName: name,
-                          },
-                          uuid: unsafeToReservationUuid(crypto.randomUUID()),
-                        });
-                      }}
-                    />
-                  </Match>
-                  <Match when={seat.kind === "RESERVED_LOCAL"}>
-                    <Box>
-                      <em>Reserviert für Spontane</em>
-                    </Box>
-                  </Match>
-                </Switch>
-              </>
-            )}
-          </For>
-        </div>
+      <div class="reservation-table">
+        <div class="count"></div>
+        <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-success-11); padding-block-start: 0.5rem;">
+          Reservationen
+        </h5>
+        <For
+          each={view()}
+          fallback={<em>Teilnahme ohne Anmeldung möglich.</em>}
+        >
+          {(seat) => (
+            <>
+              <div class="count">{seat.seatNumber}</div>
+              <Switch fallback={<code>NOT IMPLEMENTED YET {seat.kind}</code>}>
+                <Match when={seat.kind === "RESERVATION_FORM"}>
+                  <ReservationForm
+                    reservations$={props.reservations$}
+                    timeslotUuid={props.entry.timeSlot.uuid}
+                    rows={seat.rows}
+                  />
+                </Match>
+                <Match when={seat.kind === "OVERFLOW"}>
+                  <>{/* leave empty */}</>
+                </Match>
+                <Match
+                  when={seat.kind === "RESERVED_OTHER" && !seat.waitingList}
+                >
+                  <Box style={`grid-row: span ${seat.rows}`}>
+                    Bereits reserviert{" "}
+                    {"names" in seat && seat.names !== null
+                      ? `(${seat.names.join(", ")})`
+                      : ""}
+                  </Box>
+                </Match>
+                <Match
+                  when={seat.kind === "RESERVED_OTHER" && seat.waitingList}
+                >
+                  <Box style={`grid-row: span ${seat.rows}`}>
+                    Auf der Warteliste{" "}
+                    {"names" in seat && seat.names !== null
+                      ? `(${seat.names.join(", ")})`
+                      : ""}
+                  </Box>
+                </Match>
+                <Match when={seat.kind === "NOT_RESERVED"}>
+                  <Box>Freier Platz</Box>
+                </Match>
+                <Match when={seat.kind === "RESERVED_SPONTANIOUS"}>
+                  <Box>
+                    <em>Reserviert für Spontane</em>
+                  </Box>
+                </Match>
+                <Match when={seat.kind === "WAITING_LIST_START"}>
+                  <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-danger-11); padding-block-start: 0.5rem; margin-block-start: 0.5rem; margin-block-end: -0.5rem;">
+                    Warteliste
+                  </h5>
+                </Match>
+              </Switch>
+            </>
+          )}
+        </For>
       </div>
+      <Show when={false}>
+        <div class="reservations">
+          <h5 style="margin-block-start: 0">Plätze reservieren</h5>
+          <div class="reservation-table">
+            <For
+              each={range()}
+              fallback={<em>Teilnahme ohne Anmeldung möglich.</em>}
+            >
+              {(seat, i) => (
+                <>
+                  <div class="count">{i() + 1}</div>
+                  <Switch>
+                    <Match when={seat.kind === "RESERVED_OTHER"}>
+                      <Box>Bereits reserviert</Box>
+                    </Match>
+                    <Match when={seat.kind === "RESERVED_OTHER_WITH_NAME"}>
+                      <Box>Bereits reserviert ({seat.name})</Box>
+                    </Match>
+                    <Match when={!props.isEditable}>
+                      <Box>Freier Platz</Box>
+                    </Match>
+                    <Match when={seat.kind === "SELF"}>
+                      <SimpleBox type="success">
+                        <div class="reservation-table-entry">
+                          <p>Reserviert für mich </p>
+                          <IconOnlyButton
+                            icon="trash"
+                            onClick={() => {
+                              props.removeReservation(
+                                seat.kind === "SELF"
+                                  ? seat.uuid
+                                  : unsafeToReservationUuid(
+                                      "should not happen",
+                                    ),
+                              );
+                            }}
+                          />
+                        </div>
+                      </SimpleBox>
+                    </Match>
+                    <Match when={seat.kind === "FRIEND"}>
+                      <SimpleBox type="success">
+                        <div class="reservation-table-entry">
+                          <p>
+                            Reserviert für "
+                            {seat.kind === "FRIEND"
+                              ? seat.name
+                              : "[Fehler beim Laden]"}
+                            "
+                          </p>
+                          <IconOnlyButton
+                            icon="trash"
+                            onClick={() => {
+                              props.removeReservation(
+                                seat.kind === "FRIEND"
+                                  ? seat.uuid
+                                  : unsafeToReservationUuid(
+                                      "should not happen",
+                                    ),
+                              );
+                            }}
+                          />
+                        </div>
+                      </SimpleBox>
+                    </Match>
+                    <Match when={seat.kind === "FREE_SELF"}>
+                      <ButtonWithIcon
+                        icon="person-to-portal"
+                        label="Mich anmelden"
+                        kind="success"
+                        onClick={() => {
+                          props.addReservation({
+                            entryUuid: props.entry.timeSlot.uuid,
+                            uuid: unsafeToReservationUuid(crypto.randomUUID()),
+                            timestamp: getCurrentTimestamp(),
+                            name: {
+                              kind: "SELF",
+                            },
+                          });
+                        }}
+                      />
+                    </Match>
+                    <Match when={seat.kind === "FREE_FRIEND"}>
+                      <InputButton
+                        label="Begleitperson anmelden"
+                        addFriend={(name) => {
+                          props.addReservation({
+                            entryUuid: props.entry.timeSlot.uuid,
+                            timestamp: getCurrentTimestamp(),
+                            name: {
+                              kind: "FRIEND",
+                              friendsName: name,
+                            },
+                            uuid: unsafeToReservationUuid(crypto.randomUUID()),
+                          });
+                        }}
+                      />
+                    </Match>
+                    <Match when={seat.kind === "RESERVED_LOCAL"}>
+                      <Box>
+                        <em>Reserviert für Spontane</em>
+                      </Box>
+                    </Match>
+                  </Switch>
+                </>
+              )}
+            </For>
+          </div>
+        </div>
+      </Show>
     </>
   );
 }
 
-type ReservationView = { waitingList?: boolean } & (
+type ReservationView = { seatNumber: number | null; rows: number } & (
   | {
       kind: "RESERVED_OTHER";
       names: string[] | null;
+      waitingList: boolean;
     }
   | {
       kind: "OVERFLOW";
@@ -439,15 +523,128 @@ type ReservationView = { waitingList?: boolean } & (
     }
   | { kind: "RESERVATION_FORM" }
   | { kind: "RESERVED_SPONTANIOUS" }
+  | { kind: "WAITING_LIST_START" }
 );
 
-function prepareRegistrationView(
-  programEntry: ProgramPublicEntry,
-  roles: Roles,
-): ReservationView[] {
-  const allowedDetails = roles.includes("admin") || programEntry.myEntry;
+function prepareRegistrationView(props: {
+  programEntry: ProgramPublicEntry;
+  secret: RegistrationUuid;
+  roles: Roles;
+}): ReservationView[] {
+  const view: ReservationView[] = [];
 
-  const ordered = orderReservations(programEntry);
+  let seatNumberCounter = 1;
+
+  const allowedDetails =
+    props.roles.includes("admin") || props.programEntry.myEntry;
+
+  const ordered = orderReservations(props.programEntry);
   console.log(ordered);
-  return [];
+
+  const alreadyReserved = ordered.some((entry) =>
+    props.secret.startsWith(entry.groupId),
+  );
+
+  function addViews(groups: GroupedReservation[], waitingList: boolean): void {
+    groups.forEach((group) => {
+      const myReservation = props.secret.startsWith(group.groupId);
+
+      toRange(group.seats).forEach((groupMemberIndex) => {
+        if (allowedDetails) {
+          if (groupMemberIndex === 0) {
+            if (myReservation) {
+              view.push({
+                kind: "RESERVATION_FORM",
+                rows: group.seats,
+                seatNumber: seatNumberCounter++,
+              });
+            } else {
+              view.push({
+                kind: "RESERVED_OTHER",
+                names: group.names,
+                waitingList,
+                rows: group.seats,
+                seatNumber: seatNumberCounter++,
+              });
+            }
+          } else {
+            view.push({
+              kind: "OVERFLOW",
+              rows: 1,
+              seatNumber: seatNumberCounter++,
+            });
+          }
+        } else {
+          if (myReservation) {
+            if (groupMemberIndex === 0) {
+              view.push({
+                kind: "RESERVATION_FORM",
+                rows: group.seats,
+                seatNumber: seatNumberCounter++,
+              });
+            } else {
+              view.push({
+                kind: "OVERFLOW",
+                rows: 1,
+                seatNumber: seatNumberCounter++,
+              });
+            }
+          } else {
+            view.push({
+              kind: "RESERVED_OTHER",
+              names: null,
+              waitingList,
+              rows: 1,
+              seatNumber: seatNumberCounter++,
+            });
+          }
+        }
+      });
+    });
+  }
+
+  addViews(
+    ordered.filter((group) => !group.waitinglist),
+    false,
+  );
+
+  const emptySeats = Math.max(
+    0,
+    props.programEntry.participation.seats.max - view.length,
+  );
+
+  toRange(emptySeats).forEach((i) => {
+    if (i + 1 === emptySeats) {
+      view.push({
+        kind: "RESERVED_SPONTANIOUS",
+        rows: 1,
+        seatNumber: seatNumberCounter++,
+      });
+    } else if (i === 0 && !alreadyReserved) {
+      view.push({
+        kind: "RESERVATION_FORM",
+        rows: 1,
+        seatNumber: seatNumberCounter++,
+      });
+    } else {
+      view.push({
+        kind: "NOT_RESERVED",
+        rows: 1,
+        seatNumber: seatNumberCounter++,
+      });
+    }
+  });
+
+  view.push({
+    kind: "WAITING_LIST_START",
+    rows: 1,
+    seatNumber: null,
+  });
+
+  addViews(
+    ordered.filter((group) => group.waitinglist),
+    true,
+  );
+
+  return view;
 }
