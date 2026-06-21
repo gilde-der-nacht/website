@@ -239,6 +239,7 @@ function ErstellenDetailContent(props: {
                   roles={props.roles}
                   isPublicSite={false}
                   link={RouterLink}
+                  secret=""
                 />
               )}
             </For>

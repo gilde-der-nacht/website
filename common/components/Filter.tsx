@@ -178,13 +178,22 @@ export function Filters(props: {
             </Show>
           )}
         </For>
-        <ButtonWithIcon
-          icon={expandTags$.get() ? "circle-minus" : "circle-plus"}
-          label={
-            expandTags$.get() ? "weniger Anzeigen" : "alle Kategorien anzeigen"
+        <Show
+          when={expandTags$.get()}
+          fallback={
+            <ButtonWithIcon
+              icon="circle-plus"
+              label=""
+              onClick={() => expandTags$.set(!expandTags$.get())}
+            />
           }
-          onClick={() => expandTags$.set(!expandTags$.get())}
-        />
+        >
+          <ButtonWithIcon
+            icon="circle-minus"
+            label=""
+            onClick={() => expandTags$.set(!expandTags$.get())}
+          />
+        </Show>
       </div>
       <h6 style="margin-block: 0.5rem;">Sprache</h6>
       <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
