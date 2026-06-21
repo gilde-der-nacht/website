@@ -162,7 +162,7 @@ function ProgramDetailContent(props: {
             anmelden kannst.
           </Box>
           <Switch>
-            <Match when={props.roles.includes("admin") || true}>
+            <Match when={props.roles.includes("admin") /*|| true*/}>
               <Reservation
                 reservations$={props.reservations$}
                 entry={props.entry}
