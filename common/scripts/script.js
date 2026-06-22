@@ -219,6 +219,8 @@ function toggleTheme() {
     })
 }
 
+window.updateCalendarFilters = updateCalendarFilters;
+
 (function initialize() {
   toggleScrolling();
   toggleTheme();
