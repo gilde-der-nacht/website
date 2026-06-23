@@ -25,6 +25,11 @@ import {
 
 const reservationEntrySchema = z.object({
   name: z.string().nullable(),
+  waitinglistPreferences: z.union([
+    z.literal("EXACTLY"),
+    z.literal("SIMILAR"),
+    z.literal("ANYTHING"),
+  ]),
   uuid: z.string().transform(unsafeToReservationUuid),
   timestamp: timestampSchema,
   groupId: z.string().transform(unsafeToGroupId),
@@ -34,6 +39,11 @@ export type ReservationEntry = z.infer<typeof reservationEntrySchema>;
 
 const reservationHistoryActionEntrySchema = z.object({
   kind: z.union([z.literal("ADD"), z.literal("REMOVE"), z.literal("UPDATE")]),
+  waitinglistPreferences: z.union([
+    z.literal("EXACTLY"),
+    z.literal("SIMILAR"),
+    z.literal("ANYTHING"),
+  ]),
   name: z.union([z.string(), z.null()]),
   timestamp: timestampSchema,
   uuid: z.string().transform(unsafeToReservationUuid),

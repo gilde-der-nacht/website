@@ -17,6 +17,7 @@ const ICONS = [
   "dice-d20",
   "floppy-disk-circle-arrow-right",
   "forward",
+  "gear",
   "grid-2-plus",
   "hand-heart",
   "link",

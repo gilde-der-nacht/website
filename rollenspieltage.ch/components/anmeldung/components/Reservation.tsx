@@ -26,6 +26,22 @@ import {
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { assert } from "@common/components/utils";
 
+const PREFERENCES = {
+  EXACTLY: "für exakt diese Spielrunde",
+  SIMILAR: "für eine ähnliche Spielrunde",
+  ANYTHING: "für irgendeine Spielrunde in diesem Zeitraum",
+};
+
+function getPreferenceLabel(
+  reservations: {
+    waitinglistPreferences: "EXACTLY" | "SIMILAR" | "ANYTHING";
+  }[],
+): string {
+  console.log(reservations);
+  const lastEntry = reservations.at(-1);
+  return PREFERENCES[lastEntry?.waitinglistPreferences ?? "EXACTLY"];
+}
+
 export function ReservationForm(props: {
   entry: ProgramPublicEntry;
   addReservationAction: (action: ReserveAction) => void;
@@ -98,6 +114,8 @@ function ReservationEdit(props: {
   rows: number;
   secret: string;
 }): JSX.Element {
+  const waitlistPreferenceShown$ = createReactive(false);
+
   function emptySeatsIgnoringSelfGroup(): number {
     return (
       props.entry.participation.seats.max -
@@ -108,30 +126,42 @@ function ReservationEdit(props: {
     );
   }
 
+  function willReservationGoToWaitinglist(): boolean {
+    const friendsCount = props.names$
+      .get()
+      .split(",")
+      .filter((s) => s.trim().length > 0).length;
+    return emptySeatsIgnoringSelfGroup() <= friendsCount;
+  }
+
   function registrationLabel(): string {
-    if (props.names$.get().trim().length === 0) {
+    const friendsCount = props.names$
+      .get()
+      .split(",")
+      .filter((s) => s.trim().length > 0).length;
+
+    if (friendsCount === 0) {
       // without friends
-      return emptySeatsIgnoringSelfGroup() > 0
-        ? "Mich anmelden"
-        : "Mich in Warteliste eintragen";
+      return willReservationGoToWaitinglist()
+        ? "Mich in Warteliste eintragen ..."
+        : "Mich anmelden";
     } else {
       // with friends
-      const friendsCount = props.names$
-        .get()
-        .split(",")
-        .filter((s) => s.trim().length > 0).length;
-      return emptySeatsIgnoringSelfGroup() > friendsCount
-        ? `Uns (${friendsCount + 1}) anmelden`
-        : `Uns (${friendsCount + 1}) in Warteliste eintragen`;
+      return willReservationGoToWaitinglist()
+        ? `Uns (${friendsCount + 1}) in Warteliste eintragen ...`
+        : `Uns (${friendsCount + 1}) anmelden`;
     }
   }
 
-  function updateReservation(names: string[]): void {
+  function updateReservation(
+    names: string[],
+    preferences: "EXACTLY" | "SIMILAR" | "ANYTHING",
+  ): void {
     if (props.reservations().length === 0) {
       // new reservation
       props.addReservationAction({
         kind: "ADD",
-        waitinglistPreferences: "EXACTLY",
+        waitinglistPreferences: preferences,
         entryUuid: props.entry.timeSlot.uuid,
         uuid: unsafeToReservationUuid(crypto.randomUUID()),
         timestamp: getCurrentTimestamp(),
@@ -143,7 +173,7 @@ function ReservationEdit(props: {
       names.forEach((name) => {
         props.addReservationAction({
           kind: "ADD",
-          waitinglistPreferences: "EXACTLY",
+          waitinglistPreferences: preferences,
           entryUuid: props.entry.timeSlot.uuid,
           timestamp: getCurrentTimestamp(),
           name: {
@@ -158,7 +188,7 @@ function ReservationEdit(props: {
         if (i + 2 > props.reservations().length) {
           // added more friends
           props.addReservationAction({
-            waitinglistPreferences: "EXACTLY",
+            waitinglistPreferences: preferences,
             kind: "ADD",
             entryUuid: props.entry.timeSlot.uuid,
             timestamp: getCurrentTimestamp(),
@@ -174,13 +204,20 @@ function ReservationEdit(props: {
       // update reservation
       props.reservations().forEach((reservation, i) => {
         if (i === 0) {
-          // skip
+          props.addReservationAction({
+            kind: "UPDATE",
+            waitinglistPreferences: preferences,
+            entryUuid: props.entry.timeSlot.uuid,
+            uuid: reservation.uuid,
+            name: { kind: "SELF" },
+            timestamp: getCurrentTimestamp(),
+          });
         } else {
           const friendsName = names[i - 1];
           if (friendsName !== undefined) {
             props.addReservationAction({
               kind: "UPDATE",
-              waitinglistPreferences: "EXACTLY",
+              waitinglistPreferences: preferences,
               entryUuid: props.entry.timeSlot.uuid,
               uuid: reservation.uuid,
               name: { kind: "FRIEND", friendsName },
@@ -190,7 +227,7 @@ function ReservationEdit(props: {
             // removed friends
             props.addReservationAction({
               kind: "REMOVE",
-              waitinglistPreferences: "EXACTLY",
+              waitinglistPreferences: preferences,
               entryUuid: props.entry.timeSlot.uuid,
               uuid: reservation.uuid,
               name: { kind: "FRIEND", friendsName: "---removed---" },
@@ -227,12 +264,19 @@ function ReservationEdit(props: {
           novalidate={true}
           onSubmit={(e) => {
             e.preventDefault();
+
+            if (willReservationGoToWaitinglist()) {
+              waitlistPreferenceShown$.set(true);
+              return;
+            }
+
             updateReservation(
               props.names$
                 .get()
                 .split(",")
                 .map((s) => s.trim())
                 .filter((s) => s.length > 0),
+              "EXACTLY",
             );
           }}
         >
@@ -250,29 +294,89 @@ function ReservationEdit(props: {
               name="namen"
             />
           </div>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end;">
-            <ButtonWithIcon
-              icon="trash"
-              label="Reservation löschen"
-              kind="danger"
-              onClick={removeReservation}
-            />
-            <ButtonWithIcon
-              icon="rotate-left"
-              label="Abbrechen"
-              kind="special"
-              onClick={() => {
-                props.names$.set(props.getFriendNames());
-                props.editable$.set(false);
-              }}
-            />
-            <ButtonWithIcon
-              icon="floppy-disk-circle-arrow-right"
-              label={registrationLabel()}
-              kind="success"
-              type="submit"
-            />
-          </div>
+          <Show
+            when={waitlistPreferenceShown$.get()}
+            fallback={
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <ButtonWithIcon
+                  icon="trash"
+                  label="Reservation löschen"
+                  kind="danger"
+                  onClick={removeReservation}
+                />
+                <ButtonWithIcon
+                  icon="rotate-left"
+                  label="Abbrechen"
+                  kind="special"
+                  onClick={() => {
+                    props.names$.set(props.getFriendNames());
+                    props.editable$.set(false);
+                  }}
+                />
+                <ButtonWithIcon
+                  icon="floppy-disk-circle-arrow-right"
+                  label={registrationLabel()}
+                  kind={waitlistPreferenceShown$.get() ? "gray" : "success"}
+                  type="submit"
+                />
+              </div>
+            }
+          >
+            <h5>Warteliste-Präferenz:</h5>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <ButtonWithIcon
+                icon="gear"
+                label={PREFERENCES["EXACTLY"]}
+                kind="success"
+                onClick={() => {
+                  updateReservation(
+                    props.names$
+                      .get()
+                      .split(",")
+                      .map((s) => s.trim())
+                      .filter((s) => s.length > 0),
+                    "EXACTLY",
+                  );
+                }}
+              />
+              <ButtonWithIcon
+                icon="gear"
+                label={PREFERENCES["SIMILAR"]}
+                kind="special"
+                onClick={() => {
+                  updateReservation(
+                    props.names$
+                      .get()
+                      .split(",")
+                      .map((s) => s.trim())
+                      .filter((s) => s.length > 0),
+                    "SIMILAR",
+                  );
+                }}
+              />
+              <ButtonWithIcon
+                icon="gear"
+                label={PREFERENCES["ANYTHING"]}
+                kind="special"
+                onClick={() => {
+                  updateReservation(
+                    props.names$
+                      .get()
+                      .split(",")
+                      .map((s) => s.trim())
+                      .filter((s) => s.length > 0),
+                    "ANYTHING",
+                  );
+                }}
+              />
+              <ButtonWithIcon
+                icon="rotate-left"
+                label="Zurück"
+                kind="special"
+                onClick={() => waitlistPreferenceShown$.set(false)}
+              />
+            </div>
+          </Show>
         </form>
       </div>
     </SimpleBox>
@@ -316,6 +420,12 @@ function ReservationView(props: {
               ", ",
               " und ",
             )}
+            {props.waitingList ? (
+              <>
+                <br />
+                Warteliste-Präferenz: {getPreferenceLabel(props.reservations())}
+              </>
+            ) : null}
           </p>
           <IconOnlyButton
             icon="pencil"
@@ -403,6 +513,9 @@ export function Reservation(props: {
                     {"names" in seat && seat.names !== null
                       ? `(${seat.names.join(", ")})`
                       : ""}
+                    <br />
+                    Warteliste-Präferenz:{" "}
+                    {getPreferenceLabel(props.myReservations)}
                   </Box>
                 </Match>
                 <Match when={seat.kind === "NOT_RESERVED"}>
