@@ -3,7 +3,7 @@ import {
   type RegistrationUuid,
   type ReservationUuid,
 } from "@common/utils/ids";
-import { For, Match, Show, Switch, type JSX } from "solid-js";
+import { For, Match, Show, Switch, type Accessor, type JSX } from "solid-js";
 import type { ReserveAction } from "@rst/components/anmeldung/api/save";
 import { arr, createReactive, type Reactive } from "@common/utils/reactivity";
 import { Box, SimpleBox } from "@common/components/Box";
@@ -14,7 +14,10 @@ import {
 } from "@common/components/Button";
 import { join } from "@common/utils/strings";
 import { getCurrentTimestamp } from "@common/utils/shared";
-import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
+import type {
+  ProgramPublicEntry,
+  ReservationEntry,
+} from "@rst/components/anmeldung/api/program";
 import { toRange } from "@common/utils/time";
 import {
   orderReservations,
@@ -55,25 +58,65 @@ export function ReservationForm(props: {
       .join(", ");
   }
 
-  const emptySeatsIgnoringSelfGroup = () =>
-    props.entry.participation.seats.max -
-    props.entry.participation.reserved.filter(
-      (entry) => !props.secret.startsWith(entry.groupId),
-    ).length -
-    1;
-
   const names$ = createReactive(getFriendNames());
   const editable$ = createReactive(false);
 
+  return (
+    <>
+      {editable$.get() ? (
+        <ReservationEdit
+          names$={names$}
+          editable$={editable$}
+          entry={props.entry}
+          getFriendNames={getFriendNames}
+          addReservationAction={props.addReservationAction}
+          reservations={reservations}
+          rows={props.rows}
+          secret={props.secret}
+        />
+      ) : (
+        <ReservationView
+          names$={names$}
+          editable$={editable$}
+          reservations={reservations}
+          getFriendNames={getFriendNames}
+          waitingList={props.waitingList}
+          rows={props.rows}
+        />
+      )}
+    </>
+  );
+}
+
+function ReservationEdit(props: {
+  names$: Reactive<string>;
+  editable$: Reactive<boolean>;
+  getFriendNames: Accessor<string>;
+  entry: ProgramPublicEntry;
+  reservations: Accessor<ReservationEntry[]>;
+  addReservationAction: (action: ReserveAction) => void;
+  rows: number;
+  secret: string;
+}): JSX.Element {
+  function emptySeatsIgnoringSelfGroup(): number {
+    return (
+      props.entry.participation.seats.max -
+      props.entry.participation.reserved.filter(
+        (entry) => !props.secret.startsWith(entry.groupId),
+      ).length -
+      1
+    );
+  }
+
   function registrationLabel(): string {
-    if (names$.get().trim().length === 0) {
+    if (props.names$.get().trim().length === 0) {
       // without friends
       return emptySeatsIgnoringSelfGroup() > 0
         ? "Mich anmelden"
         : "Mich in Warteliste eintragen";
     } else {
       // with friends
-      const friendsCount = names$
+      const friendsCount = props.names$
         .get()
         .split(",")
         .filter((s) => s.trim().length > 0).length;
@@ -84,7 +127,7 @@ export function ReservationForm(props: {
   }
 
   function updateReservation(names: string[]): void {
-    if (reservations().length === 0) {
+    if (props.reservations().length === 0) {
       // new reservation
       props.addReservationAction({
         kind: "ADD",
@@ -112,7 +155,7 @@ export function ReservationForm(props: {
       });
     } else {
       names.forEach((name, i) => {
-        if (i + 2 > reservations().length) {
+        if (i + 2 > props.reservations().length) {
           // added more friends
           props.addReservationAction({
             waitinglistPreferences: "EXACTLY",
@@ -129,7 +172,7 @@ export function ReservationForm(props: {
       });
 
       // update reservation
-      reservations().forEach((reservation, i) => {
+      props.reservations().forEach((reservation, i) => {
         if (i === 0) {
           // skip
         } else {
@@ -158,11 +201,11 @@ export function ReservationForm(props: {
       });
     }
 
-    editable$.set(false);
+    props.editable$.set(false);
   }
 
   function removeReservation(): void {
-    reservations().forEach((reservation) => {
+    props.reservations().forEach((reservation) => {
       props.addReservationAction({
         kind: "REMOVE",
         waitinglistPreferences: "EXACTLY",
@@ -172,112 +215,118 @@ export function ReservationForm(props: {
         timestamp: getCurrentTimestamp(),
       });
     });
-    names$.set("");
-    editable$.set(false);
+    props.names$.set("");
+    props.editable$.set(false);
   }
 
   return (
-    <>
-      {editable$.get() ? (
-        <SimpleBox type="success" style={`grid-row: span ${props.rows}`}>
-          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <h5>Meine Reservation</h5>
-            <form
-              novalidate={true}
-              onSubmit={(e) => {
-                e.preventDefault();
-                updateReservation(
-                  names$
-                    .get()
-                    .split(",")
-                    .map((s) => s.trim())
-                    .filter((s) => s.length > 0),
-                );
-              }}
-            >
-              <div
-                style="display: grid; grid-template-columns: max-content 1fr; gap: 0;"
-                class="input-button reservation-table"
-              >
-                <Button label="Ich, " kind="special" />
-                <input
-                  type="text"
-                  style="border-color: var(--clr-special-9);"
-                  value={names$.get()}
-                  onInput={(e) => names$.set(e.target.value)}
-                  placeholder="Begleitpersonen (separieren mit Kommas)"
-                  name="namen"
-                />
-              </div>
-              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end;">
-                <ButtonWithIcon
-                  icon="trash"
-                  label="Reservation löschen"
-                  kind="danger"
-                  onClick={removeReservation}
-                />
-                <ButtonWithIcon
-                  icon="rotate-left"
-                  label="Abbrechen"
-                  kind="special"
-                  onClick={() => {
-                    names$.set(getFriendNames());
-                    editable$.set(false);
-                  }}
-                />
-                <ButtonWithIcon
-                  icon="floppy-disk-circle-arrow-right"
-                  label={registrationLabel()}
-                  kind="success"
-                  type="submit"
-                />
-              </div>
-            </form>
-          </div>
-        </SimpleBox>
-      ) : (
-        <Show
-          when={reservations().length > 0}
-          fallback={
-            <ButtonWithIcon
-              icon="person-to-portal"
-              label={
-                props.waitingList
-                  ? "In Warteliste eintragen"
-                  : "Plätze reservieren"
-              }
-              kind="success"
-              onClick={() => editable$.set(true)}
-            />
-          }
+    <SimpleBox type="success" style={`grid-row: span ${props.rows}`}>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <h5>Meine Reservation</h5>
+        <form
+          novalidate={true}
+          onSubmit={(e) => {
+            e.preventDefault();
+            updateReservation(
+              props.names$
+                .get()
+                .split(",")
+                .map((s) => s.trim())
+                .filter((s) => s.length > 0),
+            );
+          }}
         >
-          <SimpleBox type="success" style={`grid-row: span ${props.rows}`}>
-            <div class="reservation-table-entry">
-              <p>
-                {props.waitingList ? "Auf der Warteliste: " : "Reserviert für "}
-                {join(
-                  [props.waitingList ? "Ich" : "mich"].concat(
-                    getFriendNames()
-                      .split(",")
-                      .map((s) => s.trim())
-                      .filter((n) => n.trim().length > 0),
-                  ),
-                  ", ",
-                  " und ",
-                )}
-              </p>
-              <IconOnlyButton
-                icon="pencil"
-                onClick={() => {
-                  names$.set(getFriendNames());
-                  editable$.set(true);
-                }}
-              />
-            </div>
-          </SimpleBox>
-        </Show>
-      )}
-    </>
+          <div
+            style="display: grid; grid-template-columns: max-content 1fr; gap: 0;"
+            class="input-button reservation-table"
+          >
+            <Button label="Ich, " kind="special" />
+            <input
+              type="text"
+              style="border-color: var(--clr-special-9);"
+              value={props.names$.get()}
+              onInput={(e) => props.names$.set(e.target.value)}
+              placeholder="Begleitpersonen (separieren mit Kommas)"
+              name="namen"
+            />
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end;">
+            <ButtonWithIcon
+              icon="trash"
+              label="Reservation löschen"
+              kind="danger"
+              onClick={removeReservation}
+            />
+            <ButtonWithIcon
+              icon="rotate-left"
+              label="Abbrechen"
+              kind="special"
+              onClick={() => {
+                props.names$.set(props.getFriendNames());
+                props.editable$.set(false);
+              }}
+            />
+            <ButtonWithIcon
+              icon="floppy-disk-circle-arrow-right"
+              label={registrationLabel()}
+              kind="success"
+              type="submit"
+            />
+          </div>
+        </form>
+      </div>
+    </SimpleBox>
+  );
+}
+
+function ReservationView(props: {
+  names$: Reactive<string>;
+  editable$: Reactive<boolean>;
+  reservations: Accessor<ReservationEntry[]>;
+  getFriendNames: Accessor<string>;
+  waitingList: boolean;
+  rows: number;
+}): JSX.Element {
+  return (
+    <Show
+      when={props.reservations().length > 0}
+      fallback={
+        <ButtonWithIcon
+          icon="person-to-portal"
+          label={
+            props.waitingList ? "In Warteliste eintragen" : "Plätze reservieren"
+          }
+          kind="success"
+          onClick={() => props.editable$.set(true)}
+        />
+      }
+    >
+      <SimpleBox type="success" style={`grid-row: span ${props.rows}`}>
+        <div class="reservation-table-entry">
+          <p>
+            {props.waitingList ? "Auf der Warteliste: " : "Reserviert für "}
+            {join(
+              [props.waitingList ? "Ich" : "mich"].concat(
+                props
+                  .getFriendNames()
+                  .split(",")
+                  .map((s) => s.trim())
+                  .filter((n) => n.trim().length > 0),
+              ),
+              ", ",
+              " und ",
+            )}
+          </p>
+          <IconOnlyButton
+            icon="pencil"
+            onClick={() => {
+              props.names$.set(props.getFriendNames());
+              props.editable$.set(true);
+            }}
+          />
+        </div>
+      </SimpleBox>
+    </Show>
   );
 }
 
