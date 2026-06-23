@@ -35,6 +35,11 @@ export function QuickMenu(props: {
             </RouterLink>
           </Tooltip>
         </Show>
+        <Tooltip tooltip="Zur Wunschliste">
+          <RouterLink href="/wunschliste" class="button-link">
+            <Button label={<Icon icon="message-pen" />} />
+          </RouterLink>
+        </Tooltip>
         <Tooltip tooltip="Zur Zusammenfassung">
           <RouterLink href="/zusammenfassung" class="button-link">
             <Button label={<Icon icon="list" />} />
@@ -69,6 +74,9 @@ export function QuickMenuExtended(props: {
               />
             </RouterLink>
           </Show>
+          <RouterLink href="/wunschliste" class="button-link">
+            <ButtonWithIcon icon="message-pen" label="Zur Wunschliste" />
+          </RouterLink>
           <RouterLink href="/zusammenfassung" class="button-link">
             <ButtonWithIcon icon="list" label="Zur Zusammenfassung" />
           </RouterLink>

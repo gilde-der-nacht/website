@@ -20,6 +20,12 @@ export function Root(props: { roles: Roles }): JSX.Element {
           </BoxLink>
         </RouterLink>
       </Show>
+      <RouterLink href="/wunschliste" class="button-link">
+        <BoxLink icon="message-pen">
+          <h3>Wunschliste</h3>
+          <p>Deine Wünsche für (zukünftige) Rollenspieltage.</p>
+        </BoxLink>
+      </RouterLink>
       <RouterLink href="/zusammenfassung" class="button-link">
         <BoxLink icon="list">
           <h3>Zusammenfassung</h3>

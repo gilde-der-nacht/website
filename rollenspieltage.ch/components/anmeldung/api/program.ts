@@ -13,6 +13,7 @@ import { debounce } from "@common/components/utils";
 import {
   unsafeToGameUuid,
   unsafeToGroupId,
+  unsafeToRegistrationUuid,
   unsafeToReservationUuid,
   unsafeToTimeslotUuid,
   type RegistrationUuid,
@@ -86,12 +87,21 @@ const programHiddenEntrySchema = z.object({
 
 export type ProgramHiddenEntry = z.infer<typeof programHiddenEntrySchema>;
 
+const wishlistEntrySchema = z.object({
+  text: z.string(),
+  author: z.string(),
+  secret: z.string().transform(unsafeToRegistrationUuid),
+});
+
+export type WishlistEntry = z.infer<typeof wishlistEntrySchema>;
+
 const programSchema = z.object({
   publicEntries: z.array(programPublicEntrySchema),
   hiddenEntries: z.union([
     unauthorizedSchema,
     z.array(programHiddenEntrySchema),
   ]),
+  wishlist: z.union([unauthorizedSchema, z.array(wishlistEntrySchema)]),
 });
 
 export type Program = z.infer<typeof programSchema>;
