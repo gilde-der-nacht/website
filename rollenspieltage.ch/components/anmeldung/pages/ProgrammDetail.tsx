@@ -1,4 +1,4 @@
-import { For, Match, Show, Switch, type Accessor, type JSX } from "solid-js";
+import { For, Show, type Accessor, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import { useParams } from "@solidjs/router";
@@ -157,24 +157,16 @@ function ProgramDetailContent(props: {
           </li>
         </ul>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <Box type="special">
-            Wir schicken dir eine E-Mail, sobald du dich für Spielrunden
-            anmelden kannst.
-          </Box>
-          <Switch>
-            <Match when={props.roles.includes("admin") /*|| true*/}>
-              <Reservation
-                reservations$={props.reservations$}
-                entry={props.entry}
-                addReservation={props.addReservation}
-                removeReservation={props.removeReservation}
-                myReservations={props.myReservations}
-                roles={props.roles}
-                secret={props.secret}
-                isEditable={props.isEditable}
-              />
-            </Match>
-          </Switch>
+          <Reservation
+            reservations$={props.reservations$}
+            entry={props.entry}
+            addReservation={props.addReservation}
+            removeReservation={props.removeReservation}
+            myReservations={props.myReservations}
+            roles={props.roles}
+            secret={props.secret}
+            isEditable={props.isEditable}
+          />
         </div>
       </div>
     </>
