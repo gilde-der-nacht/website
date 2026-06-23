@@ -68,8 +68,24 @@ export function Entry(props: {
           </span>
         </div>
         <div class="event-tags">
-          <strong>Freie Plätze:</strong> {freeSeats()} (von{" "}
-          {props.entry.participation.seats.max})
+          <strong>Freie Plätze:</strong>{" "}
+          <span>
+            {" "}
+            {freeSeats()} (von {props.entry.participation.seats.max})
+            <Show
+              when={
+                props.roles.includes("admin") &&
+                props.entry.participation.waiting.length > 0
+              }
+            >
+              {" "}
+              |{" "}
+              <em style="color: var(--clr-danger-10);">
+                <strong>Warteliste:</strong>{" "}
+                {props.entry.participation.waiting.length}
+              </em>
+            </Show>
+          </span>{" "}
         </div>
         <div class="event-tags">
           <strong>Kategorien:</strong>{" "}
