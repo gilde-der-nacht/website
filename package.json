@@ -16,12 +16,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/mdx": "6.0.3",
-    "@astrojs/solid-js": "6.0.1",
+    "@astrojs/mdx": "7.0.0",
+    "@astrojs/solid-js": "7.0.0",
     "@astrojs/ts-plugin": "^1.10.9",
     "@js-temporal/polyfill": "^0.5.1",
     "@solidjs/router": "^0.16.1",
-    "astro": "6.4.8",
+    "astro": "7.0.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-smartypants": "^3.0.2",
@@ -29,7 +29,7 @@
     "solid-js": "^1.9.13",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
-    "vite": "7"
+    "vite": "8"
   },
   "devDependencies": {
     "@types/html-escaper": "^3.0.4",
@@ -37,10 +37,5 @@
     "@types/node": "^26.0.0",
     "luxon": "^3.7.2",
     "prettier-plugin-astro": "^0.14.1"
-  },
-  "overrides": {
-    "astro": {
-      "vite": "^7"
-    }
   }
 }
