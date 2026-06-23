@@ -186,7 +186,7 @@ export function Router(props: {
                 programResource={programResource}
                 secret={props.secret}
               >
-                {() => (
+                {({ programData }) => (
                   <ErstellenDetail
                     programEntries$={store$
                       .pipe(obj.sub("save"))
@@ -195,6 +195,7 @@ export function Router(props: {
                     contact$={store$
                       .pipe(obj.sub("save"))
                       .pipe(obj.sub("contact"))}
+                    programData={programData}
                     isEditable={props.initState.status === "published"}
                     roles={store$.get().meta.roles}
                   />

@@ -1,4 +1,11 @@
-import { ErrorBoundary, For, Index, Show, type JSX } from "solid-js";
+import {
+  ErrorBoundary,
+  For,
+  Index,
+  Show,
+  type Accessor,
+  type JSX,
+} from "solid-js";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type {
@@ -29,14 +36,21 @@ import { Button } from "@common/components/Button";
 import { BoxLink } from "@common/components/BoxLink";
 import { parseIntSafe } from "@common/utils/parsing";
 import { entryEditToPublic } from "@rst/components/anmeldung/utils/convert";
-import { SATURDAY, SUNDAY } from "@rst/components/anmeldung/constant/time";
+import {
+  getDay,
+  SATURDAY,
+  SUNDAY,
+} from "@rst/components/anmeldung/constant/time";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { RouterLink } from "@common/components/Link";
 import { unsafeToTimeslotUuid } from "@common/utils/ids";
+import type { Program } from "@rst/components/anmeldung/api/program";
+import { durationToTemporal, formatTime } from "@common/utils/time";
 
 export function ErstellenDetail(props: {
   programEntries$: Reactive<ProgramEntry[]>;
   contact$: Reactive<Contact>;
+  programData: Accessor<Program>;
   isEditable: boolean;
   roles: Roles;
 }): JSX.Element {
@@ -56,6 +70,7 @@ export function ErstellenDetail(props: {
           (e) => e.uuid === params.uuid,
         )}
         contact$={props.contact$}
+        programData={props.programData}
         isEditable={props.isEditable}
         roles={props.roles}
       />
@@ -66,14 +81,85 @@ export function ErstellenDetail(props: {
 function ErstellenDetailContent(props: {
   entry$: Reactive<ProgramEntry>;
   contact$: Reactive<Contact>;
+  programData: Accessor<Program>;
   isEditable: boolean;
   roles: Roles;
 }): JSX.Element {
   const errors = () => getErrors(props.entry$.get());
 
+  function getEntriesWithParticipants() {
+    const entries = props
+      .programData()
+      .publicEntries.filter((entry) => entry.uuid === props.entry$.get().uuid);
+    return entries.filter(
+      (entry) =>
+        entry.participation.reserved.length > 0 ||
+        entry.participation.waiting.length > 0,
+    );
+  }
+
+  const isEditable = () =>
+    props.isEditable &&
+    (getEntriesWithParticipants().length === 0 ||
+      props.roles.includes("admin"));
+
   return (
     <>
       <h2>{props.entry$.get().title}</h2>
+      <Show when={getEntriesWithParticipants().length > 0}>
+        <br />
+        <Box type="danger">
+          <h3>Spielrunde gesperrt</h3>
+          <h5>Änderungen nur noch bedingt möglich</h5>
+          <div class="content">
+            <p style="margin-block-start: 1rem;">
+              Gratuliere, für diese Spielrunde haben sich bereits Spielende
+              angmeldet. Aus diesem Grund müssen Anpassungen mit Vorsicht
+              durchgeführt werden.
+            </p>
+            <p>
+              Bitte kontaktiere das OK mit deinen Änderungswünschen. Wir werden
+              die Änderungen vornehmen und falls notwendig die folgenden
+              Personen entsprechend kontaktieren:
+            </p>
+            <For each={getEntriesWithParticipants()}>
+              {(gameround) => {
+                const { day, startTime, endTime } = durationToTemporal(
+                  gameround.timeSlot.slot,
+                );
+                return (
+                  <>
+                    <h6>
+                      {TXT.days[getDay(day) ?? "FRIDAY"]},{" "}
+                      {formatTime(startTime)} - {formatTime(endTime)} Uhr
+                    </h6>
+                    <p>
+                      <strong>Reserviert: </strong>{" "}
+                      {gameround.participation.reserved.length === 0 ? (
+                        <em>leere Liste</em>
+                      ) : (
+                        gameround.participation.reserved
+                          .map((e) => e.name)
+                          .join(", ")
+                      )}
+                      <br />
+                      <strong>Warteliste: </strong>{" "}
+                      {gameround.participation.waiting.length === 0 ? (
+                        <em>leere Liste</em>
+                      ) : (
+                        gameround.participation.waiting
+                          .map((e) => e.name)
+                          .join(", ")
+                      )}
+                    </p>
+                  </>
+                );
+              }}
+            </For>
+          </div>
+        </Box>
+        <br />
+      </Show>
       <div class="dynamic-columns">
         <div>
           <form novalidate>
@@ -85,7 +171,7 @@ function ErstellenDetailContent(props: {
                 props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
               }
               errors={errors().byField.title ?? []}
-              disabled={!props.isEditable}
+              disabled={!isEditable()}
             />
 
             <TextInputField
@@ -102,7 +188,7 @@ function ErstellenDetailContent(props: {
               size="small"
               showErrors="ALWAYS"
               errors={errors().byField.shortDescription ?? []}
-              disabled={!props.isEditable}
+              disabled={!isEditable()}
             />
 
             <TextareaField
@@ -111,7 +197,7 @@ function ErstellenDetailContent(props: {
               name="descriptionLong"
               showErrors="ALWAYS"
               errors={errors().byField.longDescription ?? []}
-              disabled={!props.isEditable}
+              disabled={!isEditable()}
             />
 
             <NumberInputField
@@ -119,11 +205,13 @@ function ErstellenDetailContent(props: {
               label="Maximale Plätze"
               name="maxSeats"
               errors={errors().byField.seats ?? []}
+              disabled={!isEditable()}
             />
 
             <TimeSlotInput
               slots$={props.entry$.pipe(obj.sub("timeSlots"))}
               byFieldUuid={errors().byFieldUuid}
+              isEditable={isEditable()}
             />
 
             <TextInputField
@@ -134,7 +222,7 @@ function ErstellenDetailContent(props: {
                 props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
               }
               errors={errors().byField.tags ?? []}
-              disabled={!props.isEditable}
+              disabled={!isEditable()}
             />
             <p style="background: white;">
               <em>
@@ -173,10 +261,14 @@ function ErstellenDetailContent(props: {
                   right: { label: "Deutsch", value: "Deutsch" },
                 }}
                 name="participating"
+                disabled={!isEditable()}
               />
             </div>
 
-            <LinkInput links$={props.entry$.pipe(obj.sub("links"))} />
+            <LinkInput
+              links$={props.entry$.pipe(obj.sub("links"))}
+              isEditable={isEditable()}
+            />
           </form>
         </div>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
@@ -213,6 +305,7 @@ function ErstellenDetailContent(props: {
                 },
               }}
               name="status"
+              disabled={!isEditable()}
             />
           </div>
 
@@ -282,6 +375,7 @@ function ErrorSummary(props: { errors: Errors }): JSX.Element {
 function TimeSlotInput(props: {
   slots$: Reactive<TimeSlotEdit[]>;
   byFieldUuid: Record<string, string[]>;
+  isEditable: boolean;
 }): JSX.Element {
   return (
     <>
@@ -293,7 +387,7 @@ function TimeSlotInput(props: {
 
             return (
               <li>
-                <Box onClose={slot$().remove}>
+                <Box onClose={props.isEditable ? slot$().remove : undefined}>
                   <div style="display: grid; gap: 1rem;">
                     <div>
                       <label>Tag</label>
@@ -313,6 +407,7 @@ function TimeSlotInput(props: {
                                 start: { ...s.start, day: SATURDAY.toJSON() },
                               }));
                           }}
+                          disabled={!props.isEditable}
                         />
                         <Button
                           label="Sonntag"
@@ -329,6 +424,7 @@ function TimeSlotInput(props: {
                                 start: { ...s.start, day: SUNDAY.toJSON() },
                               }));
                           }}
+                          disabled={!props.isEditable}
                         />
                       </div>
                     </div>
@@ -355,6 +451,7 @@ function TimeSlotInput(props: {
                       }}
                       label="Start"
                       name="start"
+                      disabled={!props.isEditable}
                     />
                     <TextInputField
                       value$={slot$()
@@ -381,6 +478,7 @@ function TimeSlotInput(props: {
                       showErrors="ALWAYS"
                       label="Ende"
                       name="end"
+                      disabled={!props.isEditable}
                     />
                   </div>
                 </Box>
@@ -391,20 +489,23 @@ function TimeSlotInput(props: {
         <li>
           <BoxLink
             icon="circle-plus"
-            type="success"
-            onClick={() =>
-              arr.push(props.slots$, {
-                uuid: unsafeToTimeslotUuid(crypto.randomUUID()),
-                slot: {
-                  start: {
-                    day: SATURDAY.toJSON(),
-                    time: "10:00",
-                  },
-                  end: {
-                    time: "12:00",
-                  },
-                },
-              })
+            type={props.isEditable ? "success" : "gray"}
+            onClick={
+              props.isEditable
+                ? () =>
+                    arr.push(props.slots$, {
+                      uuid: unsafeToTimeslotUuid(crypto.randomUUID()),
+                      slot: {
+                        start: {
+                          day: SATURDAY.toJSON(),
+                          time: "10:00",
+                        },
+                        end: {
+                          time: "12:00",
+                        },
+                      },
+                    })
+                : "DISABLED"
             }
           >
             <h3>Neues Zeitfenster</h3>
@@ -415,7 +516,10 @@ function TimeSlotInput(props: {
   );
 }
 
-function LinkInput(props: { links$: Reactive<Link[]> }): JSX.Element {
+function LinkInput(props: {
+  links$: Reactive<Link[]>;
+  isEditable: boolean;
+}): JSX.Element {
   return (
     <>
       <label>Links</label>
@@ -445,12 +549,15 @@ function LinkInput(props: { links$: Reactive<Link[]> }): JSX.Element {
         <li>
           <BoxLink
             icon="circle-plus"
-            type="success"
-            onClick={() =>
-              arr.push(props.links$, {
-                label: "",
-                link: "",
-              })
+            type={props.isEditable ? "success" : "gray"}
+            onClick={
+              props.isEditable
+                ? () =>
+                    arr.push(props.links$, {
+                      label: "",
+                      link: "",
+                    })
+                : "DISABLED"
             }
           >
             <h3>Neuer Link</h3>
