@@ -88,6 +88,7 @@ export function ReservationForm(props: {
       // new reservation
       props.addReservationAction({
         kind: "ADD",
+        waitinglistPreferences: "EXACTLY",
         entryUuid: props.entry.timeSlot.uuid,
         uuid: unsafeToReservationUuid(crypto.randomUUID()),
         timestamp: getCurrentTimestamp(),
@@ -99,6 +100,7 @@ export function ReservationForm(props: {
       names.forEach((name) => {
         props.addReservationAction({
           kind: "ADD",
+          waitinglistPreferences: "EXACTLY",
           entryUuid: props.entry.timeSlot.uuid,
           timestamp: getCurrentTimestamp(),
           name: {
@@ -113,6 +115,7 @@ export function ReservationForm(props: {
         if (i + 2 > reservations().length) {
           // added more friends
           props.addReservationAction({
+            waitinglistPreferences: "EXACTLY",
             kind: "ADD",
             entryUuid: props.entry.timeSlot.uuid,
             timestamp: getCurrentTimestamp(),
@@ -134,6 +137,7 @@ export function ReservationForm(props: {
           if (friendsName !== undefined) {
             props.addReservationAction({
               kind: "UPDATE",
+              waitinglistPreferences: "EXACTLY",
               entryUuid: props.entry.timeSlot.uuid,
               uuid: reservation.uuid,
               name: { kind: "FRIEND", friendsName },
@@ -143,6 +147,7 @@ export function ReservationForm(props: {
             // removed friends
             props.addReservationAction({
               kind: "REMOVE",
+              waitinglistPreferences: "EXACTLY",
               entryUuid: props.entry.timeSlot.uuid,
               uuid: reservation.uuid,
               name: { kind: "FRIEND", friendsName: "---removed---" },
@@ -160,6 +165,7 @@ export function ReservationForm(props: {
     reservations().forEach((reservation) => {
       props.addReservationAction({
         kind: "REMOVE",
+        waitinglistPreferences: "EXACTLY",
         entryUuid: props.entry.timeSlot.uuid,
         uuid: reservation.uuid,
         name: { kind: "FRIEND", friendsName: "---removed---" },

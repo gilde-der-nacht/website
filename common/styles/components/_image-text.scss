@@ -9,7 +9,7 @@
   }
 
   // hacky solution to remove empty <p> tags ;-(
-  .image-text-left p:emtpy,
+  .image-text-left p:empty,
   figure+p:empty {
     display: none;
   }

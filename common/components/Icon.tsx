@@ -25,6 +25,7 @@ const ICONS = [
   "location-dot",
   "location-smile",
   "mailbox",
+  "message-pen",
   "money-check-pen",
   "moon-stars",
   "paper-plane",

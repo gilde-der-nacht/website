@@ -110,6 +110,11 @@ export type ProgramEntry = z.infer<typeof programEntrySchema>;
 
 const reserveActionSchema = z.object({
   kind: z.union([z.literal("ADD"), z.literal("REMOVE"), z.literal("UPDATE")]),
+  waitinglistPreferences: z.union([
+    z.literal("EXACTLY"),
+    z.literal("SIMILAR"),
+    z.literal("ANYTHING"),
+  ]),
   entryUuid: z.string().transform(unsafeToTimeslotUuid),
   uuid: z.string().transform(unsafeToReservationUuid),
   timestamp: timestampSchema,
@@ -130,10 +135,11 @@ const programSchema = z.object({
 });
 
 export const saveSchema = z.object({
-  version: z.literal(4),
+  version: z.literal(5),
   contact: contactSchema,
   config: configSchema,
   program: programSchema,
+  wishlist: z.object({ text: z.string() }),
 });
 
 export type Save = z.infer<typeof saveSchema>;
