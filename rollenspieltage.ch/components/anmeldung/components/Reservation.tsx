@@ -296,7 +296,7 @@ export function Reservation(props: {
     <>
       <div class="reservation-table">
         <div class="count"></div>
-        <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-success-11); padding-block-start: 0.5rem;">
+        <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-success-11); padding-block-start: 0.5rem; max-inline-size: 100%;">
           Reservationen
         </h5>
         <For
@@ -359,7 +359,7 @@ export function Reservation(props: {
                   </Box>
                 </Match>
                 <Match when={seat.kind === "WAITING_LIST_START"}>
-                  <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-danger-11); padding-block-start: 0.5rem; margin-block-start: 0.5rem; margin-block-end: -0.5rem;">
+                  <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-danger-11); padding-block-start: 0.5rem; margin-block-start: 0.5rem; margin-block-end: -0.5rem; max-inline-size: 100%;">
                     Warteliste
                   </h5>
                 </Match>
