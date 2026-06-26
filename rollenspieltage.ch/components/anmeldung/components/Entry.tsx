@@ -10,6 +10,9 @@ import { UNAUTHORIZED } from "@common/utils/shared";
 import { Icon } from "@common/components/Icon";
 import { Dynamic } from "solid-js/web";
 import type { LinkComponent } from "@common/components/Link";
+import { Chip } from "@common/components/Chip";
+import { join } from "@common/utils/strings";
+import type { RegistrationUuid } from "@common/utils/ids";
 
 export function Entry(props: {
   entry: ProgramPublicEntry;
@@ -17,7 +20,8 @@ export function Entry(props: {
   roles: Roles;
   isPublicSite: boolean;
   link: LinkComponent;
-  secret: string;
+  conflictsWith: string[];
+  secret: RegistrationUuid | null;
 }): JSX.Element {
   function freeSeats(): number {
     return (
@@ -31,14 +35,21 @@ export function Entry(props: {
     );
   }
 
+  function isReserved(): boolean {
+    return [
+      ...props.entry.participation.reserved,
+      ...props.entry.participation.waiting,
+    ].some((entry) => props.secret?.startsWith(entry.groupId));
+  }
+
   function classes(): string {
     const cls: string[] = ["event-entry"];
     if (
-      [
-        ...props.entry.participation.reserved,
-        ...props.entry.participation.waiting,
-      ].some((entry) => props.secret.startsWith(entry.groupId))
+      (isReserved() || props.entry.myEntry) &&
+      props.conflictsWith.length > 0
     ) {
+      cls.push("danger");
+    } else if (isReserved()) {
       cls.push("success");
     } else if (props.entry.myEntry) {
       cls.push("success");
@@ -56,6 +67,22 @@ export function Entry(props: {
     <li class={classes()}>
       <h3 class="event-title">{props.entry.title}</h3>
       <div class="event-details">
+        <Show when={props.entry.myEntry}>
+          <div style="margin-block-end: 0.5rem;">
+            <Chip kind="success">Spielleitung</Chip>
+          </div>
+        </Show>
+        <Show when={props.conflictsWith.length > 0}>
+          <Chip
+            kind={props.entry.myEntry || isReserved() ? "danger" : "special"}
+          >
+            <Icon icon="triangle-exclamation" /> In Konflikt mit '
+            {join(props.conflictsWith, "', '", "' und '")}'!
+          </Chip>
+        </Show>
+        <Show when={freeSeats() === 0}>
+          <Chip kind={"gray"}>keine freien Plätze mehr</Chip>
+        </Show>
         <div class="event-tags">
           <strong>Organisiert durch:</strong>
           {props.entry.organizer}

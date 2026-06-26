@@ -17,6 +17,13 @@ import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { Temporal } from "@js-temporal/polyfill";
 import { type RegistrationUuid, type ReservationUuid } from "@common/utils/ids";
 import { Reservation } from "@rst/components/anmeldung/components/Reservation";
+import {
+  getBookedEntries,
+  getConflicts,
+} from "@rst/components/anmeldung/utils/conflict";
+import { Chip } from "@common/components/Chip";
+import { Icon } from "@common/components/Icon";
+import { join } from "@common/utils/strings";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<ReserveAction[]>;
@@ -84,8 +91,21 @@ function ProgramDetailContent(props: {
     hours: props.entry.timeSlot.slot.duration.hours,
   });
 
+  const myBookedHours = () =>
+    getBookedEntries(props.programData().publicEntries, props.secret);
+
+  const conflictsWith = () => getConflicts(props.entry, myBookedHours());
+
   return (
     <>
+      <Show when={conflictsWith().length > 0}>
+        <div style="margin-block-end: 0.5rem; display: grid;">
+          <Chip kind="danger">
+            <Icon icon="triangle-exclamation" /> In Konflikt mit '
+            {join(conflictsWith(), "', '", "' und '")}'!
+          </Chip>
+        </div>
+      </Show>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap">
         <h3>{props.entry.title}</h3>
         <RouterLink

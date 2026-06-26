@@ -328,11 +328,12 @@ function ErstellenDetailContent(props: {
               {(entry) => (
                 <Entry
                   entry={entry}
+                  conflictsWith={[]}
                   basePath="/programm"
                   roles={props.roles}
                   isPublicSite={false}
                   link={RouterLink}
-                  secret=""
+                  secret={null}
                 />
               )}
             </For>

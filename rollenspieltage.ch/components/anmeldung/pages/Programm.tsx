@@ -23,12 +23,17 @@ import {
   RouterLink,
   type LinkComponent,
 } from "@common/components/Link";
+import {
+  getBookedEntries,
+  getConflicts,
+} from "@rst/components/anmeldung/utils/conflict";
+import type { RegistrationUuid } from "@common/utils/ids";
 
 export function Programm(props: {
   save$: Reactive<Save>;
   programData: Accessor<Program>;
   roles: Roles;
-  secret: string;
+  secret: RegistrationUuid;
 }): JSX.Element {
   return (
     <ProgramView
@@ -52,7 +57,7 @@ export function PublicProgramm(props: {
       roles={[]}
       isPublicSite={true}
       link={BrowserLink}
-      secret=""
+      secret={null}
     />
   );
 }
@@ -63,7 +68,7 @@ function ProgramView(props: {
   roles: Roles;
   isPublicSite: boolean;
   link: LinkComponent;
-  secret: string;
+  secret: RegistrationUuid | null;
 }): JSX.Element {
   const filters$ = createReactive<ActiveFilter>({
     day: null,
@@ -114,7 +119,7 @@ function ProgramView(props: {
         <h3>Samstag</h3>
         <DayProgram
           day="SATURDAY"
-          program={program().SATURDAY}
+          programByHours={program().SATURDAY}
           myReservationActions={props.save$?.get().program.reserveActions ?? []}
           roles={props.roles}
           isPublicSite={props.isPublicSite}
@@ -128,7 +133,7 @@ function ProgramView(props: {
         <h3>Sonntag</h3>
         <DayProgram
           day="SUNDAY"
-          program={program().SUNDAY}
+          programByHours={program().SUNDAY}
           myReservationActions={props.save$?.get().program.reserveActions ?? []}
           roles={props.roles}
           isPublicSite={props.isPublicSite}
@@ -248,16 +253,21 @@ function sort(programm: HourProgram[]): HourProgram[] {
 
 export function DayProgram(props: {
   day: ProgramDay;
-  program: HourProgram[];
+  programByHours: HourProgram[];
   myReservationActions: ReserveAction[];
   roles: Roles;
   isPublicSite: boolean;
   link: LinkComponent;
-  secret: string;
+  secret: RegistrationUuid | null;
 }): JSX.Element {
+  const myBookedHours = getBookedEntries(
+    props.programByHours.flatMap((hour) => hour.entries),
+    props.secret,
+  );
+
   return (
     <Show
-      when={props.program.length > 0}
+      when={props.programByHours.length > 0}
       fallback={
         <>
           <Box>
@@ -281,7 +291,7 @@ export function DayProgram(props: {
                 title={hour === 13 ? "Mittagessen" : "Nachtessen"}
               />
             </Match>
-            <Match when={props.program.find((h) => h.hour === hour)}>
+            <Match when={props.programByHours.find((h) => h.hour === hour)}>
               {(hourProgram) => (
                 <>
                   <h4>Start: {hour} Uhr</h4>
@@ -290,6 +300,7 @@ export function DayProgram(props: {
                       {(entry) => (
                         <Entry
                           entry={entry}
+                          conflictsWith={getConflicts(entry, myBookedHours)}
                           basePath="/programm"
                           roles={props.roles}
                           isPublicSite={props.isPublicSite}
