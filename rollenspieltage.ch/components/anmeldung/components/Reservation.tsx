@@ -25,6 +25,7 @@ import {
 } from "@rst/components/anmeldung/utils/waitinglist";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { assert } from "@common/components/utils";
+import { LoadingOverlay } from "./Loading";
 
 const PREFERENCES = {
   EXACTLY: "für exakt diese Spielrunde",
@@ -37,7 +38,6 @@ function getPreferenceLabel(
     waitinglistPreferences: "EXACTLY" | "SIMILAR" | "ANYTHING";
   }[],
 ): string {
-  console.log(reservations);
   const lastEntry = reservations.at(-1);
   return PREFERENCES[lastEntry?.waitinglistPreferences ?? "EXACTLY"];
 }
@@ -298,12 +298,14 @@ function ReservationEdit(props: {
             when={waitlistPreferenceShown$.get()}
             fallback={
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <ButtonWithIcon
-                  icon="trash"
-                  label="Reservation löschen"
-                  kind="danger"
-                  onClick={removeReservation}
-                />
+                <Show when={props.reservations().length > 0}>
+                  <ButtonWithIcon
+                    icon="trash"
+                    label="Reservation löschen"
+                    kind="danger"
+                    onClick={removeReservation}
+                  />
+                </Show>
                 <ButtonWithIcon
                   icon="rotate-left"
                   label="Abbrechen"
@@ -444,6 +446,7 @@ function ReservationView(props: {
 
 export function Reservation(props: {
   reservations$: Reactive<ReserveAction[]>;
+  showLoading$: Reactive<boolean>;
   entry: ProgramPublicEntry;
   myReservations: ReserveAction[];
   addReservation: (reservation: ReserveAction) => void;
@@ -461,7 +464,13 @@ export function Reservation(props: {
 
   return (
     <>
-      <div class="reservation-table">
+      <div
+        class="reservation-table"
+        style="position: relative; padding: 0.5rem;"
+      >
+        <Show when={props.showLoading$.get()}>
+          <LoadingOverlay />
+        </Show>
         <div class="count"></div>
         <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-success-11); padding-block-start: 0.5rem; max-inline-size: 100%;">
           Reservationen

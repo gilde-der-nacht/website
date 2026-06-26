@@ -23,6 +23,16 @@ import { unsafeToToastUuid, type RegistrationUuid } from "@common/utils/ids";
 import { Wunschliste } from "@rst/components/anmeldung/pages/Wunschliste";
 import { Portal } from "solid-js/web";
 
+export type AppStore = {
+  meta: {
+    saveState: SaveState;
+    lastSaved: Date;
+    roles: Roles;
+    showLoading: boolean;
+  };
+  save: Save;
+};
+
 export function Router(props: {
   initState: LoadSave;
   secret: RegistrationUuid;
@@ -31,18 +41,12 @@ export function Router(props: {
     loadProgram(props.secret),
   );
 
-  const store$ = createReactive<{
-    meta: {
-      saveState: SaveState;
-      lastSaved: Date;
-      roles: Roles;
-    };
-    save: Save;
-  }>({
+  const store$ = createReactive<AppStore>({
     meta: {
       saveState: "IDLE",
       lastSaved: new Date(),
       roles: props.initState.roles,
+      showLoading: false,
     },
     save: props.initState.data,
   });
@@ -70,6 +74,7 @@ export function Router(props: {
 
       let successful = false;
       try {
+        store$.pipe(obj.sub("meta")).pipe(obj.sub("showLoading")).set(true);
         const saveResult = await debouncedSaveState(
           store$.get().meta,
           newState,
@@ -91,6 +96,7 @@ export function Router(props: {
 
       if (successful) {
         await refetch();
+        store$.pipe(obj.sub("meta")).pipe(obj.sub("showLoading")).set(false);
       }
     },
   );
@@ -165,6 +171,9 @@ export function Router(props: {
                     isEditable={props.initState.status === "published"}
                     secret={props.secret}
                     roles={store$.get().meta.roles}
+                    showLoading$={store$
+                      .pipe(obj.sub("meta"))
+                      .pipe(obj.sub("showLoading"))}
                   />
                 )}
               </Layout>

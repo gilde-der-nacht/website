@@ -331,7 +331,18 @@
   flex-wrap: wrap;
   column-gap: 1rem;
 
-  :last-child {
+  :last-child:not(:first-child) {
     margin-inline-start: auto;
   }
+}
+
+.loading-backdrop {
+  background-color: color-mix(in oklch, black 15%, transparent);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  z-index: 1;
+  border-radius: 0.5rem;
 }

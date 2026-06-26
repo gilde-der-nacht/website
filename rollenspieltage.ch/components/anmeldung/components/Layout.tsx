@@ -3,7 +3,6 @@ import {
   QuickMenu,
   QuickMenuExtended,
 } from "@rst/components/anmeldung/components/QuickMenu";
-import type { Roles, SaveState } from "@rst/components/anmeldung/api/meta";
 import type { Result } from "@rst/components/anmeldung/api/elysium";
 import { ShowProgramData } from "@rst/components/anmeldung/components/Loader";
 import { Box } from "@common/components/Box";
@@ -14,18 +13,12 @@ import { Icon } from "@common/components/Icon";
 import { aggregateEntries } from "@rst/components/anmeldung/components/Timeview";
 import { obj, type Reactive } from "@common/utils/reactivity";
 import type { RegistrationUuid } from "@common/utils/ids";
+import type { AppStore } from "./Router";
 
 export function Layout(props: {
   title?: string;
   showQuickmenu?: boolean;
-  store$: Reactive<{
-    save: Save;
-    meta: {
-      roles: Roles;
-      saveState: SaveState;
-      lastSaved: Date;
-    };
-  }>;
+  store$: Reactive<AppStore>;
   secret: RegistrationUuid;
   parentPath?: string;
   programResource: Resource<Result<Program>>;

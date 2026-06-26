@@ -20,6 +20,7 @@ import { Reservation } from "@rst/components/anmeldung/components/Reservation";
 
 export function ProgrammDetail(props: {
   reservations$: Reactive<ReserveAction[]>;
+  showLoading$: Reactive<boolean>;
   programData: Accessor<Program>;
   isEditable: boolean;
   secret: RegistrationUuid;
@@ -41,6 +42,7 @@ export function ProgrammDetail(props: {
       {(entry) => (
         <ProgramDetailContent
           reservations$={props.reservations$}
+          showLoading$={props.showLoading$}
           entry={entry()}
           myReservations={props.reservations$.get()}
           isEditable={props.isEditable}
@@ -61,6 +63,7 @@ export function ProgrammDetail(props: {
 
 function ProgramDetailContent(props: {
   reservations$: Reactive<ReserveAction[]>;
+  showLoading$: Reactive<boolean>;
   entry: ProgramPublicEntry;
   myReservations: ReserveAction[];
   addReservation: (reservation: ReserveAction) => void;
@@ -165,6 +168,7 @@ function ProgramDetailContent(props: {
             myReservations={props.myReservations}
             roles={props.roles}
             secret={props.secret}
+            showLoading$={props.showLoading$}
             isEditable={props.isEditable}
           />
         </div>
