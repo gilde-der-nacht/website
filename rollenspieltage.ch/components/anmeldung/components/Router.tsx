@@ -1,5 +1,5 @@
 import { HashRouter } from "@solidjs/router";
-import { createResource, createSignal, type JSX } from "solid-js";
+import { createResource, createSignal, Show, type JSX } from "solid-js";
 import { Root } from "@rst/components/anmeldung/pages/Root";
 import {
   debouncedSaveState,
@@ -21,6 +21,7 @@ import { ProgrammDetail } from "@rst/components/anmeldung/pages/ProgrammDetail";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { unsafeToToastUuid, type RegistrationUuid } from "@common/utils/ids";
 import { Wunschliste } from "@rst/components/anmeldung/pages/Wunschliste";
+import { Portal } from "solid-js/web";
 
 export function Router(props: {
   initState: LoadSave;
@@ -94,8 +95,21 @@ export function Router(props: {
     },
   );
 
+  const portalRef: Node | undefined =
+    document.querySelector(".portal-container") ?? undefined;
+
   return (
     <>
+      <Show when={portalRef}>
+        {(portal) => (
+          <Portal mount={portal()}>
+            <strong>
+              <em>{store$.get().save.contact.name}</em>
+            </strong>
+          </Portal>
+        )}
+      </Show>
+
       <HashRouter explicitLinks={true}>
         {[
           {
