@@ -427,13 +427,15 @@ function ReservationView(props: {
               </>
             ) : null}
           </p>
-          <IconOnlyButton
-            icon="pencil"
-            onClick={() => {
-              props.names$.set(props.getFriendNames());
-              props.editable$.set(true);
-            }}
-          />
+          <div>
+            <IconOnlyButton
+              icon="pencil"
+              onClick={() => {
+                props.names$.set(props.getFriendNames());
+                props.editable$.set(true);
+              }}
+            />
+          </div>
         </div>
       </SimpleBox>
     </Show>
