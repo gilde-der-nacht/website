@@ -215,15 +215,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-satteri@npm:0.3.1":
-  version: 0.3.1
-  resolution: "@astrojs/markdown-satteri@npm:0.3.1"
+"@astrojs/markdown-satteri@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@astrojs/markdown-satteri@npm:0.3.2"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.10.0"
     "@astrojs/prism": "npm:4.0.2"
     github-slugger: "npm:^2.0.0"
     satteri: "npm:^0.9.1"
-  checksum: 10/8fb91f0fae9565c9b1a2f3afee8f113368c2fb56eece6674673b69007fc54e395085955b370430a7e661105f3d1fd709e555878c147f271f1943109a08c999a2
+  checksum: 10/f3bb349084bc285e505c33ec9db5e62a924f3e397e0a509db89d39d3bb0a7370fff523a5ef5b502137b1485fb3ec9a7fcd7b8f15ae59a156991ae783ff4be537
   languageName: node
   linkType: hard
 
@@ -1950,12 +1950,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^26.0.0":
-  version: 26.0.0
-  resolution: "@types/node@npm:26.0.0"
+"@types/node@npm:^26.0.1":
+  version: 26.0.1
+  resolution: "@types/node@npm:26.0.1"
   dependencies:
     undici-types: "npm:~8.3.0"
-  checksum: 10/ed23034d159b58541de1f59d2ae3988d64124f94a50fb9f1825a217b38f034fc9846e2117770a2bc9372e87de1b0d2b3c6f5ec953b4da4ac943b9a6008b2cc2b
+  checksum: 10/c312909c89c4f52291084d5b8b67c119f3c3adce9bdd5e57da74cb4d05059021b2b2b6b5eb52ccb086d66397b5793864e4d48b17d608ab42c27cfc193d337823
   languageName: node
   linkType: hard
 
@@ -2136,14 +2136,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"am-i-vibing@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "am-i-vibing@npm:0.3.0"
+"am-i-vibing@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "am-i-vibing@npm:0.4.0"
   dependencies:
     process-ancestry: "npm:^0.1.0"
   bin:
     am-i-vibing: dist/cli.mjs
-  checksum: 10/9b669a0d79bd7eff6b024dece6fcfc65f8ab8e8bb26dab87fbb75c6d57d83ec3661e90e19762a0fbae755e64cbdf0d8c4faac91cda1c4e28bc34b5b3cccdd95e
+  checksum: 10/ca18d0e306cc31a8e8748e4d7d950bbd2089f9ab018594d69d7822c46ee35eb074846e4d9fd349e2e08a2dd70ddb8930945862774b22b63a37f197cabbf4614d
   languageName: node
   linkType: hard
 
@@ -2203,19 +2203,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:7.0.0":
-  version: 7.0.0
-  resolution: "astro@npm:7.0.0"
+"astro@npm:7.0.3":
+  version: 7.0.3
+  resolution: "astro@npm:7.0.3"
   dependencies:
     "@astrojs/compiler-rs": "npm:^0.2.2"
     "@astrojs/internal-helpers": "npm:0.10.0"
-    "@astrojs/markdown-satteri": "npm:0.3.1"
+    "@astrojs/markdown-satteri": "npm:0.3.2"
     "@astrojs/telemetry": "npm:3.3.2"
     "@capsizecss/unpack": "npm:^4.0.0"
     "@clack/prompts": "npm:^1.1.0"
     "@oslojs/encoding": "npm:^1.1.0"
     "@rollup/pluginutils": "npm:^5.3.0"
-    am-i-vibing: "npm:^0.3.0"
+    am-i-vibing: "npm:^0.4.0"
     aria-query: "npm:^5.3.2"
     axobject-query: "npm:^4.1.0"
     ci-info: "npm:^4.4.0"
@@ -2274,7 +2274,7 @@ __metadata:
       optional: true
   bin:
     astro: ./bin/astro.mjs
-  checksum: 10/74dc5fb8d7e9db6e201f6d089d47cc696a4d13c4c2bb65fd3789d238a5e1fef12deebabc24be714002a4fea5e7d8345c1a2cf3d5a3e263e8b4df4843187fb02e
+  checksum: 10/7b2b0131ed5693068b4179a984c4b595e5bac6a7d90acc589ef6820e1df2103c33364bceb392b1278eeea01f8762dc80c3a4c85c63140f21f7e674bea3aa85ba
   languageName: node
   linkType: hard
 
@@ -2622,8 +2622,8 @@ __metadata:
     "@solidjs/router": "npm:^0.16.1"
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.7.2"
-    "@types/node": "npm:^26.0.0"
-    astro: "npm:7.0.0"
+    "@types/node": "npm:^26.0.1"
+    astro: "npm:7.0.3"
     luxon: "npm:^3.7.2"
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
