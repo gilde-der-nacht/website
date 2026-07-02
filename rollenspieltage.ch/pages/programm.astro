@@ -2,17 +2,22 @@
 import Layout from "@rst/layouts/Layout.astro";
 import ReferenceGilde from "@common/components/ReferenceGilde.astro";
 import { PublicProgram } from "@rst/components/program/PublicProgram.tsx";
+import { Box } from "@common/components/Box";
 
 export const frontmatter = {
   navigation: {
     group: "main",
     label: "Programm",
-    order: 2,
+    order: 12,
   },
 };
 ---
 
 <Layout title="Programm" metaTitle="Programm">
+  <Box type="success" link="/anmeldung" linkLabel="zur Anmeldung">
+    Melde dich jetzt an
+  </Box>
+
   <PublicProgram client:load />
 
   <div style="margin-block-start: 1rem;">
