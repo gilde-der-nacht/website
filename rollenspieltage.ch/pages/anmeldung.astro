@@ -2,7 +2,6 @@
 import Layout from "@rst/layouts/Layout.astro";
 import { Anmeldung as A } from "@rst/components/anmeldung/pages/Anmeldung.tsx";
 import { Box } from "@common/components/Box";
-import { Button } from "@common/components/Button";
 
 export const frontmatter = {
   navigation: {
@@ -16,12 +15,6 @@ export const frontmatter = {
 <Layout metaTitle="Anmeldung">
   <h1>Anmeldung</h1>
 
-  <div style="margin-block: 2.5rem;" hidden>
-    <a href="/programm" style="border: none;">
-      <Button label="Zur Spielrunden-Übersicht" onClick={() => {}} />
-    </a>
-  </div>
-
   <Box>
     <p>
       Falls du bereits eine Anmeldung begonnen hast, dann solltest du eine
@@ -31,6 +24,7 @@ export const frontmatter = {
   </Box>
 
   <A client:load />
+
   <div style="margin-block: 2.5rem;">
     <Box type="special">
       <p>

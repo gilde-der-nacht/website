@@ -184,10 +184,10 @@ export function Anmeldung(): JSX.Element {
         <Show when={store$.get().showErrors.emailDuplicate}>
           <Box type="danger">
             Diese E-Mail wird bereits verwendet. Du solltest einen persönlichen
-            Link erhalten haben, um deine fortzusetzen. Benötigst du Hilfe, dann
-            kontaktiere uns bitte über das{" "}
-            <a href="/kontakt">Kontaktformular</a> oder unseren{" "}
-            <a href="/chat">Chat</a>.
+            Link erhalten haben, um deine Anmeldung zu bearbeiten.
+            <br />
+            Um den Link erneut zu erhalten, gehe bitte zu diesem Formular:{" "}
+            <a href="/erneut-senden">E-Mail erneut senden</a>.
           </Box>
         </Show>
         <TextInputField
