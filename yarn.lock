@@ -1761,6 +1761,64 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/browser-utils@npm:10.63.0":
+  version: 10.63.0
+  resolution: "@sentry/browser-utils@npm:10.63.0"
+  dependencies:
+    "@sentry/core": "npm:10.63.0"
+  checksum: 10/34050a31185c0ddc099be90b83f0fc9840d9c0c8232f4f4ae2a334c4eee650941ae14b31ac88d7fd32f9b0b043bb2cb67c5ff04d9a10e2492649b2524afd9371
+  languageName: node
+  linkType: hard
+
+"@sentry/browser@npm:^10.63.0":
+  version: 10.63.0
+  resolution: "@sentry/browser@npm:10.63.0"
+  dependencies:
+    "@sentry/browser-utils": "npm:10.63.0"
+    "@sentry/core": "npm:10.63.0"
+    "@sentry/feedback": "npm:10.63.0"
+    "@sentry/replay": "npm:10.63.0"
+    "@sentry/replay-canvas": "npm:10.63.0"
+  checksum: 10/13f11f9b8396badd234b82df287602eb196137aba9c10cca32c5db61d363399ba51fee6266c15339c06c8661c7aa93172fa1aa135e1e1e861c97a3d20a71754d
+  languageName: node
+  linkType: hard
+
+"@sentry/core@npm:10.63.0":
+  version: 10.63.0
+  resolution: "@sentry/core@npm:10.63.0"
+  checksum: 10/c33494f131f6541c8cc23ac0afba60215d50af1494f033123f0773a342bc2feebe0e8822f4bf8cb4dc1c46fab9b9f2658bc84cb76d3a6481eab55422baa6765d
+  languageName: node
+  linkType: hard
+
+"@sentry/feedback@npm:10.63.0":
+  version: 10.63.0
+  resolution: "@sentry/feedback@npm:10.63.0"
+  dependencies:
+    "@sentry/core": "npm:10.63.0"
+  checksum: 10/f957d28ed0fa5f563291f7de3b2290c8ff1640bca1f1b982aadb09655f3d16bbdbde19cb026c8be5dd40376cfabd07ba81b4f458177b3e9cedadcf18ce909e73
+  languageName: node
+  linkType: hard
+
+"@sentry/replay-canvas@npm:10.63.0":
+  version: 10.63.0
+  resolution: "@sentry/replay-canvas@npm:10.63.0"
+  dependencies:
+    "@sentry/core": "npm:10.63.0"
+    "@sentry/replay": "npm:10.63.0"
+  checksum: 10/98fd7ebd8dcb16df030e8182bbfbf736f1f4766ee25c340f3a24a5258c3cea70ee91b4a1a63ffb13655f1da13e0ebc2834d669392cb9165c6c6e67b1375de691
+  languageName: node
+  linkType: hard
+
+"@sentry/replay@npm:10.63.0":
+  version: 10.63.0
+  resolution: "@sentry/replay@npm:10.63.0"
+  dependencies:
+    "@sentry/browser-utils": "npm:10.63.0"
+    "@sentry/core": "npm:10.63.0"
+  checksum: 10/e6cf4d09374cf807dec9e3d19421beee55c94e0647176196a1e122fe542fab8496676583e837cffd810c0e264b47a40106969ca8d1abb68570a01d92145ecf3b
+  languageName: node
+  linkType: hard
+
 "@shikijs/core@npm:4.0.2":
   version: 4.0.2
   resolution: "@shikijs/core@npm:4.0.2"
@@ -2662,6 +2720,7 @@ __metadata:
     "@astrojs/solid-js": "npm:7.0.1"
     "@astrojs/ts-plugin": "npm:^1.10.10"
     "@js-temporal/polyfill": "npm:^0.5.1"
+    "@sentry/browser": "npm:^10.63.0"
     "@solidjs/router": "npm:^0.16.1"
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.7.2"

@@ -116,5 +116,23 @@ const secondaryNavigation: NavigationEntry[] = pages
       </main>
     </div>
     <Footer development={development} />
+
+    <button onclick="throw new Error('This is a test error')">
+      Throw test error
+    </button>
+
+    <script>
+      import * as Sentry from "@sentry/browser";
+
+      Sentry.init({
+        dsn: "https://70108cc6602f88c1c0334db8ce72412c@o4511687297138688.ingest.de.sentry.io/4511687412416592",
+        dataCollection: {
+          // To disable sending user data and HTTP bodies, uncomment the lines below. For more info visit:
+          // https://docs.sentry.io/platforms/javascript/configuration/options/#dataCollection
+          // userInfo: false,
+          // httpBodies: []
+        },
+      });
+    </script>
   </body>
 </html>
