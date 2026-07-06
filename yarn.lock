@@ -138,9 +138,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/internal-helpers@npm:0.10.0":
-  version: 0.10.0
-  resolution: "@astrojs/internal-helpers@npm:0.10.0"
+"@astrojs/internal-helpers@npm:0.10.1":
+  version: 0.10.1
+  resolution: "@astrojs/internal-helpers@npm:0.10.1"
   dependencies:
     "@types/hast": "npm:^3.0.4"
     "@types/mdast": "npm:^4.0.4"
@@ -150,7 +150,7 @@ __metadata:
     shiki: "npm:^4.0.2"
     smol-toml: "npm:^1.6.0"
     unified: "npm:^11.0.5"
-  checksum: 10/d3751386a5293f47de19db81d599a1930f717fd357ca75b2a4b17310b4443c3d1e7a375421ae68e2922f05d965b95293eaa463d45810cdaf7120078a8d279d68
+  checksum: 10/866d36373d04fe2059c5da7d64a20c4a484e61a9656c4023c0cb931a408175861f72f2b5e1078813f35fc4378b1f650e2f54384a693be2cfe6fffe52e052875f
   languageName: node
   linkType: hard
 
@@ -190,11 +190,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-remark@npm:7.2.0":
-  version: 7.2.0
-  resolution: "@astrojs/markdown-remark@npm:7.2.0"
+"@astrojs/markdown-remark@npm:7.2.1":
+  version: 7.2.1
+  resolution: "@astrojs/markdown-remark@npm:7.2.1"
   dependencies:
-    "@astrojs/internal-helpers": "npm:0.10.0"
+    "@astrojs/internal-helpers": "npm:0.10.1"
     "@astrojs/prism": "npm:4.0.2"
     github-slugger: "npm:^2.0.0"
     hast-util-from-html: "npm:^2.0.3"
@@ -211,28 +211,28 @@ __metadata:
     unist-util-visit: "npm:^5.1.0"
     unist-util-visit-parents: "npm:^6.0.2"
     vfile: "npm:^6.0.3"
-  checksum: 10/6f18009333e5bd8516501240cc18b37d53267396be63399862a1a47a78c1df46d6ebf6a75427f0fea2e15ce52cde300390d963f3ba724cab04e982d8d1d06393
+  checksum: 10/5a888909f67dc1fb9505894876b6bd6ccb71e4fcbbed8aa0d75f64d0a2d3c93bbc517773b80fab077a3932152503298eab000f90460cf70c379e7796f90bbdb6
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-satteri@npm:0.3.2":
-  version: 0.3.2
-  resolution: "@astrojs/markdown-satteri@npm:0.3.2"
+"@astrojs/markdown-satteri@npm:0.3.3":
+  version: 0.3.3
+  resolution: "@astrojs/markdown-satteri@npm:0.3.3"
   dependencies:
-    "@astrojs/internal-helpers": "npm:0.10.0"
+    "@astrojs/internal-helpers": "npm:0.10.1"
     "@astrojs/prism": "npm:4.0.2"
     github-slugger: "npm:^2.0.0"
     satteri: "npm:^0.9.1"
-  checksum: 10/f3bb349084bc285e505c33ec9db5e62a924f3e397e0a509db89d39d3bb0a7370fff523a5ef5b502137b1485fb3ec9a7fcd7b8f15ae59a156991ae783ff4be537
+  checksum: 10/d470ba98e34fb89013a1cd1654722b388b1b76d6126fa20074ad7f861cc7e41d03f30bf658593011b1f95fd4d05802970358e2145b7783200df86bea79a3cd38
   languageName: node
   linkType: hard
 
-"@astrojs/mdx@npm:7.0.1":
-  version: 7.0.1
-  resolution: "@astrojs/mdx@npm:7.0.1"
+"@astrojs/mdx@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@astrojs/mdx@npm:7.0.2"
   dependencies:
-    "@astrojs/internal-helpers": "npm:0.10.0"
-    "@astrojs/markdown-remark": "npm:7.2.0"
+    "@astrojs/internal-helpers": "npm:0.10.1"
+    "@astrojs/markdown-remark": "npm:7.2.1"
     "@mdx-js/mdx": "npm:^3.1.1"
     acorn: "npm:^8.16.0"
     es-module-lexer: "npm:^2.0.0"
@@ -251,7 +251,7 @@ __metadata:
   peerDependenciesMeta:
     "@astrojs/markdown-satteri":
       optional: true
-  checksum: 10/eaeca487a6d27f7992e12239989896f09f703871b20d70cc485a349f6cfa7e49291ee8e09f63d762a0e2ae80aa830605e4fe1de2c0a2daec2274963c7f6b3485
+  checksum: 10/38a7b792566ea096a659e70aa9b9c7d29f120be7f1f96f89faadbdce72bb4c0fc77923133f5aa2b02768d85e24809a56936f0330127309f1bebd433158544a7c
   languageName: node
   linkType: hard
 
@@ -264,9 +264,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/solid-js@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@astrojs/solid-js@npm:7.0.0"
+"@astrojs/solid-js@npm:7.0.1":
+  version: 7.0.1
+  resolution: "@astrojs/solid-js@npm:7.0.1"
   dependencies:
     vite: "npm:^8.0.13"
     vite-plugin-solid: "npm:^2.11.12"
@@ -276,7 +276,7 @@ __metadata:
   peerDependenciesMeta:
     solid-devtools:
       optional: true
-  checksum: 10/638355250f4d66fd4c118b7c914cf745a03d2deadfd921ce8ff6ffb69f649298014adf95368afc496e86dbf7fa47aa8ef75241fc81e9b79a89759243b88378d2
+  checksum: 10/d4615529325a58039eb370b182402b81478c3cfe2df0e647f6b27d9fb71ecd3d0bcb575e668d6e4a5aca31a0f836062d24bfce296149c870a1bbf81a2bc1193c
   languageName: node
   linkType: hard
 
@@ -293,9 +293,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/ts-plugin@npm:^1.10.9":
-  version: 1.10.9
-  resolution: "@astrojs/ts-plugin@npm:1.10.9"
+"@astrojs/ts-plugin@npm:^1.10.10":
+  version: 1.10.10
+  resolution: "@astrojs/ts-plugin@npm:1.10.10"
   dependencies:
     "@astrojs/compiler": "npm:^2.13.1"
     "@astrojs/yaml2ts": "npm:^0.2.4"
@@ -304,7 +304,7 @@ __metadata:
     "@volar/typescript": "npm:~2.4.28"
     semver: "npm:^7.7.4"
     vscode-languageserver-textdocument: "npm:^1.0.12"
-  checksum: 10/f000a39b76d48312abc00c646b4a067c0e2e1cf142f55caf92e385e075fc096aa94b850bb57dd179b18fc3d11893e9691e1ec18667677ae98748b39eb553b4af
+  checksum: 10/212b8b9f6c3af69ec1998dacc3f059ac75e7c77ba9c345722536ff32e19bfa6fa56f5a081e9cc5d5ca6cb836359a2de6444683d948dff358fe2efb692e8125e3
   languageName: node
   linkType: hard
 
@@ -2242,13 +2242,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:7.0.5":
-  version: 7.0.5
-  resolution: "astro@npm:7.0.5"
+"astro@npm:7.0.6":
+  version: 7.0.6
+  resolution: "astro@npm:7.0.6"
   dependencies:
     "@astrojs/compiler-rs": "npm:^0.3.0"
-    "@astrojs/internal-helpers": "npm:0.10.0"
-    "@astrojs/markdown-satteri": "npm:0.3.2"
+    "@astrojs/internal-helpers": "npm:0.10.1"
+    "@astrojs/markdown-satteri": "npm:0.3.3"
     "@astrojs/telemetry": "npm:3.3.2"
     "@capsizecss/unpack": "npm:^4.0.0"
     "@clack/prompts": "npm:^1.1.0"
@@ -2301,7 +2301,7 @@ __metadata:
     yargs-parser: "npm:^22.0.0"
     zod: "npm:^4.3.6"
   peerDependencies:
-    "@astrojs/markdown-remark": 7.2.0
+    "@astrojs/markdown-remark": 7.2.1
   dependenciesMeta:
     sharp:
       optional: true
@@ -2310,7 +2310,7 @@ __metadata:
       optional: true
   bin:
     astro: ./bin/astro.mjs
-  checksum: 10/8ebcfc7ba1a7265eb2d71f879c0865801860a1471033e6a7e09f20459ae8461269760e0b98aee4c3fc0ee08ad00534222d7918633f179e85ea941f457668b3f0
+  checksum: 10/d9d3d1e8688d8347a271a0c90deaff8686c5ac999993f4f0ecaa24c6def40559afb6291c42fe4cec4fc4a45de808ebb51a463b4ac64e0bcbee214c731f1f039a
   languageName: node
   linkType: hard
 
@@ -2651,15 +2651,15 @@ __metadata:
   resolution: "dandelion@workspace:."
   dependencies:
     "@astrojs/check": "npm:^0.9.9"
-    "@astrojs/mdx": "npm:7.0.1"
-    "@astrojs/solid-js": "npm:7.0.0"
-    "@astrojs/ts-plugin": "npm:^1.10.9"
+    "@astrojs/mdx": "npm:7.0.2"
+    "@astrojs/solid-js": "npm:7.0.1"
+    "@astrojs/ts-plugin": "npm:^1.10.10"
     "@js-temporal/polyfill": "npm:^0.5.1"
     "@solidjs/router": "npm:^0.16.1"
     "@types/html-escaper": "npm:^3.0.4"
     "@types/luxon": "npm:^3.7.2"
     "@types/node": "npm:^26.1.0"
-    astro: "npm:7.0.5"
+    astro: "npm:7.0.6"
     luxon: "npm:^3.7.2"
     prettier-plugin-astro: "npm:^0.14.1"
     rehype-autolink-headings: "npm:^7.1.0"
@@ -2667,7 +2667,7 @@ __metadata:
     remark-smartypants: "npm:^3.0.2"
     sass: "npm:^1.101.0"
     solid-js: "npm:^1.9.14"
-    tsx: "npm:^4.22.4"
+    tsx: "npm:^4.23.0"
     typescript: "npm:^6.0.3"
     vite: "npm:8"
     vite-plugin-mkcert: "npm:^2.1.0"
@@ -6038,9 +6038,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.22.4":
-  version: 4.22.4
-  resolution: "tsx@npm:4.22.4"
+"tsx@npm:^4.23.0":
+  version: 4.23.0
+  resolution: "tsx@npm:4.23.0"
   dependencies:
     esbuild: "npm:~0.28.0"
     fsevents: "npm:~2.3.3"
@@ -6049,7 +6049,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/9d6e7e9d1158eb84327d822720a2053bcfd972f8988e4789041bac5a767fc394ef302b1ff7e1d3dfbee391a0b03bd3dbb02cd302387729baf1dc7b9dce93b3ba
+  checksum: 10/66f8b85ea0593da3267ac15ddf5a24b0283373a7e00a57445fab871d779ca1fa240fa6eb4839fb57eedad7b314a34f4ff70889e9786d2829993f14b3f7b7f209
   languageName: node
   linkType: hard
 
