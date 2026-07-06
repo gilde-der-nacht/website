@@ -1,4 +1,5 @@
 import { z } from "astro/zod";
+import { Temporal } from "@js-temporal/polyfill";
 
 export const daySchema = z.enum(["SATURDAY", "SUNDAY"]);
 

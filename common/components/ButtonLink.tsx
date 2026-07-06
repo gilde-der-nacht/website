@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js";
-import { Icon } from "./Icon";
+import { Icon } from "@common/components/Icon";
 
 type Props = {
   link: string;

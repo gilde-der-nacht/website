@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js";
-import { toTemporal, type EventDateTimeView } from "./events";
+import { toTemporal, type EventDateTimeView } from "@common/components/events";
 import { Intl as IntlP } from "@js-temporal/polyfill";
 
 export type Language = "de" | "en";

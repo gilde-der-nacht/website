@@ -7,6 +7,7 @@ import {
 } from "@common/utils/shared";
 import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
 import type { ProgramEntry } from "@rst/components/anmeldung/api/save";
+import { Temporal } from "@js-temporal/polyfill";
 
 export function parseDurationEdit(duration: DurationEdit): Duration | null {
   const { start, end } = duration;

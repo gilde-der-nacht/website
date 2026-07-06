@@ -13,7 +13,7 @@ import { Icon } from "@common/components/Icon";
 import { aggregateEntries } from "@rst/components/anmeldung/components/Timeview";
 import { obj, type Reactive } from "@common/utils/reactivity";
 import type { RegistrationUuid } from "@common/utils/ids";
-import type { AppStore } from "./Router";
+import type { AppStore } from "@rst/components/anmeldung/components/Router";
 
 export function Layout(props: {
   title?: string;

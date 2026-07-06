@@ -25,7 +25,7 @@ import {
 } from "@rst/components/anmeldung/utils/waitinglist";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { assert } from "@common/components/utils";
-import { LoadingOverlay } from "./Loading";
+import { LoadingOverlay } from "@rst/components/anmeldung/components/Loading";
 
 const PREFERENCES = {
   EXACTLY: "für exakt diese Spielrunde",

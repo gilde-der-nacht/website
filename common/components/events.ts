@@ -1,5 +1,5 @@
 import { z } from "astro/zod";
-import { elysium } from "./utils";
+import { elysium } from "@common/components/utils";
 import type { PlainDateOrTimeRange } from "@common/utils/time";
 import { Temporal } from "@js-temporal/polyfill";
 

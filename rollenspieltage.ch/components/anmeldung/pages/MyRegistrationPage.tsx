@@ -12,6 +12,7 @@ import { TXT } from "@common/utils/texts";
 import { unpackUnion } from "@common/components/utils";
 import { Router } from "@rst/components/anmeldung/components/Router";
 import { unsafeToRegistrationUuid } from "@common/utils/ids";
+import "core-js/full/url";
 
 function Loading(): JSX.Element {
   return <Box>{TXT.loading.registration}</Box>;

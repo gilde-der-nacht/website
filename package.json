@@ -35,6 +35,7 @@
     "@types/html-escaper": "^3.0.4",
     "@types/luxon": "^3.7.2",
     "@types/node": "^26.1.0",
+    "core-js": "3.49.0",
     "luxon": "^3.7.2",
     "prettier-plugin-astro": "^0.14.1",
     "vite-plugin-mkcert": "^2.1.0"

@@ -1,6 +1,7 @@
 import type { JSX } from "solid-js";
 import type { WithChildren } from "@common/components/utils";
 import { A, useNavigate } from "@solidjs/router";
+import "core-js/full/url";
 
 export function RouterLink(
   props: WithChildren<{ href: string; class?: string; style?: string }>,
