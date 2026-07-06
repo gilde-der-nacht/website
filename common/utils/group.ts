@@ -1,3 +1,5 @@
+import "core-js/full/object/group-by";
+
 export function mapGroupBy<K extends PropertyKey, T, V>(
   items: Iterable<T>,
   keySelector: (item: T, index: number) => K,

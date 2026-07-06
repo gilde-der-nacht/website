@@ -2,6 +2,7 @@ import { assert } from "@common/components/utils";
 import { unsafeToGroupId, type GroupId } from "@common/utils/ids";
 import { toPlainDateTime, type Timestamp } from "@common/utils/shared";
 import { Temporal } from "@js-temporal/polyfill";
+import "core-js/full/object/group-by";
 import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
 
 export type GroupedReservation = {
