@@ -29,6 +29,7 @@ import {
 } from "@rst/components/anmeldung/utils/conflict";
 import type { RegistrationUuid } from "@common/utils/ids";
 import "core-js/full/object/group-by";
+import "core-js/proposals/set-methods-v2";
 
 export function Programm(props: {
   save$: Reactive<Save>;
