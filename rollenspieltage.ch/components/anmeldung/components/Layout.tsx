@@ -1,10 +1,8 @@
-import { For, Show, type Accessor, type JSX, type Resource } from "solid-js";
+import { For, Show, type Accessor, type JSX } from "solid-js";
 import {
   QuickMenu,
   QuickMenuExtended,
 } from "@rst/components/anmeldung/components/QuickMenu";
-import type { Result } from "@rst/components/anmeldung/api/elysium";
-import { ShowProgramData } from "@rst/components/anmeldung/components/Loader";
 import { Box } from "@common/components/Box";
 import type { Program } from "@rst/components/anmeldung/api/program";
 import type { Save } from "@rst/components/anmeldung/api/save";
@@ -14,16 +12,18 @@ import { aggregateEntries } from "@rst/components/anmeldung/components/Timeview"
 import { obj, type Reactive } from "@common/utils/reactivity";
 import type { RegistrationUuid } from "@common/utils/ids";
 import type { AppStore } from "@rst/components/anmeldung/components/Router";
+import type { WithChildren } from "@common/components/utils";
 
-export function Layout(props: {
-  title?: string;
-  showQuickmenu?: boolean;
-  store$: Reactive<AppStore>;
-  secret: RegistrationUuid;
-  parentPath?: string;
-  programResource: Resource<Result<Program>>;
-  children: (data: { programData: Accessor<Program> }) => JSX.Element;
-}): JSX.Element {
+export function Layout(
+  props: WithChildren<{
+    title?: string;
+    showQuickmenu?: boolean;
+    store$: Reactive<AppStore>;
+    secret: RegistrationUuid;
+    parentPath?: string;
+    programData: Accessor<Program>;
+  }>,
+): JSX.Element {
   return (
     <div class="page">
       {props.showQuickmenu !== false ? (
@@ -42,18 +42,12 @@ export function Layout(props: {
         <Show when={props.title !== undefined && props.title.trim().length > 0}>
           <h2 style="margin-block-end: 1rem;">{props.title}</h2>
         </Show>
-        <ShowProgramData programResource={props.programResource}>
-          {(programData) => (
-            <>
-              <AllConflicts
-                save$={props.store$.pipe(obj.sub("save"))}
-                programData={programData}
-                secret={props.secret}
-              />
-              {props.children({ programData })}
-            </>
-          )}
-        </ShowProgramData>
+        <AllConflicts
+          save$={props.store$.pipe(obj.sub("save"))}
+          programData={props.programData}
+          secret={props.secret}
+        />
+        {props.children}
       </div>
       {props.showQuickmenu !== false ? (
         <div class="extended-wrapper" style="margin-block-start: 1rem;">

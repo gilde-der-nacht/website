@@ -22,6 +22,7 @@ import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { unsafeToToastUuid, type RegistrationUuid } from "@common/utils/ids";
 import { Wunschliste } from "@rst/components/anmeldung/pages/Wunschliste";
 import { Portal } from "solid-js/web";
+import { ShowProgramData } from "@rst/components/anmeldung/components/Loader";
 
 export type AppStore = {
   meta: {
@@ -116,178 +117,170 @@ export function Router(props: {
         )}
       </Show>
 
-      <HashRouter explicitLinks={true}>
-        {[
-          {
-            path: "/",
-            component: () => (
-              <Layout
-                title={`Wo möchtest du starten, ${store$.get().save.contact.name}?`}
-                store$={store$}
-                programResource={programResource}
-                secret={props.secret}
-              >
-                {() => <Root roles={store$.get().meta.roles} />}
-              </Layout>
-            ),
-          },
-          {
-            path: "/programm",
-            component: () => (
-              <Layout
-                title="Programm"
-                store$={store$}
-                programResource={programResource}
-                secret={props.secret}
-              >
-                {({ programData }) => (
-                  <Programm
-                    save$={store$.pipe(obj.sub("save"))}
+      <ShowProgramData programResource={programResource}>
+        {(programData) => (
+          <HashRouter explicitLinks={true}>
+            {[
+              {
+                path: "/",
+                component: () => (
+                  <Layout
+                    title={`Wo möchtest du starten, ${store$.get().save.contact.name}?`}
+                    store$={store$}
                     programData={programData}
-                    roles={store$.get().meta.roles}
                     secret={props.secret}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "/programm/:uuid",
-            component: () => (
-              <Layout
-                store$={store$}
-                showQuickmenu={true}
-                parentPath="/programm"
-                secret={props.secret}
-                programResource={programResource}
-              >
-                {({ programData }) => (
-                  <ProgrammDetail
-                    reservations$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("program"))
-                      .pipe(obj.sub("reserveActions"))}
+                  >
+                    <Root roles={store$.get().meta.roles} />
+                  </Layout>
+                ),
+              },
+              {
+                path: "/programm",
+                component: () => (
+                  <Layout
+                    title="Programm"
+                    store$={store$}
                     programData={programData}
-                    isEditable={props.initState.status === "published"}
                     secret={props.secret}
-                    roles={store$.get().meta.roles}
-                    showLoading$={store$
-                      .pipe(obj.sub("meta"))
-                      .pipe(obj.sub("showLoading"))}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "/erstellen",
-            component: () => (
-              <Layout
-                title="Spielrunden erstellen und editieren"
-                store$={store$}
-                programResource={programResource}
-                secret={props.secret}
-              >
-                {() => (
-                  <Erstellen
-                    programEntries$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("program"))
-                      .pipe(obj.sub("organising"))}
-                    isEditable={props.initState.status === "published"}
-                  />
-                )}
-              </Layout>
-            ),
-          },
+                  >
+                    <Programm
+                      save$={store$.pipe(obj.sub("save"))}
+                      programData={programData}
+                      roles={store$.get().meta.roles}
+                      secret={props.secret}
+                    />
+                  </Layout>
+                ),
+              },
+              {
+                path: "/programm/:uuid",
+                component: () => (
+                  <Layout
+                    store$={store$}
+                    showQuickmenu={true}
+                    parentPath="/programm"
+                    secret={props.secret}
+                    programData={programData}
+                  >
+                    <ProgrammDetail
+                      reservations$={store$
+                        .pipe(obj.sub("save"))
+                        .pipe(obj.sub("program"))
+                        .pipe(obj.sub("reserveActions"))}
+                      programData={programData}
+                      isEditable={props.initState.status === "published"}
+                      secret={props.secret}
+                      roles={store$.get().meta.roles}
+                      showLoading$={store$
+                        .pipe(obj.sub("meta"))
+                        .pipe(obj.sub("showLoading"))}
+                    />
+                  </Layout>
+                ),
+              },
+              {
+                path: "/erstellen",
+                component: () => (
+                  <Layout
+                    title="Spielrunden erstellen und editieren"
+                    store$={store$}
+                    programData={programData}
+                    secret={props.secret}
+                  >
+                    <Erstellen
+                      programEntries$={store$
+                        .pipe(obj.sub("save"))
+                        .pipe(obj.sub("program"))
+                        .pipe(obj.sub("organising"))}
+                      isEditable={props.initState.status === "published"}
+                    />
+                  </Layout>
+                ),
+              },
 
-          {
-            path: "/erstellen/:uuid",
-            component: () => (
-              <Layout
-                store$={store$}
-                parentPath="/erstellen"
-                programResource={programResource}
-                secret={props.secret}
-              >
-                {({ programData }) => (
-                  <ErstellenDetail
-                    programEntries$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("program"))
-                      .pipe(obj.sub("organising"))}
-                    contact$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("contact"))}
-                    programData={programData}
-                    isEditable={props.initState.status === "published"}
-                    roles={store$.get().meta.roles}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "/wunschliste",
-            component: () => (
-              <Layout
-                title="Wunschliste"
-                store$={store$}
-                showQuickmenu={true}
-                secret={props.secret}
-                programResource={programResource}
-              >
-                {({ programData }) => (
-                  <Wunschliste
-                    wishlist$={store$
-                      .pipe(obj.sub("save"))
-                      .pipe(obj.sub("wishlist"))}
-                    programData={programData}
-                    roles={store$.get().meta.roles}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "/zusammenfassung",
-            component: () => (
-              <Layout
-                title="Zusammenfassung"
-                store$={store$}
-                showQuickmenu={true}
-                secret={props.secret}
-                programResource={programResource}
-              >
-                {({ programData }) => (
-                  <Zusammenfassung
-                    save$={store$.pipe(obj.sub("save"))}
+              {
+                path: "/erstellen/:uuid",
+                component: () => (
+                  <Layout
+                    store$={store$}
+                    parentPath="/erstellen"
                     programData={programData}
                     secret={props.secret}
-                    isEditable={props.initState.status === "published"}
-                  />
-                )}
-              </Layout>
-            ),
-          },
-          {
-            path: "*",
-            component: () => {
-              return (
-                <Layout
-                  title="Seite nicht gefunden"
-                  store$={store$}
-                  showQuickmenu={true}
-                  secret={props.secret}
-                  programResource={programResource}
-                >
-                  {() => <Box type="danger">{TXT.error.siteNotFound}</Box>}
-                </Layout>
-              );
-            },
-          },
-        ]}
-      </HashRouter>
+                  >
+                    <ErstellenDetail
+                      programEntries$={store$
+                        .pipe(obj.sub("save"))
+                        .pipe(obj.sub("program"))
+                        .pipe(obj.sub("organising"))}
+                      contact$={store$
+                        .pipe(obj.sub("save"))
+                        .pipe(obj.sub("contact"))}
+                      programData={programData}
+                      isEditable={props.initState.status === "published"}
+                      roles={store$.get().meta.roles}
+                    />
+                  </Layout>
+                ),
+              },
+              {
+                path: "/wunschliste",
+                component: () => (
+                  <Layout
+                    title="Wunschliste"
+                    store$={store$}
+                    showQuickmenu={true}
+                    secret={props.secret}
+                    programData={programData}
+                  >
+                    <Wunschliste
+                      wishlist$={store$
+                        .pipe(obj.sub("save"))
+                        .pipe(obj.sub("wishlist"))}
+                      programData={programData}
+                      roles={store$.get().meta.roles}
+                    />
+                  </Layout>
+                ),
+              },
+              {
+                path: "/zusammenfassung",
+                component: () => (
+                  <Layout
+                    title="Zusammenfassung"
+                    store$={store$}
+                    showQuickmenu={true}
+                    secret={props.secret}
+                    programData={programData}
+                  >
+                    <Zusammenfassung
+                      save$={store$.pipe(obj.sub("save"))}
+                      programData={programData}
+                      secret={props.secret}
+                      isEditable={props.initState.status === "published"}
+                    />
+                  </Layout>
+                ),
+              },
+              {
+                path: "*",
+                component: () => {
+                  return (
+                    <Layout
+                      title="Seite nicht gefunden"
+                      store$={store$}
+                      showQuickmenu={true}
+                      secret={props.secret}
+                      programData={programData}
+                    >
+                      <Box type="danger">{TXT.error.siteNotFound}</Box>
+                    </Layout>
+                  );
+                },
+              },
+            ]}
+          </HashRouter>
+        )}
+      </ShowProgramData>
       <ToastContainer />
     </>
   );
