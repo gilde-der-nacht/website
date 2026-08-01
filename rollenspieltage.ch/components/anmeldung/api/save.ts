@@ -95,6 +95,7 @@ const programEntrySchema = z.object({
   uuid: z.string().transform(unsafeToGameUuid),
   status: publishStateSchema,
   title: z.string(),
+  system: z.string(),
   shortDescription: z.string(),
   longDescription: z.string(),
   seats: z.object({
@@ -135,7 +136,7 @@ const programSchema = z.object({
 });
 
 export const saveSchema = z.object({
-  version: z.literal(5),
+  version: z.literal(6),
   contact: contactSchema,
   config: configSchema,
   program: programSchema,

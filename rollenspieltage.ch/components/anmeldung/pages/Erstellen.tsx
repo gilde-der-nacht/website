@@ -62,6 +62,7 @@ export function Erstellen(props: {
               uuid,
               status: "draft",
               title: "",
+              system: "",
               shortDescription: "",
               longDescription: "",
               seats: {

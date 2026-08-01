@@ -59,6 +59,7 @@ const programPublicEntrySchema = z.object({
   status: publishStateSchema,
   myEntry: z.boolean(),
   title: z.string(),
+  system: z.string(),
   organizer: z.string(),
   shortDescription: z.string(),
   longDescription: z.string(),
