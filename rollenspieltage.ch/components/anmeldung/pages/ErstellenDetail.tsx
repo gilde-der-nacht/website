@@ -105,7 +105,10 @@ function ErstellenDetailContent(props: {
 
   return (
     <>
-      <h2>{props.entry$.get().title}</h2>
+      {props.entry$.get().system.length > 0 ? (
+        <h4>{props.entry$.get().system}</h4>
+      ) : null}
+      <h2>{props.entry$.get().title} </h2>
       <Show when={getEntriesWithParticipants().length > 0}>
         <br />
         <Box type="danger">
@@ -171,6 +174,17 @@ function ErstellenDetailContent(props: {
                 props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
               }
               errors={errors().byField.title ?? []}
+              disabled={!isEditable()}
+            />
+
+            <TextInputField
+              value$={props.entry$.pipe(obj.sub("system"))}
+              label="System"
+              name="system"
+              showErrors={
+                props.entry$.get().status === "published" ? "ALWAYS" : "ON_BLUR"
+              }
+              errors={errors().byField.system ?? []}
               disabled={!isEditable()}
             />
 

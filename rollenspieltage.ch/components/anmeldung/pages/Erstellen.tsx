@@ -32,6 +32,7 @@ export function Erstellen(props: {
                     }
                     type={errors.hasErrors ? "danger" : "special"}
                   >
+                    {entry.system.length > 0 ? <h5>{entry.system}</h5> : null}
                     <h3>
                       {entry.title.trim().length === 0
                         ? "[Titel fehlt noch]"

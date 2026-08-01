@@ -75,6 +75,7 @@ function ProgramView(props: {
   const filters$ = createReactive<ActiveFilter>({
     day: null,
     tags: [],
+    systems: [],
     language: null,
   });
 
@@ -107,6 +108,34 @@ function ProgramView(props: {
       return a.name.localeCompare(b.name);
     });
 
+  const systems = Object.entries(
+    Object.groupBy(
+      props
+        .program()
+        .publicEntries.flatMap((e) => e.system.split(",").map((e) => e.trim())),
+      (e) => e,
+    ),
+  )
+    .filter(([system, list]) => list !== undefined && system.trim().length > 0)
+    .map(([system, list]) => ({
+      label: system,
+      name: system,
+      count: list?.length ?? 0,
+    }))
+    .toSorted((a, b) => {
+      const ageRegex = /^([^\d]+)\s(\d+?)[^\d]*$/;
+      const aExec = ageRegex.exec(a.name);
+      const bExec = ageRegex.exec(b.name);
+      if (aExec !== null && bExec !== null) {
+        const aNum = Number(aExec[2]);
+        const bNum = Number(bExec[2]);
+        if (!isNaN(aNum) && !isNaN(bNum)) {
+          return aNum - bNum;
+        }
+      }
+      return a.name.localeCompare(b.name);
+    });
+
   function getHiddenEntriesEmptyIfUnauthorized(): ProgramHiddenEntry[] {
     const { hiddenEntries } = props.program();
     return hiddenEntries === UNAUTHORIZED ? [] : hiddenEntries;
@@ -114,7 +143,7 @@ function ProgramView(props: {
 
   return (
     <div style="display: flex; flex-direction: column; gap: 1rem;">
-      <Filters filters$={filters$} tags={tags} />
+      <Filters filters$={filters$} tags={tags} systems={systems} />
       <Show
         when={filters$.get().day === "SATURDAY" || filters$.get().day === null}
       >
@@ -201,6 +230,14 @@ function filterSortGroupProgram(
       filters.tags.length !== 0 &&
       !new Set(filters.tags).isSubsetOf(
         new Set(entry.tagNames.map((s) => s.trim())),
+      )
+    ) {
+      return;
+    }
+    if (
+      filters.systems.length !== 0 &&
+      !new Set(filters.systems).isSubsetOf(
+        new Set(entry.system.split(",").map((s) => s.trim())),
       )
     ) {
       return;

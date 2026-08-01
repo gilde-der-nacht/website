@@ -65,7 +65,12 @@ export function Entry(props: {
 
   return (
     <li class={classes()}>
-      <h3 class="event-title">{props.entry.title}</h3>
+      <div>
+        {props.entry.system.length > 0 ? (
+          <h4 style="font-size: 0.8rem;">{props.entry.system}</h4>
+        ) : null}
+        <h3 class="event-title">{props.entry.title}</h3>
+      </div>
       <div class="event-details">
         <Show when={props.entry.myEntry}>
           <div style="margin-block-end: 0.5rem;">

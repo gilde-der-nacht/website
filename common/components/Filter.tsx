@@ -57,6 +57,7 @@ export function DayFilter(props: {
 
 export type ActiveFilter = {
   tags: string[];
+  systems: string[];
   day: DayFilterState;
   language: "Deutsch" | "Englisch" | null;
 };
@@ -65,6 +66,8 @@ type FilterUpdater = {
   toggleDay: (day: DayFilterState) => void;
   toggleTag: (tag: string) => void;
   toggleAllTags: () => void;
+  toggleSystem: (system: string) => void;
+  toggleAllSystems: () => void;
   toggleLanguage: (language: "Deutsch" | "Englisch" | null) => void;
 };
 
@@ -91,6 +94,19 @@ function createFilterUpdater(filters$: Reactive<ActiveFilter>): FilterUpdater {
     toggleAllTags: () => {
       filters$.pipe(obj.sub("tags")).set([]);
     },
+    toggleSystem: (system) => {
+      const isActive = filters$.get().systems.includes(system);
+      if (isActive) {
+        filters$
+          .pipe(obj.sub("systems"))
+          .set(filters$.get().systems.filter((t) => t !== system));
+      } else {
+        arr.push(filters$.pipe(obj.sub("systems")), system);
+      }
+    },
+    toggleAllSystems: () => {
+      filters$.pipe(obj.sub("systems")).set([]);
+    },
     toggleLanguage: (language) => {
       const isActive = filters$.get().language === language;
       if (isActive) {
@@ -105,9 +121,11 @@ function createFilterUpdater(filters$: Reactive<ActiveFilter>): FilterUpdater {
 export function Filters(props: {
   filters$: Reactive<ActiveFilter>;
   tags: { label: string; name: string; count: number }[];
+  systems: { label: string; name: string; count: number }[];
 }): JSX.Element {
   const updater = createFilterUpdater(props.filters$);
   const expandTags$ = createReactive(false);
+  const expandSystems$ = createReactive(false);
 
   function getMostUsedTags(): string[] {
     return props.tags
@@ -115,6 +133,13 @@ export function Filters(props: {
       .slice(0, 6)
       .map((tag) => tag.name)
       .filter((tag) => !["Frei Verfügbares Rollenspiel"].includes(tag));
+  }
+
+  function getMostUsedSystems(): string[] {
+    return props.systems
+      .toSorted((a, b) => b.count - a.count)
+      .slice(0, 6)
+      .map((tag) => tag.name);
   }
 
   return (
@@ -192,6 +217,61 @@ export function Filters(props: {
             icon="circle-minus"
             label=""
             onClick={() => expandTags$.set(!expandTags$.get())}
+          />
+        </Show>
+      </div>
+      <h6 style="margin-block: 0.5rem;">Systeme</h6>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        <Button
+          label={"Alle Systeme".toLocaleUpperCase()}
+          kind={props.filters$.get().systems.length === 0 ? "success" : "gray"}
+          onClick={() => updater.toggleAllSystems()}
+          style="margin-inline-end: 1rem;"
+        />
+        <For each={props.systems}>
+          {(system) => (
+            <Show
+              when={
+                expandSystems$.get() ||
+                getMostUsedSystems().includes(system.name)
+              }
+            >
+              <Button
+                label={system.label}
+                kind={
+                  props.filters$.get().systems.length === 0 ||
+                  props.filters$.get().systems.includes(system.name)
+                    ? "success"
+                    : "gray"
+                }
+                onClick={() => {
+                  const newSystemFilter = new Set(
+                    props.filters$.get().systems.concat(system.name),
+                  );
+                  if (newSystemFilter.size === props.systems.length) {
+                    updater.toggleAllSystems();
+                  } else {
+                    updater.toggleSystem(system.name);
+                  }
+                }}
+              />
+            </Show>
+          )}
+        </For>
+        <Show
+          when={expandSystems$.get()}
+          fallback={
+            <ButtonWithIcon
+              icon="circle-plus"
+              label=""
+              onClick={() => expandSystems$.set(!expandSystems$.get())}
+            />
+          }
+        >
+          <ButtonWithIcon
+            icon="circle-minus"
+            label=""
+            onClick={() => expandSystems$.set(!expandSystems$.get())}
           />
         </Show>
       </div>

@@ -107,7 +107,10 @@ function ProgramDetailContent(props: {
         </div>
       </Show>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap">
-        <h3>{props.entry.title}</h3>
+        <div>
+          {props.entry.system.length > 0 ? <h5>{props.entry.system}</h5> : null}
+          <h3>{props.entry.title}</h3>
+        </div>
         <RouterLink
           href="/programm"
           class="button-link"

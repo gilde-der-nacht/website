@@ -36,5 +36,10 @@ export function getConflicts(
       (conflictEntry) =>
         conflictEntry.timeSlot.uuid !== baseEntry.timeSlot.uuid,
     )
-    .map((entry) => entry.title);
+    .map((entry) => {
+      if (entry.system.length > 0) {
+        return `${entry.title} (${entry.system})`;
+      }
+      return entry.title;
+    });
 }
