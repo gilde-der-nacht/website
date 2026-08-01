@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/html-escaper": "^3.0.4",
-    "@types/luxon": "^3.7.2",
+    "@types/luxon": "^3.7.3",
     "@types/node": "^26.1.2",
     "core-js": "3.49.0",
     "luxon": "^3.7.2",
