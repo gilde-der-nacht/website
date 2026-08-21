@@ -52,7 +52,7 @@ export function ProgrammDetail(props: {
           showLoading$={props.showLoading$}
           entry={entry()}
           myReservations={props.reservations$.get()}
-          isEditable={props.isEditable}
+          isEditable={props.isEditable && !entry().isClosed}
           addReservation={(reservation) =>
             arr.push(props.reservations$, reservation)
           }

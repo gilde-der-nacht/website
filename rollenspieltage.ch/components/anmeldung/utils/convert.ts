@@ -79,6 +79,7 @@ export function entryEditToPublic(
         language,
         links,
         secretForEditing: UNAUTHORIZED,
+        isClosed: false,
       };
     })
     .filter((entry) => entry !== null)

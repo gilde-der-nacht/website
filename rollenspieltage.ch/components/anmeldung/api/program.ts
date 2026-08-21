@@ -84,6 +84,7 @@ const programPublicEntrySchema = z.object({
     }),
   ),
   secretForEditing: z.union([unauthorizedSchema, z.string()]),
+  isClosed: z.boolean(),
 });
 
 export type ProgramPublicEntry = z.infer<typeof programPublicEntrySchema>;

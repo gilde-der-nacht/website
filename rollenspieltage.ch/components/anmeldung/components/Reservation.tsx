@@ -49,6 +49,7 @@ export function ReservationForm(props: {
   selfReservationUuid: ReservationUuid | null;
   secret: string;
   waitingList: boolean;
+  isEditable: boolean;
 }): JSX.Element {
   const list = () =>
     props.waitingList
@@ -98,6 +99,7 @@ export function ReservationForm(props: {
           getFriendNames={getFriendNames}
           waitingList={props.waitingList}
           rows={props.rows}
+          isEditable={props.isEditable}
         />
       )}
     </>
@@ -392,19 +394,31 @@ function ReservationView(props: {
   getFriendNames: Accessor<string>;
   waitingList: boolean;
   rows: number;
+  isEditable: boolean;
 }): JSX.Element {
   return (
     <Show
       when={props.reservations().length > 0}
       fallback={
-        <ButtonWithIcon
-          icon="person-to-portal"
-          label={
-            props.waitingList ? "In Warteliste eintragen" : "Plätze reservieren"
+        <Show
+          when={props.isEditable}
+          fallback={
+            <Box>
+              <em>Reserviert für Spontane</em>
+            </Box>
           }
-          kind="success"
-          onClick={() => props.editable$.set(true)}
-        />
+        >
+          <ButtonWithIcon
+            icon="person-to-portal"
+            label={
+              props.waitingList
+                ? "In Warteliste eintragen"
+                : "Plätze reservieren"
+            }
+            kind="success"
+            onClick={() => props.editable$.set(true)}
+          />
+        </Show>
       }
     >
       <SimpleBox type="success" style={`grid-row: span ${props.rows}`}>
@@ -430,13 +444,15 @@ function ReservationView(props: {
             ) : null}
           </p>
           <div>
-            <IconOnlyButton
-              icon="pencil"
-              onClick={() => {
-                props.names$.set(props.getFriendNames());
-                props.editable$.set(true);
-              }}
-            />
+            {props.isEditable ? (
+              <IconOnlyButton
+                icon="pencil"
+                onClick={() => {
+                  props.names$.set(props.getFriendNames());
+                  props.editable$.set(true);
+                }}
+              />
+            ) : null}
           </div>
         </div>
       </SimpleBox>
@@ -501,6 +517,7 @@ export function Reservation(props: {
                     rows={seat.rows}
                     secret={props.secret}
                     waitingList={seat.waitingList}
+                    isEditable={props.isEditable}
                   />
                 </Match>
                 <Match when={seat.kind === "OVERFLOW"}>
@@ -538,7 +555,7 @@ export function Reservation(props: {
                   </Box>
                 </Match>
                 <Match when={seat.kind === "WAITING_LIST_START"}>
-                  <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-danger-11); padding-block-start: 0.5rem; margin-block-start: 0.5rem; margin-block-end: -0.5rem; max-inline-size: 100%;">
+                  <h5 style="border-block-start: 2px solid currentColor; color: var(--clr-danger-11); padding-block-start: 0.5rem; margin-block-start: 0.5rem; margin-block-end: -0.5rem; max-inline-size: 100%; opacity: 0;">
                     Warteliste
                   </h5>
                 </Match>
