@@ -31,7 +31,10 @@ export function Entry(props: {
             ? props.entry.participation.reserved
             : props.entry.participation.reserved.length),
         0,
-      ) - 1
+      ) -
+      (props.entry.timeSlot.uuid === "cecb80a7-b8ee-44d4-9955-37a5cd54d0ec"
+        ? 0
+        : 1)
     );
   }
 
