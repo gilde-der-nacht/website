@@ -1,3 +1,4 @@
+import { Temporal } from "@js-temporal/polyfill";
 import { Match, Show, Switch, type JSX } from "solid-js";
 import type { OlympEventView } from "@common/components/events";
 import {
@@ -250,6 +251,13 @@ function getOverviewItems(events: OlympEventView[]): Overview {
   let otherFound = false;
 
   const preview = rest.filter((event) => {
+    const now = Temporal.Now.plainDateISO();
+    const daysUntil = event.date.startDate.since(now).days;
+    if (daysUntil < 0 || daysUntil > 13 * 31) {
+      // Events that are in the past or more than ~13 months in the future will not be shown in the preview
+      return false;
+    }
+
     switch (event.type) {
       case "Spieltreffen": {
         if (!spieltreffenFound) {
