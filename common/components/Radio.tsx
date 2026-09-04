@@ -26,7 +26,7 @@ export function RadioGroup<T extends string>(
           <li>
             <Radio
               label={radio.label}
-              name={`${radio.value}-${props.name}`}
+              name={props.name}
               value={radio.value}
               checked={radio.checked}
               onValueUpdate={() => props.onValueUpdate(radio.value)}

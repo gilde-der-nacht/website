@@ -177,13 +177,11 @@ export function NewsletterImpl(props: Props): JSX.Element {
       const msg = "Die Eingabe scheint keine gültige E-Mail-Adresse zu sein.";
       setFieldErrors((prev) => ({ ...prev, email: [...prev.email, msg] }));
     }
-    if (
-      !(
-        formData().themeBrettspiele ||
-        formData().themeRollenspiele ||
-        formData().themeTabletop
-      )
-    ) {
+    if (!(
+      formData().themeBrettspiele ||
+      formData().themeRollenspiele ||
+      formData().themeTabletop
+    )) {
       const msg =
         "Mindestens ein Thema muss ausgewählt werden, um E-Mails zu erhalten.";
       setFieldErrors((prev) => ({
@@ -296,12 +294,21 @@ export function NewsletterImpl(props: Props): JSX.Element {
         <Show when={props.referer}>
           {(referer) => <HiddenInput name="FORMLOC" value={referer().href} />}
         </Show>
+
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input
+            type="text"
+            name="b_ac8c826d7db864c54a3c2f001_c6bec31754"
+            tabindex="-1"
+            value=""
+          />
+        </div>
       </Form>
       <Show when={isErrorGeneral()}>
         <br />
         <Box type="danger">
           Wir hatten mit einigen technischen Problemen zu kämpfen. Bitte
-          versuchen Sie es erneut.
+          versuche es erneut.
         </Box>
       </Show>
       <Show when={isSuccess()}>
