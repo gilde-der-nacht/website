@@ -1,6 +1,5 @@
 ---
 import Layout from "@rst/layouts/Layout.astro";
-import { Anmeldung as A } from "@rst/components/anmeldung/pages/Anmeldung.tsx";
 import { Box } from "@common/components/Box";
 
 export const frontmatter = {
@@ -15,28 +14,40 @@ export const frontmatter = {
 <Layout metaTitle="Anmeldung">
   <h1>Anmeldung</h1>
 
-  <Box>
+  <!-- <Box> -->
+  <!-- <p> -->
+  <!-- Falls du bereits eine Anmeldung begonnen hast, dann solltest du eine -->
+  <!-- E-Mail mit einem persönlichen Link erhalten haben. Dieser erlaubt es dir -->
+  <!-- deine Anmeldung anzupassen. -->
+  <!-- </p> -->
+  <!-- </Box> -->
+
+  <!-- <A client:load /> -->
+
+  <Box type="danger">
     <p>
-      Falls du bereits eine Anmeldung begonnen hast, dann solltest du eine
-      E-Mail mit einem persönlichen Link erhalten haben. Dieser erlaubt es dir
-      deine Anmeldung anzupassen.
+      Die Anmeldung für die kommenden Luzerner Rollenspieltage sind noch nicht
+      offen.
+      <br />
+      <br />
+      Möchtest du von uns informiert werden, sobald die Anmeldung möglich ist, dann
+      empfehlen wir dir, unseren
+      <a href="/newsletter">Newsletter zu abonnieren</a>.
     </p>
   </Box>
 
-  <A client:load />
-
-  <div style="margin-block: 2.5rem;">
-    <Box type="special">
-      <p>
-        Deine persönlichen Daten werden ausschliesslich für die Luzerner
-        Rollenspieltage 2026 verwendet.
-      </p>
-      <br />
-      <p>
-        Möchtest du auch nach dem Event über Anlässe von uns informiert werden,
-        dann empfehlen wir dir, unseren
-        <a href="/newsletter">Newsletter zu abonnieren</a>.
-      </p>
-    </Box>
-  </div>
+  <!-- <div style="margin-block: 2.5rem;"> -->
+  <!-- <Box type="special"> -->
+  <!-- <p> -->
+  <!-- Deine persönlichen Daten werden ausschliesslich für die Luzerner -->
+  <!-- Rollenspieltage 2026 verwendet. -->
+  <!-- </p> -->
+  <!-- <br /> -->
+  <!-- <p> -->
+  <!-- Möchtest du auch nach dem Event über Anlässe von uns informiert werden, -->
+  <!-- dann empfehlen wir dir, unseren -->
+  <!-- <a href="/newsletter">Newsletter zu abonnieren</a>. -->
+  <!-- </p> -->
+  <!-- </Box> -->
+  <!-- </div> -->
 </Layout>
