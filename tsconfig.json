@@ -7,6 +7,9 @@
       "@common/*": [
         "common/*"
       ],
+      "@registration/*": [
+        "common/components/registration/*"
+      ],
       "@gdn/*": [
         "gildedernacht.ch/*"
       ],
