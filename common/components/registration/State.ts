@@ -5,14 +5,17 @@ import {
   getInitialConnectionState,
   type ConnectionState,
 } from "@registration/Connection";
+import { getInitialContact, type Contact } from "@registration/Contact";
 
 export type State = {
   connectionState: ConnectionState;
+  contact: Contact;
 };
 
 function getInitialState(): State {
   return {
     connectionState: getInitialConnectionState(),
+    contact: getInitialContact(),
   };
 }
 
