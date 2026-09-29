@@ -500,7 +500,7 @@ function TimeSlotInput(props: {
             onClick={
               props.isEditable
                 ? () =>
-                    arr.push(props.slots$, {
+                    props.slots$.push({
                       uuid: unsafeToTimeslotUuid(crypto.randomUUID()),
                       slot: {
                         start: {
@@ -560,7 +560,7 @@ function LinkInput(props: {
             onClick={
               props.isEditable
                 ? () =>
-                    arr.push(props.links$, {
+                    props.links$.push({
                       label: "",
                       link: "",
                     })

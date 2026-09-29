@@ -1,4 +1,4 @@
-import { assert, isPlainObject } from "@common/components/utils";
+import { assert, isArray, isPlainObject } from "@common/components/utils";
 import { createStore } from "solid-js/store";
 
 export type Reactive<T> = {
@@ -10,9 +10,12 @@ export type Reactive<T> = {
   ? {
       sub: <K extends keyof T>(key: K) => Reactive<T[K]>;
     }
-  : {});
-
-export type ReactiveObj<T extends object> = Reactive<T>;
+  : {}) &
+  (T extends unknown[]
+    ? {
+        push: <T>(newValue: T) => void;
+      }
+    : {});
 
 export type ReactiveArr<T> = Reactive<Array<T>>;
 
@@ -45,6 +48,17 @@ function createReactiveImpl<T>(
           update(() => newObj);
         },
       );
+    },
+    push: (newValue) => {
+      // @ts-ignore
+      update((oldValue) => {
+        if (!isArray(oldValue)) {
+          throw new Error(
+            "Cannot call push(): value is not/no longer an array",
+          );
+        }
+        return [...oldValue, newValue];
+      });
     },
   };
 
@@ -80,6 +94,17 @@ function createReactiveArrEl<T>(
         },
       );
     },
+    push: (newValue) => {
+      // @ts-ignore
+      update((oldValue) => {
+        if (!isArray(oldValue)) {
+          throw new Error(
+            "Cannot call push(): value is not/no longer an array",
+          );
+        }
+        return [...oldValue, newValue];
+      });
+    },
     remove,
   };
 
@@ -96,11 +121,6 @@ export function createReactive<T>(init: T): Reactive<T> {
 }
 
 export const arr = {
-  push: <T,>(reactive: ReactiveArr<T>, newValue: T): void => {
-    reactive.update((oldValue) => {
-      return [...oldValue, newValue];
-    });
-  },
   update: <T,>(
     reactive: ReactiveArr<T>,
     predicate: (el: T) => boolean,

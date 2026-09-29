@@ -1,6 +1,6 @@
 import { Box } from "@common/components/Box";
 import { Button, ButtonWithIcon } from "@common/components/Button";
-import { arr, createReactive, type Reactive } from "@common/utils/reactivity";
+import { createReactive, type Reactive } from "@common/utils/reactivity";
 import type { ProgramDay } from "@common/utils/time";
 import { For, Show, type Accessor, type JSX, type Setter } from "solid-js";
 
@@ -81,7 +81,7 @@ function createFilterUpdater(filters$: Reactive<ActiveFilter>): FilterUpdater {
       if (isActive) {
         filters$.sub("tags").set(filters$.get().tags.filter((t) => t !== tag));
       } else {
-        arr.push(filters$.sub("tags"), tag);
+        filters$.sub("tags").push(tag);
       }
     },
     toggleAllTags: () => {
@@ -94,7 +94,7 @@ function createFilterUpdater(filters$: Reactive<ActiveFilter>): FilterUpdater {
           .sub("systems")
           .set(filters$.get().systems.filter((t) => t !== system));
       } else {
-        arr.push(filters$.sub("systems"), system);
+        filters$.sub("systems").push(system);
       }
     },
     toggleAllSystems: () => {

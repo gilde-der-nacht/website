@@ -503,7 +503,7 @@ export function Reservation(props: {
                   <ReservationForm
                     entry={props.entry}
                     addReservationAction={(reservationAction) =>
-                      arr.push(props.reservations$, reservationAction)
+                      props.reservations$.push(reservationAction)
                     }
                     selfReservationUuid={
                       props.reservations$

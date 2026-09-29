@@ -59,7 +59,7 @@ export function Erstellen(props: {
           type="success"
           onClick={() => {
             const uuid = unsafeToGameUuid(crypto.randomUUID());
-            arr.push(props.programEntries$, {
+            props.programEntries$.push({
               uuid,
               status: "draft",
               title: "",

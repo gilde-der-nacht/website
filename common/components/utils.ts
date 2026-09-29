@@ -229,3 +229,7 @@ export function isPlainObject(
     !(value instanceof RegExp)
   );
 }
+
+export function isArray(value: unknown): value is Array<unknown> {
+  return value !== null && typeof value === "object" && Array.isArray(value);
+}

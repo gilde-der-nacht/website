@@ -54,7 +54,7 @@ export function ProgrammDetail(props: {
           myReservations={props.reservations$.get()}
           isEditable={props.isEditable && !entry().isClosed}
           addReservation={(reservation) =>
-            arr.push(props.reservations$, reservation)
+            props.reservations$.push(reservation)
           }
           removeReservation={(reservationUuid) =>
             arr.remove(props.reservations$, (r) => r.uuid === reservationUuid)
