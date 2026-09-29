@@ -1,5 +1,5 @@
 import type { RegistrationUuid } from "@common/utils/ids";
-import { createReactive, obj } from "@common/utils/reactivity";
+import { createReactive } from "@common/utils/reactivity";
 import {
   Connection,
   getInitialConnectionState,
@@ -26,7 +26,7 @@ export class RegistrationState {
   connect(registrationUuid: RegistrationUuid): void {
     this.connection = new Connection(
       registrationUuid,
-      this.state$.pipe(obj.sub("connectionState")),
+      this.state$.sub("connectionState"),
     );
   }
 }

@@ -16,7 +16,7 @@ import { TXT } from "@common/utils/texts";
 import { Programm } from "@rst/components/anmeldung/pages/Programm";
 import { Erstellen } from "@rst/components/anmeldung/pages/Erstellen";
 import { ErstellenDetail } from "@rst/components/anmeldung/pages/ErstellenDetail";
-import { createReactive, obj } from "@common/utils/reactivity";
+import { createReactive } from "@common/utils/reactivity";
 import { ProgrammDetail } from "@rst/components/anmeldung/pages/ProgrammDetail";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { unsafeToToastUuid, type RegistrationUuid } from "@common/utils/ids";
@@ -75,7 +75,7 @@ export function Router(props: {
 
       let successful = false;
       try {
-        store$.pipe(obj.sub("meta")).pipe(obj.sub("showLoading")).set(true);
+        store$.sub("meta").sub("showLoading").set(true);
         const saveResult = await debouncedSaveState(
           store$.get().meta,
           newState,
@@ -85,19 +85,16 @@ export function Router(props: {
           console.error(saveResult);
         } else {
           successful = true;
-          store$
-            .pipe(obj.sub("meta"))
-            .pipe(obj.sub("lastSaved"))
-            .set(saveResult.data);
+          store$.sub("meta").sub("lastSaved").set(saveResult.data);
         }
       } catch (e) {
         console.error(e);
-        store$.pipe(obj.sub("meta")).pipe(obj.sub("saveState")).set("ERROR");
+        store$.sub("meta").sub("saveState").set("ERROR");
       }
 
       if (successful) {
         await refetch();
-        store$.pipe(obj.sub("meta")).pipe(obj.sub("showLoading")).set(false);
+        store$.sub("meta").sub("showLoading").set(false);
       }
     },
   );
@@ -144,7 +141,7 @@ export function Router(props: {
                     secret={props.secret}
                   >
                     <Programm
-                      save$={store$.pipe(obj.sub("save"))}
+                      save$={store$.sub("save")}
                       programData={programData}
                       roles={store$.get().meta.roles}
                       secret={props.secret}
@@ -164,16 +161,14 @@ export function Router(props: {
                   >
                     <ProgrammDetail
                       reservations$={store$
-                        .pipe(obj.sub("save"))
-                        .pipe(obj.sub("program"))
-                        .pipe(obj.sub("reserveActions"))}
+                        .sub("save")
+                        .sub("program")
+                        .sub("reserveActions")}
                       programData={programData}
                       isEditable={props.initState.status === "published"}
                       secret={props.secret}
                       roles={store$.get().meta.roles}
-                      showLoading$={store$
-                        .pipe(obj.sub("meta"))
-                        .pipe(obj.sub("showLoading"))}
+                      showLoading$={store$.sub("meta").sub("showLoading")}
                     />
                   </Layout>
                 ),
@@ -189,9 +184,9 @@ export function Router(props: {
                   >
                     <Erstellen
                       programEntries$={store$
-                        .pipe(obj.sub("save"))
-                        .pipe(obj.sub("program"))
-                        .pipe(obj.sub("organising"))}
+                        .sub("save")
+                        .sub("program")
+                        .sub("organising")}
                       isEditable={props.initState.status === "published"}
                     />
                   </Layout>
@@ -209,12 +204,10 @@ export function Router(props: {
                   >
                     <ErstellenDetail
                       programEntries$={store$
-                        .pipe(obj.sub("save"))
-                        .pipe(obj.sub("program"))
-                        .pipe(obj.sub("organising"))}
-                      contact$={store$
-                        .pipe(obj.sub("save"))
-                        .pipe(obj.sub("contact"))}
+                        .sub("save")
+                        .sub("program")
+                        .sub("organising")}
+                      contact$={store$.sub("save").sub("contact")}
                       programData={programData}
                       isEditable={props.initState.status === "published"}
                       roles={store$.get().meta.roles}
@@ -233,9 +226,7 @@ export function Router(props: {
                     programData={programData}
                   >
                     <Wunschliste
-                      wishlist$={store$
-                        .pipe(obj.sub("save"))
-                        .pipe(obj.sub("wishlist"))}
+                      wishlist$={store$.sub("save").sub("wishlist")}
                       programData={programData}
                       roles={store$.get().meta.roles}
                     />
@@ -253,7 +244,7 @@ export function Router(props: {
                     programData={programData}
                   >
                     <Zusammenfassung
-                      save$={store$.pipe(obj.sub("save"))}
+                      save$={store$.sub("save")}
                       programData={programData}
                       secret={props.secret}
                       isEditable={props.initState.status === "published"}

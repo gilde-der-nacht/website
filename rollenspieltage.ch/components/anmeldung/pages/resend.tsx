@@ -2,7 +2,7 @@ import { Box } from "@common/components/Box";
 import { Button } from "@common/components/Button";
 import { TextInputField } from "@common/components/newForm/Input";
 import { elysium } from "@common/components/utils";
-import { createReactive, obj } from "@common/utils/reactivity";
+import { createReactive } from "@common/utils/reactivity";
 import { TXT } from "@common/utils/texts";
 import { Show, type JSX } from "solid-js";
 
@@ -17,7 +17,7 @@ export function Resend(): JSX.Element {
 
   async function onSubmit(e: SubmitEvent): Promise<void> {
     e.preventDefault();
-    store$.pipe(obj.sub("state")).set("LOADING");
+    store$.sub("state").set("LOADING");
     try {
       const response = await fetch(elysium("/rst26/resend"), {
         method: "POST",
@@ -28,13 +28,13 @@ export function Resend(): JSX.Element {
       });
 
       if (response.ok) {
-        store$.pipe(obj.sub("state")).set("SENT");
+        store$.sub("state").set("SENT");
       } else {
-        store$.pipe(obj.sub("state")).set("ERROR");
+        store$.sub("state").set("ERROR");
       }
     } catch (e) {
       console.error(e);
-      store$.pipe(obj.sub("state")).set("ERROR");
+      store$.sub("state").set("ERROR");
     }
   }
 
@@ -45,7 +45,7 @@ export function Resend(): JSX.Element {
           label="E-Mail"
           name="email"
           type="email"
-          value$={store$.pipe(obj.sub("email"))}
+          value$={store$.sub("email")}
           disabled={store$.get().state !== "IDLE"}
         />
         <Button

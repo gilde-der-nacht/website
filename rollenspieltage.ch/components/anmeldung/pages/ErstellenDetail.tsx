@@ -17,7 +17,7 @@ import type {
 import { useParams } from "@solidjs/router";
 import { Chip } from "@common/components/Chip";
 import { Icon } from "@common/components/Icon";
-import { arr, obj, type Reactive } from "@common/utils/reactivity";
+import { arr, type Reactive } from "@common/utils/reactivity";
 import {
   NumberInputField,
   TextInputField,
@@ -167,7 +167,7 @@ function ErstellenDetailContent(props: {
         <div>
           <form novalidate>
             <TextInputField
-              value$={props.entry$.pipe(obj.sub("title"))}
+              value$={props.entry$.sub("title")}
               label="Titel"
               name="title"
               showErrors={
@@ -178,7 +178,7 @@ function ErstellenDetailContent(props: {
             />
 
             <TextInputField
-              value$={props.entry$.pipe(obj.sub("system"))}
+              value$={props.entry$.sub("system")}
               label="System"
               name="system"
               showErrors={
@@ -189,14 +189,14 @@ function ErstellenDetailContent(props: {
             />
 
             <TextInputField
-              value$={props.contact$.pipe(obj.sub("name"))}
+              value$={props.contact$.sub("name")}
               label="Spielleitung"
               name="gamemaster"
               disabled
             />
 
             <TextareaField
-              value$={props.entry$.pipe(obj.sub("shortDescription"))}
+              value$={props.entry$.sub("shortDescription")}
               label="kurze Beschreibung (max. 200 Zeichen)"
               name="descriptionShort"
               size="small"
@@ -206,7 +206,7 @@ function ErstellenDetailContent(props: {
             />
 
             <TextareaField
-              value$={props.entry$.pipe(obj.sub("longDescription"))}
+              value$={props.entry$.sub("longDescription")}
               label="lange Beschreibung (optional)"
               name="descriptionLong"
               showErrors="ALWAYS"
@@ -215,7 +215,7 @@ function ErstellenDetailContent(props: {
             />
 
             <NumberInputField
-              value$={props.entry$.pipe(obj.sub("seats")).pipe(obj.sub("max"))}
+              value$={props.entry$.sub("seats").sub("max")}
               label="Maximale Plätze"
               name="maxSeats"
               errors={errors().byField.seats ?? []}
@@ -223,13 +223,13 @@ function ErstellenDetailContent(props: {
             />
 
             <TimeSlotInput
-              slots$={props.entry$.pipe(obj.sub("timeSlots"))}
+              slots$={props.entry$.sub("timeSlots")}
               byFieldUuid={errors().byFieldUuid}
               isEditable={isEditable()}
             />
 
             <TextInputField
-              value$={props.entry$.pipe(obj.sub("tagNames"))}
+              value$={props.entry$.sub("tagNames")}
               label="Tags"
               name="tags"
               showErrors={
@@ -263,12 +263,12 @@ function ErstellenDetailContent(props: {
               <legend style="margin: 0; padding: 0;">Sprache:</legend>
               <SwitchCheckboxLegacy
                 value={
-                  props.entry$.pipe(obj.sub("language")).get() === "Englisch"
+                  props.entry$.sub("language").get() === "Englisch"
                     ? "Englisch"
                     : "Deutsch"
                 }
                 onChange={(newValue) =>
-                  props.entry$.pipe(obj.sub("language")).set(newValue)
+                  props.entry$.sub("language").set(newValue)
                 }
                 options={{
                   left: { label: "Englisch", value: "Englisch" },
@@ -280,7 +280,7 @@ function ErstellenDetailContent(props: {
             </div>
 
             <LinkInput
-              links$={props.entry$.pipe(obj.sub("links"))}
+              links$={props.entry$.sub("links")}
               isEditable={isEditable()}
             />
           </form>
@@ -304,9 +304,7 @@ function ErstellenDetailContent(props: {
             </Chip>
             <SwitchCheckbox
               value$={
-                props.entry$.pipe(obj.sub("status")) as Reactive<
-                  "draft" | "published"
-                >
+                props.entry$.sub("status") as Reactive<"draft" | "published">
               }
               options={{
                 left: {
@@ -416,7 +414,7 @@ function TimeSlotInput(props: {
                           }
                           onClick={() => {
                             slot$()
-                              .pipe(obj.sub("slot"))
+                              .sub("slot")
                               .update((s) => ({
                                 ...s,
                                 start: { ...s.start, day: SATURDAY.toJSON() },
@@ -433,7 +431,7 @@ function TimeSlotInput(props: {
                           }
                           onClick={() => {
                             slot$()
-                              .pipe(obj.sub("slot"))
+                              .sub("slot")
                               .update((s) => ({
                                 ...s,
                                 start: { ...s.start, day: SUNDAY.toJSON() },
@@ -444,15 +442,12 @@ function TimeSlotInput(props: {
                       </div>
                     </div>
                     <TextInputField
-                      value$={slot$()
-                        .pipe(obj.sub("slot"))
-                        .pipe(obj.sub("start"))
-                        .pipe(obj.sub("time"))}
+                      value$={slot$().sub("slot").sub("start").sub("time")}
                       onBlur={() => {
                         const startTime$ = slot$()
-                          .pipe(obj.sub("slot"))
-                          .pipe(obj.sub("start"))
-                          .pipe(obj.sub("time"));
+                          .sub("slot")
+                          .sub("start")
+                          .sub("time");
                         const startTime = startTime$.get();
                         const [hour, minute] = startTime.split(".");
                         const parsed = parseIntSafe(hour ?? "");
@@ -469,15 +464,12 @@ function TimeSlotInput(props: {
                       disabled={!props.isEditable}
                     />
                     <TextInputField
-                      value$={slot$()
-                        .pipe(obj.sub("slot"))
-                        .pipe(obj.sub("end"))
-                        .pipe(obj.sub("time"))}
+                      value$={slot$().sub("slot").sub("end").sub("time")}
                       onBlur={() => {
                         const endTime$ = slot$()
-                          .pipe(obj.sub("slot"))
-                          .pipe(obj.sub("end"))
-                          .pipe(obj.sub("time"));
+                          .sub("slot")
+                          .sub("end")
+                          .sub("time");
                         const startTime = endTime$.get();
                         const [hour, minute] = startTime.split(".");
                         const parsed = parseIntSafe(hour ?? "");
@@ -546,12 +538,12 @@ function LinkInput(props: {
                 <Box onClose={link().remove}>
                   <div style="display: grid; gap: 1rem;">
                     <TextInputField
-                      value$={link().pipe(obj.sub("label"))}
+                      value$={link().sub("label")}
                       label="Label"
                       name="label"
                     />
                     <TextInputField
-                      value$={link().pipe(obj.sub("link"))}
+                      value$={link().sub("link")}
                       label="Link"
                       name="link"
                     />

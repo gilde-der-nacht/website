@@ -1,11 +1,6 @@
 import { Box } from "@common/components/Box";
 import { Button, ButtonWithIcon } from "@common/components/Button";
-import {
-  arr,
-  createReactive,
-  obj,
-  type Reactive,
-} from "@common/utils/reactivity";
+import { arr, createReactive, type Reactive } from "@common/utils/reactivity";
 import type { ProgramDay } from "@common/utils/time";
 import { For, Show, type Accessor, type JSX, type Setter } from "solid-js";
 
@@ -76,43 +71,41 @@ function createFilterUpdater(filters$: Reactive<ActiveFilter>): FilterUpdater {
     toggleDay: (day) => {
       const isActive = filters$.get().day === day;
       if (isActive) {
-        filters$.pipe(obj.sub("day")).set(null);
+        filters$.sub("day").set(null);
       } else {
-        filters$.pipe(obj.sub("day")).set(day);
+        filters$.sub("day").set(day);
       }
     },
     toggleTag: (tag) => {
       const isActive = filters$.get().tags.includes(tag);
       if (isActive) {
-        filters$
-          .pipe(obj.sub("tags"))
-          .set(filters$.get().tags.filter((t) => t !== tag));
+        filters$.sub("tags").set(filters$.get().tags.filter((t) => t !== tag));
       } else {
-        arr.push(filters$.pipe(obj.sub("tags")), tag);
+        arr.push(filters$.sub("tags"), tag);
       }
     },
     toggleAllTags: () => {
-      filters$.pipe(obj.sub("tags")).set([]);
+      filters$.sub("tags").set([]);
     },
     toggleSystem: (system) => {
       const isActive = filters$.get().systems.includes(system);
       if (isActive) {
         filters$
-          .pipe(obj.sub("systems"))
+          .sub("systems")
           .set(filters$.get().systems.filter((t) => t !== system));
       } else {
-        arr.push(filters$.pipe(obj.sub("systems")), system);
+        arr.push(filters$.sub("systems"), system);
       }
     },
     toggleAllSystems: () => {
-      filters$.pipe(obj.sub("systems")).set([]);
+      filters$.sub("systems").set([]);
     },
     toggleLanguage: (language) => {
       const isActive = filters$.get().language === language;
       if (isActive) {
-        filters$.pipe(obj.sub("language")).set(null);
+        filters$.sub("language").set(null);
       } else {
-        filters$.pipe(obj.sub("language")).set(language);
+        filters$.sub("language").set(language);
       }
     },
   };

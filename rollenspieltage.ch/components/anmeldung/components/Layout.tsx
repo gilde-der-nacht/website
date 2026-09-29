@@ -9,7 +9,7 @@ import type { Save } from "@rst/components/anmeldung/api/save";
 import { findConflicts, type Conflicts } from "@common/components/Timetable";
 import { Icon } from "@common/components/Icon";
 import { aggregateEntries } from "@rst/components/anmeldung/components/Timeview";
-import { obj, type Reactive } from "@common/utils/reactivity";
+import { type Reactive } from "@common/utils/reactivity";
 import type { RegistrationUuid } from "@common/utils/ids";
 import type { AppStore } from "@rst/components/anmeldung/components/Router";
 import type { WithChildren } from "@common/components/utils";
@@ -28,13 +28,9 @@ export function Layout(
     <div class="page">
       {props.showQuickmenu !== false ? (
         <QuickMenu
-          roles$={props.store$.pipe(obj.sub("meta")).pipe(obj.sub("roles"))}
-          saveState$={props.store$
-            .pipe(obj.sub("meta"))
-            .pipe(obj.sub("saveState"))}
-          lastSaved$={props.store$
-            .pipe(obj.sub("meta"))
-            .pipe(obj.sub("lastSaved"))}
+          roles$={props.store$.sub("meta").sub("roles")}
+          saveState$={props.store$.sub("meta").sub("saveState")}
+          lastSaved$={props.store$.sub("meta").sub("lastSaved")}
           parentPath={props.parentPath ?? "/"}
         />
       ) : null}
@@ -43,7 +39,7 @@ export function Layout(
           <h2 style="margin-block-end: 1rem;">{props.title}</h2>
         </Show>
         <AllConflicts
-          save$={props.store$.pipe(obj.sub("save"))}
+          save$={props.store$.sub("save")}
           programData={props.programData}
           secret={props.secret}
         />
@@ -52,13 +48,9 @@ export function Layout(
       {props.showQuickmenu !== false ? (
         <div class="extended-wrapper" style="margin-block-start: 1rem;">
           <QuickMenuExtended
-            roles$={props.store$.pipe(obj.sub("meta")).pipe(obj.sub("roles"))}
-            saveState$={props.store$
-              .pipe(obj.sub("meta"))
-              .pipe(obj.sub("saveState"))}
-            lastSaved$={props.store$
-              .pipe(obj.sub("meta"))
-              .pipe(obj.sub("lastSaved"))}
+            roles$={props.store$.sub("meta").sub("roles")}
+            saveState$={props.store$.sub("meta").sub("saveState")}
+            lastSaved$={props.store$.sub("meta").sub("lastSaved")}
             parentPath={props.parentPath ?? "/"}
           />
         </div>

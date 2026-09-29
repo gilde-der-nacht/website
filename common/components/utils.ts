@@ -5,10 +5,7 @@ import { Intl as IntlP } from "@js-temporal/polyfill";
 export type Language = "de" | "en";
 
 export type Category =
-  | "gilde"
-  | "spieltage"
-  | "rollenspieltage"
-  | "tabletoptage";
+  "gilde" | "spieltage" | "rollenspieltage" | "tabletoptage";
 
 export type WithChildren<T = object> = {
   children?: JSX.Element;
@@ -219,4 +216,16 @@ export function assert(condition: boolean, msg: string): asserts condition {
   if (!condition) {
     throw new Error(msg);
   }
+}
+
+export function isPlainObject(
+  value: unknown,
+): value is Record<string, unknown> {
+  return (
+    value !== null &&
+    typeof value === "object" &&
+    !Array.isArray(value) &&
+    !(value instanceof Date) &&
+    !(value instanceof RegExp)
+  );
 }

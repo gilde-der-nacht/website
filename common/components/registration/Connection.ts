@@ -1,7 +1,7 @@
 import type { RegistrationUuid } from "@common/utils/ids";
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
-import { obj, type Reactive } from "@common/utils/reactivity";
+import { type Reactive } from "@common/utils/reactivity";
 
 const connectionStatusses = [
   "INITIAL",
@@ -33,7 +33,7 @@ export class Connection {
   ) {
     this.ws = this.setup(
       registrationUuid,
-      connectionState$.pipe(obj.sub("connectionStatus")),
+      connectionState$.sub("connectionStatus"),
     );
   }
 

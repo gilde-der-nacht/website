@@ -1,4 +1,4 @@
-import { assert } from "@common/components/utils";
+import { assert, isPlainObject } from "@common/components/utils";
 import { createStore } from "solid-js/store";
 
 export type Reactive<T> = {
@@ -6,7 +6,11 @@ export type Reactive<T> = {
   set: (newValue: T) => void;
   update: (updateFn: (oldValue: T) => T) => void;
   pipe: <U>(fn: (reactive: Reactive<T>) => U) => U;
-};
+} & (T extends Record<string, unknown>
+  ? {
+      sub: <K extends keyof T>(key: K) => Reactive<T[K]>;
+    }
+  : {});
 
 export type ReactiveObj<T extends object> = Reactive<T>;
 
@@ -18,11 +22,30 @@ function createReactiveImpl<T>(
   get: () => T,
   update: (updateFn: (oldValue: T) => T) => void,
 ): Reactive<T> {
+  // @ts-ignore
   const reactive: Reactive<T> = {
     get,
     set: (newValue) => update(() => newValue),
     update,
     pipe: (fn) => fn(reactive),
+    sub: (key) => {
+      const currentValue = get();
+      if (!isPlainObject(currentValue)) {
+        throw new Error(
+          "Cannot call sub(): value is not/no longer a plain object",
+        );
+      }
+
+      return createReactiveImpl(
+        () => currentValue[key],
+        (updateFn) => {
+          const oldObj = currentValue;
+          const newValue = updateFn(oldObj[key]);
+          const newObj = { ...oldObj, [key]: newValue };
+          update(() => newObj);
+        },
+      );
+    },
   };
 
   return reactive;
@@ -33,11 +56,30 @@ function createReactiveArrEl<T>(
   update: (updateFn: (oldValue: T) => T) => void,
   remove: () => void,
 ): ReactiveArrEl<T> {
+  // @ts-ignore
   const reactive: ReactiveArrEl<T> = {
     get,
     set: (newValue) => update(() => newValue),
     update,
     pipe: (fn) => fn(reactive),
+    sub: (key) => {
+      const currentValue = get();
+      if (!isPlainObject(currentValue)) {
+        throw new Error(
+          "Cannot call sub(): value is not/no longer a plain object",
+        );
+      }
+
+      return createReactiveImpl(
+        () => currentValue[key],
+        (updateFn) => {
+          const oldObj = currentValue;
+          const newValue = updateFn(oldObj[key]);
+          const newObj = { ...oldObj, [key]: newValue };
+          update(() => newObj);
+        },
+      );
+    },
     remove,
   };
 
@@ -52,23 +94,6 @@ export function createReactive<T>(init: T): Reactive<T> {
     (updateFn) => setStore("value", updateFn(store.value)),
   );
 }
-
-export const obj = {
-  sub: <K extends keyof T, T extends object>(
-    key: K,
-  ): ((reactive: ReactiveObj<T>) => Reactive<T[K]>) => {
-    return (reactive) => {
-      return createReactiveImpl(
-        () => reactive.get()[key],
-        (updateFn) =>
-          reactive.update((oldValue) => ({
-            ...oldValue,
-            [key]: updateFn(reactive.get()[key]),
-          })),
-      );
-    };
-  },
-};
 
 export const arr = {
   push: <T,>(reactive: ReactiveArr<T>, newValue: T): void => {

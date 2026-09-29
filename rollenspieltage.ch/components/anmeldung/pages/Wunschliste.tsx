@@ -1,5 +1,5 @@
 import { TextareaField } from "@common/components/newForm/Textarea";
-import { obj, type Reactive } from "@common/utils/reactivity";
+import { type Reactive } from "@common/utils/reactivity";
 import { For, Show, type Accessor, type JSX } from "solid-js";
 import type {
   Program,
@@ -36,7 +36,7 @@ export function Wunschliste(props: {
       <TextareaField
         label="Deine Wünsche"
         name="wishes"
-        value$={props.wishlist$.pipe(obj.sub("text"))}
+        value$={props.wishlist$.sub("text")}
       />
 
       <Show

@@ -16,7 +16,7 @@ import { z } from "astro/zod";
 import { useSearchParams } from "@solidjs/router";
 import type { Program } from "@rst/components/anmeldung/api/program";
 import { Timeview } from "@rst/components/anmeldung/components/Timeview";
-import { obj, type Reactive } from "@common/utils/reactivity";
+import { type Reactive } from "@common/utils/reactivity";
 import { Checkbox } from "@common/components/newForm/Checkbox";
 import type { RegistrationUuid } from "@common/utils/ids";
 
@@ -29,14 +29,12 @@ export function Zusammenfassung(props: {
   return (
     <div style="display: grid; gap: 1rem;">
       <Contact
-        contact$={props.save$.pipe(obj.sub("contact"))}
+        contact$={props.save$.sub("contact")}
         isEditable={props.isEditable}
       />
       <Checkbox
         label="Schickt mir bitte E-Mails, wenn neue Programmpunkte veröffentlicht werden."
-        checked$={props.save$
-          .pipe(obj.sub("config"))
-          .pipe(obj.sub("wantsUpdates"))}
+        checked$={props.save$.sub("config").sub("wantsUpdates")}
         name="wantsUpdates"
         value="wantsUpdates"
       />

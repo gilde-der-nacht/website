@@ -3,7 +3,7 @@ import { Show, type JSX } from "solid-js";
 import { Box } from "@common/components/Box";
 import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";
-import { createReactive, obj } from "@common/utils/reactivity";
+import { createReactive } from "@common/utils/reactivity";
 import { TextInputField } from "@common/components/newForm/Input";
 import { Checkbox } from "@common/components/newForm/Checkbox";
 
@@ -51,28 +51,16 @@ export function Anmeldung(): JSX.Element {
   async function onSubmit(e: SubmitEvent): Promise<void> {
     e.preventDefault();
     const nameIsMissing = store$.get().form.name.trim().length === 0;
-    store$
-      .pipe(obj.sub("showErrors"))
-      .pipe(obj.sub("nameMissing"))
-      .set(nameIsMissing);
+    store$.sub("showErrors").sub("nameMissing").set(nameIsMissing);
 
     const emailIsMissing = store$.get().form.email.trim().length === 0;
-    store$
-      .pipe(obj.sub("showErrors"))
-      .pipe(obj.sub("emailMissing"))
-      .set(emailIsMissing);
+    store$.sub("showErrors").sub("emailMissing").set(emailIsMissing);
 
     const kodexIsMissing = store$.get().form.kodex === false;
-    store$
-      .pipe(obj.sub("showErrors"))
-      .pipe(obj.sub("kodexIsMissing"))
-      .set(kodexIsMissing);
+    store$.sub("showErrors").sub("kodexIsMissing").set(kodexIsMissing);
 
     const emailIsInvalid = emailField.validity.typeMismatch;
-    store$
-      .pipe(obj.sub("showErrors"))
-      .pipe(obj.sub("emailInvalid"))
-      .set(emailIsInvalid);
+    store$.sub("showErrors").sub("emailInvalid").set(emailIsInvalid);
 
     if (
       store$.get().showErrors.nameMissing ||
@@ -84,7 +72,7 @@ export function Anmeldung(): JSX.Element {
       return;
     }
 
-    store$.pipe(obj.sub("state")).set("LOADING");
+    store$.sub("state").set("LOADING");
 
     try {
       const data: StartData = {
@@ -102,7 +90,7 @@ export function Anmeldung(): JSX.Element {
       });
 
       if (!response.ok) {
-        store$.pipe(obj.sub("showErrors")).pipe(obj.sub("general")).set(true);
+        store$.sub("showErrors").sub("general").set(true);
       } else {
         const json = await response.json();
         const schema = z.union([
@@ -120,8 +108,8 @@ export function Anmeldung(): JSX.Element {
         const data = schema.parse(json);
 
         store$
-          .pipe(obj.sub("showErrors"))
-          .pipe(obj.sub("emailDuplicate"))
+          .sub("showErrors")
+          .sub("emailDuplicate")
           .set(data.kind === "FAILURE" && data.reason === "DUPLICATE_EMAIL");
 
         if (data.kind === "SUCCESS") {
@@ -133,9 +121,9 @@ export function Anmeldung(): JSX.Element {
       }
     } catch (e: unknown) {
       console.error(e);
-      store$.pipe(obj.sub("showErrors")).pipe(obj.sub("general")).set(true);
+      store$.sub("showErrors").sub("general").set(true);
     } finally {
-      store$.pipe(obj.sub("state")).set("IDLE");
+      store$.sub("state").set("IDLE");
     }
   }
 
@@ -145,12 +133,9 @@ export function Anmeldung(): JSX.Element {
         <TextInputField
           label="Name"
           name="name"
-          value$={store$.pipe(obj.sub("form")).pipe(obj.sub("name"))}
+          value$={store$.sub("form").sub("name")}
           afterUpdate={() =>
-            store$
-              .pipe(obj.sub("showErrors"))
-              .pipe(obj.sub("nameMissing"))
-              .set(false)
+            store$.sub("showErrors").sub("nameMissing").set(false)
           }
         />
         <Show when={store$.get().showErrors.nameMissing}>
@@ -160,16 +145,10 @@ export function Anmeldung(): JSX.Element {
           label="E-Mail"
           name="email"
           type="email"
-          value$={store$.pipe(obj.sub("form")).pipe(obj.sub("email"))}
+          value$={store$.sub("form").sub("email")}
           afterUpdate={() => {
-            store$
-              .pipe(obj.sub("showErrors"))
-              .pipe(obj.sub("emailMissing"))
-              .set(false);
-            store$
-              .pipe(obj.sub("showErrors"))
-              .pipe(obj.sub("emailInvalid"))
-              .set(false);
+            store$.sub("showErrors").sub("emailMissing").set(false);
+            store$.sub("showErrors").sub("emailInvalid").set(false);
           }}
           ref={emailField}
         />
@@ -194,7 +173,7 @@ export function Anmeldung(): JSX.Element {
           label="Handynummer (optional)"
           name="mobile"
           type="tel"
-          value$={store$.pipe(obj.sub("form")).pipe(obj.sub("mobile"))}
+          value$={store$.sub("form").sub("mobile")}
           required={false}
         />
         <Checkbox
@@ -209,12 +188,9 @@ export function Anmeldung(): JSX.Element {
           }
           name="kodex"
           value="kodex"
-          checked$={store$.pipe(obj.sub("form")).pipe(obj.sub("kodex"))}
+          checked$={store$.sub("form").sub("kodex")}
           afterUpdate={() => {
-            store$
-              .pipe(obj.sub("showErrors"))
-              .pipe(obj.sub("kodexIsMissing"))
-              .set(false);
+            store$.sub("showErrors").sub("kodexIsMissing").set(false);
           }}
         />
         <Show when={store$.get().showErrors.kodexIsMissing}>
