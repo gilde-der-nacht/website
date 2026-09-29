@@ -26,6 +26,7 @@ const pages = Object.values(import.meta.glob("../pages/**/*", { eager: true }));
   headings={headings}
   toc={toc ?? null}
   development={false}
+  fullBody={false}
 >
   <slot />
 </BaseLayout>
