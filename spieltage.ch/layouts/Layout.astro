@@ -2,7 +2,7 @@
 import BaseLayout from "@common/layouts/BaseLayout.astro";
 import "/spieltage.ch/styles/main.scss";
 
-const { locale, title, metaTitle, description, keywords, toc } =
+const { locale, title, metaTitle, description, keywords, toc, fullBody } =
   Astro.props.frontmatter ?? Astro.props;
 const { headings } = Astro.props;
 
@@ -26,6 +26,7 @@ const pages = Object.values(import.meta.glob("../pages/**/*", { eager: true }));
   headings={headings}
   toc={toc ?? null}
   development={false}
+  fullBody={fullBody === true}
 >
   <slot />
 </BaseLayout>

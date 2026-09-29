@@ -19,6 +19,7 @@ type Props = {
   siteTagline: string;
   pages: unknown[];
   development: boolean;
+  fullBody: boolean;
   toc: TocConfig | null;
   headings: AstroHeading[];
 };
@@ -36,6 +37,7 @@ const {
   development,
   toc,
   headings,
+  fullBody,
 } = Astro.props;
 
 const pageType = z.object({
@@ -109,11 +111,17 @@ const secondaryNavigation: NavigationEntry[] = pages
       secondaryNavigation={secondaryNavigation}
     />
     <div class="main-wrapper">
-      <main class="primary-content content">
-        {title !== undefined && title.length > 0 && <h1>{title}</h1>}
-        <ToC headings={headings} toc={toc} />
-        <slot />
-      </main>
+      {
+        fullBody ? (
+          <slot />
+        ) : (
+          <main class="primary-content content">
+            {title !== undefined && title.length > 0 && <h1>{title}</h1>}
+            <ToC headings={headings} toc={toc} />
+            <slot />
+          </main>
+        )
+      }
     </div>
     <Footer development={development} />
 
