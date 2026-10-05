@@ -2,7 +2,10 @@ import type { ConfigUuid, RegistrationUuid } from "@common/utils/ids";
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { type Reactive } from "@common/utils/reactivity";
-import { messagesInSchema } from "./messages/in";
+import { messagesInSchema } from "@registration/messages/in";
+import type { Editable } from "@registration/state/Editable";
+import { backendSchema, type Backend } from "@registration/state/BackendState";
+import { schemaCodec } from "./state/codec";
 
 const connectionStatusses = [
   "INITIAL",
@@ -32,11 +35,13 @@ export class Connection {
     configUuid: ConfigUuid,
     registrationUuid: RegistrationUuid,
     connectionState$: Reactive<ConnectionState>,
+    state$: Reactive<null | { backendState: Backend; editableState: Editable }>,
   ) {
     this.ws = this.setup(
       configUuid,
       registrationUuid,
       connectionState$.sub("connectionStatus"),
+      state$,
     );
   }
 
@@ -44,6 +49,7 @@ export class Connection {
     configUuid: ConfigUuid,
     registrationUuid: RegistrationUuid,
     connectionStatus$: Reactive<ConnectionStatus>,
+    state$: Reactive<null | { backendState: Backend; editableState: Editable }>,
     retry: boolean = false,
   ): WebSocket {
     const socket = new WebSocket(endpoint);
@@ -52,7 +58,18 @@ export class Connection {
     socket.addEventListener("message", (message) => {
       const parsed = messagesInSchema.safeParse(JSON.parse(message.data));
       if (parsed.success) {
-        console.log(parsed.data.kind);
+        const backendState = backendSchema.decode({
+          title:
+            parsed.data.data.kind === "ADMIN"
+              ? parsed.data.data.data.config.label
+              : "Missing",
+          ts: parsed.data.data.data.ts,
+        });
+
+        state$.set({
+          backendState,
+          editableState: schemaCodec.decode(backendState),
+        });
       }
     });
 
@@ -71,13 +88,13 @@ export class Connection {
     });
 
     socket.addEventListener("close", () => {
-      console.log("closed");
       connectionStatus$.set("DISCONNECTED");
       setTimeout(() => {
         this.ws = this.setup(
           configUuid,
           registrationUuid,
           connectionStatus$,
+          state$,
           true,
         );
       }, Math.random() * 5000);

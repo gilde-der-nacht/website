@@ -6,16 +6,23 @@ import {
   type ConnectionState,
 } from "@registration/Connection";
 import { getInitialContact, type Contact } from "@registration/Contact";
+import type { Editable } from "@registration/state/Editable";
+import type { Backend } from "@registration/state/BackendState";
 
 export type State = {
   connectionState: ConnectionState;
   contact: Contact;
+  state: null | {
+    backendState: Backend;
+    editableState: Editable;
+  };
 };
 
 function getInitialState(): State {
   return {
     connectionState: getInitialConnectionState(),
     contact: getInitialContact(),
+    state: null,
   };
 }
 
@@ -28,6 +35,7 @@ export class RegistrationState {
       configUuid,
       registrationUuid,
       this.state$.sub("connectionState"),
+      this.state$.sub("state"),
     );
   }
 }

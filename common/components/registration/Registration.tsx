@@ -5,6 +5,7 @@ import { Header } from "@registration/Header";
 import { Main } from "@registration/Main";
 import { Footer } from "@registration/Footer";
 import type { ConfigUuid } from "@common/utils/ids";
+import { ShowReactive } from "@common/components/ShowReactive";
 
 const state = new RegistrationState();
 
@@ -13,10 +14,32 @@ export function Registration(props: { configUuid: ConfigUuid }): JSX.Element {
     const registrationUuid = getRegistrationUuid();
     state.connect(props.configUuid, registrationUuid);
   });
+
   return (
     <section class="Registration">
       <Header />
-      <Main />
+      <div>
+        <hr />
+        <ShowReactive
+          reactive$={state.state$.sub("state")}
+          fallback={() => <code>Loading...</code>}
+        >
+          {(state$) => (
+            <>
+              <div>
+                <strong>Backend: </strong>
+                <code>{JSON.stringify(state$.get().backendState)}</code>
+              </div>
+              <div>
+                <strong>Editable: </strong>
+                <code>{JSON.stringify(state$.get().editableState)}</code>
+              </div>
+            </>
+          )}
+        </ShowReactive>
+        <hr />
+        <Main />
+      </div>
       <Footer
         connectionStatus={state.state$.get().connectionState.connectionStatus}
       />
