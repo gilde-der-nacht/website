@@ -1,4 +1,4 @@
-import type { RegistrationUuid } from "@common/utils/ids";
+import type { ConfigUuid, RegistrationUuid } from "@common/utils/ids";
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { type Reactive } from "@common/utils/reactivity";
@@ -28,16 +28,19 @@ export class Connection {
   ws: WebSocket;
 
   constructor(
+    configUuid: ConfigUuid,
     registrationUuid: RegistrationUuid,
     connectionState$: Reactive<ConnectionState>,
   ) {
     this.ws = this.setup(
+      configUuid,
       registrationUuid,
       connectionState$.sub("connectionStatus"),
     );
   }
 
   setup(
+    configUuid: ConfigUuid,
     registrationUuid: RegistrationUuid,
     connectionStatus$: Reactive<ConnectionStatus>,
     retry: boolean = false,
@@ -48,13 +51,13 @@ export class Connection {
     socket.addEventListener("open", () => {
       connectionStatus$.set("CONNECTED");
       const payload: Payload = {
-        kind: "START",
-        registrationUuid: registrationUuid,
+        kind: "REGISTER",
+        configUuid,
+        registrationUuid,
       };
       socket.send(JSON.stringify(payload));
       const payload2: Payload = {
-        kind: "BROADCAST",
-        message: "I am sending you this",
+        kind: "REQUEST_VIEW",
       };
       socket.send(JSON.stringify(payload2));
     });
@@ -63,7 +66,12 @@ export class Connection {
       console.log("closed");
       connectionStatus$.set("DISCONNECTED");
       setTimeout(() => {
-        this.ws = this.setup(registrationUuid, connectionStatus$, true);
+        this.ws = this.setup(
+          configUuid,
+          registrationUuid,
+          connectionStatus$,
+          true,
+        );
       }, Math.random() * 5000);
     });
 
@@ -73,12 +81,12 @@ export class Connection {
 
 const payloadSchema = z.union([
   z.object({
-    kind: z.literal("START"),
-    registrationUuid: z.string,
+    kind: z.literal("REGISTER"),
+    configUuid: z.uuid,
+    registrationUuid: z.uuid,
   }),
   z.object({
-    kind: z.literal("BROADCAST"),
-    message: z.string,
+    kind: z.literal("REQUEST_VIEW"),
   }),
 ]);
 

@@ -18,6 +18,13 @@ export function unsafeToRegistrationUuid(str: string): RegistrationUuid {
   return createBranded<string, typeof brandRegistrationUuid>(str);
 }
 
+declare const brandConfigUuid: unique symbol;
+export type ConfigUuid = Branded<string, typeof brandConfigUuid>;
+
+export function unsafeToConfigUuid(str: string): ConfigUuid {
+  return createBranded<string, typeof brandConfigUuid>(str);
+}
+
 declare const brandGameUuid: unique symbol;
 export type GameUuid = Branded<string, typeof brandGameUuid>;
 

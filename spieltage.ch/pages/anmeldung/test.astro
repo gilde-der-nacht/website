@@ -1,8 +1,9 @@
 ---
 import Layout from "@lst/layouts/Layout.astro";
 import { Registration } from "@registration/Registration.tsx";
+import { CONFIGS } from "@registration/configs.ts";
 ---
 
 <Layout metaTitle="Meine Anmeldung" fullBody>
-  <Registration client:load />
+  <Registration configUuid={CONFIGS.LST27} client:load />
 </Layout>
