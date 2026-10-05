@@ -2,6 +2,7 @@ import type { ConfigUuid, RegistrationUuid } from "@common/utils/ids";
 import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { type Reactive } from "@common/utils/reactivity";
+import { messagesInSchema } from "./messages/in";
 
 const connectionStatusses = [
   "INITIAL",
@@ -47,6 +48,13 @@ export class Connection {
   ): WebSocket {
     const socket = new WebSocket(endpoint);
     connectionStatus$.set(retry ? "RECONNECTING" : "CONNECTING");
+
+    socket.addEventListener("message", (message) => {
+      const parsed = messagesInSchema.safeParse(JSON.parse(message.data));
+      if (parsed.success) {
+        console.log(parsed.data.kind);
+      }
+    });
 
     socket.addEventListener("open", () => {
       connectionStatus$.set("CONNECTED");
