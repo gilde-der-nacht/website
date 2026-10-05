@@ -1,11 +1,17 @@
 import { assert, isArray, isPlainObject } from "@common/components/utils";
 import { createStore } from "solid-js/store";
 
+type IsNullable<T> = Extract<T, null> extends never ? false : true;
+
+type UnpackNullResult<T> =
+  IsNullable<T> extends true ? Reactive<NonNullable<T>> | null : never;
+
 export type Reactive<T> = {
   get: () => T;
   set: (newValue: T) => void;
   update: (updateFn: (oldValue: T) => T) => void;
   pipe: <U>(fn: (reactive: Reactive<T>) => U) => U;
+  unpackNull: () => UnpackNullResult<T>;
 } & (T extends Record<string, unknown>
   ? {
       sub: <K extends keyof T>(key: K) => Reactive<T[K]>;
@@ -47,6 +53,16 @@ function createReactiveImpl<T>(
           const newObj = { ...oldObj, [key]: newValue };
           update(() => newObj);
         },
+      );
+    },
+    unpackNull: () => {
+      if (get() === null) {
+        return null;
+      }
+
+      return createReactiveImpl(
+        () => get(),
+        (updateFn) => update(updateFn),
       );
     },
     push: (newValue) => {
@@ -92,6 +108,16 @@ function createReactiveArrEl<T>(
           const newObj = { ...oldObj, [key]: newValue };
           update(() => newObj);
         },
+      );
+    },
+    unpackNull: () => {
+      if (get() === null) {
+        return null;
+      }
+
+      return createReactiveImpl(
+        () => get(),
+        (updateFn) => update(updateFn),
       );
     },
     push: (newValue) => {
