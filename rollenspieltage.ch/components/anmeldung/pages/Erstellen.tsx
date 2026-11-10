@@ -2,7 +2,7 @@ import { For, Show, type JSX } from "solid-js";
 import type { ProgramEntry } from "@rst/components/anmeldung/api/save";
 import { BoxLink } from "@common/components/BoxLink";
 import { TXT } from "@common/utils/texts";
-import { arr, type Reactive } from "@common/utils/reactivity";
+import { type Reactive } from "@common/utils/reactivity";
 import { Chip } from "@common/components/Chip";
 import { getErrors } from "@rst/components/anmeldung/constant/validation";
 import { RouterLink, useLink } from "@common/components/Link";
