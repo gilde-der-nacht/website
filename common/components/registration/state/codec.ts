@@ -3,6 +3,10 @@ import { z } from "astro/zod";
 import { backendSchema } from "@registration/state/BackendState";
 import { editableSchema } from "@registration/state//Editable";
 
+function padNumber(num: number, length: number = 2): string {
+  return num.toString().padStart(length, "0");
+}
+
 export const schemaCodec = z.codec(backendSchema, editableSchema, {
   decode: (backend) => ({
     title: backend.title,
@@ -19,9 +23,6 @@ const plainDateTimeToString = z.codec(
   z.string(),
   {
     decode: (dateTime) => {
-      function padNumber(num: number, length: number = 2): string {
-        return num.toString().padStart(length, "0");
-      }
       const day = padNumber(dateTime.day);
       const month = padNumber(dateTime.month);
       const year = padNumber(dateTime.year, 4);
@@ -34,11 +35,53 @@ const plainDateTimeToString = z.codec(
     encode: (str) => {
       const [date, time] = str.split(" ");
       const [day, month, year] = (date ?? "").split(".");
-      const [hour, minute] = (time ?? "").split(".");
+      const [hour, minute] = (time ?? "").split(":");
       return Temporal.PlainDateTime.from({
         day: Number.parseInt(day ?? ""),
         month: Number.parseInt(month ?? ""),
         year: Number.parseInt(year ?? ""),
+        hour: Number.parseInt(hour ?? ""),
+        minute: Number.parseInt(minute ?? ""),
+      });
+    },
+  },
+);
+
+export const plainDateToString = z.codec(
+  z.instanceof(Temporal.PlainDate),
+  z.string(),
+  {
+    decode: (dateTime) => {
+      const day = padNumber(dateTime.day);
+      const month = padNumber(dateTime.month);
+      const year = padNumber(dateTime.year, 4);
+
+      return `${day}.${month}.${year}`;
+    },
+    encode: (str) => {
+      const [day, month, year] = str.split(".");
+      return Temporal.PlainDate.from({
+        day: Number.parseInt(day ?? ""),
+        month: Number.parseInt(month ?? ""),
+        year: Number.parseInt(year ?? ""),
+      });
+    },
+  },
+);
+
+export const plainTimeToString = z.codec(
+  z.instanceof(Temporal.PlainTime),
+  z.string(),
+  {
+    decode: (dateTime) => {
+      const hour = padNumber(dateTime.hour);
+      const minute = padNumber(dateTime.minute);
+
+      return `${hour}:${minute}`;
+    },
+    encode: (str) => {
+      const [hour, minute] = str.split(":");
+      return Temporal.PlainTime.from({
         hour: Number.parseInt(hour ?? ""),
         minute: Number.parseInt(minute ?? ""),
       });
