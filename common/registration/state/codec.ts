@@ -82,17 +82,8 @@ export function list<S extends z.ZodType>(item: S) {
 export function defineFormView<F extends z.ZodType>(form: F) {
   return {
     schema: form,
-
-    parse: (
-      json: unknown,
-    ):
-      | { success: true; data: z.output<F> }
-      | { success: false; error: z.ZodError } => {
-      return form.safeParse(json) as
-        | { success: true; data: z.output<F> }
-        | { success: false; error: z.ZodError };
+    parse: (json: unknown) => {
+      return form.safeParse(json);
     },
-
-    parseUnsafe: (json: unknown): z.output<F> => form.parse(json),
   };
 }
