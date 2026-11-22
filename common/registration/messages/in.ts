@@ -1,5 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { z } from "astro/zod";
+import { SaveForm } from "@registration/state/save";
 
 const roleSchema = z.union([
   z.literal("admin"),
@@ -28,6 +29,7 @@ const defaultViewSchema = z.object({
     mobile: z.nullable(z.string()),
     roles: z.array(roleSchema),
   }),
+  save: SaveForm.schema,
 });
 
 const adminViewSchema = defaultViewSchema.extend({

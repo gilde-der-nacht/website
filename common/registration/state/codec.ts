@@ -1,90 +1,98 @@
-import { Temporal } from "@js-temporal/polyfill";
 import { z } from "astro/zod";
-import { backendSchema } from "@registration/state/BackendState";
-import { editableSchema } from "@registration/state//Editable";
 
-function padNumber(num: number, length: number = 2): string {
-  return num.toString().padStart(length, "0");
-}
-
-export const schemaCodec = z.codec(backendSchema, editableSchema, {
-  decode: (backend) => ({
-    title: backend.title,
-    ts: plainDateTimeToString.decode(backend.ts),
-  }),
-  encode: (editable) => ({
-    title: editable.title,
-    ts: plainDateTimeToString.encode(editable.ts),
-  }),
+const issueSchema = z.object({
+  code: z.string(),
+  message: z.string(),
 });
 
-const plainDateTimeToString = z.codec(
-  z.instanceof(Temporal.PlainDateTime),
-  z.string(),
-  {
-    decode: (dateTime) => {
-      const day = padNumber(dateTime.day);
-      const month = padNumber(dateTime.month);
-      const year = padNumber(dateTime.year, 4);
+export type LeafIssue = z.infer<typeof issueSchema>;
 
-      const hour = padNumber(dateTime.hour);
-      const minute = padNumber(dateTime.minute);
+export type LeafValidated<F> =
+  | { readonly status: "SUCCESS"; readonly data: F }
+  | { readonly status: "ERROR"; readonly issues: ReadonlyArray<LeafIssue> }
+  | { readonly status: "UNTRUSTED"; readonly issues: ReadonlyArray<LeafIssue> };
 
-      return `${day}.${month}.${year} ${hour}:${minute}`;
-    },
-    encode: (str) => {
-      const [date, time] = str.split(" ");
-      const [day, month, year] = (date ?? "").split(".");
-      const [hour, minute] = (time ?? "").split(":");
-      return Temporal.PlainDateTime.from({
-        day: Number.parseInt(day ?? ""),
-        month: Number.parseInt(month ?? ""),
-        year: Number.parseInt(year ?? ""),
-        hour: Number.parseInt(hour ?? ""),
-        minute: Number.parseInt(minute ?? ""),
-      });
-    },
-  },
-);
+export type FieldView<R, F> = {
+  readonly kind: "FIELD";
+  readonly raw: R;
+  readonly validated: LeafValidated<F>;
+};
 
-export const plainDateToString = z.codec(
-  z.instanceof(Temporal.PlainDate),
-  z.string(),
-  {
-    decode: (dateTime) => {
-      const day = padNumber(dateTime.day);
-      const month = padNumber(dateTime.month);
-      const year = padNumber(dateTime.year, 4);
+export function field<R, F>(config: {
+  readonly raw: z.ZodType<R>;
+  readonly domain: z.ZodType<F>;
+}) {
+  const wire = z.object({
+    kind: z.literal("FIELD"),
+    raw: config.raw,
+    validated: z.discriminatedUnion("status", [
+      z.object({ status: z.literal("SUCCESS"), data: z.unknown() }),
+      z.object({ status: z.literal("ERROR"), issues: z.array(issueSchema) }),
+    ]),
+  });
 
-      return `${day}.${month}.${year}`;
-    },
-    encode: (str) => {
-      const [day, month, year] = str.split(".");
-      return Temporal.PlainDate.from({
-        day: Number.parseInt(day ?? ""),
-        month: Number.parseInt(month ?? ""),
-        year: Number.parseInt(year ?? ""),
-      });
-    },
-  },
-);
+  return wire.transform((leaf): FieldView<R, F> => {
+    if (leaf.validated.status === "ERROR") {
+      return {
+        kind: "FIELD",
+        raw: leaf.raw,
+        validated: { status: "ERROR", issues: leaf.validated.issues },
+      };
+    }
 
-export const plainTimeToString = z.codec(
-  z.instanceof(Temporal.PlainTime),
-  z.string(),
-  {
-    decode: (dateTime) => {
-      const hour = padNumber(dateTime.hour);
-      const minute = padNumber(dateTime.minute);
+    const result = config.domain.safeParse(leaf.validated.data);
 
-      return `${hour}:${minute}`;
+    if (result.success) {
+      return {
+        kind: "FIELD",
+        raw: leaf.raw,
+        validated: { status: "SUCCESS", data: result.data },
+      };
+    }
+
+    const issues: ReadonlyArray<LeafIssue> = result.error.issues.map(
+      (issue) => ({
+        code: `frontend.decode_failed.${issue.path.join(".") || "root"}`,
+        message: issue.message,
+      }),
+    );
+
+    return {
+      kind: "FIELD",
+      raw: leaf.raw,
+      validated: { status: "UNTRUSTED", issues },
+    };
+  });
+}
+
+export function record<F extends Record<string, z.ZodType>>(fields: F) {
+  return z.object({
+    kind: z.literal("RECORD"),
+    data: z.object(fields),
+  });
+}
+
+export function list<S extends z.ZodType>(item: S) {
+  return z.object({
+    kind: z.literal("LIST"),
+    data: z.array(item),
+  });
+}
+
+export function defineFormView<F extends z.ZodType>(form: F) {
+  return {
+    schema: form,
+
+    parse: (
+      json: unknown,
+    ):
+      | { success: true; data: z.output<F> }
+      | { success: false; error: z.ZodError } => {
+      return form.safeParse(json) as
+        | { success: true; data: z.output<F> }
+        | { success: false; error: z.ZodError };
     },
-    encode: (str) => {
-      const [hour, minute] = str.split(":");
-      return Temporal.PlainTime.from({
-        hour: Number.parseInt(hour ?? ""),
-        minute: Number.parseInt(minute ?? ""),
-      });
-    },
-  },
-);
+
+    parseUnsafe: (json: unknown): z.output<F> => form.parse(json),
+  };
+}

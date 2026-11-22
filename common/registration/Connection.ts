@@ -4,8 +4,7 @@ import { z } from "astro/zod";
 import { type Reactive } from "@common/utils/reactivity";
 import { messagesInSchema } from "@registration/messages/in";
 import type { Editable } from "@registration/state/Editable";
-import { backendSchema, type Backend } from "@registration/state/BackendState";
-import { schemaCodec } from "./state/codec";
+import { type Backend } from "@registration/state/BackendState";
 
 const connectionStatusses = [
   "INITIAL",
@@ -58,18 +57,7 @@ export class Connection {
     socket.addEventListener("message", (message) => {
       const parsed = messagesInSchema.safeParse(JSON.parse(message.data));
       if (parsed.success) {
-        const backendState = backendSchema.decode({
-          title:
-            parsed.data.data.kind === "ADMIN"
-              ? parsed.data.data.data.config.label
-              : "Missing",
-          ts: parsed.data.data.data.ts,
-        });
-
-        state$.set({
-          backendState,
-          editableState: schemaCodec.decode(backendState),
-        });
+        console.log(parsed.data.data.data.save.data.test.data.date.raw);
       }
     });
 
