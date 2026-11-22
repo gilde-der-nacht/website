@@ -57,7 +57,7 @@ export class Connection {
     socket.addEventListener("message", (message) => {
       const parsed = messagesInSchema.safeParse(JSON.parse(message.data));
       if (parsed.success) {
-        console.log(parsed.data.data.data.save.data.test.data.date.raw);
+        console.log(parsed.data.data.data);
       }
     });
 

@@ -23,6 +23,7 @@ const plainDateTimeSchema = z
 
 const defaultViewSchema = z.object({
   ts: plainDateTimeSchema,
+  currentRevision: z.number(),
   myAccount: z.object({
     name: z.string(),
     email: z.nullable(z.string()),
