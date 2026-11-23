@@ -1,5 +1,5 @@
 import type { Reactive } from "@common/utils/reactivity";
-import type { JSX } from "solid-js";
+import { Show, untrack, type JSX } from "solid-js";
 
 export function ShowReactive<T>(props: {
   reactive$: Reactive<T | null>;
@@ -7,10 +7,11 @@ export function ShowReactive<T>(props: {
   fallback?: () => JSX.Element;
 }): JSX.Element | null {
   return (
-    <>
-      {props.reactive$.unpackNull() === null
-        ? props.fallback?.()
-        : props.children(props.reactive$.unpackNull() as Reactive<T>)}
-    </>
+    <Show
+      when={props.reactive$.unpackNull() !== null}
+      fallback={props.fallback?.()}
+    >
+      {untrack(() => props.children(props.reactive$ as Reactive<T>))}
+    </Show>
   );
 }

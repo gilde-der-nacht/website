@@ -6,6 +6,7 @@ import { Main } from "@registration/Main";
 import { Footer } from "@registration/Footer";
 import type { ConfigUuid } from "@common/utils/ids";
 import { ShowReactive } from "@common/components/ShowReactive";
+import { TextInputField } from "@registration/components/Form";
 
 const state = new RegistrationState();
 
@@ -27,13 +28,17 @@ export function Registration(props: { configUuid: ConfigUuid }): JSX.Element {
           {(formState$) => (
             <>
               <div>
-                <strong>Name: </strong>
+                <TextInputField
+                  value$={formState$.sub("myAccount").sub("name").sub("raw")}
+                />
                 <code>
                   {JSON.stringify(formState$.get().myAccount.name.raw)}
                 </code>
               </div>
               <div>
-                <strong>Email: </strong>
+                <TextInputField
+                  value$={formState$.sub("myAccount").sub("email").sub("raw")}
+                />
                 <code>
                   {JSON.stringify(formState$.get().myAccount.email.raw)}
                 </code>
