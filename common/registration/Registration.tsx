@@ -21,18 +21,22 @@ export function Registration(props: { configUuid: ConfigUuid }): JSX.Element {
       <div>
         <hr />
         <ShowReactive
-          reactive$={state.state$.sub("state")}
+          reactive$={state.state$.sub("formState")}
           fallback={() => <code>Loading...</code>}
         >
-          {(state$) => (
+          {(formState$) => (
             <>
               <div>
-                <strong>Backend: </strong>
-                <code>{JSON.stringify(state$.get().backendState)}</code>
+                <strong>Name: </strong>
+                <code>
+                  {JSON.stringify(formState$.get().myAccount.name.raw)}
+                </code>
               </div>
               <div>
-                <strong>Editable: </strong>
-                <code>{JSON.stringify(state$.get().editableState)}</code>
+                <strong>Email: </strong>
+                <code>
+                  {JSON.stringify(formState$.get().myAccount.email.raw)}
+                </code>
               </div>
             </>
           )}

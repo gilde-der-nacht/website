@@ -6,36 +6,39 @@ import {
   type ConnectionState,
 } from "@registration/Connection";
 import { getInitialContact, type Contact } from "@registration/Contact";
-import type { Editable } from "@registration/state/Editable";
-import type { Backend } from "@registration/state/BackendState";
+import type { z } from "astro/zod";
+import type { AccountForm } from "@registration/state/account";
+import type { SaveForm } from "@registration/state/save";
 
-export type State = {
-  connectionState: ConnectionState;
-  contact: Contact;
-  state: null | {
-    backendState: Backend;
-    editableState: Editable;
-  };
+export type FormState = {
+  myAccount: z.infer<typeof AccountForm.schema>;
+  save: z.infer<typeof SaveForm.schema>;
 };
 
-function getInitialState(): State {
+export type AppState = {
+  connectionState: ConnectionState;
+  contact: Contact;
+  formState: null | FormState;
+};
+
+function getInitialAppState(): AppState {
   return {
     connectionState: getInitialConnectionState(),
     contact: getInitialContact(),
-    state: null,
+    formState: null,
   };
 }
 
 export class RegistrationState {
   connection: Connection | null = null;
-  state$ = createReactive<State>(getInitialState());
+  state$ = createReactive<AppState>(getInitialAppState());
 
   connect(configUuid: ConfigUuid, registrationUuid: RegistrationUuid): void {
     this.connection = new Connection(
       configUuid,
       registrationUuid,
       this.state$.sub("connectionState"),
-      this.state$.sub("state"),
+      this.state$.sub("formState"),
     );
   }
 }

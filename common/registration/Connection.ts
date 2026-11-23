@@ -3,8 +3,7 @@ import { elysium } from "@common/components/utils";
 import { z } from "astro/zod";
 import { type Reactive } from "@common/utils/reactivity";
 import { messagesInSchema } from "@registration/messages/in";
-import type { Editable } from "@registration/state/Editable";
-import { type Backend } from "@registration/state/BackendState";
+import type { FormState } from "@registration/State";
 
 const connectionStatusses = [
   "INITIAL",
@@ -34,13 +33,13 @@ export class Connection {
     configUuid: ConfigUuid,
     registrationUuid: RegistrationUuid,
     connectionState$: Reactive<ConnectionState>,
-    state$: Reactive<null | { backendState: Backend; editableState: Editable }>,
+    formState$: Reactive<null | FormState>,
   ) {
     this.ws = this.setup(
       configUuid,
       registrationUuid,
       connectionState$.sub("connectionStatus"),
-      state$,
+      formState$,
     );
   }
 
@@ -48,7 +47,7 @@ export class Connection {
     configUuid: ConfigUuid,
     registrationUuid: RegistrationUuid,
     connectionStatus$: Reactive<ConnectionStatus>,
-    state$: Reactive<null | { backendState: Backend; editableState: Editable }>,
+    formState$: Reactive<null | FormState>,
     retry: boolean = false,
   ): WebSocket {
     const socket = new WebSocket(endpoint);
@@ -57,7 +56,10 @@ export class Connection {
     socket.addEventListener("message", (message) => {
       const parsed = messagesInSchema.safeParse(JSON.parse(message.data));
       if (parsed.success) {
-        console.log(parsed.data.data.data);
+        formState$.set({
+          myAccount: parsed.data.data.data.myAccount,
+          save: parsed.data.data.data.save,
+        });
       } else {
         console.log(parsed.error);
       }
@@ -84,7 +86,7 @@ export class Connection {
           configUuid,
           registrationUuid,
           connectionStatus$,
-          state$,
+          formState$,
           true,
         );
       }, Math.random() * 5000);
