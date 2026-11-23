@@ -10,7 +10,6 @@ export type Reactive<T> = {
   get: () => T;
   set: (newValue: T) => void;
   update: (updateFn: (oldValue: T) => T) => void;
-  pipe: <U>(fn: (reactive: Reactive<T>) => U) => U;
   unpackNull: () => UnpackNullResult<T>;
 } & (T extends Record<string, unknown>
   ? {
@@ -36,7 +35,6 @@ function createReactiveImpl<T>(
     get,
     set: (newValue) => update(() => newValue),
     update,
-    pipe: (fn) => fn(reactive),
     sub: (key) => {
       function getCurrentValue() {
         const currentValue = get();
@@ -93,7 +91,6 @@ function createReactiveArrEl<T>(
     get,
     set: (newValue) => update(() => newValue),
     update,
-    pipe: (fn) => fn(reactive),
     sub: (key) => {
       const currentValue = get();
       if (!isPlainObject(currentValue)) {
