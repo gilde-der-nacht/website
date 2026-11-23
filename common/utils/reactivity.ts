@@ -92,17 +92,20 @@ function createReactiveArrEl<T>(
     set: (newValue) => update(() => newValue),
     update,
     sub: (key) => {
-      const currentValue = get();
-      if (!isPlainObject(currentValue)) {
-        throw new Error(
-          "Cannot call sub(): value is not/no longer a plain object",
-        );
+      function getCurrentValue() {
+        const currentValue = get();
+        if (!isPlainObject(currentValue)) {
+          throw new Error(
+            "Cannot call sub(): value is not/no longer a plain object",
+          );
+        }
+        return currentValue;
       }
 
       return createReactiveImpl(
-        () => currentValue[key],
+        () => getCurrentValue()[key],
         (updateFn) => {
-          const oldObj = currentValue;
+          const oldObj = getCurrentValue();
           const newValue = updateFn(oldObj[key]);
           const newObj = { ...oldObj, [key]: newValue };
           update(() => newObj);
