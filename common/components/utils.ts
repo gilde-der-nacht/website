@@ -218,16 +218,36 @@ export function assert(condition: boolean, msg: string): asserts condition {
   }
 }
 
-export function isPlainObject(
-  value: unknown,
-): value is Record<string, unknown> {
-  return (
-    value !== null &&
-    typeof value === "object" &&
-    !Array.isArray(value) &&
-    !(value instanceof Date) &&
-    !(value instanceof RegExp)
-  );
+function describe(v: unknown): string {
+  if (v === null) {
+    return "null";
+  }
+  if (Array.isArray(v)) {
+    return "an array";
+  }
+  const name = (v as { constructor?: { name?: string } }).constructor?.name;
+  if (name && name !== "Object") {
+    return `an instance of ${name}`;
+  }
+  return `something of type ${typeof v}`;
+}
+
+export function isPlainObject(v: unknown): v is Record<string, unknown> {
+  if (v === null || typeof v !== "object" || Array.isArray(v)) {
+    return false;
+  }
+  const proto = Object.getPrototypeOf(v);
+  return proto === Object.prototype || proto === null;
+}
+
+export function assertPlainObject(
+  v: unknown,
+  op: string,
+): Record<string, unknown> {
+  if (!isPlainObject(v)) {
+    throw new Error(`${op}: value is ${describe(v)}, expected a plain object`);
+  }
+  return v;
 }
 
 export function isArray(value: unknown): value is Array<unknown> {
