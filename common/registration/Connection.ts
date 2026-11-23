@@ -58,6 +58,8 @@ export class Connection {
       const parsed = messagesInSchema.safeParse(JSON.parse(message.data));
       if (parsed.success) {
         console.log(parsed.data.data.data);
+      } else {
+        console.log(parsed.error);
       }
     });
 

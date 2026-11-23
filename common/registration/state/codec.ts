@@ -13,7 +13,6 @@ export type LeafValidated<F> =
   | { readonly status: "UNTRUSTED"; readonly issues: ReadonlyArray<LeafIssue> };
 
 export type FieldView<R, F> = {
-  readonly kind: "FIELD";
   readonly raw: R;
   readonly validated: LeafValidated<F>;
 };
@@ -23,7 +22,6 @@ export function field<R, F>(config: {
   readonly domain: z.ZodType<F>;
 }) {
   const wire = z.object({
-    kind: z.literal("FIELD"),
     raw: config.raw,
     validated: z.discriminatedUnion("status", [
       z.object({ status: z.literal("SUCCESS"), data: z.unknown() }),
@@ -34,7 +32,6 @@ export function field<R, F>(config: {
   return wire.transform((leaf): FieldView<R, F> => {
     if (leaf.validated.status === "ERROR") {
       return {
-        kind: "FIELD",
         raw: leaf.raw,
         validated: { status: "ERROR", issues: leaf.validated.issues },
       };
@@ -44,7 +41,6 @@ export function field<R, F>(config: {
 
     if (result.success) {
       return {
-        kind: "FIELD",
         raw: leaf.raw,
         validated: { status: "SUCCESS", data: result.data },
       };
@@ -58,7 +54,6 @@ export function field<R, F>(config: {
     );
 
     return {
-      kind: "FIELD",
       raw: leaf.raw,
       validated: { status: "UNTRUSTED", issues },
     };
@@ -66,17 +61,11 @@ export function field<R, F>(config: {
 }
 
 export function record<F extends Record<string, z.ZodType>>(fields: F) {
-  return z.object({
-    kind: z.literal("RECORD"),
-    data: z.object(fields),
-  });
+  return z.object(fields);
 }
 
 export function list<S extends z.ZodType>(item: S) {
-  return z.object({
-    kind: z.literal("LIST"),
-    data: z.array(item),
-  });
+  return z.array(item);
 }
 
 export function defineFormView<F extends z.ZodType>(form: F) {
