@@ -1,6 +1,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { z } from "astro/zod";
 import { SaveForm } from "@registration/state/save";
+import { AccountForm } from "@registration/state/account";
 
 const roleSchema = z.union([
   z.literal("admin"),
@@ -24,12 +25,7 @@ const plainDateTimeSchema = z
 const defaultViewSchema = z.object({
   ts: plainDateTimeSchema,
   currentRevision: z.number(),
-  myAccount: z.object({
-    name: z.string(),
-    email: z.nullable(z.string()),
-    mobile: z.nullable(z.string()),
-    roles: z.array(roleSchema),
-  }),
+  myAccount: AccountForm.schema,
   save: SaveForm.schema,
 });
 

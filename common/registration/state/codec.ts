@@ -19,7 +19,7 @@ export type FieldView<R, F> = {
 
 export function field<R, F>(config: {
   readonly raw: z.ZodType<R>;
-  readonly domain: z.ZodType<F>;
+  readonly parsed: z.ZodType<F>;
 }) {
   const wire = z.object({
     raw: config.raw,
@@ -37,7 +37,7 @@ export function field<R, F>(config: {
       };
     }
 
-    const result = config.domain.safeParse(leaf.validated.data);
+    const result = config.parsed.safeParse(leaf.validated.data);
 
     if (result.success) {
       return {
@@ -68,7 +68,7 @@ export function list<S extends z.ZodType>(item: S) {
   return z.array(item);
 }
 
-export function defineFormView<F extends z.ZodType>(form: F) {
+export function defineForm<F extends z.ZodType>(form: F) {
   return {
     schema: form,
     parse: (json: unknown) => {

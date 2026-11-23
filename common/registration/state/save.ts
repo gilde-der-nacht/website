@@ -1,4 +1,4 @@
-import { defineFormView, record } from "@registration/state/codec";
+import { defineForm, record } from "@registration/state/codec";
 import {
   DateField,
   DateTimeField,
@@ -6,7 +6,7 @@ import {
   VersionField,
 } from "@registration/state/Fields";
 
-export const SaveForm = defineFormView(
+export const SaveForm = defineForm(
   record({
     version: VersionField(1),
     test: record({
