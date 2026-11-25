@@ -1,4 +1,5 @@
-import { mergeProps, type JSX } from "solid-js";
+import { merge } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type Props = {
   value: string;
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export function Textarea(props: Props): JSX.Element {
-  const propsWithDefaults = mergeProps({ required: true }, props);
+  const propsWithDefaults = merge({ required: true }, props);
 
   return (
     <label>

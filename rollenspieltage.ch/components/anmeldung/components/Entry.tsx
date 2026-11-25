@@ -1,4 +1,5 @@
-import { Show, type JSX } from "solid-js";
+import { Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { TXT } from "@common/utils/texts";
 import { ellipsis } from "@common/components/utils";
 import { getDay } from "@rst/components/anmeldung/constant/time";
@@ -8,7 +9,6 @@ import type { ProgramPublicEntry } from "@rst/components/anmeldung/api/program";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { UNAUTHORIZED } from "@common/utils/shared";
 import { Icon } from "@common/components/Icon";
-import { Dynamic } from "solid-js/web";
 import type { LinkComponent } from "@common/components/Link";
 import { Chip } from "@common/components/Chip";
 import { join } from "@common/utils/strings";
@@ -162,19 +162,17 @@ export function Entry(props: {
           </li>
         </Show>
         <li>
-          <Dynamic
-            component={props.link}
-            href={
-              props.isPublicSite
-                ? "/anmeldung"
-                : `${props.basePath}/${props.entry.timeSlot.uuid}`
-            }
-            class="button-link"
-          >
-            <button class="event-link">
-              <span>Details & Teilnahme</span>
-            </button>
-          </Dynamic>
+          {props.link({
+            href: props.isPublicSite
+              ? "/anmeldung"
+              : `${props.basePath}/${props.entry.timeSlot.uuid}`,
+            class: "button-link",
+            children: (
+              <button class="event-link">
+                <span>Details & Teilnahme</span>
+              </button>
+            ),
+          })}
         </li>
       </ul>
     </li>

@@ -6,7 +6,8 @@ import {
 import { Input } from "@common/components/Input";
 import { Form } from "@common/components/Form";
 import { Textarea } from "@common/components/Textarea";
-import { For, Match, Show, Switch, createSignal, type JSX } from "solid-js";
+import { For, Match, Show, Switch, createSignal } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Box } from "@common/components/Box";
 import { HiddenInput } from "@common/components/HiddenInput";
 
@@ -52,7 +53,7 @@ export function GenericFormImpl<Fields extends string>(
   props: Props<Fields>,
 ): JSX.Element {
   const keys = Object.keys(props.elements) as Fields[];
-  const [formData, setFormData] = createSignal<Record<Fields, string>>(
+  const [formData, setFormData] = createSignal<Record<Fields, string>>(() =>
     resetFormData(props.elements),
   );
 
@@ -71,7 +72,7 @@ export function GenericFormImpl<Fields extends string>(
     console.error(err);
   }
 
-  const [fieldErrors, setFieldErrors] = createSignal(
+  const [fieldErrors, setFieldErrors] = createSignal(() =>
     resetFieldErrors(props.elements),
   );
 

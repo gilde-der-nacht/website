@@ -5,7 +5,8 @@ import { Form } from "@hhh/components/webapp/components/static/forms/Form";
 import { Input } from "@hhh/components/webapp/components/static/forms/Input";
 import { IconLeft } from "@hhh/components/webapp/components/static/icons/Icon";
 import { isEmpty } from "@hhh/components/webapp/util/utils";
-import { createSignal, type JSX } from "solid-js";
+import { createSignal } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type Props = {
   orderId: string;

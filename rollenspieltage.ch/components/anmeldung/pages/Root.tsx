@@ -1,4 +1,5 @@
-import { Show, type JSX } from "solid-js";
+import { Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { BoxLink } from "@common/components/BoxLink";
 import type { Roles } from "@rst/components/anmeldung/api/meta";
 import { RouterLink } from "@common/components/Link";

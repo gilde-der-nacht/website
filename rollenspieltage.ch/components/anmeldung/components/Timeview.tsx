@@ -3,7 +3,8 @@ import {
   type ProgramEntryTimetablePreView,
   type ProgramEntryTimetableView,
 } from "@common/components/Timetable";
-import { createSignal, type Accessor, type JSX } from "solid-js";
+import { createSignal, type Accessor } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { getDay, openingHours } from "@rst/components/anmeldung/constant/time";
 import { DayFilter, type DayFilterState } from "@common/components/Filter";
 import type { Save } from "@rst/components/anmeldung/api/save";
@@ -204,11 +205,7 @@ function sort(
 }
 
 export type TimeviewKind =
-  | "master-draft"
-  | "master"
-  | "play"
-  | "help"
-  | "waiting";
+  "master-draft" | "master" | "play" | "help" | "waiting";
 
 function TimeviewEntry(props: {
   title: string;

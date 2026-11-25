@@ -1,11 +1,5 @@
-import {
-  createResource,
-  createSignal,
-  Match,
-  onMount,
-  Switch,
-  type JSX,
-} from "solid-js";
+import { createMemo, createSignal, Match, onSettled, Switch } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Box } from "@common/components/Box";
 
 export function HydrationHelper<T>(props: {
@@ -23,25 +17,26 @@ export function HydrationHelper<T>(props: {
 }): JSX.Element {
   const [outdatedData, setOutdatedData] = createSignal(false);
   const [clientLoadingDone, setClientLoadingDone] = createSignal(false);
-  const [serverData] = createResource(() => props.fetcher());
+  const serverData = createMemo(() => props.fetcher());
   const [clientData, setClientData] = createSignal<T | null>(null);
 
-  onMount(async () => {
-    if (props.strategy.kind === "SSR_ONLY") {
-      return;
-    }
-
-    try {
-      const data = await props.fetcher();
-      setClientData(() => data);
-    } catch (e) {
-      console.error(e);
-      if (props.strategy.showOutdatedData) {
-        setOutdatedData(true);
+  onSettled(() => {
+    (async () => {
+      if (props.strategy.kind === "SSR_ONLY") {
+        return;
       }
-    } finally {
-      setClientLoadingDone(true);
-    }
+      try {
+        const data = await props.fetcher();
+        setClientData(() => data);
+      } catch (e) {
+        console.error(e);
+        if (props.strategy.showOutdatedData) {
+          setOutdatedData(true);
+        }
+      } finally {
+        setClientLoadingDone(true);
+      }
+    })();
   });
 
   function showLoadingBlock(): boolean {

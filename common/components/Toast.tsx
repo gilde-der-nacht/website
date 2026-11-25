@@ -1,5 +1,6 @@
-import { For, Show, type JSX } from "solid-js";
-import { createStore } from "solid-js/store";
+import { For, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { createStore } from "solid-js";
 import { Icon } from "@common/components/Icon";
 import { Button } from "@common/components/Button";
 import { unsafeToToastUuid, type ToastUuid } from "@common/utils/ids";
@@ -53,7 +54,7 @@ export function Toast(props: {
 export function ToastContainer(): JSX.Element {
   function dismiss(uuid: ToastUuid): void {
     store.find((toast) => toast.uuid === uuid)?.cleanup();
-    setStore(store.filter((toast) => toast.uuid !== uuid));
+    setStore((draft) => (draft = draft.filter((toast) => toast.uuid !== uuid)));
   }
 
   return (
@@ -80,16 +81,18 @@ export function toast(message: string, opts?: ToastOptions): string {
   const dismissable = opts?.dismissable ?? true;
 
   const timer = setTimeout(() => {
-    setStore(store.filter((toast) => toast.uuid !== uuid));
+    setStore((draft) => (draft = draft.filter((toast) => toast.uuid !== uuid)));
   }, duration);
 
-  setStore(store.length, {
-    uuid,
-    kind,
-    message,
-    duration,
-    dismissable,
-    cleanup: () => clearTimeout(timer),
+  setStore((draft) => {
+    draft.push({
+      uuid,
+      kind,
+      message,
+      duration,
+      dismissable,
+      cleanup: () => clearTimeout(timer),
+    });
   });
 
   return uuid;
@@ -110,16 +113,23 @@ export function updateToast(
   const dismissable = opts?.dismissable ?? toast.dismissable;
 
   const timer = setTimeout(() => {
-    setStore(store.filter((toast) => toast.uuid !== uuid));
+    setStore((draft) => (draft = draft.filter((toast) => toast.uuid !== uuid)));
   }, duration);
 
-  setStore((toast) => toast.uuid === uuid, {
-    uuid,
-    kind,
-    message,
-    duration,
-    dismissable,
-    cleanup: () => clearTimeout(timer),
+  setStore((draft) => {
+    draft = draft.map((toast) => {
+      if (toast.uuid === uuid) {
+        return {
+          uuid,
+          kind,
+          message,
+          duration,
+          dismissable,
+          cleanup: () => clearTimeout(timer),
+        };
+      }
+      return toast;
+    });
   });
   return uuid;
 }

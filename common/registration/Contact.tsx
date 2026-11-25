@@ -1,5 +1,5 @@
 import { z } from "astro/zod";
-import type { JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 const roleSchema = z.union([z.literal("admin")]);
 export type Role = z.infer<typeof roleSchema>;

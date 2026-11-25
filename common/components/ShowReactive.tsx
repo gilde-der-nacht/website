@@ -1,5 +1,6 @@
 import type { Reactive } from "@common/utils/reactivity";
-import { Show, untrack, type JSX } from "solid-js";
+import { Show, untrack } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export function ShowReactive<T>(props: {
   reactive$: Reactive<T | null>;

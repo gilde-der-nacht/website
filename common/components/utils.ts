@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { toTemporal, type EventDateTimeView } from "@common/components/events";
 import { Intl as IntlP } from "@js-temporal/polyfill";
 

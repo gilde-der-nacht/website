@@ -1,4 +1,5 @@
-import { type JSX, mergeProps } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { merge } from "solid-js";
 
 type Props = {
   title?: string;
@@ -11,7 +12,7 @@ type Props = {
 };
 
 export const Button = (props: Props): JSX.Element => {
-  const merged = mergeProps(
+  const merged = merge(
     { color: "primary", isOutlined: false, isLarge: false, isSubmit: false },
     props,
   );
@@ -20,10 +21,11 @@ export const Button = (props: Props): JSX.Element => {
     <button
       type={merged.isSubmit ? "submit" : "button"}
       title={merged.title}
-      class={`button is-${merged.color}`}
-      classList={{
+      class={{
         "is-outlined": merged.isOutlined,
         "is-medium": merged.isLarge,
+        button: true,
+        [`is-${merged.color}`]: true,
       }}
       onClick={merged.onClick}
     >

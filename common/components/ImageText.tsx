@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import type { WithChildren } from "@common/components/utils";
 
 export function ImageText(

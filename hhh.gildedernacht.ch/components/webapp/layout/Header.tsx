@@ -1,5 +1,5 @@
 import type { PageType } from "@hhh/components/webapp/pages/util/Router";
-import type { JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type Props = {
   link: (page: PageType) => void;

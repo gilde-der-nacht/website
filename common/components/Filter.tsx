@@ -2,7 +2,8 @@ import { Box } from "@common/components/Box";
 import { Button, ButtonWithIcon } from "@common/components/Button";
 import { createReactive, type Reactive } from "@common/utils/reactivity";
 import type { ProgramDay } from "@common/utils/time";
-import { For, Show, type Accessor, type JSX, type Setter } from "solid-js";
+import { For, Show, type Accessor, type Setter } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export type DayFilterState = ProgramDay | null;
 

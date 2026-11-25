@@ -1,4 +1,5 @@
-import { For, Match, Show, Switch, createSignal, type JSX } from "solid-js";
+import { For, Match, Show, Switch, createSignal } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Form } from "@common/components/Form";
 import { Input, InputWithRef } from "@common/components/Input";
 import { Textarea } from "@common/components/Textarea";

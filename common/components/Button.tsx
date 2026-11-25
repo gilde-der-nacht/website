@@ -1,4 +1,4 @@
-import type { JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Icon, type IconType } from "@common/components/Icon";
 
 type Props = {

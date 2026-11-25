@@ -9,7 +9,8 @@ import {
   isValidUrl,
   setShowRestaurantList,
 } from "@hhh/components/webapp/util/utils";
-import { createSignal, type JSX } from "solid-js";
+import { createSignal } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export const NewRestaurantPage = (props: PageProps): JSX.Element => {
   const [restaurant, setRestaurant] = createSignal("");

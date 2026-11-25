@@ -1,7 +1,7 @@
 import { Button, ButtonWithIcon } from "@common/components/Button";
 import { Icon } from "@common/components/Icon";
 import { Tooltip } from "@common/components/Tooltip";
-import type { JSX } from "solid-js/jsx-runtime";
+import type { JSX } from "@solidjs/web";
 import type { Roles, SaveState } from "@rst/components/anmeldung/api/meta";
 import { Match, Show, Switch } from "solid-js";
 import { Box } from "@common/components/Box";

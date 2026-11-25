@@ -1,5 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
-import { Match, Show, Switch, type JSX } from "solid-js";
+import { Match, Show, Switch } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import type { OlympEventView } from "@common/components/events";
 import {
   formatSimpleDate,

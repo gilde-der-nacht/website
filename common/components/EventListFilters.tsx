@@ -1,4 +1,5 @@
-import { createEffect, type JSX } from "solid-js";
+import { createEffect } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import type { OlympEventView } from "@common/components/events";
 import type { Language } from "@common/components/utils";
 import { Icon } from "@common/components/Icon";
@@ -10,12 +11,15 @@ type Props = {
 export function EventListFilters(props: Props): JSX.Element {
   const language = props.language ?? "de";
 
-  createEffect(() => {
-    // fix for now until calendar filters are done in Solid JS
-    if (window && "updateCalendarFilters" in window) {
-      window.updateCalendarFilters();
-    }
-  });
+  createEffect(
+    () => {},
+    () => {
+      // fix for now until calendar filters are done in Solid JS
+      if (window && "updateCalendarFilters" in window) {
+        window.updateCalendarFilters();
+      }
+    },
+  );
 
   function renderFilterList(filter: string): JSX.Element {
     return (

@@ -10,7 +10,8 @@ import type {
   OrderState,
 } from "@hhh/components/webapp/util/StateTypes";
 import { setShowOrderList } from "@hhh/components/webapp/util/utils";
-import { type Accessor, type JSX, type Setter, Show } from "solid-js";
+import { type Accessor, type Setter, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type Props = {
   data: AppData;

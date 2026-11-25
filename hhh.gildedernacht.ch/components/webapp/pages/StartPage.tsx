@@ -2,7 +2,8 @@ import { OrderDetails } from "@hhh/components/webapp/components/order/OrderDetai
 import { OrderOverview } from "@hhh/components/webapp/components/order/OrderOverview";
 import type { PageProps } from "@hhh/components/webapp/pages/util/Router";
 import { link, setActiveOrder } from "@hhh/components/webapp/util/utils";
-import { type JSX, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { Show } from "solid-js";
 
 export const StartPage = (props: PageProps): JSX.Element => {
   const [state, setState] = props.stateSignal;

@@ -1,4 +1,5 @@
-import { mergeProps, onMount, type JSX } from "solid-js";
+import { merge, onSettled } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Button } from "@common/components/Button";
 import type { Language } from "@common/components/utils";
 
@@ -13,7 +14,7 @@ type Props = {
 };
 
 export function Form(props: Props): JSX.Element {
-  const propsWithDefaults = mergeProps(
+  const propsWithDefaults = merge(
     {
       language: "de",
       submitLabel: props.language === "en" ? "Submit" : "Absenden",
@@ -24,7 +25,7 @@ export function Form(props: Props): JSX.Element {
   // If JS is available we validate and handle the form via JS.
   // Without JS the form behaves like any normal form element.
   let formElement!: HTMLFormElement;
-  onMount(() => {
+  onSettled(() => {
     formElement.setAttribute("novalidate", "");
     const redirects = formElement.querySelectorAll(
       'input[name^="redirect"][type="hidden"]',

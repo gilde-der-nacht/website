@@ -1,5 +1,5 @@
-import { Show, type JSX } from "solid-js";
-import { Dynamic } from "solid-js/web";
+import { Show } from "solid-js";
+import { dynamic, type JSX } from "@solidjs/web";
 import type { WithChildren } from "@common/components/utils";
 import { Icon, type IconType } from "@common/components/Icon";
 
@@ -36,13 +36,15 @@ export function Heading(props: HeadingProps): JSX.Element {
   const id = toKebabCase(
     "title" in props ? (props.id ?? props.title) : props.id,
   );
+  const H = dynamic(() => `h${props.level}`);
+
   return (
     <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;">
-      <Dynamic component={`h${props.level}`} id={id}>
+      <H id={props.id}>
         <a href={`#${id}`} class="header-anchor">
           {"title" in props ? props.title : props.children}
         </a>
-      </Dynamic>
+      </H>
       <Show when={props.moreLink}>
         {(moreLink) => (
           <a href={moreLink().link} style="border: none;">

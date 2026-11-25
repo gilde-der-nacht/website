@@ -1,6 +1,7 @@
 import { Input, InputInteger } from "@common/components/Input";
-import { For, Show, type JSX } from "solid-js";
-import { createStore, type Store } from "solid-js/store";
+import { For, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { createStore, type Store } from "solid-js";
 import type { TextInput, NumberInput } from "@common/components/form";
 import { Box } from "@common/components/Box";
 import { Textarea } from "@common/components/Textarea";
@@ -28,10 +29,16 @@ export function TextInputField(props: {
         name={props.name}
         value={store.value}
         onValueUpdate={(newValue) => {
-          setStore("value", newValue);
+          setStore((draft) => {
+            draft.value = newValue;
+          });
           props.onUpdate?.();
         }}
-        onBlur={() => setStore("isDirty", true)}
+        onBlur={() =>
+          setStore((draft) => {
+            draft.isDirty = true;
+          })
+        }
         type={props.type}
         required={props.required}
         isHoneypot={props.isHoneypot}
@@ -68,8 +75,16 @@ export function NumberInputField(props: {
         label={props.label}
         name={props.name}
         value={store.value}
-        onValueUpdate={(newValue) => setStore("value", newValue)}
-        onBlur={() => setStore("isDirty", true)}
+        onValueUpdate={(newValue) =>
+          setStore((draft) => {
+            draft.value = newValue;
+          })
+        }
+        onBlur={() =>
+          setStore((draft) => {
+            draft.isDirty = true;
+          })
+        }
         required={props.required}
         isHoneypot={props.isHoneypot}
         min={props.min}
@@ -105,8 +120,16 @@ export function TextareaField(props: {
         label={props.label}
         name={props.name}
         value={store.value}
-        onValueUpdate={(newValue) => setStore("value", newValue)}
-        onBlur={() => setStore("isDirty", true)}
+        onValueUpdate={(newValue) =>
+          setStore((draft) => {
+            draft.value = newValue;
+          })
+        }
+        onBlur={() =>
+          setStore((draft) => {
+            draft.isDirty = true;
+          })
+        }
         required={props.required}
         size={props.size}
         disabled={props.disabled}

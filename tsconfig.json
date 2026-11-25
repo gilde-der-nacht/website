@@ -2,29 +2,28 @@
   "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@common/*": [
-        "common/*"
+        "./common/*"
       ],
       "@registration/*": [
-        "common/registration/*"
+        "./common/registration/*"
       ],
       "@gdn/*": [
-        "gildedernacht.ch/*"
+        "./gildedernacht.ch/*"
       ],
       "@lst/*": [
-        "spieltage.ch/*"
+        "./spieltage.ch/*"
       ],
       "@rst/*": [
-        "rollenspieltage.ch/*"
+        "./rollenspieltage.ch/*"
       ],
       "@hhh/*": [
-        "hhh.gildedernacht.ch/*"
+        "./hhh.gildedernacht.ch/*"
       ]
     },
     "verbatimModuleSyntax": true,
     "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "@solidjs/web"
   }
 }

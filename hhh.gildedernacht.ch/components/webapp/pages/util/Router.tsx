@@ -3,7 +3,8 @@ import { NewOrderPage } from "@hhh/components/webapp/pages/NewOrderPage";
 import { NewRestaurantPage } from "@hhh/components/webapp/pages/NewRestaurantPage";
 import { StartPage } from "@hhh/components/webapp/pages/StartPage";
 import type { AppData, AppState } from "@hhh/components/webapp/util/StateTypes";
-import type { Accessor, JSX, Setter } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import type { Accessor, Setter } from "solid-js";
 
 export type PageType = "start" | "newOrder" | "newRestaurant";
 

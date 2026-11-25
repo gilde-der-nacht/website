@@ -1,7 +1,8 @@
 import { Dropdown } from "@hhh/components/webapp/components/static/forms/Dropdown";
 import { type Tag, Tags } from "@hhh/components/webapp/components/static/Tags";
 import type { RestaurantState } from "@hhh/components/webapp/util/StateTypes";
-import { type JSX, mergeProps, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { merge, Show } from "solid-js";
 
 type Props = {
   activeRestaurants: readonly RestaurantState[];
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export const RestaurantDropdown = (props: Props): JSX.Element => {
-  const merged = mergeProps({ error: { status: false, text: "" } }, props);
+  const merged = merge({ error: { status: false, text: "" } }, props);
 
   const selectedRestaurant = () =>
     merged.activeRestaurants.find((r) => r.id === merged.restaurantId);

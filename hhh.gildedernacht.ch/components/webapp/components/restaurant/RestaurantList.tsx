@@ -3,7 +3,8 @@ import { Button } from "@hhh/components/webapp/components/static/Button";
 import { Icon } from "@hhh/components/webapp/components/static/icons/Icon";
 import { Notification } from "@hhh/components/webapp/components/static/Notification";
 import type { RestaurantState } from "@hhh/components/webapp/util/StateTypes";
-import { For, type JSX, Show } from "solid-js";
+import { For, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type Props = {
   activeRestaurants: readonly RestaurantState[];

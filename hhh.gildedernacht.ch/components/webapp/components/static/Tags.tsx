@@ -1,4 +1,5 @@
-import { For, type JSX, mergeProps, Show } from "solid-js";
+import { For, merge, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export type Tag = {
   label: string;
@@ -13,12 +14,14 @@ type Props = {
 };
 
 export const Tags = (props: Props): JSX.Element => {
-  const merged = mergeProps({ isJustified: false }, props);
+  const merged = merge({ isJustified: false }, props);
 
   return (
     <div
-      class="tags"
-      classList={{ "is-justify-content-center": merged.isJustified }}
+      class={{
+        tags: true,
+        "is-justify-content-center": merged.isJustified,
+      }}
     >
       <For each={merged.tags}>
         {(tag) => (

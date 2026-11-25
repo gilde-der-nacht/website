@@ -6,18 +6,13 @@ import { Router } from "@hhh/components/webapp/pages/util/Router";
 import type { AppState } from "@hhh/components/webapp/util/StateTypes";
 import { setToast } from "@hhh/components/webapp/util/utils";
 import { DateTime } from "luxon";
-import {
-  createResource,
-  createSignal,
-  type JSX,
-  Match,
-  Switch,
-} from "solid-js";
-import { Dynamic } from "solid-js/web";
+import { createMemo, createSignal, Errored, Loading, refresh } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export const App = (): JSX.Element => {
   const [now, _] = createSignal(DateTime.now());
-  const [data, { refetch }] = createResource(now, loadServerResource);
+  const data = createMemo(() => loadServerResource(now()));
+
   const [state, setState] = createSignal<AppState>({
     page: "start",
     activeOrder: null,
@@ -31,22 +26,18 @@ export const App = (): JSX.Element => {
     <Layout stateSignal={[state, setState]}>
       <div>
         <div class="container p-5">
-          <Switch fallback={<Progress />}>
-            <Match when={typeof data.error !== "undefined"}>
-              <NetworkError />
-            </Match>
-            <Match when={data()}>
-              {(data) => (
-                <Dynamic
-                  component={Router[state().page]({
-                    data: data(),
-                    stateSignal: [state, setState],
-                    API: API({ refetch, setToast: setToast(setState) }),
-                  })}
-                />
-              )}
-            </Match>
-          </Switch>
+          <Errored fallback={<NetworkError />}>
+            <Loading fallback={<Progress />}>
+              {Router[state().page]({
+                data: data(),
+                stateSignal: [state, setState],
+                API: API({
+                  refetch: () => refresh(data),
+                  setToast: setToast(setState),
+                }),
+              })()}
+            </Loading>
+          </Errored>
         </div>
       </div>
     </Layout>

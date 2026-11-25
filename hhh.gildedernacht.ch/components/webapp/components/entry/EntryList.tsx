@@ -7,7 +7,8 @@ import type {
   EntryState,
 } from "@hhh/components/webapp/util/StateTypes";
 import { setShowEntryList } from "@hhh/components/webapp/util/utils";
-import { type Accessor, For, type JSX, type Setter, Show } from "solid-js";
+import { type Accessor, For, type Setter, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type Props = {
   activeEntries: readonly EntryState[];

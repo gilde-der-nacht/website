@@ -1,5 +1,6 @@
 import { Input, InputInteger } from "@common/components/Input";
-import { createSignal, For, Show, type JSX } from "solid-js";
+import { createSignal, For, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import type { Reactive } from "@common/utils/reactivity";
 
 export function TextInputField(props: {

@@ -1,6 +1,7 @@
 import { Box } from "@common/components/Box";
 import { createReactive, type Reactive } from "@common/utils/reactivity";
-import { For, Match, Show, Switch, type Accessor, type JSX } from "solid-js";
+import { For, Match, Show, Switch, type Accessor } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import type { ReserveAction, Save } from "@rst/components/anmeldung/api/save";
 import type {
   Program,

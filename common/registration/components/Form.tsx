@@ -1,5 +1,5 @@
 import type { Reactive } from "@common/utils/reactivity";
-import { type JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export function TextInputField(props: {
   value$: Reactive<string>;

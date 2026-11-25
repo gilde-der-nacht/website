@@ -1,5 +1,6 @@
 import type { Reactive } from "@common/utils/reactivity";
-import { createSignal, For, Show, type JSX } from "solid-js";
+import { createSignal, For, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Textarea } from "@common/components/Textarea";
 
 export function TextareaField(props: {

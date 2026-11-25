@@ -1,7 +1,7 @@
 import { Box, type BoxType } from "@common/components/Box";
 import { Icon, type IconType } from "@common/components/Icon";
 import type { WithChildren } from "@common/components/utils";
-import type { JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export function BoxLink(
   props: WithChildren<{

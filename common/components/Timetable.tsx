@@ -1,4 +1,5 @@
-import { For, Match, Show, Switch, type JSX } from "solid-js";
+import { For, Match, Show, Switch } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import {
   getHours,
   isOverlapping,

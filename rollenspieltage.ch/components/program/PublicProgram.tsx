@@ -1,5 +1,5 @@
 import { HydrationHelper } from "@common/components/HydrationHelper";
-import type { JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { loadProgram } from "@rst/components/anmeldung/api/program";
 import { assert } from "@common/components/utils";
 import { PublicProgramm as Program } from "@rst/components/anmeldung/pages/Programm";

@@ -1,11 +1,6 @@
 import { Box } from "@common/components/Box";
-import {
-  ErrorBoundary,
-  Match,
-  Switch,
-  createResource,
-  type JSX,
-} from "solid-js";
+import { Errored, Match, Switch, createMemo } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import "@rst/components/anmeldung/anmeldung.scss";
 import { loadSave } from "@rst/components/anmeldung/api/save";
 import { TXT } from "@common/utils/texts";
@@ -23,10 +18,10 @@ export function MeineAnmeldungWrapper(): JSX.Element {
   const secret = unsafeToRegistrationUuid(
     url?.searchParams.get("secret") ?? "no-secret-found",
   );
-  const [saveResource] = createResource(() => loadSave(secret));
+  const saveResource = createMemo(() => loadSave(secret));
 
   return (
-    <ErrorBoundary
+    <Errored
       fallback={(err) => {
         console.error(err);
         return <Box type="danger">{TXT.error.general}</Box>;
@@ -47,6 +42,6 @@ export function MeineAnmeldungWrapper(): JSX.Element {
           }}
         </Match>
       </Switch>
-    </ErrorBoundary>
+    </Errored>
   );
 }

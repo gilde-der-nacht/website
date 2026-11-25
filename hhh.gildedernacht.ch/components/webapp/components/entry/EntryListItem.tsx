@@ -2,7 +2,8 @@ import { Card } from "@hhh/components/webapp/components/static/Card";
 import type { Tag } from "@hhh/components/webapp/components/static/Tags";
 import type { EntryState } from "@hhh/components/webapp/util/StateTypes";
 import { formatDate, hasBeenUpdated } from "@hhh/components/webapp/util/utils";
-import { type JSX, Show } from "solid-js";
+import { Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type Props = {
   entry: EntryState;

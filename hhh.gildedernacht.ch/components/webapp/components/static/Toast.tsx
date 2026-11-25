@@ -7,7 +7,8 @@ import {
   type NotificationKind,
 } from "@hhh/components/webapp/components/static/Notification";
 import { isPromise } from "@hhh/components/webapp/util/utils";
-import { createEffect, type JSX, mergeProps } from "solid-js";
+import { createEffect, merge } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export type ToastOptions = {
   isVisible?: boolean;
@@ -28,35 +29,38 @@ type Props = {
 };
 
 export const Toast = (props: ToastOptions & Props): JSX.Element => {
-  const merged = mergeProps({ isVisible: false, waitFor: 5_000 }, props);
+  const merged = merge({ isVisible: false, waitFor: 5_000 }, props);
 
-  createEffect(() => {
-    if (!merged.isVisible) {
-      return;
-    }
-    if (typeof merged.waitFor === "number") {
-      setTimeout(() => merged.hideToast(), merged.waitFor);
-    } else if (merged.waitFor && isPromise(merged.waitFor?.promise)) {
-      const { promise, onSuccessMessage, onErrorMessage } = merged.waitFor;
-      promise
-        .then(() =>
-          merged.setToast({
-            isVisible: true,
-            text: onSuccessMessage,
-            kind: "success",
-            waitFor: 5_000,
-          }),
-        )
-        .catch(() =>
-          merged.setToast({
-            isVisible: true,
-            text: onErrorMessage,
-            kind: "danger",
-            waitFor: 10_000,
-          }),
-        );
-    }
-  });
+  createEffect(
+    () => !merged.isVisible,
+    (invisible) => {
+      if (invisible) {
+        return;
+      }
+      if (typeof merged.waitFor === "number") {
+        setTimeout(() => merged.hideToast(), merged.waitFor);
+      } else if (merged.waitFor && isPromise(merged.waitFor?.promise)) {
+        const { promise, onSuccessMessage, onErrorMessage } = merged.waitFor;
+        promise
+          .then(() =>
+            merged.setToast({
+              isVisible: true,
+              text: onSuccessMessage,
+              kind: "success",
+              waitFor: 5_000,
+            }),
+          )
+          .catch(() =>
+            merged.setToast({
+              isVisible: true,
+              text: onErrorMessage,
+              kind: "danger",
+              waitFor: 10_000,
+            }),
+          );
+      }
+    },
+  );
 
   const iconName = (): IconType => {
     switch (merged.kind) {
@@ -72,7 +76,12 @@ export const Toast = (props: ToastOptions & Props): JSX.Element => {
   };
 
   return (
-    <div class="hhh-toast" classList={{ hide: !merged.isVisible }}>
+    <div
+      class={{
+        "hhh-toast": true,
+        hide: !merged.isVisible,
+      }}
+    >
       <div class="container">
         <Notification
           kind={merged.kind === "loading" ? "info" : merged.kind}

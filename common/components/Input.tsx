@@ -1,4 +1,5 @@
-import { mergeProps, type JSX } from "solid-js";
+import { merge } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type InputProps = {
   value: string;
@@ -14,7 +15,7 @@ type InputProps = {
 };
 
 export function Checkbox(props: InputProps): JSX.Element {
-  const propsWithDefaults = mergeProps(
+  const propsWithDefaults = merge(
     { type: "text", required: true, isHoneypot: false },
     props,
   );
@@ -37,7 +38,7 @@ export function Checkbox(props: InputProps): JSX.Element {
 }
 
 export function Input(props: InputProps): JSX.Element {
-  const propsWithDefaults = mergeProps(
+  const propsWithDefaults = merge(
     { type: "text", required: true, isHoneypot: false },
     props,
   );
@@ -72,7 +73,7 @@ export function CheckboxInput(props: {
   isHoneypot?: boolean | undefined;
   disabled?: boolean | undefined;
 }): JSX.Element {
-  const propsWithDefaults = mergeProps(
+  const propsWithDefaults = merge(
     { type: "text", required: true, isHoneypot: false },
     props,
   );
@@ -109,7 +110,7 @@ type InputWithRefProps = {
 };
 
 export function InputWithRef(props: InputWithRefProps): JSX.Element {
-  const propsWithDefaults = mergeProps(
+  const propsWithDefaults = merge(
     { type: "text", required: true, isHoneypot: false },
     props,
   );
@@ -146,10 +147,7 @@ type InputIntegerProps = {
 };
 
 export function InputInteger(props: InputIntegerProps): JSX.Element {
-  const propsWithDefaults = mergeProps(
-    { required: true, isHoneypot: false },
-    props,
-  );
+  const propsWithDefaults = merge({ required: true, isHoneypot: false }, props);
 
   return (
     <label class={propsWithDefaults.isHoneypot ? "honey" : ""}>

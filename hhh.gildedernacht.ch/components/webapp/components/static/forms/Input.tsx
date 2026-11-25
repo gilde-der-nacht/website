@@ -1,4 +1,5 @@
-import { type JSX, mergeProps, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { merge, Show } from "solid-js";
 
 type Props = {
   label: string;
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export const Input = (props: Props): JSX.Element => {
-  const merged = mergeProps(
+  const merged = merge(
     {
       error: { status: false, text: "" },
       setter: () => {},
@@ -29,13 +30,14 @@ export const Input = (props: Props): JSX.Element => {
         {merged.label}
       </label>
       <div
-        class="control"
-        classList={{ "has-icons-right": merged.error.status }}
+        class={{
+          control: true,
+          "has-icons-right": merged.error.status,
+        }}
       >
         <input
           id={merged.id}
-          class="input"
-          classList={{ "is-danger": merged.error.status }}
+          class={{ input: true, "is-danger": merged.error.status }}
           type={merged.isUrl ? "url" : "text"}
           required={merged.isRequired}
           placeholder={merged.placeholder}

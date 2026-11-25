@@ -1,4 +1,5 @@
-import { Show, type JSX } from "solid-js";
+import { Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { loadPublishedEvents, toView } from "@common/components/events";
 import { HydrationHelper } from "@common/components/HydrationHelper";
 import { EventListImpl } from "@common/components/EventListImpl";

@@ -1,5 +1,6 @@
 import { type Tag, Tags } from "@hhh/components/webapp/components/static/Tags";
-import { type JSX, mergeProps } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { merge } from "solid-js";
 
 type Props = {
   isDisabled?: boolean;
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export const Card = (props: Props): JSX.Element => {
-  const merged = mergeProps(
+  const merged = merge(
     { isDisabled: false, showStatusTag: true, tags: [] },
     props,
   );
@@ -23,7 +24,7 @@ export const Card = (props: Props): JSX.Element => {
   tags.push(...merged.tags);
 
   return (
-    <div class="card" classList={{ "hhh-card-disabled": merged.isDisabled }}>
+    <div class={{ card: true, "hhh-card-disabled": merged.isDisabled }}>
       <div class="card-content">
         <div class="content">{merged.children}</div>
         <Tags tags={tags} />

@@ -1,5 +1,6 @@
-import { createEffect, Show, type JSX } from "solid-js";
-import { createStore, type Store } from "solid-js/store";
+import { createEffect, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { createStore, type Store } from "solid-js";
 import { IconOnlyButton } from "@common/components/Button";
 
 export type DialogType = "success" | "danger" | "special" | "gray" | "warning";
@@ -21,16 +22,21 @@ export function Dialog(props: {
   let dialogEl: HTMLDialogElement | undefined = undefined;
   const [store, setStore] = createStore(props.store);
 
-  createEffect(() => {
-    if (store.open) {
-      (dialogEl as unknown as HTMLDialogElement).showModal();
-    } else {
-      (dialogEl as unknown as HTMLDialogElement).close();
-    }
-  });
+  createEffect(
+    () => store.open,
+    (storeState) => {
+      if (storeState) {
+        (dialogEl as unknown as HTMLDialogElement).showModal();
+      } else {
+        (dialogEl as unknown as HTMLDialogElement).close();
+      }
+    },
+  );
 
   function close() {
-    setStore({ open: false });
+    setStore((draft) => {
+      draft.open = false;
+    });
     props.onClose?.();
   }
 

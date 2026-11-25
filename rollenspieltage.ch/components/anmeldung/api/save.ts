@@ -11,7 +11,7 @@ import {
   type Result,
 } from "@rst/components/anmeldung/api/elysium";
 import { z } from "astro/zod";
-import { createStore, type Store } from "solid-js/store";
+import { createStore, type Store } from "solid-js";
 import {
   rolesSchema,
   type SaveState,
@@ -39,7 +39,9 @@ async function saveState(
   secret: string,
 ): Promise<Result<Date>> {
   const [_, setStore] = createStore(store);
-  setStore("saveState", "SAVING");
+  setStore((draft) => {
+    draft.saveState = "SAVING";
+  });
   toast("Am Speichern...", { uuid: toastId, dismissable: false });
   const now = new Date();
   try {
@@ -48,7 +50,9 @@ async function saveState(
       throw Error("");
     }
   } catch (e) {
-    setStore("saveState", "ERROR");
+    setStore((draft) => {
+      draft.saveState = "ERROR";
+    });
     console.error(e);
     updateToast(toastId, "Speichern war nicht möglich!", {
       kind: "danger",
@@ -63,7 +67,9 @@ async function saveState(
     kind: "success",
     dismissable: true,
   });
-  setStore("saveState", "IDLE");
+  setStore((draft) => {
+    draft.saveState = "IDLE";
+  });
   return {
     kind: "SUCCESS",
     data: now,

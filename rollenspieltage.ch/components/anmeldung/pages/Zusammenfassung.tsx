@@ -1,5 +1,6 @@
-import { createMemo, Show, type Accessor, type JSX } from "solid-js";
-import { createStore, type Store } from "solid-js/store";
+import { createMemo, Show, type Accessor } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { createStore, type Store } from "solid-js";
 import { Box } from "@common/components/Box";
 import {
   Dialog,
@@ -82,7 +83,11 @@ function Contact(props: {
             <ButtonWithIcon
               icon="pencil"
               label="Kontaktdaten editieren"
-              onClick={() => setDialogStore("open", true)}
+              onClick={() =>
+                setDialogStore((draft) => {
+                  draft.open = true;
+                })
+              }
             />
           </div>
         </Show>
@@ -165,7 +170,10 @@ function ContactEditDialog(props: {
           showErrors="ALWAYS"
           errors={errors().email}
           onUpdate={() =>
-            setEmailIsDuplicate({ kind: "IDLE", isDuplicate: false })
+            setEmailIsDuplicate(
+              (draft) =>
+                (draft = { ...draft, kind: "IDLE", isDuplicate: false }),
+            )
           }
         />
         <TextInputField
@@ -178,7 +186,9 @@ function ContactEditDialog(props: {
           disabled={errors().hasErrors || emailIsDuplicate.kind === "CHECKING"}
           onClick={async () => {
             if (!errors().hasErrors) {
-              setEmailIsDuplicate({ kind: "CHECKING" });
+              setEmailIsDuplicate((draft) => {
+                draft.kind = "CHECKING";
+              });
 
               const secret = searchParams["secret"];
               const result = await fetch(
@@ -188,23 +198,35 @@ function ContactEditDialog(props: {
               );
 
               if (!result.ok) {
-                setEmailIsDuplicate({ kind: "IDLE", isDuplicate: true });
+                setEmailIsDuplicate(
+                  (draft) =>
+                    (draft = { ...draft, kind: "IDLE", isDuplicate: true }),
+                );
                 return;
               }
 
               const data = (await result.json()) as unknown;
               const parsed = checkEmailDuplicateSchema.safeParse(data);
               if (!parsed.success) {
-                setEmailIsDuplicate({ kind: "IDLE", isDuplicate: true });
+                setEmailIsDuplicate(
+                  (draft) =>
+                    (draft = { ...draft, kind: "IDLE", isDuplicate: true }),
+                );
                 return;
               }
 
               if (parsed.data.kind === "FAILURE") {
-                setEmailIsDuplicate({ kind: "IDLE", isDuplicate: true });
+                setEmailIsDuplicate(
+                  (draft) =>
+                    (draft = { ...draft, kind: "IDLE", isDuplicate: true }),
+                );
                 return;
               }
 
-              setEmailIsDuplicate({ kind: "IDLE", isDuplicate: false });
+              setEmailIsDuplicate(
+                (draft) =>
+                  (draft = { ...draft, kind: "IDLE", isDuplicate: false }),
+              );
 
               props.contact$.set({
                 name: formStore.name.value,
@@ -212,7 +234,9 @@ function ContactEditDialog(props: {
                 mobile: formStore.mobile.value,
               });
 
-              setDialogStore("open", false);
+              setDialogStore((draft) => {
+                draft.open = false;
+              });
             }
           }}
         />

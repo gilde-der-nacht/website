@@ -1,4 +1,5 @@
-import { Show, type JSX } from "solid-js";
+import { Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import type { WithChildren } from "@common/components/utils";
 import { Icon, type IconType } from "@common/components/Icon";
 import { IconOnlyButton } from "@common/components/Button";

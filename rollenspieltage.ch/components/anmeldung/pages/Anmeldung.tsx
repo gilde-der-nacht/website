@@ -1,5 +1,6 @@
 import { Button } from "@common/components/Button";
-import { Show, type JSX } from "solid-js";
+import { Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Box } from "@common/components/Box";
 import { z } from "astro/zod";
 import { elysium } from "@common/components/utils";

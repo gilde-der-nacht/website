@@ -4,7 +4,8 @@ import { TextInputField } from "@common/components/newForm/Input";
 import { elysium } from "@common/components/utils";
 import { createReactive } from "@common/utils/reactivity";
 import { TXT } from "@common/utils/texts";
-import { Show, type JSX } from "solid-js";
+import { Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export function Resend(): JSX.Element {
   const store$ = createReactive<{

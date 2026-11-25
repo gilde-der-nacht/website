@@ -1,4 +1,5 @@
-import { type JSX, mergeProps } from "solid-js";
+import type { JSX } from "@solidjs/web";
+import { merge } from "solid-js";
 
 export type NotificationKind = "success" | "danger" | "info";
 
@@ -9,12 +10,13 @@ type Props = {
 };
 
 export const Notification = (props: Props): JSX.Element => {
-  const merged = mergeProps({ type: "info", isLight: true }, props);
+  const merged = merge({ type: "info", isLight: true }, props);
 
   return (
     <div
-      class={`notification is-${merged.kind}`}
-      classList={{
+      class={{
+        notification: true,
+        [`is-${merged.kind}`]: true,
         "is-light": merged.isLight,
       }}
     >

@@ -1,11 +1,5 @@
-import {
-  ErrorBoundary,
-  For,
-  Index,
-  Show,
-  type Accessor,
-  type JSX,
-} from "solid-js";
+import { Errored, For, Show, type Accessor } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import type {
@@ -57,7 +51,7 @@ export function ErstellenDetail(props: {
   const params = useParams();
 
   return (
-    <ErrorBoundary
+    <Errored
       fallback={
         <Box type="danger">
           <p>Details konnten nicht geladen werden.</p>
@@ -74,7 +68,7 @@ export function ErstellenDetail(props: {
         isEditable={props.isEditable}
         roles={props.roles}
       />
-    </ErrorBoundary>
+    </Errored>
   );
 }
 
@@ -394,7 +388,7 @@ function TimeSlotInput(props: {
     <>
       <label>Zeitfenster</label>
       <ul role="list" class="link-list">
-        <Index each={arr.unpack(props.slots$)}>
+        <For keyed={false} each={arr.unpack(props.slots$)}>
           {(slot$) => {
             const errors = () => props.byFieldUuid[slot$().get().uuid] ?? [];
 
@@ -492,7 +486,7 @@ function TimeSlotInput(props: {
               </li>
             );
           }}
-        </Index>
+        </For>
         <li>
           <BoxLink
             icon="circle-plus"
@@ -531,7 +525,7 @@ function LinkInput(props: {
     <>
       <label>Links</label>
       <ul role="list" class="link-list">
-        <Index each={arr.unpack(props.links$)}>
+        <For keyed={false} each={arr.unpack(props.links$)}>
           {(link) => {
             return (
               <li>
@@ -552,7 +546,7 @@ function LinkInput(props: {
               </li>
             );
           }}
-        </Index>
+        </For>
         <li>
           <BoxLink
             icon="circle-plus"

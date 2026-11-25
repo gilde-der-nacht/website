@@ -1,4 +1,5 @@
-import { createSignal, type JSX } from "solid-js";
+import { createSignal } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { ButtonWithIcon } from "@common/components/Button";
 
 export function InputButton(props: {

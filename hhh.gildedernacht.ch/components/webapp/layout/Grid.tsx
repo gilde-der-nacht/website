@@ -1,5 +1,6 @@
 import { type Tag, Tags } from "@hhh/components/webapp/components/static/Tags";
-import { For, type JSX, mergeProps, Show } from "solid-js";
+import { For, merge, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type GridProps<T> = {
   each: readonly T[];
@@ -11,7 +12,7 @@ type GridProps<T> = {
 };
 
 export const Grid = <T,>(props: GridProps<T>): JSX.Element => {
-  const merged = mergeProps({ footer: () => [], tags: () => [] }, props);
+  const merged = merge({ footer: () => [], tags: () => [] }, props);
 
   return (
     <div class="hhh-grid">
@@ -67,8 +68,8 @@ const GridElement = (props: GridElementProps): JSX.Element => {
             {(entry) => (
               <a
                 title={entry.title}
-                class="card-footer-item"
-                classList={{
+                class={{
+                  "card-footer-item": true,
                   [`has-text-${entry.kind}`]: typeof entry.kind === "string",
                 }}
                 onClick={entry.onClick}

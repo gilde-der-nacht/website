@@ -1,4 +1,5 @@
-import { For, Show, type Accessor, type JSX } from "solid-js";
+import { For, Show, type Accessor } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { Box } from "@common/components/Box";
 import { TXT } from "@common/utils/texts";
 import { useParams } from "@solidjs/router";

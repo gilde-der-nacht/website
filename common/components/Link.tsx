@@ -1,15 +1,15 @@
-import type { JSX } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import type { WithChildren } from "@common/components/utils";
-import { A, useNavigate } from "@solidjs/router";
+import { useNavigate } from "@solidjs/router";
 import "core-js/full/url";
 
 export function RouterLink(
   props: WithChildren<{ href: string; class?: string; style?: string }>,
 ): JSX.Element {
   return (
-    <A href={ensureSecret(props.href)} class={props.class} style={props.style}>
+    <a href={ensureSecret(props.href)} class={props.class} style={props.style}>
       {props.children}
-    </A>
+    </a>
   );
 }
 

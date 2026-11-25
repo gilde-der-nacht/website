@@ -6,7 +6,8 @@ import { NumberInput } from "@hhh/components/webapp/components/static/forms/Numb
 import { IconLeft } from "@hhh/components/webapp/components/static/icons/Icon";
 import type { PageProps } from "@hhh/components/webapp/pages/util/Router";
 import { isEmpty, link } from "@hhh/components/webapp/util/utils";
-import { createSignal, type JSX, onMount } from "solid-js";
+import { createSignal, onSettled } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 export const NewOrderPage = (props: PageProps): JSX.Element => {
   const [restaurantId, setRestaurantId] = createSignal("");
@@ -44,7 +45,9 @@ export const NewOrderPage = (props: PageProps): JSX.Element => {
   const isValidTimeWindow = (time: number) =>
     !isNaN(time) && time >= 0 && time < 720;
 
-  onMount(() => setRestaurantId(activeRestaurants()[0]?.id ?? ""));
+  onSettled(() => {
+    setRestaurantId(activeRestaurants()[0]?.id ?? "");
+  });
 
   return (
     <div class="hhh-spacer">

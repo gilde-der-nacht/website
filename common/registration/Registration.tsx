@@ -1,4 +1,5 @@
-import { onMount, type JSX } from "solid-js";
+import { onSettled } from "solid-js";
+import type { JSX } from "@solidjs/web";
 import { RegistrationState } from "@registration/State";
 import { getRegistrationUuid } from "@registration/registrationUuid";
 import { Header } from "@registration/Header";
@@ -11,7 +12,7 @@ import { TextInputField } from "@registration/components/Form";
 const state = new RegistrationState();
 
 export function Registration(props: { configUuid: ConfigUuid }): JSX.Element {
-  onMount(() => {
+  onSettled(() => {
     const registrationUuid = getRegistrationUuid();
     state.connect(props.configUuid, registrationUuid);
   });

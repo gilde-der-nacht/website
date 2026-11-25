@@ -14,7 +14,8 @@ import {
   formatDateForHumans,
   hasBeenUpdated,
 } from "@hhh/components/webapp/util/utils";
-import { type JSX, mergeProps, Show } from "solid-js";
+import { merge, Show } from "solid-js";
+import type { JSX } from "@solidjs/web";
 
 type Props = {
   orders: readonly OrderState[];
@@ -29,7 +30,7 @@ type Props = {
 };
 
 export const OrderGrid = (props: Props): JSX.Element => {
-  const merged = mergeProps({ isDisabled: false, showStatusTag: true }, props);
+  const merged = merge({ isDisabled: false, showStatusTag: true }, props);
 
   const footer = (item: OrderState): GridElementFooter[] => {
     const footerElements: GridElementFooter[] = [

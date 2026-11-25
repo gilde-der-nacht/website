@@ -4,7 +4,7 @@ import {
   isArray,
   isPlainObject,
 } from "@common/components/utils";
-import { createStore } from "solid-js/store";
+import { createStore } from "solid-js";
 
 type IsNullable<T> = Extract<T, null> extends never ? false : true;
 
@@ -73,7 +73,10 @@ export function createReactive<T>(init: T): Reactive<T> {
 
   return makeReactive(
     () => store.value,
-    (updateFn) => setStore("value", (old) => updateFn(old)),
+    (updateFn) =>
+      setStore((draft) => {
+        draft.value = updateFn(draft.value);
+      }),
   );
 }
 
@@ -132,7 +135,7 @@ export type ReactiveArr<T> = Reactive<Array<T>>;
 
 // @deprecated, use [list()] instead
 export const arr = {
-  update: <T,>(
+  update: <T>(
     reactive: ReactiveArr<T>,
     predicate: (el: T) => boolean,
     newValue: T,
@@ -141,7 +144,7 @@ export const arr = {
       return oldValue.map((entry) => (predicate(entry) ? newValue : entry));
     });
   },
-  remove: <T,>(
+  remove: <T>(
     reactive: ReactiveArr<T>,
     predicate: (el: T) => boolean,
   ): void => {
@@ -149,7 +152,7 @@ export const arr = {
       return oldValue.filter((el) => !predicate(el));
     });
   },
-  findExact: <T,>(
+  findExact: <T>(
     reactive: ReactiveArr<T>,
     predicate: (el: T) => boolean,
   ): Reactive<T> => {
@@ -163,7 +166,7 @@ export const arr = {
       },
     );
   },
-  unpack: <T,>(reactive: ReactiveArr<T>): ListItem<T>[] => {
+  unpack: <T>(reactive: ReactiveArr<T>): ListItem<T>[] => {
     return reactive.get().map((value, index) => {
       return createReactiveArrEl<T>(
         () => value,
