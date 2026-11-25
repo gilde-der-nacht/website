@@ -204,11 +204,7 @@ function sort(
 }
 
 export type TimeviewKind =
-  | "master-draft"
-  | "master"
-  | "play"
-  | "help"
-  | "waiting";
+  "master-draft" | "master" | "play" | "help" | "waiting";
 
 function TimeviewEntry(props: {
   title: string;

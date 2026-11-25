@@ -132,7 +132,7 @@ export type ReactiveArr<T> = Reactive<Array<T>>;
 
 // @deprecated, use [list()] instead
 export const arr = {
-  update: <T,>(
+  update: <T>(
     reactive: ReactiveArr<T>,
     predicate: (el: T) => boolean,
     newValue: T,
@@ -141,7 +141,7 @@ export const arr = {
       return oldValue.map((entry) => (predicate(entry) ? newValue : entry));
     });
   },
-  remove: <T,>(
+  remove: <T>(
     reactive: ReactiveArr<T>,
     predicate: (el: T) => boolean,
   ): void => {
@@ -149,7 +149,7 @@ export const arr = {
       return oldValue.filter((el) => !predicate(el));
     });
   },
-  findExact: <T,>(
+  findExact: <T>(
     reactive: ReactiveArr<T>,
     predicate: (el: T) => boolean,
   ): Reactive<T> => {
@@ -163,7 +163,7 @@ export const arr = {
       },
     );
   },
-  unpack: <T,>(reactive: ReactiveArr<T>): ListItem<T>[] => {
+  unpack: <T>(reactive: ReactiveArr<T>): ListItem<T>[] => {
     return reactive.get().map((value, index) => {
       return createReactiveArrEl<T>(
         () => value,
