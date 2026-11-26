@@ -17,7 +17,6 @@
     "format": "prettier . --write"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.12",
     "@astrojs/markdown-remark": "^7.3.10",
     "@astrojs/mdx": "8",
     "@astrojs/solid-js": "7.1.6",
