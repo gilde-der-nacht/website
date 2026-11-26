@@ -25,29 +25,27 @@ function filterBasedOnEnv(entry: Record<string, any>): boolean {
 
 <Layout title="Artikel" metaTitle="Artikel">
   <ul class="link-list" role="list">
-    {
-      articles
-        .toSorted(sortByDate)
-        .filter(filterBasedOnEnv)
-        .map((article) => (
-          <li>
-            <h2>
-              <a href={article.url}>
-                {article.frontmatter.title ?? article.frontmatter.metaTitle}
-              </a>
-            </h2>
-            <ul class="tags" role="list">
-              <li
-                class={`tag ${isFutureDate(article.frontmatter.date) ? "special-case" : ""}`}
-              >
-                {formatDate(new Date(article.frontmatter.date))}
-              </li>
-              {article.frontmatter.draft === true && (
-                <li class="tag special-case">Entwurf</li>
-              )}
-            </ul>
-          </li>
-        ))
-    }
+    {articles
+      .toSorted(sortByDate)
+      .filter(filterBasedOnEnv)
+      .map((article) => (
+        <li>
+          <h2>
+            <a href={article.url}>
+              {article.frontmatter.title ?? article.frontmatter.metaTitle}
+            </a>
+          </h2>
+          <ul class="tags" role="list">
+            <li
+              class={`tag ${isFutureDate(article.frontmatter.date) ? "special-case" : ""}`}
+            >
+              {formatDate(new Date(article.frontmatter.date))}
+            </li>
+            {article.frontmatter.draft === true && (
+              <li class="tag special-case">Entwurf</li>
+            )}
+          </ul>
+        </li>
+      ))}
   </ul>
 </Layout>

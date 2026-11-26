@@ -111,17 +111,15 @@ const secondaryNavigation: NavigationEntry[] = pages
       secondaryNavigation={secondaryNavigation}
     />
     <div class="main-wrapper">
-      {
-        fullBody ? (
+      {fullBody ? (
+        <slot />
+      ) : (
+        <main class="primary-content content">
+          {title !== undefined && title.length > 0 && <h1>{title}</h1>}
+          <ToC headings={headings} toc={toc} />
           <slot />
-        ) : (
-          <main class="primary-content content">
-            {title !== undefined && title.length > 0 && <h1>{title}</h1>}
-            <ToC headings={headings} toc={toc} />
-            <slot />
-          </main>
-        )
-      }
+        </main>
+      )}
     </div>
     <Footer development={development} />
 

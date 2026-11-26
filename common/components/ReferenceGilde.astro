@@ -28,13 +28,11 @@ const vars = VARS[event];
 >
   Ist dir das zu wenig Programm? Dann schau doch bei der Gilde der Nacht rein,
   den Organisatoren der {vars.eventName}.
-  {
-    "date" in vars ? (
-      <>
-        <br />
-        Und merk dir unbedingt das Datum fürs nächste Jahr:{" "}
-        <strong>{vars.date}</strong>.
-      </>
-    ) : null
-  }
+  {"date" in vars ? (
+    <>
+      <br />
+      Und merk dir unbedingt das Datum fürs nächste Jahr:{" "}
+      <strong>{vars.date}</strong>.
+    </>
+  ) : null}
 </Box>

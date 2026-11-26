@@ -30,22 +30,18 @@ const vars = VARS[event];
 
 <Box type="special">
   <p>
-    {
-      language === "DE"
-        ? `Die kommenden ${vars.eventName} finden am ${vars.date[language]} statt.`
-        : `The upcoming ${vars.eventName} will take place on ${vars.date[language]}.`
-    }
+    {language === "DE"
+      ? `Die kommenden ${vars.eventName} finden am ${vars.date[language]} statt.`
+      : `The upcoming ${vars.eventName} will take place on ${vars.date[language]}.`}
   </p>
 
   <br />
 
   <p>
     <strong>
-      {
-        language === "DE"
-          ? "Die Informationen und das Programm auf dieser Webseite sind vom letzten Jahr und werden noch aktualisiert."
-          : "The information and the program on this website are from last year and will be updated."
-      }
+      {language === "DE"
+        ? "Die Informationen und das Programm auf dieser Webseite sind vom letzten Jahr und werden noch aktualisiert."
+        : "The information and the program on this website are from last year and will be updated."}
     </strong>
   </p>
 </Box>

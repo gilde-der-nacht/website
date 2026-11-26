@@ -48,7 +48,7 @@ export function defineAstroConfig(props: ConfigProps): AstroUserConfig {
     },
     integrations: [solidJs(), mdx()],
     vite: {
-      plugins: [mkcert()],
+      plugins: [mkcert() as any],
     },
-  } satisfies AstroUserConfig;
+  };
 }

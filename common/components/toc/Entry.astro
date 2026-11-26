@@ -11,16 +11,12 @@ const List = ordered ? "ol" : "ul";
 ---
 
 <li>
-  <a href={"#" + entry.slug}>
-    {entry.text}
-  </a>
-  {
-    entry.sub.length > 0 && (
-      <List>
-        {entry.sub.map((subEntry) => (
-          <Astro.self entry={subEntry} ordered={ordered} />
-        ))}
-      </List>
-    )
-  }
+  <a href={"#" + entry.slug}>{entry.text}</a>
+  {entry.sub.length > 0 && (
+    <List>
+      {entry.sub.map((subEntry) => (
+        <Astro.self entry={subEntry} ordered={ordered} />
+      ))}
+    </List>
+  )}
 </li>

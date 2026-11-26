@@ -12,14 +12,12 @@ const { siteCode } = Astro.props;
 
 <div class="site-logo">
   <a href="/">
-    {
-      siteCode === "lst" ? (
-        <LstLogo />
-      ) : siteCode === "rst" ? (
-        <RstLogo />
-      ) : (
-        <GdnLogo />
-      )
-    }
+    {siteCode === "lst" ? (
+      <LstLogo />
+    ) : siteCode === "rst" ? (
+      <RstLogo />
+    ) : (
+      <GdnLogo />
+    )}
   </a>
 </div>

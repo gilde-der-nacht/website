@@ -25,7 +25,7 @@ function createConfig(): TocConfigView {
 
   const startLevel = toc === true ? 2 : toc.startLevel;
   const endLevel = toc === true ? 6 : toc.endLevel;
-  const ordered = toc === true ? false : toc.ordered ?? false;
+  const ordered = toc === true ? false : (toc.ordered ?? false);
 
   const tocView = generateTocView(headings, startLevel, endLevel);
 
@@ -37,12 +37,10 @@ const config = createConfig();
 const List = config.render && config.ordered ? "ol" : "ul";
 ---
 
-{
-  config.render && (
-    <List>
-      {config.toc.map((entry) => (
-        <Entry entry={entry} ordered={config.ordered} />
-      ))}
-    </List>
-  )
-}
+{config.render && (
+  <List>
+    {config.toc.map((entry) => (
+      <Entry entry={entry} ordered={config.ordered} />
+    ))}
+  </List>
+)}
