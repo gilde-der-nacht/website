@@ -1,12 +1,12 @@
 import type { ConfigUuid, RegistrationUuid } from "@common/utils/ids";
 import { elysium } from "@common/components/utils";
-import { z } from "astro/zod";
 import { type Reactive } from "@common/utils/reactivity";
 import { messagesInSchema } from "@registration/messages/in";
 import type { FormState } from "@registration/State";
-import { updateInitialState } from "./state/actions";
-import { createMemo } from "solid-js";
+import { trySync, updateInitialState } from "@registration/state/actions";
+import { createEffect, createMemo } from "solid-js";
 import { toSync, type Sync } from "@registration/state/sync";
+import { messagesOutSchema, type MessageOut } from "./messages/out";
 
 const connectionStatusses = [
   "INITIAL",
@@ -31,6 +31,9 @@ const endpoint = elysium("/registration/ws");
 
 export class Connection {
   ws: WebSocket;
+  send: (out: MessageOut) => void = () => {
+    throw new Error("Connection.send: Connection missing");
+  };
 
   constructor(
     configUuid: ConfigUuid,
@@ -54,6 +57,7 @@ export class Connection {
     retry: boolean = false,
   ): WebSocket {
     const socket = new WebSocket(endpoint);
+
     connectionStatus$.set(retry ? "RECONNECTING" : "CONNECTING");
 
     socket.addEventListener("message", (message) => {
@@ -62,14 +66,25 @@ export class Connection {
         if (formState$.get() === null) {
           updateInitialState(formState$, parsed.data);
 
-          const syncData = createMemo((): null | Sync<FormState> => {
+          const syncData = createMemo((): null | Sync<FormState["form"]> => {
             const state = formState$.get();
             if (state === null) {
               return state;
             }
-            return toSync(state);
+            return toSync(state.form);
           });
-          console.log(syncData());
+          createEffect(() => {
+            const data = syncData();
+            if (data !== null) {
+              trySync(
+                {
+                  currentRevision: formState$.get()?.currentRevision ?? -1,
+                  form: data,
+                },
+                this,
+              );
+            }
+          });
         }
       } else {
         console.log(parsed.error);
@@ -78,16 +93,23 @@ export class Connection {
 
     socket.addEventListener("open", () => {
       connectionStatus$.set("CONNECTED");
-      const payload: Payload = {
+      this.send = (out) => {
+        console.log(out);
+        console.log(messagesOutSchema.parse(out));
+        return socket.send(JSON.stringify(messagesOutSchema.parse(out)));
+      };
+
+      const payload: MessageOut = {
         kind: "REGISTER",
         configUuid,
         registrationUuid,
       };
-      socket.send(JSON.stringify(payload));
-      const payload2: Payload = {
+      this.send(payload);
+
+      const payload2: MessageOut = {
         kind: "REQUEST_VIEW",
       };
-      socket.send(JSON.stringify(payload2));
+      this.send(payload2);
     });
 
     socket.addEventListener("close", () => {
@@ -106,16 +128,3 @@ export class Connection {
     return socket;
   }
 }
-
-const payloadSchema = z.union([
-  z.object({
-    kind: z.literal("REGISTER"),
-    configUuid: z.uuid,
-    registrationUuid: z.uuid,
-  }),
-  z.object({
-    kind: z.literal("REQUEST_VIEW"),
-  }),
-]);
-
-type Payload = z.infer<typeof payloadSchema>;

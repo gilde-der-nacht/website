@@ -280,3 +280,16 @@ export function makeWalker<L>(
   };
   return walk;
 }
+
+export function collapse<L, T>(
+  isLeaf: (x: unknown) => x is L,
+  onLeaf: (leaf: L) => T,
+): (node: unknown) => T[] {
+  const walk = (node: unknown): T[] => {
+    if (isLeaf(node)) return [onLeaf(node)];
+    if (Array.isArray(node)) return node.flatMap(walk);
+    if (isPlainObject(node)) return Object.values(mapValues(node, walk)).flat();
+    throw new TypeError("collapse: expected a tree node");
+  };
+  return walk;
+}

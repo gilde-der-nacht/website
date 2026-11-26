@@ -1,7 +1,7 @@
 import { isPlainObject, makeWalker } from "@common/components/utils";
 import type { AnyForm, FormField } from "@registration/state/form";
 
-type SyncLeaf<T> = {
+export type SyncLeaf<T> = {
   kind: "FIELD";
   value: T;
   hasConflict: boolean;
@@ -24,4 +24,19 @@ export function toSync(form: AnyForm): unknown {
     value: field.formState,
     hasConflict: field.hasConflict,
   }))(form);
+}
+
+function isSyncLeaf(w: unknown): w is SyncLeaf<unknown> {
+  return isPlainObject(w) && w.kind === "FIELD";
+}
+
+export type Raw<T> = T extends readonly (infer I)[]
+  ? ReadonlyArray<Raw<I>>
+  : T extends SyncLeaf<infer R>
+    ? R
+    : { readonly [K in keyof T]: Raw<T[K]> };
+
+export function toRaw<T extends Sync<unknown>>(data: T): Raw<T>;
+export function toRaw<T>(data: Sync<T>): unknown {
+  return makeWalker(isSyncLeaf, (leaf) => leaf.value)(data);
 }

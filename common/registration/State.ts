@@ -12,8 +12,11 @@ import type { SaveForm } from "@registration/state/save";
 import type { Form } from "@registration/state/form";
 
 export type FormState = {
-  myAccount: Form<z.infer<typeof AccountForm.wireSchema>>;
-  save: Form<z.infer<typeof SaveForm.wireSchema>>;
+  form: {
+    myAccount: Form<z.infer<typeof AccountForm.wireSchema>>;
+    save: Form<z.infer<typeof SaveForm.wireSchema>>;
+  };
+  currentRevision: number;
 };
 
 export type AppState = {

@@ -29,13 +29,13 @@ export function Registration(props: { configUuid: ConfigUuid }): JSX.Element {
             <>
               <div>
                 <TextInputField
-                  field$={formState$.sub("myAccount").sub("name")}
+                  field$={formState$.sub("form").sub("myAccount").sub("name")}
                 />
               </div>
               <hr />
               <div>
                 <TextInputField
-                  field$={formState$.sub("myAccount").sub("email")}
+                  field$={formState$.sub("form").sub("myAccount").sub("email")}
                 />
               </div>
               <hr />

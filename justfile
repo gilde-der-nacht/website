@@ -32,6 +32,9 @@ update:
     nix flake update --flake ./.nix-env
     yarn dlx npm-check-updates -u
 
+format:
+    yarn format
+    
 # Install dependencies
 install:
     yarn install

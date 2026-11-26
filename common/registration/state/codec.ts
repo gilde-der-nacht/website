@@ -1,3 +1,4 @@
+import { mapValues } from "@common/components/utils";
 import { z } from "astro/zod";
 
 const issueSchema = z.object({
@@ -22,6 +23,14 @@ export type View =
   | FieldView<unknown, unknown>
   | { readonly [key: string]: View }
   | readonly View[];
+
+type SchemaNode<
+  W extends z.ZodType = z.ZodType,
+  R extends z.ZodType = z.ZodType,
+> = {
+  readonly wire: W;
+  readonly raw: R;
+};
 
 export function field<R, V>(config: {
   readonly raw: z.ZodType<R>;
@@ -67,19 +76,40 @@ export function field<R, V>(config: {
       validated: { status: "UNTRUSTED", issues },
     };
   });
-  return wireSchema;
+  return { wire: wireSchema, raw: config.raw };
 }
 
-export function record<W extends Record<string, z.ZodType>>(fields: W) {
-  return z.object(fields);
-}
-
-export function list<W extends z.ZodType>(item: W) {
-  return z.array(item);
-}
-
-export function defineForm<W extends z.ZodType>(form: W) {
+export function record<
+  F extends Record<string, SchemaNode<z.ZodType, z.ZodType>>,
+>(
+  fields: F,
+): SchemaNode<
+  z.ZodObject<{ [K in keyof F]: F[K]["wire"] }>,
+  z.ZodObject<{ [K in keyof F]: F[K]["raw"] }>
+> {
   return {
-    wireSchema: form,
+    wire: z.object(mapValues(fields, (field) => field.wire)),
+    raw: z.object(mapValues(fields, (field) => field.raw)),
+  };
+}
+
+export function list<I extends SchemaNode>(
+  item: I,
+): SchemaNode<
+  z.ZodReadonly<z.ZodArray<I["wire"]>>,
+  z.ZodReadonly<z.ZodArray<I["raw"]>>
+> {
+  return {
+    wire: z.array(item.wire).readonly(),
+    raw: z.array(item.raw).readonly(),
+  };
+}
+
+export function defineForm<W extends z.ZodType, R extends z.ZodType>(
+  form: SchemaNode<W, R>,
+) {
+  return {
+    wireSchema: form.wire,
+    rawSchema: form.raw,
   };
 }

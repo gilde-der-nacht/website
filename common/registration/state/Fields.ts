@@ -1,7 +1,7 @@
 import { field } from "@registration/state/codec";
 import { z } from "astro/zod";
 
-export function VersionField<T extends number>(n: T) {
+export function VersionField<const T extends number>(n: T) {
   return field({
     raw: z.literal(n),
     parsed: z.literal(n),
@@ -57,9 +57,9 @@ export function StringField() {
   });
 }
 
-export function LiteralField<U extends string[]>(union: U) {
+export function LiteralField<const U extends readonly string[]>(union: U) {
   return field({
-    raw: z.union(union.map((u) => z.literal(u))),
-    parsed: z.union(union.map((u) => z.literal(u))),
+    raw: z.enum(union).readonly(),
+    parsed: z.enum(union).readonly(),
   });
 }
