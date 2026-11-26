@@ -59,7 +59,7 @@ export const OrderDetails = (props: Props): JSX.Element => {
   } else {
     tags.push({
       label: `Deadline: ${formatDate(
-        props.order.created.plus({ minutes: props.order.timeWindow }),
+        props.order.created.add({ minutes: props.order.timeWindow }),
       )}`,
     });
   }

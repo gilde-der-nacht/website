@@ -9,7 +9,7 @@ import { OrderAPI } from "@hhh/components/webapp/api/order-api";
 import { RestaurantAPI } from "@hhh/components/webapp/api/restaurant-api";
 import type { ToastOptions } from "@hhh/components/webapp/components/static/Toast";
 import type { AppData } from "@hhh/components/webapp/util/StateTypes";
-import { DateTime } from "luxon";
+import { Temporal } from "@js-temporal/polyfill";
 
 export type ApiProps = {
   refetch: Refetcher;
@@ -20,7 +20,9 @@ export type Refetcher = (
   info?: unknown,
 ) => AppData | Promise<AppData | undefined> | null | undefined;
 
-export const loadServerResource = async (now: DateTime): Promise<AppData> => {
+export const loadServerResource = async (
+  now: Temporal.PlainDateTime,
+): Promise<AppData> => {
   const [restaurants, orders, entries] = await Promise.all([
     loadRestaurants(),
     loadRecentOrders(),

@@ -6,7 +6,7 @@ import type {
   RestaurantBase,
 } from "@hhh/components/webapp/util/BasicTypes";
 import { z } from "astro/zod";
-import { DateTime } from "luxon";
+import { Temporal } from "@js-temporal/polyfill";
 
 /* SERVER SIDE TYPES */
 
@@ -108,7 +108,7 @@ export type AppData = {
   };
   orders: { active: readonly OrderState[]; inactive: readonly OrderState[] };
   entries: { active: readonly EntryState[]; inactive: readonly EntryState[] };
-  now: DateTime;
+  now: Temporal.PlainDateTime;
 };
 
 export type AppState = {

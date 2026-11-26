@@ -5,7 +5,8 @@ import { Layout } from "@hhh/components/webapp/layout/Layout";
 import { Router } from "@hhh/components/webapp/pages/util/Router";
 import type { AppState } from "@hhh/components/webapp/util/StateTypes";
 import { setToast } from "@hhh/components/webapp/util/utils";
-import { DateTime } from "luxon";
+import { Temporal } from "@js-temporal/polyfill";
+
 import {
   createResource,
   createSignal,
@@ -16,7 +17,7 @@ import {
 import { Dynamic } from "solid-js/web";
 
 export const App = (): JSX.Element => {
-  const [now, _] = createSignal(DateTime.now());
+  const [now, _] = createSignal(Temporal.Now.plainDateTimeISO());
   const [data, { refetch }] = createResource(now, loadServerResource);
   const [state, setState] = createSignal<AppState>({
     page: "start",

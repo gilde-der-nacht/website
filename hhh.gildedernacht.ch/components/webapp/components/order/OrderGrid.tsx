@@ -68,9 +68,9 @@ export const OrderGrid = (props: Props): JSX.Element => {
     if (!hasBeenUpdated(item) && !merged.isDisabled) {
       list.push({
         label: `Deadline: ${formatDateForHumans(
-          item.created.plus({ minutes: item.timeWindow }),
+          item.created.add({ minutes: item.timeWindow }),
         )}`,
-        title: formatDate(item.created.plus({ minutes: item.timeWindow })),
+        title: formatDate(item.created.add({ minutes: item.timeWindow })),
       });
     }
     return list;

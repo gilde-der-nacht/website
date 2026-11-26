@@ -7,8 +7,7 @@ import type {
   Restaurant,
   RestaurantState,
 } from "@hhh/components/webapp/util/StateTypes";
-
-import { DateTime } from "luxon";
+import { Temporal } from "@js-temporal/polyfill";
 
 export const CUT_OFF_TIME_HOURS = 24;
 
@@ -25,8 +24,8 @@ export function aggregateServerData(serverData: {
       label: r.name,
       menuLink: r.link,
       comment: r.comment ?? "",
-      created: DateTime.fromISO(r.date_created),
-      updated: DateTime.fromISO(r.date_updated ?? r.date_created),
+      created: Temporal.PlainDateTime.from(r.date_created),
+      updated: Temporal.PlainDateTime.from(r.date_updated ?? r.date_created),
     } satisfies RestaurantState;
   });
   const restaurants = {
@@ -43,8 +42,8 @@ export function aggregateServerData(serverData: {
       orderer: o.orderer,
       timeWindow: o.time_window,
       comment: o.comment ?? "",
-      created: DateTime.fromISO(o.date_created),
-      updated: DateTime.fromISO(o.date_updated ?? o.date_created),
+      created: Temporal.PlainDateTime.from(o.date_created),
+      updated: Temporal.PlainDateTime.from(o.date_updated ?? o.date_created),
     } satisfies OrderState;
   });
   const orders = {
@@ -61,8 +60,8 @@ export function aggregateServerData(serverData: {
       eater: e.eater,
       menuItem: e.menu_item,
       comment: e.comment ?? "",
-      created: DateTime.fromISO(e.date_created),
-      updated: DateTime.fromISO(e.date_updated ?? e.date_created),
+      created: Temporal.PlainDateTime.from(e.date_created),
+      updated: Temporal.PlainDateTime.from(e.date_updated ?? e.date_created),
     } satisfies EntryState;
   });
   const entries = {

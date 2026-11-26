@@ -4,7 +4,7 @@ import type {
   AppState,
   OrderState,
 } from "@hhh/components/webapp/util/StateTypes";
-import { DateTime } from "luxon";
+import { Temporal } from "@js-temporal/polyfill";
 import type { Setter } from "solid-js";
 
 export const isEmpty = (s: string): boolean => {
@@ -22,11 +22,12 @@ export const isPromise = (p: any): p is Promise<any> => {
   return typeof p === "object" && typeof p.then === "function";
 };
 
-export const formatDate = (date: DateTime): string =>
-  date.toLocal().toLocaleString(DateTime.DATETIME_MED) + " Uhr";
+export const formatDate = (date: Temporal.PlainDateTime): string =>
+  date.toLocaleString("de-DE", { dateStyle: "medium", timeStyle: "short" }) +
+  " Uhr";
 
-export const formatDateForHumans = (date: DateTime): string =>
-  date.toLocal().toRelative({ locale: "de" }) ?? formatDate(date);
+export const formatDateForHumans = (date: Temporal.PlainDateTime): string =>
+  formatDate(date);
 
 type TimeDelta = {
   days: number;
@@ -35,15 +36,22 @@ type TimeDelta = {
   seconds: number;
 };
 
-export const getDelta = (first: DateTime, second: DateTime): TimeDelta => {
-  return first
-    .diff(second, ["days", "hours", "minutes", "seconds"])
-    .toObject() as TimeDelta;
+const getDelta = (
+  first: Temporal.PlainDateTime,
+  second: Temporal.PlainDateTime,
+): TimeDelta => {
+  const d = first.since(second, { largestUnit: "day", smallestUnit: "second" });
+  return {
+    days: d.days ?? 0,
+    hours: d.hours ?? 0,
+    minutes: d.minutes ?? 0,
+    seconds: d.seconds ?? 0,
+  };
 };
 
 export const hasBeenUpdated = (o: {
-  created: DateTime;
-  updated: DateTime;
+  created: Temporal.PlainDateTime;
+  updated: Temporal.PlainDateTime;
 }): boolean => {
   const delta = getDelta(o.updated, o.created).seconds;
   return delta > 0;

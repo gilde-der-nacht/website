@@ -2032,13 +2032,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:^3.7.6":
-  version: 3.7.6
-  resolution: "@types/luxon@npm:3.7.6"
-  checksum: 10/2bc7a58b2cf231455085314821fe9b05a8e97cef2447d8da50be0a8794f0ddfa6d4bbd18eb6259ee881be0da0d08843ce66830a30d5926a25981f91bd5f588a9
-  languageName: node
-  linkType: hard
-
 "@types/mdast@npm:^4.0.0, @types/mdast@npm:^4.0.4":
   version: 4.0.4
   resolution: "@types/mdast@npm:4.0.4"
@@ -2687,11 +2680,9 @@ __metadata:
     "@sentry/browser": "npm:11"
     "@solidjs/router": "npm:1.0.3"
     "@types/html-escaper": "npm:^3.0.4"
-    "@types/luxon": "npm:^3.7.6"
     "@types/node": "npm:^26.6.11"
     astro: "npm:7.4.13"
     core-js: "npm:3.51.0"
-    luxon: "npm:^3.7.2"
     prettier: "npm:^3.10.1"
     prettier-plugin-astro: "npm:1.1"
     rehype-autolink-headings: "npm:^7.1.0"
@@ -3786,13 +3777,6 @@ __metadata:
   dependencies:
     yallist: "npm:^3.0.2"
   checksum: 10/951d2673dcc64a7fb888bf3d13bc2fdf923faca97d89cdb405ba3dfff77e2b26e5798d405e78fcd7094c9e7b8b4dab2ddc5a4f8a11928af24a207b7c738ca3f8
-  languageName: node
-  linkType: hard
-
-"luxon@npm:^3.7.2":
-  version: 3.7.2
-  resolution: "luxon@npm:3.7.2"
-  checksum: 10/b24cd205ed306ce7415991687897dcc4027921ae413c9116590bc33a95f93b86ce52cf74ba72b4f5c5ab1c10090517f54ac8edfb127c049e0bf55b90dc2260be
   languageName: node
   linkType: hard
 

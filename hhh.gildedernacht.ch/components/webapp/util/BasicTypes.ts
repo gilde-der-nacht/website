@@ -1,4 +1,4 @@
-import { DateTime } from "luxon";
+import { Temporal } from "@js-temporal/polyfill";
 
 export type RestaurantBase = {
   kind: "restaurant";
@@ -6,8 +6,8 @@ export type RestaurantBase = {
   label: string;
   menuLink: string;
   comment: string;
-  created: DateTime;
-  updated: DateTime;
+  created: Temporal.PlainDateTime;
+  updated: Temporal.PlainDateTime;
 };
 
 export type OrderBase = {
@@ -17,8 +17,8 @@ export type OrderBase = {
   orderer: string;
   comment: string;
   timeWindow: number;
-  created: DateTime;
-  updated: DateTime;
+  created: Temporal.PlainDateTime;
+  updated: Temporal.PlainDateTime;
 };
 
 export type EntryBase = {
@@ -28,6 +28,6 @@ export type EntryBase = {
   eater: string;
   menuItem: string;
   comment: string;
-  created: DateTime;
-  updated: DateTime;
+  created: Temporal.PlainDateTime;
+  updated: Temporal.PlainDateTime;
 };
