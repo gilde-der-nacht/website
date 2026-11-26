@@ -22,10 +22,10 @@
  *  parameter 4 (optional, 1 by default): the alpha channel of the color
  */
 
- @function hsl($args...) {
-    @return #{"hsl(#{$args})"};
-  }
+@function hsl($args...) {
+  @return #{"hsl(#{$args})"};
+}
 
-  @function hsla($args...) {
-    @return hsl($args...);
-  }
+@function hsla($args...) {
+  @return hsl($args...);
+}

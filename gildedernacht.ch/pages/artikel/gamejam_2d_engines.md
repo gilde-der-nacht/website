@@ -29,21 +29,21 @@ Weiterführendes
 
 ## Engines
 
-| Name | Link | OpenSource | IDE | Entwicklungssprache |
-| - | - | - | - | - |
-| ct.js | [ctjs.rocks](https://ctjs.rocks/) | Ja [github.com](https://github.com/ct-js) | Ja | JavaScript |
-| Phaser | [phaser.io](https://phaser.io) | Ja [github.com](https://github.com/photonstorm/phaser) | Teilweise | JavaScript |
-| PixiJS | [pixijs.com](https://pixijs.com) | Ja [github.com](https://github.com/pixijs) | Nein | JavaScript |
-| GDevelop | [gdevelop.io](https://gdevelop.io) | Ja [github.com](https://github.com/4ian/GDevelop) | Ja | Event/Action Board, JavaScript |
-| Godot | [godotengine.org](https://godotengine.org/) | Ja [github.com](https://github.com/) | Ja | GDScript, C#, C++, Visual Scripting |
-| Impact | [impactjs.com](https://impactjs.com) | ??? [github.com](https://github.com/phoboslab/Impact) | Teilweise | JavaScript |
-| Melon JS | [melonjs.org](https://www.melonjs.org) | Ja [github.com](https://github.com/melonjs/melonJS) | Nein | JavaScript |
-| LÖVE | [love2d.org](https://love2d.org/) | Ja [github.com](https://github.com/love2d/love) | Nein | Lua |
-| Unity | [unity.com](https://unity.com) | Nein | Ja | C# |
-| Construct 3 | [construct.net](https://www.construct.net) | Nein | Ja | Block Based, JavaScript |
-| Clickteam Fusion 2.5 | [clickteam.com](https://www.clickteam.com) | Nein | Ja | Event Editor |
-| GameMaker Studio 2 | [yoyogames.com](https://www.yoyogames.com/en/gamemaker) | Nein | Ja | GML, DND |
-| Cocos Creator | [cocos.com](https://www.cocos.com/en/creator/download) | ??? | Ja |??? |
+| Name                 | Link                                                    | OpenSource                                             | IDE       | Entwicklungssprache                 |
+| -------------------- | ------------------------------------------------------- | ------------------------------------------------------ | --------- | ----------------------------------- |
+| ct.js                | [ctjs.rocks](https://ctjs.rocks/)                       | Ja [github.com](https://github.com/ct-js)              | Ja        | JavaScript                          |
+| Phaser               | [phaser.io](https://phaser.io)                          | Ja [github.com](https://github.com/photonstorm/phaser) | Teilweise | JavaScript                          |
+| PixiJS               | [pixijs.com](https://pixijs.com)                        | Ja [github.com](https://github.com/pixijs)             | Nein      | JavaScript                          |
+| GDevelop             | [gdevelop.io](https://gdevelop.io)                      | Ja [github.com](https://github.com/4ian/GDevelop)      | Ja        | Event/Action Board, JavaScript      |
+| Godot                | [godotengine.org](https://godotengine.org/)             | Ja [github.com](https://github.com/)                   | Ja        | GDScript, C#, C++, Visual Scripting |
+| Impact               | [impactjs.com](https://impactjs.com)                    | ??? [github.com](https://github.com/phoboslab/Impact)  | Teilweise | JavaScript                          |
+| Melon JS             | [melonjs.org](https://www.melonjs.org)                  | Ja [github.com](https://github.com/melonjs/melonJS)    | Nein      | JavaScript                          |
+| LÖVE                 | [love2d.org](https://love2d.org/)                       | Ja [github.com](https://github.com/love2d/love)        | Nein      | Lua                                 |
+| Unity                | [unity.com](https://unity.com)                          | Nein                                                   | Ja        | C#                                  |
+| Construct 3          | [construct.net](https://www.construct.net)              | Nein                                                   | Ja        | Block Based, JavaScript             |
+| Clickteam Fusion 2.5 | [clickteam.com](https://www.clickteam.com)              | Nein                                                   | Ja        | Event Editor                        |
+| GameMaker Studio 2   | [yoyogames.com](https://www.yoyogames.com/en/gamemaker) | Nein                                                   | Ja        | GML, DND                            |
+| Cocos Creator        | [cocos.com](https://www.cocos.com/en/creator/download)  | ???                                                    | Ja        | ???                                 |
 
 ## Anmerkungen
 
@@ -94,7 +94,7 @@ Eine lose und opinionated Sammlung von Fragen und Gedanken zu den jeweiligen Eng
 - GDevelop
   - Rotationen gehen im Uhrzeigersinn, was wahrscheinlich anders ist als bei der grossen Mehrheit. Das könnte unter Umständen für Änfänger einfacher sein, weil es wie eine Uhr ist, aber dann wäre es konsequenter gewesen die 0° dann auch oben zu machen, was aber nicht der Fall ist.
   - Eine Änderung im Event Board kann man sofort ausprobieren, ohne etwas zu speichern.
-  - Es scheint relativ aufwändig automatisch Aktionen nacheinander ausführen zu lassen z.B. Führe Tween-1 dann Tween-2 und dann Tween-3  aus.
+  - Es scheint relativ aufwändig automatisch Aktionen nacheinander ausführen zu lassen z.B. Führe Tween-1 dann Tween-2 und dann Tween-3 aus.
 - Cocos Creator
   - Software muss über ein zusätzliche Software (wie Unity) runtergeladen werden.
   - Editor scheint für Windows oder Mac zu funktionieren.

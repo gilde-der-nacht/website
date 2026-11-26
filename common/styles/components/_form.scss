@@ -7,7 +7,7 @@ form {
     margin-bottom: 1em;
   }
 
-  >p {
+  > p {
     max-inline-size: 100%;
   }
 }
@@ -26,8 +26,8 @@ textarea {
 label {
   @include f.font-weight(700);
 
-  >input:not([type="checkbox"]):not([type="radio"]),
-  >textarea {
+  > input:not([type="checkbox"]):not([type="radio"]),
+  > textarea {
     margin-top: 0.5rem;
     @include f.font-weight();
   }
@@ -45,7 +45,7 @@ textarea {
     cursor: not-allowed;
     background-color: transparent !important;
 
-    &[type=checkbox] {
+    &[type="checkbox"] {
       background-color: var(--clr-gray-11) !important;
     }
   }
@@ -82,7 +82,6 @@ button {
   color: c.get("accent");
 
   &:not(.button-no-event) {
-
     &:hover,
     &:active {
       color: c.get("accent-hover");
@@ -96,7 +95,6 @@ button {
   color: c.getSuccess("text-low-contrast");
 
   &:not(.button-no-event) {
-
     &:hover,
     &:active {
       background-color: c.getSuccess("background-subtle");
@@ -111,7 +109,6 @@ button {
   color: c.getDanger("text-low-contrast");
 
   &:not(.button-no-event) {
-
     &:hover,
     &:active {
       background-color: c.getDanger("background-subtle");
@@ -126,7 +123,6 @@ button {
   color: c.getSpecial("text-low-contrast");
 
   &:not(.button-no-event) {
-
     &:hover,
     &:active {
       background-color: c.getSpecial("background-subtle");
@@ -141,7 +137,6 @@ button {
   color: c.getWarning("text-low-contrast");
 
   &:not(.button-no-event) {
-
     &:hover,
     &:active {
       background-color: c.getWarning("background-subtle");
@@ -156,7 +151,6 @@ button {
   color: c.getGray("text-low-contrast");
 
   &:not(.button-no-event) {
-
     &:hover,
     &:active {
       background-color: c.getGray("background-subtle");
@@ -174,7 +168,6 @@ button {
   border-radius: unset;
 
   &:not(.button-no-event) {
-
     &:hover,
     &:active {
       background: unset;
@@ -186,7 +179,6 @@ button {
     color: c.getDanger("text-low-contrast");
 
     &:not(.button-no-event) {
-
       &:hover,
       &:active {
         color: c.getDanger("text-high-contrast");
@@ -210,7 +202,6 @@ button {
     background-color: transparent;
   }
 }
-
 
 .checkbox-list,
 .radio-list {
@@ -254,7 +245,9 @@ button {
     align-items: center;
     grid: [track] 1fr / [track] 1fr;
 
-    transition: background-color 0.25s ease, transform 0.25s ease,
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease,
       box-shadow 0.25s ease;
 
     &::before {
@@ -302,7 +295,6 @@ button {
     font-weight: normal;
   }
 }
-
 
 fieldset {
   border: 0;

@@ -16,8 +16,8 @@ jobs:
     strategy:
       matrix:
         include:
-         - site: spieltage
-           siteCode: lst
+          - site: spieltage
+            siteCode: lst
 
     steps:
       - uses: actions/checkout@v4

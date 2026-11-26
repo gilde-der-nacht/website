@@ -16,7 +16,7 @@ _Keiner der folgenden Link ist ein [Affiliate-Link](https://de.wikipedia.org/wik
 
 [Story Generator (tvtropes.org)](https://tvtropes.org/pmwiki/storygen.php)
 
-Die Internetseite [tvtropes.org](https://tvtropes.org) selber ist eine Fundgrube mit einer Unzahl an Ideen. Tausende von Bücher, Filmen, Videospielen, Comics, ... werden nach Gemeinsamkeiten (unter anderem den nammensstifftenden [Tropen](https://de.wikipedia.org/wiki/Tropus_(Rhetorik))) analysiert.
+Die Internetseite [tvtropes.org](https://tvtropes.org) selber ist eine Fundgrube mit einer Unzahl an Ideen. Tausende von Bücher, Filmen, Videospielen, Comics, ... werden nach Gemeinsamkeiten (unter anderem den nammensstifftenden [Tropen](<https://de.wikipedia.org/wiki/Tropus_(Rhetorik)>)) analysiert.
 
 [Plot Generator (plot-generator.org.uk)](https://www.plot-generator.org.uk)
 

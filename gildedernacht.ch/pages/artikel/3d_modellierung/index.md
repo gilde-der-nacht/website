@@ -14,7 +14,7 @@ Hinweis: Dieses Dokument ist die Grundlage für ein Workshop. Viele Begriffe wer
 
 Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen möglichst effizient unterschiedlichste Modelle erstellen zu können. Die Ästhetik steht im Vordergrund.
 
-- [Blender](https://www.blender.org/): Modellierung, Animationen, Texturen, Simulation, Visualisierung, VFX, ... ***OpenSource***
+- [Blender](https://www.blender.org/): Modellierung, Animationen, Texturen, Simulation, Visualisierung, VFX, ... _**OpenSource**_
 - [SketchUp](https://www.sketchup.com/products/sketchup-for-web): Modellierung für Anfänger
 
 ### Software Ingenieur:innen
@@ -22,11 +22,11 @@ Der Fokus liegt darauf mit einer grossen Anzahl an verschiedenen Werkzeugen mög
 Der Fokus ist oft dass man das Resultat irgendwie produziert (Fräsen, 3D Drucken, ...). In der Produktion sind unter anderem Reproduzierbarkeit, Massangaben und Toleranzen wichtig.
 
 - [BlocksCAD](https://www.blockscad3d.com/): Grafische Oberfläche für OpenSCAD
-- [FreeCAD](https://www.freecadweb.org/): CAD Programm ***OpenSource***
+- [FreeCAD](https://www.freecadweb.org/): CAD Programm _**OpenSource**_
 - [Fusion 360](https://www.autodesk.com/products/fusion-360/personal): Professionelles CAD Programm (zwingende Anmeldung)
-- [LeoCAD](https://www.leocad.org/): Modelle mit Klemm-Bausteinen aufbauen ***OpenSource***
-- [OpenJSCAD](https://openjscad.com/): Online Variante von OpenSCAD ***OpenSource***
-- [OpenSCAD](https://openscad.org/): Modelle mit Text aufbauen ***OpenSource***
+- [LeoCAD](https://www.leocad.org/): Modelle mit Klemm-Bausteinen aufbauen _**OpenSource**_
+- [OpenJSCAD](https://openjscad.com/): Online Variante von OpenSCAD _**OpenSource**_
+- [OpenSCAD](https://openscad.org/): Modelle mit Text aufbauen _**OpenSource**_
 - [TinkerCAD](https://www.tinkercad.com/): Eingeschränktes aber einfaches CAD Programm
 
 ### Schwierigkeitsgrade
@@ -58,24 +58,24 @@ Was benötigt man
 
 ### Shortcuts
 
-| Taste | Aktion |
-| - | - |
-| Numpad 3 | View From X / Right |
-| Numpad 1 | View From Y / Front |
-| Numpad 7 | View From Z / Top |
-| Mittlere Maustaste | View Rotate |
-| Shift + Mittlere Maustaste | View Move |
-| Numpad . | View Focus |
-| Tab | Object/Edit Mode |
-| G | Move |
-| S | Scale |
-| R | Rotate |
-| E | Extrude |
-| 1 | Vertex Select Mode |
-| 2 | Edge Select Mode |
-| 3 | Face Select Mode |
-| Alt + Z | X-Ray Mode |
-| F3 | Search |
+| Taste                      | Aktion              |
+| -------------------------- | ------------------- |
+| Numpad 3                   | View From X / Right |
+| Numpad 1                   | View From Y / Front |
+| Numpad 7                   | View From Z / Top   |
+| Mittlere Maustaste         | View Rotate         |
+| Shift + Mittlere Maustaste | View Move           |
+| Numpad .                   | View Focus          |
+| Tab                        | Object/Edit Mode    |
+| G                          | Move                |
+| S                          | Scale               |
+| R                          | Rotate              |
+| E                          | Extrude             |
+| 1                          | Vertex Select Mode  |
+| 2                          | Edge Select Mode    |
+| 3                          | Face Select Mode    |
+| Alt + Z                    | X-Ray Mode          |
+| F3                         | Search              |
 
 ### Funktionen
 
@@ -114,51 +114,61 @@ Blender: Eevee, Cycles
 ### Beispiele
 
 #### Airplane
+
 Mirror Modifier & Subdivision Modifier
 ![Airplane](/artikel/3d_modellierung/airplane.jpg)
 [Airplane](/artikel/3d_modellierung/airplane.blend)
 
 #### Rope
+
 Array Modifier & Screw Modifier & Curve Modifier
 ![Rope](/artikel/3d_modellierung/rope.jpg)
 [Rope](/artikel/3d_modellierung/rope.blend)
 
 #### Cloth
+
 Cloth Simulation & Collision Simulation & Vertex Group
 ![Cloth](/artikel/3d_modellierung/cloth.jpg)
 [Cloth](/artikel/3d_modellierung/cloth.blend)
 
 #### Terrain
+
 Displace Modifier & ColorRamp Material
 ![Terrain](/artikel/3d_modellierung/terrain.jpg)
 [Terrain](/artikel/3d_modellierung/terrain.blend) & [Terrain Heightmap](/artikel/3d_modellierung/wikipedia-heightmap.png)
 
 #### Comic
+
 Z-Fighting & Smooth/Flat Shading & ColorRamp Material
 ![Comic](/artikel/3d_modellierung/comic.jpg)
 [Comic](/artikel/3d_modellierung/comic.blend)
 
 #### Robot
+
 Texture & Parenting & Animation
 ![Robot](/artikel/3d_modellierung/robot.jpg)
 [Robot](/artikel/3d_modellierung/robot.blend) & [Robot Texture](/artikel/3d_modellierung/robot.png)
 
 #### Water
+
 Fluid Simulation & Glass Material
 ![Water](/artikel/3d_modellierung/water.jpg)
 [Water](/artikel/3d_modellierung/water.blend)
 
 #### Body
+
 Bones & Skin Modifier
 ![Body](/artikel/3d_modellierung/body.jpg)
 [Body](/artikel/3d_modellierung/body.blend)
 
 #### Cloud
+
 Volumetrics & Voronoi Texture
 ![Cloud](/artikel/3d_modellierung/cloud.jpg)
 [Cloud](/artikel/3d_modellierung/cloud.blend)
 
 #### VFX
+
 Tracker & Solve Camera Motion
 ![VFX](/artikel/3d_modellierung/vfx.jpg)
 [VFX](/artikel/3d_modellierung/vfx.blend) & [VFX Video](/artikel/3d_modellierung/vfx.mp4)

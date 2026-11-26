@@ -35,7 +35,7 @@ date: 2022-02-04
   - ???
 - Ironsworn
   - Jeder Charakter hat, unabhängig von den anderen, Initiative oder nicht.
-  - Ob man Initiative hat oder nicht, beinflusst welche *Moves* man durchführen darf
+  - Ob man Initiative hat oder nicht, beinflusst welche _Moves_ man durchführen darf
   - Die Reihenfolge bei mehreren Spielern wird aber so gewählt wie es narrativ sinnvoll erscheint.
 - Shadow of the Demon Lord
   - Jeder Spieler entscheidet sich ob er schnell oder langsam handeln wird.

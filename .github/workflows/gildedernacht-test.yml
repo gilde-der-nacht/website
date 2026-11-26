@@ -16,8 +16,8 @@ jobs:
     strategy:
       matrix:
         include:
-         - site: gildedernacht
-           siteCode: gdn
+          - site: gildedernacht
+            siteCode: gdn
 
     steps:
       - uses: actions/checkout@v4

@@ -89,24 +89,24 @@ toc: true
 
 ## Weltenbau mit Rollenspielen
 
-| Spiel | Thematik | Weltenbau | Link |
-| - | - | - | - |
-| Microscope | Geschichte | ☆☆☆ | [lamemage.com](https://www.lamemage.com/microscope/) |
-| Kingdom | Königreich | ☆☆☆ | [lamemage.com](https://www.lamemage.com/kingdom/) |
-| Union | Familie | ☆☆☆ | [lamemage.com](https://www.lamemage.com/union/) |
-| Street Magic | Stadt, Charaktere | ☆☆☆ | [itch.io](https://seaexcursion.itch.io/street-magic) |
-| Dialect | Sprache | ☆☆☆ | [thornygames.com](https://thornygames.com/pages/dialect) |
-| Sign | Sprache | ☆☆☆ | [thornygames.com](https://thornygames.com/pages/sign) |
-| Ex Umbra | Dungeon | ☆☆☆ | [itch.io](https://sharkbombs.itch.io/ex-umbra) |
-| Ex Novo | Stadt | ☆☆☆ | [itch.io](https://sharkbombs.itch.io/ex-novo) |
-| Questlandia | Karte, Charaktere | ☆☆ | [itch.io](https://turtlebun.itch.io/questlandia) |
-| technoir | Story | ☆☆ | [drivethrurpg.com](https://www.drivethrurpg.com/product/93378/Technoir) |
-| Stars Without Number | Galaxy, Fraktionen | ☆☆ | [drivethrurpg.com](https://www.drivethrurpg.com/product/230009/Stars-Without-Number-Revised-Edition-Free-Version) |
-| Worlds Without Number | Geographie, Nation | ☆☆ | [drivethrurpg.com](https://www.drivethrurpg.com/product/348809/Worlds-Without-Number-Free-Edition) |
-| The Quiet Year | Karte | ☆☆ | [buriedwithoutceremony.com](https://buriedwithoutceremony.com/the-quiet-year) |
-| Beak Feather Bone | Karte | ☆☆ | [kickstarter.com](https://www.kickstarter.com/projects/1013756372/beak-feather-and-bone-a-map-labeling-rpg) |
-| Beyond the Wall | Dorf | ☆ | [system-matters.de](https://www.system-matters.de/spiele/beyond-the-wall/) |
-| Apocalypse World 2 | Welt | ☆ | [kickstarter.com](https://www.kickstarter.com/projects/lumpleygames/apocalypse-world-2nd-edition?lang=de) |
+| Spiel                 | Thematik           | Weltenbau | Link                                                                                                              |
+| --------------------- | ------------------ | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| Microscope            | Geschichte         | ☆☆☆       | [lamemage.com](https://www.lamemage.com/microscope/)                                                              |
+| Kingdom               | Königreich         | ☆☆☆       | [lamemage.com](https://www.lamemage.com/kingdom/)                                                                 |
+| Union                 | Familie            | ☆☆☆       | [lamemage.com](https://www.lamemage.com/union/)                                                                   |
+| Street Magic          | Stadt, Charaktere  | ☆☆☆       | [itch.io](https://seaexcursion.itch.io/street-magic)                                                              |
+| Dialect               | Sprache            | ☆☆☆       | [thornygames.com](https://thornygames.com/pages/dialect)                                                          |
+| Sign                  | Sprache            | ☆☆☆       | [thornygames.com](https://thornygames.com/pages/sign)                                                             |
+| Ex Umbra              | Dungeon            | ☆☆☆       | [itch.io](https://sharkbombs.itch.io/ex-umbra)                                                                    |
+| Ex Novo               | Stadt              | ☆☆☆       | [itch.io](https://sharkbombs.itch.io/ex-novo)                                                                     |
+| Questlandia           | Karte, Charaktere  | ☆☆        | [itch.io](https://turtlebun.itch.io/questlandia)                                                                  |
+| technoir              | Story              | ☆☆        | [drivethrurpg.com](https://www.drivethrurpg.com/product/93378/Technoir)                                           |
+| Stars Without Number  | Galaxy, Fraktionen | ☆☆        | [drivethrurpg.com](https://www.drivethrurpg.com/product/230009/Stars-Without-Number-Revised-Edition-Free-Version) |
+| Worlds Without Number | Geographie, Nation | ☆☆        | [drivethrurpg.com](https://www.drivethrurpg.com/product/348809/Worlds-Without-Number-Free-Edition)                |
+| The Quiet Year        | Karte              | ☆☆        | [buriedwithoutceremony.com](https://buriedwithoutceremony.com/the-quiet-year)                                     |
+| Beak Feather Bone     | Karte              | ☆☆        | [kickstarter.com](https://www.kickstarter.com/projects/1013756372/beak-feather-and-bone-a-map-labeling-rpg)       |
+| Beyond the Wall       | Dorf               | ☆         | [system-matters.de](https://www.system-matters.de/spiele/beyond-the-wall/)                                        |
+| Apocalypse World 2    | Welt               | ☆         | [kickstarter.com](https://www.kickstarter.com/projects/lumpleygames/apocalypse-world-2nd-edition?lang=de)         |
 
 ☆☆☆: Die Mehrheit der Kapitel beschäftigt sich mit Weltenbau. Hat vereinzelt Rollenspielelemente.
 

@@ -8,7 +8,11 @@ toc: false
 import { Box } from "@common/components/Box.tsx";
 import flyer from "../images/one-shot-night/oneshotnight.png";
 import { Picture } from "astro:assets";
-import { ImageText, ImageTextLeft, ImageTextRight } from "@common/components/ImageText.tsx";
+import {
+  ImageText,
+  ImageTextLeft,
+  ImageTextRight,
+} from "@common/components/ImageText.tsx";
 import { ButtonLink } from "@common/components/ButtonLink.tsx";
 
 <ImageText>
@@ -16,13 +20,14 @@ import { ButtonLink } from "@common/components/ButtonLink.tsx";
 <ImageTextLeft>
 
 <div style="display: flex; gap: 1ch;">
-  <strong>
-    Wann:
-  </strong>
+  <strong>Wann:</strong>
   <span>
-    Samstag, 14. November 2026,<br/>
-    Samstag, 27. Februar 2027,<br/>
-    Samstag, 1. Mai 2027<br/>
+    Samstag, 14. November 2026,
+    <br />
+    Samstag, 27. Februar 2027,
+    <br />
+    Samstag, 1. Mai 2027
+    <br />
     <em>jeweils von 17.30 bis 21.00 Uhr</em>
   </span>
 </div>
@@ -42,7 +47,11 @@ Der Event ist organisiert von [Penandpaper.blog](https://penandpaper.blog) und _
 <ImageTextRight>
 
 <figure aria-labelledby="caption-flyer">
-  <Picture src={flyer} formats={['avif', 'webp', 'jpg']} alt="Flyer One-Shot-Night" />
+  <Picture
+    src={flyer}
+    formats={["avif", "webp", "jpg"]}
+    alt="Flyer One-Shot-Night"
+  />
   <figcaption id="caption-flyer">Flyer One-Shot-Night</figcaption>
 </figure>
 
@@ -50,12 +59,15 @@ Der Event ist organisiert von [Penandpaper.blog](https://penandpaper.blog) und _
 
 </ImageText>
 
-
 ## Programm
 
 ### Samstag 14. November 2026
 
-<ButtonLink kind="accent" link="https://bvl.ch/veranstaltungen?dfxid=1374277" label="Eintrag Stadtbibliothek Luzern" />
+<ButtonLink
+  kind="accent"
+  link="https://bvl.ch/veranstaltungen?dfxid=1374277"
+  label="Eintrag Stadtbibliothek Luzern"
+/>
 
 #### Vaesen
 
@@ -79,7 +91,8 @@ Spielleitung: _Nikita_ \
 Max. Anzahl Spielende: _4_
 
 <Box type="special">
-  Das Programm für den 27. Februar und 1. Mai 2027 folgt zu einem späteren Zeitpunkt.
+  Das Programm für den 27. Februar und 1. Mai 2027 folgt zu einem späteren
+  Zeitpunkt.
 </Box>
 
 ## Anmeldung
@@ -91,6 +104,6 @@ Sofort anmelden! Mail an [murphy@penandpaper.blog](mailto:murphy@penandpaper.blo
 <Box type="success" link="https://rollenspieltage.ch/" linkLabel="Luzerner Rollenspieltage 2027">
   Nicht vergessen, auch 2027 sind wieder die Luzerner Rollenspieltage
 
-  (21. + 22. August 2027)
-</Box>
+(21. + 22. August 2027)
 
+</Box>

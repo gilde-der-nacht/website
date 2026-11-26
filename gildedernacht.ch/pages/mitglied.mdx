@@ -6,12 +6,14 @@ metaTitle: Mitglied werden
 import GenericForm from "@common/components/GenericForm.astro";
 
 # Werde ein Gilde der Nacht Mitglied
- 
-<GenericForm elements={{
-  name: { type: "text", label: "Name", required: true },
-  address: { type: "textarea", label: "Adresse" },
-  email: { type: "email", label: "E-Mail", required: true },
-  birthday: { type: "date", label: "Geburtsdatum" },
-  mobil: { type: "tel", label: "Mobil" },
-  message: { type: "textarea", label: "Kommentar" },
-}}/>
+
+<GenericForm
+  elements={{
+    name: { type: "text", label: "Name", required: true },
+    address: { type: "textarea", label: "Adresse" },
+    email: { type: "email", label: "E-Mail", required: true },
+    birthday: { type: "date", label: "Geburtsdatum" },
+    mobil: { type: "tel", label: "Mobil" },
+    message: { type: "textarea", label: "Kommentar" },
+  }}
+/>

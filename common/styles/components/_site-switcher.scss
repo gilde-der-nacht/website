@@ -14,7 +14,7 @@
 }
 
 .logo {
-  >a {
+  > a {
     @include p.element;
     padding: 1rem;
     text-decoration: none;
@@ -61,13 +61,13 @@
   flex-wrap: wrap;
   gap: 1rem;
 
-  >* {
+  > * {
     flex-grow: 1;
     flex-basis: calc((50rem - 100%) * 999);
   }
 
   > :nth-last-child(n + 5),
-  > :nth-last-child(n + 5)~* {
+  > :nth-last-child(n + 5) ~ * {
     flex-basis: 100%;
   }
 }

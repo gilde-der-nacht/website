@@ -55,72 +55,72 @@ toc: true
 
 ### Februar
 
-| Datum | Bemerkungen |
-| --- | --- |
-| 3. - 5. | |
+| Datum     | Bemerkungen        |
+| --------- | ------------------ |
+| 3. - 5.   |                    |
 | 10. - 12. | Fasnachtsferien LU |
 | 17. - 19. | Fasnachtsferien LU |
 | 24. - 26. | Fasnachtsferien LU |
 
 ### März
 
-| Datum | Bemerkungen |
-| --- | --- |
-| 3. - 5. | |
-| 10. - 12. | |
+| Datum     | Bemerkungen         |
+| --------- | ------------------- |
+| 3. - 5.   |                     |
+| 10. - 12. |                     |
 | 17. - 19. | Joseftag (Feiertag) |
-| 24. - 26. | |
-| 31. - 2. | |
+| 24. - 26. |                     |
+| 31. - 2.  |                     |
 
 ### April
 
-| Datum | Bemerkungen |
-| --- | --- |
-| 7. - 9. | Osterferien LU BE |
-| 14. - 16. | Osterferien LU BE |
+| Datum     | Bemerkungen          |
+| --------- | -------------------- |
+| 7. - 9.   | Osterferien LU BE    |
+| 14. - 16. | Osterferien LU BE    |
 | 21. - 23. | Osterferien LU BE ZH |
-| 28. - 30. | Osterferien ZH |
+| 28. - 30. | Osterferien ZH       |
 
 ### Mai
 
-| Datum | Bemerkungen |
-| --- | --- |
-| 5. - 7. | Osterferien ZH |
-| 12. - 14. | |
+| Datum     | Bemerkungen               |
+| --------- | ------------------------- |
+| 5. - 7.   | Osterferien ZH            |
+| 12. - 14. |                           |
 | 19. - 21. | Auffahrt (Fantasy Basel?) |
-| 26. - 28. | Pfingsten |
+| 26. - 28. | Pfingsten                 |
 
 ### Juni
 
-| Datum | Bemerkungen |
-| --- | --- |
-| 2. - 4. | |
-| 9. - 11. | Fronleichnam |
-| 16. - 18. | |
+| Datum     | Bemerkungen   |
+| --------- | ------------- |
+| 2. - 4.   |               |
+| 9. - 11.  | Fronleichnam  |
+| 16. - 18. |               |
 | 23. - 25. | Luzerner Fest |
-| 30. - 2. | |
+| 30. - 2.  |               |
 
 ### Juli
 
-| Datum | Bemerkungen |
-| --- | --- |
+| Datum   | Bemerkungen        |
+| ------- | ------------------ |
 | 7. - 9. | Sommerferien LU BE |
 
 ## Rollenspieltage 2022
 
 ### August
 
-| Datum | Bemerkungen
-| --- | ---
-| 19. - 21. | Sommerferien LU ZH
+| Datum     | Bemerkungen        |
+| --------- | ------------------ |
+| 19. - 21. | Sommerferien LU ZH |
 | 26. - 28. |
 
 ### September
 
-| Datum | Bemerkungen
-| --- | ---
-| 2. - 4. |
-| 9. - 11. | Spielnacht Basel
+| Datum     | Bemerkungen      |
+| --------- | ---------------- |
+| 2. - 4.   |
+| 9. - 11.  | Spielnacht Basel |
 | 16. - 18. |
 | 23. - 25. |
-| 30. - 2. | Herbstferien LU
+| 30. - 2.  | Herbstferien LU  |

@@ -3,24 +3,12 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "paths": {
-      "@common/*": [
-        "./common/*"
-      ],
-      "@registration/*": [
-        "./common/registration/*"
-      ],
-      "@gdn/*": [
-        "./gildedernacht.ch/*"
-      ],
-      "@lst/*": [
-        "./spieltage.ch/*"
-      ],
-      "@rst/*": [
-        "./rollenspieltage.ch/*"
-      ],
-      "@hhh/*": [
-        "./hhh.gildedernacht.ch/*"
-      ]
+      "@common/*": ["./common/*"],
+      "@registration/*": ["./common/registration/*"],
+      "@gdn/*": ["./gildedernacht.ch/*"],
+      "@lst/*": ["./spieltage.ch/*"],
+      "@rst/*": ["./rollenspieltage.ch/*"],
+      "@hhh/*": ["./hhh.gildedernacht.ch/*"]
     },
     "verbatimModuleSyntax": true,
     "jsx": "preserve",
@@ -29,9 +17,7 @@
   "contentMappers": [
     {
       "package": "@astrojs/ts-content-mapper",
-      "extensions": [
-        ".astro"
-      ]
+      "extensions": [".astro"]
     }
   ]
 }

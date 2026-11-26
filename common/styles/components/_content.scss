@@ -3,26 +3,25 @@
 @use "../globals/fonts" as f;
 
 :where(.content, details) {
-
-  >blockquote,
-  >dl,
-  >ol,
-  >p,
-  >pre,
-  >table,
-  >ul,
-  >div {
+  > blockquote,
+  > dl,
+  > ol,
+  > p,
+  > pre,
+  > table,
+  > ul,
+  > div {
     &:not(:last-child) {
       margin-bottom: 1em;
     }
   }
 
-  >h1,
-  >h2,
-  >h3,
-  >h4,
-  >h5,
-  >h6 {
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
     margin-bottom: 0.5em;
 
     &:not(:first-child) {
@@ -30,7 +29,7 @@
     }
   }
 
-  >blockquote {
+  > blockquote {
     @include p.element;
     padding: 1.25em 1.5em;
     font-style: italic;
@@ -86,7 +85,9 @@
   h4,
   h5,
   h6 {
-    a[href*="//"]:not([href*="gildedernacht.com"]):not([href*="spieltage.com"]):not([href*="rollenspieltage.com"]):not(.button)::after {
+    a[href*="//"]:not([href*="gildedernacht.com"]):not(
+        [href*="spieltage.com"]
+      ):not([href*="rollenspieltage.com"]):not(.button)::after {
       content: "↝";
       margin-inline-start: 0.25rem;
     }
@@ -101,17 +102,17 @@
     padding: 0;
   }
 
-  >blockquote,
-  >dl,
-  >ol,
-  >p:not(:empty),
-  >pre,
-  >table,
-  >ul,
-  >form,
-  >nav,
-  >details,
-  >.event-filters {
+  > blockquote,
+  > dl,
+  > ol,
+  > p:not(:empty),
+  > pre,
+  > table,
+  > ul,
+  > form,
+  > nav,
+  > details,
+  > .event-filters {
     position: relative;
 
     &::before {
@@ -139,6 +140,6 @@ details {
   }
 }
 
-details+details {
+details + details {
   margin-top: 1.5em;
 }

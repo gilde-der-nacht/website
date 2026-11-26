@@ -13,8 +13,8 @@
     "hhh-dev": "astro --config ./hhh.gildedernacht.ch/config.ts dev",
     "hhh-build": "yarn check && astro --config ./hhh.gildedernacht.ch/config.ts build",
     "build-ics": "tsx ./gildedernacht.ch/build.ts",
-    "check": "tsc --noEmit",
-    "format": "prettier **/*.ts **/*.tsx **/*.astro --write"
+    "check": "tsc --noEmit && prettier . --check",
+    "format": "prettier . --write"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",

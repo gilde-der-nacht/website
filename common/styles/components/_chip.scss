@@ -12,7 +12,9 @@
     color: c.getSpecial("text-low-contrast");
 
     &.inverted {
-      border-color: hsl(from #{c.getSpecial("background-element-hover")} h s l / 0.5);
+      border-color: hsl(
+        from #{c.getSpecial("background-element-hover")} h s l / 0.5
+      );
       color: c.getSpecial("background-subtle");
     }
   }
@@ -22,7 +24,9 @@
     color: c.getSuccess("text-low-contrast");
 
     &.inverted {
-      border-color: hsl(from #{c.getSuccess("background-element-hover")} h s l / 0.5);
+      border-color: hsl(
+        from #{c.getSuccess("background-element-hover")} h s l / 0.5
+      );
       color: c.getSuccess("background-subtle");
     }
   }
@@ -32,7 +36,9 @@
     color: c.getDanger("text-low-contrast");
 
     &.inverted {
-      border-color: hsl(from #{c.getDanger("background-element-hover")} h s l / 0.5);
+      border-color: hsl(
+        from #{c.getDanger("background-element-hover")} h s l / 0.5
+      );
       color: c.getDanger("background-subtle");
     }
   }
@@ -42,7 +48,9 @@
     color: c.getWarning("text-low-contrast");
 
     &.inverted {
-      border-color: hsl(from #{c.getWarning("background-element-hover")} h s l / 0.5);
+      border-color: hsl(
+        from #{c.getWarning("background-element-hover")} h s l / 0.5
+      );
       color: c.getWarning("background-subtle");
     }
   }
@@ -52,13 +60,15 @@
     color: c.getGray("text-low-contrast");
 
     &.inverted {
-      border-color: hsl(from #{c.getGray("background-element-hover")} h s l / 0.5);
+      border-color: hsl(
+        from #{c.getGray("background-element-hover")} h s l / 0.5
+      );
       color: c.getGray("background-subtle");
     }
   }
 
   &.small {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     @include p.element-small;
     font-size: var(--step--2);
     text-transform: uppercase;

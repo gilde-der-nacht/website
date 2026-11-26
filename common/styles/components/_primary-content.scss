@@ -4,11 +4,12 @@
   display: grid;
   grid-template-columns: [full-start] 1fr [slim-start] 80vw [slim-end] 1fr [full-end];
 
-  &, & > astro-island {
+  &,
+  & > astro-island {
     > * {
       grid-column: slim;
     }
-  
+
     > .full-width {
       grid-column: full;
     }

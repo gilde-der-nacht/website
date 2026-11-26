@@ -10,7 +10,7 @@ An den Workshops an den Rollenspieltagen diskutieren wir regelmässig auftauchen
 
 ## Charaktere töten alles (aka Murderhobos)
 
-*Thomas*
+_Thomas_
 
 Auch ich habe es schon erlebt dass Spieler:innen, das töten zu schnell als einfachste Problemlösung in Betracht gezogen haben... und mich darüber als Spielleiter geärgert ... über die einfältigen Spieler:innen. Auch der Versuch moralisch schwierigere Probleme zu stellen ist schon gescheitert. Heute sehe ich aber vor allem als Spielleiter Problem, hier also meines. Das handeln der Spieler:innen hatte zu wenig fühlbare negative Konsequenzen. Das töten geht schnell. Aus den Taschen der Leichen kann man Geld und nette Gegenstände einsacken. Und wenn das Spielsystem XP für das töten gibt, ist meucheln sogar in dieser Hinsicht die beste Lösung. Die letzte Ruhe erspart man den Toten auch, hat ja Wölfe im nächsten Gebüsch. Maximale Effektivität.
 
@@ -24,7 +24,7 @@ Beispiel Shadow of the Demon Lord: Spieler die schreckliche Taten verüben, kön
 
 ## Spieler-Charakter stirbt?
 
-*Thomas*
+_Thomas_
 
 Das Thema Sterben ist für mich eine Grundfrage vor der ersten Spielrunde. Inwieweit ist sterben für die Spieler überhaupt relevant. Es gibt eine Unzahl an Herausforderungen und Konflikten die nichts mit Lebenspunkten zu tun haben. In solcherlei Konflikten kann niemand sterben was aber der Qualität der Rollenspiels keinerlei schadet. Anderseits gibt es Rollenspiele die ganz bewusst darauf ausgelegt dass man sterben kann und man sich schon einen Ersatzcharakter vorbereiten kann oder ein Spielsystem nimmt wo das erstellen sehr schnell von der Hand geht.
 
@@ -48,7 +48,7 @@ Beispiel technoir: Das ganze Spielsystem baut drauf auf dass sich Mitspieler und
 
 ## Ganze Gruppe stirbt?
 
-*Thomas*
+_Thomas_
 
 Idealerweise lässt man es gar nie so weit kommen. Einige Spielsystem bei denen der Tot überhaupt möglich ist, haben Regeln die zuerst zu einer Bewusstlosigkeit führen und erst später zum Tod. Solange nur alle bewusstlos sind, sind quasi immer noch viele Möglichkeiten offen: Ausnahmsweise fremde Hilfe, Täter wird zum Opfer von etwas anderem, ...
 
@@ -58,13 +58,13 @@ Anderseits gibt es aber auch Spiele (West Marches) die das bewusst in Kauf nehme
 
 ## Bösewicht zu früh im Himmel?
 
-*Thomas*
+_Thomas_
 
 Das ist für die Spielleitung eigentlich nur insofern tragisch als das man vielleicht nicht weiteres vorbereitet hat und das Abenteuer nun zu früh zu Ende ist. Das kann man der Gruppe aber auch mitteilen und bis jetzt habe ich noch nie erlebt dass die Spieler:innen dafür kein Verständnis haben.
 
 Anderseits ist das primär ein Problem wenn man viel vorbereitet und der Bösewicht das klassische Ende einer vorbereiteten Geschichte ist. Wenn man aber eine Geschichte so vorbereitet dass es eine Reihe von Ideen gibt, aber die Reihenfolge beliebig ist, dann ist der Bösewicht auch nicht mehr die zentrale Hauptfigur, sondern ein Teil davon. Der Bösewicht hat vielleicht auch eine Bande hinter sich und nach dessen Tod, wird diese ihr eigenes Leben entwickeln, was positiv oder negativ sein kann.
 
-technoir: Das ganze Spielsystem ist darauf ausgelegt, dass man eine Reihe von Ideen hat und erst zusammen mit den Spieler:innen und ihren Aktionen, ergibt sich eine Geschichte. Verwendet man die exakt selben Ideen mit einer anderen Gruppe, wird sich auch eine andere Geschichte ergeben. 
+technoir: Das ganze Spielsystem ist darauf ausgelegt, dass man eine Reihe von Ideen hat und erst zusammen mit den Spieler:innen und ihren Aktionen, ergibt sich eine Geschichte. Verwendet man die exakt selben Ideen mit einer anderen Gruppe, wird sich auch eine andere Geschichte ergeben.
 
 Forbidden Lands: Ist ein auf den Mutant Year Zero basierendes, klassisches Fantasy Rollenspiel. Der grösste Unterschied zu anderen Rollenspiele ist, dass die Gruppe sich auf einer Karte bewegt, fast wie einem Brettspiel. Für jedes Feld gibt Standardaktionen wie Nahrungsbeschaffung, Bauen (kann auch eine Burg sein, wenn sie Gruppe denn Zeit nimmt) und vieles mehr, aber auch immer wieder so Häppchen an kleinen Abenteuern. Es ist daher eigentlich unmöglich dass einem der Stoff ausgeht.
 
@@ -72,7 +72,7 @@ Ironsworn: Hat vielleicht eine der eleganteste Lösungen für diese Problem: Die
 
 ## Gruppe teilt sich auf?
 
-*Thomas*
+_Thomas_
 
 Grundsätzlich ist das erst ein Problem wenn das aufteilen dazu führt dass einzelne Charaktere für längere Zeit warten müssen und am Spieltisch gar nichts mehr machen können. Wenn jeder Spieler in seinem Lieblingsladen etwas einkaufen geht, bekommt jeder seine 2 Minuten. Alle hatten ihr Rampenlicht und in Kürze sind auch alle wieder beieinander.
 
@@ -90,7 +90,7 @@ Beispiel Computerspiel Watch Dogs: Hat für Hacker in interessantes Konzept dass
 
 ## Magier/Hacker verliert sich in Listen und Tabellen?
 
-*Thomas*
+_Thomas_
 
 Leider ist gibt es diverse Rollenspiele bei denen sind einzelne Klassen wesentlich komplexer als andere. Das wäre vielleicht noch erträglicher wenn die Komplexität erst mit der Zeit ansteigt, aber auch das ist dann oft nicht der Fall. Z.B. hat ein Hacker in Shadowrun von Anfang nahezu alle Möglichkeiten die es im ganzen Spiel gibt. Da einzige was sich mit der Zeit ändert ist, dass die Werte des Hacker steigen. Als Spielleiter sollte man sich dem bewusst sein und von einem Spieler der eine solche Rolle übernehmen möchte entsprechend folgendes verlangen: Dass er sich selbstständig mit dem Thema beschäftigt und sich vorbereitet, dass er sich eine Liste vorbereitet mit seinen wichtigsten Aktionen/Sprüchen damit man während dem spielen nicht ständig nach gucken muss und dass ihm bewusst sein sollte dass er, wie all anderen auch nur ein begrenzte Zeit für seinen Spielzug hat, als Fairness gegenüber der Gruppe. Wenn gutes zureden nicht hilft, kann auch hier eine Sanduhr helfen.
 
@@ -98,7 +98,7 @@ Beispiel Apocalypse World 2: Für alle Klassen die es gibt, gibt es 2-3 Seiten z
 
 ## Spieler sind wandelende Schränke? "Inventar" stimmt schon lange nicht mehr?
 
-*Thomas*
+_Thomas_
 
 Was zumindest in meinen Spielrunden etwas besser funktioniert, wenn ein Spieler das Inventar von allen verwaltet, auch das Geld der ganzen Gruppe. Andernfalls hatte ich in jeder Runde das Problem dass die Hälfte der Spieler nicht mehr weiss welche Notizzettel nun noch aktuell sind und ob das Gekritzel am Rand der Charakterbogens doch noch etwas wichtiges gewesen wäre?
 
@@ -108,7 +108,7 @@ Beispiel Blades in the Dark: Kehrt das Prinzip vom Inventar ganz um. Jeder Chara
 
 ## Spieler: würfelt ... Spielleiter: nichts passiert
 
-*Thomas*
+_Thomas_
 
 Man sollte Spieler nur dann würfeln lassen, wenn es wirklich um etwas geht. Wahrscheinlich kennt jeder die sinnlosen Orientungsproben. Der Spielleiter lässt auch alle würfeln, damit die Chance besteht dass vielleicht ein Spieler ein Erfolg hat. Wenn man aber das Spiel so dreht, dass wenn jemand würfelt und den Wurf vergeigt, irgend etwas passieren wird, dann wird plötzlich jeder Wurf interessant. Wenn Spieler eine Tür öffnen wollen und das nicht gelingt, dann hört vielleicht der Hausherr die Geräusche und wird mal nachsehen kommen. Falls du Tür zentral für das vorwärtskommen im Spiel ist gibt es zumindest folgende zwei Ideen. 1. Egal was die Spieler würfeln, die Tür ist nachher offen, das Würfelergebnis gibt aber Auskunft darüber, wie gut das gelungen ist, ein Fehlschlag bedeutet daher, dass die Spieler die Tür vielleicht aus der Angel gerissen haben, nur ist jetzt der Sicherheitsalarm vielleicht losgegangen und in wenigen Minuten wird das Haus umstellt sein. 2. Man lässt die Spieler solange würfeln, bis sie ein vorbestimmte Summe erreichen. Je mehr Würfe dafür notwendig waren, desto mehr Zeit ist verstrichen. Zeit die Antagonisten auch ihre Art nutzen können.
 
@@ -118,7 +118,7 @@ Beispiel Blades in the Dark: Genau wie PbtA wird nur gewürfelt, wenn überhaupt
 
 ## Spieler finden meine Hinweis nicht?
 
-*Thomas*
+_Thomas_
 
 Wenn ein Hinweis wichtig für die Story ist dann sollte man ihn den Spielern auch immer geben, unabhängig von einem Würfelergebnis.
 
@@ -136,7 +136,7 @@ Beispiel Gumshoe: Wurde entwickelt um genau dieses Problem zu umgehen. Das zeigt
 
 ## Einbruchsplan dauert Stunden?
 
-*Thomas*
+_Thomas_
 
 <!--
 ???
@@ -146,7 +146,7 @@ Blades in the Dark: Nahezu das ganze Regelsystem ist darauf ausgelegt, dass man 
 
 ## Gruppenbegleitende übermächtige NPCs?
 
-*Thomas*
+_Thomas_
 
 Sollte meiner Meinung nach der Spielleiter so schnell wie möglich aus dem Spiel nehmen. Es fühlt sich einfach wie ein kleiner Scherz an wenn man ständig Gandalf um sich hat. Dan kann man gleich Zuhause bleiben. Ich würde mich auch schämen meinen Spielern ständig dann wenn es kritisch wird, schnell Hilfe zukommen zu lassen (habe ich sicher auch schon gemacht und es nicht mal bemerkt). Meine Spieler sind die Helden in diesem Universum. Falls Spieler Hilfe holen, sollte dieser NPC nur aussergewöhnliche Inselbegabungen haben und auch diese nur unter gewissen Bedingungen oder Einschränkungen einsetzen können.
 
@@ -156,7 +156,7 @@ Mag sein dass der NPC gerade auf seinem Höhepunkt ist, zusammen mit den Helden.
 
 ## Meine Spieler schwimmen im Geld?
 
-*Thomas*
+_Thomas_
 
 Grundsätzlich bin ich persönlich so mässig ein Fan davon Spielern etwas wegzunehmen. Sie haben ihre Schätze meistens nicht leicht verdient. Und wenn sie clever waren, soll sich auch das lohnen. Dass z.B. den Spielern Geld gestohlen wird ohne dass sie es etwas dagegen tun können würde ich ablehnen.
 
@@ -174,7 +174,7 @@ Mutant Jahr Null: Bei Mutant Jahr Null, spielt ein relevanter Teil des Spiels in
 
 ## Zusammenfassung
 
-*Thomas*
+_Thomas_
 
 Aktionen sollten immer Konsequenzen habe, aka Karma.
 

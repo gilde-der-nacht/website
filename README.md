@@ -19,4 +19,3 @@ Our web pages are mainly static and are being hosted on Github Pages.
 - [test.spieltage.ch](https://github.com/gilde-der-nacht/test.spieltage.ch)
 - [test.rollenspieltage.ch](https://github.com/gilde-der-nacht/test.rollenspieltage.ch)
 - [test.tabletoptage.ch](https://github.com/gilde-der-nacht/test.tabletoptage.ch)
-

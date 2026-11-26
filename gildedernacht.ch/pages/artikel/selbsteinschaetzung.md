@@ -23,66 +23,66 @@ Robin's Law Of Good Game Mastering (Robin D. Laws, Steve Jackson Games, 2002, [s
 
 ## What I Like Glossary
 
-***Agon***: Der Nervenkitzel, gegen eine andere Person am Tisch zu gewinnen.
+_**Agon**_: Der Nervenkitzel, gegen eine andere Person am Tisch zu gewinnen.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Alea***: Der Nervenkitzel, ein grosses Risiko einzugehen. Die Spannung, beim Gewinnen oder Verlieren.
+_**Alea**_: Der Nervenkitzel, ein grosses Risiko einzugehen. Die Spannung, beim Gewinnen oder Verlieren.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Catharsis***: Das Gefühl einer Erleichterung, nach einer intensiven Spielerfahrung.
+_**Catharsis**_: Das Gefühl einer Erleichterung, nach einer intensiven Spielerfahrung.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Closure***: Das beendigen einer Sache. Auftrag erledigt!
+_**Closure**_: Das beendigen einer Sache. Auftrag erledigt!
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Expression***: Am Tisch kreativ sein.
+_**Expression**_: Am Tisch kreativ sein.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Fiero***: Der Triumph eine Herausforderung zu bewältigen.
+_**Fiero**_: Der Triumph eine Herausforderung zu bewältigen.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Humour***: Das Lachen am Tisch.
+_**Humour**_: Das Lachen am Tisch.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Kairosis***: Gefühl der Erfüllung. Der Charakter wurde getestet und hat sich verändert.
+_**Kairosis**_: Gefühl der Erfüllung. Der Charakter wurde getestet und hat sich verändert.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Kenosis***: Sich mit seinem Charakter tief in die Fiktion einzulassen. Eine Form von Immersion.
+_**Kenosis**_: Sich mit seinem Charakter tief in die Fiktion einzulassen. Eine Form von Immersion.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Kinesis***: Haptik. Würfel oder Figuren berühren und verschieben.
+_**Kinesis**_: Haptik. Würfel oder Figuren berühren und verschieben.
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Ludus***: Man versucht die Regeln zu verstehen und das beste aus ihnen zu machen.
-
-☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
-
-***Naches***: Jemand ein Spielprinzip erklären.
+_**Ludus**_: Man versucht die Regeln zu verstehen und das beste aus ihnen zu machen.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Paida***: Spielspass steht im Vordergrund. Regeln sind sekundär.
+_**Naches**_: Jemand ein Spielprinzip erklären.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Schadenfreude***: Sich am Leid von anderen zu erfreuen.
+_**Paida**_: Spielspass steht im Vordergrund. Regeln sind sekundär.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Sociability***: Das Spiel ist eine Möglichkeit gesellig zu sein.
+_**Schadenfreude**_: Sich am Leid von anderen zu erfreuen.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 
-***Venting***: Seine Emotionen und manchmal auch Frustration verarbeiten zu können.
+_**Sociability**_: Das Spiel ist eine Möglichkeit gesellig zu sein.
+
+☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
+
+_**Venting**_: Seine Emotionen und manchmal auch Frustration verarbeiten zu können.
 
 ☐ Ja, Gerne ☐ Macht Spass ☐ Kein Interesse ☐ Nein
 

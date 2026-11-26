@@ -28,5 +28,16 @@ formatter = { command = "prettier", args = ["--parser", "typescript" ] }
 auto-format = true
 
 [[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
 name = "markdown"
 file-types = ["md", "mdx"]
+
+[[language]]
+name = "scss"
+scope = "source.scss"
+formatter = { command = 'prettier', args = ["--parser", "scss"] }
+auto-format = true

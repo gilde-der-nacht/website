@@ -122,11 +122,11 @@ https://1d4chan.org/wiki/Four_By_Five_Magic
 
 ### Open Legend
 
-Es gibt im Spiel eine Liste von positiven und negativen Zustände genannt *Boons* und *Banes*. Falls in einer Welt mit Magie gespielt wird, können Sprüche ebenfalls Boons oder Banes, oder Kombinationen davon sein.
+Es gibt im Spiel eine Liste von positiven und negativen Zustände genannt _Boons_ und _Banes_. Falls in einer Welt mit Magie gespielt wird, können Sprüche ebenfalls Boons oder Banes, oder Kombinationen davon sein.
 
 https://openlegendrpg.com/
 
-*Thomas*
+_Thomas_
 
 Das erinnert ein wenig an die Elder Scrolls Computerspiel Reihe. Es gibt dort eine Reihe von positiven/negativen Effekten. Zauber, Alchemie, Verzauberungen, Klassen und Sternzeichen greifen alle auf dieselbe Effektliste zurück.
 
@@ -136,20 +136,20 @@ Das erinnert ein wenig an die Elder Scrolls Computerspiel Reihe. Es gibt dort ei
 
 ## Persönliches
 
-*A. (per Discord)*
+_A. (per Discord)_
 
-symbiotische Beziehungen eignen sich meiner Meinung nach sehr gut für flexible (ggf. nicht genetische) Magiesysteme. Wie bei der Symbiose in der Natur können gut Limitationen definiert werden, die z.B. mit dem Kosmos der bestehenden Fantasy Welt harmonieren.  (in einem gewissen Mass sieht man z.B. bei Warlocks in D&D, wo ein Wesen seine Macht leiht - Limitation sind da der Wille der Kreatur und dessen individuelle Macht, wobei da natürlich die Spielendeninterpretation viel Freiraum zulässt und das Regelwerk gewisse Dinge vorgibt, damit nicht jeder Charakter standardmässig an das mächtigste Wesen gebunden ist und alle anderen Warlocks zu schwach sind).
+symbiotische Beziehungen eignen sich meiner Meinung nach sehr gut für flexible (ggf. nicht genetische) Magiesysteme. Wie bei der Symbiose in der Natur können gut Limitationen definiert werden, die z.B. mit dem Kosmos der bestehenden Fantasy Welt harmonieren. (in einem gewissen Mass sieht man z.B. bei Warlocks in D&D, wo ein Wesen seine Macht leiht - Limitation sind da der Wille der Kreatur und dessen individuelle Macht, wobei da natürlich die Spielendeninterpretation viel Freiraum zulässt und das Regelwerk gewisse Dinge vorgibt, damit nicht jeder Charakter standardmässig an das mächtigste Wesen gebunden ist und alle anderen Warlocks zu schwach sind).
 
-*Thomas*
+_Thomas_
 
 Als Anhaltspunkte für die Schwierigkeit:
 
-| Veränderung | Schwierigkeit | Beispiel |
-| - | - | - |
-| Zauberzeit | kürzer ➜ schwieriger | Das Ritual dauert 2 Tage ➜ das Zaubern dauert 1 Sekunde |
-| Dauer | länger ➜ schwieriger | Der Stein wird nur wenige Sekunden flüssig ➜ Der Stein bleibt über mehrere Tage flüssig |
-| Reichweite | grösser ➜ schwieriger | Ich berühre das Ziel ➜ das Ziel ist hinter dem Horizont |
-| Bereich | grösser ➜ schwieriger | Meine Hände sind voll Wasser ➜ die ganze Stadt wird überflutet |
-| Geschwindigkeit | schneller ➜ schwieriger | die Veränderung passiert in kurzer Zeit ➜ die Veränderung dauert mehrere Tage |
-| Natur | unnatürlicher ➜ schwieriger | Wasser in der Nähe vom See erschaffen ➜ Wasser in der Wüste erschaffen |
-| Stärke | grösser ➜ schwieriger | eine kleine Temperaturerhöhung ➜ alles beginnt zu brennen |
+| Veränderung     | Schwierigkeit               | Beispiel                                                                                |
+| --------------- | --------------------------- | --------------------------------------------------------------------------------------- |
+| Zauberzeit      | kürzer ➜ schwieriger        | Das Ritual dauert 2 Tage ➜ das Zaubern dauert 1 Sekunde                                 |
+| Dauer           | länger ➜ schwieriger        | Der Stein wird nur wenige Sekunden flüssig ➜ Der Stein bleibt über mehrere Tage flüssig |
+| Reichweite      | grösser ➜ schwieriger       | Ich berühre das Ziel ➜ das Ziel ist hinter dem Horizont                                 |
+| Bereich         | grösser ➜ schwieriger       | Meine Hände sind voll Wasser ➜ die ganze Stadt wird überflutet                          |
+| Geschwindigkeit | schneller ➜ schwieriger     | die Veränderung passiert in kurzer Zeit ➜ die Veränderung dauert mehrere Tage           |
+| Natur           | unnatürlicher ➜ schwieriger | Wasser in der Nähe vom See erschaffen ➜ Wasser in der Wüste erschaffen                  |
+| Stärke          | grösser ➜ schwieriger       | eine kleine Temperaturerhöhung ➜ alles beginnt zu brennen                               |

@@ -28,7 +28,7 @@
 
     &:hover,
     &:focus {
-      background: oklch(from white l c h / .1);
+      background: oklch(from white l c h / 0.1);
     }
   }
 

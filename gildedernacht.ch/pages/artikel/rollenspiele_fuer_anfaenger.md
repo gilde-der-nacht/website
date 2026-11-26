@@ -57,12 +57,12 @@ Die Spieler:innen können nur Ausdauer verlieren (kann auch eine lange Reise sei
 Element der Haromnie - regelirrelevant aber nett für Atmosphäre
 
 Was ist das Netteste, was dein Pony jeden Tag tut?
+
 - Was ist der wertvollste Besitz deines Ponys und warum ist er ihm so wertvoll?
 - Wem oder was ist dein Pony besonders treu ergeben?
 - Hat dein Pony ein Geheimnis?
 - Was lässt dein Pony laut lachen?
 - Wer sind die Familie und Freunde deines Ponys und wo leben sie?
-
 
 ### Hero Kids
 
@@ -249,4 +249,4 @@ https://www.drivethrurpg.com/product/222950/Amazing-Tales-complete-kids-RPG
 
 [possumcreekgames.com](https://www.possumcreekgames.com/wanderhome)
 
-> Thomas: Komplett gewaltfrei. Jede Person spielt ein Tier. Hat keine Würfeln. Regeln sind kurz, vielleicht sogar etwas zu kurz. Ist für Erwachsene vielleicht sogar schwieriger als für Kinder, da man miteinander eher ein Märchen schreibt und dabei sehr kreativ sein sollte. Gibt  meiner Meinung nach nur schöne Spielrunden mit Leuten die eine "ja, und" Einstellung zur Improvisation haben. Für diese Leute sind dann aber die Regeln auch überflüssig. Das Buch versucht in vieler Hinsicht inklusiv zu sein.
+> Thomas: Komplett gewaltfrei. Jede Person spielt ein Tier. Hat keine Würfeln. Regeln sind kurz, vielleicht sogar etwas zu kurz. Ist für Erwachsene vielleicht sogar schwieriger als für Kinder, da man miteinander eher ein Märchen schreibt und dabei sehr kreativ sein sollte. Gibt meiner Meinung nach nur schöne Spielrunden mit Leuten die eine "ja, und" Einstellung zur Improvisation haben. Für diese Leute sind dann aber die Regeln auch überflüssig. Das Buch versucht in vieler Hinsicht inklusiv zu sein.

@@ -12,8 +12,8 @@ jobs:
     strategy:
       matrix:
         include:
-         - site: hhh.gildedernacht
-           siteCode: hhh
+          - site: hhh.gildedernacht
+            siteCode: hhh
 
     steps:
       - uses: actions/checkout@v4

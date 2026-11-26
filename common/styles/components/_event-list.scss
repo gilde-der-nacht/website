@@ -57,7 +57,6 @@
     --event-border-color-hover: #{c.getWarning("border-element-hover")};
   }
 
-
   &.special {
     --event-color: #{c.getSpecial("text-low-contrast")};
     --event-background-color: #{c.getSpecial("background-element")};
@@ -163,6 +162,6 @@
   pointer-events: none;
 }
 
-.event-entry> :not(.event-background-icon) {
+.event-entry > :not(.event-background-icon) {
   isolation: isolate;
 }

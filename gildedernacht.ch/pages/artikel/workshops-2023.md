@@ -51,6 +51,7 @@ Ziel des Workshops, ist es besser zu verstehen, dass verschiedene Personen aus u
 ### Robin D. Laws Spieler Typen (10 min)
 
 10 Punkte frei auf die Begriffe verteilen und anschliessend miteinander darüber reden.
+
 - Power Gamer: Charakter soll der beste sein
 - Butt-Kicker: Möglichst viel Unfrieden stiften
 - Tactician: Logisch handeln
@@ -164,4 +165,3 @@ Wählt gemeinsam die Fragen aus, die euch am meisten interessieren (oder fügt e
 
 Eine mögliche Sicht auf diese Fragen
 [/artikel/rollenspiel_fragen_probleme/](/artikel/rollenspiel_fragen_probleme/)
-

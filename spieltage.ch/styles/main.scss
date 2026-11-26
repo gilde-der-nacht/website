@@ -1,6 +1,7 @@
 @use "/common/styles/utils/hsl" as *;
 
-@use "/common/styles/main" with ($color1: hsl(10 100% 99.4%),
+@use "/common/styles/main" with (
+  $color1: hsl(10 100% 99.4%),
   $color2: hsl(8 100% 98.4%),
   $color3: hsl(8 100% 96.6%),
   $color4: hsl(8 100% 94.3%),
@@ -27,5 +28,5 @@
   $colorAccent1: hsl(25 30% 41%),
   $colorAccent2: hsl(20 30% 19%),
   $colorAccentDark1: hsl(28 60% 64.5%),
-  $colorAccentDark2: hsl(30 67% 94%),
+  $colorAccentDark2: hsl(30 67% 94%)
 );
