@@ -25,15 +25,15 @@ const plainDateTimeSchema = z
 const defaultViewSchema = z.object({
   ts: plainDateTimeSchema,
   currentRevision: z.number(),
-  myAccount: AccountForm.schema,
-  save: SaveForm.schema,
+  myAccount: AccountForm.wireSchema,
+  save: SaveForm.wireSchema,
 });
 
 const adminViewSchema = defaultViewSchema.extend({
   config: configSchema,
 });
 
-const sendViewSchema = z.object({
+const updateViewSchema = z.object({
   kind: z.literal("UPDATE_VIEW"),
   data: z.union([
     z.object({
@@ -47,6 +47,8 @@ const sendViewSchema = z.object({
   ]),
 });
 
-export const messagesInSchema = z.union([sendViewSchema]);
+export type UpdateView = z.infer<typeof updateViewSchema>;
+
+export const messagesInSchema = z.union([updateViewSchema]);
 
 export type MessageIn = z.infer<typeof messagesInSchema>;

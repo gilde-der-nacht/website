@@ -43,6 +43,9 @@ export function Registration(props: { configUuid: ConfigUuid }): JSX.Element {
                   {JSON.stringify(formState$.get().myAccount.email.raw)}
                 </code>
               </div>
+              <code>
+                <pre>{JSON.stringify(formState$.get(), null, 2)}</pre>
+              </code>
             </>
           )}
         </ShowReactive>

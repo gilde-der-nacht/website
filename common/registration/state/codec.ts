@@ -1,3 +1,4 @@
+import { mapValues } from "@common/utils/shared";
 import { z } from "astro/zod";
 
 const issueSchema = z.object({
@@ -7,19 +8,19 @@ const issueSchema = z.object({
 
 export type LeafIssue = z.infer<typeof issueSchema>;
 
-export type LeafValidated<F> =
-  | { readonly status: "SUCCESS"; readonly data: F }
+export type LeafValidated<V> =
+  | { readonly status: "SUCCESS"; readonly data: V }
   | { readonly status: "ERROR"; readonly issues: ReadonlyArray<LeafIssue> }
   | { readonly status: "UNTRUSTED"; readonly issues: ReadonlyArray<LeafIssue> };
 
-export type FieldView<R, F> = {
+export type FieldView<R, V> = {
   readonly raw: R;
-  readonly validated: LeafValidated<F>;
+  readonly validated: LeafValidated<V>;
 };
 
-export function field<R, F>(config: {
+export function field<R, V>(config: {
   readonly raw: z.ZodType<R>;
-  readonly parsed: z.ZodType<F>;
+  readonly parsed: z.ZodType<V>;
 }) {
   const wire = z.object({
     raw: config.raw,
@@ -29,7 +30,7 @@ export function field<R, F>(config: {
     ]),
   });
 
-  return wire.transform((leaf): FieldView<R, F> => {
+  const wireSchema = wire.transform((leaf): FieldView<R, V> => {
     if (leaf.validated.status === "ERROR") {
       return {
         raw: leaf.raw,
@@ -58,21 +59,19 @@ export function field<R, F>(config: {
       validated: { status: "UNTRUSTED", issues },
     };
   });
+  return wireSchema;
 }
 
-export function record<F extends Record<string, z.ZodType>>(fields: F) {
+export function record<W extends Record<string, z.ZodType>>(fields: W) {
   return z.object(fields);
 }
 
-export function list<S extends z.ZodType>(item: S) {
+export function list<W extends z.ZodType>(item: W) {
   return z.array(item);
 }
 
-export function defineForm<F extends z.ZodType>(form: F) {
+export function defineForm<W extends z.ZodType>(form: W) {
   return {
-    schema: form,
-    parse: (json: unknown) => {
-      return form.safeParse(json);
-    },
+    wireSchema: form,
   };
 }

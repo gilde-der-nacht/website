@@ -4,6 +4,7 @@ import { z } from "astro/zod";
 import { type Reactive } from "@common/utils/reactivity";
 import { messagesInSchema } from "@registration/messages/in";
 import type { FormState } from "@registration/State";
+import { updateInitialState } from "./state/actions";
 
 const connectionStatusses = [
   "INITIAL",
@@ -56,10 +57,9 @@ export class Connection {
     socket.addEventListener("message", (message) => {
       const parsed = messagesInSchema.safeParse(JSON.parse(message.data));
       if (parsed.success) {
-        formState$.set({
-          myAccount: parsed.data.data.data.myAccount,
-          save: parsed.data.data.data.save,
-        });
+        if (formState$.get() === null) {
+          updateInitialState(formState$, parsed.data);
+        }
       } else {
         console.log(parsed.error);
       }
