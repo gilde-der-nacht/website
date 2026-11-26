@@ -20,8 +20,8 @@ export interface FieldView<R, V> {
 
 export type View =
   | FieldView<unknown, unknown>
-  | ({ readonly [key: string]: View } & { kind: "RECORD" })
-  | ReadonlyArray<View>;
+  | { readonly [key: string]: View }
+  | readonly View[];
 
 export function field<R, V>(config: {
   readonly raw: z.ZodType<R>;

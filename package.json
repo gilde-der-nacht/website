@@ -5,13 +5,13 @@
   "private": true,
   "scripts": {
     "gdn-dev": "astro --config ./gildedernacht.ch/config.ts dev",
-    "gdn-build": "yarn build-ics && yarn check && astro --config ./gildedernacht.ch/config.ts check && astro --config ./gildedernacht.ch/config.ts build",
+    "gdn-build": "yarn build-ics && astro --config ./gildedernacht.ch/config.ts check && yarn check && astro --config ./gildedernacht.ch/config.ts build",
     "lst-dev": "astro --config ./spieltage.ch/config.ts dev",
-    "lst-build": "yarn check && astro --config ./spieltage.ch/config.ts check && astro --config ./spieltage.ch/config.ts build",
+    "lst-build": "astro --config ./spieltage.ch/config.ts check && yarn check && astro --config ./spieltage.ch/config.ts build",
     "rst-dev": "astro --config ./rollenspieltage.ch/config.ts dev",
-    "rst-build": "yarn check && astro --config ./rollenspieltage.ch/config.ts check && astro --config ./rollenspieltage.ch/config.ts build",
+    "rst-build": "astro --config ./rollenspieltage.ch/config.ts check && yarn check && astro --config ./rollenspieltage.ch/config.ts build",
     "hhh-dev": "astro --config ./hhh.gildedernacht.ch/config.ts dev",
-    "hhh-build": "yarn check && astro --config ./hhh.gildedernacht.ch/config.ts check &&astro --config ./hhh.gildedernacht.ch/config.ts build",
+    "hhh-build": "astro --config ./hhh.gildedernacht.ch/config.ts check &&ayarn check && stro --config ./hhh.gildedernacht.ch/config.ts build",
     "build-ics": "tsx ./gildedernacht.ch/build.ts",
     "check": "prettier . --check",
     "format": "prettier . --write"
