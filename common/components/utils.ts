@@ -267,3 +267,16 @@ export function mapValues<T extends Record<string, unknown>, V>(
   }
   return out;
 }
+
+export function makeWalker<L>(
+  isLeaf: (x: unknown) => x is L,
+  onLeaf: (leaf: L) => unknown,
+): (node: unknown) => unknown {
+  const walk = (node: unknown): unknown => {
+    if (isLeaf(node)) return onLeaf(node);
+    if (Array.isArray(node)) return node.map(walk);
+    if (isPlainObject(node)) return mapValues(node, walk);
+    throw new TypeError("walk: expected a tree node");
+  };
+  return walk;
+}

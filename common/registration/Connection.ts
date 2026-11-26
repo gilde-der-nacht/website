@@ -5,6 +5,8 @@ import { type Reactive } from "@common/utils/reactivity";
 import { messagesInSchema } from "@registration/messages/in";
 import type { FormState } from "@registration/State";
 import { updateInitialState } from "./state/actions";
+import { createMemo } from "solid-js";
+import { toSync, type Sync } from "@registration/state/sync";
 
 const connectionStatusses = [
   "INITIAL",
@@ -59,6 +61,15 @@ export class Connection {
       if (parsed.success) {
         if (formState$.get() === null) {
           updateInitialState(formState$, parsed.data);
+
+          const syncData = createMemo((): null | Sync<FormState> => {
+            const state = formState$.get();
+            if (state === null) {
+              return state;
+            }
+            return toSync(state);
+          });
+          console.log(syncData());
         }
       } else {
         console.log(parsed.error);
