@@ -29,18 +29,24 @@ export function Registration(props: { configUuid: ConfigUuid }): JSX.Element {
             <>
               <div>
                 <TextInputField
-                  value$={formState$.sub("myAccount").sub("name").sub("raw")}
+                  value$={formState$
+                    .sub("myAccount")
+                    .sub("name")
+                    .sub("formState")}
                 />
                 <code>
-                  {JSON.stringify(formState$.get().myAccount.name.raw)}
+                  {JSON.stringify(formState$.get().myAccount.name.formState)}
                 </code>
               </div>
               <div>
                 <TextInputField
-                  value$={formState$.sub("myAccount").sub("email").sub("raw")}
+                  value$={formState$
+                    .sub("myAccount")
+                    .sub("email")
+                    .sub("formState")}
                 />
                 <code>
-                  {JSON.stringify(formState$.get().myAccount.email.raw)}
+                  {JSON.stringify(formState$.get().myAccount.email.formState)}
                 </code>
               </div>
               <code>

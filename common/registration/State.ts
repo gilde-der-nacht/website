@@ -9,10 +9,11 @@ import { getInitialContact, type Contact } from "@registration/Contact";
 import type { z } from "astro/zod";
 import type { AccountForm } from "@registration/state/account";
 import type { SaveForm } from "@registration/state/save";
+import type { Form } from "@registration/state/form";
 
 export type FormState = {
-  myAccount: z.infer<typeof AccountForm.wireSchema>;
-  save: z.infer<typeof SaveForm.wireSchema>;
+  myAccount: Form<z.infer<typeof AccountForm.wireSchema>>;
+  save: Form<z.infer<typeof SaveForm.wireSchema>>;
 };
 
 export type AppState = {

@@ -1,5 +1,12 @@
-import type { FieldView, LeafValidated } from "@registration/state/codec";
-import isEqual from "lodash-es/isEqual";
+import { isPlainObject, mapValues } from "@common/components/utils";
+import type { FieldView, LeafValidated, View } from "@registration/state/codec";
+// import isEqual from "lodash-es/isEqual";
+
+export type Form<T> = T extends readonly (infer I)[]
+  ? ReadonlyArray<Form<I>>
+  : T extends FieldView<infer R, infer V>
+    ? FormField<R, V>
+    : { readonly [K in keyof T]: Form<T[K]> };
 
 export type FormField<R, V> = {
   remote: R;
@@ -9,6 +16,35 @@ export type FormField<R, V> = {
   hasConflict: boolean;
 };
 
+function isFieldView(w: unknown): w is FieldView<unknown, unknown> {
+  return (
+    isPlainObject(w) && w.kind === "FIELD" && "raw" in w && "validated" in w
+  );
+}
+
+export function initFormState<T extends View>(wire: T): Form<T>;
+export function initFormState(wire: View): unknown {
+  if (isFieldView(wire)) {
+    return {
+      remote: wire.raw,
+      validated: wire.validated,
+      formState: wire.raw,
+      hasConflict: false,
+      isDirty: false,
+    } satisfies Form<FieldView<unknown, unknown>>;
+  }
+
+  if (Array.isArray(wire)) {
+    return [...wire].map((element) => initFormState(element));
+  }
+
+  if (isPlainObject(wire)) {
+    return mapValues(wire, (element) => initFormState(element));
+  }
+  throw new TypeError("initFormState: expected a View");
+}
+
+/*
 export function updateState<R, V>(
   incoming: FieldView<R, V>,
   oldState: FormField<R, V>,
@@ -34,3 +70,4 @@ export function updateState<R, V>(
 }
 
 export type UpdateState<R, V> = typeof updateState<R, V>;
+*/

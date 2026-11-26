@@ -1,4 +1,3 @@
-import { mapValues } from "@common/utils/shared";
 import { z } from "astro/zod";
 
 const issueSchema = z.object({
@@ -13,10 +12,16 @@ export type LeafValidated<V> =
   | { readonly status: "ERROR"; readonly issues: ReadonlyArray<LeafIssue> }
   | { readonly status: "UNTRUSTED"; readonly issues: ReadonlyArray<LeafIssue> };
 
-export type FieldView<R, V> = {
+export interface FieldView<R, V> {
+  readonly kind: "FIELD";
   readonly raw: R;
   readonly validated: LeafValidated<V>;
-};
+}
+
+export type View =
+  | FieldView<unknown, unknown>
+  | ({ readonly [key: string]: View } & { kind: "RECORD" })
+  | ReadonlyArray<View>;
 
 export function field<R, V>(config: {
   readonly raw: z.ZodType<R>;
@@ -33,6 +38,7 @@ export function field<R, V>(config: {
   const wireSchema = wire.transform((leaf): FieldView<R, V> => {
     if (leaf.validated.status === "ERROR") {
       return {
+        kind: "FIELD" as const,
         raw: leaf.raw,
         validated: { status: "ERROR", issues: leaf.validated.issues },
       };
@@ -42,6 +48,7 @@ export function field<R, V>(config: {
 
     if (result.success) {
       return {
+        kind: "FIELD" as const,
         raw: leaf.raw,
         validated: { status: "SUCCESS", data: result.data },
       };
@@ -55,6 +62,7 @@ export function field<R, V>(config: {
     );
 
     return {
+      kind: "FIELD" as const,
       raw: leaf.raw,
       validated: { status: "UNTRUSTED", issues },
     };

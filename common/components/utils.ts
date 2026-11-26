@@ -253,3 +253,17 @@ export function assertPlainObject(
 export function isArray(value: unknown): value is Array<unknown> {
   return value !== null && typeof value === "object" && Array.isArray(value);
 }
+
+export function mapValues<T extends Record<string, unknown>, V>(
+  rec: T,
+  map: (value: T[keyof T], key: Extract<string, keyof T>) => V,
+): { [K in keyof T]: V } {
+  const out = {} as { [K in keyof T]: V };
+  for (const key of Object.keys(rec)) {
+    out[key as keyof T] = map(
+      rec[key as keyof T],
+      key as Extract<string, keyof T>,
+    );
+  }
+  return out;
+}
